@@ -528,13 +528,13 @@ h3 {
   margin-top: 0.1rem;
 }
 
-.loop-step[data-who="human"] .ic {
+.loop-step[data-who="requester"] .ic {
   background: linear-gradient(135deg, var(--accent), var(--accent-strong));
 }
-.loop-step[data-who="ai"] .ic {
+.loop-step[data-who="agent"] .ic {
   background: linear-gradient(135deg, var(--application-line), #0a5a80);
 }
-.loop-step[data-who="gate"] .ic {
+.loop-step[data-who="reviewer"] .ic {
   background: linear-gradient(135deg, var(--technology-line), #35611f);
 }
 
@@ -751,13 +751,13 @@ h3 {
   margin-top: 0.1rem;
 }
 
-.actor-line .who.driver {
+.actor-line .who.you {
   color: var(--accent);
   background: var(--accent-soft);
   border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
 }
 
-.actor-line .who.exec {
+.actor-line .who.ai {
   color: var(--application-ink);
   background: color-mix(in srgb, var(--application) 55%, var(--bg-raised));
   border: 1px solid var(--application-line);

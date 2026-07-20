@@ -30,6 +30,13 @@ If it's unclear which one applies, it isn't a pure bug fix — use the
 default template and let the EA-alignment table make the "no change"
 verdicts explicit instead of assuming them.
 
+> The two templates live in different places on purpose: GitHub auto-fills a
+> PR body only from the single default at `.github/pull_request_template.md`,
+> and requires named alternates (the bug-fix one) to live in the
+> `.github/PULL_REQUEST_TEMPLATE/` directory. That split is a GitHub
+> constraint, not disorganization — don't "tidy" it by moving both into one
+> place, or the default stops auto-filling.
+
 ## Follow the template
 
 For the **default** template, fill every section:

@@ -12,7 +12,7 @@ lands with its core audience — vibe coders and AI-first builders who want a
 structured, human-in-the-loop way to build with AI — without changing what
 it teaches. It gives the site a real design system built on the ArchiMate
 layer palette (so the repo and the site read as one artifact), makes the
-human-driver / AI-executor loop the central visual, and replaces the
+Requester → Agent → Reviewer loop the central visual, and replaces the
 runtime Mermaid CDN dependency with self-contained CSS diagrams. The
 template `README.md` gains an approachable, audience-first entry point.
 
@@ -20,7 +20,7 @@ template `README.md` gains an approachable, audience-first entry point.
 
 | Layer         | Impact                                              |
 | ------------- | ---------------------------------------------------- |
-| 1_strategy    | No new goals or Principles. The redesign more strongly serves existing **Goal G1 (legible guidance)** by naming the site's core audience — AI-first builders / vibe coders — and making the human-driver/AI-executor loop the landing page's centrepiece. Stakeholder concern refined to name that audience — see [1_strategy/1_motivation.md](../ea/1_strategy/1_motivation.md) |
+| 1_strategy    | No new goals or Principles. The redesign more strongly serves existing **Goal G1 (legible guidance)** by naming the site's core audience — AI-first builders / vibe coders — and making the Requester → Agent → Reviewer loop the landing page's centrepiece. Stakeholder concern refined to name that audience — see [1_strategy/1_motivation.md](../ea/1_strategy/1_motivation.md) |
 | 2_business    | **No change.** Same business service (EA-first method guidance), same actors (Pilot, Copilot at co-pilot, Template adopter), same publish-update process |
 | 3_information | **No change.** The "Guidance page" data object is still static, hand-written HTML and still a *derived* (non-canonical) view of the EA docs and skills — see [3_information/1_data-objects.md](../ea/3_information/1_data-objects.md) |
 | 4_application | Same three page components + shared stylesheet; **internal realization changed** — diagrams are now rendered by a self-contained CSS component system instead of a runtime-loaded diagramming library, so the pages fetch nothing at request time (bringing the doc's existing claim into line with the code). See [4_application/2_application-components.md](../ea/4_application/2_application-components.md) |
@@ -34,7 +34,7 @@ The diagram-rendering change is recorded on its own in
 | Plateau                | State                     |
 | ----------------------- | ------------------------- |
 | **Baseline** (before)  | A working guidance site with plain default styling and three Mermaid diagrams loaded from a third-party CDN; the template README opened with the mechanics rather than the audience |
-| **Target** (delivered) | The same content on a cohesive design system built from the ArchiMate layer palette, with the human-driver/AI-executor loop and the five-layer ladder as first-class visuals, fully self-contained (no runtime fetches), and an audience-first README entry point |
+| **Target** (delivered) | The same content on a cohesive design system built from the ArchiMate layer palette, with the Requester → Agent → Reviewer loop and the five-layer ladder as first-class visuals, fully self-contained (no runtime fetches), and an audience-first README entry point |
 
 ## Work packages and deliverables
 
@@ -70,7 +70,7 @@ The diagram-rendering change is recorded on its own in
 ### WP4 — Approachable template README
 
 - **Deliverables:** [`README.md`](../../../README.md) — an audience-first
-  opening ("who this is for", the driver/executor/gate loop table, a
+  opening ("who this is for", the Requester/Agent/Reviewer loop table, a
   prominent link to the live site) ahead of the existing detailed content
 - **Outcome:** a newcomer sees who the template is for and how the loop
   works before hitting the ArchiMate mechanics

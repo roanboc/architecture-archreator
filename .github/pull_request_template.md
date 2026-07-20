@@ -1,4 +1,14 @@
 <!--
+  PR TEMPLATE LAYOUT — why there are two template files in two places:
+  GitHub auto-fills a PR body from ONE default template, which must live at
+  .github/pull_request_template.md (this file). Named alternates for the
+  "choose a template" flow must live in the .github/PULL_REQUEST_TEMPLATE/
+  directory — hence the bug-fix template at
+  .github/PULL_REQUEST_TEMPLATE/bugfix.md, selected via ?template=bugfix.md.
+  The split is required by GitHub, not an oversight. Which one to use:
+  CONTRIBUTING.md and the pr-description skill.
+-->
+<!--
   Describe the WHOLE branch, not just the latest commit:
     git log --oneline main..HEAD
     git diff main...HEAD --stat

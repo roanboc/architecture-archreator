@@ -29,3 +29,20 @@ who drives the design and the AI that collaborates.
 guidance site. Both Pilot and Copilot are assigned to it; the
 autonomy/decision-rights columns above are what actually distinguishes
 their authority within the same role, not a separate role each.
+
+## Mapping to the process roles
+
+The template's change process defines three roles —
+**Requester**, **Agent**, and **Reviewer** (see
+[CONTRIBUTING.md](../../../../CONTRIBUTING.md)). This project's actors fill
+them like this:
+
+| Process role | Filled by | In this project |
+| ------------ | --------- | ---------------- |
+| Requester | **Pilot** | Decides a guidance change is needed and states it |
+| Agent | **Copilot** (or the Pilot, working without the AI) | Walks the layers, drafts the change, opens the PR |
+| Reviewer | **Pilot** | Reviews and merges — the only step that publishes |
+
+The same person (the Pilot) is both Requester and Reviewer here; the Agent
+is the one role an AI fills. That is the whole point of the example — an AI
+holding a real role in the loop, at a defined autonomy level.
