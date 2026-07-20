@@ -43,8 +43,8 @@ zero ongoing cost, zero uptime to babysit.
 | Hosting | **GitHub Pages** (already versioned with the code, free, trivial GitHub Actions deploy) | Cloudflare Pages (faster edge, still free), Netlify |
 
 This is the right choice for tools, demos, docs sites, and anything whose
-state is fully client-side (`localStorage`, URL params) — see
-`fractal-tree-generator` for a worked example of this shape.
+state is fully client-side (`localStorage`, URL params) — no server means
+nothing to secure, patch, or pay to keep running.
 
 ## Needs a backend (data, users, or both)
 
@@ -56,13 +56,13 @@ state is fully client-side (`localStorage`, URL params) — see
 | **CI** | **GitHub Actions** (already assumed by this template's `pr-description` and `5_technology/2_deployment.md` conventions) | — |
 
 **Reference combination** for "typical small app with users and real
-data": **Next.js + Vercel + Supabase**. This isn't a hypothetical — it's
-the delivered stack in `junta_usatama`, a real project built on this
-template's method: Vercel handles hosting/CI/CD via its GitHub
-integration, Supabase provides Postgres with RLS policies as the single
-point of access-control enforcement (see that project's
-`2_negocio/1_actores-y-roles-de-negocio.md` for how the role × operation
-matrix maps onto RLS).
+data": **Next.js + Vercel + Supabase**. Vercel handles hosting/CI/CD via
+its GitHub integration; Supabase provides Postgres with Row-Level Security
+policies as the single point of access-control enforcement — document the
+role × operation mapping in
+[`docs/ea/2_business/1_business-actors-and-roles.md`](../../../docs/ea/2_business/README.md)
+once the project's roles are known, so the RLS policies stay traceable to
+that matrix.
 
 ## Principles behind these defaults
 

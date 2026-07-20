@@ -74,5 +74,6 @@ project's stack defines).
 ## Step 5 — PR description
 
 When opening (or updating) the pull request, use the `pr-description`
-skill: the body follows `.github/pull_request_template.md` and covers the
-whole branch (`main...HEAD`), not just the latest commit.
+skill: it picks the right template (default, or
+`.github/PULL_REQUEST_TEMPLATE/bugfix.md` for a pure bug fix) and covers
+the whole branch (`main...HEAD`), not just the latest commit.

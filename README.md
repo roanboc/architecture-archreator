@@ -2,12 +2,11 @@
 
 An **EA-first project template**: the enterprise-architecture guidelines,
 Claude Code skills, and procedural scaffolding that every new project should
-start from, distilled from two working projects
-([`junta_usatama`](https://github.com/roanboc/junta_usatama), a Next.js +
-Supabase app, and [`fractal-tree-generator`](https://github.com/roanboc/fractal-tree-generator),
-a static TypeScript web app + CLI) that independently converged on the same
-method. This repo carries no application code — it's the starting point you
-copy, not a library you install. It's registered as a **GitHub template
+start from. It exists so that a change in requirements is never coded
+directly — it is always aligned through architecture first, recorded, and
+only then implemented, whether the work is done by a person or an AI agent.
+This repo carries no application code — it's the starting point you copy,
+not a library you install. It's registered as a **GitHub template
 repository**, so starting a new project from it is a two-click operation
 (see below).
 
@@ -82,7 +81,7 @@ flowchart TB
   scope["docs/scope/<br><i>one doc per change, + the process writeup</i>"]
   skillscore["skills: ea-first-change, ea-doc-style,<br>scope-doc, pr-description"]
   skillssupport["skills: story-sharding, stack-selection"]
-  pr[".github/pull_request_template.md"]
+  pr[".github/ PR templates<br>(default + bugfix)"]
 
   claude -->|points to| contrib
   claude -->|points to| skillscore
@@ -98,20 +97,20 @@ flowchart TB
 | Where                                  | What                                                                                                          |
 | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | [CLAUDE.md](./CLAUDE.md)               | **Start here if you're an agent.** States the one rule (EA-first) and points at the skills that operationalize it |
-| [CONTRIBUTING.md](./CONTRIBUTING.md)   | **Start here if you're a person.** The method in prose, the dev workflow, and a definition-of-done checklist    |
+| [CONTRIBUTING.md](./CONTRIBUTING.md)   | **Start here if you're a person.** The method in prose, the actors in the process (requester / agent / reviewer) with a process-flow diagram, the dev workflow, and a definition-of-done checklist |
 | [docs/ea/](./docs/ea/README.md)        | The 5-layer EA skeleton describing the system's **current** state: numbering, ArchiMate-on-Mermaid notation and palette, per-layer analysis order, and a fill-in-the-blank layer view for each of `1_strategy` → `5_technology` |
 | [docs/scope/](./docs/scope/README.md)  | One document per **change** to that state: the EA-first process write-up, the initiative index, and the optional [open-questions.md](./docs/scope/open-questions.md) log |
 | `.claude/skills/`                       | Six Claude Code skills that turn the method into concrete agent behavior — see the two tables below              |
-| [.github/pull_request_template.md](./.github/pull_request_template.md) | PR body shaped to mirror a scope document's EA-alignment table, so the two never drift apart |
+| [.github/pull_request_template.md](./.github/pull_request_template.md) + [PULL_REQUEST_TEMPLATE/bugfix.md](./.github/PULL_REQUEST_TEMPLATE/bugfix.md) | Two PR bodies — one shaped to mirror a scope document's EA-alignment table, one for pure bug fixes that skip it — so the PR and the docs never drift apart |
 
 Skills are picked up automatically by Claude Code from their
 `description:` frontmatter — you don't invoke them by name in normal use,
 they surface when their situation applies. The names below are for
 reference, not memorization.
 
-**Core process skills** — near-verbatim across both source projects, the
-parts worth keeping generic, with project-specific glossaries/rules/diagrams
-stripped back to placeholders:
+**Core process skills** — written to be generic: no project-specific
+glossaries, rules, or diagrams baked in, only placeholders for a downstream
+project to fill in:
 
 | Skill              | Used for                                                                                                 |
 | ------------------- | ----------------------------------------------------------------------------------------------------------- |
