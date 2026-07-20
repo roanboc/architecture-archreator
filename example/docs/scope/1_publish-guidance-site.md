@@ -6,6 +6,12 @@ _[← Scope index](./README.md) · [EA home](../ea/README.md)_
 **Delivered as:** `example/` on branch
 `claude/enterprise-architecture-template-review-8addo4`.
 
+> **Terminology note (added later):** this initiative predates the actor
+> rename. Where it says "Maintainer" read **Pilot**, and where it says "Docs
+> Agent" read **Copilot** — see
+> [decision 3](../decisions/3_actor-naming.md). As a merged initiative
+> record, the text below is left exactly as originally written.
+
 The archreator template had no filled-in example anywhere in the repo —
 every layer README's "Layer view" diagram was an unfilled placeholder, and
 the human/AI/hybrid actor notation had nowhere it had actually been

@@ -11,7 +11,7 @@ The one data object in this project: a page of guidance content.
 | Property | Value |
 | -------- | ----- |
 | Representation | Static HTML, hand-written, no build step |
-| Location | [`site/index.html`](../../../site/index.html), [`site/guide.html`](../../../site/guide.html), [`site/architecture.html`](../../../site/architecture.html) |
+| Location | [`site/index.html`](../../../site/index.html), [`site/guide.html`](../../../site/guide.html), [`site/walkthrough.html`](../../../site/walkthrough.html), [`site/architecture.html`](../../../site/architecture.html) |
 | Source of truth | **Derived**, not canonical — each page summarizes and links to the skill file(s) or EA document(s) it's about. If a page and its linked source disagree, the source is right (Principle P1,
 [1_strategy/1_motivation.md](../1_strategy/README.md)) |
 | Classification | Public |

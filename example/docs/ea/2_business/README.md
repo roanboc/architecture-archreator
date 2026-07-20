@@ -25,8 +25,8 @@ standalone rules document yet.
 
 ```mermaid
 flowchart TB
-  maint["«Business Actor (Human)»<br>Maintainer"]:::business
-  agentAI["«Business Actor (AI)»<br>Docs Agent"]:::business
+  maint["«Business Actor (Human)»<br>Pilot"]:::business
+  agentAI["«Business Actor (AI)»<br>Copilot"]:::business
   adopter["«Business Actor (Human)»<br>Template adopter (external)"]:::business
   role["«Business Role»<br>Guidance author"]:::business
   svc["«Business Service»<br>EA-first method guidance"]:::business

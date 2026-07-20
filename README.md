@@ -1,14 +1,48 @@
 # archreator
 
-An **EA-first project template**: the enterprise-architecture guidelines,
-Claude Code skills, and procedural scaffolding that every new project should
-start from. It exists so that a change in requirements is never coded
-directly — it is always aligned through architecture first, recorded, and
-only then implemented, whether the work is done by a person or an AI agent.
-This repo carries no application code — it's the starting point you copy,
-not a library you install. It's registered as a **GitHub template
-repository**, so starting a new project from it is a two-click operation
-(see below).
+**Build with AI without losing the plot.** archreator is a GitHub template
+for people who want to move at vibe-coding speed while keeping a human in
+the driver's seat: *you* say what you want, AI agents do the executing, and
+every change is aligned through a short architecture ladder before any code
+is written — so moving fast never turns into a pile of confident nonsense.
+
+> 📖 **See it before you use it.** The live guidance site —
+> **<https://roanboc.github.io/archreator/>** — is itself built with this
+> method, and one of its own actors is an AI. It's the friendly front door
+> to everything below.
+
+## Who this is for
+
+- **Vibe coders and AI-first builders** who love describing what they want
+  and letting an agent build it — but have been burned by drift,
+  contradictions, and code nobody can explain a week later.
+- Anyone who wants a **repeatable, human-in-the-loop procedure** where the
+  person is the driver and AI agents are the executors — following exactly
+  the same steps a human contributor would.
+
+## The loop: you drive, AI executes, you approve
+
+Every change moves through three roles. Nothing here assumes a human fills
+the middle one — an AI agent and a person follow the same steps, in the same
+order, against the same documents:
+
+| Role | Who | Does |
+| ---- | --- | ---- |
+| **Requester** — the driver | You | Says what should change: a requirement or a problem, not a diff. |
+| **Agent** — the executor | An AI agent (or a person) | Walks the architecture ladder, writes a short scope document, implements, and opens a PR. |
+| **Reviewer** — the gate | You | Reviews and merges. Nothing ships without a human approving it. |
+
+The [worked example's guidance site](https://roanboc.github.io/archreator/)
+shows this loop rendered as real, checkable architecture; the
+[process flow in CONTRIBUTING.md](./CONTRIBUTING.md) is the full version.
+
+## What's in the box
+
+This repo carries **no application code** — it's the starting point you
+copy, not a library you install: enterprise-architecture guidelines, Claude
+Code skills, and the procedural scaffolding every new project should start
+from. It's registered as a **GitHub template repository**, so starting a new
+project from it is a two-click operation (see below).
 
 ## Quick start: create a new project from this template
 
@@ -79,10 +113,10 @@ template's own guidance site, published at
 **https://roanboc.github.io/archreator/**. It's the answer to "what does a
 filled-in `docs/ea/` actually look like," and specifically to "what does an
 AI actor look like in the business layer" — one of its business actors is
-an AI agent that drafts guidance content, modeled with the human/AI/hybrid
-actor notation from `ea-doc-style`, at an explicit autonomy level and
-decision rights, alongside the human maintainer who reviews and merges its
-work.
+an AI — the **Copilot** — that drafts guidance content, modeled with the
+human/AI/hybrid actor notation from `ea-doc-style`, at an explicit autonomy
+level and decision rights, alongside the human **Pilot** who drives the
+design and reviews and merges its work.
 
 It lives in its own subfolder, with its own `README.md`/`CLAUDE.md`/
 `docs/ea/`/`docs/scope/`, deliberately kept separate from this repo's own

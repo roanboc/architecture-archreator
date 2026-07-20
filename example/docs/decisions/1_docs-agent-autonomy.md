@@ -6,6 +6,11 @@ _[← Decisions index](./README.md)_
 **Date:** 2026-07-20
 **Touches:** [2_business/1_business-actors-and-roles.md](../ea/2_business/1_business-actors-and-roles.md)
 
+> **Terminology note (added later):** the AI actor called "Docs Agent" below
+> was renamed **Copilot**, and "Maintainer" renamed **Pilot** — see
+> [decision 3](./3_actor-naming.md). This record keeps its original wording
+> and filename as an immutable decision; only the names have moved on.
+
 ## Context
 
 This project exists partly to demonstrate an AI actor with a real,

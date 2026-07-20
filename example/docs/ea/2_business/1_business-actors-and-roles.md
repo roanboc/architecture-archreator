@@ -12,17 +12,20 @@ rights, and escalation path.
 
 | Actor | Kind | Role | Autonomy level | Decision rights | Escalation path |
 | ----- | ---- | ---- | --------------- | ---------------- | ----------------- |
-| Maintainer | Human | Guidance author (reviewer) | — (human) | Approves/merges any change to `site/`, `docs/`, or repo settings; sole authority over GitHub Pages configuration | — |
-| Docs Agent | AI | Guidance author (drafter) | **Co-pilot** — drafts complete changes; nothing it writes reaches the published site without a human merging it | May edit `site/*.html`, `docs/ea/**`, `docs/scope/**` within this `example/` folder and open a PR. May **not** merge PRs, change GitHub Pages/repo settings, or edit content outside `example/` | Opens a PR to **Maintainer**; if a proposed change would contradict a Principle in [`1_strategy/1_motivation.md`](../1_strategy/1_motivation.md), stops and surfaces the conflict to **Maintainer** instead of proceeding (mirrors `ea-first-change` step 1) |
+| Pilot | Human | Guidance author (reviewer) | — (human) | Approves/merges any change to `site/`, `docs/`, or repo settings; sole authority over GitHub Pages configuration | — |
+| Copilot | AI | Guidance author (drafter) | **Co-pilot** — drafts complete changes; nothing it writes reaches the published site without a human merging it | May edit `site/*.html`, `docs/ea/**`, `docs/scope/**` within this `example/` folder and open a PR. May **not** merge PRs, change GitHub Pages/repo settings, or edit content outside `example/` | Opens a PR to **Pilot**; if a proposed change would contradict a Principle in [`1_strategy/1_motivation.md`](../1_strategy/1_motivation.md), stops and surfaces the conflict to **Pilot** instead of proceeding (mirrors `ea-first-change` step 1) |
 | Template adopter | Human, external | Consumer of the guidance service | — (human) | None — read-only visitor to the published site | — |
 
 See [`../../decisions/1_docs-agent-autonomy.md`](../../decisions/1_docs-agent-autonomy.md)
-for why Docs Agent's autonomy is set at co-pilot rather than fully
-autonomous or advisory-only.
+for why Copilot's autonomy is set at co-pilot rather than fully
+autonomous or advisory-only, and
+[`../../decisions/3_actor-naming.md`](../../decisions/3_actor-naming.md)
+for why these two actors are named **Pilot** and **Copilot** — the human
+who drives the design and the AI that collaborates.
 
 ## Role
 
 **Guidance author** — drafts, reviews, and publishes updates to the
-guidance site. Both Maintainer and Docs Agent are assigned to it; the
+guidance site. Both Pilot and Copilot are assigned to it; the
 autonomy/decision-rights columns above are what actually distinguishes
 their authority within the same role, not a separate role each.
