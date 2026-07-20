@@ -42,6 +42,10 @@ still need sign-off from a stakeholder who can't be consulted synchronously,
 keep it in [open-questions.md](./open-questions.md) — optional, see the
 `scope-doc` skill.
 
+If a work package is too large or long-running to implement in one sitting,
+shard it into self-contained story files instead of leaving it as one
+inline task list — see the `story-sharding` skill.
+
 ## Initiatives
 
 <!-- TEMPLATE — add one row per initiative as it's delivered. -->

@@ -29,10 +29,14 @@ at any time. Full write-up: [CONTRIBUTING.md](./CONTRIBUTING.md) and
 | [docs/scope/](./docs/scope/README.md)          | The scope-document index, the EA-first change process, and the optional open-questions log      |
 | [CONTRIBUTING.md](./CONTRIBUTING.md)           | The working method and a definition-of-done checklist                                            |
 | [CLAUDE.md](./CLAUDE.md)                       | Agent entry point — the one rule, pointers to layout/commands/conventions to fill in            |
-| `.claude/skills/`                               | Four Claude Code skills that operationalize the method for an agent (see below)                 |
+| `.claude/skills/`                               | Six Claude Code skills that operationalize the method for an agent (see below)                  |
 | `.github/pull_request_template.md`             | PR body shaped to match a scope document's alignment table                                      |
 
-### The four skills
+### The core process skills
+
+Near-verbatim across both source projects — the parts worth keeping
+generic — with the project-specific glossaries, business rules, and
+diagrams stripped back out to placeholders.
 
 - **`ea-first-change`** — the process itself: walk the EA layers top-down,
   write a scope document, implement, verify alignment, write the PR.
@@ -44,9 +48,23 @@ at any time. Full write-up: [CONTRIBUTING.md](./CONTRIBUTING.md) and
 - **`pr-description`** — PR bodies describe the whole branch, not just the
   latest commit, and follow the template.
 
-These are near-verbatim across both source projects — the parts worth
-keeping generic — with the project-specific glossaries, business rules, and
-diagrams stripped back out to placeholders.
+### Supporting skills
+
+Reach for these situationally rather than on every change.
+
+- **`story-sharding`** — adapted from
+  [BMAD-METHOD](https://github.com/bmadcode/BMAD-METHOD)'s "context-engineered
+  development": when a scope document's work package is too large for one
+  sitting, shard it into small, self-contained story files (goal,
+  linked-not-restated context, acceptance criteria, definition of done) so
+  an agent — or a person resuming later — never has to re-derive the whole
+  plan from the EA tree to pick up one slice of work.
+- **`stack-selection`** — a decision framework plus concrete defaults for
+  choosing a stack on a small/solo app when bootstrapping from this
+  template: static-only (GitHub Pages/Cloudflare Pages, no backend) vs.
+  needs data/auth (Supabase for managed Postgres + Auth + RLS, Vercel for
+  hosting/CI/CD) — with the reasoning for picking one over the other, not
+  just a list.
 
 ## Using this as a template for a new project
 
@@ -82,9 +100,12 @@ live upstream.
    down through the layers as far as the project's current understanding
    goes. Layers with nothing to say yet still get their README's table row
    acknowledged as "not started."
-3. Decide the documentation language once, and note it in `CLAUDE.md` (see
+3. If no stack is chosen yet and this is a small app, use `stack-selection`
+   to pick one instead of re-deriving it from scratch, then record the
+   choice in `docs/ea/5_technology/1_technology-services.md`.
+4. Decide the documentation language once, and note it in `CLAUDE.md` (see
    `ea-doc-style`).
-4. Delete `docs/scope/open-questions.md` if there's no external stakeholder
+5. Delete `docs/scope/open-questions.md` if there's no external stakeholder
    who needs a running index of unconfirmed interpretations.
-5. Write scope document `1_...md` for the initial build, retrospectively if
+6. Write scope document `1_...md` for the initial build, retrospectively if
    needed, so the initiative index isn't empty on day one.

@@ -40,7 +40,8 @@ the same change set, not an afterthought):
    change? New ports/interfaces follow `5_interface-contracts.md`; new
    platforms/adapters follow `4_solution-design.md`.
 5. **`docs/ea/5_technology/`** — Any impact on runtimes, build, CI, or
-   hosting?
+   hosting? If no stack has been chosen yet, use the `stack-selection`
+   skill instead of re-deriving one from scratch.
 
 Layers with no impact still get a "no change" verdict — say so explicitly
 in the scope document rather than skipping them.
