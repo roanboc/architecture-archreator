@@ -725,6 +725,138 @@ h3 {
   margin-bottom: 0;
 }
 
+.callout h3 {
+  margin-top: 0;
+}
+
+/* ---- Actor line (driver / executor tags) -------------------------------- */
+
+.actor-line {
+  display: flex;
+  gap: 0.55rem;
+  align-items: baseline;
+  margin: 0.35rem 0;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.actor-line .who {
+  flex: none;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.12rem 0.45rem;
+  border-radius: var(--radius-pill);
+  margin-top: 0.1rem;
+}
+
+.actor-line .who.driver {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.actor-line .who.exec {
+  color: var(--application-ink);
+  background: color-mix(in srgb, var(--application) 55%, var(--bg-raised));
+  border: 1px solid var(--application-line);
+}
+
+/* ---- Timeline (walkthrough) --------------------------------------------- */
+
+.timeline {
+  display: grid;
+  margin: 1.5rem 0;
+}
+
+.tl-step {
+  position: relative;
+  padding-left: 3.4rem;
+  padding-bottom: 1.5rem;
+}
+
+.tl-step::before {
+  content: "";
+  position: absolute;
+  left: 1.15rem;
+  top: 2.4rem;
+  bottom: -0.3rem;
+  width: 2px;
+  background: var(--border-strong);
+}
+
+.tl-step:last-child::before {
+  display: none;
+}
+
+.tl-marker {
+  --layer-fill: var(--accent-soft);
+  --layer-ink: var(--accent);
+  --layer-line: var(--accent);
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 750;
+  font-size: 0.95rem;
+  background: var(--layer-fill);
+  color: var(--layer-ink);
+  border: 1.5px solid var(--layer-line);
+  z-index: 1;
+}
+
+.tl-step[data-layer="motivation"] .tl-marker {
+  --layer-fill: var(--motivation);
+  --layer-ink: var(--motivation-ink);
+  --layer-line: var(--motivation-line);
+}
+.tl-step[data-layer="business"] .tl-marker {
+  --layer-fill: var(--business);
+  --layer-ink: var(--business-ink);
+  --layer-line: var(--business-line);
+}
+.tl-step[data-layer="strategy"] .tl-marker {
+  --layer-fill: var(--strategy);
+  --layer-ink: var(--strategy-ink);
+  --layer-line: var(--strategy-line);
+}
+.tl-step[data-layer="application"] .tl-marker {
+  --layer-fill: var(--application);
+  --layer-ink: var(--application-ink);
+  --layer-line: var(--application-line);
+}
+.tl-step[data-layer="technology"] .tl-marker {
+  --layer-fill: var(--technology);
+  --layer-ink: var(--technology-ink);
+  --layer-line: var(--technology-line);
+}
+
+.tl-body {
+  padding-top: 0.15rem;
+}
+
+.tl-body h3 {
+  margin: 0 0 0.15rem;
+  font-size: 1.08rem;
+}
+
+.tl-body .tl-phase {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.tl-body .source-note {
+  margin-top: 0.35rem;
+}
+
 /* ---- ArchiMate node + diagram (self-contained, replaces Mermaid) -------- */
 
 .archi-diagram {

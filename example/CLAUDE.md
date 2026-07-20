@@ -27,7 +27,7 @@ and the `decision-record` skill.
   autonomy.
 - `site/` — the static guidance pages, deployed as-is (no build step) by
   GitHub Actions to GitHub Pages. `index.html`, `guide.html`,
-  `architecture.html`, `styles.css`.
+  `walkthrough.html`, `architecture.html`, `styles.css`.
 
 ## Commands
 

@@ -11,8 +11,9 @@ service. Provided by three components:
 
 | Component | Realizes | Source file |
 | --------- | -------- | ------------ |
-| Landing page | Entry point: states the one rule, links onward | [`site/index.html`](../../../site/index.html) |
-| Guide page | Walks the EA-first process and the human/AI/hybrid actor notation step by step | [`site/guide.html`](../../../site/guide.html) |
+| Landing page | Entry point: states the one rule, the driver/executor loop, links onward | [`site/index.html`](../../../site/index.html) |
+| Guide page | Reference for the EA-first process and the human/AI/hybrid actor notation | [`site/guide.html`](../../../site/guide.html) |
+| Walkthrough page | One requirement climbing the five layers end to end (driver vs. executor at each step), plus dedicated coverage of the situational `stack-selection` and `story-sharding` skills | [`site/walkthrough.html`](../../../site/walkthrough.html) |
 | Architecture page | Renders this project's own filled EA layers as the concrete "what finished looks like" example | [`site/architecture.html`](../../../site/architecture.html) |
 
 All three share [`site/styles.css`](../../../site/styles.css), which also
