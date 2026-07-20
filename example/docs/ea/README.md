@@ -50,8 +50,8 @@ flowchart TB
 
   subgraph BUS["Business layer"]
     svc["«Business Service»<br>EA-first method guidance"]:::business
-    maint["«Business Actor (Human)»<br>Maintainer"]:::business
-    agent["«Business Actor (AI)»<br>Docs Agent — co-pilot"]:::business
+    maint["«Business Actor (Human)»<br>Pilot"]:::business
+    agent["«Business Actor (AI)»<br>Copilot"]:::business
   end
 
   subgraph APP["Application layer"]

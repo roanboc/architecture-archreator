@@ -65,8 +65,8 @@
               <span class="band-label">Business</span>
               <div class="band-nodes">
                 <span class="node" data-layer="business"><span class="stereo">«Business Service»</span><span class="node-name">EA-first method guidance</span></span>
-                <span class="node" data-layer="business"><span class="stereo">«Actor (Human)»</span><span class="node-name">Maintainer</span></span>
-                <span class="node" data-layer="business"><span class="stereo">«Actor (AI)»</span><span class="node-name">Docs Agent · co-pilot</span></span>
+                <span class="node" data-layer="business"><span class="stereo">«Actor (Human)»</span><span class="node-name">Pilot</span></span>
+                <span class="node" data-layer="business"><span class="stereo">«Actor (AI)»</span><span class="node-name">Copilot</span></span>
               </div>
             </div>
             <div class="archi-band" style="--layer-fill:var(--application);--layer-ink:var(--application-ink);--layer-line:var(--application-line)">
@@ -91,7 +91,7 @@
           </div>
           <figcaption>
             The goal is <em>realized by</em> the value stream, <em>realized by</em>
-            the business service (which the Maintainer and Docs Agent are
+            the business service (which the Pilot and Copilot are
             <em>assigned to</em>), <em>realized by</em> the application
             component, which <em>runs on</em> GitHub Pages. Same colour = same
             ArchiMate layer as in the repo's Mermaid source.
@@ -147,18 +147,18 @@
             </thead>
             <tbody>
               <tr>
-                <td>Maintainer</td>
+                <td>Pilot</td>
                 <td class="kind kind-human">Human</td>
                 <td>—</td>
                 <td>Approves/merges any change; sole authority over Pages/repo settings</td>
                 <td>—</td>
               </tr>
               <tr>
-                <td>Docs Agent</td>
+                <td>Copilot</td>
                 <td class="kind kind-ai">AI</td>
                 <td>Co-pilot</td>
                 <td>May draft and commit changes to site/docs within <code>example/</code>, open a PR. No merge rights, no settings access</td>
-                <td>Opens a PR to Maintainer; on a Principle conflict, stops and surfaces it instead of proceeding</td>
+                <td>Opens a PR to Pilot; on a Principle conflict, stops and surfaces it instead of proceeding</td>
               </tr>
               <tr>
                 <td>Template adopter</td>

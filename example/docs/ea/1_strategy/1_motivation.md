@@ -8,7 +8,7 @@ _[← Strategy layer](./README.md) · [EA home](../README.md)_
 
 | Stakeholder | Concern | Driver |
 | ----------- | ------- | ------ |
-| Maintainer | The archreator template should be usable without reading its skill files directly | No document in the parent template shows the EA-first process, or the human/AI actor notation, actually applied |
+| Pilot | The archreator template should be usable without reading its skill files directly | No document in the parent template shows the EA-first process, or the human/AI actor notation, actually applied |
 | Template adopters (external) — especially AI-first builders / "vibe coders" | Understanding how to bootstrap and run the method correctly, and seeing that a human-in-the-loop, AI-executed workflow is what the method delivers | Same driver, from the reader's side |
 
 ## Goals
@@ -28,7 +28,7 @@ _[← Strategy layer](./README.md) · [EA home](../README.md)_
   linked source wins — the site is a derived view, not a second
   authority (see
   [3_information/1_data-objects.md](../3_information/1_data-objects.md)).
-- **P2 — No unreviewed content reaches the public site.** The Docs Agent
+- **P2 — No unreviewed content reaches the public site.** The Copilot
   may draft complete changes, but nothing publishes without a human
   merging it (see
   [2_business/1_business-actors-and-roles.md](../2_business/README.md) and

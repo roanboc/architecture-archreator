@@ -23,7 +23,7 @@ every numbered file" rule.
 
 ```mermaid
 flowchart TB
-  stake1["«Stakeholder»<br>Maintainer"]:::motivation
+  stake1["«Stakeholder»<br>Pilot"]:::motivation
   stake2["«Stakeholder»<br>Template adopters"]:::motivation
   driver["«Driver»<br>archreator had no worked<br>example of its own notation"]:::motivation
   goal["«Goal»<br>Adopters learn and correctly<br>apply the EA-first method"]:::motivation

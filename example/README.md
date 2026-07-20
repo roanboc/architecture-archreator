@@ -13,10 +13,10 @@ guidance site for the archreator method itself, live at
 It exists to close a gap this template had: no filled-in example of its
 own notation anywhere in the repo, and specifically no example of the
 human/AI/hybrid actor convention actually applied. One of this project's
-own business actors — "Docs Agent" — is an AI, modeled with an explicit
+own business actors — "Copilot" — is an AI, modeled with an explicit
 autonomy level, decision rights, and escalation path
 ([`docs/ea/2_business/1_business-actors-and-roles.md`](./docs/ea/2_business/1_business-actors-and-roles.md)),
-alongside the human maintainer who reviews its work.
+alongside the human Pilot who reviews its work.
 
 ## Why this lives in its own subfolder
 
@@ -35,7 +35,7 @@ folder's — just about your project instead.
 - [`docs/scope/`](./docs/scope/README.md) — the one initiative that built
   this project, `1_publish-guidance-site.md`.
 - [`docs/decisions/`](./docs/decisions/README.md) — the smaller rationale
-  calls behind this project: why the Docs Agent's autonomy level was set the
+  calls behind this project: why the Copilot's autonomy level was set the
   way it was, and why the site renders its diagrams in CSS rather than with a
   library.
 - [`site/`](./site/index.html) — the static pages themselves, deployed by

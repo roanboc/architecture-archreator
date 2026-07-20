@@ -113,10 +113,10 @@ template's own guidance site, published at
 **https://roanboc.github.io/archreator/**. It's the answer to "what does a
 filled-in `docs/ea/` actually look like," and specifically to "what does an
 AI actor look like in the business layer" — one of its business actors is
-an AI agent that drafts guidance content, modeled with the human/AI/hybrid
-actor notation from `ea-doc-style`, at an explicit autonomy level and
-decision rights, alongside the human maintainer who reviews and merges its
-work.
+an AI — the **Copilot** — that drafts guidance content, modeled with the
+human/AI/hybrid actor notation from `ea-doc-style`, at an explicit autonomy
+level and decision rights, alongside the human **Pilot** who drives the
+design and reviews and merges its work.
 
 It lives in its own subfolder, with its own `README.md`/`CLAUDE.md`/
 `docs/ea/`/`docs/scope/`, deliberately kept separate from this repo's own

@@ -15,7 +15,7 @@ it in a scope document (`docs/scope/`), then implement. Use the
 `ea-first-change` skill for the process, `scope-doc` for the scope
 document, `ea-doc-style` when touching anything under `docs/`, and
 `pr-description` when opening or updating a PR. If a change touches the
-Docs Agent's autonomy level or decision rights, also see
+Copilot's autonomy level or decision rights, also see
 [`docs/decisions/1_docs-agent-autonomy.md`](./docs/decisions/1_docs-agent-autonomy.md)
 and the `decision-record` skill.
 
@@ -23,7 +23,7 @@ and the `decision-record` skill.
 
 - `docs/ea/` — this project's current-state architecture (numbered
   ArchiMate layers); `docs/scope/` — one document per initiative;
-  `docs/decisions/` — smaller rationale calls, notably the Docs Agent's
+  `docs/decisions/` — smaller rationale calls, notably the Copilot's
   autonomy.
 - `site/` — the static guidance pages, deployed as-is (no build step) by
   GitHub Actions to GitHub Pages. `index.html`, `guide.html`,

@@ -14,8 +14,8 @@ Realized by the **Publish guidance update** process:
 
 ```mermaid
 flowchart LR
-  draft["Docs Agent drafts a change<br>(ea-first-change process)"]:::business
-  review["Maintainer reviews<br>and merges"]:::business
+  draft["Copilot drafts a change<br>(ea-first-change process)"]:::business
+  review["Pilot reviews<br>and merges"]:::business
   deploy["CI/CD deploys to<br>GitHub Pages"]:::business
 
   draft -->|opens PR| review
@@ -24,12 +24,12 @@ flowchart LR
   classDef business fill:#fffbb5,stroke:#b8a200,color:#333
 ```
 
-- **Draft** — Docs Agent (see
+- **Draft** — Copilot (see
   [1_business-actors-and-roles.md](./1_business-actors-and-roles.md))
   walks the EA layers for the requested change, updates the affected
   `docs/ea/` and `site/` files, and opens a PR — same process as any other
   change to this repository, per `ea-first-change`.
-- **Review** — Maintainer approves or requests changes. Nothing merges
+- **Review** — Pilot approves or requests changes. Nothing merges
   without this step (Principle P2,
   [1_strategy/1_motivation.md](../1_strategy/README.md)).
 - **Deploy** — merging to `main` triggers
