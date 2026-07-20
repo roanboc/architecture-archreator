@@ -9,7 +9,7 @@ _[← Strategy layer](./README.md) · [EA home](../README.md)_
 | Stakeholder | Concern | Driver |
 | ----------- | ------- | ------ |
 | Maintainer | The archreator template should be usable without reading its skill files directly | No document in the parent template shows the EA-first process, or the human/AI actor notation, actually applied |
-| Template adopters (external) | Understanding how to bootstrap and run the method correctly | Same driver, from the reader's side |
+| Template adopters (external) — especially AI-first builders / "vibe coders" | Understanding how to bootstrap and run the method correctly, and seeing that a human-in-the-loop, AI-executed workflow is what the method delivers | Same driver, from the reader's side |
 
 ## Goals
 

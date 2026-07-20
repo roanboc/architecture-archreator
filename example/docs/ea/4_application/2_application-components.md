@@ -15,7 +15,14 @@ service. Provided by three components:
 | Guide page | Walks the EA-first process and the human/AI/hybrid actor notation step by step | [`site/guide.html`](../../../site/guide.html) |
 | Architecture page | Renders this project's own filled EA layers as the concrete "what finished looks like" example | [`site/architecture.html`](../../../site/architecture.html) |
 
-All three share [`site/styles.css`](../../../site/styles.css). None of
-them build or fetch anything at request time — deployment is a direct copy
-of `site/` (see
-[5_technology/2_deployment.md](../5_technology/README.md)).
+All three share [`site/styles.css`](../../../site/styles.css), which also
+carries the self-contained CSS diagram components (`archi-*`, `node`, the
+`loop` and `ladder`) that render this project's ArchiMate diagrams without a
+diagramming library. None of the pages build or fetch anything at request
+time — no external scripts, fonts, or stylesheets — so deployment is a
+direct copy of `site/` (see
+[5_technology/2_deployment.md](../5_technology/README.md)). The site's
+diagrams are a *derived* rendering of the canonical Mermaid diagrams in
+`docs/ea/`; the choice to render them in CSS rather than load a library is
+recorded in
+[decision 2 — how the site renders its diagrams](../../decisions/2_site-diagram-rendering.md).
