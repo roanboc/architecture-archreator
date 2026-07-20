@@ -1,0 +1,205 @@
+:root {
+  color-scheme: light dark;
+  --bg: #fbfaf7;
+  --bg-raised: #ffffff;
+  --text: #1f2328;
+  --text-muted: #57606a;
+  --border: #d8dee4;
+  --accent: #7e57c2;
+  --accent-ink: #ffffff;
+  --link: #0969da;
+  --code-bg: #f6f8fa;
+  --radius: 10px;
+  --max-width: 46rem;
+
+  --motivation: #e6d6f5;
+  --motivation-ink: #4a2e7a;
+  --strategy: #f5deaa;
+  --strategy-ink: #6b4f10;
+  --business: #fffbb5;
+  --business-ink: #6b5e00;
+  --application: #c2f0ff;
+  --application-ink: #084c6b;
+  --technology: #c9e7b7;
+  --technology-ink: #2c4a1a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14171a;
+    --bg-raised: #1c2024;
+    --text: #e6e8ea;
+    --text-muted: #9aa4ae;
+    --border: #2c3238;
+    --link: #6cb6ff;
+    --code-bg: #20262c;
+
+    --motivation-ink: #e6d6f5;
+    --strategy-ink: #f5deaa;
+    --business-ink: #fffbb5;
+    --application-ink: #c2f0ff;
+    --technology-ink: #c9e7b7;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif;
+}
+
+a {
+  color: var(--link);
+}
+
+header.site-header {
+  border-bottom: 1px solid var(--border);
+  padding: 1rem max(1rem, calc((100vw - var(--max-width)) / 2));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+header.site-header .brand {
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--text);
+}
+
+header.site-header nav {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.95rem;
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  line-height: 1.2;
+}
+
+h2 {
+  margin-top: 2.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+
+h3 {
+  margin-top: 1.75rem;
+}
+
+.lede {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+}
+
+.pill-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+
+.pill {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.card {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin: 1.25rem 0;
+}
+
+.card.principle {
+  border-left: 4px solid var(--accent);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.92rem;
+  display: block;
+  overflow-x: auto;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+th {
+  color: var(--text-muted);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+code {
+  background: var(--code-bg);
+  border-radius: 4px;
+  padding: 0.1rem 0.35rem;
+  font-size: 0.9em;
+}
+
+.kind-human {
+  color: var(--technology-ink);
+  font-weight: 600;
+}
+
+.kind-ai {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.diagram {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin: 1.25rem 0;
+  overflow-x: auto;
+}
+
+.diagram figcaption {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.source-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+footer.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>archreator — EA-first, AI-era architecture template</title>
+  <meta name="description" content="A guide to archreator: an enterprise-architecture template where AI systems can hold real business roles alongside people." />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html">archreator</a>
+    <nav>
+      <a href="./guide.html">Guide</a>
+      <a href="./architecture.html">Architecture</a>
+      <a href="https://github.com/roanboc/archreator">Repository ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Architecture-first, for a world where AI is one of the actors</h1>
+    <p class="lede">
+      archreator is a GitHub template for small enterprises and solutions:
+      strategy and business architecture get validated before any code, and
+      an AI system can hold a real business role — with a stated autonomy
+      level and decision rights — alongside the people it works with.
+    </p>
+
+    <div class="pill-row">
+      <a class="pill" href="./guide.html">Read the guide →</a>
+      <a class="pill" href="./architecture.html">See it applied →</a>
+      <a class="pill" href="https://github.com/roanboc/archreator">Use the template →</a>
+    </div>
+
+    <h2>The one rule</h2>
+    <p>
+      A change in requirements is never coded directly. It is aligned
+      top-down through five ArchiMate layers — strategy, business,
+      information, application, technology — recorded in a scope document,
+      and only then implemented. Every architecture element names the code
+      that realizes it, or is marked <em>Pending</em>, so the documentation
+      stays checkable against the repository at any time.
+    </p>
+
+    <h2>What makes this site itself an example</h2>
+    <p>
+      This site is not a mockup — it is the deliverable of a real
+      initiative (<code>example/docs/scope/1_publish-guidance-site.md</code>)
+      built by following that exact process. One of its business actors,
+      <strong>Docs Agent</strong>, is an AI: it drafts guidance content and
+      opens pull requests, at a co-pilot autonomy level, reviewed and
+      merged by a human maintainer before anything here goes live. The
+      <a href="./guide.html#actors">guide</a> explains the notation; the
+      <a href="./architecture.html">architecture page</a> shows it modeled
+      for this project specifically.
+    </p>
+
+    <div class="card">
+      <p class="source-note">
+        This page summarizes the method — it doesn't restate it as a second
+        authority. The canonical process lives in
+        <a href="https://github.com/roanboc/archreator/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>
+        and
+        <a href="https://github.com/roanboc/archreator/tree/main/.claude/skills">.claude/skills/</a>
+        in the template repository.
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    Published from
+    <a href="https://github.com/roanboc/archreator/tree/main/example">example/</a>
+    in the archreator repository.
+  </footer>
+</body>
+</html>
