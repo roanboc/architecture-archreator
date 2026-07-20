@@ -46,7 +46,11 @@ repository**, so starting a new project from it is a two-click operation
    5. Delete [`docs/scope/open-questions.md`](./docs/scope/open-questions.md)
       if there's no external stakeholder who needs a running index of
       unconfirmed interpretations; otherwise keep it and start filling it
-      in as questions come up.
+      in as questions come up. Same choice for
+      [`docs/decisions/`](./docs/decisions/README.md): delete it if there
+      won't be enough architecture-significant, non-obvious calls (an AI
+      actor's autonomy level, a library choice) to justify a standalone
+      log; otherwise keep it.
    6. Write scope document `1_...md` in [`docs/scope/`](./docs/scope/README.md)
       for the initial build — retrospectively if the build is already
       underway — so the initiative index isn't empty on day one.
@@ -67,6 +71,24 @@ is marked "Pending"), so the architecture stays verifiable against the code
 at any time. Full write-up: [CONTRIBUTING.md](./CONTRIBUTING.md) and
 [docs/scope/README.md](./docs/scope/README.md).
 
+## See it applied: a worked example
+
+[`example/`](./example/README.md) is a small, real project bootstrapped
+from this template and built by following the exact process above — the
+template's own guidance site, published at
+**https://roanboc.github.io/archreator/**. It's the answer to "what does a
+filled-in `docs/ea/` actually look like," and specifically to "what does an
+AI actor look like in the business layer" — one of its business actors is
+an AI agent that drafts guidance content, modeled with the human/AI/hybrid
+actor notation from `ea-doc-style`, at an explicit autonomy level and
+decision rights, alongside the human maintainer who reviews and merges its
+work.
+
+It lives in its own subfolder, with its own `README.md`/`CLAUDE.md`/
+`docs/ea/`/`docs/scope/`, deliberately kept separate from this repo's own
+(intentionally blank) scaffold — cloning this template still hands you a
+clean slate; `example/` is there to read, not to inherit.
+
 ## How everything fits together
 
 Everything in this repo hangs off one entry point. Read top-to-bottom the
@@ -79,8 +101,9 @@ flowchart TB
   contrib["CONTRIBUTING.md<br><i>the method, for humans</i>"]
   ea["docs/ea/<br><i>the 5 layers — current-state architecture</i>"]
   scope["docs/scope/<br><i>one doc per change, + the process writeup</i>"]
+  decisions["docs/decisions/<br><i>one doc per smaller, non-obvious call</i>"]
   skillscore["skills: ea-first-change, ea-doc-style,<br>scope-doc, pr-description"]
-  skillssupport["skills: story-sharding, stack-selection"]
+  skillssupport["skills: decision-record,<br>story-sharding, stack-selection"]
   pr[".github/ PR templates<br>(default + bugfix)"]
 
   claude -->|points to| contrib
@@ -91,6 +114,8 @@ flowchart TB
   skillscore -->|operationalize edits to| scope
   skillscore -->|operationalize| pr
   skillssupport -.->|used situationally by| scope
+  skillssupport -.->|used situationally by| decisions
+  ea -.->|autonomy/decision-rights calls explained by| decisions
   scope -->|links every PR to| pr
 ```
 
@@ -98,9 +123,10 @@ flowchart TB
 | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | [CLAUDE.md](./CLAUDE.md)               | **Start here if you're an agent.** States the one rule (EA-first) and points at the skills that operationalize it |
 | [CONTRIBUTING.md](./CONTRIBUTING.md)   | **Start here if you're a person.** The method in prose, the actors in the process (requester / agent / reviewer) with a process-flow diagram, the dev workflow, and a definition-of-done checklist |
-| [docs/ea/](./docs/ea/README.md)        | The 5-layer EA skeleton describing the system's **current** state: numbering, ArchiMate-on-Mermaid notation and palette, per-layer analysis order, and a fill-in-the-blank layer view for each of `1_strategy` → `5_technology` |
+| [docs/ea/](./docs/ea/README.md)        | The 5-layer EA skeleton describing the system's **current** state: numbering, ArchiMate-on-Mermaid notation and palette (including the human/AI/hybrid actor convention), per-layer analysis order, and a fill-in-the-blank layer view for each of `1_strategy` → `5_technology` |
 | [docs/scope/](./docs/scope/README.md)  | One document per **change** to that state: the EA-first process write-up, the initiative index, and the optional [open-questions.md](./docs/scope/open-questions.md) log |
-| `.claude/skills/`                       | Six Claude Code skills that turn the method into concrete agent behavior — see the two tables below              |
+| [docs/decisions/](./docs/decisions/README.md) | Optional log of smaller, non-obvious calls that don't rise to a full scope document — most often *why* an AI actor's autonomy level or decision rights were set the way they were |
+| [`.claude/skills/`](./.claude/skills/README.md) | Seven Claude Code skills that turn the method into concrete agent behavior — see the two tables below |
 | [.github/pull_request_template.md](./.github/pull_request_template.md) + [PULL_REQUEST_TEMPLATE/bugfix.md](./.github/PULL_REQUEST_TEMPLATE/bugfix.md) | Two PR bodies — one shaped to mirror a scope document's EA-alignment table, one for pure bug fixes that skip it — so the PR and the docs never drift apart |
 
 Skills are picked up automatically by Claude Code from their
@@ -115,7 +141,7 @@ project to fill in:
 | Skill              | Used for                                                                                                 |
 | ------------------- | ----------------------------------------------------------------------------------------------------------- |
 | `ea-first-change`  | The process itself: walk the EA layers top-down, write a scope document, implement, verify alignment, write the PR |
-| `ea-doc-style`     | Numbering, ArchiMate-on-Mermaid notation, the grounding rule, link conventions for anything under `docs/` |
+| `ea-doc-style`     | Numbering, ArchiMate-on-Mermaid notation (including the human/AI/hybrid actor convention), the grounding rule, link conventions for anything under `docs/` |
 | `scope-doc`        | The scope-document template and its rules (every layer gets a verdict, deliverables are concrete, out-of-scope matters as much as in-scope) |
 | `pr-description`   | PR bodies describe the whole branch, not just the latest commit, and follow the template                 |
 
@@ -123,6 +149,7 @@ project to fill in:
 
 | Skill               | Used for                                                                                                |
 | -------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `decision-record`   | A short, durable rationale for a single consequential call that's smaller than an initiative — most often why an AI actor's autonomy level or decision rights were set the way they were |
 | `story-sharding`    | Adapted from [BMAD-METHOD](https://github.com/bmadcode/BMAD-METHOD)'s context-engineered development: when a scope document's work package is too large for one sitting, shard it into small, self-contained story files so an agent or person resuming later never has to re-derive the whole plan from the EA tree |
 | `stack-selection`   | A decision framework plus concrete defaults for choosing a stack on a small/solo app: static-only (GitHub Pages/Cloudflare Pages, no backend) vs. needs data/auth (Supabase for managed Postgres + Auth + RLS, Vercel for hosting/CI/CD) — with the reasoning for picking one over the other |
 
