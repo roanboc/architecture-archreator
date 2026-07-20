@@ -17,10 +17,88 @@ requirements:
 Bug fixes that change no documented behavior can go straight to step 3.
 Agent-oriented guidance for the same process lives in `.claude/skills/`.
 
-Pull requests follow `.github/pull_request_template.md`: the body links the
-scope document, gives every EA layer a verdict, and describes **all**
-changes on the branch (`git diff main...HEAD`), not just the latest commit —
-and is kept updated as the branch grows.
+## Actors in this process
+
+The process has three roles. Nothing here assumes a human fills the middle
+one — an AI agent (e.g. Claude Code, guided by `.claude/skills/`) and a
+person follow exactly the same steps, in the same order, against the same
+documents:
+
+- **Requester** — whoever wants something to change: a stakeholder, a
+  product owner, a bug reporter. Presents a requirement or a problem, not a
+  solution or a diff.
+- **Agent** — whoever executes the process: a contributor or an AI agent.
+  Walks the EA layers, writes the scope document, implements, verifies
+  alignment, and opens the PR. "Agent" here names the role, not a
+  specific tool — the process doesn't change based on who or what fills it.
+- **Reviewer** — approves or requests changes on the PR, confirms any open
+  questions the requester needed to weigh in on, and merges.
+
+## Process flow
+
+How a requirement gets from "someone wants a change" to "merged," and
+where each actor's responsibility starts and ends:
+
+```mermaid
+flowchart TD
+  subgraph REQ["Requester"]
+    req(["Presents a requirement<br>or reports a problem"])
+  end
+
+  subgraph AGENT["Agent (person or AI)"]
+    walk["Walk docs/ea/ top-down<br>1_strategy → 5_technology"]
+    conflict{"Contradicts an existing<br>Principle?"}
+    bugfix{"Pure bug fix — no<br>documented behavior<br>changes?"}
+    scopedoc["Write scope document<br>docs/scope/N_*.md"]
+    implement["Implement, keeping EA +<br>scope docs true to the code"]
+    verify["Verify alignment<br>(ea-first-change, step 4)"]
+    openpr["Open PR — default or<br>bugfix template"]
+    address["Address review feedback"]
+  end
+
+  subgraph REV["Reviewer"]
+    review{"Approve?"}
+  end
+
+  stop[["Stop — surface the conflict<br>to the requester instead<br>of proceeding"]]
+  merged(["Merged"])
+
+  req --> walk --> conflict
+  conflict -- yes --> stop
+  stop -.->|requester decides how<br>to resolve it| req
+  conflict -- no --> bugfix
+  bugfix -- yes --> implement
+  bugfix -- no --> scopedoc --> implement
+  implement --> verify --> openpr --> review
+  review -- changes requested --> address --> openpr
+  review -- approved --> merged
+```
+
+Every arrow into the Agent subgraph is a decision the agent makes
+explicitly and records — a "no change" verdict on an EA layer, a "pure bug
+fix, no scope document" statement, an open question logged for the
+requester — never a silent skip. See `ea-first-change` for the full
+step-by-step version of this same flow.
+
+## Pull requests
+
+Pull requests use one of two templates, chosen by what kind of change this
+is:
+
+- **`.github/pull_request_template.md`** (default) — for anything that adds
+  or changes documented behavior. The body links the scope document, gives
+  every EA layer a verdict, and describes **all** changes on the branch
+  (`git diff main...HEAD`), not just the latest commit.
+- **`.github/PULL_REQUEST_TEMPLATE/bugfix.md`** — for pure bug fixes that
+  change no documented behavior: what broke, the root cause, the fix, and
+  the regression coverage added, instead of a scope document and EA table.
+  Pick it explicitly when opening the PR (GitHub's "Preview" template
+  picker, or `?template=bugfix.md` on the compare URL); if the fix turns
+  out to touch documented behavior after all, use the default template
+  instead.
+
+Either way, the description is kept updated as the branch grows — see the
+`pr-description` skill.
 
 ## Development workflow
 
