@@ -63,6 +63,32 @@ Relationships are labeled with their ArchiMate name (**serves**,
 **aggregates**, **influences**); where Mermaid arrowheads can't distinguish
 relation types, the label is authoritative.
 
+## Actors: human, AI, and hybrid
+
+`«Business Actor»` and `«Business Role»` nodes name **who** — and in a
+system where an AI can hold a role, "who" is no longer implicitly human.
+State the actor's kind on the same line as the stereotype:
+`«Business Actor (Human)»`, `«Business Actor (AI)»`, or
+`«Business Actor (Hybrid)»` (a human and an AI sharing one role, e.g. a
+co-pilot pattern). Default to `(Human)` only when the actor is provably
+never an AI system acting with delegated authority — don't omit the
+qualifier to save space.
+
+When populating `2_business/1_business-actors-and-roles.md`, explicitly
+ask, for every role: **does an AI system perform or assist this role, and
+at what autonomy?** — don't let "actor" default to human by omission. For
+every `(AI)` or `(Hybrid)` actor, the actors table carries three extra
+columns beyond the usual name/description:
+
+| Column | Answers |
+| ------ | ------- |
+| Autonomy level | One of: **advisory** (suggests, a human decides and acts), **co-pilot** (acts, a human reviews before it takes effect), **autonomous with checkpoint** (acts independently, a human is notified and can intervene after the fact), **fully autonomous** (acts independently, no routine human checkpoint) |
+| Decision rights | What this actor is actually authorized to decide or change, in concrete terms — not "helps with X" |
+| Escalation path | Who/what it hands off to when it's outside its authority or confidence — a Business Role, not a vague "a human" |
+
+If an initiative changes an AI actor's autonomy level or decision rights,
+that's exactly the kind of call the `decision-record` skill is for.
+
 ## Document skeleton
 
 - Title (`# …`), then a nav line:

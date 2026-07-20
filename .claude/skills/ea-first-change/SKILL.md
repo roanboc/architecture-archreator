@@ -34,6 +34,9 @@ the same change set, not an afterthought):
    are added or changed? New business rules get a row in the rules table of
    `5_domain-context-and-rules.md` (with the _why_) before they get code.
    New terms go into the glossary; reuse existing glossary terms in code.
+   If the change adds an actor, or changes an existing AI actor's autonomy
+   level or decision rights (`ea-doc-style`'s actor notation), consider a
+   `decision-record` alongside the scope document explaining why.
 3. **`docs/ea/3_information/`** — New or changed data objects, flows,
    representations, storage, classification, retention?
 4. **`docs/ea/4_application/`** — Which application services/components

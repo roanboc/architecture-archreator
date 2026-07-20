@@ -46,6 +46,11 @@ If a work package is too large or long-running to implement in one sitting,
 shard it into self-contained story files instead of leaving it as one
 inline task list — see the `story-sharding` skill.
 
+For a single consequential call smaller than a full initiative — most
+often why an AI actor's autonomy level or decision rights were set the way
+they were — see [docs/decisions/](../decisions/README.md) (optional) and
+the `decision-record` skill.
+
 ## Initiatives
 
 <!-- TEMPLATE — add one row per initiative as it's delivered. -->

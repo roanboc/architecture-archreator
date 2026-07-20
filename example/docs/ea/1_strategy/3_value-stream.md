@@ -1,0 +1,27 @@
+# Value Stream
+
+_[← Strategy layer](./README.md) · [EA home](../README.md)_
+
+**ArchiMate elements:** Value Stream, Value Stream Stage.
+
+## Discover → Understand → Adopt
+
+```mermaid
+flowchart LR
+  discover["Discover<br><i>lands on the guidance site</i>"]:::strategy
+  understand["Understand<br><i>reads the method + the<br>actor-notation example</i>"]:::strategy
+  adopt["Adopt<br><i>uses 'Use this template'<br>on the main repo</i>"]:::strategy
+
+  discover --> understand --> adopt
+
+  classDef strategy fill:#f5deaa,stroke:#c8a24a,color:#333
+```
+
+| Stage | Realized by |
+| ----- | ----------- |
+| Discover | [`site/index.html`](../../../site/index.html) — landing page, states the one rule and links onward |
+| Understand | [`site/guide.html`](../../../site/guide.html) — the EA-first process and the human/AI/hybrid actor notation, walked step by step |
+| Adopt | [`site/architecture.html`](../../../site/architecture.html) — this project's own filled EA layers, as the concrete "what it looks like when finished," plus a direct link to the parent template's "Use this template" flow |
+
+This value stream is realized end to end by the
+[EA-first method guidance](../2_business/README.md) business service.

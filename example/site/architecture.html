@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Architecture — archreator</title>
+  <meta name="description" content="This project's own EA layers, including its AI actor, rendered as the concrete example of the method." />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html">archreator</a>
+    <nav>
+      <a href="./guide.html">Guide</a>
+      <a href="./architecture.html">Architecture</a>
+      <a href="https://github.com/roanboc/archreator">Repository ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>This project's own architecture</h1>
+    <p class="lede">
+      This site is itself an archreator project. Its EA layers, below, are
+      the concrete "what does a filled-in <code>docs/ea/</code> look like"
+      answer — including its one AI actor, modeled with a stated autonomy
+      level rather than left implicit.
+    </p>
+
+    <h2 id="overview">Layered overview</h2>
+    <figure class="diagram">
+      <pre class="mermaid">
+flowchart TB
+  subgraph MOT["Motivation and Strategy"]
+    goal["«Goal»&lt;br&gt;Adopters learn and correctly&lt;br&gt;apply the EA-first method"]:::motivation
+    vs["«Value Stream»&lt;br&gt;Discover then Understand then Adopt"]:::strategy
+  end
+
+  subgraph BUS["Business layer"]
+    svc["«Business Service»&lt;br&gt;EA-first method guidance"]:::business
+    maint["«Business Actor (Human)»&lt;br&gt;Maintainer"]:::business
+    agent["«Business Actor (AI)»&lt;br&gt;Docs Agent — co-pilot"]:::business
+  end
+
+  subgraph APP["Application layer"]
+    app["«Application Component»&lt;br&gt;Guidance site (site/*.html)"]:::application
+  end
+
+  subgraph TEC["Technology layer"]
+    tech["«Technology Service»&lt;br&gt;GitHub Pages"]:::technology
+  end
+
+  goal -->|realized by| vs
+  vs -->|realized by| svc
+  maint -->|assigned to| svc
+  agent -->|assigned to| svc
+  svc -->|realized by| app
+  app -->|runs on| tech
+
+  classDef motivation fill:#e6d6f5,stroke:#7e57c2,color:#333
+  classDef strategy fill:#f5deaa,stroke:#c8a24a,color:#333
+  classDef business fill:#fffbb5,stroke:#b8a200,color:#333
+  classDef application fill:#c2f0ff,stroke:#0288d1,color:#333
+  classDef technology fill:#c9e7b7,stroke:#558b2f,color:#333
+      </pre>
+      <figcaption>
+        Source:
+        <a href="https://github.com/roanboc/archreator/blob/main/example/docs/ea/README.md">example/docs/ea/README.md</a>
+      </figcaption>
+    </figure>
+
+    <h2 id="strategy">Strategy: value stream</h2>
+    <figure class="diagram">
+      <pre class="mermaid">
+flowchart LR
+  discover["Discover&lt;br&gt;lands on the guidance site"]:::strategy
+  understand["Understand&lt;br&gt;reads the method and the&lt;br&gt;actor-notation example"]:::strategy
+  adopt["Adopt&lt;br&gt;uses Use this template&lt;br&gt;on the main repo"]:::strategy
+
+  discover --> understand --> adopt
+
+  classDef strategy fill:#f5deaa,stroke:#c8a24a,color:#333
+      </pre>
+      <figcaption>
+        Source:
+        <a href="https://github.com/roanboc/archreator/blob/main/example/docs/ea/1_strategy/3_value-stream.md">1_strategy/3_value-stream.md</a>
+        · Principles:
+        <a href="https://github.com/roanboc/archreator/blob/main/example/docs/ea/1_strategy/1_motivation.md">1_strategy/1_motivation.md</a>
+      </figcaption>
+    </figure>
+
+    <h2 id="business">Business: actors and roles</h2>
+    <table>
+      <thead>
+        <tr><th>Actor</th><th>Kind</th><th>Autonomy</th><th>Decision rights</th><th>Escalation path</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Maintainer</td>
+          <td class="kind-human">Human</td>
+          <td>—</td>
+          <td>Approves/merges any change; sole authority over Pages/repo settings</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Docs Agent</td>
+          <td class="kind-ai">AI</td>
+          <td>Co-pilot</td>
+          <td>May draft and commit changes to site/docs within <code>example/</code>, open a PR. No merge rights, no settings access</td>
+          <td>Opens a PR to Maintainer; on a Principle conflict, stops and surfaces it instead of proceeding</td>
+        </tr>
+        <tr>
+          <td>Template adopter</td>
+          <td class="kind-human">Human, external</td>
+          <td>—</td>
+          <td>None — read-only visitor</td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="source-note">
+      Source:
+      <a href="https://github.com/roanboc/archreator/blob/main/example/docs/ea/2_business/1_business-actors-and-roles.md">2_business/1_business-actors-and-roles.md</a>
+      · rationale for the autonomy level:
+      <a href="https://github.com/roanboc/archreator/blob/main/example/docs/decisions/1_docs-agent-autonomy.md">docs/decisions/1_docs-agent-autonomy.md</a>
+    </p>
+
+    <h2 id="information">Information: the one data object</h2>
+    <p>
+      A "Guidance page" is explicitly a <strong>derived</strong>
+      representation — the canonical source is this project's own
+      <code>docs/ea/</code> and the template's
+      <code>.claude/skills/</code>, not the page itself. If a page and its
+      linked source ever disagree, the source wins.
+    </p>
+    <p class="source-note">
+      Source:
+      <a href="https://github.com/roanboc/archreator/blob/main/example/docs/ea/3_information/1_data-objects.md">3_information/1_data-objects.md</a>
+    </p>
+
+    <h2 id="application">Application: components</h2>
+    <table>
+      <thead>
+        <tr><th>Component</th><th>Realizes</th><th>Source</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Landing page</td><td>Entry point</td><td><a href="https://github.com/roanboc/archreator/blob/main/example/site/index.html">site/index.html</a></td></tr>
+        <tr><td>Guide page</td><td>Process + notation walkthrough</td><td><a href="https://github.com/roanboc/archreator/blob/main/example/site/guide.html">site/guide.html</a></td></tr>
+        <tr><td>Architecture page</td><td>This page</td><td><a href="https://github.com/roanboc/archreator/blob/main/example/site/architecture.html">site/architecture.html</a></td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="technology">Technology: deployment</h2>
+    <figure class="diagram">
+      <pre class="mermaid">
+flowchart LR
+  push["Push or merge to main&lt;br&gt;touching example/site"]:::implementation
+  workflow["deploy-example-site.yml"]:::technology
+  artifact["«Artifact»&lt;br&gt;Pages artifact"]:::technology
+  pages["«Node»&lt;br&gt;GitHub Pages"]:::technology
+
+  push -->|triggers| workflow
+  workflow -->|uploads| artifact
+  artifact -->|deployed to| pages
+
+  classDef implementation fill:#ffd6d6,stroke:#c94f4f,color:#333
+  classDef technology fill:#c9e7b7,stroke:#558b2f,color:#333
+      </pre>
+      <figcaption>
+        Source:
+        <a href="https://github.com/roanboc/archreator/blob/main/example/docs/ea/5_technology/2_deployment.md">5_technology/2_deployment.md</a>
+        · pipeline:
+        <a href="https://github.com/roanboc/archreator/blob/main/.github/workflows/deploy-example-site.yml">deploy-example-site.yml</a>
+      </figcaption>
+    </figure>
+
+    <h2 id="process">How this page came to exist</h2>
+    <p>
+      Built as one initiative, following <code>ea-first-change</code>:
+      <a href="https://github.com/roanboc/archreator/blob/main/example/docs/scope/1_publish-guidance-site.md">docs/scope/1_publish-guidance-site.md</a>
+      records the EA-alignment table, plateaus, work packages, and the gaps
+      deliberately left open.
+    </p>
+
+    <div class="pill-row">
+      <a class="pill" href="./guide.html">← Back to the guide</a>
+      <a class="pill" href="https://github.com/roanboc/archreator">Use the template →</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    Published from
+    <a href="https://github.com/roanboc/archreator/tree/main/example">example/</a>
+    in the archreator repository.
+  </footer>
+
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+    mermaid.initialize({ startOnLoad: true, theme: "neutral" });
+  </script>
+</body>
+</html>
