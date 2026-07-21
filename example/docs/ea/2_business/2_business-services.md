@@ -7,8 +7,10 @@ _[← Business layer](./README.md) · [EA home](../README.md)_
 ## EA-first method guidance
 
 The service offered to template adopters: a browsable explanation of the
-EA-first process and the human/AI/hybrid actor notation, kept current with
-the parent template.
+EA-first process and the human/AI/hybrid actor notation — plus, for a
+first-time adopter, how to get set up from zero (see
+[`site/start.html`](../../../site/start.html)) — kept current with the
+parent template.
 
 Realized by the **Publish guidance update** process:
 
