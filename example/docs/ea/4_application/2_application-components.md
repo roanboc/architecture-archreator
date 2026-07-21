@@ -7,13 +7,13 @@ _[← Application layer](./README.md) · [EA home](../README.md)_
 ## Guidance publishing (Application Service)
 
 Realizes the [EA-first method guidance](../2_business/README.md) business
-service. Provided by three components:
+service. Provided by four components:
 
 | Component | Realizes | Source file |
 | --------- | -------- | ------------ |
-| Landing page | Entry point: states the one rule, the driver/executor loop, links onward | [`site/index.html`](../../../site/index.html) |
+| Landing page | Entry point: states the one rule, the Requester → Agent → Reviewer loop, links onward | [`site/index.html`](../../../site/index.html) |
 | Guide page | Reference for the EA-first process and the human/AI/hybrid actor notation | [`site/guide.html`](../../../site/guide.html) |
-| Walkthrough page | One requirement climbing the five layers end to end (driver vs. executor at each step), plus dedicated coverage of the situational `stack-selection` and `story-sharding` skills | [`site/walkthrough.html`](../../../site/walkthrough.html) |
+| Walkthrough page | One requirement climbing the five layers end to end (Requester vs. Agent at each step), plus dedicated coverage of the situational `stack-selection` and `story-sharding` skills | [`site/walkthrough.html`](../../../site/walkthrough.html) |
 | Architecture page | Renders this project's own filled EA layers as the concrete "what finished looks like" example | [`site/architecture.html`](../../../site/architecture.html) |
 
 All three share [`site/styles.css`](../../../site/styles.css), which also

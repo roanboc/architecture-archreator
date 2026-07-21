@@ -51,6 +51,11 @@ semantics onto Mermaid flowcharts with two rules:
 | Technology                  | `technology`     | green `#c9e7b7`  |
 | Implementation & Migration  | `implementation` | rose `#ffd6d6`   |
 
+This table is the **single source** for the layer palette; the `ea-doc-style`
+skill and every other document point here for the exact fills. Mermaid
+`classDef` blocks necessarily inline these hexes per diagram (Mermaid has no
+cross-file classDef), but no other prose table restates them.
+
 Relationships are labeled with their ArchiMate name: **serves**,
 **realizes**, **assigned to**, **accesses**, **triggers**, **flow**,
 **aggregates**, **influences**. Where Mermaid arrowheads can't distinguish

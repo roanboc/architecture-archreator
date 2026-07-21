@@ -2,9 +2,10 @@
 
 **Build with AI without losing the plot.** archreator is a GitHub template
 for people who want to move at vibe-coding speed while keeping a human in
-the driver's seat: *you* say what you want, AI agents do the executing, and
-every change is aligned through a short architecture ladder before any code
-is written — so moving fast never turns into a pile of confident nonsense.
+control: *you* request what you want and approve the result, AI agents do
+the building in between, and every change is aligned through a short
+architecture ladder before any code is written — so moving fast never turns
+into a pile of confident nonsense.
 
 > 📖 **See it before you use it.** The live guidance site —
 > **<https://roanboc.github.io/archreator/>** — is itself built with this
@@ -17,10 +18,10 @@ is written — so moving fast never turns into a pile of confident nonsense.
   and letting an agent build it — but have been burned by drift,
   contradictions, and code nobody can explain a week later.
 - Anyone who wants a **repeatable, human-in-the-loop procedure** where the
-  person is the driver and AI agents are the executors — following exactly
-  the same steps a human contributor would.
+  person requests and approves the work and AI agents execute it — following
+  exactly the same steps a human contributor would.
 
-## The loop: you drive, AI executes, you approve
+## The loop: Requester → Agent → Reviewer
 
 Every change moves through three roles. Nothing here assumes a human fills
 the middle one — an AI agent and a person follow the same steps, in the same
@@ -28,9 +29,9 @@ order, against the same documents:
 
 | Role | Who | Does |
 | ---- | --- | ---- |
-| **Requester** — the driver | You | Says what should change: a requirement or a problem, not a diff. |
-| **Agent** — the executor | An AI agent (or a person) | Walks the architecture ladder, writes a short scope document, implements, and opens a PR. |
-| **Reviewer** — the gate | You | Reviews and merges. Nothing ships without a human approving it. |
+| **Requester** | You | Says what should change: a requirement or a problem, not a diff. |
+| **Agent** | An AI agent (or a person) | Walks the architecture ladder, writes a short scope document, implements, and opens a PR. |
+| **Reviewer** | You | Reviews and merges. Nothing ships without a human approving it. |
 
 The [worked example's guidance site](https://roanboc.github.io/archreator/)
 shows this loop rendered as real, checkable architecture; the

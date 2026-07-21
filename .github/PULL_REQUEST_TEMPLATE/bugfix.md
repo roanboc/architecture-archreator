@@ -1,8 +1,15 @@
 <!--
-  Bug-fix template — for changes that correct incorrect behavior WITHOUT
-  changing any documented behavior. If this change adds or changes
-  behavior instead, close this and start the PR again with the default
-  template (.github/pull_request_template.md).
+  Bug-fix template — the named alternate in .github/PULL_REQUEST_TEMPLATE/.
+  It does NOT auto-fill; open the PR with ?template=bugfix.md (or let the
+  pr-description skill pick it). GitHub requires named alternates to live in
+  this directory while the auto-filled default lives at
+  .github/pull_request_template.md — that's why the two sit in different
+  places.
+
+  Use this only for changes that correct incorrect behavior WITHOUT changing
+  any documented behavior. If this change adds or changes behavior instead,
+  close this and start the PR again with the default template
+  (.github/pull_request_template.md).
 
   Still describe the WHOLE branch, not just the latest commit:
     git log --oneline main..HEAD

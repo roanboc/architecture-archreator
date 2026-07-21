@@ -46,17 +46,12 @@ ArchiMate semantics onto Mermaid flowcharts with two rules:
 
 1. **Element type as a «stereotype»** in the first line of each node label,
    e.g. `«Business Service»`, `«Data Object»`, `«Capability»`.
-2. **One `classDef` per layer**, using this palette (approximating the
-   standard ArchiMate colors):
-
-   | Layer                      | class            | Fill             |
-   | --------------------------- | ---------------- | ---------------- |
-   | Motivation                  | `motivation`     | violet `#e6d6f5` |
-   | Strategy                    | `strategy`       | sand `#f5deaa`   |
-   | Business                    | `business`       | yellow `#fffbb5` |
-   | Application                 | `application`    | cyan `#c2f0ff`   |
-   | Technology                  | `technology`     | green `#c9e7b7`  |
-   | Implementation & Migration  | `implementation` | rose `#ffd6d6`   |
+2. **One `classDef` per layer**, using the per-layer palette. The exact
+   fills (Motivation, Strategy, Business, Application, Technology,
+   Implementation & Migration) live in exactly one place —
+   [`docs/ea/README.md` § Notation conventions](../../../docs/ea/README.md#notation-conventions).
+   Copy the `classDef` lines from there rather than re-tabulating the hexes
+   here, so the palette never drifts between documents.
 
 Relationships are labeled with their ArchiMate name (**serves**,
 **realizes**, **assigned to**, **accesses**, **triggers**, **flow**,

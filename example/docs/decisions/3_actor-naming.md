@@ -12,8 +12,9 @@ The two business actors were originally named **Maintainer** (the human) and
 **Docs Agent** (the AI). Those names describe *jobs*, not the *relationship*
 this example exists to teach: a person driving the design while an AI
 collaborates. "Maintainer" reads as upkeep/operations; "Docs Agent" reads as
-a mechanical tool. The whole point of the example is the human-driver /
-AI-executor pattern, so the names should carry that story on sight.
+a mechanical tool. The whole point of the example is the human-in-the-loop
+pattern — a person requesting and reviewing while an AI executes — so the
+names should carry that story on sight.
 
 ## Options considered
 

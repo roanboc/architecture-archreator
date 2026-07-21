@@ -10,9 +10,9 @@ tables: the situational skills `story-sharding` and `stack-selection` were
 linked but never walked through, and there was no single narrative showing a
 requirement travelling the whole process end to end. This initiative closes
 that gap. It adds a **walkthrough page** that follows one requirement up the
-five-layer ladder — making explicit, at each step, what the human driver
-does and what the AI executor produces — and gives the two situational
-skills dedicated, in-context coverage on the same page.
+five-layer ladder — making explicit, at each step, what the human (Requester
+and Reviewer) does and what the AI Agent produces — and gives the two
+situational skills dedicated, in-context coverage on the same page.
 
 ## EA alignment (assessed top-down before implementing)
 
@@ -29,7 +29,7 @@ skills dedicated, in-context coverage on the same page.
 | Plateau                | State                     |
 | ----------------------- | ------------------------- |
 | **Baseline** (before)  | Three pages; `story-sharding` and `stack-selection` linked but not explained; no single end-to-end narrative of a change moving through the process |
-| **Target** (delivered) | A fourth page that walks one requirement through all five layers with driver/executor roles made explicit, and gives the two situational skills dedicated coverage; discoverable from every page's nav and from the guide |
+| **Target** (delivered) | A fourth page that walks one requirement through all five layers with the Requester/Agent/Reviewer roles made explicit, and gives the two situational skills dedicated coverage; discoverable from every page's nav and from the guide |
 
 ## Work packages and deliverables
 
@@ -40,7 +40,7 @@ skills dedicated, in-context coverage on the same page.
   [`site/styles.css`](../../site/styles.css)
 - **Outcome:** a start-to-finish narrative — requirement → five layers →
   scope doc → implement → PR → review/merge → deploy — that makes the
-  human-driver / AI-executor split concrete at each step
+  Requester/Agent/Reviewer split concrete at each step
 
 ### WP2 — Situational-skill coverage
 
