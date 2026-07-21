@@ -4,11 +4,13 @@ on:
   pull_request:
     paths:
       - "**/*.md"
+      - "**/*.html"
       - "scripts/check_links.py"
   push:
     branches: [main]
     paths:
       - "**/*.md"
+      - "**/*.html"
       - "scripts/check_links.py"
 
 jobs:
@@ -16,5 +18,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check relative Markdown links
+      - name: Check relative Markdown and HTML links
         run: python3 scripts/check_links.py

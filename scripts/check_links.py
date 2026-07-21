@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
-"""Check that relative Markdown links in this repo resolve to real files.
+"""Check that relative links in this repo resolve to real targets.
 
-Two categories of link are deliberately not flagged:
+Two file kinds are validated:
+
+**Markdown** (`*.md`) — relative `[text](target)` links must resolve to a
+real file. Two categories are deliberately not flagged:
 
 - Links inside fenced code blocks or inline code spans — skill files quote
   illustrative link syntax (e.g. `./<n>_*.md`) as examples, not real links.
@@ -10,6 +13,14 @@ Two categories of link are deliberately not flagged:
   forward-reference the numbered docs a downstream project will write; a
   pure, unfilled template (like this repo's own main branch) is expected to
   have every one of these unresolved.
+
+**HTML** (`*.html`) — relative `href`/`src` targets must resolve to a real
+file, and any fragment (`#id`, or `page.html#id`) must resolve to an element
+`id` in the target HTML file. This catches broken page-to-page links and
+stale in-page anchors in the guidance site.
+
+Absolute or non-file targets (http, https, mailto, tel, data, javascript)
+are never checked in either kind.
 """
 import re
 import sys
@@ -20,10 +31,18 @@ LINK_RE = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
 FENCE_RE = re.compile(r"```.*?```", re.DOTALL)
 INLINE_CODE_RE = re.compile(r"`[^`\n]+`")
 NUMBERED_EA_DOC_RE = re.compile(r"^\d+_[\w.-]+\.md$")
+# href/src attribute values; the lookbehind avoids matching data-src, xlink:href, etc.
+HREF_RE = re.compile(r"""(?<![\w:-])(?:href|src)\s*=\s*["']([^"']+)["']""")
+# element ids; the lookbehind avoids matching data-id, grid=, etc.
+ID_RE = re.compile(r"""(?<![\w-])id\s*=\s*["']([^"']+)["']""")
+
+EXTERNAL_PREFIXES = ("http://", "https://", "mailto:", "tel:", "data:", "javascript:")
+
+_ids_cache: dict[Path, set[str]] = {}
 
 
 def is_external(target: str) -> bool:
-    return target.startswith(("http://", "https://", "mailto:", "#"))
+    return target.startswith(EXTERNAL_PREFIXES)
 
 
 def strip_code(text: str) -> str:
@@ -40,12 +59,21 @@ def is_expected_forward_reference(resolved: Path) -> bool:
     return bool(NUMBERED_EA_DOC_RE.match(resolved.name))
 
 
-def check_file(md_file: Path) -> list[str]:
+def ids_in(html_file: Path) -> set[str]:
+    if html_file not in _ids_cache:
+        try:
+            _ids_cache[html_file] = set(ID_RE.findall(html_file.read_text(encoding="utf-8")))
+        except (OSError, UnicodeDecodeError):
+            _ids_cache[html_file] = set()
+    return _ids_cache[html_file]
+
+
+def check_markdown(md_file: Path) -> list[str]:
     errors = []
     text = strip_code(md_file.read_text(encoding="utf-8"))
     for match in LINK_RE.finditer(text):
         target = match.group(1).strip()
-        if not target or is_external(target):
+        if not target or is_external(target) or target.startswith("#"):
             continue
         path_part = target.split("#", 1)[0]
         if not path_part:
@@ -57,18 +85,43 @@ def check_file(md_file: Path) -> list[str]:
     return errors
 
 
+def check_html(html_file: Path) -> list[str]:
+    errors = []
+    rel = html_file.relative_to(REPO_ROOT)
+    for target in HREF_RE.findall(html_file.read_text(encoding="utf-8")):
+        target = target.strip()
+        if not target or is_external(target):
+            continue
+        path_part, _, fragment = target.partition("#")
+        if not path_part:
+            # Same-page anchor, e.g. href="#main".
+            if fragment and fragment not in ids_in(html_file):
+                errors.append(f"{rel}: missing anchor -> #{fragment}")
+            continue
+        resolved = (html_file.parent / path_part).resolve()
+        if not resolved.exists():
+            errors.append(f"{rel}: broken link -> {target}")
+            continue
+        if fragment and resolved.suffix == ".html" and fragment not in ids_in(resolved):
+            errors.append(f"{rel}: missing anchor -> {target}")
+    return errors
+
+
 def main() -> int:
     all_errors = []
-    for md_file in REPO_ROOT.rglob("*.md"):
-        if ".git" in md_file.parts:
+    for path in REPO_ROOT.rglob("*"):
+        if ".git" in path.parts or not path.is_file():
             continue
-        all_errors.extend(check_file(md_file))
+        if path.suffix == ".md":
+            all_errors.extend(check_markdown(path))
+        elif path.suffix == ".html":
+            all_errors.extend(check_html(path))
     if all_errors:
         print("Broken relative links found:")
         for error in all_errors:
             print(f"  {error}")
         return 1
-    print("All relative Markdown links resolve.")
+    print("All relative Markdown and HTML links resolve.")
     return 0
 
 
