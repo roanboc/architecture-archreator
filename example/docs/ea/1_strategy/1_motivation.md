@@ -19,6 +19,11 @@ _[← Strategy layer](./README.md) · [EA home](../README.md)_
 - **G2 — Living proof.** The site itself is built by following the method
   it describes, so it doubles as evidence the process works on a real,
   small project — including a real AI actor with a defined autonomy level.
+- **G3 — Frictionless, free start.** A newcomer with no prior GitHub or
+  command-line experience can get from "no account" to a first reviewed
+  change without paying for anything or installing a code editor. Realized
+  by [`site/start.html`](../../../site/start.html); see
+  [3_value-stream.md](./3_value-stream.md)'s **Adopt** stage.
 
 ## Principles
 
