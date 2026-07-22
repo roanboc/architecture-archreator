@@ -1,6 +1,6 @@
 ---
 name: scope-doc
-description: Use when creating or updating a project scope document in docs/scope/ — one per initiative, written before implementation as step 2 of the ea-first-change process.
+description: Use when creating or updating a project scope document in docs/scope/ — one per initiative, drafted before the pre-implementation gate as step 3 of the ea-first-change process, and the durable record of gate approvals.
 ---
 
 # Writing a scope document
@@ -30,6 +30,12 @@ _[← Scope index](./README.md) · [EA home](../ea/README.md)_
 | 3_information | <data objects, flows, storage, classification>      |
 | 4_application | <services, components, ports>                       |
 | 5_technology  | <runtimes, build, CI, hosting>                      |
+
+## Approvals
+
+| Gate                     | Approved by | Date         | What was approved                          |
+| ------------------------ | ----------- | ------------ | ------------------------------------------- |
+| Gate 2 — Business        | <Requester> | <YYYY-MM-DD> | <the docs/sections presented at the gate>  |
 
 ## Plateaus
 
@@ -67,6 +73,15 @@ _[← Scope index](./README.md) · [EA home](../ea/README.md)_
 
 - **Every layer gets a verdict** in the EA-alignment table, including
   explicit "no change" — silence is not a decision.
+- **Gates are recorded in the Approvals table** — which gate, who
+  approved, when, and what was shown (see `ea-first-change` § The gates).
+  Any initiative that changes documented behavior carries at least a
+  **Gate 2 — Business** row before implementation starts; a
+  strategy-discovery initiative carries **Gate 1 — Strategy**; a
+  **Gate 3 — Solution design** row appears only if the Requester opted in
+  at Gate 2. An approval that isn't recorded didn't happen; a scope
+  document is a historical record, so the table shows who accepted what,
+  durably.
 - **Deliverables are concrete artifacts** (file paths, page/screen names),
   never vague ("improved UX").
 - **Out of scope is as important as in scope**: it is where the next

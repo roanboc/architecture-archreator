@@ -43,8 +43,11 @@ For the **default** template, fill every section:
 
 - **Summary** — what the branch delivers, 2–4 sentences.
 - **Scope document** — link the `docs/scope/N_*.md` file(s) this branch adds
-  or updates. A pure bug fix may state "no scope document" with a reason
-  (but should probably be using the bugfix template instead).
+  or updates. Its Approvals table must already record the gates the change
+  required (Gate 2 at minimum — see `ea-first-change`); an empty table
+  means the branch isn't ready for review. A pure bug fix may state "no
+  scope document" with a reason (but should probably be using the bugfix
+  template instead).
 - **EA layers touched** — copy the verdicts from the scope document's
   alignment table; every layer gets one, including explicit "no change".
 - **Changes** — grouped by work package/area, covering the full

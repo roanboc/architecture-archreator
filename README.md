@@ -29,8 +29,8 @@ order, against the same documents:
 
 | Role | Who | Does |
 | ---- | --- | ---- |
-| **Requester** | You | Says what should change: a requirement or a problem, not a diff. |
-| **Agent** | An AI agent (or a person) | Walks the architecture ladder, writes a short scope document, implements, and opens a PR. |
+| **Requester** | You | Says what should change: a requirement or a problem, not a diff. Approves the strategy and business changes at explicit gates before any code is written. |
+| **Agent** | An AI agent (or a person) | Walks the architecture ladder, stops at each gate for your approval, writes a short scope document, implements, and opens a PR. |
 | **Reviewer** | You | Reviews and merges. Nothing ships without a human approving it. |
 
 The [worked example's guidance site](https://roanboc.github.io/archreator/)
@@ -70,7 +70,10 @@ project from it is a two-click operation (see below).
       first — stakeholders, drivers, goals, and the Principles that will
       later gate every change — then work down through the
       [EA layers](./docs/ea/README.md) as far as current understanding
-      goes. A layer with nothing to say yet still gets its README's table
+      goes. The `strategy-discovery` skill's question themes double as the
+      interview script for this step; an agent asked for the first real
+      change will run it automatically and stop for your approval of the
+      strategy (Gate 1) before building anything. A layer with nothing to say yet still gets its README's table
       row acknowledged as "not started"; don't just skip the folder.
    3. If no technology stack is chosen yet and this is a small app, use the
       `stack-selection` skill instead of re-deriving one from scratch, then
@@ -101,9 +104,14 @@ layer.** A change in requirements is never coded directly: it is aligned
 top-down through five numbered ArchiMate layers
 (`docs/ea/1_strategy` → `2_business` → `3_information` → `4_application` →
 `5_technology`), recorded in a scope document (`docs/scope/`), and only then
-implemented. Every EA element names the code artifact that realizes it (or
-is marked "Pending"), so the architecture stays verifiable against the code
-at any time. Full write-up: [CONTRIBUTING.md](./CONTRIBUTING.md) and
+implemented. Validation is explicit: the requester approves at named gates
+before development — a new or shifted strategy (Gate 1), the
+strategy/business/information changes before any code (Gate 2), and
+optionally the solution design (Gate 3) — the way a business reference
+group signs off before building starts, with each approval recorded in the
+scope document. Every EA element names the code artifact that realizes it
+(or is marked "Pending"), so the architecture stays verifiable against the
+code at any time. Full write-up: [CONTRIBUTING.md](./CONTRIBUTING.md) and
 [docs/scope/README.md](./docs/scope/README.md).
 
 ## See it applied: a worked example
@@ -138,7 +146,7 @@ flowchart TB
   scope["docs/scope/<br><i>one doc per change, + the process writeup</i>"]
   decisions["docs/decisions/<br><i>one doc per smaller, non-obvious call</i>"]
   skillscore["skills: ea-first-change, ea-doc-style,<br>scope-doc, pr-description"]
-  skillssupport["skills: decision-record,<br>story-sharding, stack-selection"]
+  skillssupport["skills: strategy-discovery,<br>decision-record,<br>story-sharding, stack-selection"]
   pr[".github/ PR templates<br>(default + bugfix)"]
 
   claude -->|points to| contrib
@@ -161,7 +169,7 @@ flowchart TB
 | [docs/ea/](./docs/ea/README.md)        | The 5-layer EA skeleton describing the system's **current** state: numbering, ArchiMate-on-Mermaid notation and palette (including the human/AI/hybrid actor convention), per-layer analysis order, and a fill-in-the-blank layer view for each of `1_strategy` → `5_technology` |
 | [docs/scope/](./docs/scope/README.md)  | One document per **change** to that state: the EA-first process write-up, the initiative index, and the optional [open-questions.md](./docs/scope/open-questions.md) log |
 | [docs/decisions/](./docs/decisions/README.md) | Optional log of smaller, non-obvious calls that don't rise to a full scope document — most often *why* an AI actor's autonomy level or decision rights were set the way they were |
-| [`.claude/skills/`](./.claude/skills/README.md) | Seven Claude Code skills that turn the method into concrete agent behavior — see the two tables below |
+| [`.claude/skills/`](./.claude/skills/README.md) | Eight Claude Code skills that turn the method into concrete agent behavior — see the two tables below |
 | [.github/pull_request_template.md](./.github/pull_request_template.md) + [PULL_REQUEST_TEMPLATE/bugfix.md](./.github/PULL_REQUEST_TEMPLATE/bugfix.md) | Two PR bodies — one shaped to mirror a scope document's EA-alignment table, one for pure bug fixes that skip it — so the PR and the docs never drift apart |
 
 Skills are picked up automatically by Claude Code from their
@@ -175,7 +183,7 @@ project to fill in:
 
 | Skill              | Used for                                                                                                 |
 | ------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `ea-first-change`  | The process itself: walk the EA layers top-down, write a scope document, implement, verify alignment, write the PR |
+| `ea-first-change`  | The process itself: assess the strategy (handing off to `strategy-discovery` when it's new or shifting), walk the EA layers top-down, stop at the requester's approval gates, write a scope document, implement, verify alignment, write the PR |
 | `ea-doc-style`     | Numbering, ArchiMate-on-Mermaid notation (including the human/AI/hybrid actor convention), the grounding rule, link conventions for anything under `docs/` |
 | `scope-doc`        | The scope-document template and its rules (every layer gets a verdict, deliverables are concrete, out-of-scope matters as much as in-scope) |
 | `pr-description`   | PR bodies describe the whole branch, not just the latest commit, and follow the template                 |
@@ -184,6 +192,7 @@ project to fill in:
 
 | Skill               | Used for                                                                                                |
 | -------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `strategy-discovery` | Question-driven discovery of the strategy layer and key business elements with the requester — triggered by `ea-first-change` when the strategy is still template placeholders (a project's first real initiative) or a change shifts it; a docs-only initiative ending at the strategy approval gate (Gate 1) |
 | `decision-record`   | A short, durable rationale for a single consequential call that's smaller than an initiative — most often why an AI actor's autonomy level or decision rights were set the way they were |
 | `story-sharding`    | Adapted from [BMAD-METHOD](https://github.com/bmadcode/BMAD-METHOD)'s context-engineered development: when a scope document's work package is too large for one sitting, shard it into small, self-contained story files so an agent or person resuming later never has to re-derive the whole plan from the EA tree |
 | `stack-selection`   | A decision framework plus concrete defaults for choosing a stack on a small/solo app: static-only (GitHub Pages/Cloudflare Pages, no backend) vs. needs data/auth (Supabase for managed Postgres + Auth + RLS, Vercel for hosting/CI/CD) — with the reasoning for picking one over the other |
