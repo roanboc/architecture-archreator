@@ -17,7 +17,18 @@ service. Provided by five components:
 | Walkthrough page | One requirement climbing the five layers end to end (Requester vs. Agent at each step), plus dedicated coverage of the situational `stack-selection` and `story-sharding` skills | [`site/walkthrough.html`](../../../site/walkthrough.html) |
 | Architecture page | Renders this project's own filled EA layers as the concrete "what finished looks like" example | [`site/architecture.html`](../../../site/architecture.html) |
 
-All five share [`site/styles.css`](../../../site/styles.css), which also
+Each component ships in **two language editions**: the English page listed
+above and a Spanish edition with the same filename under
+[`site/es/`](../../../site/es/index.html) (Goal G4,
+[1_strategy/1_motivation.md](../1_strategy/1_motivation.md)). The Spanish
+edition mirrors its English counterpart's structure, element `id`s, and
+source links, and every page's header carries an EN ⇄ ES switcher linking
+the two editions of the same page; `<link rel="alternate" hreflang>` tags
+declare the pairing to search engines. See
+[3_information/1_data-objects.md](../3_information/1_data-objects.md) for
+which edition wins when they disagree.
+
+All ten pages share [`site/styles.css`](../../../site/styles.css), which also
 carries the self-contained CSS diagram components (`archi-*`, `node`, the
 `loop` and `ladder`) that render this project's ArchiMate diagrams without a
 diagramming library. None of the pages build or fetch anything at request

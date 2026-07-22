@@ -27,7 +27,8 @@ and the `decision-record` skill.
   autonomy.
 - `site/` — the static guidance pages, deployed as-is (no build step) by
   GitHub Actions to GitHub Pages. `index.html`, `guide.html`,
-  `walkthrough.html`, `architecture.html`, `styles.css`.
+  `walkthrough.html`, `architecture.html`, `start.html`, `styles.css`;
+  `site/es/` mirrors the five pages in Spanish.
 
 ## Commands
 
@@ -39,7 +40,11 @@ on push to `main`.
 
 ## Conventions
 
-- Documentation language: English.
+- Documentation language: English. Site pages are published in English
+  (`site/*.html`, canonical between the two editions) and Spanish
+  (`site/es/*.html`); a change to a page updates both editions in the
+  same change (see
+  [`docs/ea/3_information/1_data-objects.md`](./docs/ea/3_information/1_data-objects.md)).
 - Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`, …).
 - Site content is a **derived** representation of this project's own
   `docs/ea/` and of the canonical skill files under `../.claude/skills/` —
