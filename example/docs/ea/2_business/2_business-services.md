@@ -10,7 +10,12 @@ The service offered to template adopters: a browsable explanation of the
 EA-first process and the human/AI/hybrid actor notation — plus, for a
 first-time adopter, how to get set up from zero (see
 [`site/start.html`](../../../site/start.html)) — kept current with the
-parent template.
+parent template. The service is offered in **English and Spanish**
+(Goal G4, [1_strategy/1_motivation.md](../1_strategy/1_motivation.md)):
+each guidance page has a Spanish edition under
+[`site/es/`](../../../site/es/index.html), and updating a page means
+updating both editions in the same change — a Spanish edition left
+behind is doc drift, the same as a stale source link.
 
 Realized by the **Publish guidance update** process:
 
