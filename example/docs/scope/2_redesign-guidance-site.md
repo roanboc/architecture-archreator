@@ -29,6 +29,18 @@ template `README.md` gains an approachable, audience-first entry point.
 The diagram-rendering change is recorded on its own in
 [decision 2 — how the site renders its diagrams](../decisions/2_site-diagram-rendering.md).
 
+## Approvals
+
+_Recorded retroactively by [initiative 7](./7_adopt-approval-gates.md):
+the approval gates postdate this initiative, so the decision on record is
+the commit history — the Pilot's review and merge accepted the aligned
+strategy, business, and information changes together with the
+implementation._
+
+| Gate | Approved by | Date | What was approved |
+| ---- | ----------- | ---- | ----------------- |
+| Gate 2 — Business (retroactive) | Pilot | 2026-07-21 | EA alignment and scope as delivered by commit `24872ba`, accepted at the merge of [PR #4](https://github.com/roanboc/archreator/pull/4) |
+
 ## Plateaus
 
 | Plateau                | State                     |

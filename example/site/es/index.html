@@ -60,14 +60,14 @@
         </div>
 
         <!-- The loop: who does what -->
-        <div class="loop" role="img" aria-label="El ciclo de desarrollo: una persona presenta un requisito, un agente de IA alinea y redacta el cambio, y una persona revisa y fusiona antes de publicar.">
+        <div class="loop" role="img" aria-label="El ciclo de desarrollo: una persona presenta un requisito, un agente de IA alinea el cambio y se detiene en puertas de aprobación antes de programar, y una persona revisa y fusiona antes de publicar.">
           <div class="loop-step" data-who="requester">
             <span class="ic" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="2"/><path d="M5 20c0-3.3 3.1-5.5 7-5.5s7 2.2 7 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </span>
             <span>
               <span class="role">Solicitante (<em lang="en">Requester</em>) — tú</span>
-              <span class="what">Di lo que quieres<small>Un requisito o un problema, no un diff.</small></span>
+              <span class="what">Di lo que quieres, aprueba en las puertas<small>Un requisito o un problema, no un diff — y tu visto bueno antes de que se programe nada.</small></span>
             </span>
           </div>
           <div class="loop-arrow" aria-hidden="true">
@@ -79,7 +79,7 @@
             </span>
             <span>
               <span class="role">Agente (<em lang="en">Agent</em>) — tu IA</span>
-              <span class="what">Alinea y luego construye<small>Recorre las capas, escribe el documento, implementa, abre un PR.</small></span>
+              <span class="what">Alinea y luego construye<small>Recorre las capas, se detiene en tus puertas, escribe el documento, implementa, abre un PR.</small></span>
             </span>
           </div>
           <div class="loop-arrow" aria-hidden="true">
@@ -141,9 +141,10 @@
           <p>
             Un cambio de requisitos nunca se programa directamente. Se alinea
             de arriba abajo a través de cinco capas — cada una responde a una
-            pregunta —, se registra en un breve documento de alcance, y solo
-            entonces se construye. La misma escalera para un colaborador
-            humano y para un agente de IA.
+            pregunta —, se registra en un breve documento de alcance, lo
+            apruebas tú en puertas explícitas, y solo entonces se construye.
+            La misma escalera para un colaborador humano y para un agente de
+            IA.
           </p>
         </div>
 

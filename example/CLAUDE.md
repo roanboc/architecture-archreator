@@ -9,13 +9,17 @@ for how it was applied here.
 ## The rule that governs everything else
 
 **Strategy and business architecture are validated before any other
-layer.** A change in requirements is never coded directly: align it through
-the numbered EA layers (`docs/ea/1_strategy` → … → `5_technology`), record
-it in a scope document (`docs/scope/`), then implement. Use the
-`ea-first-change` skill for the process, `scope-doc` for the scope
-document, `ea-doc-style` when touching anything under `docs/`, and
-`pr-description` when opening or updating a PR. If a change touches the
-Copilot's autonomy level or decision rights, also see
+layer, and the requester approves at explicit gates before development.**
+A change in requirements is never coded directly: align it through the
+numbered EA layers (`docs/ea/1_strategy` → … → `5_technology`), stop at
+the gates for the requester's approval, record it all in a scope document
+(`docs/scope/`), then implement. Use the `ea-first-change` skill for the
+process (it defines the gates), `strategy-discovery` if a change shifts
+the strategy itself, `scope-doc` for the scope document (its Approvals
+table is the durable record of the gates), `ea-doc-style` when touching
+anything under `docs/`, and `pr-description` when opening or updating a
+PR. If a change touches the Copilot's autonomy level or decision rights,
+also see
 [`docs/decisions/1_docs-agent-autonomy.md`](./docs/decisions/1_docs-agent-autonomy.md)
 and the `decision-record` skill.
 
