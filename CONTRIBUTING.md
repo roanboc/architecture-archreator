@@ -9,13 +9,26 @@ technology — and all of it before code. The full process is described in
 requirements:
 
 1. **Align the EA** — walk [docs/ea/](./docs/ea/README.md) top-down
-   (`1_strategy` → `5_technology`), updating the affected documents.
+   (`1_strategy` → `5_technology`), updating the affected documents. If
+   the strategy layer is still template placeholders, or the change shifts
+   the strategy itself (a new/changed stakeholder, driver, goal, or
+   principle), the initiative becomes **strategy discovery** first — a
+   docs-only, question-driven initiative ending at **Gate 1 — Strategy**
+   (see the `strategy-discovery` skill); implementation follows as a
+   separate initiative.
 2. **Document the scope** — add the next-numbered initiative document to
    [docs/scope/](./docs/scope/README.md).
-3. **Implement** — keeping docs and code in sync in the same change set.
+3. **Pass the gates** — before any code, the requester approves the
+   strategy, business, and information changes (**Gate 2 — Business**),
+   and chooses whether to also review the solution design before it is
+   coded (**Gate 3 — Solution design**, optional, aimed at technically
+   inclined requesters). Approvals are recorded in the scope document's
+   Approvals table.
+4. **Implement** — keeping docs and code in sync in the same change set.
 
-Bug fixes that change no documented behavior can go straight to step 3.
-Agent-oriented guidance for the same process lives in `.claude/skills/`.
+Bug fixes that change no documented behavior can go straight to step 4 —
+they pass no gates. Agent-oriented guidance for the same process lives in
+`.claude/skills/`.
 
 ## Actors in this process
 
@@ -26,13 +39,20 @@ documents:
 
 - **Requester** — whoever wants something to change: a stakeholder, a
   product owner, a bug reporter. Presents a requirement or a problem, not a
-  solution or a diff.
+  solution or a diff — and **grants the gate approvals**: the strategy
+  (Gate 1, when discovery is triggered), the strategy/business/information
+  changes before any code (Gate 2), and optionally the solution design
+  (Gate 3). Business sign-off precedes development, the way a business
+  reference group approves before building starts.
 - **Agent** — whoever executes the process: a contributor or an AI agent.
-  Walks the EA layers, writes the scope document, implements, verifies
-  alignment, and opens the PR. "Agent" here names the role, not a
-  specific tool — the process doesn't change based on who or what fills it.
+  Walks the EA layers, stops at each gate until the requester approves,
+  writes the scope document, implements, verifies alignment, and opens the
+  PR. "Agent" here names the role, not a specific tool — the process
+  doesn't change based on who or what fills it.
 - **Reviewer** — approves or requests changes on the PR, confirms any open
-  questions the requester needed to weigh in on, and merges.
+  questions the requester needed to weigh in on, checks that the gate
+  approvals this change required are recorded in the scope document, and
+  merges.
 
 ## Process flow
 
@@ -43,15 +63,21 @@ where each actor's responsibility starts and ends:
 flowchart TD
   subgraph REQ["Requester"]
     req(["Presents a requirement<br>or reports a problem"])
+    gate1{"Gate 1 — approve<br>the strategy?"}
+    gate2{"Gate 2 — approve strategy,<br>business, information?<br>Review the solution<br>design too?"}
+    gate3{"Gate 3 — approve the<br>solution design?"}
   end
 
   subgraph AGENT["Agent (person or AI)"]
-    walk["Walk docs/ea/ top-down<br>1_strategy → 5_technology"]
+    assess["Assess 1_strategy<br>against the change"]
+    discovery["Strategy discovery —<br>question-driven, docs-only<br>(strategy-discovery skill)"]
     conflict{"Contradicts an existing<br>Principle?"}
     bugfix{"Pure bug fix — no<br>documented behavior<br>changes?"}
-    scopedoc["Write scope document<br>docs/scope/N_*.md"]
+    walk23["Align 2_business and<br>3_information"]
+    scopedoc["Draft scope document<br>docs/scope/N_*.md"]
+    walk45["Align 4_application and<br>5_technology"]
     implement["Implement, keeping EA +<br>scope docs true to the code"]
-    verify["Verify alignment<br>(ea-first-change, step 4)"]
+    verify["Verify alignment<br>(ea-first-change, step 7)"]
     openpr["Open PR — default or<br>bugfix template"]
     address["Address review feedback"]
   end
@@ -63,12 +89,24 @@ flowchart TD
   stop[["Stop — surface the conflict<br>to the requester instead<br>of proceeding"]]
   merged(["Merged"])
 
-  req --> walk --> conflict
+  req --> assess
+  assess -->|strategy is placeholders,<br>or the change shifts it| discovery
+  discovery --> gate1
+  gate1 -- changes requested --> discovery
+  gate1 -- "approved (recorded in<br>scope doc)" --> verify
+  gate1 -.->|implementation follows<br>as a new initiative| req
+  assess --> conflict
   conflict -- yes --> stop
   stop -.->|requester decides how<br>to resolve it| req
   conflict -- no --> bugfix
   bugfix -- yes --> implement
-  bugfix -- no --> scopedoc --> implement
+  bugfix -- no --> walk23 --> scopedoc --> gate2
+  gate2 -- changes requested --> walk23
+  gate2 -- "approved (recorded in<br>scope doc)" --> walk45
+  walk45 -->|Gate 3 requested<br>at Gate 2| gate3
+  gate3 -- changes requested --> walk45
+  gate3 -- "approved (recorded in<br>scope doc)" --> implement
+  walk45 -->|Gate 3 not requested| implement
   implement --> verify --> openpr --> review
   review -- changes requested --> address --> openpr
   review -- approved --> merged
@@ -76,9 +114,11 @@ flowchart TD
 
 Every arrow into the Agent subgraph is a decision the agent makes
 explicitly and records — a "no change" verdict on an EA layer, a "pure bug
-fix, no scope document" statement, an open question logged for the
-requester — never a silent skip. See `ea-first-change` for the full
-step-by-step version of this same flow.
+fix, no scope document" statement, a gate approval written into the scope
+document's Approvals table, an open question logged for the requester —
+never a silent skip. See `ea-first-change` for the full step-by-step
+version of this same flow, and `strategy-discovery` for the discovery
+branch.
 
 ## Pull requests
 
@@ -129,7 +169,10 @@ A change is done when:
 - the affected EA documents ([docs/ea/](./docs/ea/README.md)) still
   describe the system as it now is — services, rules, data objects, and
   their realizations (or explicit "Pending") are up to date;
-- the initiative's scope document reflects what was actually delivered;
+- the initiative's scope document reflects what was actually delivered,
+  and its Approvals table records every gate the change required (Gate 2
+  at minimum for any change in documented behavior; Gate 1 for a
+  strategy-discovery initiative; Gate 3 if the requester opted in);
 - cross-links resolve and diagrams render;
 - any new interpretation of a requirement is recorded as an open question
   with its adopted interpretation (see the `scope-doc` skill).

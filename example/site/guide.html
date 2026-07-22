@@ -70,9 +70,45 @@
             </tbody>
           </table>
         </div>
+        <h3 id="gates" style="margin-top:2rem">…and stop at the gates</h3>
+        <p>
+          The walk isn't silent paperwork — it stops for <strong>your</strong>
+          approval at explicit gates, the way a business reference group signs
+          off before development starts:
+        </p>
+        <ul>
+          <li>
+            <strong>Gate 1 — Strategy.</strong> If the strategy layer is still
+            empty (a brand-new project) or the change shifts it — a new
+            stakeholder, driver, goal, or principle — the whole initiative
+            becomes <em>strategy discovery</em>: the agent interviews you in
+            plain business language, documents the strategy and the key
+            business elements, and builds nothing until you approve them.
+          </li>
+          <li>
+            <strong>Gate 2 — Business.</strong> On every initiative, the agent
+            stops after layers 1–3: you accept the strategy, business, and
+            information changes before a single line of code is written.
+          </li>
+          <li>
+            <strong>Gate 3 — Solution design (optional).</strong> At Gate 2
+            the agent asks whether you also want to see the solution design —
+            the application components, good practices, and design patterns —
+            before it's implemented. Say yes if you like reading architecture;
+            say no and layers 4–5 are covered by your PR review instead.
+          </li>
+        </ul>
+        <p>
+          Every approval is recorded in the initiative's scope document — the
+          gate, who approved, when, and what was shown — so acceptance is a
+          durable record, not a chat message. Pure bug fixes that change no
+          documented behavior pass no gates.
+        </p>
         <p class="source-note">
-          Full process:
+          Full process and the gates:
           <a href="https://github.com/roanboc/archreator/blob/main/.claude/skills/ea-first-change/SKILL.md">ea-first-change</a> ·
+          the discovery interview:
+          <a href="https://github.com/roanboc/archreator/blob/main/.claude/skills/strategy-discovery/SKILL.md">strategy-discovery</a> ·
           notation and grounding rules:
           <a href="https://github.com/roanboc/archreator/blob/main/.claude/skills/ea-doc-style/SKILL.md">ea-doc-style</a>
         </p>
@@ -191,7 +227,11 @@
             <tbody>
               <tr>
                 <td><a href="https://github.com/roanboc/archreator/blob/main/.claude/skills/scope-doc/SKILL.md">scope-doc</a></td>
-                <td>The scope-document template: EA-alignment table, plateaus, work packages, in/out of scope</td>
+                <td>The scope-document template: EA-alignment table, the Approvals record of the gates, plateaus, work packages, in/out of scope</td>
+              </tr>
+              <tr>
+                <td><a href="https://github.com/roanboc/archreator/blob/main/.claude/skills/strategy-discovery/SKILL.md">strategy-discovery</a></td>
+                <td>The question-driven interview that documents a new (or shifted) strategy and its key business elements, ending at <a href="#gates">Gate 1</a></td>
               </tr>
               <tr>
                 <td><a href="https://github.com/roanboc/archreator/blob/main/.claude/skills/pr-description/SKILL.md">pr-description</a></td>

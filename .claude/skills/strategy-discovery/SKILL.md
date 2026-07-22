@@ -1,0 +1,91 @@
+---
+name: strategy-discovery
+description: Use when the ea-first-change process finds that a change needs a new or significantly revised strategy — the strategy layer still contains template placeholders (first real initiative of a project created from the template), or the change adds/modifies a Stakeholder, Driver, Goal, or Principle, or reshapes the value stream. Runs a question-driven discovery with the Requester to document the strategy and the key business elements, ending at an explicit strategy approval gate (Gate 1) before anything else is built.
+---
+
+# Strategy discovery
+
+When this skill applies, **the entire initiative is discovery**: no code,
+no application design, no stack decisions. The deliverables are the
+strategy layer, the key business elements it implies, and a scope document
+recording the Requester's **Gate 1 — Strategy** approval. Implementation —
+whatever request originally triggered the discovery — follows as a
+separate initiative through the normal `ea-first-change` process, which
+will then find the strategy filled in and current.
+
+## How to run the conversation
+
+- **Ask, don't assume.** Every element in the strategy docs comes from a
+  Requester answer, an existing document, or observable fact — never from
+  what a project like this "usually" wants. What the Requester can't
+  answer yet is marked **"Pending — future initiative"** or logged as an
+  open question with the interpretation you adopted (see `scope-doc`).
+- **Small batches, one theme at a time.** Ask 3–5 questions per round,
+  following the theme order below. Phrase them in the Requester's business
+  language, not in ArchiMate vocabulary — "who would be upset if this
+  didn't exist?" beats "enumerate your stakeholders".
+- **Write as you go, and show it back.** After each round, update the
+  affected documents (per `ea-doc-style`) and reflect a short summary back
+  to the Requester so misunderstandings surface immediately — the docs are
+  the record of the conversation, not a transcript kept elsewhere.
+- **Revision, not amnesia.** If the strategy layer already has real
+  content (trigger was a strategy *shift*, not a blank template), start
+  from what's documented: confirm what still holds, and focus the
+  questions on what the new requirement bends or breaks.
+
+## Question themes, in order
+
+The order matches the strategy layer's own analysis order (see
+`docs/ea/1_strategy/README.md`): who wants what and why, then what we must
+be able to do, then how value flows — and only then the key business
+elements underneath.
+
+1. **Stakeholders and drivers** (`1_motivation.md`): Who cares whether
+   this exists — users, owners, payers, regulators? What pressures them
+   (cost, time, risk, obligation, opportunity)? Who can veto or must
+   sign off?
+2. **Goals and outcomes** (`1_motivation.md`): What must become true for
+   this to be worth building? How would the Requester recognize success —
+   what observable outcome, by when? What is explicitly *not* a goal?
+3. **Principles** (`1_motivation.md`): What must always — or never — be
+   true, regardless of feature? Keep them few, load-bearing, and testable
+   ("role determines access", not "be secure"); these are what every
+   future change gets checked against.
+4. **Capabilities and resources** (`2_capabilities-and-resources.md`):
+   What must the project be able to do to reach those goals? With what —
+   people, systems, data, budget — and what is missing today?
+5. **Value stream** (`3_value-stream.md`): From the first stakeholder
+   need to value delivered, what are the stages? Which capability serves
+   each stage?
+6. **Key business elements** (`docs/ea/2_business/`): Who are the actors
+   and roles — and is any role performed or assisted by an AI, at what
+   autonomy level and decision rights (`ea-doc-style`'s actor notation)?
+   What core services are offered, what main business objects are handled,
+   and which terms and rules came up repeatedly (they seed the glossary
+   and rules table)?
+
+Theme 6 discovers the **key** business elements — enough for the strategy
+to be judged coherent and for Gate 1 to mean something. The full business
+and information alignment still happens per initiative in `ea-first-change`
+steps 2–4.
+
+## Deliverables
+
+A docs-only initiative:
+
+- `docs/ea/1_strategy/` filled in (or revised), and the key business
+  elements captured in `docs/ea/2_business/`;
+- a scope document (`scope-doc` skill) whose EA-alignment table records
+  the impact on layers 1–2 and an explicit "not started" / "no change"
+  verdict for the rest, and whose Approvals table records Gate 1;
+- open questions logged for everything adopted-but-unconfirmed.
+
+## Gate 1 — Strategy approval
+
+When the themes are exhausted (or the Requester's answers are), present
+one compact summary — stakeholders, drivers, goals, principles, value
+stream, key business elements — with links to the documents behind it, and
+ask explicitly for approval of the strategy. Record the approval in the
+scope document's Approvals table (who, when, what was shown). Only after
+Gate 1 is granted may an implementation initiative build on this strategy;
+if changes are requested, revise and present again.

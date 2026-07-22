@@ -26,6 +26,18 @@ no VS Code (or any install) is required, and there is a genuinely free path
 | 4_application | One new component, **Setup page**, added to the **Guidance publishing** application service (four → five components) — see [4_application/2_application-components.md](../ea/4_application/2_application-components.md) |
 | 5_technology  | **No change.** Same static, build-free HTML deployed by the existing workflow to GitHub Pages; the new page is one more file copied verbatim — see [5_technology/2_deployment.md](../ea/5_technology/2_deployment.md) |
 
+## Approvals
+
+_Recorded retroactively by [initiative 7](./7_adopt-approval-gates.md):
+the approval gates postdate this initiative, so the decision on record is
+the commit history — the Pilot's review and merge accepted the aligned
+strategy, business, and information changes together with the
+implementation._
+
+| Gate | Approved by | Date | What was approved |
+| ---- | ----------- | ---- | ----------------- |
+| Gate 2 — Business (retroactive) | Pilot | 2026-07-21 | EA alignment and scope as delivered by commit `74cf73d`, accepted at the merge of [PR #6](https://github.com/roanboc/archreator/pull/6) |
+
 ## Plateaus
 
 | Plateau                | State                     |

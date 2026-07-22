@@ -25,17 +25,28 @@ folders are numbered in:
    [4_application](../ea/4_application/README.md) (which services,
    components, ports change?) → [5_technology](../ea/5_technology/README.md)
    (any runtime, build, or hosting impact?). Update the affected EA
-   documents in the same change.
+   documents in the same change. If the strategy layer is still template
+   placeholders, or the change adds/modifies a stakeholder, driver, goal,
+   or principle, the initiative becomes **strategy discovery** first — a
+   docs-only, question-driven initiative ending at **Gate 1 — Strategy**
+   approval (see `.claude/skills/strategy-discovery/`); implementation
+   follows as a separate initiative.
 2. **Document the scope.** Add the next-numbered file to this folder
-   describing plateaus, work packages, in/out of scope, and gaps — before
-   implementation starts, refined as it proceeds.
-3. **Implement.** Only then write the code, keeping the scope document and
+   describing plateaus, work packages, in/out of scope, gaps, and gate
+   approvals — before implementation starts, refined as it proceeds.
+3. **Pass the gates.** Before any code, the requester approves the
+   strategy, business, and information changes (**Gate 2 — Business**) and
+   chooses whether to also review the solution design before it is coded
+   (**Gate 3 — Solution design**, optional). Approvals are recorded in the
+   scope document's Approvals table — who approved, when, and what was
+   shown.
+4. **Implement.** Only then write the code, keeping the scope document and
    EA docs in sync with what is actually delivered.
 
-Agent guidance for this process lives in `.claude/skills/ea-first-change/`
-and `.claude/skills/scope-doc/`; PR descriptions follow
-`.github/pull_request_template.md` (see `.claude/skills/pr-description/`)
-and must cover the whole branch.
+Agent guidance for this process lives in `.claude/skills/ea-first-change/`,
+`.claude/skills/strategy-discovery/`, and `.claude/skills/scope-doc/`; PR
+descriptions follow `.github/pull_request_template.md` (see
+`.claude/skills/pr-description/`) and must cover the whole branch.
 
 If the project needs a single running index of adopted interpretations that
 still need sign-off from a stakeholder who can't be consulted synchronously,

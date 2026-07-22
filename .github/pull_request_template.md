@@ -22,7 +22,9 @@
 ## Scope document
 
 <!-- Link the initiative's docs/scope/N_*.md (added or updated in this PR),
-     or state "pure bug fix — no scope document" and why. -->
+     or state "pure bug fix — no scope document" and why. Its Approvals
+     table records the gates this branch passed (Gate 2 at minimum for any
+     change in documented behavior). -->
 
 ## EA layers touched
 

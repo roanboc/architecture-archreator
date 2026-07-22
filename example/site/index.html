@@ -60,14 +60,14 @@
         </div>
 
         <!-- The loop: who does what -->
-        <div class="loop" role="img" aria-label="The development loop: a human presents a requirement, an AI agent aligns and drafts the change, and a human reviews and merges before it ships.">
+        <div class="loop" role="img" aria-label="The development loop: a human presents a requirement, an AI agent aligns the change and stops at approval gates before coding, and a human reviews and merges before it ships.">
           <div class="loop-step" data-who="requester">
             <span class="ic" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="2"/><path d="M5 20c0-3.3 3.1-5.5 7-5.5s7 2.2 7 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </span>
             <span>
               <span class="role">Requester — you</span>
-              <span class="what">Say what you want<small>A requirement or a problem, not a diff.</small></span>
+              <span class="what">Say what you want, approve at the gates<small>A requirement or a problem, not a diff — and your sign-off before anything is coded.</small></span>
             </span>
           </div>
           <div class="loop-arrow" aria-hidden="true">
@@ -79,7 +79,7 @@
             </span>
             <span>
               <span class="role">Agent — your AI</span>
-              <span class="what">Aligns, then builds<small>Walks the layers, writes the doc, implements, opens a PR.</small></span>
+              <span class="what">Aligns, then builds<small>Walks the layers, stops at your gates, writes the doc, implements, opens a PR.</small></span>
             </span>
           </div>
           <div class="loop-arrow" aria-hidden="true">
@@ -141,8 +141,9 @@
           <p>
             A change in requirements is never coded directly. It's aligned
             top-down through five layers — each answering one question —
-            recorded in a short scope document, and only then built. Same
-            ladder for a human contributor and an AI agent.
+            recorded in a short scope document, approved by you at explicit
+            gates, and only then built. Same ladder for a human contributor
+            and an AI agent.
           </p>
         </div>
 

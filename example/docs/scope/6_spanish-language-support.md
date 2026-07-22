@@ -25,6 +25,18 @@ translation framework.
 | 4_application | No new component. Each of the five components of **Guidance publishing** ships in two language editions (same filename under `site/es/`), linked by a header language switcher and `hreflang` alternate tags — see [4_application/2_application-components.md](../ea/4_application/2_application-components.md) |
 | 5_technology  | **No change.** The deploy workflow uploads `example/site` recursively, so `site/es/` publishes with the existing pipeline; still no build step, nothing fetched at request time — see [5_technology/2_deployment.md](../ea/5_technology/2_deployment.md) |
 
+## Approvals
+
+_Recorded retroactively by [initiative 7](./7_adopt-approval-gates.md):
+the approval gates postdate this initiative, so the decision on record is
+the commit history — the Pilot's review and merge accepted the aligned
+strategy, business, and information changes together with the
+implementation._
+
+| Gate | Approved by | Date | What was approved |
+| ---- | ----------- | ---- | ----------------- |
+| Gate 2 — Business (retroactive) | Pilot | 2026-07-22 | EA alignment and scope as delivered by commit `fb86ffa`, accepted at the merge of [PR #7](https://github.com/roanboc/archreator/pull/7) |
+
 ## Plateaus
 
 | Plateau                | State                     |
