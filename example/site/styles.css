@@ -304,6 +304,7 @@ h3 {
   justify-content: space-between;
   gap: 1rem;
   min-height: 3.75rem;
+  min-width: 0;
 }
 
 .brand {
@@ -326,6 +327,16 @@ h3 {
   align-items: center;
   gap: 0.35rem;
   font-size: 0.92rem;
+  /* If the nav is ever wider than the space left next to the brand, it
+     scrolls within itself instead of widening the whole page. */
+  min-width: 0;
+  overflow-x: auto;
+  padding-block: 0.25rem;
+  scrollbar-width: none;
+}
+
+.site-nav::-webkit-scrollbar {
+  display: none;
 }
 
 .site-nav a {
@@ -357,6 +368,37 @@ h3 {
 @media (max-width: 34rem) {
   .site-nav a.hide-narrow {
     display: none;
+  }
+
+  /* Two-row header: brand centered on top, nav full-width below. */
+  .site-header .wrap {
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: 0;
+    padding-block: 0.5rem 0.15rem;
+  }
+
+  .site-nav {
+    flex: 1 1 100%;
+    gap: 0.1rem;
+    font-size: 0.85rem;
+  }
+
+  /* Center the items while keeping the start reachable if the nav ever
+     overflows (a centered scroll container would clip its start edge). */
+  .site-nav::before,
+  .site-nav::after {
+    content: "";
+    margin-inline: auto;
+  }
+
+  .site-nav a {
+    padding: 0.3rem 0.45rem;
+    white-space: nowrap;
+  }
+
+  .brand {
+    font-size: 0.95rem;
   }
 }
 
@@ -649,6 +691,15 @@ h3 {
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr;
+}
+
+/* Grid items default to min-width:auto, which lets a wide child (e.g. a
+   table's min-width) stretch the column past the viewport on phones.
+   Allow columns to shrink so scroll containers inside them can take over. */
+.grid > *,
+.grid-2 > *,
+.hero .wrap > * {
+  min-width: 0;
 }
 
 @media (min-width: 44rem) {
