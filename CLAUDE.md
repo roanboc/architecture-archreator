@@ -17,7 +17,11 @@ numbered EA layers (`docs/ea/1_strategy` → … → `5_technology`), stop at
 the gates for the requester's approval, record it all in a scope document
 (`docs/scope/`), then implement. Use the `ea-first-change` skill for the
 process (it defines the gates), `strategy-discovery` when the strategy is
-still unfilled or the change shifts it, `scope-doc` for the scope document
+still unfilled or the change shifts it, `operating-model-discovery` when
+the subject is an organization rather than an application (the value
+proposition and business model canvases in `docs/ea/0_business-design/`
+come first, and the strategy layer is derived from them),
+`scope-doc` for the scope document
 (its Approvals table is the durable record of the gates), `ea-doc-style`
 when touching anything under `docs/`, and `pr-description` when opening or
 updating a PR (the body must cover the whole branch, not just the latest

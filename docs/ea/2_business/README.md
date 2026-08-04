@@ -14,8 +14,8 @@ handled_, and finally the domain vocabulary and rules.
 
 | #   | Document                                                          | Elements                                           | Question it answers                              |
 | --- | -------------------------------------------------------------------| ---------------------------------------------------- | --------------------------------------------------- |
-| 1   | [1_business-actors-and-roles.md](./1_business-actors-and-roles.md) | Business Actors and Roles                          | Who interacts with the system?                    |
-| 2   | [2_business-services.md](./2_business-services.md)                | Business Services                                  | What is offered to them?                          |
+| 1   | [1_business-actors-and-roles.md](./1_business-actors-and-roles.md) | Business Actors and Roles, organizational units, external partners (Contracts, Collaborations) | Who interacts with the system, and who do we depend on? |
+| 2   | [2_business-services.md](./2_business-services.md)                | Products, Business Services, Business Interfaces (channels) | What is offered to them, and through which channels? |
 | 3   | [3_business-processes.md](./3_business-processes.md)              | Business Processes                                 | How are those services delivered?                 |
 | 4   | [4_business-objects.md](./4_business-objects.md)                  | Business Objects                                   | What things do the processes handle?              |
 | 5   | [5_domain-context-and-rules.md](./5_domain-context-and-rules.md)  | Problem statement, system context, glossary, rules | What vocabulary and constraints bind everything?  |
@@ -25,6 +25,18 @@ its terms in code and commits) and its **business rules table** — every new
 rule gets a row there, with its rationale, before it gets a line of code.
 It is also the natural home for a role × operation access matrix if the
 project has segregated roles.
+
+`2_business-services.md` is where a **«Product»** aggregates the services
+that make it up. A single-application project usually has one implicit
+product and can leave it out; an organization sells several, and the
+portfolio is what makes the rest of the model make sense — two products may
+share every capability and still need entirely different channels and
+processes. On the company track the products, channels, and customer
+relationships are derived from the business model canvases (see
+[0_business-design/](../0_business-design/README.md#from-canvas-to-archimate)),
+and Key Partners land in `1_business-actors-and-roles.md` as external
+actors, each with the «Contract» or «Business Collaboration» that binds
+them.
 
 `1_business-actors-and-roles.md` states each actor's **kind** — human, AI,
 or hybrid — and, for AI/hybrid actors, its autonomy level, decision

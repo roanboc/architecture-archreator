@@ -25,6 +25,7 @@ _[← Scope index](./README.md) · [EA home](../ea/README.md)_
 
 | Layer         | Impact                                              |
 | ------------- | ---------------------------------------------------- |
+| 0_business-design | <canvases added/changed — or "not used" for an application project> |
 | 1_strategy    | <new/changed goals, drivers — or "no change" + why> |
 | 2_business    | <services, processes, rules, glossary>              |
 | 3_information | <data objects, flows, storage, classification>      |
@@ -77,9 +78,10 @@ _[← Scope index](./README.md) · [EA home](../ea/README.md)_
   approved, when, and what was shown (see `ea-first-change` § The gates).
   Any initiative that changes documented behavior carries at least a
   **Gate 2 — Business** row before implementation starts; a
-  strategy-discovery initiative carries **Gate 1 — Strategy**; a
-  **Gate 3 — Solution design** row appears only if the Requester opted in
-  at Gate 2. An approval that isn't recorded didn't happen; a scope
+  strategy-discovery initiative carries **Gate 1 — Strategy**; an
+  operating-model discovery carries **Gate 0 — Business model** and then
+  **Gate 1**; a **Gate 3 — Solution design** row appears only if the
+  Requester opted in at Gate 2. An approval that isn't recorded didn't happen; a scope
   document is a historical record, so the table shows who accepted what,
   durably.
 - **Deliverables are concrete artifacts** (file paths, page/screen names),

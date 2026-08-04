@@ -33,6 +33,7 @@
 
 | Layer         | Impact |
 | ------------- | ------ |
+| 0_business-design |    |
 | 1_strategy    |        |
 | 2_business    |        |
 | 3_information |        |

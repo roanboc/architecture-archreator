@@ -19,11 +19,20 @@ this order — strategy first, technology last — and captured in a
 
 | #   | Layer                                       | ArchiMate viewpoint      | Answers                                                                       |
 | --- | -------------------------------------------- | ------------------------ | ------------------------------------------------------------------------------ |
+| 0   | [0_business-design/](./0_business-design/README.md) | _none — business design input_ | Who are the customers, what do they need, and how does each offering pay? |
 | 1   | [1_strategy/](./1_strategy/README.md)       | Motivation + Strategy    | Why does this exist? Who cares? What capabilities and value stream?           |
 | 2   | [2_business/](./2_business/README.md)       | Business layer           | Who does what? Which services are offered, through which processes?          |
 | 3   | [3_information/](./3_information/README.md) | Passive structure (data) | What information exists, where does it live, how does it flow?               |
 | 4   | [4_application/](./4_application/README.md) | Application layer        | Which software services and components realize the business services?       |
 | 5   | [5_technology/](./5_technology/README.md)   | Technology layer         | What runs it all — runtimes, tooling, build, hosting, deployment?            |
+
+Layer `0` is the odd one out: it holds no ArchiMate elements at all, only
+the Value Proposition and Business Model canvases the architecture is
+**derived** from. It is filled in only when the initiative is modeling an
+organization rather than building a single application — see
+[0_business-design/](./0_business-design/README.md), which carries the
+block-by-block mapping into layers 1 and 2. An application project leaves
+the folder empty and starts at layer 1.
 
 Files inside each layer folder are numbered the same way; each layer README
 explains its own analysis order. Delivered initiatives (ArchiMate
@@ -112,7 +121,11 @@ flowchart TB
 
 ## Reading order
 
-Top-down (recommended for newcomers — the same order as the folder numbers):
+Top-down (recommended for newcomers — the same order as the folder numbers).
+If the project modeled an organization, start one step earlier, at
+[0_business-design/1_value-proposition-canvas.md](./0_business-design/1_value-proposition-canvas.md)
+→ [0_business-design/2_business-model-canvas.md](./0_business-design/2_business-model-canvas.md),
+and read the strategy layer as their consequence:
 [1_strategy/1_motivation.md](./1_strategy/1_motivation.md)
 → [1_strategy/3_value-stream.md](./1_strategy/3_value-stream.md)
 → [2_business/2_business-services.md](./2_business/2_business-services.md)

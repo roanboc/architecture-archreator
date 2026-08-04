@@ -18,6 +18,7 @@ the assessment order.
 
 | Gate | When | The Requester approves |
 | ---- | ---- | ----------------------- |
+| **Gate 0 — Business model** | Only when step 1 finds the initiative is modeling an organization | The Value Proposition Canvas per customer segment and the Business Model Canvas per product, before anything is derived from them — see the `operating-model-discovery` skill |
 | **Gate 1 — Strategy** | Only when step 1 triggers strategy discovery | The strategy layer itself (motivation, capabilities, value stream) and the key business elements discovered with it — see the `strategy-discovery` skill |
 | **Gate 2 — Business** | Every initiative, after layers 1–3 are aligned and before any code | The changes (or explicit "no change" verdicts) to `1_strategy`, `2_business`, and `3_information` |
 | **Gate 3 — Solution design** | Only if the Requester opts in when asked at Gate 2 | The solution architecture and logical application components, with the good practices and design patterns applied called out |
@@ -41,8 +42,19 @@ optional (see the `scope-doc` skill).
 ## Step 1 — Assess strategy, and decide whether this is discovery
 
 Read `docs/ea/1_strategy/` against the requested change and reach one of
-three verdicts, explicitly:
+four verdicts, explicitly:
 
+- **Operating-model discovery needed.** Triggered when the subject being
+  modeled is an **organization** rather than a single application — a
+  company, a department, or a service line whose operating model is itself
+  the deliverable — and `docs/ea/0_business-design/` is empty or no longer
+  matches. Switch to the `operating-model-discovery` skill: the initiative
+  becomes documenting the Value Proposition Canvas per segment and the
+  Business Model Canvas per product, ending at **Gate 0**, and then handing
+  off to `strategy-discovery` to derive layers 1–2 from the approved
+  canvases. Tell the two apart by the subject, not the size of the request:
+  "several products share one capability base and I need to model the
+  business" is this verdict; "this app needs a new feature" is not.
 - **Strategy discovery needed.** Triggered when either (a)
   `docs/ea/1_strategy/` still contains template placeholders — this is the
   first real initiative of a project created from the template — or (b) the
@@ -140,8 +152,9 @@ defines).
   that will deliver it — the EA set stays verifiable against the code.
 - The scope document's "in scope / out of scope" table matches the diff.
 - The scope document's Approvals table records every gate this initiative
-  passed — Gate 2 at minimum for any change in documented behavior; Gate 1
-  for a strategy-discovery initiative; Gate 3 only if it was requested.
+  passed — Gate 2 at minimum for any change in documented behavior; Gate 0
+  and Gate 1 for an operating-model discovery; Gate 1 for a
+  strategy-discovery initiative; Gate 3 only if it was requested.
 - Cross-links between docs resolve (paths and anchors both — check anchors
   carefully if the doc language uses accented headings).
 - If the scope document gained or resolved an "Open question", the
