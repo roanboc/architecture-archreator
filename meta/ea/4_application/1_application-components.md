@@ -24,21 +24,25 @@ given, the model is wrong and CI should have caught it.
 | `ACMP10` | Story sharding | — (supports `BSVC1`) | [`.claude/skills/story-sharding/SKILL.md`](../../../.claude/skills/story-sharding/SKILL.md) |
 | `ACMP11` | Stack selection | — (supports `BSVC1`) | [`.claude/skills/stack-selection/SKILL.md`](../../../.claude/skills/stack-selection/SKILL.md) |
 | `ACMP12` | PR authoring | — (supports `BSVC1`) | [`.claude/skills/pr-description/SKILL.md`](../../../.claude/skills/pr-description/SKILL.md) |
-| `ACMP13` | Link checker | `RULE2` (partially — it checks links, not element references) | [`scripts/check_links.py`](../../../scripts/check_links.py) |
+| `ACMP13` | Link checker | `RULE2` (partially — it checks links, not realizations) | [`scripts/check_links.py`](../../../scripts/check_links.py) |
 | `ACMP14` | Plugin package | `BSVC7` | [`.claude/.claude-plugin/plugin.json`](../../../.claude/.claude-plugin/plugin.json), [`.claude-plugin/marketplace.json`](../../../.claude-plugin/marketplace.json) |
-| `ACMP15` | Model exporter — the `nodes`/`edges` projection and dangling-ID validator | `RULE5` fully, `RULE2` fully | **Pending — future initiative.** Designed in [`stack-selection`](../../../.claude/skills/stack-selection/SKILL.md) § The model as data; nothing built |
+| `ACMP15` | Element-ID validator | `RULE5` | [`scripts/check_model.py`](../../../scripts/check_model.py) |
 
-## The gap this table makes obvious
+## What is enforced, and what still isn't
 
-`ACMP13` realizes `RULE2` only *partially*, and `RULE5` is enforced by
-nothing at all. The link checker verifies that a link resolves to a file; no
-component verifies that `PAIN2` resolves to an element, or that a retired ID
-was never reused. `ACMP15` is the component that would close both, and it
-does not exist.
+`ACMP15` closes `RULE5`: every element reference under an `ea/` tree
+resolves, no ID is defined twice, and no retired ID reappears as live. It
+builds the graph in memory and exits — there is no exported model, and
+deliberately so ([decision 4](../../decisions/4_defer-the-model-database.md)
+records why, and what would change the answer).
 
-That is the single largest gap in archreator's own architecture, and putting
-it in this table rather than in prose is the point — a Pending row with two
-rules pointing at it is harder to forget than a paragraph in a backlog.
+**`RULE2` is still only partly enforced.** `ACMP13` verifies that a *link*
+resolves to a file; nothing verifies that a "Realized by" cell naming a
+module path points at something that exists. That check was considered and
+left out: distinguishing a repository path from a team name is fuzzy, and a
+wrong failure in CI teaches people to ignore CI. The grounding rule is
+therefore still carried by review, not by tooling — which is worth knowing
+when reading any row in this repository that claims a realization.
 
 ## Interface
 
@@ -62,7 +66,7 @@ flowchart TB
   acmp3["«Application Component»<br>ACMP3/4 Discovery"]:::application
   acmp6["«Application Component»<br>ACMP6 Notation authority"]:::application
   acmp13["«Application Component»<br>ACMP13 Link checker"]:::application
-  acmp15["«Application Component»<br>ACMP15 Model exporter<br>PENDING"]:::application
+  acmp15["«Application Component»<br>ACMP15 Element-ID validator"]:::application
 
   bsvc1["«Business Service»<br>BSVC1 Aligned change"]:::business
   rule2["«Business Rule»<br>RULE2 Grounding"]:::business
@@ -73,8 +77,7 @@ flowchart TB
   acmp1 -->|realizes| bsvc1
   acmp6 -->|serves| acmp1
   acmp13 -.->|partially enforces| rule2
-  acmp15 -.->|would enforce| rule2
-  acmp15 -.->|would enforce| rule5
+  acmp15 -->|enforces| rule5
 
   classDef application fill:#c2f0ff,stroke:#0288d1,color:#333
   classDef business fill:#fffbb5,stroke:#b8a200,color:#333

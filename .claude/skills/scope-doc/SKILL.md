@@ -94,6 +94,13 @@ _[← Scope index](./README.md) · [EA home](../ea/README.md)_
   note.
 - A merged initiative's scope document is a **historical record** — do not
   rewrite it later; follow-up work gets a new numbered document.
+- **The record is what it says, not where its links point.** If a later
+  change renames or moves a file, update the *link targets* in merged scope
+  documents so they still resolve, and leave every word alone — including
+  link text, which was accurate when written. A dangling link makes the
+  record less usable without making it more truthful, so repairing the path
+  preserves the history rather than rewriting it. Anything that changes a
+  claim — a deliverable, a verdict, an approval — is still forbidden.
 - Optionally include a small Mermaid plateau diagram using the
   `implementation` classDef from the EA notation conventions
   (`docs/ea/README.md`).

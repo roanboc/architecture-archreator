@@ -62,7 +62,7 @@ archreator's differentiation against it is real but currently undersold:
 | # | The differentiator | Where it lives today |
 | - | ------------------ | -------------------- |
 | 1 | **AI actors as first-class modeled organization members** — `«Business Actor (AI)»` carrying a mandatory autonomy level (advisory / co-pilot / autonomous-with-checkpoint / fully autonomous), decision rights, and an escalation path | [`ea-doc-style` § Actors](../../.claude/skills/ea-doc-style/SKILL.md) |
-| 2 | **A standing ArchiMate model as the deliverable**, not generated governance artifacts | [`example-company/`](../../example-company/README.md) |
+| 2 | **A standing ArchiMate model as the deliverable**, not generated governance artifacts | [`meta/ea/`](../ea/README.md) |
 | 3 | **The grounding rule** — every element names the artifact realizing it, or is explicitly "Pending", so the model is falsifiable against the repository | [`ea-doc-style` § Grounding rule](../../.claude/skills/ea-doc-style/SKILL.md) |
 | 4 | **Reasoning-first skills, not a command catalogue** — the skill states the *what*, the model reasons the *how* | [`.claude/skills/`](../../.claude/skills/README.md) |
 
@@ -151,7 +151,7 @@ into a single clone:
 | - | ---- | --------- |
 | **Method** | the skills, the PR templates, the link checker | versionable software — wants upgrades |
 | **Scaffold** | layer READMEs, document templates, `CLAUDE.md`, `CONTRIBUTING.md` | seed content, overwritten on day one |
-| **Examples** | `example/`, `example-company/` | read-only reference — should never be cloned |
+| **Examples** | `site/`, `example-company/` | read-only reference — should never be cloned |
 
 Forcing all three into one bundle is *why* the README needed a section
 explaining that downstream projects must not submodule or pin, and why method

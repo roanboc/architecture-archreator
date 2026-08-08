@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>archreator — architecture-first building for the AI era</title>
+  <meta name="description" content="Model how your organization works, so AI can help run it: an architecture that lives in git as markdown, humans approving at explicit gates, and AI agents modeled as members of the organization rather than tools used by it." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='6' y='6' width='20' height='4' rx='1.5' fill='%237e57c2'/%3E%3Crect x='6' y='12' width='20' height='4' rx='1.5' fill='%23c8a24a'/%3E%3Crect x='6' y='18' width='20' height='4' rx='1.5' fill='%230288d1'/%3E%3Crect x='6' y='24' width='20' height='4' rx='1.5' fill='%23558b2f'/%3E%3C/svg%3E" />
+  <link rel="alternate" hreflang="en" href="https://roanboc.github.io/archreator/index.html" />
+  <link rel="alternate" hreflang="es" href="https://roanboc.github.io/archreator/es/index.html" />
+  <link rel="alternate" hreflang="x-default" href="https://roanboc.github.io/archreator/index.html" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./index.html">
+        <svg class="logo" width="24" height="24" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="6" y="6" width="20" height="4" rx="1.5" fill="#7e57c2" />
+          <rect x="6" y="12" width="20" height="4" rx="1.5" fill="#c8a24a" />
+          <rect x="6" y="18" width="20" height="4" rx="1.5" fill="#0288d1" />
+          <rect x="6" y="24" width="20" height="4" rx="1.5" fill="#558b2f" />
+        </svg>
+        archreator
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="./start.html">Start here</a>
+        <a href="./guide.html">Guide</a>
+        <a class="hide-narrow" href="./walkthrough.html">Walkthrough</a>
+        <a class="hide-narrow" href="./architecture.html">Architecture</a>
+        <a class="nav-cta" href="https://github.com/roanboc/archreator">Get archreator ↗</a>
+        <a class="lang-switch" href="./es/index.html" hreflang="es" lang="es" aria-label="Leer esta página en español">ES</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <span class="eyebrow">Claude Code plugin · human-in-the-loop AI development</span>
+          <h1><span class="grad">You request.</span> Your AI builds. Architecture keeps it honest.</h1>
+          <p class="lede">
+            archreator turns a company — or a single application — into a
+            living architecture that lives in git as markdown: who you serve,
+            what you offer, who does what, and which system realizes each
+            piece. You approve at explicit gates; AI agents do the modeling
+            and the building in between. It models to
+            <em>implement</em>, not to document — every element names the
+            thing that realizes it, so the model stays checkable instead of
+            quietly rotting.
+          </p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://github.com/roanboc/archreator">
+              Get archreator
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M17 7H9m8 0v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="./guide.html">Read the guide</a>
+          </div>
+        </div>
+
+        <!-- The loop: who does what -->
+        <div class="loop" role="img" aria-label="The development loop: a human presents a requirement, an AI agent aligns the change and stops at approval gates before coding, and a human reviews and merges before it ships.">
+          <div class="loop-step" data-who="requester">
+            <span class="ic" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="2"/><path d="M5 20c0-3.3 3.1-5.5 7-5.5s7 2.2 7 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
+            <span>
+              <span class="role">Requester — you</span>
+              <span class="what">Say what you want, approve at the gates<small>A requirement or a problem, not a diff — and your sign-off before anything is coded.</small></span>
+            </span>
+          </div>
+          <div class="loop-arrow" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14m0 0-5-5m5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="loop-step" data-who="agent">
+            <span class="ic" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="6" y="6" width="12" height="12" rx="2.5" stroke="currentColor" stroke-width="2"/><path d="M9.5 9.5h5v5h-5z" stroke="currentColor" stroke-width="1.6"/><path d="M9 3v2M15 3v2M9 19v2M15 19v2M3 9h2M3 15h2M19 9h2M19 15h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
+            <span>
+              <span class="role">Agent — your AI</span>
+              <span class="what">Aligns, then builds<small>Walks the layers, stops at your gates, writes the doc, implements, opens a PR.</small></span>
+            </span>
+          </div>
+          <div class="loop-arrow" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14m0 0-5-5m5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="loop-step" data-who="reviewer">
+            <span class="ic" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12.5 10 17l9-10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span>
+              <span class="role">Reviewer — you</span>
+              <span class="what">Review &amp; merge<small>Nothing ships until a human approves it.</small></span>
+            </span>
+          </div>
+          <p class="loop-note">Same three roles whether the Agent is a person or an AI — the process doesn't change based on who fills it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why a process -->
+    <section class="section-tint">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Why bother with a process</span>
+          <h2>Vibe coding is fast. Until it isn't.</h2>
+          <p>
+            Describing what you want and letting an AI build it is a genuine
+            superpower. The failure mode isn't speed — it's <em>drift</em>:
+            an agent confidently builds the wrong thing, three features
+            quietly contradict each other, and nobody can say why any of it
+            exists. The fix isn't slowing down. It's a lightweight ladder to
+            climb before coding, and a human who says yes before anything
+            ships.
+          </p>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h3><span class="ic-badge" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M5 8l7-5 7 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Intent before code</h3>
+            <p class="muted">Every change starts as a requirement checked against strategy — not a prompt that goes straight to a diff. The "why" is decided first, once.</p>
+          </div>
+          <div class="card">
+            <h3><span class="ic-badge" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>A paper trail you can trust</h3>
+            <p class="muted">Each architecture element names the file that realizes it. The docs stay checkable against the code, so they never quietly rot.</p>
+          </div>
+          <div class="card">
+            <h3><span class="ic-badge" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="2"/><path d="M12 8v4l2.5 2.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>The human stays in charge</h3>
+            <p class="muted">Agents can draft complete changes, but a person reviews and merges. Speed with a seatbelt, not autopilot into a wall.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The ladder -->
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">The one rule</span>
+          <h2>Climb the ladder before you code</h2>
+          <p>
+            A change in requirements is never coded directly. It's aligned
+            top-down through numbered layers — each answering one question —
+            recorded in a short scope document, approved by you at explicit
+            gates, and only then built. Same ladder for a human contributor
+            and an AI agent.
+          </p>
+        </div>
+
+        <div class="ladder" role="list">
+          <div class="rung" data-layer="design" role="listitem">
+            <span class="num">0</span>
+            <span>
+              <span class="name">Business design <em>— only when the subject is an organization</em></span>
+              <span class="q">Who are the customers, what do they need, and how does each offering pay? Value proposition and business model canvases. An app project skips this rung entirely.</span>
+            </span>
+          </div>
+          <div class="rung" data-layer="motivation" role="listitem">
+            <span class="num">1</span>
+            <span>
+              <span class="name">Strategy &amp; Motivation</span>
+              <span class="q">Why does this exist? Who cares? Does it hold up against the project's principles?</span>
+            </span>
+          </div>
+          <div class="rung" data-layer="business" role="listitem">
+            <span class="num">2</span>
+            <span>
+              <span class="name">Business</span>
+              <span class="q">Who does what — which people <em>and which AI agents</em> — through which service and process?</span>
+            </span>
+          </div>
+          <div class="rung" data-layer="strategy" role="listitem">
+            <span class="num">3</span>
+            <span>
+              <span class="name">Information</span>
+              <span class="q">What information exists, and how does it flow and persist?</span>
+            </span>
+          </div>
+          <div class="rung" data-layer="application" role="listitem">
+            <span class="num">4</span>
+            <span>
+              <span class="name">Application</span>
+              <span class="q">Which software services and components realize the business services?</span>
+            </span>
+          </div>
+          <div class="rung" data-layer="technology" role="listitem">
+            <span class="num">5</span>
+            <span>
+              <span class="name">Technology</span>
+              <span class="q">What runtimes, hosting, and CI/CD does it all run on?</span>
+            </span>
+          </div>
+        </div>
+        <p class="ladder-flow">
+          <strong>Assessed top-down</strong> — strategy first, technology last.
+          A layer with nothing to change still gets an explicit "no change."
+        </p>
+
+        <div class="callout">
+          <p class="callout-label">It costs what your project is worth</p>
+          <p>
+            The same six layers describe a weekend app and a
+            twenty-business-line company. What changes is how much gets filled
+            in and which approvals apply — and the agent
+            <strong>tells you which weight it picked, and why</strong>, so you
+            can correct it in one sentence:
+          </p>
+          <ul class="tight">
+            <li>
+              <strong>Depth 1 — Application.</strong> One app. A light
+              strategy layer — goals and principles, enough to judge a change
+              against — no canvases, one gate before code.
+            </li>
+            <li>
+              <strong>Depth 2 — Organization.</strong> A company, department,
+              or service line. Canvases first, and the operating model derived
+              from them.
+            </li>
+            <li>
+              <strong>Depth 3 — Enterprise.</strong> Several business lines,
+              each modeled as a <em>domain</em> — an organization in its own
+              right, with a charter naming what it exposes to the others.
+            </li>
+          </ul>
+          <p>
+            Depth is a starting posture, never a ceiling. Deepening is a
+            normal change, not a restart.
+          </p>
+        </div>
+
+        <div class="callout">
+          <p class="callout-label">The payoff</p>
+          <p>
+            When your Agent is an AI, this ladder is what turns
+            "build me a thing" into a change you can actually review: the
+            agent has to state the intent, the affected pieces, and the
+            blast radius <em>before</em> touching code — so your review is a
+            quick yes/no, not an archaeology dig.
+          </p>
+        </div>
+
+        <div class="callout principle">
+          <p class="callout-label">Why this isn't TOGAF</p>
+          <p>
+            TOGAF is a <em>process</em> framework: it tells you how to run an
+            architecture practice, and its output is a deliverable
+            catalogue. Nothing in those deliverables has to correspond to
+            anything that exists. archreator uses <strong>ArchiMate</strong>
+            instead — a <em>modeling language</em>, where an «Application
+            Component» is a module, a «Business Process» is something a
+            person or an agent actually does, and a «Node» is something that
+            runs.
+          </p>
+          <p>
+            One rule makes that stick: <strong>every element names the thing
+            that realizes it</strong> — a module path, a team, a written
+            procedure — or is explicitly marked "Pending". Open any document
+            and try to check it against the repository or against the people
+            doing the work. If you can't, either the element is wrong or it's
+            marked Pending, and both are failures the process surfaces rather
+            than absorbs. That's the difference between a diagram of your
+            company and a description you can build against.
+          </p>
+        </div>
+        <div class="pill-row">
+          <a class="pill" href="./walkthrough.html">Watch one requirement climb the ladder, start to finish →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- This site is the proof -->
+    <section class="section-tint">
+      <div class="wrap">
+        <div class="grid-2">
+          <div>
+            <span class="eyebrow">Living proof</span>
+            <h2>This site is built by the method it describes</h2>
+            <p class="muted">
+              You're reading the output of the process, not a mockup of it.
+              This site is a real project
+              (<code>site/docs/</code>) built by climbing the ladder — and one
+              of its own business actors is an AI. There is deliberately no
+              fictional demo alongside it: an invented company proves the
+              notation and nothing about whether the method survives contact
+              with real work.
+            </p>
+            <p class="muted">
+              <strong>Copilot</strong> drafts guidance content and opens
+              pull requests at a <em>co-pilot</em> autonomy level; the human
+              <strong>Pilot</strong> reviews and merges before anything here
+              goes live.
+              It's the Requester → Agent → Reviewer loop, modeled explicitly
+              in the architecture rather than left implicit.
+            </p>
+            <div class="btn-row">
+              <a class="btn btn-ghost" href="./architecture.html">See this site's architecture →</a>
+            </div>
+          </div>
+          <div>
+            <!-- Mini architecture snapshot, self-contained -->
+            <figure class="archi-diagram" style="margin-top:0">
+              <div class="archi-layers">
+                <div class="archi-band" style="--layer-fill:var(--business);--layer-ink:var(--business-ink);--layer-line:var(--business-line)">
+                  <span class="band-label">Business</span>
+                  <div class="band-nodes">
+                    <span class="node" data-layer="business"><span class="stereo">«Actor (Human)»</span><span class="node-name">Pilot</span></span>
+                    <span class="node" data-layer="business"><span class="stereo">«Actor (AI)»</span><span class="node-name">Copilot</span></span>
+                  </div>
+                </div>
+                <div class="archi-band" style="--layer-fill:var(--application);--layer-ink:var(--application-ink);--layer-line:var(--application-line)">
+                  <span class="band-label">Application</span>
+                  <div class="band-nodes">
+                    <span class="node" data-layer="application"><span class="stereo">«Component»</span><span class="node-name">Guidance site</span></span>
+                  </div>
+                </div>
+                <div class="archi-band" style="--layer-fill:var(--technology);--layer-ink:var(--technology-ink);--layer-line:var(--technology-line)">
+                  <span class="band-label">Technology</span>
+                  <div class="band-nodes">
+                    <span class="node" data-layer="technology"><span class="stereo">«Service»</span><span class="node-name">GitHub Pages</span></span>
+                  </div>
+                </div>
+              </div>
+              <figcaption>A slice of this site's own EA layers — the full version, with every relationship, is on the <a href="./architecture.html">architecture page</a>.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quickstart -->
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Get going</span>
+          <h2>Two ways in</h2>
+          <p>Install it into a project you already have, or start a fresh repository from the template. The skills drive the process either way.</p>
+        </div>
+        <div class="grid">
+          <div class="card step">
+            <span class="step-n">1</span>
+            <h3>Install the plugin</h3>
+            <p class="muted">In Claude Code, <code>/plugin marketplace add roanboc/archreator</code> then <code>/plugin install archreator@archreator</code>. Works on a project that already exists — and it's the only path where <code>/plugin update</code> later brings method improvements to you.</p>
+          </div>
+          <div class="card step">
+            <span class="step-n">2</span>
+            <h3>…or start from the template</h3>
+            <p class="muted">On GitHub, hit <strong>Use this template → Create a new repository</strong>. You get a clean copy — the skills, the architecture skeleton, the PR templates — with its own history.</p>
+          </div>
+          <div class="card step">
+            <span class="step-n">3</span>
+            <h3>Say what you're building</h3>
+            <p class="muted">The <code>project-bootstrap</code> skill asks what the project is, picks a modeling depth, <em>tells you which one it picked</em>, and writes the scaffold. Then describe a change and the agent climbs the ladder, drafts a scope doc, implements, and opens a PR for you to review.</p>
+          </div>
+        </div>
+        <div class="pill-row">
+          <a class="pill" href="./start.html">Never used GitHub before? Start from zero — free, no editor install →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA band -->
+    <section class="section-tint cta-band">
+      <div class="wrap">
+        <h2>Build fast. Stay in control.</h2>
+        <p class="lede" style="margin-inline:auto">Structured enough to trust an AI agent with. Light enough to actually use.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="https://github.com/roanboc/archreator">Get archreator ↗</a>
+          <a class="btn btn-ghost" href="./guide.html">Read the guide</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>
+        Published from
+        <a href="https://github.com/roanboc/archreator/tree/main/site">site/</a>
+        in the archreator repository.
+      </span>
+      <span>
+        Canonical process:
+        <a href="https://github.com/roanboc/archreator/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>
+        ·
+        <a href="https://github.com/roanboc/archreator/tree/main/.claude/skills">skills</a>
+      </span>
+    </div>
+  </footer>
+</body>
+</html>
