@@ -15,6 +15,28 @@ processes with humans in the loop.
 
 ## 1. Value against comparable tools
 
+### The differentiator, stated plainly
+
+**archreator models to implement; the comparable frameworks model to
+document.** That is the thesis the rest of this section tests, and it is
+also the reason for the ArchiMate-over-TOGAF choice that a reader might
+otherwise take as arbitrary.
+
+TOGAF is a process framework — the ADM governs how an architecture practice
+runs, and its output is a deliverable catalogue. ArchiMate is a modeling
+language whose elements denote things that exist. archreator takes the
+language and skips the process framework, then adds the one rule that keeps
+a model honest: **the grounding rule**, under which every element names the
+artifact realizing it or is explicitly Pending.
+
+The consequence is testable, which is the point. Open any document under
+`docs/ea/` and check it against the repository or against the people doing
+the work. A documentation framework has no answer to that question; here it
+is the definition of done.
+
+This should be said in the README, which previously left the ArchiMate
+choice unexplained and let a reader assume it was notation preference.
+
 ### Against BMAD-METHOD — different altitude, no overlap to defend
 
 [BMAD-METHOD](https://github.com/bmad-code-org/BMAD-METHOD) is project-scoped
@@ -49,6 +71,13 @@ ArcKit models the AI as part of the organization. It is also the seed of the
 executer ambition — an actor with a declared autonomy level, decision rights,
 and an escalation path is already most of a machine-readable delegation
 contract.
+
+Differentiator 3 is the one that separates the two intents. ArcKit's
+traceability runs sideways — document to document, with citation markers
+linking artifacts to sources — which is exactly right when the deliverable
+is audit evidence. archreator's runs downward, from element to realizing
+artifact, because the deliverable is a working system. Both are traceability;
+they point in different directions because they are for different jobs.
 
 **The positioning problem.** The README led with "vibe coders and AI-first
 builders … burned by drift." That sells differentiators 1–3 short and aims at

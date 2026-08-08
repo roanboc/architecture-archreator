@@ -50,6 +50,7 @@ invoke them by name in normal use.
 | `operating-model-discovery` | The subject is an organization: canvases first (Gate 0), strategy derived from them |
 | `strategy-discovery` | The strategy is unfilled or the change shifts it (Gate 1) |
 | `domain-modeling` | The organization is large enough to split into business lines, or a change crosses a domain boundary |
+| `restate-current-state` | The model has accumulated history — shipped "Pending"s, superseded elements, resolved questions — and no longer reads as a description of today |
 | `decision-record` | One consequential call smaller than an initiative — most often an AI actor's autonomy level |
 | `story-sharding` | A work package is too large to finish in one sitting |
 | `stack-selection` | No technology stack chosen yet on a small application |

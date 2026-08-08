@@ -68,7 +68,7 @@ shows this loop rendered as real, checkable architecture; the
 ## What's in the box
 
 This repo carries **no application code**: enterprise-architecture
-guidelines, eleven Claude Code skills that turn the method into agent
+guidelines, twelve Claude Code skills that turn the method into agent
 behavior, and the documentation scaffolding a project starts from.
 
 ## Quick start
@@ -148,6 +148,44 @@ the repository up once; the Requester participates in the discovery
 conversation and grants the gates — in Claude Code on the web, or as a reply
 on the PR, which doubles as the durable record. See `ea-first-change`
 § Where a gate happens.
+
+## Why this isn't TOGAF, or another documentation framework
+
+**archreator models to implement, not to document.** That single choice
+explains most of what follows, and it is where it parts company with the
+better-known frameworks.
+
+TOGAF is a **process** framework: the ADM tells you how to run an
+architecture practice, phase by phase, and its output is a deliverable set —
+architecture definition documents, roadmaps, compliance assessments. It is
+genuinely good at governing a large practice. But its artifacts describe the
+architecture; nothing in them has to correspond to anything that exists.
+
+ArchiMate is a **modeling language**, maintained by the same body, and its
+elements denote real things: an «Application Component» is a module, a
+«Business Process» is something a person or an agent actually does, a «Node»
+is something that runs. archreator takes the language and skips the process
+framework, because the goal is a model you build against — not a governance
+artifact you file.
+
+**The grounding rule is what makes that stick.** Every element names the
+artifact that realizes it — a module path, a team, a written procedure — or
+is explicitly marked "Pending — future initiative". A model where every row
+must point at something real cannot quietly decay into decoration, and it
+fails loudly when it tries. That rule is the difference between a diagram of
+your company and an executable description of it.
+
+| | Produces | Kept true by | Where archreator differs |
+| - | -------- | ------------ | ------------------------ |
+| **TOGAF / ADM** | A phased practice and a deliverable catalogue | Review boards, process compliance | No phases and no catalogue — six layers, four gates, and the model itself as the deliverable |
+| **[ArcKit](https://github.com/tractorjuice/arc-kit)** | Governance artifacts: risk registers, DPIAs, traceability matrices, compliance packs | Citation traceability between documents | Traceability runs **down into the implementation**, not sideways across the paperwork. Excellent if audit evidence is the goal; archreator's goal is working systems |
+| **[BMAD](https://github.com/bmad-code-org/BMAD-METHOD)** | One project's PRD, architecture, and story files | Context engineering inside a project | The model outlives any project. BMAD's story sharding is borrowed wholesale for the one part where it genuinely applies |
+| **C4** | Four zoom levels of software structure | Diagrams as code | C4 starts where archreator's layer 4 does. Layers 0–2 are where an organization lives, and that's the part that decides what the software should be |
+
+The practical test: open any document under `docs/ea/` and try to check it
+against the repository or against the people doing the work. If you can't,
+either the element is wrong or it is marked Pending — and both are failures
+the process is designed to surface rather than absorb.
 
 ## The method, in one paragraph
 
@@ -277,7 +315,7 @@ flowchart TB
 | [docs/ea/domains/](./docs/ea/domains/README.md) | **Depth 3 only.** One nested model per business line, each with a charter naming what it exposes, plus the split test and the federation rule governing cross-domain change |
 | [docs/scope/](./docs/scope/README.md)  | One document per **change** to that state: the EA-first process write-up, the initiative index, and the optional [open-questions.md](./docs/scope/open-questions.md) log |
 | [docs/decisions/](./docs/decisions/README.md) | Optional log of smaller, non-obvious calls that don't rise to a full scope document — most often *why* an AI actor's autonomy level or decision rights were set the way they were |
-| [`.claude/skills/`](./.claude/skills/README.md) | Eleven Claude Code skills that turn the method into concrete agent behavior — see the two tables below. Also the root of the installable plugin |
+| [`.claude/skills/`](./.claude/skills/README.md) | Twelve Claude Code skills that turn the method into concrete agent behavior — see the two tables below. Also the root of the installable plugin |
 | [`meta/`](./meta/README.md) | archreator's own development record — the [value and UX review](./meta/reviews/1_value-and-ux-review.md) and the scope documents for changes to the method itself. Read it, don't inherit it |
 | [.github/pull_request_template.md](./.github/pull_request_template.md) + [PULL_REQUEST_TEMPLATE/bugfix.md](./.github/PULL_REQUEST_TEMPLATE/bugfix.md) | Two PR bodies — one shaped to mirror a scope document's EA-alignment table, one for pure bug fixes that skip it — so the PR and the docs never drift apart |
 
@@ -305,6 +343,7 @@ project to fill in:
 | `operating-model-discovery` | The company track: when the subject is an organization rather than an app, question-driven discovery of a value proposition canvas per customer segment and a business model canvas per product, ending at the business-model gate (Gate 0) — then handing off to `strategy-discovery`, which derives the EA from the approved canvases instead of re-asking |
 | `strategy-discovery` | Question-driven discovery of the strategy layer and key business elements with the Requester — triggered by `ea-first-change` when the strategy is still template placeholders (a project's first real initiative) or a change shifts it; a docs-only initiative ending at the strategy approval gate (Gate 1) |
 | `domain-modeling`   | Depth 3: whether a business line deserves to be a domain at all (a five-part test), how to write its charter, how element IDs are namespaced across domains, and the federation rule — changing an exposed service needs the consuming domains' Requesters too |
+| `restate-current-state` | Compacts the model so it describes today: shipped "Pending"s get their realizing artifact, superseded elements move to a Retired table, resolved open questions are archived, and stale decision records are marked superseded. Merged scope documents are never rewritten — they are the record of what was approved when |
 | `decision-record`   | A short, durable rationale for a single consequential call that's smaller than an initiative — most often why an AI actor's autonomy level or decision rights were set the way they were |
 | `story-sharding`    | Adapted from [BMAD-METHOD](https://github.com/bmadcode/BMAD-METHOD)'s context-engineered development: when a scope document's work package is too large for one sitting, shard it into small, self-contained story files so an agent or person resuming later never has to re-derive the whole plan from the EA tree |
 | `stack-selection`   | A decision framework plus concrete defaults for choosing a stack on a small/solo app: static-only (GitHub Pages/Cloudflare Pages, no backend) vs. needs data/auth (Supabase for managed Postgres + Auth + RLS, Vercel for hosting/CI/CD) — with the reasoning for picking one over the other |

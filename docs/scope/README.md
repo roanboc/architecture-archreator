@@ -71,6 +71,15 @@ often why an AI actor's autonomy level or decision rights were set the way
 they were — see [docs/decisions/](../decisions/README.md) (optional) and
 the `decision-record` skill.
 
+Scope documents accumulate. After a run of initiatives the EA can be
+accurate line by line and no longer read as a description of *today* —
+shipped work still marked "Pending", elements that were replaced but never
+retired, questions answered in a conversation nobody recorded. The
+`restate-current-state` skill compacts that, as its own initiative with its
+own Gate 2. It changes the current-state documents only: **a merged scope
+document is never rewritten**, because it is the record of what was
+approved on a date and against what information.
+
 ## Initiatives
 
 <!-- TEMPLATE — add one row per initiative as it's delivered. -->
