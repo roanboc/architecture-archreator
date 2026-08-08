@@ -151,7 +151,7 @@ into a single clone:
 | - | ---- | --------- |
 | **Method** | the skills, the PR templates, the link checker | versionable software — wants upgrades |
 | **Scaffold** | layer READMEs, document templates, `CLAUDE.md`, `CONTRIBUTING.md` | seed content, overwritten on day one |
-| **Examples** | `example/`, `example-company/` | read-only reference — should never be cloned |
+| **Examples** | `site/`, `example-company/` | read-only reference — should never be cloned |
 
 Forcing all three into one bundle is *why* the README needed a section
 explaining that downstream projects must not submodule or pin, and why method

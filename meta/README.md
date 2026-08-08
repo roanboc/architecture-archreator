@@ -3,7 +3,7 @@
 _[← Repository README](../README.md) · [The method](../CONTRIBUTING.md)_
 
 **Delete this folder when you create a project from archreator.** Like
-[`example/`](../example/README.md), it is here to read, not to inherit — it
+[`site/`](../site/README.md), it is here to read, not to inherit — it
 documents how *this template* is built, not how your project should be.
 
 ## Why this folder exists

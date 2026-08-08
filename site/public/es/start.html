@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Empieza aquí — archreator</title>
+  <meta name="description" content="¿Nunca has usado GitHub? Empieza desde cero: crea una cuenta gratuita, copia la plantilla y elige un agente de IA — primero lo gratuito, sin instalar ningún editor. Después ejecuta tu primer cambio." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='6' y='6' width='20' height='4' rx='1.5' fill='%237e57c2'/%3E%3Crect x='6' y='12' width='20' height='4' rx='1.5' fill='%23c8a24a'/%3E%3Crect x='6' y='18' width='20' height='4' rx='1.5' fill='%230288d1'/%3E%3Crect x='6' y='24' width='20' height='4' rx='1.5' fill='%23558b2f'/%3E%3C/svg%3E" />
+  <link rel="alternate" hreflang="en" href="https://roanboc.github.io/archreator/start.html" />
+  <link rel="alternate" hreflang="es" href="https://roanboc.github.io/archreator/es/start.html" />
+  <link rel="alternate" hreflang="x-default" href="https://roanboc.github.io/archreator/start.html" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./index.html">
+        <svg class="logo" width="24" height="24" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="6" y="6" width="20" height="4" rx="1.5" fill="#7e57c2" />
+          <rect x="6" y="12" width="20" height="4" rx="1.5" fill="#c8a24a" />
+          <rect x="6" y="18" width="20" height="4" rx="1.5" fill="#0288d1" />
+          <rect x="6" y="24" width="20" height="4" rx="1.5" fill="#558b2f" />
+        </svg>
+        archreator
+      </a>
+      <nav class="site-nav" aria-label="Principal">
+        <a href="./start.html">Empieza aquí</a>
+        <a href="./guide.html">Guía</a>
+        <a class="hide-narrow" href="./walkthrough.html">Recorrido</a>
+        <a class="hide-narrow" href="./architecture.html">Arquitectura</a>
+        <a class="nav-cta" href="https://github.com/roanboc/archreator">Consigue archreator ↗</a>
+        <a class="lang-switch" href="../start.html" hreflang="en" lang="en" aria-label="Read this page in English">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section style="padding-bottom:0">
+      <div class="wrap prose">
+        <span class="eyebrow">Para principiantes totales</span>
+        <h1>¿Nunca has usado GitHub? Empieza desde cero.</h1>
+        <p class="lede">
+          No necesitas ser desarrollador, y no necesitas instalar nada —
+          <strong>ni VS Code, ni terminal</strong>. Necesitas tres cosas
+          gratuitas y unos quince minutos. Esta página te lleva de la nada a
+          tu primer cambio revisado, empezando por el camino más barato.
+        </p>
+        <div class="callout">
+          <p class="callout-label">La pregunta que todo el mundo hace</p>
+          <p>
+            <strong>"¿Necesito VS Code?"</strong> No. VS Code es una opción
+            entre muchas, no un requisito. Todo lo que sigue ocurre en un
+            navegador web: tu código vive en un sitio web (GitHub), y tu
+            "editor" es un cuadro de chat donde escribes peticiones. Existe un
+            camino sin instalar nada, y también uno genuinamente gratuito.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mental model -->
+    <section style="padding-top:clamp(1.5rem,4vw,2.5rem)">
+      <div class="wrap prose">
+        <h2 id="mental-model">Todo el asunto, en tres piezas</h2>
+        <p>
+          Antes de los pasos, el panorama. Construir así requiere exactamente
+          tres cosas — y una persona (tú) sigue al mando de las tres.
+        </p>
+      </div>
+      <div class="wrap">
+        <div class="grid">
+          <div class="card">
+            <h3>1 · GitHub</h3>
+            <p class="muted">
+              Un sitio web gratuito que guarda tu proyecto y recuerda cada
+              cambio. Piensa en "Google Docs para código" — tu trabajo vive
+              aquí, en la nube, no en tu portátil. Crear una cuenta es gratis
+              y no pide tarjeta.
+            </p>
+          </div>
+          <div class="card">
+            <h3>2 · Tu copia de archreator</h3>
+            <p class="muted">
+              Un clic en <strong>Use this template</strong> te da tu propia
+              copia privada — el esqueleto de arquitectura, los skills, las
+              plantillas de revisión — con su propio historial limpio. Esa es
+              la vía de abajo, y la más sencilla si empiezas de cero.
+            </p>
+            <p class="muted">
+              ¿Ya tienes un proyecto? Instálalo como plugin:
+              <code>/plugin marketplace add roanboc/archreator</code>. Los
+              mismos skills, y <code>/plugin update</code> los mantiene al día.
+            </p>
+          </div>
+          <div class="card">
+            <h3>3 · Un agente de IA</h3>
+            <p class="muted">
+              Lo que de verdad construye. Describes lo que quieres en lenguaje
+              corriente; él hace el trabajo y te entrega un cambio para
+              aprobar. Corre en la nube o en tu navegador — <strong>nunca
+              tocas un editor de código</strong> a menos que quieras.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="wrap prose">
+        <p class="muted">
+          Ese es el <a href="./index.html">ciclo Solicitante → Agente →
+          Revisor</a> alrededor del cual está construido todo este proyecto:
+          <strong>tú</strong> pides y apruebas, la <strong>IA</strong>
+          construye en medio. Nada se publica hasta que tú dices que sí.
+        </p>
+      </div>
+    </section>
+
+    <!-- The three setup steps -->
+    <section class="section-tint">
+      <div class="wrap prose">
+        <h2 id="steps" style="margin-top:0;border:0;padding-top:0">Prepáralo: tres pasos</h2>
+      </div>
+      <div class="wrap">
+        <div class="grid">
+          <div class="card step">
+            <span class="step-n">1</span>
+            <h3>Crea una cuenta gratuita de GitHub</h3>
+            <p class="muted">
+              Ve a
+              <a href="https://github.com/signup">github.com/signup</a> y
+              regístrate con un correo. Es gratis, sin tarjeta de crédito.
+              Esta es la cuenta que será dueña de tu proyecto.
+            </p>
+          </div>
+          <div class="card step">
+            <span class="step-n">2</span>
+            <h3>Haz tu propia copia</h3>
+            <p class="muted">
+              Abre
+              <a href="https://github.com/roanboc/archreator">la plantilla
+              archreator</a> y pulsa <strong>Use this template → Create a new
+              repository</strong>. Dale un nombre, déjalo Privado, pulsa
+              Create. Ya tienes tu propia copia — el
+              <a href="https://github.com/roanboc/archreator/blob/main/README.md">inicio
+              rápido del README</a> (en inglés) tiene los mismos pasos con
+              imágenes.
+            </p>
+          </div>
+          <div class="card step">
+            <span class="step-n">3</span>
+            <h3>Apunta un agente de IA hacia ella</h3>
+            <p class="muted">
+              Elige uno de los agentes de abajo y conéctalo al repositorio que
+              acabas de crear. Eso es toda la preparación — a partir de aquí
+              solo describes cambios y revisas lo que vuelve.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Choosing an agent -->
+    <section>
+      <div class="wrap prose">
+        <h2 id="agent">El paso 3, ampliado: ¿qué agente de IA?</h2>
+        <p>
+          Hay muchos; aquí tienes los dos puntos de partida más fáciles,
+          primero el más barato. Ambos corren en tu navegador — ninguno
+          necesita VS Code ni instalación alguna. Los precios cambian, así que
+          cada uno enlaza su propia página de planes; las cifras de aquí son
+          las vigentes en el momento de escribir esto (mediados de 2026).
+        </p>
+      </div>
+      <div class="wrap">
+        <div class="grid">
+          <div class="card">
+            <h3>Gratis, sin tarjeta — GitHub Copilot</h3>
+            <p class="muted">
+              La IA propia de GitHub tiene un <strong>nivel gratuito</strong>
+              (aproximadamente 2.000 autocompletados de código y 50 peticiones
+              "premium"/de agente al mes) que funciona directamente dentro de
+              github.com y su editor en el navegador — nada que instalar.
+              Ideal para probar el ciclo sin gastar un céntimo.
+            </p>
+            <p class="muted">
+              <strong>La pega:</strong> el agente totalmente autónomo de
+              "asigna una tarea, recibe un cambio terminado" requiere un plan
+              de pago de Copilot; el nivel gratuito te da un agente <em>que tú
+              diriges</em>, limitado a un número pequeño de peticiones al mes.
+            </p>
+            <p class="source-note">
+              <a href="https://github.com/features/copilot">Planes de Copilot y límites actuales ↗</a>
+            </p>
+          </div>
+          <div class="card">
+            <h3>Lo más sencillo de principio a fin — Claude Code en la web</h3>
+            <p class="muted">
+              Ve a <a href="https://claude.ai/code">claude.ai/code</a>,
+              conecta tu repositorio de GitHub y escribe lo que quieres.
+              Trabaja en un entorno aislado en la nube y abre un cambio para
+              que tú lo revises y fusiones — exactamente el ciclo Solicitante
+              → Agente → Revisor, con cero preparación en tu máquina. Es lo
+              más parecido a cómo está pensado que funcione archreator.
+            </p>
+            <p class="muted">
+              <strong>La pega:</strong> no hay nivel gratuito de Claude Code.
+              La entrada más barata es un plan <strong>Pro</strong> de Claude
+              (unos 20 $ al mes, que incluye Claude Code en la web), o uso de
+              API de pago por consumo, que puede salir muy barato si solo
+              construyes de vez en cuando.
+            </p>
+            <p class="source-note">
+              <a href="https://claude.ai/code">claude.ai/code ↗</a> ·
+              <a href="https://code.claude.com/docs/en/claude-code-on-the-web">cómo funciona ↗</a> ·
+              <a href="https://claude.com/pricing">precios actuales ↗</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="wrap prose">
+        <div class="callout">
+          <p class="callout-label">¿Eres estudiante o mantienes un proyecto de código abierto? Puede que las herramientas de pago te salgan gratis.</p>
+          <p>
+            El <a href="https://education.github.com/pack">GitHub Student
+            Developer Pack</a> da a estudiantes y docentes verificados Copilot
+            Pro (y otras herramientas) sin coste, y
+            <a href="https://www.anthropic.com">Anthropic</a> tiene un
+            programa de acceso gratuito para quienes mantienen proyectos
+            populares de código abierto. Merece la pena comprobarlo antes de
+            pagar por nada.
+          </p>
+        </div>
+        <p class="muted">
+          <strong>Nuestra recomendación para el arranque gratuito más
+          sencillo:</strong> crea la cuenta y el repositorio (pasos 1–2),
+          prueba el <strong>nivel gratuito de GitHub Copilot</strong> en el
+          navegador para sentir el ciclo, y pásate a <strong>Claude Code en
+          la web</strong> cuando quieras un agente que tome una petición
+          completa y te devuelva un cambio revisado de principio a fin.
+        </p>
+      </div>
+    </section>
+
+    <!-- First change -->
+    <section class="section-tint">
+      <div class="wrap prose">
+        <h2 id="first-change" style="margin-top:0;border:0;padding-top:0">Ahora: tu primer cambio</h2>
+        <p>
+          Preparación lista. A partir de aquí es igual con cualquier
+          herramienta: describes una necesidad, el agente sube la escalera de
+          arquitectura, se detiene en las puertas para pedir tu aprobación
+          antes de programar, lo construye, y tú revisas antes de que nada
+          sea definitivo. Sobre todo escribes y apruebas.
+        </p>
+        <div class="pill-row">
+          <a class="pill" href="./walkthrough.html">Mira un cambio de principio a fin →</a>
+          <a class="pill" href="./guide.html">Lee el método que hay detrás →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Per-tool future note -->
+    <section>
+      <div class="wrap prose">
+        <h2 id="per-tool">¿Quieres un paso a paso para una herramienta concreta?</h2>
+        <p class="muted">
+          Esta página se mantiene agnóstica de herramienta a propósito, para
+          que no tengas que elegir proveedor antes de entender la forma.
+          Hay guías dedicadas, clic a clic, para agentes concretos (Claude
+          Code, GitHub Copilot y otros) planificadas como páginas futuras —
+          hasta que lleguen, la comparación de arriba más la documentación
+          enlazada de cada herramienta te llevarán hasta el final. Si te
+          atascas, la
+          <a href="https://github.com/roanboc/archreator/blob/main/CONTRIBUTING.md">guía
+          CONTRIBUTING</a> (en inglés) es la versión completa y canónica del
+          proceso.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="https://github.com/roanboc/archreator">Consigue archreator ↗</a>
+          <a class="btn btn-ghost" href="./walkthrough.html">Mira un cambio de principio a fin</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>
+        Publicado desde
+        <a href="https://github.com/roanboc/archreator/tree/main/site">site/</a>
+        en el repositorio archreator.
+      </span>
+      <span>
+        <a href="./index.html">Inicio</a> ·
+        <a href="./guide.html">Guía</a> ·
+        <a href="./walkthrough.html">Recorrido</a>
+      </span>
+    </div>
+  </footer>
+</body>
+</html>

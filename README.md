@@ -61,8 +61,8 @@ order, against the same documents:
 | **Agent** | An AI agent (or a person) | Walks the architecture ladder, stops at each gate for your approval, writes a short scope document, implements, and opens a PR. |
 | **Reviewer** | You | Reviews and merges. Nothing ships without a human approving it. |
 
-The [worked example's guidance site](https://roanboc.github.io/archreator/)
-shows this loop rendered as real, checkable architecture; the
+The [guidance site](https://roanboc.github.io/archreator/) shows this loop
+rendered as real, checkable architecture; the
 [process flow in CONTRIBUTING.md](./CONTRIBUTING.md) is the full version.
 
 ## What's in the box
@@ -111,7 +111,7 @@ by hand, that skill is also the checklist:
    depth** in `CLAUDE.md`.
 2. Decide the documentation language once (English is the default) and note
    it in `CLAUDE.md` — see the `ea-doc-style` skill.
-3. Delete what you didn't inherit: [`example/`](./example/README.md) and
+3. Delete what you didn't inherit: [`site/`](./site/README.md) and
    [`meta/`](./meta/README.md) are archreator's own material, there to read
    on GitHub rather than to carry.
 4. Keep [`docs/scope/open-questions.md`](./docs/scope/open-questions.md)
@@ -241,7 +241,7 @@ something deserves to be a domain at all.
 An application project skips layer 0 and keeps a light strategy layer —
 goals and principles, enough to judge a change against — with one gate
 before code. That's Depth 1, and it is deliberately cheap:
-[`example/`](./example/README.md) is one.
+[`site/`](./site/README.md), this project's own guidance site, is one.
 
 ## See it applied
 
@@ -250,11 +250,13 @@ Two models in this repository are real, not illustrative.
 [`meta/`](./meta/README.md) is **archreator modeled with archreator** — the
 method pointed at its own author, at Depth 1. It is where to look for what a
 filled-in strategy, business, application, and technology layer reads like,
-and for what dogfooding actually surfaces: a Pending component with two
-business rules depending on it, and a plain statement of how many rules CI
-enforces.
+and for what dogfooding actually surfaces. Modeling the method turned "we
+should validate the element IDs someday" into an application-layer row with
+an empty realization and two business rules depending on it — which is much
+harder to leave alone than a backlog paragraph, and is why
+`scripts/check_model.py` now exists.
 
-[`example/`](./example/README.md) is a small, real application built by
+[`site/`](./site/README.md) is a small, real application built by
 following this process — the project's own guidance site, published at
 **https://roanboc.github.io/archreator/**. It answers
 "what does a filled-in `docs/ea/` look like for one app", and specifically
@@ -360,7 +362,7 @@ to stay in sync:
 | - | -------------- | --- |
 | **The method** — the skills | **Yes** | Install the plugin (Option A) and run `/plugin update`. This is the reason the plugin path exists |
 | **The scaffold** — layer READMEs, `CLAUDE.md`, `CONTRIBUTING.md`, document templates | No | It is seed content you overwrite with your own architecture on day one, not a shared dependency |
-| **archreator's own material** — `example/`, `meta/` | No | Read it here on GitHub; delete it from your project |
+| **archreator's own material** — `site/`, `meta/` | No | Read it here on GitHub; delete it from your project |
 
 If you took the template path (Option B) and the method improves later,
 either install the plugin alongside it, or hand-port the specific

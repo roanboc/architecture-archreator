@@ -1,0 +1,32 @@
+# Value Stream
+
+_[← Strategy layer](./README.md) · [EA home](../README.md)_
+
+**ArchiMate elements:** Value Stream, Value Stream Stage.
+
+## Discover → Understand → Adopt
+
+```mermaid
+flowchart LR
+  discover["Discover<br><i>lands on the guidance site</i>"]:::strategy
+  understand["Understand<br><i>reads the method + the<br>actor-notation example</i>"]:::strategy
+  adopt["Adopt<br><i>uses 'Use this template'<br>on the main repo</i>"]:::strategy
+
+  discover --> understand --> adopt
+
+  classDef strategy fill:#f5deaa,stroke:#c8a24a,color:#333
+```
+
+| Stage | Realized by |
+| ----- | ----------- |
+| Discover | [`public/index.html`](../../../public/index.html) — landing page, states the one rule and links onward |
+| Understand | [`public/guide.html`](../../../public/guide.html) — the EA-first process and the human/AI/hybrid actor notation as reference — and [`public/walkthrough.html`](../../../public/walkthrough.html) — one requirement walked through the layers end to end, plus the situational skills |
+| Adopt | [`public/start.html`](../../../public/start.html) — a beginner's zero-to-first-change setup guide (create an account, copy the template, pick an AI agent — free-first, no editor install), and [`public/architecture.html`](../../../public/architecture.html) — this project's own filled EA layers, as the concrete "what it looks like when finished," plus a direct link to the parent template's "Use this template" flow |
+
+The stages are language-independent: each realizing page above also
+ships a Spanish edition under [`public/es/`](../../../public/es/index.html)
+(Goal G4, [1_motivation.md](./1_motivation.md)), so a Spanish-speaking
+visitor moves through the same three stages without switching language.
+
+This value stream is realized end to end by the
+[EA-first method guidance](../2_business/README.md) business service.

@@ -14,7 +14,7 @@ the developer's machine or is a GitHub feature.
 | -- | ---- | ---- | ----- |
 | `NODE1` | Claude Code | `ACMP1`–`ACMP12` — the skills are loaded and executed by it, from `.claude/skills/` or from the installed plugin | In use |
 | `NODE2` | GitHub Actions | `ACMP13` and `ACMP15` on every PR and every push to `main` touching markdown, HTML, or the scripts | In use — [`.github/workflows/docs-check.yml`](../../../.github/workflows/docs-check.yml) |
-| `NODE3` | GitHub Pages | The guidance site built by the `example/` project | In use — [`.github/workflows/deploy-example-site.yml`](../../../.github/workflows/deploy-example-site.yml) |
+| `NODE3` | GitHub Pages | The guidance site built by the `site/` project | In use — [`.github/workflows/deploy-site.yml`](../../../.github/workflows/deploy-site.yml) |
 | `NODE4` | Python 3 standard library | `ACMP13` and `ACMP15`. No packages, no lockfile, no `setup-python` step — the runner's Python is enough | In use |
 | `NODE5` | Git | The model's storage and its history. `RULE6`'s immutability is enforced by convention, not by git — nothing prevents editing a merged scope document except the rule | In use |
 
@@ -34,7 +34,7 @@ the developer's machine or is a GitHub feature.
 | `ART1` | `SKILL.md` files under `.claude/skills/` | `NODE1` |
 | `ART2` | [`plugin.json`](../../../.claude/.claude-plugin/plugin.json) and [`marketplace.json`](../../../.claude-plugin/marketplace.json) | `NODE1` via `TSVC3` |
 | `ART3` | [`check_links.py`](../../../scripts/check_links.py) and [`check_model.py`](../../../scripts/check_model.py) | `NODE2` |
-| `ART4` | The `example/site/` static pages | `NODE3` |
+| `ART4` | The `site/public/` static pages | `NODE3` |
 
 ## Why there is no more than this
 

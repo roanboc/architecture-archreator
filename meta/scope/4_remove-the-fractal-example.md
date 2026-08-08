@@ -17,7 +17,7 @@ investment: it demonstrates the notation but proves nothing about whether the
 method survives contact with a real business, and it has to be maintained
 alongside every change to the method. Real projects are the test.
 
-`example/` is **kept**, and is not an example in the same sense — it is this
+`site/` is **kept**, and is not an example in the same sense — it is this
 project's own published documentation, built with the method and deployed to
 GitHub Pages from this repository. Updating it to match the current method is
 the next initiative, in its own scope folder.
@@ -40,14 +40,14 @@ the next initiative, in its own scope folder.
 | ---- | ----------- | ---- | ----------------- |
 | Gate 0 — Business model | — | — | **N/A** — Depth 1 |
 | Gate 1 — Strategy | — | — | **N/A** — no strategy change |
-| Gate 2 — Business | Requester | 2026-08-08 | Removing the fictional example and keeping `example/`, on the reasoning that real projects are better evidence than a maintained fiction |
+| Gate 2 — Business | Requester | 2026-08-08 | Removing the fictional example and keeping `site/`, on the reasoning that real projects are better evidence than a maintained fiction |
 | Gate 3 — Solution design | — | — | **N/A** — no code |
 
 ## Plateaus
 
 | Plateau | State |
 | ------- | ----- |
-| **Baseline** (before) | Two worked examples: an application (`example/`) and a fictional company (`example-company/`) carrying canvases, Gate 0, two domains, charters, and namespaced IDs |
+| **Baseline** (before) | Two worked examples: an application (`site/`) and a fictional company (`example-company/`) carrying canvases, Gate 0, two domains, charters, and namespaced IDs |
 | **Target** (delivered) | One worked application, plus `meta/` — archreator modeled with archreator, which is a real model of a real thing. Depth 3 documented and undemonstrated |
 
 ## Work packages and deliverables
@@ -73,7 +73,7 @@ the next initiative, in its own scope folder.
 
 | In scope | Out of scope (gaps, candidate future work) |
 | -------- | ------------------------------------------- |
-| Deleting `example-company/` and repairing references | `example/`, which stays and gets updated next |
+| Deleting `example-company/` and repairing references | `site/`, which stays and gets updated next |
 | Withdrawing the question it raised | Rewriting `meta/scope/1_*.md`, which is merged and immutable |
 | Recording what the removal costs | Replacing the Depth 3 demonstration |
 

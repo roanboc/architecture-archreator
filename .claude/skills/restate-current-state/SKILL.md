@@ -33,6 +33,12 @@ becomes wrong, it doesn't get corrected — it gets superseded by a later one,
 which is the whole reason the index is chronological. Editing it would erase
 the evidence that a gate was passed against different information.
 
+**One carve-out: link targets, not words.** When a later change renames or
+moves a file, a merged document's links stop resolving. Repair the path and
+leave every word alone, link text included. A dangling link makes the record
+less usable without making it more truthful — fixing the path preserves the
+history, and changing a claim would rewrite it. See `scope-doc` § Rules.
+
 **IDs are never reused, ever.** A retired element's ID stays retired. If you
 find yourself wanting to reassign `BSVC3` because the old one is gone, stop:
 a stale reference must fail loudly, not silently resolve to something else.
