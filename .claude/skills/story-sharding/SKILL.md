@@ -45,7 +45,7 @@ _[← Scope document](../<n>_<name>.md)_
 <Only links, not restated content — the specific EA doc sections and
 glossary terms this story needs, e.g.:>
 
-- [Business rule RN-xx](../../ea/2_business/5_domain-context-and-rules.md#...)
+- [Business rule RULE7](../../ea/2_business/5_domain-context-and-rules.md#...)
 - [Component X](../../ea/4_application/2_application-components.md#...)
 
 ## Acceptance criteria

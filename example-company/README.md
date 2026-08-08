@@ -20,7 +20,9 @@ docs/ea/0_business-design/   two value proposition canvases,
 docs/ea/1_strategy/          derived from them — motivation,
                             capabilities and resources, value streams
 docs/ea/2_business/          actors and roles, products, services, channels
-docs/scope/                  one initiative, recording Gate 0 and Gate 1
+docs/ea/domains/             the two business lines as domains, each with
+                            a charter, and the one service between them
+docs/scope/                  two initiatives, recording Gates 0, 1, and 2
 ```
 
 No `site/`, no `src/`, no build. That is not an omission — it is what an
@@ -40,11 +42,13 @@ raised:
    every stakeholder, driver, assessment, goal, and outcome came from.
 4. [The business layer](./docs/ea/2_business/1_business-actors-and-roles.md)
    — who does the work, including two AI actors.
-5. [The scope document](./docs/scope/1_model-the-operating-model.md) — the
-   record of what was approved, at which gate, and what was deliberately
-   left out.
+5. [The two domains](./docs/ea/domains/README.md) — why the two business
+   lines are modeled separately, what each exposes, and the single service
+   that crosses between them.
+6. [The scope documents](./docs/scope/README.md) — the record of what was
+   approved, at which gate, and what was deliberately left out.
 
-## The three things this example exists to show
+## The four things this example exists to show
 
 **1. The architecture is derived, not invented.** Every element in layers 1
 and 2 carries a `Source` column naming the canvas block it came from. The
@@ -71,11 +75,24 @@ it](./docs/ea/2_business/1_business-actors-and-roles.md#internal-actors),
 not how capable each one is. Both escalate to a **named role**, which
 principle `P2` requires and the actor diagram makes checkable.
 
+**4. A domain boundary turns a gap into a commitment.** The two lines are
+modeled as [domains](./docs/ea/domains/README.md) because they meet four of
+the five [split tests](../docs/ea/domains/README.md#when-to-split-a-domain-out)
+— different customers, different economics, different decision rights,
+different capabilities. The fifth, *a named interface*, was the one they
+failed, and fixing it is what the split was worth. `COA1` — the strategic
+bet behind `G3` — depended on `RES6`, an engagement archive listed as
+pending in a resource table that no role owned. Asking "what exactly does
+Advisory owe Product?" turned it into `ADVISORY.BSVC9`, an exposed service
+with an owner, an escalation path, and a domain on the other side that
+notices when it doesn't arrive.
+
 ## What it deliberately doesn't do
 
-The model states its own gaps rather than hiding them — `RES6` (the
-engagement archive the whole product strategy depends on) does not exist,
+The model states its own gaps rather than hiding them — `ADVISORY.BSVC9` is
+exposed but unbuilt, both domains carry charters with no layer folders yet,
 both product lines share a single cloud host with no mitigation, and one
-customer job is knowingly unserved. All three are in the
-[gap notes](./docs/scope/1_model-the-operating-model.md#gap-notes). A model
-that has no gaps is usually a model that hasn't been checked.
+customer job is knowingly unserved. They are in the gap notes of
+[initiative 1](./docs/scope/1_model-the-operating-model.md#gap-notes) and
+[initiative 2](./docs/scope/2_split-into-domains.md#gap-notes). A model that
+has no gaps is usually a model that hasn't been checked.

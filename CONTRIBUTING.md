@@ -8,6 +8,13 @@ technology — and all of it before code. The full process is described in
 [docs/scope/README.md](./docs/scope/README.md); in short, for any change in
 requirements:
 
+0. **Know the depth you're working at.** `CLAUDE.md` declares the project's
+   [modeling depth](./docs/ea/README.md#modeling-depth) — one application
+   (1), one organization (2), or several business lines each modeled as a
+   [domain](./docs/ea/domains/README.md) (3). It decides how much of the
+   ladder below applies and which gates you'll pass. At Depth 3, also name
+   which domain owns the change, and whether it touches another domain's
+   exposed services — if it does, that domain's Requester approves too.
 1. **Align the EA** — walk [docs/ea/](./docs/ea/README.md) top-down
    (`1_strategy` → `5_technology`), updating the affected documents. If
    the strategy layer is still template placeholders, or the change shifts
@@ -77,9 +84,12 @@ flowchart TD
   end
 
   subgraph AGENT["Agent (person or AI)"]
+    depth["Confirm the modeling depth<br>and say it out loud;<br>at Depth 3, locate the domain"]
     assess["Assess 1_strategy<br>against the change"]
     canvases["Operating-model discovery —<br>value proposition + business<br>model canvases, docs-only<br>(operating-model-discovery skill)"]
     discovery["Strategy discovery —<br>question-driven, docs-only<br>(strategy-discovery skill)"]
+    dscope["Draft scope document<br>docs/scope/N_*.md"]
+    nextinit["Offer the implementation<br>initiative that triggered<br>discovery"]
     conflict{"Contradicts an existing<br>Principle?"}
     bugfix{"Pure bug fix — no<br>documented behavior<br>changes?"}
     walk23["Align 2_business and<br>3_information"]
@@ -98,16 +108,19 @@ flowchart TD
   stop[["Stop — surface the conflict<br>to the requester instead<br>of proceeding"]]
   merged(["Merged"])
 
-  req --> assess
+  req --> depth --> assess
   assess -->|the subject is an<br>organization, not an app| canvases
-  canvases --> gate0
+  canvases --> dscope
+  dscope --> gate0
   gate0 -- changes requested --> canvases
   gate0 -- "approved (recorded in<br>scope doc)" --> discovery
   assess -->|strategy is placeholders,<br>or the change shifts it| discovery
-  discovery --> gate1
+  discovery --> dscope
+  dscope --> gate1
   gate1 -- changes requested --> discovery
   gate1 -- "approved (recorded in<br>scope doc)" --> verify
-  gate1 -.->|implementation follows<br>as a new initiative| req
+  verify -.->|docs-only initiative| nextinit
+  nextinit -.->|implementation follows<br>as a new initiative| req
   assess --> conflict
   conflict -- yes --> stop
   stop -.->|requester decides how<br>to resolve it| req

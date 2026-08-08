@@ -1,32 +1,59 @@
 # CLAUDE.md
 
-<!--
-  TEMPLATE — replace this comment block and the placeholders below when you
-  bootstrap a new project from archreator. Keep the "rule that governs
-  everything else" section; it's the whole point of this template.
--->
+**This project has not been bootstrapped yet.** It is a fresh copy of the
+[archreator](./README.md) template: the method works, the model is empty.
+Run the `project-bootstrap` skill before anything else — it names the
+project, declares the modeling depth, prunes what wasn't inherited, and
+hands off to discovery. Everything in this file below the rule is a
+placeholder it will replace.
 
-<One or two sentences: what this project is, what state it's in.>
+<!--
+  TEMPLATE — project-bootstrap replaces this comment block, the line above,
+  and the placeholders below. Keep "The rule that governs everything else"
+  and "Modeling depth"; they are the whole point of this template.
+-->
 
 ## The rule that governs everything else
 
-**Strategy and business architecture are validated before any other
-layer, and the requester approves at explicit gates before development.**
-A change in requirements is never coded directly: align it through the
-numbered EA layers (`docs/ea/1_strategy` → … → `5_technology`), stop at
-the gates for the requester's approval, record it all in a scope document
-(`docs/scope/`), then implement. Use the `ea-first-change` skill for the
-process (it defines the gates), `strategy-discovery` when the strategy is
-still unfilled or the change shifts it, `operating-model-discovery` when
-the subject is an organization rather than an application (the value
-proposition and business model canvases in `docs/ea/0_business-design/`
-come first, and the strategy layer is derived from them),
-`scope-doc` for the scope document
-(its Approvals table is the durable record of the gates), `ea-doc-style`
-when touching anything under `docs/`, and `pr-description` when opening or
-updating a PR (the body must cover the whole branch, not just the latest
-commit). Pure bug fixes that change no documented behavior can skip the
+**Strategy and business architecture are validated before any other layer,
+and the Requester approves at explicit gates before development.** A change
+in requirements is never coded directly: align it through the numbered EA
+layers (`docs/ea/1_strategy` → … → `5_technology`), stop at the gates for
+the Requester's approval, record it in a scope document (`docs/scope/`),
+then implement. Pure bug fixes that change no documented behavior skip the
 alignment and the gates, but still keep the docs true.
+
+## Modeling depth
+
+**Declared depth: _not yet declared_** — `project-bootstrap` sets this.
+
+The six layers describe a weekend app and a twenty-business-line company
+alike; the depth says how much of them gets filled in and which gates apply
+(see [`docs/ea/README.md` § Modeling depth](./docs/ea/README.md#modeling-depth)).
+Depth 1 is one application with a light strategy layer; Depth 2 is one
+organization; Depth 3 splits the model into [domains](./docs/ea/domains/README.md).
+It is a starting posture, never a ceiling — deepening or descoping is a
+normal initiative, decided by the Requester.
+
+## The skills
+
+Claude Code surfaces these from their `description:` frontmatter; you don't
+invoke them by name in normal use.
+
+| Skill | Reach for it when |
+| ----- | ----------------- |
+| `project-bootstrap` | A project from the template hasn't been set up yet — start here |
+| `ea-first-change` | Any requirement change. **The spine**: it defines the gates and the order |
+| `ea-doc-style` | Editing anything under `docs/` — numbering, element IDs, ArchiMate-on-Mermaid, the grounding rule |
+| `scope-doc` | Writing the initiative's scope document; its Approvals table is the durable record of the gates |
+| `pr-description` | Opening or updating a PR — the body covers the whole branch, not the latest commit |
+| `operating-model-discovery` | The subject is an organization: canvases first (Gate 0), strategy derived from them |
+| `strategy-discovery` | The strategy is unfilled or the change shifts it (Gate 1) |
+| `domain-modeling` | The organization is large enough to split into business lines, or a change crosses a domain boundary |
+| `restate-current-state` | The model has accumulated history — shipped "Pending"s, superseded elements, resolved questions — and no longer reads as a description of today |
+| `decision-record` | One consequential call smaller than an initiative — most often an AI actor's autonomy level |
+| `story-sharding` | A work package is too large to finish in one sitting |
+| `stack-selection` | No technology stack chosen yet on a small application |
 
 ## Layout
 
@@ -35,7 +62,8 @@ alignment and the gates, but still keep the docs true.
 - `tests/` — ...
 -->
 
-- `docs/ea/` — the documentation home (numbered ArchiMate layers);
+- `docs/ea/` — the documentation home (numbered ArchiMate layers), with
+  `docs/ea/domains/` used only at Depth 3;
   `docs/scope/` — one document per initiative.
 
 ## Commands
@@ -50,6 +78,10 @@ npm run build
 All of them must be green before pushing; CI runs the same.
 -->
 
+```bash
+python3 scripts/check_links.py    # relative links and HTML anchors resolve
+```
+
 ## Conventions
 
 <!-- Project-specific conventions go here as they're established —
@@ -59,3 +91,5 @@ All of them must be green before pushing; CI runs the same.
      restating it. -->
 
 - Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`, …).
+- Documentation language: **English** (change during bootstrap; see
+  `ea-doc-style`).

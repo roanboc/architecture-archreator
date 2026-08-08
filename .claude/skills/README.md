@@ -9,10 +9,27 @@ directory listing for humans browsing the folder; see the
 core-vs-supporting breakdown and how each skill relates to `docs/ea/` and
 `docs/scope/`.
 
+This folder is also the root of the **`archreator` plugin** — its manifest
+is `.claude/.claude-plugin/plugin.json`, and the marketplace that publishes
+it is `.claude-plugin/marketplace.json` at the repository root. The same
+files therefore serve both distribution paths: auto-loaded from `.claude/`
+in a project created from the template, and installed via
+`/plugin install archreator@archreator` into a project that already exists.
+
+That dual role constrains how skills link. **A skill may only link to files
+inside this folder.** Installing a plugin copies its directory to a cache,
+so a relative link out of it (`../../../docs/ea/README.md`) resolves to
+nothing for a plugin user. Skills refer to a consuming project's documents
+by naming the path in a code span — `` `docs/ea/README.md` `` — which reads
+correctly on both paths and is what `ea-doc-style` § Links requires.
+
 | Skill | `SKILL.md` |
 | ----- | ---------- |
+| `project-bootstrap` | [project-bootstrap/SKILL.md](./project-bootstrap/SKILL.md) |
 | `ea-first-change` | [ea-first-change/SKILL.md](./ea-first-change/SKILL.md) |
 | `operating-model-discovery` | [operating-model-discovery/SKILL.md](./operating-model-discovery/SKILL.md) |
+| `domain-modeling` | [domain-modeling/SKILL.md](./domain-modeling/SKILL.md) |
+| `restate-current-state` | [restate-current-state/SKILL.md](./restate-current-state/SKILL.md) |
 | `strategy-discovery` | [strategy-discovery/SKILL.md](./strategy-discovery/SKILL.md) |
 | `ea-doc-style` | [ea-doc-style/SKILL.md](./ea-doc-style/SKILL.md) |
 | `scope-doc` | [scope-doc/SKILL.md](./scope-doc/SKILL.md) |

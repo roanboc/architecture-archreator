@@ -39,12 +39,16 @@ folders are numbered in:
 2. **Document the scope.** Add the next-numbered file to this folder
    describing plateaus, work packages, in/out of scope, gaps, and gate
    approvals — before implementation starts, refined as it proceeds.
-3. **Pass the gates.** Before any code, the requester approves the
+3. **Pass the gates.** Before any code, the Requester approves the
    strategy, business, and information changes (**Gate 2 — Business**) and
    chooses whether to also review the solution design before it is coded
    (**Gate 3 — Solution design**, optional). Approvals are recorded in the
    scope document's Approvals table — who approved, when, and what was
-   shown.
+   shown, with `N/A — <why>` for the gates that didn't apply. Which gate
+   applies to which initiative is defined in exactly one place,
+   `.claude/skills/ea-first-change/` § The gates, which also says **where**
+   an approval can be granted — the conversation, or a reply on the pull
+   request for a Requester who doesn't work in a terminal.
 4. **Implement.** Only then write the code, keeping the scope document and
    EA docs in sync with what is actually delivered.
 
@@ -66,6 +70,15 @@ For a single consequential call smaller than a full initiative — most
 often why an AI actor's autonomy level or decision rights were set the way
 they were — see [docs/decisions/](../decisions/README.md) (optional) and
 the `decision-record` skill.
+
+Scope documents accumulate. After a run of initiatives the EA can be
+accurate line by line and no longer read as a description of *today* —
+shipped work still marked "Pending", elements that were replaced but never
+retired, questions answered in a conversation nobody recorded. The
+`restate-current-state` skill compacts that, as its own initiative with its
+own Gate 2. It changes the current-state documents only: **a merged scope
+document is never rewritten**, because it is the record of what was
+approved on a date and against what information.
 
 ## Initiatives
 

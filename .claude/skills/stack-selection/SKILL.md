@@ -6,7 +6,7 @@ description: Use when bootstrapping a new project from this template and no tech
 # Choosing a stack for a small application
 
 This is guidance for **deciding**, not a substitute for
-[docs/ea/5_technology/](../../../docs/ea/5_technology/README.md) — once a
+`docs/ea/5_technology/README.md` — once a
 choice is made, document it (and why) in
 `1_technology-services.md`/`2_deployment.md` as usual. It exists because
 for a small or solo project, the honest default answer to "what should we
@@ -60,7 +60,7 @@ data": **Next.js + Vercel + Supabase**. Vercel handles hosting/CI/CD via
 its GitHub integration; Supabase provides Postgres with Row-Level Security
 policies as the single point of access-control enforcement — document the
 role × operation mapping in
-[`docs/ea/2_business/1_business-actors-and-roles.md`](../../../docs/ea/2_business/README.md)
+the `docs/ea/2_business/README.md`
 once the project's roles are known, so the RLS policies stay traceable to
 that matrix.
 

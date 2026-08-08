@@ -27,13 +27,28 @@ anything under `docs/`. If a change touches an AI actor's autonomy level or
 decision rights — `ACT3` or `ACT4` — it needs a `decision-record` alongside
 the scope document.
 
+## Modeling depth
+
+**Declared depth: 3 — Enterprise.** Two business lines — Advisory and
+Product — are modeled as [domains](./docs/ea/domains/README.md), each with a
+charter naming what it exposes. The enterprise layers hold what is true
+across both; the domains hold what isn't.
+
+Use the `domain-modeling` skill for anything touching a domain boundary.
+Changing `ADVISORY.BSVC9` — the one service that crosses between them —
+needs the Product domain's Requester at Gate 2 as well as Advisory's.
+
 ## Layout
 
 - `docs/ea/0_business-design/` — the canvases everything else derives from;
-  `docs/ea/1_strategy/`, `docs/ea/2_business/` — the derived architecture;
-  `docs/scope/` — one document per initiative.
+  `docs/ea/1_strategy/`, `docs/ea/2_business/` — the derived architecture,
+  at the enterprise level; `docs/ea/domains/` — one charter per business
+  line; `docs/scope/` — one document per initiative.
 - Layers 3–5 do not exist. Nothing has been built, so there is no data,
   application, or technology architecture to describe.
+- The domains carry charters and no layer folders yet — the charter comes
+  first by design, and each domain layer is created by the initiative that
+  first touches it.
 
 ## Commands
 
