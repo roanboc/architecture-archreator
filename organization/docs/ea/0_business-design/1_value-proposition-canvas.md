@@ -15,12 +15,36 @@ map are **Pending — this initiative**.
 | ID | Customer segment | Pays | Uses | Decides |
 | --- | --- | --- | --- | --- |
 | `CS1` | **Customer Segment 1 — Business and solution designers.** Enterprise architects at any level of experience, business analysts, and entrepreneurs acting as their own designer | Nothing today | ✅ Directly | On their own small projects |
-| `CS2` | **Customer Segment 2 — Business owners commissioning the outcome.** A company that wants the deliverable and has no designer of its own | ✅ Consulting hours | ❌ Today, no — ✅ in the target state | ✅ Commissions and accepts the work |
+| `CS2` | **Customer Segment 2 — Established business owners.** A running company with operational knowledge and existing documentation, but no structure or shared language a builder can act on | ✅ Consulting hours today | ❌ Today — ✅ in the target state | ✅ |
+| `CS3` | **Customer Segment 3 — Founders at the idea stage.** Pre-operational: a business model in formation, nothing running yet, wanting to refine the idea and prototype at the same time | Rarely — price sensitivity is highest here | ❌ Today — ✅ in the target state | ✅ |
 
 `CS1` is the segment the project is **built around**, and the one that would
 notice first if it stopped — a designer part-way through modeling something.
-`CS2` is where money changes hands today, and it reaches archreator only
-through a designer: the Requester, or another designer using it to deliver.
+`CS2` and `CS3` are where the target-state service is aimed, and where the
+Requester says the greatest value lies: owners who want to build a solution
+**by themselves**, with small businesses and startups named as the key
+target.
+
+### Why `CS2` and `CS3` are two segments and not one
+
+Both are "business owners", and separating them is a judgement worth
+justifying. They differ on every axis the profile records:
+
+| | `CS2` established owner | `CS3` pre-operational founder |
+| --- | --- | --- |
+| Core job | Confirm and correct what they believe they already know | Form a model that does not exist yet, and re-form it after each pivot |
+| Dominant pain | Blind spots; knowledge trapped in the owner's head | Churn — re-explaining to each new builder, pivots discarding earlier work |
+| Dominant gain | An organizational brain others can read without the owner mediating | Pivot without losing the design, and show value early |
+| First contact with the product | **Ingest** — existing documentation feeds a draft architecture | **Elicit** — nothing to feed, so it has to be drawn out through questions |
+
+The last row is decisive: the first run is a materially different product
+experience. A single merged profile would average two real segments into one
+true of neither.
+
+**Split by business stage, not by how they buy.** An owner who commissions
+a designer today and self-serves tomorrow is the same person at two moments,
+not two segments — that distinction is a **customer relationship and channel**
+difference and belongs in the business model canvas, not here.
 
 **One merged role, not two.** "Business and solution designers" names a
 single role, not two roles grouped into a segment. Today the two ends are
@@ -88,11 +112,80 @@ holding it together.
 | `GAIN4` | **A methodology usable at any level of experience**, so competence comes from the method rather than only from seniority | Expected |
 | `GAIN5` | **Designers lead the implementation** rather than handing it off — reaching an end of the process usually delegated to other roles | Delight |
 
-## Customer profile — `CS2` (Customer Segment 2: business owners)
+## Customer profile — `CS2` (Customer Segment 2: established business owners)
 
-**Pending — this initiative.** The next discovery round. It matters more
-than it first appeared: `CS2` is the segment the target-state service is
-aimed at, and it needs a *simpler language* than `CS1` does.
+### Jobs to be done
+
+| ID | Job | Kind |
+| --- | --- | --- |
+| `JOB6` | **Build a solution themselves**, without a designer standing between the intention and the thing built | Functional |
+| `JOB7` | **Give their own knowledge a structure and a language a builder can act on** — where the builder is increasingly an AI system | Functional |
+| `JOB8` | **Actually understand their own business.** Nobody knows their business fully until they have considered all the architectural elements; owners routinely frame it wrongly — identifying the wrong customer segments, for instance. Designing *is* the understanding | Functional |
+| `JOB9` | **Be understood by others without personally doing the alignment every time** — internal teams, stakeholders, and any builder who joins | Social |
+
+`JOB8` is the counter-intuitive one and the Requester was emphatic about it:
+the architecture is not a record of a strategy already known, it is how the
+strategy gets confirmed or corrected. An owner arrives believing they know;
+the process is what tests that.
+
+### Pains
+
+| ID | Pain | Severity |
+| --- | --- | --- |
+| `PAIN7` | **Enterprise architects are expensive**, so this segment does not hire them at all | Unacceptable — it is why the segment is unserved |
+| `PAIN8` | **Knowledge is lost between builders.** The owner directs a builder over many calls; the knowledge is never properly designed, so when the next builder arrives the owner explains it all again | **Unacceptable** — the churn compounds |
+| `PAIN9` | **Documentation that does not drive a solution is useless to them.** A deliverable they cannot build from is a cost, not an asset | **Unacceptable** — stated plainly |
+| `PAIN10` | **Blind spots about their own business**, because nothing forces a complete frame | Serious, and invisible until something fails |
+
+### Gains
+
+| ID | Gain | Kind |
+| --- | --- | --- |
+| `GAIN6` | **Understanding their business at wider and deeper scope**, with strategic and business gaps surfacing *during* the process rather than after | Required — the Requester ranked this first |
+| `GAIN7` | **A shared vision they can hand to designers and builders** to accelerate delivery, and that keeps working as the shared language that holds delivery outcomes together | Expected — ranked second |
+| `GAIN8` | **Building specific solutions themselves from the design**, with no designer or builder in between | Delight — ranked third and explicitly optional, depending on appetite |
+
+`GAIN8` is optional by design. It is what a small initiative or a more
+technical founder will reach for; assuming every owner wants it would
+overstate the proposition.
+
+## Customer profile — `CS3` (Customer Segment 3: founders at the idea stage)
+
+### Jobs to be done
+
+| ID | Job | Kind |
+| --- | --- | --- |
+| `JOB10` | **Refine the idea and build prototypes at the same time**, rather than finishing the thinking before starting the making | Functional |
+| `JOB11` | **Pivot without throwing away what has been designed** — keeping the business design on top, shaping the model as it changes | Functional |
+| `JOB12` | **Show value early**, to themselves and to whoever they need to convince | Social |
+
+### Pains
+
+| ID | Pain | Severity |
+| --- | --- | --- |
+| `PAIN11` | **They know how to start and not how to continue.** Founders work with a business model canvas and value propositions, and then have no path from there to implementation | **Unacceptable** — it is the specific gap this segment falls into |
+| `PAIN12` | Same knowledge loss as `PAIN8`, and worse here: with nothing operational to anchor it, everything lives in the founder's head and each pivot invalidates whatever a builder had absorbed | **Unacceptable** |
+| `PAIN13` | Enterprise architecture help is out of reach on price, as in `PAIN7`, and more so pre-revenue | Unacceptable |
+
+### Gains
+
+| ID | Gain | Kind |
+| --- | --- | --- |
+| `GAIN9` | **A path that continues past the canvas** — from business model to something built, without changing tools or losing the thread | Required |
+| `GAIN10` | **Pivots that cost less**, because the design survives the change instead of being redone | Expected |
+| `GAIN11` | **Horizontal and vertical coverage at once** — the business design staying on top while a prototype gets built underneath it | Delight |
+
+### The language correction
+
+The value here is **better** language, not *simpler* language. Better means
+less confusing: standardised concepts with defined relationships. The
+distinction matters because it decides the product.
+
+"Simpler" would mean hiding the model from the owner. "Better" means the
+standardisation **is** the value — an owner gains a comprehensive view of
+their own business precisely *because* the method forced a frame, not
+despite it. That is what makes `JOB8` and `GAIN6` possible at all, and it is
+why this is not a matter of dumbing anything down.
 
 ## Value map
 
