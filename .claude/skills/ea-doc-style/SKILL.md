@@ -16,6 +16,30 @@ cross-platform path and URL-encoding issues. If ArchiMate stereotypes are
 translated, keep a correspondence table to the standard English element
 names near the top of `docs/ea/README.md`.
 
+### Write it out
+
+**Language is the interface** — to a human reader, and to an agent that has
+nothing but the text. So spell things out:
+
+- **Expand every acronym on its first use in each document**, then use the
+  short form freely. Per document, not per project: a reader arriving from a
+  deep link shouldn't have to hunt for what a prefix means.
+- **Element IDs are acronyms too.** First mention in a document reads
+  `CS1` (Customer Segment 1 — business and solution designers), or sits in a
+  table whose adjacent column gives the name. Never a bare `CS1` in prose
+  the first time.
+- **An abbreviation worth using is worth defining.** If the organization has
+  its own jargon, it belongs in the glossary in
+  `2_business/5_domain-context-and-rules.md`, not only in the head of
+  whoever wrote the document.
+- **Prefer the full word where it costs nothing.** "Customer segment" reads
+  better than "CS" in a sentence; the short form earns its place in tables,
+  diagrams, and cross-references where space is genuinely tight.
+
+This costs a few characters and buys the thing the whole method is for: a
+document that means the same to the person who wrote it, the person reading
+it a year later, and the agent acting on it.
+
 ## Numbering
 
 - Layer folders are numbered in assessment order and never reordered:
