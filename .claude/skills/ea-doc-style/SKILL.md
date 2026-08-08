@@ -34,11 +34,21 @@ names near the top of `docs/ea/README.md`.
 
 ## Element IDs
 
-Every element in an inventory table carries a short **ID** in its own first
-column: a type prefix followed by an integer, no separator — `G1`, `CAP3`,
-`PROD2`. IDs are how one document refers to an element in another without
-restating it, and they are what lets the model be exported mechanically
-later (see `stack-selection` § The model as data).
+Every element carries a short **ID**: a type prefix followed by an integer,
+no separator — `G1`, `CAP3`, `PROD2`. IDs are how one document refers to an
+element in another without restating it.
+
+An element is **defined** in one of exactly two shapes, and `check_model.py`
+recognizes both:
+
+| Shape | Used for | Example |
+| ----- | -------- | ------- |
+| The **first column of an inventory table** | Most elements | `` \| `BSVC3` \| Supervised build \| … `` |
+| A **bolded lead-in**, ID then an em dash | Goals and Principles, which read better as prose than as rows | `- **G1 — Legible guidance.** A prospective adopter…` |
+
+A **qualified** ID in a first column (`` \| `SALES.BSVC3` \| ``) is a
+*reference*, not a definition — that is what a domain charter's "Consumed
+services" table holds. Anywhere else, a backticked ID is a reference.
 
 | Where | Prefixes |
 | ----- | -------- |
@@ -55,8 +65,16 @@ Rules: an ID is assigned once and **never reused** after the element is
 removed (a dangling reference should fail loudly, not silently point at
 something else); numbering is per prefix, not global; and an element's ID
 never changes when it is renamed. Referencing an element in prose or a
-table cell means writing its ID — `relieves PAIN2` — not repeating its
+table cell means writing its ID — `relieves GAIN2` — not repeating its
 description.
+
+**`scripts/check_model.py` enforces this**, and CI runs it: every reference
+resolves, no ID is defined twice, and no retired ID reappears as live. It
+checks `docs/ea/` only. Scope documents, decision records, and reviews are
+narrative *about* the model — they cite retired elements, illustrate the
+convention, and are frozen once merged (`scope-doc`), so a reference check
+there could never be made to pass. Keep IDs accurate in them anyway; nothing
+but review will catch a mistake.
 
 ### Namespacing across domains
 

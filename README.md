@@ -111,8 +111,7 @@ by hand, that skill is also the checklist:
    depth** in `CLAUDE.md`.
 2. Decide the documentation language once (English is the default) and note
    it in `CLAUDE.md` — see the `ea-doc-style` skill.
-3. Delete what you didn't inherit: [`example/`](./example/README.md),
-   [`example-company/`](./example-company/README.md), and
+3. Delete what you didn't inherit: [`example/`](./example/README.md) and
    [`meta/`](./meta/README.md) are archreator's own material, there to read
    on GitHub rather than to carry.
 4. Keep [`docs/scope/open-questions.md`](./docs/scope/open-questions.md)
@@ -217,8 +216,7 @@ relieves them) and a **Business Model Canvas** per product (the nine blocks
 — partners, activities, resources, channels, revenue, cost). Those canvases
 are approved at Gate 0, and the strategy and business layers are then
 *derived* from them block by block rather than invented alongside them. The
-`operating-model-discovery` skill runs that track;
-[`example-company/`](./example-company/README.md) shows the result.
+`operating-model-discovery` skill runs that track.
 
 ### Modeling business lines as domains
 
@@ -245,32 +243,37 @@ goals and principles, enough to judge a change against — with one gate
 before code. That's Depth 1, and it is deliberately cheap:
 [`example/`](./example/README.md) is one.
 
-## See it applied: two worked examples
+## See it applied
 
-[`example-company/`](./example-company/README.md) is **Solvara**, a small AI
-consultancy that also sells AI products, with no application at all. It is
-modeled end-to-end from two value proposition canvases and two business
-model canvases, down through a derived strategy layer, and then **split into
-two domains** — Advisory and Product — with charters, namespaced element
-IDs, and a real cross-domain service contract between them. It answers "what
-does modeling a company actually look like", and it deliberately carries two
-AI actors at different autonomy levels: a delivery copilot the consultancy
-uses internally, and the agent embedded in the product it sells.
+Two models in this repository are real, not illustrative.
 
-[`example/`](./example/README.md) is the Depth 1 counterpart — a small, real
-application built by following this process, the template's own guidance
-site, published at **https://roanboc.github.io/archreator/**. It answers
+[`meta/`](./meta/README.md) is **archreator modeled with archreator** — the
+method pointed at its own author, at Depth 1. It is where to look for what a
+filled-in strategy, business, application, and technology layer reads like,
+and for what dogfooding actually surfaces: a Pending component with two
+business rules depending on it, and a plain statement of how many rules CI
+enforces.
+
+[`example/`](./example/README.md) is a small, real application built by
+following this process — the project's own guidance site, published at
+**https://roanboc.github.io/archreator/**. It answers
 "what does a filled-in `docs/ea/` look like for one app", and specifically
 "what does an AI actor look like in the business layer": one of its actors
 is an AI, the **Copilot**, that drafts guidance content at an explicit
 autonomy level with explicit decision rights, alongside the human **Pilot**
 who drives the design and merges its work.
 
-Both live in their own subfolders with their own
-`README.md`/`CLAUDE.md`/`docs/`, deliberately separate from this repo's
-intentionally blank scaffold. They are there to **read, not to inherit** —
-delete them, along with [`meta/`](./meta/README.md), when you start a
-project.
+Both live in their own subfolders with their own docs, deliberately separate
+from this repo's intentionally blank scaffold. They are there to **read, not
+to inherit** — delete both when you start a project.
+
+There is deliberately **no fictional worked example**. One existed and was
+removed: a made-up company demonstrates the notation but proves nothing about
+whether the method survives contact with a real business, and it has to be
+maintained alongside every change to the method. Real projects are the test.
+The cost is that [Depth 3](./docs/ea/domains/README.md) — domains, charters,
+the federation rule — is documented but undemonstrated until a real project
+reaches that size.
 
 ## How everything fits together
 
@@ -357,7 +360,7 @@ to stay in sync:
 | - | -------------- | --- |
 | **The method** — the skills | **Yes** | Install the plugin (Option A) and run `/plugin update`. This is the reason the plugin path exists |
 | **The scaffold** — layer READMEs, `CLAUDE.md`, `CONTRIBUTING.md`, document templates | No | It is seed content you overwrite with your own architecture on day one, not a shared dependency |
-| **The examples** — `example/`, `example-company/`, `meta/` | No | Read them here on GitHub; delete them from your project |
+| **archreator's own material** — `example/`, `meta/` | No | Read it here on GitHub; delete it from your project |
 
 If you took the template path (Option B) and the method improves later,
 either install the plugin alongside it, or hand-port the specific

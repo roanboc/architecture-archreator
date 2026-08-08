@@ -27,10 +27,10 @@ principle it enforces.
 | ID | Rule | Enforces | Where it bites |
 | -- | ---- | -------- | -------------- |
 | `RULE1` | No code is written before the Requester grants Gate 2 | `P2` | `ea-first-change` Step 4 |
-| `RULE2` | Every EA element names its realizing artifact, or is explicitly "Pending — future initiative" | `P1` | `ea-doc-style` § Grounding rule; `ea-first-change` Step 7 |
+| `RULE2` | Every EA element names its realizing artifact, or is explicitly "Pending — future initiative" | `P1` | `ea-doc-style` § Grounding rule; `ea-first-change` Step 7. Carried by **review**, not tooling — see `ACMP13` |
 | `RULE3` | Every layer gets an explicit verdict in a scope document, including "no change" | `P2` | `scope-doc` § Rules |
 | `RULE4` | An approval that isn't recorded didn't happen; a gate that didn't apply is written `N/A — <why>` rather than deleted | `P2` | The Approvals table |
-| `RULE5` | An element ID is assigned once and never reused, even after the element is retired | `P5` | `ea-doc-style` § Element IDs; `restate-current-state` |
+| `RULE5` | An element ID is assigned once and never reused, even after the element is retired | `P5` | `ea-doc-style` § Element IDs; `restate-current-state`. Enforced in CI by `ACMP15` |
 | `RULE6` | A merged scope document is never rewritten — follow-up work gets a new numbered document | `P5` | `scope-doc`; `restate-current-state` § The one rule |
 | `RULE7` | A change that contradicts an existing Principle stops and goes back to the Requester | `P2` | `ea-first-change` Step 1c, Conflict verdict |
 | `RULE8` | Changing a domain's exposed service requires the consuming domains' Requesters at Gate 2 | `P2` | `domain-modeling` § Cross-domain changes |

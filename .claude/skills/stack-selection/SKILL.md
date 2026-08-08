@@ -66,21 +66,39 @@ that matrix.
 
 ## The model as data
 
-A project that models an organization (see `operating-model-discovery`)
-eventually wants its EA queried rather than only read — "which goals does
-this component serve?", "what breaks if this partner leaves?" — and other
-projects want to consume the model as the organization's shared source of
-truth. The Markdown under `docs/ea/` stays the **source of truth**: it is
-what the Requester approves at the gates and what review acts on. What gets
-exported from it is a projection, regenerated, never hand-edited.
+The Markdown under `docs/ea/` is the **source of truth**: it is what the
+Requester approves at the gates and what review acts on. The question this
+section answers is what, if anything, should be derived from it.
 
-| Need | Default | When to reach for the alternative instead |
-| ---- | -------- | ------------------------------------------- |
-| **Storing and querying the exported model** | **SQLite**, as a `nodes`/`edges` pair of tables, traversed with recursive CTEs | A dedicated embedded graph engine — see below — once traversals are genuinely deep or the query language itself is the point |
+**The default is nothing.** The graph is already implicit in the documents,
+`grep` traverses it, and an agent reads Markdown natively — there is no
+parsing gap to close for the reader the model is written for. A derived
+store would be a second representation that can fall behind the first, which
+is the drift `ea-doc-style`'s one-fact-one-place rule exists to prevent.
 
-At the scale an EA model actually reaches — hundreds of elements, edges in
-the low thousands, traversals a few hops deep — SQLite *is* the graph
-database, and `sqlite3` ships with Python:
+What *is* needed is **validation**, and that needs a parse, not a store.
+`scripts/check_model.py` builds the graph in memory, checks that every
+reference resolves and that no ID is reused, and exits. Nothing persists, so
+nothing goes stale. This is the failure agents are worst at unaided: an
+agent reading `relieves GAIN2` cannot cheaply tell that `GAIN2` was deleted
+three initiatives ago, and will reason confidently from the stale reference.
+
+### When a persisted projection becomes worth it
+
+Reach for one only when one of these is actually true — and record the call
+with a `decision-record`:
+
+| Trigger | Why it changes the answer |
+| ------- | ------------------------- |
+| The model no longer fits in one context read | An agent that must query rather than read needs something to query |
+| Domains live in separate repositories | Federation needs an interchange format; an agent cannot `grep` a repo it hasn't cloned |
+| A genuinely **transitive** question recurs | "Blast radius of retiring `CAP3`" is a traversal, not a lookup. One-offs are a script, not infrastructure |
+| A non-agent consumer appears | A dashboard, a report, or a rendered model for stakeholders cannot read Markdown tables |
+
+When that day comes, the default is **SQLite** as a `nodes`/`edges` pair
+traversed with recursive CTEs — at the scale an EA model reaches (hundreds
+of elements, edges in the low thousands, traversals a few hops deep) SQLite
+*is* the graph database, and `sqlite3` ships with Python:
 
 ```sql
 CREATE TABLE nodes(id TEXT PRIMARY KEY, type TEXT, layer TEXT,
@@ -88,21 +106,21 @@ CREATE TABLE nodes(id TEXT PRIMARY KEY, type TEXT, layer TEXT,
 CREATE TABLE edges(src TEXT, dst TEXT, rel TEXT);  -- realizes, serves, …
 ```
 
-Element IDs (`ea-doc-style` § Element IDs) are what make this export
-mechanical rather than a parsing exercise — which is the reason to use them
-consistently from the first document, well before any exporter exists.
+The projection is regenerated, never hand-edited, and `check_model.py`
+already extracts what it would need — element IDs (`ea-doc-style` § Element
+IDs) are what make it mechanical rather than a parsing exercise, which is
+the reason to use them consistently from the first document.
 
-Dedicated **embedded** graph databases are worth knowing about for when a
-model outgrows that: [LadybugDB](https://ladybugdb.com/) (the maintained
-successor to Kuzu — embedded, columnar, Cypher, interoperates with
-DuckDB/Arrow/Parquet), [GraphLite](https://github.com/GraphLite-AI/GraphLite)
+Dedicated **embedded** graph databases are worth knowing about only once
+SQLite has actually stopped being enough: [LadybugDB](https://ladybugdb.com/)
+(the maintained successor to Kuzu — embedded, columnar, Cypher, interoperates
+with DuckDB/Arrow/Parquet), [GraphLite](https://github.com/GraphLite-AI/GraphLite)
 (Rust, embedded, implements the ISO **GQL** standard), and
 [ArcadeDB](https://arcadedb.com/embedded.html) (embeddable on the JVM).
 **Kuzu itself was archived in October 2025** after its team was acquired —
 existing releases still run, but don't adopt it for new work. Both active
 successors are young enough that betting an organization's shared model on
-one is a real risk; take that bet only when SQLite has actually stopped
-being enough, and record it with a `decision-record`.
+one is a real risk.
 
 ## Principles behind these defaults
 

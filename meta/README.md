@@ -3,10 +3,8 @@
 _[← Repository README](../README.md) · [The method](../CONTRIBUTING.md)_
 
 **Delete this folder when you create a project from archreator.** Like
-[`example/`](../example/README.md) and
-[`example-company/`](../example-company/README.md), it is here to read, not
-to inherit — it documents how *this template* is built, not how your project
-should be.
+[`example/`](../example/README.md), it is here to read, not to inherit — it
+documents how *this template* is built, not how your project should be.
 
 ## Why this folder exists
 
@@ -42,15 +40,18 @@ A change to a project *built from* archreator gets one in that project's own
 Dogfooding is only worth the effort if it finds something. Three things this
 model makes visible that prose had not:
 
-- **`ACMP15` is Pending and two business rules point at it.** The model
-  exporter doesn't exist, so `RULE2` (every element names what realizes it)
-  is enforced only for links, and `RULE5` (IDs are never reused) is enforced
-  by nothing. In the [application layer](./ea/4_application/1_application-components.md)
-  that is a row with an empty realization and two inbound dependencies —
-  much harder to leave alone than a backlog paragraph.
-- **CI enforces one rule out of nine.** Stated plainly in the
-  [technology layer](./ea/5_technology/1_technology-services.md), which is
-  where you would look for it and where it had never been written down.
+- **A Pending row with two rules pointing at it got built.** `ACMP15` was
+  the model exporter, and modeling archreator turned "we should validate the
+  IDs someday" into a row with an empty realization and two inbound
+  dependencies — much harder to leave alone than a backlog paragraph. It now
+  exists, scoped down to what the rules actually needed
+  ([decision 4](./decisions/4_defer-the-model-database.md) explains why the
+  database was dropped from it).
+- **CI enforces two rules out of nine**, and the
+  [technology layer](./ea/5_technology/1_technology-services.md) says which —
+  including that the grounding rule is still carried by review rather than
+  tooling. That is where you would look for it, and it had never been
+  written down before the model existed.
 - **A skill's `description:` is its contract.** Modeling the skills as
   components with one interface made it obvious why `story-sharding` was
   dead for ten pull requests: the description was accurate, and nothing

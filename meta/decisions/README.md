@@ -17,3 +17,4 @@ explains *why* one row reads the way it does.
 | 1 | [1_plugin-root-inside-claude-dir.md](./1_plugin-root-inside-claude-dir.md) | Accepted | `ACMP14`, `RULE9` |
 | 2 | [2_no-renumbering-on-domain-split.md](./2_no-renumbering-on-domain-split.md) | Accepted | `RULE5`, `P5` |
 | 3 | [3_agent-autonomy-level.md](./3_agent-autonomy-level.md) | Accepted | `ACT2` |
+| 4 | [4_defer-the-model-database.md](./4_defer-the-model-database.md) | Accepted | `ACMP15`, `RULE5` |

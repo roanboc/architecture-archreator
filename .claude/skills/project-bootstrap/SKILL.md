@@ -71,7 +71,7 @@ In one pass, so the first commit is coherent:
 4. **`CONTRIBUTING.md` § Development workflow** — fill in once a stack
    exists; leave the TEMPLATE comment until then rather than inventing
    commands.
-5. **Delete what you didn't inherit** — `example/`, `example-company/`, and
+5. **Delete what you didn't inherit** — `example/` and
    `meta/` are archreator's own material. They are there to read on GitHub,
    not to carry.
 6. **Optional files** — keep `docs/scope/open-questions.md` only if there's
@@ -122,7 +122,7 @@ is still unbuilt. Say so, and offer to open it as the next initiative.
 - `CLAUDE.md` and `README.md` contain no `<placeholder>` markers, and
   `CLAUDE.md` declares the modeling depth.
 - The documentation language is decided and recorded.
-- `example/`, `example-company/`, and `meta/` are gone; the optional files
+- `example/` and `meta/` are gone; the optional files
   are kept or deleted deliberately.
 - Every layer README's table says either what exists or "not started".
 - Scope document `1_...md` exists and is indexed.
