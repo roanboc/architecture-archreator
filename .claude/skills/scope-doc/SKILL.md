@@ -36,7 +36,10 @@ _[← Scope index](./README.md) · [EA home](../ea/README.md)_
 
 | Gate                     | Approved by | Date         | What was approved                          |
 | ------------------------ | ----------- | ------------ | ------------------------------------------- |
+| Gate 0 — Business model  | <Requester> | <YYYY-MM-DD> | <the canvases — or "N/A — <why>">          |
+| Gate 1 — Strategy        | <Requester> | <YYYY-MM-DD> | <the strategy layer — or "N/A — <why>">    |
 | Gate 2 — Business        | <Requester> | <YYYY-MM-DD> | <the docs/sections presented at the gate>  |
+| Gate 3 — Solution design | <Requester> | <YYYY-MM-DD> | <the solution design — or "N/A — not requested"> |
 
 ## Plateaus
 
@@ -74,16 +77,16 @@ _[← Scope index](./README.md) · [EA home](../ea/README.md)_
 
 - **Every layer gets a verdict** in the EA-alignment table, including
   explicit "no change" — silence is not a decision.
-- **Gates are recorded in the Approvals table** — which gate, who
-  approved, when, and what was shown (see `ea-first-change` § The gates).
-  Any initiative that changes documented behavior carries at least a
-  **Gate 2 — Business** row before implementation starts; a
-  strategy-discovery initiative carries **Gate 1 — Strategy**; an
-  operating-model discovery carries **Gate 0 — Business model** and then
-  **Gate 1**; a **Gate 3 — Solution design** row appears only if the
-  Requester opted in at Gate 2. An approval that isn't recorded didn't happen; a scope
-  document is a historical record, so the table shows who accepted what,
-  durably.
+- **Every gate gets a row, including the ones that didn't apply.** Which
+  gate applies to which initiative is defined in exactly one place —
+  `ea-first-change` § The gates — and the shortest form of it is:
+  **Gate 2 applies to every initiative that changes documented behavior,
+  which is every initiative that will produce code; a docs-only initiative
+  passes Gate 0 and/or Gate 1 instead.** A gate that didn't apply is written
+  `N/A — <why>` rather than deleted, so a reader can tell a skipped gate
+  from a forgotten one. An approval that isn't recorded didn't happen; a
+  scope document is a historical record, so the table shows who accepted
+  what, durably.
 - **Deliverables are concrete artifacts** (file paths, page/screen names),
   never vague ("improved UX").
 - **Out of scope is as important as in scope**: it is where the next

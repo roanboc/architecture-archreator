@@ -21,3 +21,4 @@ starts at [0_business-design](../ea/0_business-design/README.md) and passes
 | #   | Scope document | Delivered as | Summary |
 | --- | --------------- | ------------ | ------- |
 | 1   | [1_model-the-operating-model.md](./1_model-the-operating-model.md) | `example-company/` on `claude/archreator-operative-model-scaling-0aw3cs` | Documented the business model as two value proposition canvases and two business model canvases, then derived the strategy and key business layers from them — including two AI actors at different autonomy levels. No software delivered |
+| 2   | [2_split-into-domains.md](./2_split-into-domains.md) | `example-company/docs/ea/domains/` on `claude/repo-value-ux-review-3ur5y4` | Split the model into Advisory and Product domains with charters, and turned the pending resource `RES6` into an owned cross-domain service, `ADVISORY.BSVC9`. No software delivered |

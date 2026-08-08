@@ -22,6 +22,14 @@ file. Elements with nothing realizing them yet are marked explicitly
 | 3   | `3_information/`                                    | Passive structure (data)       | **Not started** — no application, so no data architecture yet       |
 | 4   | `4_application/`                                    | Application layer              | **Not started** — nothing has been built                            |
 | 5   | `5_technology/`                                     | Technology layer               | **Not started**                                                     |
+| —   | [domains/](./domains/README.md)                     | _the same layers, nested_      | **Charters filled**, domain layers pending — two business lines, and the one service that crosses between them |
+
+**Modeling depth: 3 — Enterprise.** Solvara runs two business lines with
+different customers, different economics, and different people saying yes,
+so each is modeled as a [domain](./domains/README.md). The layers above hold
+what is true across both — the goals, the principles, the shared capability
+base `CAP1`–`CAP3`, and the external partners — and the domains hold what
+isn't.
 
 Layers 3–5 are named without links because they do not exist. That is the
 expected shape for an operating-model initiative: the business is modeled

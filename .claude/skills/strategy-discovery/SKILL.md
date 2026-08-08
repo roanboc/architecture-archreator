@@ -5,6 +5,10 @@ description: Use when the ea-first-change process finds that a change needs a ne
 
 # Strategy discovery
 
+_Reached from `ea-first-change` Step 1c. `README.md`
+orients a person; `CONTRIBUTING.md` draws where
+this branch sits in the whole flow._
+
 When this skill applies, **the entire initiative is discovery**: no code,
 no application design, no stack decisions. The deliverables are the
 strategy layer, the key business elements it implies, and a scope document
@@ -33,7 +37,7 @@ will then find the strategy filled in and current.
   from what's documented: confirm what still holds, and focus the
   questions on what the new requirement bends or breaks.
 - **Derive, don't re-ask.** If
-  [`docs/ea/0_business-design/`](../../../docs/ea/0_business-design/README.md)
+  `docs/ea/0_business-design/README.md`
   is filled in, the Requester has already answered most of theme 1, 2, 4
   and 5 in business language and approved the answers at Gate 0. Start each
   theme from the canvas blocks it derives from — per the mapping in that
@@ -90,6 +94,21 @@ A docs-only initiative:
   the impact on layers 1–2 and an explicit "not started" / "no change"
   verdict for the rest, and whose Approvals table records Gate 1;
 - open questions logged for everything adopted-but-unconfirmed.
+
+## Before the gate — create the scope document
+
+Discovery is a full initiative, not a detour, so it gets its own scope
+document like any other. **Create it before presenting Gate 1**, not after:
+the Requester should approve against a concrete document, and the approval
+needs somewhere to be recorded the moment it is granted.
+
+Using the `scope-doc` skill, add the next-numbered file to `docs/scope/`
+and its row to `docs/scope/README.md`'s index. On this track the EA
+alignment table records the impact on layers 1–2 with an explicit "not
+started" verdict for the rest, and the Approvals table carries a Gate 1 row
+plus `N/A` rows for the gates that don't apply (Gate 2 and Gate 3 always;
+Gate 0 unless `operating-model-discovery` handed off to you, in which case
+it is already recorded).
 
 ## Gate 1 — Strategy approval
 

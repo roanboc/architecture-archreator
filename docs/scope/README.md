@@ -39,12 +39,16 @@ folders are numbered in:
 2. **Document the scope.** Add the next-numbered file to this folder
    describing plateaus, work packages, in/out of scope, gaps, and gate
    approvals — before implementation starts, refined as it proceeds.
-3. **Pass the gates.** Before any code, the requester approves the
+3. **Pass the gates.** Before any code, the Requester approves the
    strategy, business, and information changes (**Gate 2 — Business**) and
    chooses whether to also review the solution design before it is coded
    (**Gate 3 — Solution design**, optional). Approvals are recorded in the
    scope document's Approvals table — who approved, when, and what was
-   shown.
+   shown, with `N/A — <why>` for the gates that didn't apply. Which gate
+   applies to which initiative is defined in exactly one place,
+   `.claude/skills/ea-first-change/` § The gates, which also says **where**
+   an approval can be granted — the conversation, or a reply on the pull
+   request for a Requester who doesn't work in a terminal.
 4. **Implement.** Only then write the code, keeping the scope document and
    EA docs in sync with what is actually delivered.
 

@@ -44,7 +44,7 @@ later (see `stack-selection` § The model as data).
 | ----- | -------- |
 | Motivation | `STK` Stakeholder · `DRV` Driver · `ASM` Assessment · `G` Goal · `OUT` Outcome · `P` Principle |
 | Strategy | `CAP` Capability · `RES` Resource · `COA` Course of Action · `VS` Value Stream |
-| Business | `ACT` Actor · `ROLE` Role · `PROD` Product · `BSVC` Business Service · `BPROC` Business Process · `BOBJ` Business Object · `BIF` Business Interface · `CTR` Contract |
+| Business | `ACT` Actor · `ROLE` Role · `BCOL` Business Collaboration · `PROD` Product · `BSVC` Business Service · `BPROC` Business Process · `BOBJ` Business Object · `BIF` Business Interface · `CTR` Contract · `RULE` Business Rule · `VAL` Value |
 | Information | `DOBJ` Data Object |
 | Application | `ASVC` Application Service · `ACMP` Application Component |
 | Technology | `TSVC` Technology Service · `NODE` Node · `ART` Artifact |
@@ -58,6 +58,33 @@ never changes when it is renamed. Referencing an element in prose or a
 table cell means writing its ID — `relieves PAIN2` — not repeating its
 description.
 
+### Namespacing across domains
+
+A project modeling multiple domains (see the `domain-modeling` skill and
+`docs/ea/domains/README.md`) qualifies
+IDs by domain, the way a module path qualifies a symbol:
+
+| Where the reference is written | How the ID is written | Example |
+| ------------------------------- | ---------------------- | -------- |
+| Inside the domain that owns the element | bare | `BSVC3` |
+| From another domain, or from the enterprise level | `<DOMAIN>.` prefix, domain in upper case | `SALES.BSVC3` |
+| An element owned at the enterprise level | always bare | `G1` |
+
+The domain segment is the folder name under `docs/ea/domains/`, upper-cased
+(`domains/sales/` → `SALES.`). A subdomain chains it — `SALES.EMEA.BSVC2` —
+which is also why the tree is capped at three levels; beyond that the IDs
+stop being readable, and the thing being modeled is a team, not a domain.
+
+Numbering stays per prefix **per domain**: two domains may both own a
+`BSVC3`, and the qualifier is what tells them apart. This is deliberate —
+domains are meant to be modeled independently, and forcing globally unique
+numbers would make every new domain a merge conflict against every other.
+
+Only a domain's **exposed** services (the ones in its charter) may be
+referenced from outside it. Referencing another domain's internal process or
+resource by ID reaches through the contract and is a modeling error — take
+it up with that domain's charter instead.
+
 ## Canvas notation
 
 The canvases in `0_business-design/` are Strategyzer artifacts, not
@@ -70,7 +97,7 @@ Where a canvas *is* drawn — a layer view showing fit — use the canvas
 block name as the stereotype (`«Pain»`, `«Gain Creator»`, `«Customer
 Segment»`) with the Motivation fill for the customer profile and the
 Strategy fill for the value map, as in
-[`docs/ea/0_business-design/README.md` § Layer view](../../../docs/ea/0_business-design/README.md#layer-view).
+`docs/ea/0_business-design/README.md` § Layer view.
 The canvas-block-to-ArchiMate-element mapping lives in that same README and
 is not restated anywhere else.
 
@@ -94,7 +121,7 @@ ArchiMate semantics onto Mermaid flowcharts with two rules:
 2. **One `classDef` per layer**, using the per-layer palette. The exact
    fills (Motivation, Strategy, Business, Application, Technology,
    Implementation & Migration) live in exactly one place —
-   [`docs/ea/README.md` § Notation conventions](../../../docs/ea/README.md#notation-conventions).
+   `docs/ea/README.md` § Notation conventions.
    Copy the `classDef` lines from there rather than re-tabulating the hexes
    here, so the palette never drifts between documents.
 
@@ -148,3 +175,9 @@ that's exactly the kind of call the `decision-record` skill is for.
   you are about to restate a table or diagram, link instead.
 - When renaming or moving a doc, grep the whole repo for the old path and
   fix every reference in the same change.
+- **Skill files are the exception: they link only within `.claude/skills/`.**
+  A skill points at a consuming project's documents by naming the path in a
+  code span — `` `docs/ea/README.md` § Modeling depth `` — never as a
+  relative link. Skills ship as a plugin, and installing one copies its
+  directory to a cache, so a link reaching outside that directory resolves
+  to nothing for anyone who installed rather than cloned.

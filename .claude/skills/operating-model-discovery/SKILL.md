@@ -5,6 +5,11 @@ description: Use when the initiative is modeling an organization rather than bui
 
 # Operating model discovery
 
+_Reached from `ea-first-change` Step 1c, or from `project-bootstrap` on a
+project whose subject is an organization. `README.md`
+orients a person; `CONTRIBUTING.md` draws where
+this branch sits in the whole flow._
+
 The company track. When this skill applies, **the product is the
 architecture**: the deliverable is a documented business model and the
 operating model derived from it — no application design, no stack
@@ -98,6 +103,18 @@ organization that has AI in its delivery or in its products should say so
 in the model rather than leave it implicit (see `ea-doc-style`'s actor
 notation).
 
+## Before the gate — create the scope document
+
+Discovery is a full initiative, not a detour, so it gets its own scope
+document like any other. **Create it before presenting Gate 0**, not after:
+the Requester should approve against a concrete document, and the approval
+needs somewhere to be recorded the moment it is granted.
+
+Using the `scope-doc` skill, add the next-numbered file to `docs/scope/` and
+its row to `docs/scope/README.md`'s index. One document covers this whole
+track — the same file gains its Gate 1 row when `strategy-discovery` takes
+over, so don't open a second one at the handoff.
+
 ## Gate 0 — Business model approval
 
 When the themes are exhausted (or the Requester's answers are), verify fit
@@ -123,7 +140,7 @@ and 2 when the canvas moves.
 Once Gate 0 is granted, run `strategy-discovery` — which will find the
 canvases filled and **derive rather than re-ask**. Its themes map onto the
 canvas blocks per the mapping in
-[`docs/ea/0_business-design/README.md`](../../../docs/ea/0_business-design/README.md);
+`docs/ea/0_business-design/README.md`;
 the only theme with no canvas source is **Principles**, which is still
 discovered directly with the Requester. That handoff ends at **Gate 1 —
 Strategy**, as usual.
