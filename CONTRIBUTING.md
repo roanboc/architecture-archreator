@@ -15,7 +15,13 @@ requirements:
    principle), the initiative becomes **strategy discovery** first — a
    docs-only, question-driven initiative ending at **Gate 1 — Strategy**
    (see the `strategy-discovery` skill); implementation follows as a
-   separate initiative.
+   separate initiative. If the subject is an **organization** rather than
+   an application, it starts one step earlier still, at
+   [`0_business-design/`](./docs/ea/0_business-design/README.md) — a value
+   proposition canvas per segment and a business model canvas per product,
+   approved at **Gate 0 — Business model**, from which the strategy and
+   business layers are then derived (see the `operating-model-discovery`
+   skill).
 2. **Document the scope** — add the next-numbered initiative document to
    [docs/scope/](./docs/scope/README.md).
 3. **Pass the gates** — before any code, the requester approves the
@@ -39,7 +45,8 @@ documents:
 
 - **Requester** — whoever wants something to change: a stakeholder, a
   product owner, a bug reporter. Presents a requirement or a problem, not a
-  solution or a diff — and **grants the gate approvals**: the strategy
+  solution or a diff — and **grants the gate approvals**: the business
+  model (Gate 0, when an organization is being modeled), the strategy
   (Gate 1, when discovery is triggered), the strategy/business/information
   changes before any code (Gate 2), and optionally the solution design
   (Gate 3). Business sign-off precedes development, the way a business
@@ -63,6 +70,7 @@ where each actor's responsibility starts and ends:
 flowchart TD
   subgraph REQ["Requester"]
     req(["Presents a requirement<br>or reports a problem"])
+    gate0{"Gate 0 — approve<br>the business model?"}
     gate1{"Gate 1 — approve<br>the strategy?"}
     gate2{"Gate 2 — approve strategy,<br>business, information?<br>Review the solution<br>design too?"}
     gate3{"Gate 3 — approve the<br>solution design?"}
@@ -70,6 +78,7 @@ flowchart TD
 
   subgraph AGENT["Agent (person or AI)"]
     assess["Assess 1_strategy<br>against the change"]
+    canvases["Operating-model discovery —<br>value proposition + business<br>model canvases, docs-only<br>(operating-model-discovery skill)"]
     discovery["Strategy discovery —<br>question-driven, docs-only<br>(strategy-discovery skill)"]
     conflict{"Contradicts an existing<br>Principle?"}
     bugfix{"Pure bug fix — no<br>documented behavior<br>changes?"}
@@ -90,6 +99,10 @@ flowchart TD
   merged(["Merged"])
 
   req --> assess
+  assess -->|the subject is an<br>organization, not an app| canvases
+  canvases --> gate0
+  gate0 -- changes requested --> canvases
+  gate0 -- "approved (recorded in<br>scope doc)" --> discovery
   assess -->|strategy is placeholders,<br>or the change shifts it| discovery
   discovery --> gate1
   gate1 -- changes requested --> discovery
@@ -117,8 +130,8 @@ explicitly and records — a "no change" verdict on an EA layer, a "pure bug
 fix, no scope document" statement, a gate approval written into the scope
 document's Approvals table, an open question logged for the requester —
 never a silent skip. See `ea-first-change` for the full step-by-step
-version of this same flow, and `strategy-discovery` for the discovery
-branch.
+version of this same flow, `strategy-discovery` for the discovery branch,
+and `operating-model-discovery` for the company track that precedes it.
 
 ## Pull requests
 
@@ -172,7 +185,8 @@ A change is done when:
 - the initiative's scope document reflects what was actually delivered,
   and its Approvals table records every gate the change required (Gate 2
   at minimum for any change in documented behavior; Gate 1 for a
-  strategy-discovery initiative; Gate 3 if the requester opted in);
+  strategy-discovery initiative; Gate 0 and Gate 1 for an operating-model
+  discovery; Gate 3 if the requester opted in);
 - cross-links resolve and diagrams render;
 - any new interpretation of a requirement is recorded as an open question
   with its adopted interpretation (see the `scope-doc` skill).

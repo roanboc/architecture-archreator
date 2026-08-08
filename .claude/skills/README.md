@@ -12,6 +12,7 @@ core-vs-supporting breakdown and how each skill relates to `docs/ea/` and
 | Skill | `SKILL.md` |
 | ----- | ---------- |
 | `ea-first-change` | [ea-first-change/SKILL.md](./ea-first-change/SKILL.md) |
+| `operating-model-discovery` | [operating-model-discovery/SKILL.md](./operating-model-discovery/SKILL.md) |
 | `strategy-discovery` | [strategy-discovery/SKILL.md](./strategy-discovery/SKILL.md) |
 | `ea-doc-style` | [ea-doc-style/SKILL.md](./ea-doc-style/SKILL.md) |
 | `scope-doc` | [scope-doc/SKILL.md](./scope-doc/SKILL.md) |

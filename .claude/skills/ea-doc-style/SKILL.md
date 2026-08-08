@@ -21,13 +21,58 @@ names near the top of `docs/ea/README.md`.
 - Layer folders are numbered in assessment order and never reordered:
   `1_strategy`, `2_business`, `3_information`, `4_application`,
   `5_technology` (translate the words if the project's doc language isn't
-  English, but keep the numbers and the order).
+  English, but keep the numbers and the order). Projects that model an
+  organization also have `0_business-design`, holding the canvases the rest
+  is derived from — it is not an ArchiMate layer, and application-only
+  projects leave it empty.
 - Files inside a layer carry a numeric prefix giving the **logical analysis
   order**, which each layer README explains in an "Analysis order" table.
   A new file gets the next number, plus a row in that table; only renumber
   when the analysis order genuinely changes.
 - Scope documents (`docs/scope/`) are numbered **chronologically** per
   initiative.
+
+## Element IDs
+
+Every element in an inventory table carries a short **ID** in its own first
+column: a type prefix followed by an integer, no separator — `G1`, `CAP3`,
+`PROD2`. IDs are how one document refers to an element in another without
+restating it, and they are what lets the model be exported mechanically
+later (see `stack-selection` § The model as data).
+
+| Where | Prefixes |
+| ----- | -------- |
+| Motivation | `STK` Stakeholder · `DRV` Driver · `ASM` Assessment · `G` Goal · `OUT` Outcome · `P` Principle |
+| Strategy | `CAP` Capability · `RES` Resource · `COA` Course of Action · `VS` Value Stream |
+| Business | `ACT` Actor · `ROLE` Role · `PROD` Product · `BSVC` Business Service · `BPROC` Business Process · `BOBJ` Business Object · `BIF` Business Interface · `CTR` Contract |
+| Information | `DOBJ` Data Object |
+| Application | `ASVC` Application Service · `ACMP` Application Component |
+| Technology | `TSVC` Technology Service · `NODE` Node · `ART` Artifact |
+| Canvas (VPC) | `JOB` Job · `PAIN` Pain · `GAIN` Gain · `PREL` Pain Reliever · `GCRE` Gain Creator |
+| Canvas (BMC) | `KP` Key Partner · `KA` Key Activity · `KR` Key Resource · `VP` Value Proposition · `CR` Customer Relationship · `CH` Channel · `CS` Customer Segment · `RS` Revenue Stream · `COST` Cost |
+
+Rules: an ID is assigned once and **never reused** after the element is
+removed (a dangling reference should fail loudly, not silently point at
+something else); numbering is per prefix, not global; and an element's ID
+never changes when it is renamed. Referencing an element in prose or a
+table cell means writing its ID — `relieves PAIN2` — not repeating its
+description.
+
+## Canvas notation
+
+The canvases in `0_business-design/` are Strategyzer artifacts, not
+ArchiMate, so they are written as **tables, one per canvas**, not as
+diagrams — a nine-block grid is unreadable in Mermaid and a table diffs
+cleanly. Each canvas gets its own `###` heading naming the segment or
+product it belongs to.
+
+Where a canvas *is* drawn — a layer view showing fit — use the canvas
+block name as the stereotype (`«Pain»`, `«Gain Creator»`, `«Customer
+Segment»`) with the Motivation fill for the customer profile and the
+Strategy fill for the value map, as in
+[`docs/ea/0_business-design/README.md` § Layer view](../../../docs/ea/0_business-design/README.md#layer-view).
+The canvas-block-to-ArchiMate-element mapping lives in that same README and
+is not restated anywhere else.
 
 ## Grounding rule (the most important one)
 

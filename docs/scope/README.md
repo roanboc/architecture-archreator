@@ -30,7 +30,12 @@ folders are numbered in:
    or principle, the initiative becomes **strategy discovery** first — a
    docs-only, question-driven initiative ending at **Gate 1 — Strategy**
    approval (see `.claude/skills/strategy-discovery/`); implementation
-   follows as a separate initiative.
+   follows as a separate initiative. If the subject is an **organization**
+   rather than an application, the walk starts one layer earlier, at
+   [0_business-design](../ea/0_business-design/README.md) — the value
+   proposition and business model canvases, approved at **Gate 0 —
+   Business model** (see `.claude/skills/operating-model-discovery/`)
+   before layers 1–2 are derived from them.
 2. **Document the scope.** Add the next-numbered file to this folder
    describing plateaus, work packages, in/out of scope, gaps, and gate
    approvals — before implementation starts, refined as it proceeds.

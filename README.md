@@ -75,6 +75,13 @@ project from it is a two-click operation (see below).
       change will run it automatically and stop for your approval of the
       strategy (Gate 1) before building anything. A layer with nothing to say yet still gets its README's table
       row acknowledged as "not started"; don't just skip the folder.
+
+      **Modeling an organization rather than an app?** Start one step
+      earlier, at
+      [`docs/ea/0_business-design/`](./docs/ea/0_business-design/README.md),
+      and let the `operating-model-discovery` skill run the canvases
+      first — the strategy layer is then derived from them at Gate 1
+      instead of written from scratch.
    3. If no technology stack is chosen yet and this is a small app, use the
       `stack-selection` skill instead of re-deriving one from scratch, then
       record the choice in `docs/ea/5_technology/1_technology-services.md`.
@@ -105,7 +112,8 @@ top-down through five numbered ArchiMate layers
 (`docs/ea/1_strategy` → `2_business` → `3_information` → `4_application` →
 `5_technology`), recorded in a scope document (`docs/scope/`), and only then
 implemented. Validation is explicit: the requester approves at named gates
-before development — a new or shifted strategy (Gate 1), the
+before development — the business model when a whole organization is being
+modeled (Gate 0), a new or shifted strategy (Gate 1), the
 strategy/business/information changes before any code (Gate 2), and
 optionally the solution design (Gate 3) — the way a business reference
 group signs off before building starts, with each approval recorded in the
@@ -113,6 +121,22 @@ scope document. Every EA element names the code artifact that realizes it
 (or is marked "Pending"), so the architecture stays verifiable against the
 code at any time. Full write-up: [CONTRIBUTING.md](./CONTRIBUTING.md) and
 [docs/scope/README.md](./docs/scope/README.md).
+
+### Modeling a company, not just an app
+
+The five layers assume the subject is a system. When the subject is an
+**organization** — where the architecture itself is the deliverable, and
+other projects consume it as the shared source of truth — the process
+starts one layer earlier, at
+[`docs/ea/0_business-design/`](./docs/ea/0_business-design/README.md): a
+**Value Proposition Canvas** per customer segment (who they are, the job
+they're doing, their pains and gains, and what relieves them) and a
+**Business Model Canvas** per product (the nine blocks — partners,
+activities, resources, channels, revenue, cost). Those canvases are
+approved at Gate 0 and the strategy and business layers are then *derived*
+from them, block by block, rather than invented alongside them. The
+`operating-model-discovery` skill runs that track;
+[`example-company/`](./example-company/README.md) shows the result.
 
 ## See it applied: a worked example
 
@@ -132,6 +156,15 @@ It lives in its own subfolder, with its own `README.md`/`CLAUDE.md`/
 (intentionally blank) scaffold — cloning this template still hands you a
 clean slate; `example/` is there to read, not to inherit.
 
+[`example-company/`](./example-company/README.md) is the second worked
+example, and it has no application at all: a small AI consultancy that also
+sells AI products, modeled end-to-end from two value proposition canvases
+and two business model canvases down through a derived strategy and
+business layer. It's the answer to "what does modeling a *company* look
+like", and it deliberately carries two AI actors at different autonomy
+levels — a delivery copilot the consultancy uses internally, and the agent
+embedded in the product it sells.
+
 ## How everything fits together
 
 Everything in this repo hangs off one entry point. Read top-to-bottom the
@@ -146,7 +179,7 @@ flowchart TB
   scope["docs/scope/<br><i>one doc per change, + the process writeup</i>"]
   decisions["docs/decisions/<br><i>one doc per smaller, non-obvious call</i>"]
   skillscore["skills: ea-first-change, ea-doc-style,<br>scope-doc, pr-description"]
-  skillssupport["skills: strategy-discovery,<br>decision-record,<br>story-sharding, stack-selection"]
+  skillssupport["skills: operating-model-discovery,<br>strategy-discovery, decision-record,<br>story-sharding, stack-selection"]
   pr[".github/ PR templates<br>(default + bugfix)"]
 
   claude -->|points to| contrib
@@ -166,10 +199,10 @@ flowchart TB
 | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | [CLAUDE.md](./CLAUDE.md)               | **Start here if you're an agent.** States the one rule (EA-first) and points at the skills that operationalize it |
 | [CONTRIBUTING.md](./CONTRIBUTING.md)   | **Start here if you're a person.** The method in prose, the actors in the process (requester / agent / reviewer) with a process-flow diagram, the dev workflow, and a definition-of-done checklist |
-| [docs/ea/](./docs/ea/README.md)        | The 5-layer EA skeleton describing the system's **current** state: numbering, ArchiMate-on-Mermaid notation and palette (including the human/AI/hybrid actor convention), per-layer analysis order, and a fill-in-the-blank layer view for each of `1_strategy` → `5_technology` |
+| [docs/ea/](./docs/ea/README.md)        | The 5-layer EA skeleton describing the system's **current** state: numbering, ArchiMate-on-Mermaid notation and palette (including the human/AI/hybrid actor convention), per-layer analysis order, and a fill-in-the-blank layer view for each of `1_strategy` → `5_technology`. Plus [`0_business-design/`](./docs/ea/0_business-design/README.md) — the value proposition and business model canvases, filled in only when the subject is a whole organization |
 | [docs/scope/](./docs/scope/README.md)  | One document per **change** to that state: the EA-first process write-up, the initiative index, and the optional [open-questions.md](./docs/scope/open-questions.md) log |
 | [docs/decisions/](./docs/decisions/README.md) | Optional log of smaller, non-obvious calls that don't rise to a full scope document — most often *why* an AI actor's autonomy level or decision rights were set the way they were |
-| [`.claude/skills/`](./.claude/skills/README.md) | Eight Claude Code skills that turn the method into concrete agent behavior — see the two tables below |
+| [`.claude/skills/`](./.claude/skills/README.md) | Nine Claude Code skills that turn the method into concrete agent behavior — see the two tables below |
 | [.github/pull_request_template.md](./.github/pull_request_template.md) + [PULL_REQUEST_TEMPLATE/bugfix.md](./.github/PULL_REQUEST_TEMPLATE/bugfix.md) | Two PR bodies — one shaped to mirror a scope document's EA-alignment table, one for pure bug fixes that skip it — so the PR and the docs never drift apart |
 
 Skills are picked up automatically by Claude Code from their
@@ -192,6 +225,7 @@ project to fill in:
 
 | Skill               | Used for                                                                                                |
 | -------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `operating-model-discovery` | The company track: when the subject is an organization rather than an app, question-driven discovery of a value proposition canvas per customer segment and a business model canvas per product, ending at the business-model gate (Gate 0) — then handing off to `strategy-discovery`, which derives the EA from the approved canvases instead of re-asking |
 | `strategy-discovery` | Question-driven discovery of the strategy layer and key business elements with the requester — triggered by `ea-first-change` when the strategy is still template placeholders (a project's first real initiative) or a change shifts it; a docs-only initiative ending at the strategy approval gate (Gate 1) |
 | `decision-record`   | A short, durable rationale for a single consequential call that's smaller than an initiative — most often why an AI actor's autonomy level or decision rights were set the way they were |
 | `story-sharding`    | Adapted from [BMAD-METHOD](https://github.com/bmadcode/BMAD-METHOD)'s context-engineered development: when a scope document's work package is too large for one sitting, shard it into small, self-contained story files so an agent or person resuming later never has to re-derive the whole plan from the EA tree |

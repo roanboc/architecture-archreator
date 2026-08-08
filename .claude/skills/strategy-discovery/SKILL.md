@@ -32,6 +32,15 @@ will then find the strategy filled in and current.
   content (trigger was a strategy *shift*, not a blank template), start
   from what's documented: confirm what still holds, and focus the
   questions on what the new requirement bends or breaks.
+- **Derive, don't re-ask.** If
+  [`docs/ea/0_business-design/`](../../../docs/ea/0_business-design/README.md)
+  is filled in, the Requester has already answered most of theme 1, 2, 4
+  and 5 in business language and approved the answers at Gate 0. Start each
+  theme from the canvas blocks it derives from — per the mapping in that
+  folder's README — draft the elements, and ask only what the canvases
+  leave genuinely open. Re-asking questions the Requester already answered
+  on a canvas is how a gated process loses their trust. Note the source
+  block on each derived element so the trace back to the canvas survives.
 
 ## Question themes, in order
 
@@ -50,7 +59,9 @@ elements underneath.
 3. **Principles** (`1_motivation.md`): What must always — or never — be
    true, regardless of feature? Keep them few, load-bearing, and testable
    ("role determines access", not "be secure"); these are what every
-   future change gets checked against.
+   future change gets checked against. **No canvas block feeds this
+   theme** — principles are discovered directly with the Requester on both
+   tracks, so ask these questions even when the canvases are filled.
 4. **Capabilities and resources** (`2_capabilities-and-resources.md`):
    What must the project be able to do to reach those goals? With what —
    people, systems, data, budget — and what is missing today?
