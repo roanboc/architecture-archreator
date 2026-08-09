@@ -53,6 +53,14 @@ you do:
 - **Write as you go, and show it back.** Update the canvas documents after
   each round and reflect a short summary back, so a misread segment
   surfaces in minutes rather than at the gate.
+- **Consolidate as you go, not at the end.** Discovery generates elements
+  fast — a round of questions about pains easily yields twelve. Before
+  writing them down, merge the ones that are the same pain felt at different
+  severity, or the same job seen from two segments, and give the survivor a
+  per-segment column instead. `ea-doc-style` § Consolidate before you
+  enumerate has the rules. Doing this at the end means renumbering
+  everything; doing it per round means the canvas is always readable, and the
+  Requester is reviewing a model rather than a transcript.
 - **One segment and one product at a time.** Finish a customer segment's
   profile before starting the next. Finish a product's nine blocks before
   starting the next. Canvases filled in parallel drift into each other.
@@ -124,8 +132,15 @@ flag the gaps — do not quietly present an unfit canvas.
 
 Then present one compact summary — segments, their jobs, the sharpest
 pains and gains, the products, and for each product the blocks that
-distinguish it (revenue, channels, dominant cost) — with links to the
-documents behind it, and ask explicitly for approval of the business model.
+distinguish it (revenue, channels, dominant cost) — with **full branch links
+to each canvas document** (`ea-first-change` § Show the Requester what they
+are approving), and ask explicitly for approval of the business model.
+
+Name the consolidation in the summary: how many elements each catalogue
+holds, and what was merged to get there. A Requester who can see that twelve
+pains became five is being shown a modeling decision they can overturn — and
+that decision is usually more consequential than any single element in the
+list.
 
 Record the approval in the scope document's Approvals table (who, when,
 what was shown). If changes are requested, revise and present again.

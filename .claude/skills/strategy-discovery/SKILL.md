@@ -32,6 +32,12 @@ will then find the strategy filled in and current.
   affected documents (per `ea-doc-style`) and reflect a short summary back
   to the Requester so misunderstandings surface immediately — the docs are
   the record of the conversation, not a transcript kept elsewhere.
+- **Consolidate as you go.** Goals that differ only in wording are one goal;
+  a capability named twice at different granularity is one capability. Merge
+  per round rather than at the end, per `ea-doc-style` § Consolidate before
+  you enumerate. A strategy layer with six load-bearing goals is worth more
+  than one with twenty, because every later initiative gets checked against
+  it and nobody checks against twenty.
 - **Revision, not amnesia.** If the strategy layer already has real
   content (trigger was a strategy *shift*, not a blank template), start
   from what's documented: confirm what still holds, and focus the
@@ -114,8 +120,9 @@ it is already recorded).
 
 When the themes are exhausted (or the Requester's answers are), present
 one compact summary — stakeholders, drivers, goals, principles, value
-stream, key business elements — with links to the documents behind it, and
-ask explicitly for approval of the strategy. Record the approval in the
+stream, key business elements — with **full branch links to each document
+behind it** (`ea-first-change` § Show the Requester what they are approving),
+and ask explicitly for approval of the strategy. Record the approval in the
 scope document's Approvals table (who, when, what was shown). Only after
 Gate 1 is granted may an implementation initiative build on this strategy;
 if changes are requested, revise and present again.

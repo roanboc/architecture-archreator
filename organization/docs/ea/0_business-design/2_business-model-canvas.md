@@ -150,9 +150,32 @@ organization already operates the way it tells its customers to operate.
 | ID | Revenue stream | Kind | Product | Shape |
 | --- | --- | --- | --- | --- |
 | `RS1` | **Continuous improvement** — community feedback and real usage flowing back into the method | Non-monetary | `PROD1` | Grows with adoption; the method improves because people use it in situations the Requester would never meet alone |
-| `RS2` | **Mission progress** — people building better things with AI while human knowledge improves rather than being delegated away | Non-monetary | `PROD1` | The reason the organization exists. Currently unmeasured |
+| `RS2` | **Mission progress** — people building better things with AI while human knowledge improves rather than being delegated away | Non-monetary | `PROD1` | The reason the organization exists. Measured by adoption — see below |
 | `RS3` | Consulting fees | Monetary | `PROD2` | Hourly. Bounded by one person's available time |
 | `RS4` | Portal fees | Monetary | `PROD3` | One-off per use: agent cost plus a small product fee. **Pending** |
+
+### Measuring `RS1` and `RS2` — adoption, in two bands
+
+Both non-monetary streams are measured the same way, because both are
+consequences of the same thing: **people actually using the project**. The
+measure splits into two bands, and the distinction between them is the point.
+
+| Band | What it counts | What it tells you |
+| --- | --- | --- |
+| **Pre-engagement** | GitHub stars, forks, contributions, online discussions | Interest. Someone found the project and thought it worth a signal — cheap to give, and cheap to overread |
+| **Real** | Enterprises and initiatives actually designed and built with the method | Return. Someone ran the method end to end and got something out of it |
+
+Only the **real** band evidences `RS2`. Mission progress means human knowledge
+improved while something got built — a star proves neither. The
+pre-engagement band is a leading indicator worth watching precisely because
+it moves first, not because it stands in for the outcome.
+
+**Neither band is instrumented today.** The pre-engagement numbers are
+readable from GitHub at any time; the real band has no collection method at
+all, and asking adopters to self-report is the obvious candidate. Choosing
+one is **Pending — future initiative**, and it is what a **Social Return on
+Investment** valuation would be built on: the framework needs quantities
+before it can attach value to them.
 
 `PROD1` is free and returns `RS1` and `RS2`. It also feeds `PROD2`: someone
 who starts with the open method and finds they would rather have an
@@ -218,6 +241,6 @@ anything provider-specific enters a skill body — see the open question.
 
 | # | Question | Interpretation adopted |
 | - | -------- | ---------------------- |
-| 1 | How should the non-monetary returns `RS1` and `RS2` be valued? | **Social Return on Investment** is the candidate framework and the Requester has applied it in governmental work. Recorded as named-but-unvalued for now. Choosing a method is its own initiative — and archreator's own canvas guidance has no support for non-monetary return, so this is a gap in the method as well as in this model |
+| 1 | How should the non-monetary returns `RS1` and `RS2` be valued? | **Answered at Gate 0, in part.** The *measure* is adoption in two bands — pre-engagement and real — as recorded above. The *valuation* is still open: **Social Return on Investment** remains the candidate framework, and it needs the real band instrumented before it has quantities to work on. archreator's own canvas guidance still has no support for non-monetary return, so that part is a gap in the method as well as in this model |
 | 2 | How far should provider neutrality go in practice? | Generic method, Claude Code as the current implementation. Needs a decision record fixing what may and may not be provider-specific, before the question is settled by accident |
 | 3 | Is `KP3` (contributors) a partner or an aspiration? | Recorded as **Pending**. `RS1` depends on it, so a community that never forms would make the primary non-monetary return theoretical |

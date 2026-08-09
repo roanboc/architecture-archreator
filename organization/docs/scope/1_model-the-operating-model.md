@@ -35,8 +35,8 @@ This is a **docs-only initiative**. No code is delivered.
 
 | Gate | Approved by | Date | What was approved |
 | ---- | ----------- | ---- | ----------------- |
-| Gate 0 — Business model | _awaiting_ | — | The two canvases: three segments, one consolidated set of jobs, pains and gains, the value map, and three product business models |
-| Gate 1 — Strategy | _pending Gate 0_ | — | The derived strategy and key business elements |
+| Gate 0 — Business model | Requester | 2026-08-08 | The two canvases: three segments, one consolidated set of jobs, pains and gains, the value map, and three product business models. Presented in the session, with the branch links to both canvas documents. Granted with one addition — the Social Return on Investment measures now recorded against `RS1` and `RS2` |
+| Gate 1 — Strategy | _awaiting_ | — | The derived strategy and key business elements |
 | Gate 2 — Business | — | — | **N/A** — docs-only initiative; no code is delivered |
 | Gate 3 — Solution design | — | — | **N/A** — no solution design |
 
@@ -77,7 +77,7 @@ This is a **docs-only initiative**. No code is delivered.
 | In scope | Out of scope (gaps, candidate future work) |
 | -------- | ------------------------------------------- |
 | Both canvases, and the fit check between them | Layers 1–5, which are derived after Gate 0 |
-| The non-monetary return, named and recorded | Valuing it — Social Return on Investment is named, not applied |
+| The non-monetary return, named, recorded, and given a measure | Instrumenting that measure, and valuing it — Social Return on Investment is named, not applied |
 | The single-person concentration, stated as a risk | Doing anything about it |
 | Provider neutrality as a posture | The decision record that would fix its limits |
 
@@ -91,12 +91,15 @@ This is a **docs-only initiative**. No code is delivered.
   not have. The named route if it ever had to change is AI agents acting as
   consultants carrying the Requester's knowledge, which needs more AI
   maturity than exists today.
-- **`RS1` and `RS2` are the primary returns and neither is measured.** The
-  organization exists for mission progress and improvement through real
-  usage. Both are recorded as non-monetary revenue streams; neither has a
-  valuation method. Social Return on Investment is the candidate, and the
+- **`RS1` and `RS2` now have a measure, and no instrumentation.** Both
+  primary returns are measured by adoption in two bands — pre-engagement
+  (stars, forks, contributions, discussions) and real (enterprises and
+  initiatives actually designed and built). The pre-engagement band is
+  readable from GitHub today; the real band has no collection method, and
+  only the real band evidences mission progress. Valuation is a further step
+  again: Social Return on Investment is the candidate framework, and the
   Requester has applied it in governmental work — but naming a framework is
-  not applying one.
+  not applying one, and it needs quantities first.
 - **archreator's own canvas guidance has no support for non-monetary
   return.** This model needed a concept the method does not provide, which
   makes it a gap in the method, not only in this model. Any non-profit or

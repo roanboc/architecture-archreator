@@ -86,7 +86,10 @@ _[← Scope index](./README.md) · [EA home](../ea/README.md)_
   `N/A — <why>` rather than deleted, so a reader can tell a skipped gate
   from a forgotten one. An approval that isn't recorded didn't happen; a
   scope document is a historical record, so the table shows who accepted
-  what, durably.
+  what, durably. **"What was approved" names the documents that were put in
+  front of the Requester**, not the topic in the abstract — the gate
+  presentation links them in full (`ea-first-change` § Show the Requester
+  what they are approving), and the row is what says which ones they were.
 - **Deliverables are concrete artifacts** (file paths, page/screen names),
   never vague ("improved UX").
 - **Out of scope is as important as in scope**: it is where the next
