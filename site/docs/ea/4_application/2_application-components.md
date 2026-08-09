@@ -36,22 +36,16 @@ flowchart TB
   asvc1(["⬮ «Application Service» ASVC1<br>Guidance publishing"]):::appservice
 
   acmp1["⊞ «Application Component» ACMP1<br>Landing page"]:::component
-  acmp2["⊞ ACMP2<br>Setup page"]:::component
-  acmp3["⊞ ACMP3<br>Guide page"]:::component
-  acmp4["⊞ ACMP4<br>Walkthrough page"]:::component
-  acmp5["⊞ ACMP5<br>Architecture page"]:::component
+  acmp7["⊞ ACMP7<br>How-it-works page"]:::component
+  acmp2["⊞ ACMP2<br>Start page"]:::component
   acmp6["⊞ ACMP6<br>Shared stylesheet"]:::component
 
   acmp1 --> asvc1
+  acmp7 --> asvc1
   acmp2 --> asvc1
-  acmp3 --> asvc1
-  acmp4 --> asvc1
-  acmp5 --> asvc1
   acmp6 --> acmp1
+  acmp6 --> acmp7
   acmp6 --> acmp2
-  acmp6 --> acmp3
-  acmp6 --> acmp4
-  acmp6 --> acmp5
   asvc1 --> bsvc1
 
   classDef business fill:#fffbb5,stroke:#b8a200,color:#333
@@ -66,18 +60,29 @@ page and nothing else moves.
 
 | ID | Application service | Realizes | Provided by |
 | -- | ------------------- | -------- | ----------- |
-| `ASVC1` | **Guidance publishing** — the pages, served statically, in two language editions | `BSVC1`, the [EA-first method guidance](../2_business/2_business-services.md) business service | `ACMP1`–`ACMP6` |
+| `ASVC1` | **Guidance publishing** — the pages, served statically, in two language editions | `BSVC1`, the [EA-first method guidance](../2_business/2_business-services.md) business service | `ACMP1`, `ACMP2`, `ACMP6`, `ACMP7` |
 
-Provided by six components:
+Provided by four components, where there were six:
 
 | ID | Component | Realizes | Source file |
 | -- | --------- | -------- | ----------- |
-| `ACMP1` | **Landing page** | Entry point: states the one rule, the Requester → Agent → Reviewer loop, links onward | [`public/index.html`](../../../public/index.html) |
-| `ACMP2` | **Setup page** | A beginner's zero-to-first-change setup guide: create a GitHub account, copy the template, pick an AI agent (free-first, no editor install) | [`public/start.html`](../../../public/start.html) |
-| `ACMP3` | **Guide page** | Reference for the EA-first process and the human/AI/hybrid actor notation | [`public/guide.html`](../../../public/guide.html) |
-| `ACMP4` | **Walkthrough page** | One requirement climbing the layers end to end (Requester vs. Agent at each step), plus dedicated coverage of the situational `stack-selection` and `story-sharding` skills | [`public/walkthrough.html`](../../../public/walkthrough.html) |
-| `ACMP5` | **Architecture page** | Renders this project's own filled EA layers as the concrete "what finished looks like" example | [`public/architecture.html`](../../../public/architecture.html) |
-| `ACMP6` | **Shared stylesheet** | The self-contained CSS diagram components (`archi-*`, `node`, the `loop` and `ladder`) that render this project's ArchiMate diagrams without a diagramming library | [`public/styles.css`](../../../public/styles.css) |
+| `ACMP1` | **Landing page** | The whole argument on one page: the problem, why the project exists, how it works, the proof, and the call to start | [`public/index.html`](../../../public/index.html) |
+| `ACMP7` | **How-it-works page** | The layers, the four gates, how an AI actor is modeled, and what ends up in a repository | [`public/how.html`](../../../public/how.html) |
+| `ACMP2` | **Start page** | Two ways in, what the first session feels like, and honest expectations | [`public/start.html`](../../../public/start.html) |
+| `ACMP6` | **Shared stylesheet** | The design system: tokens, light and dark, the layout primitives and the layer-coloured components | [`public/styles.css`](../../../public/styles.css) |
+
+## Retired
+
+Withdrawn when the site was rebuilt around **why the project exists** rather
+than as reference documentation. Their identifiers are never reused — the parent method's rule on
+identifiers — and the pages they named are reachable in the history at the
+commit before removal.
+
+| ID | Component | Retired | Why |
+| -- | --------- | ------- | --- |
+| `ACMP3` | Guide page | 2026-08-09 | Reference material a first-time reader was not ready for. What survives of it is `ACMP7` |
+| `ACMP4` | Walkthrough page | 2026-08-09 | A long worked example that answered "how" before anyone had been told "why" |
+| `ACMP5` | Architecture page | 2026-08-09 | Rendered this project's own layers in hand-written CSS — a second copy of the model that went stale every time the model moved. The real models on GitHub are now linked instead |
 
 
 Each component ships in **two language editions**: the English page listed
@@ -91,7 +96,7 @@ declare the pairing to search engines. See
 [3_information/1_data-objects.md](../3_information/1_data-objects.md) for
 which edition wins when they disagree.
 
-All ten pages share `ACMP6`. None of the pages build or fetch anything at request
+All six pages share `ACMP6`. None of the pages build or fetch anything at request
 time — no external scripts, fonts, or stylesheets — so deployment is a
 direct copy of `public/` (see
 [5_technology/2_deployment.md](../5_technology/README.md)). The site's

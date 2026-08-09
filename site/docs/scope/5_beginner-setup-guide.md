@@ -54,7 +54,7 @@ implementation._
   editor install), three numbered setup steps, a free-first agent
   comparison (GitHub Copilot free tier vs. Claude Code on the web, plus the
   student/open-source free upgrades), and a hand-off to the
-  [walkthrough](../../public/walkthrough.html) for the first change.
+  [walkthrough](https://github.com/roanboc/archreator/blob/baafc8d7d991e67d2a0d62326c142b93eac982e0/site/public/walkthrough.html) for the first change.
 - **Outcome:** a newcomer with zero prior GitHub or CLI experience can get
   set up — for free — without reading the parent template's `README.md` or
   any skill file.

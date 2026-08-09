@@ -59,7 +59,7 @@ The one data object in this project: a page of guidance content.
 | Property | `DOBJ1` — Guidance page |
 | -------- | ----- |
 | Representation | Static HTML, hand-written, no build step. Two language editions per page: English (canonical between the two) and Spanish |
-| Location | English: [`public/index.html`](../../../public/index.html), [`public/guide.html`](../../../public/guide.html), [`public/walkthrough.html`](../../../public/walkthrough.html), [`public/architecture.html`](../../../public/architecture.html), [`public/start.html`](../../../public/start.html). Spanish: the same five filenames under [`public/es/`](../../../public/es/index.html), a one-to-one mirror |
+| Location | English: [`public/index.html`](../../../public/index.html), [`public/how.html`](../../../public/how.html), [`public/start.html`](../../../public/start.html). Spanish: the same three filenames under [`public/es/`](../../../public/es/index.html), a one-to-one mirror |
 | Source of truth | **Derived**, not canonical — each page summarizes and links to the skill file(s) or EA document(s) it's about. If a page and its linked source disagree, the source is right (`P1`,
 [1_strategy/1_motivation.md](../1_strategy/1_motivation.md)). The one page whose subject is partly outside this repo is [`public/start.html`](../../../public/start.html): its archreator-specific steps derive from `README.md`/`CONTRIBUTING.md`, and its third-party tool steps link out to each vendor's official docs — the canonical source there is the vendor's site, so the page states figures as "at the time of writing" and links the live page rather than pinning them |
 | Classification | Public |

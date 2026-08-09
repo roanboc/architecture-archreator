@@ -45,9 +45,12 @@ flowchart LR
 
   drv1{{"✳ «Driver» DRV1<br>Nothing shows the method applied"}}:::driver
   drv2{{"✳ DRV2<br>English-only guidance excludes readers"}}:::driver
+  drv3{{"✳ DRV3<br>Nobody can tell why it exists or who it is for"}}:::driver
 
   stk1 --> drv1
+  stk1 --> drv3
   stk2 --> drv1
+  stk2 --> drv3
   stk3 --> drv2
 
   classDef stakeholder fill:#f4ecfc,stroke:#9575cd,color:#333
@@ -61,13 +64,14 @@ two edges rather than two elements saying the same thing.
 | ID | Stakeholder | Concern | Driver |
 | -- | ----------- | ------- | ------ |
 | `STK1` | **Pilot** | The archreator template should be usable without reading its skill files directly | `DRV1` |
-| `STK2` | **Template adopters** (external) — especially AI-first builders | Understanding how to bootstrap and run the method, and seeing that a human-in-the-loop, AI-executed workflow is what it delivers | `DRV1` |
+| `STK2` | **Prospective adopters** (external) — anyone building with AI, most of whom have never heard of the project | Deciding, quickly, whether this is for them and what it would give them — before anyone asks them to learn a method | `DRV1`, `DRV3` |
 | `STK3` | **Spanish-speaking adopters** (external) | Learning the method in their own language instead of parsing dense process prose in English | `DRV2` |
 
 | ID | Driver | What pressures it |
 | -- | ------ | ----------------- |
 | `DRV1` | **Nothing shows the method applied** — no document in the parent template demonstrates the EA-first process, or the human/AI actor notation, on a real project |
 | `DRV2` | **English-only guidance excludes readers** — the site shut out anyone who does not work comfortably in English |
+| `DRV3` | **Nobody can tell why it exists or who it is for** — the site explained the mechanism to people who had not yet been given a reason to care, so a first-time reader had to work out the value themselves |
 
 ## Goals
 
@@ -75,23 +79,27 @@ two edges rather than two elements saying the same thing.
 flowchart LR
   drv1{{"✳ «Driver» DRV1<br>Nothing shows the method applied"}}:::driver
   drv2{{"✳ DRV2<br>English-only guidance excludes readers"}}:::driver
+  drv3{{"✳ DRV3<br>Nobody can tell why it exists"}}:::driver
 
   g1("◎ «Goal» G1<br>Legible guidance"):::goal
   g2("◎ G2<br>Living proof"):::goal
   g3("◎ G3<br>Frictionless, free start"):::goal
   g4("◎ G4<br>Guidance legible in Spanish"):::goal
+  g5("◎ G5<br>The reason lands first"):::goal
 
   drv1 --> g1
   drv1 --> g2
   drv1 --> g3
   drv2 --> g4
+  drv3 --> g5
 
   classDef driver fill:#e6d6f5,stroke:#7e57c2,color:#333
   classDef goal fill:#c6aae9,stroke:#673ab7,color:#333
 ```
 
-Every edge reads **realized by**. Three goals answer one driver from
-different distances: understanding it, believing it, and being able to start.
+Every edge reads **realized by**. Three goals answer `DRV1` from different
+distances — understanding it, believing it, being able to start — and `G5`
+answers the one that comes before all of them: caring at all.
 
 - **G1 — Legible guidance.** A prospective adopter can learn the EA-first
   method and the human/AI/hybrid actor notation from the published site
@@ -111,6 +119,10 @@ different distances: understanding it, believing it, and being able to start.
   Spanish mirror of the English pages; see the
   [3_information data-object notes](../3_information/1_data-objects.md)
   for how the two editions relate.
+- **G5 — The reason lands first.** Someone who has never heard of archreator
+  can read one page and come away knowing what problem it solves, why it was
+  built, what it would give them, and what it costs — before being asked to
+  learn anything. Realized by [`public/index.html`](../../../public/index.html).
 
 ## Principles
 

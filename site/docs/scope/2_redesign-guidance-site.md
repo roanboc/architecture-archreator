@@ -64,8 +64,8 @@ implementation._
 - **Deliverables:** [`example/site/index.html`](../../public/index.html)
   (vibe-coder framing, the loop, the ladder, a self-contained mini
   architecture, a two-click quickstart),
-  [`example/site/guide.html`](../../public/guide.html) (autonomy scale, CSS
-  actor diagram), [`example/site/architecture.html`](../../public/architecture.html)
+  [`example/site/guide.html`](https://github.com/roanboc/archreator/blob/baafc8d7d991e67d2a0d62326c142b93eac982e0/site/public/guide.html) (autonomy scale, CSS
+  actor diagram), [`example/site/architecture.html`](https://github.com/roanboc/archreator/blob/baafc8d7d991e67d2a0d62326c142b93eac982e0/site/public/architecture.html)
   (layered overview, value stream, and deployment as CSS diagrams)
 - **Outcome:** the same guidance, rendered as a polished product that links
   every diagram and table back to its canonical source in the repo
