@@ -38,7 +38,7 @@ This is a **docs-only initiative**. No code is delivered.
 | ---- | ----------- | ---- | ----------------- |
 | Gate 0 — Business model | — | — | **N/A** — no business model change; the canvases are unchanged |
 | Gate 1 — Strategy | — | — | **N/A** — no strategy change; layer 1 is referenced, not revised |
-| Gate 2 — Business | _awaiting_ | — | The information, application and technology layers, and the explicit "no change" verdicts for layers 0–2 |
+| Gate 2 — Business | Requester | 2026-08-09 | The information, application and technology layers, and the explicit "no change" verdicts for layers 0–2. Presented in the session with branch links to all five documents, alongside the two findings the layers agree on and the `DOBJ4` confidentiality gap. Gate 3 declined — nothing here is designed |
 | Gate 3 — Solution design | — | — | **N/A** — no solution is designed; the components documented already exist |
 
 ## Plateaus
