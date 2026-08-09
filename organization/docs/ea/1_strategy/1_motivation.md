@@ -79,18 +79,18 @@ dropped on the rest — it teaches nobody anything on the thirteenth reading.
 
 ```mermaid
 flowchart LR
-  stk1(["◍ «Stakeholder»<br>STK1 Business and<br>solution designers"]):::stakeholder
-  stk2(["◍ STK2 Established<br>business owners"]):::stakeholder
-  stk3(["◍ STK3 Founders at<br>the idea stage"]):::stakeholder
-  stk4(["◍ STK4 The Requester"]):::stakeholder
-  stk5(["◍ STK5 Contributor<br>community — Pending"]):::stakeholder
+  stk1(["◍ «Stakeholder» STK1<br>Business and solution designers"]):::stakeholder
+  stk2(["◍ STK2<br>Established business owners"]):::stakeholder
+  stk3(["◍ STK3<br>Founders at the idea stage"]):::stakeholder
+  stk4(["◍ STK4<br>The Requester"]):::stakeholder
+  stk5(["◍ STK5<br>Contributor community — Pending"]):::stakeholder
 
-  drv1{{"✳ «Driver»<br>DRV1 Misunderstanding,<br>not difficulty"}}:::driver
-  drv2{{"✳ DRV2 Design and delivery<br>are separate worlds"}}:::driver
-  drv3{{"✳ DRV3 Knowledge decays<br>and leaves"}}:::driver
-  drv4{{"✳ DRV4 Expertise priced<br>out of reach"}}:::driver
-  drv5{{"✳ DRV5 AI without<br>a framework"}}:::driver
-  drv6{{"✳ DRV6 Knowledge delegated,<br>not improved"}}:::driver
+  drv1{{"✳ «Driver» DRV1<br>Misunderstanding, not difficulty"}}:::driver
+  drv2{{"✳ DRV2<br>Design and delivery are separate worlds"}}:::driver
+  drv3{{"✳ DRV3<br>Knowledge decays and leaves"}}:::driver
+  drv4{{"✳ DRV4<br>Expertise priced out of reach"}}:::driver
+  drv5{{"✳ DRV5<br>AI without a framework"}}:::driver
+  drv6{{"✳ DRV6<br>Knowledge delegated, not improved"}}:::driver
 
   stk1 --> drv1
   stk1 --> drv2
@@ -131,20 +131,20 @@ that is claimed should name who produces it.
 
 ```mermaid
 flowchart LR
-  drv1{{"✳ «Driver»<br>DRV1 Misunderstanding,<br>not difficulty"}}:::driver
-  drv2{{"✳ DRV2 Design and delivery<br>are separate worlds"}}:::driver
-  drv3{{"✳ DRV3 Knowledge decays<br>and leaves"}}:::driver
-  drv4{{"✳ DRV4 Expertise priced<br>out of reach"}}:::driver
-  drv5{{"✳ DRV5 AI without<br>a framework"}}:::driver
-  drv6{{"✳ DRV6 Knowledge delegated,<br>not improved"}}:::driver
+  drv1{{"✳ «Driver» DRV1<br>Misunderstanding, not difficulty"}}:::driver
+  drv2{{"✳ DRV2<br>Design and delivery are separate worlds"}}:::driver
+  drv3{{"✳ DRV3<br>Knowledge decays and leaves"}}:::driver
+  drv4{{"✳ DRV4<br>Expertise priced out of reach"}}:::driver
+  drv5{{"✳ DRV5<br>AI without a framework"}}:::driver
+  drv6{{"✳ DRV6<br>Knowledge delegated, not improved"}}:::driver
 
-  asm1>"⌕ «Assessment»<br>ASM1 A wrong frame<br>stays invisible"]:::assessment
-  asm2>"⌕ ASM2 One failure,<br>three faces"]:::assessment
-  asm3>"⌕ ASM3 Knowledge trapped<br>in whoever held it"]:::assessment
-  asm4>"⌕ ASM4 Quality bought with<br>seniority or fees"]:::assessment
-  asm5>"⌕ ASM5 The person is<br>the framework"]:::assessment
+  asm1>"⌕ «Assessment» ASM1<br>A wrong frame stays invisible"]:::assessment
+  asm2>"⌕ ASM2<br>One failure, three faces"]:::assessment
+  asm3>"⌕ ASM3<br>Knowledge trapped in whoever held it"]:::assessment
+  asm4>"⌕ ASM4<br>Quality bought with seniority or fees"]:::assessment
+  asm5>"⌕ ASM5<br>The person is the framework"]:::assessment
 
-  g6("◎ «Goal»<br>G6 Human knowledge<br>improves"):::goal
+  g6("◎ «Goal» G6<br>Human knowledge improves"):::goal
 
   drv1 --> asm1
   drv2 --> asm2
@@ -179,17 +179,17 @@ which way the market should go.
 
 ```mermaid
 flowchart LR
-  asm1>"⌕ «Assessment»<br>ASM1 A wrong frame<br>stays invisible"]:::assessment
-  asm2>"⌕ ASM2 One failure,<br>three faces"]:::assessment
-  asm3>"⌕ ASM3 Knowledge trapped<br>in whoever held it"]:::assessment
-  asm4>"⌕ ASM4 Quality bought with<br>seniority or fees"]:::assessment
-  asm5>"⌕ ASM5 The person is<br>the framework"]:::assessment
+  asm1>"⌕ «Assessment» ASM1<br>A wrong frame stays invisible"]:::assessment
+  asm2>"⌕ ASM2<br>One failure, three faces"]:::assessment
+  asm3>"⌕ ASM3<br>Knowledge trapped in whoever held it"]:::assessment
+  asm4>"⌕ ASM4<br>Quality bought with seniority or fees"]:::assessment
+  asm5>"⌕ ASM5<br>The person is the framework"]:::assessment
 
-  g1("◎ «Goal»<br>G1 Understood before<br>it is answered"):::goal
-  g2("◎ G2 The design is<br>what gets built"):::goal
-  g3("◎ G3 One shared source<br>that outlives people"):::goal
-  g4("◎ G4 Quality without<br>scarce expertise"):::goal
-  g5("◎ G5 A change of direction<br>keeps the work"):::goal
+  g1("◎ «Goal» G1<br>Understood before it is answered"):::goal
+  g2("◎ G2<br>The design is what gets built"):::goal
+  g3("◎ G3<br>One shared source that outlives people"):::goal
+  g4("◎ G4<br>Quality without scarce expertise"):::goal
+  g5("◎ G5<br>A change of direction keeps the work"):::goal
 
   asm1 --> g1
   asm2 --> g2
@@ -223,20 +223,20 @@ connecting it.
 
 ```mermaid
 flowchart LR
-  g1("◎ «Goal»<br>G1 Understood before<br>it is answered"):::goal
-  g2("◎ G2 The design is<br>what gets built"):::goal
-  g3("◎ G3 One shared source<br>that outlives people"):::goal
-  g4("◎ G4 Quality without<br>scarce expertise"):::goal
-  g5("◎ G5 A change of direction<br>keeps the work"):::goal
-  g6("◎ G6 Human knowledge<br>improves"):::goal
+  g1("◎ «Goal» G1<br>Understood before it is answered"):::goal
+  g2("◎ G2<br>The design is what gets built"):::goal
+  g3("◎ G3<br>One shared source that outlives people"):::goal
+  g4("◎ G4<br>Quality without scarce expertise"):::goal
+  g5("◎ G5<br>A change of direction keeps the work"):::goal
+  g6("◎ G6<br>Human knowledge improves"):::goal
 
-  out1[["◉ «Outcome»<br>OUT1 Gaps surface<br>during the work"]]:::outcome
-  out2[["◉ OUT2 Documentation needs<br>no rewrite"]]:::outcome
-  out3[["◉ OUT3 Delivery starts from<br>the approved design"]]:::outcome
-  out4[["◉ OUT4 A newcomer works<br>from the model"]]:::outcome
-  out5[["◉ OUT5 Architecture holds<br>without seniority"]]:::outcome
-  out6[["◉ OUT6 A pivot costs<br>a layer"]]:::outcome
-  out7[["◉ OUT7 Adoption,<br>in two bands"]]:::outcome
+  out1[["◉ «Outcome» OUT1<br>Gaps surface during the work"]]:::outcome
+  out2[["◉ OUT2<br>Documentation needs no rewrite"]]:::outcome
+  out3[["◉ OUT3<br>Delivery starts from the approved design"]]:::outcome
+  out4[["◉ OUT4<br>A newcomer works from the model"]]:::outcome
+  out5[["◉ OUT5<br>Architecture holds without seniority"]]:::outcome
+  out6[["◉ OUT6<br>A pivot costs a layer"]]:::outcome
+  out7[["◉ OUT7<br>Adoption, in two bands"]]:::outcome
 
   g1 --> out1
   g1 --> out2
@@ -283,22 +283,22 @@ to become true.
 ```mermaid
 flowchart TB
   subgraph CHECKABLE["Checkable in the repository today"]
-    out2[["◉ «Outcome»<br>OUT2 Documentation needs<br>no rewrite"]]:::outcome
-    out3[["◉ OUT3 Delivery starts from<br>the approved design"]]:::outcome
-    out6[["◉ OUT6 A pivot costs<br>a layer"]]:::outcome
+    out2[["◉ «Outcome» OUT2<br>Documentation needs no rewrite"]]:::outcome
+    out3[["◉ OUT3<br>Delivery starts from the approved design"]]:::outcome
+    out6[["◉ OUT6<br>A pivot costs a layer"]]:::outcome
   end
 
   subgraph ANECDOTAL["Observable, never counted"]
-    out4[["◉ OUT4 A newcomer works<br>from the model"]]:::outcome
+    out4[["◉ OUT4<br>A newcomer works from the model"]]:::outcome
   end
 
   subgraph NOMETHOD["No collection method at all"]
-    out1[["◉ OUT1 Gaps surface<br>during the work"]]:::outcome
-    out5[["◉ OUT5 Architecture holds<br>without seniority"]]:::outcome
-    out7[["◉ OUT7 Adoption — the<br>real band only"]]:::outcome
+    out1[["◉ OUT1<br>Gaps surface during the work"]]:::outcome
+    out5[["◉ OUT5<br>Architecture holds without seniority"]]:::outcome
+    out7[["◉ OUT7<br>Adoption — the real band only"]]:::outcome
   end
 
-  coa3{{"➤ «Course of Action»<br>COA3 Instrument the<br>adoption measure"}}:::action
+  coa3{{"➤ «Course of Action» COA3<br>Instrument the adoption measure"}}:::action
 
   coa3 -.->|would close| NOMETHOD
   coa3 -.->|would close| ANECDOTAL
@@ -336,19 +336,19 @@ Closing that is `COA3`
 
 ```mermaid
 flowchart LR
-  p1[/"⚑ «Principle»<br>P1 Humans hold<br>judgment"/]:::principle
-  p2[/"⚑ P2 Everything in the<br>repository, as text"/]:::principle
-  p3[/"⚑ P3 Better language,<br>never simpler"/]:::principle
-  p4[/"⚑ P4 A design that delivers<br>nothing is a cost"/]:::principle
-  p5[/"⚑ P5 Well-done less<br>is more"/]:::principle
-  p6[/"⚑ P6 Generic by design"/]:::principle
-  p7[/"⚑ P7 Priced at the cost<br>of running it"/]:::principle
+  p1[/"⚑ «Principle» P1<br>Humans hold judgment"/]:::principle
+  p2[/"⚑ P2<br>Everything in the repository, as text"/]:::principle
+  p3[/"⚑ P3<br>Better language, never simpler"/]:::principle
+  p4[/"⚑ P4<br>A design that delivers nothing is a cost"/]:::principle
+  p5[/"⚑ P5<br>Well-done less is more"/]:::principle
+  p6[/"⚑ P6<br>Generic by design"/]:::principle
+  p7[/"⚑ P7<br>Priced at the cost of running it"/]:::principle
 
-  g1("◎ «Goal»<br>G1 Understood before<br>it is answered"):::goal
-  g2("◎ G2 The design is<br>what gets built"):::goal
-  g3("◎ G3 One shared source<br>that outlives people"):::goal
-  g4("◎ G4 Quality without<br>scarce expertise"):::goal
-  g6("◎ G6 Human knowledge<br>improves"):::goal
+  g1("◎ «Goal» G1<br>Understood before it is answered"):::goal
+  g2("◎ G2<br>The design is what gets built"):::goal
+  g3("◎ G3<br>One shared source that outlives people"):::goal
+  g4("◎ G4<br>Quality without scarce expertise"):::goal
+  g6("◎ G6<br>Human knowledge improves"):::goal
 
   p3 --> g1
   p4 --> g2

@@ -14,7 +14,94 @@ this after **Gate 0**.
 > them reassigned the identifiers. This is allowed only because nothing had
 > been approved yet. After Gate 0 the IDs are fixed and never reused.
 
+## How to read this document
+
+```mermaid
+flowchart TB
+  subgraph PROFILE["Customer profile — what is true of them"]
+    cs(["◍ «Customer Segment»<br>who we serve"]):::segment
+    job{{"⚙ «Customer Job»<br>what they are trying to do"}}:::job
+    pain>"✖ «Pain»<br>what goes wrong today"]:::pain
+    gain[["✔ «Gain»<br>what they would call a win"]]:::gain
+  end
+
+  subgraph VALUEMAP["Value map — what we offer"]
+    prod["▣ «Product»<br>what they actually get"]:::product
+    prel[/"⊖ «Pain Reliever»<br>how the pain is removed"\]:::reliever
+    gcre[/"⊕ «Gain Creator»<br>how the gain is produced"\]:::creator
+  end
+
+  cs -->|performs| job
+  job -->|frustrated by| pain
+  job -->|rewarded by| gain
+  prod -->|aggregates| prel
+  prod -->|aggregates| gcre
+  prel -->|addresses| pain
+  gcre -->|produces| gain
+
+  classDef segment fill:#f4ecfc,stroke:#9575cd,color:#333
+  classDef job fill:#e6d6f5,stroke:#7e57c2,color:#333
+  classDef pain fill:#d8c3f0,stroke:#7e57c2,color:#333
+  classDef gain fill:#c6aae9,stroke:#673ab7,color:#333
+  classDef product fill:#f5deaa,stroke:#c8a24a,color:#333
+  classDef reliever fill:#eed4a0,stroke:#c8a24a,color:#333
+  classDef creator fill:#e5c07b,stroke:#a8813a,color:#333
+  style PROFILE fill:#fafafa,stroke:#bdbdbd,color:#333
+  style VALUEMAP fill:#fafafa,stroke:#bdbdbd,color:#333
+```
+
+**A canvas is two halves that have to meet.** The left is a claim about the
+customer and is true or false regardless of what this organization does. The
+right is what it offers. The edges between them are the **fit**, and a canvas
+with a pain no reliever reaches is not a documentation gap — it is a customer
+decision nobody made out loud.
+
+| Glyph | Element | ID prefix | Reads as |
+| ----- | ------- | --------- | -------- |
+| `◍` | «Customer Segment» | `CS` | `CS1` = Customer Segment 1 |
+| `⚙` | «Customer Job» | `JOB` | `JOB1` = Job 1 |
+| `✖` | «Pain» | `PAIN` | `PAIN1` = Pain 1 |
+| `✔` | «Gain» | `GAIN` | `GAIN1` = Gain 1 |
+| `▣` | «Product» | `PROD` | `PROD1` = Product 1 |
+| `⊖` | «Pain Reliever» — it subtracts | `PREL` | `PREL1` = Pain Reliever 1 |
+| `⊕` | «Gain Creator» — it adds | `GCRE` | `GCRE1` = Gain Creator 1 |
+
+**These are Strategyzer blocks, not ArchiMate elements.** They are drawn in
+the Motivation violet and the Strategy sand because that is where they land
+once [layer 1](../1_strategy/README.md) derives them — the customer profile
+becomes motivation, the value map becomes strategy.
+
+**The glyph rides on every node; the «stereotype» word appears once** — on the
+first node of each type in a diagram, dropped on the rest.
+
 ## Segments
+
+```mermaid
+flowchart LR
+  cs1(["◍ «Customer Segment» CS1<br>Business and solution designers"]):::segment
+  cs2(["◍ CS2<br>Established business owners"]):::segment
+  cs3(["◍ CS3<br>Founders at the idea stage"]):::segment
+
+  prod1["▣ «Product» PROD1<br>The open method — free"]:::product
+  prod2["▣ PROD2<br>Consulting — hourly"]:::product
+  prod3["▣ PROD3<br>The portal — Pending"]:::product
+
+  cs1 --> prod1
+  cs2 --> prod1
+  cs2 --> prod2
+  cs3 -.-> prod1
+  cs2 -.-> prod3
+  cs3 -.-> prod3
+
+  classDef segment fill:#f4ecfc,stroke:#9575cd,color:#333
+  classDef product fill:#f5deaa,stroke:#c8a24a,color:#333
+```
+
+Solid edges are served today; dashed ones are served badly or not yet.
+**`CS3` has no solid edge to anything but the free method**, and reaches that
+only by driving a coding agent — which is the honest statement of who this
+organization currently serves.
+
 
 | ID | Customer segment | Pays | Uses | Decides |
 | --- | --- | --- | --- | --- |
@@ -49,6 +136,47 @@ model canvas.
 One catalogue, shared. The column marks how central each job is to each
 segment.
 
+```mermaid
+flowchart LR
+  cs1(["◍ «Customer Segment» CS1<br>Designers"]):::segment
+  cs2(["◍ CS2<br>Established owners"]):::segment
+  cs3(["◍ CS3<br>Founders"]):::segment
+
+  job1{{"⚙ «Customer Job» JOB1<br>Understand the problem first"}}:::job
+  job2{{"⚙ JOB2<br>Turn it into something buildable"}}:::job
+  job3{{"⚙ JOB3<br>Reach a working solution"}}:::job
+  job4{{"⚙ JOB4<br>Keep one shared source"}}:::job
+  job5{{"⚙ JOB5<br>Quality without scarce expertise"}}:::job
+  job6{{"⚙ JOB6<br>Change direction, keep the work"}}:::job
+
+  cs1 --> job1
+  cs1 --> job2
+  cs1 --> job3
+  cs1 --> job4
+  cs1 --> job5
+  cs1 -.-> job6
+  cs2 --> job1
+  cs2 --> job2
+  cs2 --> job3
+  cs2 --> job4
+  cs2 --> job5
+  cs2 -.-> job6
+  cs3 --> job1
+  cs3 --> job2
+  cs3 --> job3
+  cs3 --> job5
+  cs3 --> job6
+  cs3 -.-> job4
+
+  classDef segment fill:#f4ecfc,stroke:#9575cd,color:#333
+  classDef job fill:#e6d6f5,stroke:#7e57c2,color:#333
+```
+
+Solid edges are **Core** for that segment; dashed are **Secondary**. Four of
+the six jobs are core to all three segments, which is the finding that let one
+consolidated profile replace three separate ones.
+
+
 | ID | Job | `CS1` | `CS2` | `CS3` |
 | --- | --- | --- | --- | --- |
 | `JOB1` | **Understand the problem before answering it.** Solutions rarely fail because they were technically hard; they fail because the problem was misunderstood. Designing *is* how the understanding happens | Core | Core | Core |
@@ -73,6 +201,36 @@ wanted is the same either way, which is why it is one job and not two.
 
 ## Pains
 
+```mermaid
+flowchart LR
+  job1{{"⚙ «Customer Job» JOB1<br>Understand the problem first"}}:::job
+  job2{{"⚙ JOB2<br>Turn it into something buildable"}}:::job
+  job3{{"⚙ JOB3<br>Reach a working solution"}}:::job
+  job4{{"⚙ JOB4<br>Keep one shared source"}}:::job
+  job5{{"⚙ JOB5<br>Quality without scarce expertise"}}:::job
+
+  pain1>"✖ «Pain» PAIN1<br>The problem is framed wrongly"]:::pain
+  pain2>"✖ PAIN2<br>Design and delivery are separate worlds"]:::pain
+  pain3>"✖ PAIN3<br>Knowledge is scattered or trapped"]:::pain
+  pain4>"✖ PAIN4<br>Architectural quality is out of reach"]:::pain
+  pain5>"✖ PAIN5<br>AI works with no framework behind it"]:::pain
+
+  job1 --> pain1
+  job2 --> pain2
+  job3 --> pain2
+  job3 --> pain5
+  job4 --> pain3
+  job5 --> pain4
+  job5 --> pain5
+
+  classDef job fill:#e6d6f5,stroke:#7e57c2,color:#333
+  classDef pain fill:#d8c3f0,stroke:#7e57c2,color:#333
+```
+
+Every edge reads **frustrated by**. `PAIN2` and `PAIN5` each block two jobs,
+which is why they are the two the method is built around.
+
+
 | ID | Pain | `CS1` | `CS2` | `CS3` |
 | --- | --- | --- | --- | --- |
 | `PAIN1` | **The problem is framed wrongly, and nobody finds out until late.** Without a method that forces a complete frame, blind spots stay invisible | Unacceptable | Unacceptable | Serious |
@@ -92,6 +250,38 @@ They are one pain seen from three positions, and splitting them hid that.
 explicitly: every pain above is targeted.
 
 ## Gains
+
+```mermaid
+flowchart LR
+  job1{{"⚙ «Customer Job» JOB1<br>Understand the problem first"}}:::job
+  job2{{"⚙ JOB2<br>Turn it into something buildable"}}:::job
+  job3{{"⚙ JOB3<br>Reach a working solution"}}:::job
+  job4{{"⚙ JOB4<br>Keep one shared source"}}:::job
+  job5{{"⚙ JOB5<br>Quality without scarce expertise"}}:::job
+  job6{{"⚙ JOB6<br>Change direction, keep the work"}}:::job
+
+  gain1[["✔ «Gain» GAIN1<br>Understand the business wider and deeper"]]:::gain
+  gain2[["✔ GAIN2<br>Documentation ready for the business"]]:::gain
+  gain3[["✔ GAIN3<br>Build from the design"]]:::gain
+  gain4[["✔ GAIN4<br>A shared language that keeps working"]]:::gain
+  gain5[["✔ GAIN5<br>Speed with structure, at any level"]]:::gain
+  gain6[["✔ GAIN6<br>Pivots that cost less"]]:::gain
+
+  job1 --> gain1
+  job2 --> gain2
+  job3 --> gain3
+  job4 --> gain4
+  job5 --> gain5
+  job6 --> gain6
+
+  classDef job fill:#e6d6f5,stroke:#7e57c2,color:#333
+  classDef gain fill:#c6aae9,stroke:#673ab7,color:#333
+```
+
+Every edge reads **rewarded by**. One gain per job, which is what a
+consolidated profile looks like when it is working: no job wants two
+unrelated wins, and no gain is floating free of a job.
+
 
 | ID | Gain | Kind | Ranked first by |
 | --- | --- | --- | --- |
@@ -153,6 +343,50 @@ method forced a frame, not despite it. That is what makes `JOB1` and `GAIN1`
 possible at all.
 
 ## Fit check
+
+```mermaid
+flowchart LR
+  prod1["▣ «Product» PROD1<br>The open method"]:::product
+  prod3["▣ PROD3<br>The portal — Pending"]:::product
+
+  prel1[/"⊖ «Pain Reliever» PREL1<br>The gated layer walk"\]:::reliever
+  prel2[/"⊖ PREL2<br>The method continues into delivery"\]:::reliever
+  prel3[/"⊖ PREL3<br>One model in one place"\]:::reliever
+  prel4[/"⊖ PREL4<br>An architect's cost becomes an agent's"\]:::reliever
+  prel5[/"⊖ PREL5<br>The whole thing operating together"\]:::reliever
+
+  pain1>"✖ «Pain» PAIN1<br>Framed wrongly"]:::pain
+  pain2>"✖ PAIN2<br>Design and delivery split"]:::pain
+  pain3>"✖ PAIN3<br>Knowledge scattered"]:::pain
+  pain4>"✖ PAIN4<br>Quality out of reach"]:::pain
+  pain5>"✖ PAIN5<br>AI without a framework"]:::pain
+
+  prod1 --> prel1
+  prod1 --> prel2
+  prod1 --> prel3
+  prod1 --> prel4
+  prod1 --> prel5
+  prod3 -.-> prel2
+  prod3 -.-> prel4
+  prod3 -.-> prel5
+
+  prel1 --> pain1
+  prel2 --> pain2
+  prel3 --> pain3
+  prel4 --> pain4
+  prel5 --> pain5
+
+  classDef product fill:#f5deaa,stroke:#c8a24a,color:#333
+  classDef reliever fill:#eed4a0,stroke:#c8a24a,color:#333
+  classDef pain fill:#d8c3f0,stroke:#7e57c2,color:#333
+```
+
+Product edges read **aggregates**; reliever edges read **addresses**. Every
+pain is reached, which is the rule. What the diagram adds to the table below
+is **where the reach is thin**: `PREL2` and `PREL4` are the two relievers
+`PROD3` would strengthen, and `PROD3` does not exist — so the dashed edges
+are the fit that is claimed rather than delivered.
+
 
 Every pain has at least one reliever, and every gain has at least one
 creator:

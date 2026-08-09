@@ -14,7 +14,7 @@ approved at Gate 0.
 ```mermaid
 flowchart LR
   prod["▣ «Product»<br>what a customer buys"]:::product
-  svc(["⬭ «Business Service»<br>what it actually does<br>for them"]):::service
+  svc(["⬭ «Business Service»<br>what it actually does for them"]):::service
   bif["⊸ «Business Interface»<br>where they meet it"]:::interface
   stk(["◍ «Stakeholder»<br>who they are"]):::stakeholder
 
@@ -51,18 +51,18 @@ first node of each type in a diagram, dropped on the rest.
 
 ```mermaid
 flowchart LR
-  prod1["▣ «Product»<br>PROD1 The open<br>method"]:::product
-  prod2["▣ PROD2 Consulting"]:::product
-  prod3["▣ PROD3 The portal<br>— Pending"]:::product
+  prod1["▣ «Product» PROD1<br>The open method"]:::product
+  prod2["▣ PROD2<br>Consulting"]:::product
+  prod3["▣ PROD3<br>The portal — Pending"]:::product
 
-  bsvc1(["⬭ «Business Service»<br>BSVC1 The method,<br>published"]):::service
-  bsvc2(["⬭ BSVC2 Guidance and<br>worked reference"]):::service
-  bsvc3(["⬭ BSVC3 Advisory<br>and delivery"]):::service
-  bsvc4(["⬭ BSVC4 Architecture<br>as a service — Pending"]):::service
+  bsvc1(["⬭ «Business Service» BSVC1<br>The method, published"]):::service
+  bsvc2(["⬭ BSVC2<br>Guidance and worked reference"]):::service
+  bsvc3(["⬭ BSVC3<br>Advisory and delivery"]):::service
+  bsvc4(["⬭ BSVC4<br>Architecture as a service — Pending"]):::service
 
-  cap1["✦ «Capability»<br>CAP1 Business<br>understanding"]:::capability
-  cap2["✦ CAP2 Model<br>stewardship"]:::capability
-  cap3["✦ CAP3 Delivery<br>from design"]:::capability
+  cap1["✦ «Capability» CAP1<br>Business understanding"]:::capability
+  cap2["✦ CAP2<br>Model stewardship"]:::capability
+  cap3["✦ CAP3<br>Delivery from design"]:::capability
 
   prod1 --> bsvc1
   prod1 --> bsvc2
@@ -112,15 +112,15 @@ service.
 
 ```mermaid
 flowchart LR
-  bif1["⊸ «Business Interface»<br>BIF1 Public repository"]:::interface
-  bif2["⊸ BIF2 The guidance site"]:::interface
-  bif3["⊸ BIF3 Plugin marketplace"]:::interface
-  bif4["⊸ BIF4 Referral and<br>direct approach"]:::interface
-  bif5["⊸ BIF5 The web, self-serve<br>— Pending"]:::interface
+  bif1["⊸ «Business Interface» BIF1<br>Public repository"]:::interface
+  bif2["⊸ BIF2<br>The guidance site"]:::interface
+  bif3["⊸ BIF3<br>Plugin marketplace"]:::interface
+  bif4["⊸ BIF4<br>Referral and direct approach"]:::interface
+  bif5["⊸ BIF5<br>The web, self-serve — Pending"]:::interface
 
-  stk1(["◍ «Stakeholder»<br>STK1 Designers"]):::stakeholder
-  stk2(["◍ STK2 Established<br>owners"]):::stakeholder
-  stk3(["◍ STK3 Founders"]):::stakeholder
+  stk1(["◍ «Stakeholder» STK1<br>Designers"]):::stakeholder
+  stk2(["◍ STK2<br>Established owners"]):::stakeholder
+  stk3(["◍ STK3<br>Founders"]):::stakeholder
 
   bif1 --> stk1
   bif2 --> stk1

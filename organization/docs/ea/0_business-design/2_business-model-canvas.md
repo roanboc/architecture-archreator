@@ -18,6 +18,65 @@ Three products, three economic models:
 The products are defined in the value proposition canvas; this table only
 points at them.
 
+## How to read this document
+
+```mermaid
+flowchart LR
+  kp{{"⧉ «Key Partner»<br>who we depend on"}}:::partner
+  kr[("▤ «Key Resource»<br>what we have")]:::resource
+  ka{{"⚙ «Key Activity»<br>what we do with it"}}:::activity
+  prod["▣ «Product»<br>what a customer gets"]:::product
+  ch["⊸ «Channel»<br>how it reaches them"]:::channel
+  cr["⇄ «Customer Relationship»<br>how we deal with them"]:::relationship
+  cs(["◍ «Customer Segment»<br>who they are"]):::segment
+  rs[/"▲ «Revenue Stream»<br>what comes back"\]:::revenue
+  cost[\"▼ «Cost»<br>what it takes"/]:::cost
+
+  kp --> ka
+  kr --> ka
+  ka --> prod
+  prod --> ch
+  ch --> cs
+  cr --> cs
+  cs --> rs
+  ka --> cost
+
+  classDef partner fill:#fffbb5,stroke:#b8a200,color:#333
+  classDef resource fill:#faf0d5,stroke:#c8a24a,color:#333
+  classDef activity fill:#f5deaa,stroke:#c8a24a,color:#333
+  classDef product fill:#eed4a0,stroke:#c8a24a,color:#333
+  classDef channel fill:#e5d95f,stroke:#7a6c00,color:#333
+  classDef relationship fill:#efe57d,stroke:#8a7a00,color:#333
+  classDef segment fill:#f4ecfc,stroke:#9575cd,color:#333
+  classDef revenue fill:#c9e7b7,stroke:#5a8a45,color:#333
+  classDef cost fill:#ffd6d6,stroke:#b06060,color:#333
+```
+
+**The nine blocks, and the direction they run in.** The left side is what it
+takes; the right side is who it is for; revenue and cost are what the two
+sides produce. A canvas that balances is one where the right-hand side pays
+for the left — and this one deliberately does not, which is the subject of
+the next section.
+
+| Glyph | Block | ID prefix | Reads as |
+| ----- | ----- | --------- | -------- |
+| `⧉` | «Key Partner» | `KP` | `KP1` = Key Partner 1 |
+| `▤` | «Key Resource» | `KR` | `KR1` = Key Resource 1 |
+| `⚙` | «Key Activity» | `KA` | `KA1` = Key Activity 1 |
+| `▣` | «Product» | `PROD` | `PROD1` = Product 1 |
+| `⊸` | «Channel» | `CH` | `CH1` = Channel 1 |
+| `⇄` | «Customer Relationship» | `CR` | `CR1` = Customer Relationship 1 |
+| `◍` | «Customer Segment» | `CS` | `CS1` = Customer Segment 1 |
+| `▲` | «Revenue Stream» — what comes in | `RS` | `RS1` = Revenue Stream 1 |
+| `▼` | «Cost» — what goes out | `COST` | `COST1` = Cost 1 |
+
+Revenue takes the Technology green and cost the Implementation rose, because
+neither has an ArchiMate element to borrow a colour from and money in versus
+money out is the one distinction a reader should never have to squint at.
+
+**The glyph rides on every node; the «stereotype» word appears once** — on the
+first node of each type in a diagram, dropped on the rest.
+
 ## A note before the blocks: this organization is not selling for money
 
 The standard canvas assumes revenue means money. Here it mostly does not,
@@ -37,6 +96,53 @@ non-monetary kind, and the Requester has worked with it in a governmental
 context. Applying it here is **Pending — future initiative**: the returns
 are named, the valuation method is not yet chosen. See the open question at
 the end.
+
+
+## The three products at a glance
+
+```mermaid
+flowchart LR
+  prod1["▣ «Product» PROD1<br>The open method"]:::product
+  prod2["▣ PROD2<br>Consulting"]:::product
+  prod3["▣ PROD3<br>The portal — Pending"]:::product
+
+  cs1(["◍ «Customer Segment» CS1<br>Designers"]):::segment
+  cs2(["◍ CS2<br>Established owners"]):::segment
+  cs3(["◍ CS3<br>Founders"]):::segment
+
+  rs1[/"▲ «Revenue Stream» RS1<br>Continuous improvement — non-monetary"\]:::revenue
+  rs2[/"▲ RS2<br>Mission progress — non-monetary"\]:::revenue
+  rs3[/"▲ RS3<br>Consulting fees — hourly"\]:::revenue
+  rs4[/"▲ RS4<br>Portal fees — per use"\]:::revenue
+
+  cost1[\"▼ «Cost» COST1<br>The Requester's time"/]:::cost
+  cost2[\"▼ COST2<br>AI inference"/]:::cost
+
+  prod1 --> cs1
+  prod2 --> cs2
+  prod3 -.-> cs2
+  prod3 -.-> cs3
+
+  prod1 --> rs1
+  prod1 --> rs2
+  prod2 --> rs3
+  prod3 -.-> rs4
+
+  prod1 --> cost1
+  prod2 --> cost1
+  prod3 -.-> cost2
+
+  classDef product fill:#eed4a0,stroke:#c8a24a,color:#333
+  classDef segment fill:#f4ecfc,stroke:#9575cd,color:#333
+  classDef revenue fill:#c9e7b7,stroke:#5a8a45,color:#333
+  classDef cost fill:#ffd6d6,stroke:#b06060,color:#333
+```
+
+**Three products, three different economics**, and the diagram shows the
+shape before the tables give the detail: the free one returns everything that
+is not money, the paid one is bounded by one person's time, and the Pending
+one is the only place where cost grows with use. The three sections below
+give each product its nine blocks.
 
 ---
 
@@ -157,6 +263,32 @@ organization already operates the way it tells its customers to operate.
 
 ### Measuring `RS1` and `RS2` — adoption, in two bands
 
+```mermaid
+flowchart LR
+  rs1[/"▲ «Revenue Stream» RS1<br>Continuous improvement"\]:::revenue
+  rs2[/"▲ RS2<br>Mission progress"\]:::revenue
+
+  pre["⊸ Pre-engagement band<br>stars, forks, contributions, discussions"]:::band
+  real["⊸ Real band<br>enterprises and initiatives actually built"]:::band
+
+  rs1 --> pre
+  rs1 --> real
+  rs2 --> real
+
+  pre -->|readable from GitHub today| ok(["◍ Measurable now"]):::ok
+  real -.->|no collection method| gap(["◍ Not measurable"]):::gap
+
+  classDef revenue fill:#c9e7b7,stroke:#5a8a45,color:#333
+  classDef band fill:#e5d95f,stroke:#7a6c00,color:#333
+  classDef ok fill:#c9e7b7,stroke:#5a8a45,color:#333
+  classDef gap fill:#ffd6d6,stroke:#b06060,color:#333
+```
+
+**`RS2` has one band and it is the unmeasurable one.** Mission progress is
+evidenced only by the real band; the pre-engagement band cannot stand in for
+it, which is the whole reason the two are named separately.
+
+
 Both non-monetary streams are measured the same way, because both are
 consequences of the same thing: **people actually using the project**. The
 measure splits into two bands, and the distinction between them is the point.
@@ -197,6 +329,50 @@ possible.
 ## What the three share, and where they diverge
 
 This table is where the operating model actually lives.
+
+```mermaid
+flowchart TB
+  kr2[("▤ «Key Resource» KR2<br>The method")]:::resource
+  kp1{{"⧉ «Key Partner» KP1<br>AI model providers"}}:::partner
+  kr1[("▤ KR1<br>The Requester's knowledge and time")]:::resource
+
+  prod1["▣ «Product» PROD1<br>The open method"]:::product
+  prod2["▣ PROD2<br>Consulting"]:::product
+  prod3["▣ PROD3<br>The portal — Pending"]:::product
+
+  ch1["⊸ «Channel» CH1–CH3<br>Repository, site, marketplace"]:::channel
+  ch4["⊸ CH4<br>Referral and direct approach"]:::channel
+  ch5["⊸ CH5<br>The web, self-serve — Pending"]:::channel
+
+  kr2 --> prod1
+  kr2 --> prod2
+  kr2 -.-> prod3
+  kp1 --> prod1
+  kp1 --> prod2
+  kp1 -.-> prod3
+  kr1 --> prod1
+  kr1 --> prod2
+
+  prod1 --> ch1
+  prod2 --> ch4
+  prod3 -.-> ch5
+
+  classDef resource fill:#faf0d5,stroke:#c8a24a,color:#333
+  classDef partner fill:#fffbb5,stroke:#b8a200,color:#333
+  classDef product fill:#eed4a0,stroke:#c8a24a,color:#333
+  classDef channel fill:#e5d95f,stroke:#7a6c00,color:#333
+```
+
+**Everything converges above the products and diverges below them.** Two
+elements feed all three — `KR2` the method and `KP1` the model providers —
+and below the products no channel is shared by any two. That is the operating
+model in one picture: one asset, one dependency, three ways out.
+
+`KR1` reaching only two of the three is the other thing worth seeing. The
+portal is the only product that would not consume the Requester's time per
+unit sold, which is exactly why `COA2` exists and exactly why it costs so
+much to start.
+
 
 | | `PROD1` open method | `PROD2` consulting | `PROD3` portal |
 | --- | --- | --- | --- |

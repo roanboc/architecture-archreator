@@ -52,12 +52,12 @@ first node of each type in a diagram, dropped on the rest.
 
 ```mermaid
 flowchart LR
-  act1(["⚇ «Business Actor (Human)»<br>ACT1 The Requester"]):::actor
-  act2(["⚇ «Business Actor (AI)»<br>ACT2 The AI agent<br>co-pilot"]):::actorai
+  act1(["⚇ «Business Actor (Human)» ACT1<br>The Requester"]):::actor
+  act2(["⚇ «Business Actor (AI)» ACT2<br>The AI agent co-pilot"]):::actorai
 
-  role1["⚉ «Business Role»<br>ROLE1 Method<br>maintainer"]:::role
-  role2["⚉ ROLE2 Consultant"]:::role
-  role3["⚉ ROLE3 Owner"]:::role
+  role1["⚉ «Business Role» ROLE1<br>Method maintainer"]:::role
+  role2["⚉ ROLE2<br>Consultant"]:::role
+  role3["⚉ ROLE3<br>Owner"]:::role
 
   act1 -->|assigned to| role1
   act1 -->|assigned to| role2
@@ -109,14 +109,14 @@ contributor community, a real partner rather than an aspiration.
 
 ```mermaid
 flowchart LR
-  act1(["⚇ «Business Actor»<br>ACT1 The Requester"]):::actor
-  act3(["⚇ ACT3 AI model<br>providers"]):::actor
-  act4(["⚇ ACT4 GitHub"]):::actor
-  act5(["⚇ ACT5 Contributor<br>community — Pending"]):::actor
+  act1(["⚇ «Business Actor» ACT1<br>The Requester"]):::actor
+  act3(["⚇ ACT3<br>AI model providers"]):::actor
+  act4(["⚇ ACT4<br>GitHub"]):::actor
+  act5(["⚇ ACT5<br>Contributor community — Pending"]):::actor
 
-  ctr1[/"❒ «Contract»<br>CTR1 Provider<br>subscription terms"/]:::contract
-  ctr2[/"❒ CTR2 Platform terms"/]:::contract
-  bcol1{{"⧉ «Business Collaboration»<br>BCOL1 Open-source<br>collaboration — Pending"}}:::collab
+  ctr1[/"❒ «Contract» CTR1<br>Provider subscription terms"/]:::contract
+  ctr2[/"❒ CTR2<br>Platform terms"/]:::contract
+  bcol1{{"⧉ «Business Collaboration» BCOL1<br>Open-source collaboration — Pending"}}:::collab
 
   act1 --> ctr1
   act3 --> ctr1
