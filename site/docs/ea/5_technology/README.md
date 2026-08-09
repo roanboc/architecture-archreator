@@ -17,14 +17,6 @@ simplest option: static files, static hosting.
 
 ## Layer view
 
-```mermaid
-flowchart TB
-  runtime["«Node»<br>GitHub Pages CDN"]:::technology
-  hosting["«Technology Service»<br>GitHub Pages (static hosting)"]:::technology
-  ci["«Technology Service»<br>GitHub Actions<br>(deploy-site.yml)"]:::technology
-
-  ci -->|builds and publishes to| hosting
-  runtime -->|requests| hosting
-
-  classDef technology fill:#c9e7b7,stroke:#558b2f,color:#333
-```
+The stack is drawn in
+[1_technology-services.md](./1_technology-services.md), and the pipeline in
+[2_deployment.md](./2_deployment.md).

@@ -44,30 +44,30 @@ see that document for the full palette and rules.
 ```mermaid
 flowchart TB
   subgraph MOT["Motivation & Strategy"]
-    goal["«Goal»<br>Adopters learn and correctly<br>apply the EA-first method"]:::motivation
-    vs["«Value Stream»<br>Discover → Understand → Adopt"]:::strategy
+    g1("◎ «Goal» G1<br>Legible guidance"):::motivation
+    vs1[["⇉ «Value Stream» VS1<br>Discover → Understand → Adopt"]]:::strategy
   end
 
   subgraph BUS["Business layer"]
-    svc["«Business Service»<br>EA-first method guidance"]:::business
-    maint["«Business Actor (Human)»<br>Pilot"]:::business
-    agent["«Business Actor (AI)»<br>Copilot"]:::business
+    bsvc1(["⬭ «Business Service» BSVC1<br>EA-first method guidance"]):::business
+    act1(["⚇ «Business Actor (Human)» ACT1<br>Pilot"]):::business
+    act2(["⚇ «Business Actor (AI)» ACT2<br>Copilot"]):::application
   end
 
   subgraph APP["Application layer"]
-    app["«Application Component»<br>Guidance site (site/*.html)"]:::application
+    asvc1(["⬮ «Application Service» ASVC1<br>Guidance publishing"]):::application
   end
 
   subgraph TEC["Technology layer"]
-    tech["«Technology Service»<br>GitHub Pages"]:::technology
+    tsvc1(["⬯ «Technology Service» TSVC1<br>Static hosting"]):::technology
   end
 
-  goal -->|realized by| vs
-  vs -->|realized by| svc
-  maint -->|assigned to| svc
-  agent -->|assigned to| svc
-  svc -->|realized by| app
-  app -->|runs on| tech
+  g1 -->|realized by| vs1
+  vs1 -->|realized by| bsvc1
+  act1 -->|assigned to| bsvc1
+  act2 -->|assigned to| bsvc1
+  bsvc1 -->|realized by| asvc1
+  asvc1 -->|runs on| tsvc1
 
   classDef motivation fill:#e6d6f5,stroke:#7e57c2,color:#333
   classDef strategy fill:#f5deaa,stroke:#c8a24a,color:#333
@@ -75,6 +75,12 @@ flowchart TB
   classDef application fill:#c2f0ff,stroke:#0288d1,color:#333
   classDef technology fill:#c9e7b7,stroke:#558b2f,color:#333
 ```
+
+**This is a cross-layer view, so the flat layer palette applies** — colour
+separates motivation from business from technology, not one element type from
+another. Inside a single layer the tone ramps instead; each element document
+says which. `ACT2` keeps the Application cyan wherever it appears, because an
+AI actor should never be mistaken for a person.
 
 ## Reading order
 

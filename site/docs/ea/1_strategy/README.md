@@ -21,23 +21,10 @@ every numbered file" rule.
 
 ## Layer view
 
-```mermaid
-flowchart TB
-  stake1["«Stakeholder»<br>Pilot"]:::motivation
-  stake2["«Stakeholder»<br>Template adopters"]:::motivation
-  driver["«Driver»<br>archreator had no worked<br>example of its own notation"]:::motivation
-  goal["«Goal»<br>Adopters learn and correctly<br>apply the EA-first method"]:::motivation
-
-  vs["«Value Stream»<br>Discover → Understand → Adopt"]:::strategy
-
-  stake1 -->|concerned with| driver
-  stake2 -->|concerned with| driver
-  driver -->|influences| goal
-  goal -->|realized by| vs
-
-  classDef motivation fill:#e6d6f5,stroke:#7e57c2,color:#333
-  classDef strategy fill:#f5deaa,stroke:#c8a24a,color:#333
-```
+The layer's diagrams live with their elements — stakeholders and drivers,
+goals, and principles each open their section in
+[1_motivation.md](./1_motivation.md), and the stream itself in
+[3_value-stream.md](./3_value-stream.md).
 
 See [1_motivation.md](./1_motivation.md) for the Principles, and
 [3_value-stream.md](./3_value-stream.md) for the stage-by-stage flow.
