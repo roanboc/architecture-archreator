@@ -104,6 +104,9 @@ legend says which is which.
 | Motivation | `◍` Stakeholder · `✳` Driver · `⌕` Assessment · `◎` Goal · `◉` Outcome · `⚑` Principle |
 | Strategy | `✦` Capability · `▤` Resource · `◈` Value · `➤` Course of Action · `⇉` Value Stream |
 | Business | `⚇` Actor · `⚉` Role · `▣` Product · `⬭` Business Service · `⊸` Business Interface · `❒` Contract · `⧉` Collaboration · `⚙` Business Process |
+| Information | `▦` Data Object |
+| Application | `⊞` Application Component · `⬮` Application Service · `⊸` Application Interface |
+| Technology | `⬒` Node · `⬯` Technology Service · `⎔` Artifact |
 | Canvas (VPC) | `◍` Customer Segment · `⚙` Job · `✖` Pain · `✔` Gain · `▣` Product · `⊖` Pain Reliever · `⊕` Gain Creator |
 | Canvas (BMC) | `⧉` Key Partner · `⚙` Key Activity · `▤` Key Resource · `⊸` Channel · `⇄` Customer Relationship · `▲` Revenue Stream · `▼` Cost |
 
@@ -136,6 +139,9 @@ element appears.
 | Parallelogram | `id[/" "/]` | Principle, Contract |
 | Rectangle | `id[" "]` | Capability, Business Role, Product, Business Interface, Channel |
 | Cylinder | `id[(" ")]` | Resource, Key Resource |
+| Rectangle (cont.) | `id[" "]` | Data Object, Application Component, Node |
+| Stadium (cont.) | `id([" "])` | Application Service, Technology Service |
+| Parallelogram (cont.) | `id[/" "/]` | Artifact |
 | Trapezoid | `id[/" "\]` | Value, Pain Reliever, Gain Creator, Revenue Stream |
 | Inverted trapezoid | `id[\" "/]` | Cost |
 
@@ -169,6 +175,8 @@ technology, not one motivation element from another.
 | Motivation | Stakeholder `#f4ecfc` → Driver `#e6d6f5` → Assessment `#d8c3f0` → Goal `#c6aae9` → Outcome `#b493e0` → Principle `#a37cd8` |
 | Strategy | Resource `#faf0d5` → Capability `#f5deaa` → Value stream stage `#eed4a0` → Value `#e9c987` → Course of Action `#d9ad5c` |
 | Business | Actor `#fffbb5` → Role `#f7f099` → Service `#efe57d` → Interface `#e5d95f` → Contract/Collaboration `#d9cc4a` |
+| Application | Service `#c2f0ff` → Data Object `#c2f0ff` → Component `#9adcf0` |
+| Technology | Service `#c9e7b7` → Artifact `#dcefd0` → Node `#a9d68f` |
 
 Strokes darken with the fill. Text stays `#333` throughout — every fill above
 is light enough to carry it in both GitHub themes.
