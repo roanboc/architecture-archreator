@@ -21,7 +21,7 @@ situational skills dedicated, in-context coverage on the same page.
 | 1_strategy    | No new goals or Principles. Serves existing **Goal G1 (legible guidance)** and **Goal G2 (living proof)** more fully — the walkthrough narrates its own creation and points at this scope document as the real paper trail. The **Understand** value-stream stage now has a second realizer (the walkthrough) alongside the guide — see [1_strategy/3_value-stream.md](../ea/1_strategy/3_value-stream.md) |
 | 2_business    | **No change.** Same business service, same actors (Pilot, Copilot at co-pilot, Template adopter), same publish process |
 | 3_information | **No new data-object type.** The walkthrough is one more instance of the existing *Guidance page* (derived, non-canonical) — location list extended in [3_information/1_data-objects.md](../ea/3_information/1_data-objects.md) |
-| 4_application | **New component:** the Walkthrough page ([`site/walkthrough.html`](../../public/walkthrough.html)), plus a self-contained timeline / actor-line component added to [`site/styles.css`](../../public/styles.css). Registered in [4_application/2_application-components.md](../ea/4_application/2_application-components.md) |
+| 4_application | **New component:** the Walkthrough page ([`site/walkthrough.html`](https://github.com/roanboc/archreator/blob/baafc8d7d991e67d2a0d62326c142b93eac982e0/site/public/walkthrough.html)), plus a self-contained timeline / actor-line component added to [`site/styles.css`](../../public/styles.css). Registered in [4_application/2_application-components.md](../ea/4_application/2_application-components.md) |
 | 5_technology  | **No change.** Same GitHub Pages hosting and Actions deploy; the new page is static and fetches nothing at request time |
 
 ## Approvals
@@ -47,7 +47,7 @@ implementation._
 
 ### WP1 — Walkthrough page
 
-- **Deliverables:** [`site/walkthrough.html`](../../public/walkthrough.html);
+- **Deliverables:** [`site/walkthrough.html`](https://github.com/roanboc/archreator/blob/baafc8d7d991e67d2a0d62326c142b93eac982e0/site/public/walkthrough.html);
   the `timeline`, `tl-*`, and `actor-line` components in
   [`site/styles.css`](../../public/styles.css)
 - **Outcome:** a start-to-finish narrative — requirement → five layers →

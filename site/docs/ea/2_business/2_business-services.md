@@ -45,12 +45,13 @@ flowchart LR
 ```
 
 **One service, and that is the whole business layer.** This project offers
-exactly one thing, which is what a Depth 1 model of a five-page site should
-look like.
+exactly one thing, which is what a Depth 1 model of a three-page site should
+look like. What changed in the rebuild is not how many services there are but
+what the one service is *for*: persuading before explaining.
 
 | ID | Business service | Serves | Realized by |
 | -- | ---------------- | ------ | ----------- |
-| `BSVC1` | **EA-first method guidance** — a browsable explanation of the EA-first process and the human/AI/hybrid actor notation, plus how to get set up from zero, kept current with the parent template | `ACT3`, and `VS1` end to end | `BPROC1`, and `ASVC1` in [layer 4](../4_application/2_application-components.md) |
+| `BSVC1` | **The case for the method, and the way in** — why the project exists and what problem it solves, what the method does, and how to start; kept current with the parent template | `ACT3`, and `VS1` end to end | `BPROC1`, and `ASVC1` in [layer 4](../4_application/2_application-components.md) |
 
 The service is offered in **English and Spanish** (`G4`,
 [1_strategy/1_motivation.md](../1_strategy/1_motivation.md)): each guidance

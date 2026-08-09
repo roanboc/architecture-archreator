@@ -35,11 +35,12 @@ flowchart LR
   s3[["⇉ 3 Adopt — uses 'Use this template'"]]:::stage
 
   acmp1["⊞ «Application Component» ACMP1<br>Landing page"]:::component
-  acmp3["⊞ ACMP3/ACMP4<br>Guide and walkthrough pages"]:::component
-  acmp2["⊞ ACMP2/ACMP5<br>Setup and architecture pages"]:::component
+  acmp7["⊞ ACMP7<br>How-it-works page"]:::component
+  acmp2["⊞ ACMP2<br>Start page"]:::component
 
   acmp1 --> s1
-  acmp3 --> s2
+  acmp1 --> s2
+  acmp7 --> s2
   acmp2 --> s3
 
   s1 -->|triggers| s2
@@ -49,10 +50,14 @@ flowchart LR
   classDef component fill:#c2f0ff,stroke:#2a8fb0,color:#333
 ```
 
-Component edges read **realizes**. **The stream does not close.** Unlike the
-organization's, nothing returns from Adopt to Discover — this site has no
-feedback path, which is honest rather than an omission: it is five static
-pages with no way for a reader to report anything back.
+Component edges read **realizes**. **The stream does not close.** Nothing returns from Adopt to Discover — this
+site has no feedback path, which is honest rather than an omission: it is
+three static pages with no way for a reader to report anything back.
+
+**Stage 1 and stage 2 share a component.** The landing page is written to
+carry a reader from never having heard of the project to understanding why it
+exists, so `ACMP7` is for the reader who wants more rather than the one who
+needs it.
 
 | ID | Value stream | Stages |
 | -- | ------------ | ------ |
@@ -60,9 +65,9 @@ pages with no way for a reader to report anything back.
 
 | # | Stage | Realized by |
 | - | ----- | ----------- |
-| 1 | **Discover** | [`public/index.html`](../../../public/index.html) — landing page, states the one rule and links onward |
-| 2 | **Understand** | [`public/guide.html`](../../../public/guide.html) — the EA-first process and the human/AI/hybrid actor notation as reference — and [`public/walkthrough.html`](../../../public/walkthrough.html) — one requirement walked through the layers end to end, plus the situational skills |
-| 3 | **Adopt** | [`public/start.html`](../../../public/start.html) — a beginner's zero-to-first-change setup guide (create an account, copy the template, pick an AI agent — free-first, no editor install), and [`public/architecture.html`](../../../public/architecture.html) — this project's own filled EA layers, as the concrete "what it looks like when finished," plus a direct link to the parent template's "Use this template" flow |
+| 1 | **Discover** | [`public/index.html`](../../../public/index.html) — the problem, why the project exists, and what a reader gets from it |
+| 2 | **Understand** | The same landing page carries the argument end to end; [`public/how.html`](../../../public/how.html) is for the reader who wants the mechanism — layers, gates, the AI actor's limits, and what lands in a repository |
+| 3 | **Adopt** | [`public/start.html`](../../../public/start.html) — two ways in, what the first session feels like, and honest expectations |
 
 The stages are language-independent: each realizing page above also
 ships a Spanish edition under [`public/es/`](../../../public/es/index.html)

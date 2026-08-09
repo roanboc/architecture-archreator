@@ -3,8 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>archreator — construir con la arquitectura primero en la era de la IA</title>
-  <meta name="description" content="Modela cómo funciona tu organización para que la IA pueda ayudar a operarla: una arquitectura que vive en git como markdown, humanos aprobando en compuertas explícitas, y agentes de IA modelados como miembros de la organización en vez de herramientas que esta usa." />
+  <title>archreator — entiende el negocio antes de que la IA lo construya</title>
+  <meta name="description" content="Un método libre y de código abierto que convierte lo que sabes de tu negocio en una arquitectura desde la que un agente de IA puede construir, con tu aprobación en cada puerta. Sin cuentas, sin telemetría, sin ataduras." />
+  <meta property="og:title" content="archreator — entiende el negocio antes de que la IA lo construya" />
+  <meta property="og:description" content="El software rara vez falla porque fuera difícil. Falla porque el problema se entendió mal. archreator lo corrige antes de que tu IA escriba una línea." />
+  <meta property="og:type" content="website" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='6' y='6' width='20' height='4' rx='1.5' fill='%237e57c2'/%3E%3Crect x='6' y='12' width='20' height='4' rx='1.5' fill='%23c8a24a'/%3E%3Crect x='6' y='18' width='20' height='4' rx='1.5' fill='%230288d1'/%3E%3Crect x='6' y='24' width='20' height='4' rx='1.5' fill='%23558b2f'/%3E%3C/svg%3E" />
   <link rel="alternate" hreflang="en" href="https://roanboc.github.io/archreator/index.html" />
   <link rel="alternate" hreflang="es" href="https://roanboc.github.io/archreator/es/index.html" />
@@ -12,384 +15,344 @@
   <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
-  <a class="skip-link" href="#main">Saltar al contenido</a>
-  <header class="site-header">
-    <div class="wrap">
-      <a class="brand" href="./index.html">
-        <svg class="logo" width="24" height="24" viewBox="0 0 32 32" aria-hidden="true">
-          <rect x="6" y="6" width="20" height="4" rx="1.5" fill="#7e57c2" />
-          <rect x="6" y="12" width="20" height="4" rx="1.5" fill="#c8a24a" />
-          <rect x="6" y="18" width="20" height="4" rx="1.5" fill="#0288d1" />
-          <rect x="6" y="24" width="20" height="4" rx="1.5" fill="#558b2f" />
-        </svg>
-        archreator
-      </a>
-      <nav class="site-nav" aria-label="Principal">
-        <a href="./start.html">Empieza aquí</a>
-        <a href="./guide.html">Guía</a>
-        <a class="hide-narrow" href="./walkthrough.html">Recorrido</a>
-        <a class="hide-narrow" href="./architecture.html">Arquitectura</a>
-        <a class="nav-cta" href="https://github.com/roanboc/archreator">Consigue archreator ↗</a>
-        <a class="lang-switch" href="../index.html" hreflang="en" lang="en" aria-label="Read this page in English">EN</a>
-      </nav>
-    </div>
-  </header>
+<a class="skip-link" href="#main">Ir al contenido</a>
 
-  <main id="main">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="wrap">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./index.html">
+      <svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true">
+        <rect x="6" y="6" width="20" height="4" rx="1.5" fill="#7e57c2" />
+        <rect x="6" y="12" width="20" height="4" rx="1.5" fill="#c8a24a" />
+        <rect x="6" y="18" width="20" height="4" rx="1.5" fill="#0288d1" />
+        <rect x="6" y="24" width="20" height="4" rx="1.5" fill="#558b2f" />
+      </svg>
+      archreator
+    </a>
+    <nav class="site-nav" aria-label="Principal">
+      <a href="./how.html">Cómo funciona</a>
+      <a href="./start.html">Empezar</a>
+      <a class="nav-cta" href="https://github.com/roanboc/archreator">GitHub ↗</a>
+      <a class="lang-switch" href="../index.html" hreflang="en" lang="en" aria-label="Read this page in English">EN</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
         <div>
-          <span class="eyebrow">Plugin de Claude Code · desarrollo con IA y humano al mando</span>
-          <h1><span class="grad">Tú pides.</span> Tu IA construye. La arquitectura lo mantiene honesto.</h1>
-          <p class="lede">
-            archreator convierte una empresa — o una sola aplicación — en una
-            arquitectura viva que reside en git como markdown: a quién sirves,
-            qué ofreces, quién hace qué, y qué sistema materializa cada pieza.
-            Tú apruebas en compuertas explícitas; los agentes de IA modelan y
-            construyen en medio. Modela para <em>implementar</em>, no para
-            documentar: cada elemento nombra aquello que lo materializa, así
-            que el modelo sigue siendo verificable en lugar de pudrirse en
-            silencio.
-          </p>
-          <div class="btn-row">
-            <a class="btn btn-primary" href="https://github.com/roanboc/archreator">
-              Consigue archreator
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M17 7H9m8 0v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <a class="btn btn-ghost" href="./guide.html">Lee la guía</a>
-          </div>
-        </div>
-
-        <!-- The loop: who does what -->
-        <div class="loop" role="img" aria-label="El ciclo de desarrollo: una persona presenta un requisito, un agente de IA alinea el cambio y se detiene en puertas de aprobación antes de programar, y una persona revisa y fusiona antes de publicar.">
-          <div class="loop-step" data-who="requester">
-            <span class="ic" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="2"/><path d="M5 20c0-3.3 3.1-5.5 7-5.5s7 2.2 7 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            </span>
-            <span>
-              <span class="role">Solicitante (<em lang="en">Requester</em>) — tú</span>
-              <span class="what">Di lo que quieres, aprueba en las puertas<small>Un requisito o un problema, no un diff — y tu visto bueno antes de que se programe nada.</small></span>
-            </span>
-          </div>
-          <div class="loop-arrow" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14m0 0-5-5m5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div class="loop-step" data-who="agent">
-            <span class="ic" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="6" y="6" width="12" height="12" rx="2.5" stroke="currentColor" stroke-width="2"/><path d="M9.5 9.5h5v5h-5z" stroke="currentColor" stroke-width="1.6"/><path d="M9 3v2M15 3v2M9 19v2M15 19v2M3 9h2M3 15h2M19 9h2M19 15h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            </span>
-            <span>
-              <span class="role">Agente (<em lang="en">Agent</em>) — tu IA</span>
-              <span class="what">Alinea y luego construye<small>Recorre las capas, se detiene en tus puertas, escribe el documento, implementa, abre un PR.</small></span>
-            </span>
-          </div>
-          <div class="loop-arrow" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14m0 0-5-5m5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div class="loop-step" data-who="reviewer">
-            <span class="ic" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12.5 10 17l9-10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-            <span>
-              <span class="role">Revisor (<em lang="en">Reviewer</em>) — tú</span>
-              <span class="what">Revisa y fusiona<small>Nada se publica hasta que una persona lo aprueba.</small></span>
-            </span>
-          </div>
-          <p class="loop-note">Los mismos tres roles tanto si el Agente es una persona como una IA — el proceso no cambia según quién lo ocupe.</p>
-        </div>
+      <span class="eyebrow">Libre · código abierto · sin registro</span>
+      <h1>Tu IA puede construir lo que sea.<br /><span class="grad">No puede saber qué querías decir.</span></h1>
+      <p class="lede">
+        archreator convierte lo que sabes de tu negocio en una arquitectura
+        desde la que un agente de IA puede construir: en markdown, en tu propio
+        repositorio, y con tu aprobación antes de que se haga nada.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="./start.html">Empezar en cinco minutos</a>
+        <a class="btn btn-ghost" href="./how.html">Ver cómo funciona</a>
       </div>
-    </section>
-
-    <!-- Why a process -->
-    <section class="section-tint">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="eyebrow">Por qué molestarse con un proceso</span>
-          <h2>Programar por intuición es rápido. Hasta que deja de serlo.</h2>
-          <p>
-            Describir lo que quieres y dejar que una IA lo construya es un
-            auténtico superpoder. El modo de fallo no es la velocidad — es la
-            <em>deriva</em>: un agente construye con toda seguridad lo que no
-            era, tres funcionalidades se contradicen en silencio, y nadie sabe
-            decir por qué existe nada de eso. La solución no es ir más lento.
-            Es una escalera ligera que subir antes de programar, y una persona
-            que dice que sí antes de que algo se publique.
-          </p>
-        </div>
-        <div class="grid">
-          <div class="card">
-            <h3><span class="ic-badge" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M5 8l7-5 7 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>La intención antes que el código</h3>
-            <p class="muted">Cada cambio empieza como un requisito contrastado con la estrategia — no como un prompt que va directo a un diff. El "porqué" se decide primero, una sola vez.</p>
-          </div>
-          <div class="card">
-            <h3><span class="ic-badge" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>Un rastro documental fiable</h3>
-            <p class="muted">Cada elemento de arquitectura nombra el archivo que lo realiza. Los documentos siguen siendo verificables contra el código, así que nunca se pudren en silencio.</p>
-          </div>
-          <div class="card">
-            <h3><span class="ic-badge" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="2"/><path d="M12 8v4l2.5 2.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>La persona sigue al mando</h3>
-            <p class="muted">Los agentes pueden redactar cambios completos, pero una persona revisa y fusiona. Velocidad con cinturón de seguridad, no piloto automático contra un muro.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- The ladder -->
-    <section>
-      <div class="wrap">
-        <div class="section-head">
-          <span class="eyebrow">La única regla</span>
-          <h2>Sube la escalera antes de programar</h2>
-          <p>
-            Un cambio de requisitos nunca se programa directamente. Se alinea
-            de arriba abajo a través de capas numeradas — cada una responde a
-            una pregunta —, se registra en un breve documento de alcance, lo
-            apruebas tú en puertas explícitas, y solo entonces se construye.
-            La misma escalera para un colaborador humano y para un agente de
-            IA.
-          </p>
-        </div>
-
-        <div class="ladder" role="list">
-          <div class="rung" data-layer="design" role="listitem">
-            <span class="num">0</span>
-            <span>
-              <span class="name">Diseño de negocio <em>— solo si el sujeto es una organización</em></span>
-              <span class="q">¿Quiénes son los clientes, qué necesitan, y cómo se paga cada oferta? Lienzos de propuesta de valor y de modelo de negocio. Un proyecto de aplicación se salta este peldaño por completo.</span>
-            </span>
-          </div>
-          <div class="rung" data-layer="motivation" role="listitem">
-            <span class="num">1</span>
-            <span>
-              <span class="name">Estrategia y Motivación</span>
-              <span class="q">¿Por qué existe esto? ¿A quién le importa? ¿Resiste frente a los principios del proyecto?</span>
-            </span>
-          </div>
-          <div class="rung" data-layer="business" role="listitem">
-            <span class="num">2</span>
-            <span>
-              <span class="name">Negocio</span>
-              <span class="q">¿Quién hace qué — qué personas <em>y qué agentes de IA</em> — a través de qué servicio y proceso?</span>
-            </span>
-          </div>
-          <div class="rung" data-layer="strategy" role="listitem">
-            <span class="num">3</span>
-            <span>
-              <span class="name">Información</span>
-              <span class="q">¿Qué información existe, y cómo fluye y persiste?</span>
-            </span>
-          </div>
-          <div class="rung" data-layer="application" role="listitem">
-            <span class="num">4</span>
-            <span>
-              <span class="name">Aplicación</span>
-              <span class="q">¿Qué servicios y componentes de software realizan los servicios de negocio?</span>
-            </span>
-          </div>
-          <div class="rung" data-layer="technology" role="listitem">
-            <span class="num">5</span>
-            <span>
-              <span class="name">Tecnología</span>
-              <span class="q">¿Sobre qué entornos de ejecución, alojamiento y CI/CD corre todo?</span>
-            </span>
-          </div>
-        </div>
-        <p class="ladder-flow">
-          <strong>Se evalúa de arriba abajo</strong> — primero la estrategia,
-          la tecnología al final. Una capa sin nada que cambiar recibe
-          igualmente un "sin cambios" explícito.
+      <p class="hero-note">
+        <strong>No hay nada que registrar.</strong> Sin cuentas, sin telemetría,
+        sin servidor. Funciona dentro de la herramienta de IA que ya usas.
         </p>
-
-        <div class="callout">
-          <p class="callout-label">Cuesta lo que vale tu proyecto</p>
-          <p>
-            Las mismas seis capas describen una aplicación de fin de semana y
-            una empresa con veinte líneas de negocio. Lo que cambia es cuánto
-            se rellena y qué aprobaciones aplican — y el agente
-            <strong>te dice qué peso eligió, y por qué</strong>, para que
-            puedas corregirlo en una frase:
-          </p>
-          <ul class="tight">
-            <li>
-              <strong>Profundidad 1 — Aplicación.</strong> Una app. Una capa
-              de estrategia ligera — objetivos y principios, lo justo para
-              juzgar un cambio —, sin lienzos, una compuerta antes del código.
-            </li>
-            <li>
-              <strong>Profundidad 2 — Organización.</strong> Una empresa,
-              departamento o línea de servicio. Primero los lienzos, y el
-              modelo operativo derivado de ellos.
-            </li>
-            <li>
-              <strong>Profundidad 3 — Empresa extendida.</strong> Varias
-              líneas de negocio, cada una modelada como un <em>dominio</em>:
-              una organización por derecho propio, con una carta que declara
-              qué expone a las demás.
-            </li>
-          </ul>
-          <p>
-            La profundidad es una postura inicial, nunca un techo.
-            Profundizar es un cambio normal, no un reinicio.
-          </p>
         </div>
-
-        <div class="callout">
-          <p class="callout-label">La recompensa</p>
-          <p>
-            Cuando tu Agente es una IA, esta escalera es lo que convierte
-            "constrúyeme algo" en un cambio que de verdad puedes revisar: el
-            agente tiene que declarar la intención, las piezas afectadas y el
-            radio de impacto <em>antes</em> de tocar el código — así tu
-            revisión es un sí/no rápido, no una excavación arqueológica.
-          </p>
-        </div>
-
-        <div class="callout principle">
-          <p class="callout-label">Por qué esto no es TOGAF</p>
-          <p>
-            TOGAF es un marco de <em>proceso</em>: te dice cómo dirigir una
-            práctica de arquitectura, y su salida es un catálogo de
-            entregables. Nada en esos entregables tiene por qué corresponder a
-            algo que exista. archreator usa <strong>ArchiMate</strong> en su
-            lugar — un <em>lenguaje de modelado</em>, donde un «Componente de
-            Aplicación» es un módulo, un «Proceso de Negocio» es algo que una
-            persona o un agente hace de verdad, y un «Nodo» es algo que se
-            ejecuta.
-          </p>
-          <p>
-            Una regla lo sostiene: <strong>cada elemento nombra aquello que lo
-            materializa</strong> — una ruta de módulo, un equipo, un
-            procedimiento escrito — o queda marcado explícitamente como
-            "Pendiente". Abre cualquier documento e intenta contrastarlo con
-            el repositorio o con las personas que hacen el trabajo. Si no
-            puedes, o el elemento está mal o está marcado como pendiente, y
-            ambos son fallos que el proceso saca a la luz en vez de absorber.
-            Esa es la diferencia entre un diagrama de tu empresa y una
-            descripción sobre la que puedes construir.
-          </p>
-        </div>
-        <div class="pill-row">
-          <a class="pill" href="./walkthrough.html">Mira un requisito subir la escalera, de principio a fin →</a>
+        <div class="model-card" aria-hidden="true">
+          <div class="bar"><i></i><i></i><i></i>&nbsp;docs/ea/</div>
+          <div class="body">
+            <div class="mrow l0"><span class="n">0</span><b>Diseño de negocio</b><span class="pin">PUERTA 0</span></div>
+            <div class="mrow l1"><span class="n">1</span><b>Estrategia</b><span class="pin">PUERTA 1</span></div>
+            <div class="mrow l2"><span class="n">2</span><b>Negocio</b><span class="pin">PUERTA 2</span></div>
+            <div class="mrow l3 dim"><span class="n">3</span><b>Información</b><span></span></div>
+            <div class="mrow l4 dim"><span class="n">4</span><b>Aplicación</b><span></span></div>
+            <div class="mrow l5 dim"><span class="n">5</span><b>Tecnología</b><span></span></div>
+          </div>
+          <div class="foot">en tu repositorio · markdown · tuyo para siempre</div>
         </div>
       </div>
-    </section>
-
-    <!-- This site is the proof -->
-    <section class="section-tint">
-      <div class="wrap">
-        <div class="grid-2">
-          <div>
-            <span class="eyebrow">Prueba viviente</span>
-            <h2>Este sitio está construido con el método que describe</h2>
-            <p class="muted">
-              Estás leyendo el resultado del proceso, no una maqueta. Este
-              sitio es un proyecto real (<code>site/docs/</code>) construido
-              subiendo la escalera — y uno de sus propios actores de negocio
-              es una IA. Deliberadamente no hay una demo ficticia a su lado:
-              una empresa inventada demuestra la notación y nada sobre si el
-              método sobrevive al contacto con trabajo real.
-            </p>
-            <p class="muted">
-              <strong>Copilot</strong> redacta el contenido de la guía y abre
-              pull requests con un nivel de autonomía de <em>copiloto</em>; la
-              persona al mando, el <strong>Pilot</strong>, revisa y fusiona
-              antes de que nada de esto se publique.
-              Es el ciclo Solicitante → Agente → Revisor, modelado
-              explícitamente en la arquitectura en lugar de dejarlo implícito.
-            </p>
-            <div class="btn-row">
-              <a class="btn btn-ghost" href="./architecture.html">Mira la arquitectura de este sitio →</a>
-            </div>
-          </div>
-          <div>
-            <!-- Mini architecture snapshot, self-contained -->
-            <figure class="archi-diagram" style="margin-top:0">
-              <div class="archi-layers">
-                <div class="archi-band" style="--layer-fill:var(--business);--layer-ink:var(--business-ink);--layer-line:var(--business-line)">
-                  <span class="band-label">Negocio</span>
-                  <div class="band-nodes">
-                    <span class="node" data-layer="business"><span class="stereo">«Actor (Humano)»</span><span class="node-name">Pilot</span></span>
-                    <span class="node" data-layer="business"><span class="stereo">«Actor (IA)»</span><span class="node-name">Copilot</span></span>
-                  </div>
-                </div>
-                <div class="archi-band" style="--layer-fill:var(--application);--layer-ink:var(--application-ink);--layer-line:var(--application-line)">
-                  <span class="band-label">Aplicación</span>
-                  <div class="band-nodes">
-                    <span class="node" data-layer="application"><span class="stereo">«Componente»</span><span class="node-name">Sitio de guía</span></span>
-                  </div>
-                </div>
-                <div class="archi-band" style="--layer-fill:var(--technology);--layer-ink:var(--technology-ink);--layer-line:var(--technology-line)">
-                  <span class="band-label">Tecnología</span>
-                  <div class="band-nodes">
-                    <span class="node" data-layer="technology"><span class="stereo">«Servicio»</span><span class="node-name">GitHub Pages</span></span>
-                  </div>
-                </div>
-              </div>
-              <figcaption>Una porción de las capas EA de este sitio — la versión completa, con todas las relaciones, está en la <a href="./architecture.html">página de arquitectura</a>.</figcaption>
-            </figure>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Quickstart -->
-    <section>
-      <div class="wrap">
-        <div class="section-head">
-          <span class="eyebrow">Ponte en marcha</span>
-          <h2>Dos formas de empezar</h2>
-          <p>Instálalo en un proyecto que ya tengas, o crea un repositorio nuevo desde la plantilla. Los skills conducen el proceso en cualquiera de los dos casos.</p>
-        </div>
-        <div class="grid">
-          <div class="card step">
-            <span class="step-n">1</span>
-            <h3>Instala el plugin</h3>
-            <p class="muted">En Claude Code: <code>/plugin marketplace add roanboc/archreator</code> y después <code>/plugin install archreator@archreator</code>. Funciona sobre un proyecto que ya existe — y es la única vía en la que <code>/plugin update</code> te trae después las mejoras del método.</p>
-          </div>
-          <div class="card step">
-            <span class="step-n">2</span>
-            <h3>…o parte de la plantilla</h3>
-            <p class="muted">En GitHub, pulsa <strong>Use this template → Create a new repository</strong>. Obtienes una copia limpia — los skills, el esqueleto de arquitectura, las plantillas de PR — con su propio historial.</p>
-          </div>
-          <div class="card step">
-            <span class="step-n">3</span>
-            <h3>Di qué estás construyendo</h3>
-            <p class="muted">El skill <code>project-bootstrap</code> pregunta qué es el proyecto, elige una profundidad de modelado, <em>te dice cuál eligió</em>, y escribe el andamiaje. Después describe un cambio y el agente sube la escalera, redacta un documento de alcance, implementa y abre un PR para que tú lo revises.</p>
-          </div>
-        </div>
-        <div class="pill-row">
-          <a class="pill" href="./start.html">¿Nunca has usado GitHub? Empieza desde cero — gratis, sin instalar ningún editor →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA band -->
-    <section class="section-tint cta-band">
-      <div class="wrap">
-        <h2>Construye rápido. Mantén el control.</h2>
-        <p class="lede" style="margin-inline:auto">Lo bastante estructurado para confiárselo a un agente de IA. Lo bastante ligero para usarlo de verdad.</p>
-        <div class="btn-row">
-          <a class="btn btn-primary" href="https://github.com/roanboc/archreator">Consigue archreator ↗</a>
-          <a class="btn btn-ghost" href="./guide.html">Lee la guía</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap">
-      <span>
-        Publicado desde
-        <a href="https://github.com/roanboc/archreator/tree/main/site">site/</a>
-        en el repositorio archreator.
-      </span>
-      <span>
-        Proceso canónico:
-        <a href="https://github.com/roanboc/archreator/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>
-        ·
-        <a href="https://github.com/roanboc/archreator/tree/main/.claude/skills">skills</a>
-      </span>
     </div>
-  </footer>
+  </section>
+
+  <section class="tint">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="stripe" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <h2>El software rara vez falla porque fuera difícil</h2>
+        <p class="lede">
+          Falla porque el problema se entendió mal. Una buena respuesta a la
+          pregunta equivocada, descubierta tarde. La IA hizo que construir fuera
+          más rápido sin hacer que eso fuera menos cierto: solo consiguió que
+          ocurriera antes.
+        </p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card card-accent a-violet">
+          <span class="tag">EL ENCUADRE</span>
+          <h3>Nadie revisa la pregunta</h3>
+          <p>
+            Describes lo que quieres, el agente construye algo plausible, y la
+            distancia entre ambas cosas solo aparece en lo entregado. Nunca hubo
+            un paso donde el problema tuviera que estar completo.
+          </p>
+        </div>
+        <div class="card card-accent a-sand">
+          <span class="tag">EL TRASPASO</span>
+          <h3>Diseño y entrega son mundos separados</h3>
+          <p>
+            Las presentaciones de estrategia no construyen nada. El código no se
+            explica solo. Lo que querías decir cambia de forma en cada traspaso
+            — y con un agente, el traspaso ocurre en cada instrucción.
+          </p>
+        </div>
+        <div class="card card-accent a-cyan">
+          <span class="tag">LA MEMORIA</span>
+          <h3>Lo vuelves a explicar todo</h3>
+          <p>
+            Nueva sesión, nuevo agente, nuevo proveedor: el contexto vive en tu
+            cabeza, así que lo repites. Lo que construiste queda repartido en
+            chats que nadie podrá leer dentro de seis meses.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Por qué existe</span>
+        <h2>Construir con IA no debería costarte tu propio entendimiento</h2>
+      </div>
+      <div class="belief a-violet">
+        <p>
+          La forma más rápida de trabajar con IA es dejar que piense por ti.
+          Si la tomas, acabas entendiendo tu propio negocio <em>menos</em> que
+          antes de empezar.
+        </p>
+        <p>
+          archreator existe para lo contrario: <strong>terminas sabiendo
+          más.</strong> El método te obliga a responder preguntas sobre tu
+          negocio que habías podido dejar difusas, y entrega esas respuestas al
+          agente como algo desde lo que sí puede construir.
+        </p>
+      </div>
+      <p class="kicker" style="max-width:60ch">
+        Esa es toda la apuesta. No producir más rápido, sino producir algo que
+        puedas defender, desde un negocio que ahora entiendes mejor.
+      </p>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Cómo funciona</span>
+        <h2>Seis capas, cuatro puertas, una conversación</h2>
+        <p class="lede">
+          Tú hablas. El agente pregunta, escribe y dibuja. Tú apruebas — o no, y
+          entonces vuelve una capa atrás.
+        </p>
+      </div>
+
+      <div class="grid grid-2" style="align-items:start">
+        <div>
+          <ol class="ladder">
+            <li class="l0"><span class="n">0</span><span><b>Diseño de negocio</b><span>A quién sirves, qué duele, qué ofreces</span></span></li>
+            <li class="l1"><span class="n">1</span><span><b>Estrategia</b><span>Qué debe volverse cierto, y qué debes ser capaz de hacer</span></span></li>
+            <li class="l2"><span class="n">2</span><span><b>Negocio</b><span>Quién actúa — incluidas las partes que sostiene la IA</span></span></li>
+            <li class="l3"><span class="n">3</span><span><b>Información</b><span>Qué se sabe, y cuán sensible es</span></span></li>
+            <li class="l4"><span class="n">4</span><span><b>Aplicación</b><span>El software que lo entrega</span></span></li>
+            <li class="l5"><span class="n">5</span><span><b>Tecnología</b><span>Sobre qué se ejecuta</span></span></li>
+          </ol>
+        </div>
+        <div>
+          <h3>Las puertas son lo importante</h3>
+          <p>
+            Una arquitectura que nadie aprobó es un documento. archreator se
+            detiene en cuatro momentos explícitos y te pide, en lenguaje llano,
+            que digas que sí. Tu respuesta queda escrita en el repositorio, así
+            que dentro de un año consta quién decidió qué, y cuándo.
+          </p>
+          <div class="gates">
+            <div class="gate"><b>Puerta 0 · Modelo de negocio</b><span>Antes de derivar nada de él</span></div>
+            <div class="gate"><b>Puerta 1 · Estrategia</b><span>Antes de construir el negocio sobre ella</span></div>
+            <div class="gate"><b>Puerta 2 · Negocio</b><span>Antes de una sola línea de código</span></div>
+            <div class="gate"><b>Puerta 3 · Diseño de solución</b><span>Solo si la pides</span></div>
+          </div>
+          <p class="kicker mt-lg">
+            Nunca necesitas una terminal para aprobar. Una respuesta en la
+            conversación cuenta, y queda registrada.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Qué obtienes</span>
+        <h2>Un modelo que además son las instrucciones de construcción</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <h3>Describes tu negocio, mal al principio</h3>
+          <p>
+            El agente pregunta en lenguaje de negocio, no en jerga de
+            arquitectura: qué intenta lograr la gente, qué sale mal hoy, qué
+            sería ganar. La mayoría descubre aquí que había nombrado mal a sus
+            clientes.
+          </p>
+        </li>
+        <li>
+          <h3>Escribe el modelo y te enseña los diagramas</h3>
+          <p>
+            Archivos markdown en tu repositorio, con diagramas encima de cada
+            tabla. Conceptos estándar de arquitectura (ArchiMate) para que las
+            palabras signifiquen lo mismo para ti, para tu próximo desarrollador
+            y para el agente.
+          </p>
+        </li>
+        <li>
+          <h3>Apruebas, y construye desde lo aprobado</h3>
+          <p>
+            No una conjetura nueva a partir de una instrucción: el diseño
+            aprobado es la entrada. Cada elemento señala el archivo que lo hace
+            real, así que puedes comprobar cualquier afirmación del modelo
+            contra el código en menos de un minuto.
+          </p>
+        </li>
+        <li>
+          <h3>El siguiente cambio parte de lo que ya existe</h3>
+          <p>
+            Un requisito nuevo recorre las mismas capas y las encuentra llenas.
+            El modelo se vuelve más cierto con el tiempo en vez de desviarse — y
+            dejas de reexplicar tu negocio a cada agente, desarrollador o socio.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Pruebas, no promesas</span>
+        <h2>El método se aplica a sí mismo, en público</h2>
+        <p class="lede">
+          Todo lo de abajo está en el repositorio ahora mismo. También puedes
+          leer las partes incómodas: están en el modelo a propósito.
+        </p>
+      </div>
+      <div class="grid grid-2">
+        <ul class="proof-list">
+          <li><span class="mark">→</span><span><b>El proyecto modela su propia organización.</b> <span>Clientes, productos, economía y capacidades — a fondo, publicado donde cualquiera puede discreparlo.</span></span></li>
+          <li><span class="mark">→</span><span><b>Modela su propio método.</b> <span>Cada habilidad y cada script aparecen como un componente que nombra su archivo. Si una afirmación fuera falsa, la verificación fallaría.</span></span></li>
+          <li><span class="mark">→</span><span><b>Registra lo que no puede hacer.</b> <span>Cuatro de sus siete resultados declarados no tienen forma de medirse, y el modelo lo dice en vez de omitirlos.</span></span></li>
+        </ul>
+        <ul class="proof-list">
+          <li><span class="mark">→</span><span><b>Cada aprobación está en el historial.</b> <span>Quién aprobó qué puerta, en qué fecha y contra qué documentos.</span></span></li>
+          <li><span class="mark">→</span><span><b>Nada se comunica hacia fuera.</b> <span>El proyecto no guarda datos de quien lo usa. Por eso su propia adopción no está medida: un coste que eligió.</span></span></li>
+          <li><span class="mark">→</span><span><b>Las verificaciones se ejecutan en cada cambio.</b> <span>Toda referencia cruzada del modelo tiene que resolver, o el cambio no se integra.</span></span></li>
+        </ul>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-ghost" href="https://github.com/roanboc/archreator/tree/main/organization">Leer el modelo de la organización ↗</a>
+        <a class="btn btn-ghost" href="https://github.com/roanboc/archreator/tree/main/meta">Leer el modelo del método ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap narrow">
+      <div class="section-head">
+        <span class="eyebrow">Preguntas justas</span>
+        <h2>Las objeciones que vale la pena tener</h2>
+      </div>
+      <div class="qa">
+        <div>
+          <h3>¿La arquitectura empresarial no es un programa de seis meses?</h3>
+          <p>
+            Lo ha sido, y por eso casi nadie fuera de las grandes empresas tiene
+            una. El coste siempre fue el tiempo del experto. Con un agente
+            escribiendo, un negocio pequeño puede tener un modelo real en una
+            tarde — y archreator te deja declarar cuánta profundidad quieres,
+            para que una app de fin de semana no reciba trato corporativo.
+          </p>
+        </div>
+        <div>
+          <h3>¿Necesito saber ArchiMate?</h3>
+          <p>
+            No. Necesitas responder preguntas sobre tu propio negocio. El agente
+            se encarga de la notación, y luego te la devuelve a través de los
+            diagramas — que es justo el punto: el vocabulario estándar es lo que
+            hace que el modelo signifique una sola cosa para todos.
+          </p>
+        </div>
+        <div>
+          <h3>¿Está atado a una sola herramienta de IA?</h3>
+          <p>
+            El método son instrucciones en markdown. Hoy se distribuye como
+            plugin de Claude Code porque ahí se construyó, pero nada del método
+            es específico de esa herramienta. Tu modelo es texto en tu
+            repositorio: puedes irte cuando quieras y llevártelo entero.
+          </p>
+        </div>
+        <div>
+          <h3>¿Cuánto cuesta?</h3>
+          <p>
+            Nada. Es de código abierto y seguirá siéndolo. Pagas lo que cueste
+            tu propia suscripción de IA, a tu propio proveedor — este proyecto
+            nunca se pone en medio.
+          </p>
+        </div>
+        <div>
+          <h3>No tengo negocio, solo una idea. ¿Es pronto?</h3>
+          <p>
+            Es el mejor momento. Lo primero que hace el método es obligarte a
+            enunciar el modelo de negocio en voz alta, que es exactamente el
+            trabajo que un fundador va posponiendo hasta que ya se construyó
+            algo caro sobre una suposición.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tint cta-band">
+    <div class="wrap">
+      <div class="stripe" style="margin-inline:auto" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <h2>Entiéndelo primero. Luego deja que construya.</h2>
+      <p class="lede">
+        Cinco minutos para instalarlo, una conversación hasta tu primera
+        arquitectura aprobada. Gratis, y tuya.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="./start.html">Empezar aquí</a>
+        <a class="btn btn-ghost" href="https://github.com/roanboc/archreator">Mirar el código primero ↗</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <strong>archreator</strong> — un método libre y de código abierto para construir con IA.<br />
+      Hecho para que las personas entiendan más, no menos.
+    </div>
+    <nav aria-label="Pie">
+      <a href="./how.html">Cómo funciona</a>
+      <a href="./start.html">Empezar</a>
+      <a href="https://github.com/roanboc/archreator">GitHub</a>
+      <a href="../index.html" hreflang="en" lang="en">English</a>
+    </nav>
+  </div>
+</footer>
+
 </body>
 </html>

@@ -1,7 +1,8 @@
 # CLAUDE.md
 
-archreator-guide is a small static site publishing the archreator EA-first
-+ AI-actor method for browsing. It is itself built by following that same
+archreator-guide is a small static site whose job is to make a stranger
+care about the archreator method — why it exists, what it solves, and how to
+start — and only then explain how it works. It is itself built by following that same
 process — see [`../CLAUDE.md`](../CLAUDE.md) for the rule, and
 [`docs/scope/1_publish-guidance-site.md`](./docs/scope/1_publish-guidance-site.md)
 for how it was applied here.
@@ -38,10 +39,10 @@ enough to judge a change against.
   ArchiMate layers); `docs/scope/` — one document per initiative;
   `docs/decisions/` — smaller rationale calls, notably the Copilot's
   autonomy.
-- `public/` — the static guidance pages, deployed as-is (no build step) by
-  GitHub Actions to GitHub Pages. `index.html`, `guide.html`,
-  `walkthrough.html`, `architecture.html`, `start.html`, `styles.css`;
-  `public/es/` mirrors the five pages in Spanish.
+- `public/` — the static pages, deployed as-is (no build step) by GitHub
+  Actions to GitHub Pages. `index.html` (the whole argument), `how.html`
+  (the mechanism), `start.html` (the way in), `styles.css`; `public/es/`
+  mirrors the three pages in Spanish.
 
 ## Commands
 

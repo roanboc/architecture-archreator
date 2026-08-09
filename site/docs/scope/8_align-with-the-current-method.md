@@ -62,11 +62,11 @@ documents is worse than no site.
 
 - **Deliverables:** [`public/index.html`](../../public/index.html) (hero,
   layer 0 rung, the depth ladder, the TOGAF section, the two-ways-in
-  quickstart), [`public/guide.html`](../../public/guide.html) (layer 0 row,
+  quickstart), [`public/guide.html`](https://github.com/roanboc/archreator/blob/baafc8d7d991e67d2a0d62326c142b93eac982e0/site/public/guide.html) (layer 0 row,
   Gate 0, `N/A` gate rows, the gate-surface callout, a depth section, six
   new skills), [`public/start.html`](../../public/start.html) (the plugin
-  path), [`public/architecture.html`](../../public/architecture.html) and
-  [`public/walkthrough.html`](../../public/walkthrough.html) (paths and
+  path), [`public/architecture.html`](https://github.com/roanboc/archreator/blob/baafc8d7d991e67d2a0d62326c142b93eac982e0/site/public/architecture.html) and
+  [`public/walkthrough.html`](https://github.com/roanboc/archreator/blob/baafc8d7d991e67d2a0d62326c142b93eac982e0/site/public/walkthrough.html) (paths and
   layer-count claims), plus a dashed `data-layer="design"` rung and a
   compact list style in [`public/styles.css`](../../public/styles.css)
 - **Outcome:** the site describes the method that exists
