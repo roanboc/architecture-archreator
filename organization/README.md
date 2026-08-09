@@ -21,7 +21,9 @@ should be willing to be read.
 
 ```
 docs/ea/0_business-design/   the canvases everything else derives from
-docs/ea/1_strategy/ … 5_technology/   derived after Gate 0 — not yet written
+docs/ea/1_strategy/          motivation, capabilities, the value stream
+docs/ea/2_business/          actors and roles; products, services, channels
+docs/ea/3_information/ … 5_technology/   not started
 docs/scope/                  one document per initiative
 ```
 
@@ -31,13 +33,17 @@ demonstrate Depth 3 would be the same mistake as the fictional company.
 
 ## Status
 
-**Discovery in progress.** Customer segments are identified; jobs, pains,
-gains, the value map, and the business model canvases are still being worked
-through with the Requester. Nothing has passed **Gate 0**, so nothing has
-been derived into layers 1–5.
+**Layers 0 to 2 modeled.** The two canvases were approved at **Gate 0** on
+2026-08-08, and the strategy and key business elements were derived from
+them. The derived layers await **Gate 1**. Layers 3–5 are not started, and
+will be filled by the initiatives that actually touch them rather than
+written speculatively now.
 
-Read [`docs/ea/0_business-design/1_value-proposition-canvas.md`](./docs/ea/0_business-design/1_value-proposition-canvas.md)
-for what is settled so far — including the open questions that are honestly
+Start with the [value proposition canvas](./docs/ea/0_business-design/1_value-proposition-canvas.md)
+— who this organization serves and what it offers — then
+[the strategy layer](./docs/ea/1_strategy/README.md) for what follows from
+it, including the seven principles every future change is checked against.
+The open questions are recorded where they were raised and are honestly
 still open.
 
 ## If you cloned archreator

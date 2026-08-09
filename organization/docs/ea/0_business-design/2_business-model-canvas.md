@@ -4,7 +4,8 @@ _[← Business design](./README.md) · [EA home](../README.md)_
 
 **Strategyzer artifact, not ArchiMate.** One canvas per product, from
 [1_value-proposition-canvas.md](./1_value-proposition-canvas.md) § Products.
-Layers 1 and 2 are derived from both canvases after **Gate 0**.
+Layers 1 and 2 are derived from both canvases after **Gate 0**, which was
+granted on 2026-08-08 — see [the strategy layer](../1_strategy/README.md).
 
 Three products, three economic models:
 

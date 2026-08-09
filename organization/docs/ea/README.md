@@ -7,25 +7,28 @@ produces archreator, not the method itself. The method is one of the things
 this organization makes, and appears in layer 4 as a product rather than as
 the subject.
 
-**Status: discovery in progress.** Only layer 0 exists, and only partly.
-Everything below it is derived after **Gate 0**, and nothing has been
-approved yet.
+**Status: layers 0–2 modeled.** The canvases were approved at **Gate 0** on
+2026-08-08 and the strategy and key business elements were derived from them.
+Layers 3–5 are not started, and will be filled by the initiatives that
+actually touch them.
 
 ## Layers, in assessment order
 
 | # | Layer | ArchiMate viewpoint | State |
 | - | ----- | ------------------- | ----- |
-| 0 | [0_business-design/](./0_business-design/README.md) | _none — business design input_ | **In progress** — segments identified; profiles, value map, and business model canvases pending |
-| 1 | `1_strategy/` | Motivation + Strategy | **Not started** — derived from layer 0 after Gate 0 |
-| 2 | `2_business/` | Business layer | **Not started** — derived from layer 0 after Gate 0 |
+| 0 | [0_business-design/](./0_business-design/README.md) | _none — business design input_ | **Filled** — three segments with one consolidated profile, and three product business models. **Approved at Gate 0** |
+| 1 | [1_strategy/](./1_strategy/README.md) | Motivation + Strategy | **Filled** — derived from layer 0, plus the Principles discovered directly |
+| 2 | [2_business/](./2_business/README.md) | Business layer | **Key elements filled** — actors, roles, partners, products, services and channels. Processes, objects and rules follow per initiative |
 | 3 | `3_information/` | Passive structure (data) | **Not started** |
-| 4 | `4_application/` | Application layer | **Not started** — this is where the method, the site, and any future platform land |
+| 4 | `4_application/` | Application layer | **Not started** — this is where the method, the site, and any future portal land |
 | 5 | `5_technology/` | Technology layer | **Not started** |
 | — | `domains/` | _the same layers, nested_ | **Not used** — Depth 2. Revisit only if the organization grows business lines that pass the split test |
 
-Layers 1–5 are named without links because they do not exist yet. That is
-the expected shape mid-discovery: the canvases come first, are approved, and
-only then is anything derived from them.
+Layers 3–5 are named without links because they do not exist yet. Layer 4 is
+the notable absence: the method, the guidance site and the portal are the
+organization's applications, and they are currently modeled as **products**
+in layer 2 rather than as components. Filling layer 4 is what an initiative
+to build the portal (`COA2`) would start with.
 
 ## How this tree relates to the others
 

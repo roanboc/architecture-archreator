@@ -111,9 +111,10 @@ by hand, that skill is also the checklist:
    depth** in `CLAUDE.md`.
 2. Decide the documentation language once (English is the default) and note
    it in `CLAUDE.md` — see the `ea-doc-style` skill.
-3. Delete what you didn't inherit: [`site/`](./site/README.md) and
-   [`meta/`](./meta/README.md) are archreator's own material, there to read
-   on GitHub rather than to carry.
+3. Delete what you didn't inherit: [`site/`](./site/README.md),
+   [`meta/`](./meta/README.md) and
+   [`organization/`](./organization/README.md) are archreator's own
+   material, there to read on GitHub rather than to carry.
 4. Keep [`docs/scope/open-questions.md`](./docs/scope/open-questions.md)
    only if there's a stakeholder who can't be consulted synchronously; keep
    [`docs/decisions/`](./docs/decisions/README.md) only if the project will
@@ -245,7 +246,16 @@ before code. That's Depth 1, and it is deliberately cheap:
 
 ## See it applied
 
-Two models in this repository are real, not illustrative.
+Three models in this repository are real, not illustrative.
+
+[`organization/`](./organization/README.md) is **the organization that
+produces archreator, modeled at Depth 2 in public** — the company track from
+the top: two canvases approved at Gate 0, then a strategy layer and the key
+business elements derived from them. It is where to look for what the
+canvas-to-ArchiMate derivation actually produces, and for what an
+organization looks like when it says the uncomfortable parts out loud: one
+person is the binding constraint on every capability, most of the return is
+not money, and five of its seven outcomes have no working measure.
 
 [`meta/`](./meta/README.md) is **archreator modeled with archreator** — the
 method pointed at its own author, at Depth 1. It is where to look for what a
@@ -322,6 +332,7 @@ flowchart TB
 | [docs/decisions/](./docs/decisions/README.md) | Optional log of smaller, non-obvious calls that don't rise to a full scope document — most often *why* an AI actor's autonomy level or decision rights were set the way they were |
 | [`.claude/skills/`](./.claude/skills/README.md) | Twelve Claude Code skills that turn the method into concrete agent behavior — see the two tables below. Also the root of the installable plugin |
 | [`meta/`](./meta/README.md) | archreator's own development record — the [value and UX review](./meta/reviews/1_value-and-ux-review.md) and the scope documents for changes to the method itself. Read it, don't inherit it |
+| [`organization/`](./organization/README.md) | The **live operating model of the organization behind archreator**, at Depth 2 — the worked company track, canvases through derived strategy and business layers. Read it, don't inherit it |
 | [.github/pull_request_template.md](./.github/pull_request_template.md) + [PULL_REQUEST_TEMPLATE/bugfix.md](./.github/PULL_REQUEST_TEMPLATE/bugfix.md) | Two PR bodies — one shaped to mirror a scope document's EA-alignment table, one for pure bug fixes that skip it — so the PR and the docs never drift apart |
 
 Skills are picked up automatically by Claude Code from their
@@ -362,7 +373,7 @@ to stay in sync:
 | - | -------------- | --- |
 | **The method** — the skills | **Yes** | Install the plugin (Option A) and run `/plugin update`. This is the reason the plugin path exists |
 | **The scaffold** — layer READMEs, `CLAUDE.md`, `CONTRIBUTING.md`, document templates | No | It is seed content you overwrite with your own architecture on day one, not a shared dependency |
-| **archreator's own material** — `site/`, `meta/` | No | Read it here on GitHub; delete it from your project |
+| **archreator's own material** — `site/`, `meta/`, `organization/` | No | Read it here on GitHub; delete it from your project |
 
 If you took the template path (Option B) and the method improves later,
 either install the plugin alongside it, or hand-port the specific

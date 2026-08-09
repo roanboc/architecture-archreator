@@ -13,4 +13,4 @@ Deliverable, Plateau, Gap).
 
 | # | Scope document | Delivered as | Summary |
 | - | -------------- | ------------ | ------- |
-| 1 | [1_model-the-operating-model.md](./1_model-the-operating-model.md) | `organization/` on `claude/repo-value-ux-review-3ur5y4` | Discovery of the business model: three customer segments, one consolidated profile, and three product business models — including the returns that are not money. Awaiting Gate 0 |
+| 1 | [1_model-the-operating-model.md](./1_model-the-operating-model.md) | `organization/` on `claude/repo-value-ux-review-3ur5y4` | The business model — three customer segments, one consolidated profile, three product business models including the returns that are not money — and the strategy and key business elements derived from it. **Gate 0 granted**; awaiting Gate 1 |

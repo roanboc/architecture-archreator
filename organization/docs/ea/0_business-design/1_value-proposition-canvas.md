@@ -3,10 +3,11 @@
 _[← Business design](./README.md) · [EA home](../README.md)_
 
 **Strategyzer artifact, not ArchiMate.** Layers 1 and 2 are *derived* from
-this after **Gate 0**. Nothing below this folder is written until the
-Requester approves what is here.
+this after **Gate 0**.
 
-**Status: discovery complete, awaiting Gate 0.**
+**Status: approved at Gate 0 on 2026-08-08**, and derived into
+[the strategy layer](../1_strategy/README.md) and
+[the business layer](../2_business/README.md).
 
 > **Element IDs were renumbered once, here, before any approval.** The first
 > draft carried 36 elements across three separate profiles; consolidating

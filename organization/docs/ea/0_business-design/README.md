@@ -19,6 +19,12 @@ Gate 0.** A company's strategy layer is a consequence of its business model,
 not an independent statement — so deriving from an unapproved canvas means
 redoing layers 1 and 2 when the canvas moves.
 
+**Gate 0 was granted on 2026-08-08**, and
+[layers 1](../1_strategy/README.md) and [2](../2_business/README.md) were
+derived after it. The rule now cuts the other way: a change to either canvas
+is a change to everything derived from it, so it re-enters `ea-first-change`
+rather than being edited in place.
+
 The canvas-block-to-ArchiMate mapping lives in
 [the template's business-design README](../../../../docs/ea/0_business-design/README.md#from-canvas-to-archimate)
 and is not restated here.
