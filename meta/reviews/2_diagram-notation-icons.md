@@ -154,12 +154,22 @@ and tone alone — which is exactly what Option 1 already does well.
 | 4 `@{ img }` shape | **Exact** | ❌ | See above | High |
 | 5 Icon inside the node | **Exact** | ✅ | See above | High |
 
-**Pending the Requester's reading of this page on GitHub.** If options 4 and
-5 render there, the recommendation is option 5 with the first-node rule, and
-the six motivation icons plus the strategy and business sets get committed as
-a small SVG library the documents draw from. If they do not render, option 1
-stays and option 2 is not worth its inconsistency.
+**Decided: option 2, Unicode glyphs, combined with option 1.** The Requester
+chose portability over fidelity, and the reasoning holds — a glyph costs one
+character, renders everywhere Markdown does, and survives being copied into a
+pull request comment, a terminal, or a page that is not GitHub. Options 4 and
+5 produce better pictures and stake them on one renderer's treatment of
+`data:` URIs.
 
-Either way this stays a `meta/` review rather than a method change until it
-is decided — the notation lives in `docs/ea/README.md` § Notation
-conventions, and nothing goes there on a maybe.
+The inconsistency this page warned about was answered by naming it rather
+than hiding it: **some glyphs depict and others only distinguish**, and every
+document's legend says which. `⌕`, `◎`, `◉` and `⊸` are ArchiMate's own
+icons; `◍` and `⚑` resemble nothing and are simply consistent — which is
+exactly what the shapes and the tones already were.
+
+The standard that came out of this is in
+[`docs/ea/README.md` § Notation conventions](../../docs/ea/README.md#notation-conventions),
+delivered by [scope document 5](../scope/5_diagram-notation-standard.md).
+This page stays as the record of what was tried, which is worth keeping: the
+next person to ask "why not real icons?" deserves the tested answer rather
+than the remembered one.

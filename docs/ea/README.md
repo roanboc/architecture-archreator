@@ -73,13 +73,76 @@ Implementation & Migration viewpoint) are documented per initiative in
 
 ## Notation conventions
 
-ArchiMate has no native Mermaid profile, so these documents encode ArchiMate
-semantics onto Mermaid flowcharts with two rules:
+ArchiMate has no native Mermaid profile — no element icons, no standard
+shapes. These documents encode ArchiMate semantics onto Mermaid flowcharts
+with four devices, and this section is the **single source** for all of them.
 
-1. **Element type as a «stereotype»** in the first line of each node label,
-   e.g. `«Business Service»`, `«Application Component»`, `«Data Object»`.
-2. **Layer color** via a `classDef` per layer, approximating the standard
-   ArchiMate palette:
+### 1. Node labels: identifier first, description second
+
+```
+<glyph> [«Stereotype»] <ID><br><description>
+```
+
+`✦ «Capability» CAP1<br>Business understanding`, then `✦ CAP2<br>Model
+stewardship` for the next one. A reader scanning for `CAP1` finds it in the
+same place on every node, and the description gets a line to itself.
+
+**The glyph rides on every node; the «stereotype» word appears once** — on the
+first node of each type in a diagram, dropped on the rest. A glyph costs one
+character and can afford to be everywhere; the word costs a line and teaches
+nobody anything on its thirteenth repetition.
+
+### 2. Element glyphs
+
+A glyph identifies the element type at a glance, which matters most in a
+**single-layer view** where the layer colour distinguishes nothing. Some
+depict the ArchiMate icon; the rest only distinguish, and a document's
+legend says which is which.
+
+| Layer | Glyphs |
+| ----- | ------ |
+| Motivation | `◍` Stakeholder · `✳` Driver · `⌕` Assessment · `◎` Goal · `◉` Outcome · `⚑` Principle |
+| Strategy | `✦` Capability · `▤` Resource · `◈` Value · `➤` Course of Action · `⇉` Value Stream |
+| Business | `⚇` Actor · `⚉` Role · `▣` Product · `⬭` Business Service · `⊸` Business Interface · `❒` Contract · `⧉` Collaboration · `⚙` Business Process |
+| Canvas (VPC) | `◍` Customer Segment · `⚙` Job · `✖` Pain · `✔` Gain · `▣` Product · `⊖` Pain Reliever · `⊕` Gain Creator |
+| Canvas (BMC) | `⧉` Key Partner · `⚙` Key Activity · `▤` Key Resource · `⊸` Channel · `⇄` Customer Relationship · `▲` Revenue Stream · `▼` Cost |
+
+`⌕` is ArchiMate's Assessment magnifier, `◎` its Goal, `◉` its Outcome, `⊸`
+its interface lollipop; `✳` echoes the Driver's steering wheel; `⊖`/`⊕` and
+`▲`/`▼` make canvas arithmetic visible. **Unicode only** — glyphs render
+everywhere Markdown does, which
+[the notation review](../../meta/reviews/2_diagram-notation-icons.md) found
+was not true of the alternatives.
+
+Repeats across groups are deliberate: a Key Resource *is* a Resource, a
+Channel *is* a Business Interface, and an element that appears in two
+documents should look the same in both.
+
+### 3. Element shapes
+
+Within one document each element type takes a distinct Mermaid shape. Shapes
+are scoped **per document**, not globally — Mermaid has about a dozen usable
+ones and ArchiMate has fifty elements — so each document's legend declares
+its own. The assignments below are the defaults; follow them where the
+element appears.
+
+| Shape | Mermaid | Default element |
+| ----- | ------- | --------------- |
+| Stadium | `id([" "])` | Stakeholder, Business Actor, Business Service, Customer Segment |
+| Hexagon | `id{{" "}}` | Driver, Course of Action, Job, Key Activity, Collaboration |
+| Flag | `id>" "]` | Assessment, Pain |
+| Rounded rectangle | `id(" ")` | Goal |
+| Rectangle, double bars | `id[[" "]]` | Outcome, Value Stream stage, Gain |
+| Parallelogram | `id[/" "/]` | Principle, Contract |
+| Rectangle | `id[" "]` | Capability, Business Role, Product, Business Interface, Channel |
+| Cylinder | `id[(" ")]` | Resource, Key Resource |
+| Trapezoid | `id[/" "\]` | Value, Pain Reliever, Gain Creator, Revenue Stream |
+| Inverted trapezoid | `id[\" "/]` | Cost |
+
+### 4. Layer colour, and the tone ramp inside it
+
+**Layer color** via a `classDef` per layer, approximating the standard
+ArchiMate palette:
 
 | Layer                      | class            | Fill             |
 | --------------------------- | ---------------- | ---------------- |
@@ -94,6 +157,41 @@ This table is the **single source** for the layer palette; the `ea-doc-style`
 skill and every other document point here for the exact fills. Mermaid
 `classDef` blocks necessarily inline these hexes per diagram (Mermaid has no
 cross-file classDef), but no other prose table restates them.
+
+**In a single-layer view, ramp the layer's hue by element type** — light at
+the start of the chain, dark at the end — so type is readable without
+hunting for the stereotype. In a **cross-layer** view the flat layer palette
+wins instead: there, colour's job is separating motivation from business from
+technology, not one motivation element from another.
+
+| Layer | Ramp, light to dark |
+| ----- | ------------------- |
+| Motivation | Stakeholder `#f4ecfc` → Driver `#e6d6f5` → Assessment `#d8c3f0` → Goal `#c6aae9` → Outcome `#b493e0` → Principle `#a37cd8` |
+| Strategy | Resource `#faf0d5` → Capability `#f5deaa` → Value stream stage `#eed4a0` → Value `#e9c987` → Course of Action `#d9ad5c` |
+| Business | Actor `#fffbb5` → Role `#f7f099` → Service `#efe57d` → Interface `#e5d95f` → Contract/Collaboration `#d9cc4a` |
+
+Strokes darken with the fill. Text stays `#333` throughout — every fill above
+is light enough to carry it in both GitHub themes.
+
+**Two colours override the layer's own.** An `(AI)` actor is drawn in the
+Application cyan even inside a business diagram, because a reader should
+never mistake it for a person. And an element borrowed from another layer for
+context keeps its home layer's colour, shape and glyph, so it is recognisable
+as a visitor.
+
+### Drawing rules
+
+- **Diagram first, then the tables and prose that describe it.** Every
+  section that has a diagram opens with it.
+- **One diagram per section, not one per document.** A single view of a whole
+  layer can only be a selection once the layer passes about fifteen elements,
+  and a selection that looks complete is worse than several honest parts.
+  Sectional diagrams overlap by one rank so a reader can chain them.
+- **Each document opens with a "How to read this document" section**: a
+  legend diagram showing the element types and how they connect, then the
+  glyph / shape / element / ID-prefix table. Layers are self-documenting;
+  nobody should need another file open to read one.
+- **Dashed edges mean Pending.** Solid is true today.
 
 Relationships are labeled with their ArchiMate name: **serves**,
 **realizes**, **assigned to**, **accesses**, **triggers**, **flow**,

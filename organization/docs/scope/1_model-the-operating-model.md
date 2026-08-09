@@ -36,7 +36,7 @@ This is a **docs-only initiative**. No code is delivered.
 | Gate | Approved by | Date | What was approved |
 | ---- | ----------- | ---- | ----------------- |
 | Gate 0 — Business model | Requester | 2026-08-08 | The two canvases: three segments, one consolidated set of jobs, pains and gains, the value map, and three product business models. Presented in the session, with the branch links to both canvas documents. Granted with one addition — the Social Return on Investment measures now recorded against `RS1` and `RS2` |
-| Gate 1 — Strategy | _awaiting_ | — | The derived strategy — stakeholders, drivers, assessments, goals, outcomes, principles, capabilities, resources, courses of action, the value stream — and the key business elements: actors, roles, partners, products, services and channels |
+| Gate 1 — Strategy | Requester | 2026-08-09 | The derived strategy — stakeholders, drivers, assessments, goals, outcomes, principles, capabilities, resources, courses of action, the value stream — and the key business elements: actors, roles, partners, products, services and channels. Presented over several rounds with branch links to each document. Granted after three revisions the Requester asked for: diagrams first and one per section, a two-level capability hierarchy, and the glyph notation |
 | Gate 2 — Business | — | — | **N/A** — docs-only initiative; no code is delivered |
 | Gate 3 — Solution design | — | — | **N/A** — no solution design |
 
