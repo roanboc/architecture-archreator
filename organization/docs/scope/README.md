@@ -13,4 +13,4 @@ Deliverable, Plateau, Gap).
 
 | # | Scope document | Delivered as | Summary |
 | - | -------------- | ------------ | ------- |
-| 1 | `1_model-the-operating-model.md` | in progress | Discovery of the business model and the operating model derived from it. **Not yet written** — created before Gate 0, per `operating-model-discovery` |
+| 1 | [1_model-the-operating-model.md](./1_model-the-operating-model.md) | `organization/` on `claude/repo-value-ux-review-3ur5y4` | Discovery of the business model: three customer segments, one consolidated profile, and three product business models — including the returns that are not money. Awaiting Gate 0 |

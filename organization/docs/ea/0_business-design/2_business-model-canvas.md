@@ -1,0 +1,223 @@
+# Business Model Canvas
+
+_[← Business design](./README.md) · [EA home](../README.md)_
+
+**Strategyzer artifact, not ArchiMate.** One canvas per product, from
+[1_value-proposition-canvas.md](./1_value-proposition-canvas.md) § Products.
+Layers 1 and 2 are derived from both canvases after **Gate 0**.
+
+Three products, three economic models:
+
+| Product | ID | State |
+| --- | --- | --- |
+| archreator, the open method | `PROD1` | Live |
+| Consulting | `PROD2` | Live |
+| The archreator portal | `PROD3` | **Pending — target state** |
+
+The products are defined in the value proposition canvas; this table only
+points at them.
+
+## A note before the blocks: this organization is not selling for money
+
+The standard canvas assumes revenue means money. Here it mostly does not,
+and forcing the model into a monetary frame would misdescribe it.
+
+The stated purpose is to help people build better things with artificial
+intelligence while **improving human knowledge rather than delegating it to
+the machine**. Monetary income is a secondary concern, and the intent is not
+to charge much beyond operational cost even at scale.
+
+So the revenue block below records **two kinds of return**: monetary, and
+non-monetary — social and business development. Both are real returns to the
+organization; only one arrives as money.
+
+**Social Return on Investment** is the established way to value the
+non-monetary kind, and the Requester has worked with it in a governmental
+context. Applying it here is **Pending — future initiative**: the returns
+are named, the valuation method is not yet chosen. See the open question at
+the end.
+
+---
+
+## `PROD1` — archreator, the open method
+
+The skills, the documentation, and the published guidance site. Free and
+open source.
+
+| Block | Content |
+| ----- | ------- |
+| **Value propositions** | `PREL1`–`PREL5`, `GCRE1`–`GCRE6` — the whole value map. `PROD1` is where the method actually lives |
+| **Customer segments** | `CS1` primarily. `CS2` and `CS3` reach it through a coding agent |
+| **Channels** | `CH1` the public repository · `CH2` the guidance site · `CH3` the Claude Code plugin marketplace |
+| **Customer relationships** | `CR1` **self-service**, with `CR2` **community** as the feedback path |
+| **Revenue streams** | `RS1`, `RS2` — both **non-monetary** |
+| **Key resources** | `KR1` the Requester's knowledge and time · `KR2` the method itself · `KR3` the published guidance |
+| **Key activities** | `KA1` developing the method · `KA2` publishing guidance |
+| **Key partners** | `KP1` model providers · `KP2` GitHub · `KP3` contributors (**Pending**) |
+| **Cost structure** | `COST1` the Requester's time — dominant · `COST3` hosting, at zero on free tiers |
+
+## `PROD2` — Consulting
+
+The Requester's time, delivering with archreator. This is where money
+changes hands today.
+
+| Block | Content |
+| ----- | ------- |
+| **Value propositions** | The same value map, delivered by someone experienced rather than self-served. Relieves `PAIN4` for an owner who does not want to drive it themselves |
+| **Customer segments** | `CS2`, and occasionally `CS1` at organizations wanting help adopting the method |
+| **Channels** | `CH4` referral and direct approach |
+| **Customer relationships** | `CR3` **personal and direct** — the Requester, individually |
+| **Revenue streams** | `RS3` — **monetary**, hourly |
+| **Key resources** | `KR1` the Requester's knowledge and time — the binding constraint |
+| **Key activities** | `KA3` running discovery and delivery with clients |
+| **Key partners** | `KP1` model providers |
+| **Cost structure** | `COST1` the Requester's time · `COST2` inference for delivery |
+
+**`PROD2` does not scale, on purpose.** The Requester has no interest in
+scaling large. If it ever needed to, the route named is **AI agents acting
+as consultants**, carrying the Requester's knowledge — which requires more
+AI maturity than exists today. Recorded as a course of action to consider at
+Gate 1, not as a plan.
+
+## `PROD3` — The archreator portal
+
+**Pending — target state.** Enterprise architecture as a service: an owner
+supplies what they have, and gets a working architecture repository.
+
+| Block | Content |
+| ----- | ------- |
+| **Value propositions** | `PREL2` and `PREL4` without needing to drive a coding agent. The same method, reachable by someone who would never install anything |
+| **Customer segments** | `CS2` and `CS3` — the segments furthest from the tooling today |
+| **Channels** | `CH5` the web, self-serve |
+| **Customer relationships** | `CR1` **self-service** |
+| **Revenue streams** | `RS4` — **monetary**: a one-off payment covering the cost of running the agents plus a small product fee |
+| **Key resources** | `KR2` the method · `KR4` the portal itself (**Pending**) |
+| **Key activities** | `KA4` building and running the portal (**Pending**) |
+| **Key partners** | `KP1` model providers — the dominant cost sits here · `KP2` hosting |
+| **Cost structure** | `COST2` inference — **dominant, and it scales with usage** · `COST4` hosting and operations (**Pending**) |
+
+`RS4` is deliberately priced at cost plus a small fee. It is the clearest
+place the non-profit posture shows up as a number.
+
+---
+
+## Channels
+
+| ID | Channel | Products | Reaches |
+| --- | --- | --- | --- |
+| `CH1` | The public repository | `PROD1` | `CS1` — designers find it as code, not as marketing |
+| `CH2` | The guidance site | `PROD1` | `CS1`, and any owner evaluating the method |
+| `CH3` | The Claude Code plugin marketplace | `PROD1` | `CS1` already working in an agent |
+| `CH4` | Referral and direct approach | `PROD2` | `CS2` |
+| `CH5` | The web, self-serve | `PROD3` | `CS2`, `CS3` — **Pending** |
+
+`CH1`–`CH3` cost nothing to operate and reach only people already close to
+the tooling. Nothing here reaches an owner who is not already looking, which
+is the honest gap in how `CS2` and `CS3` are served today.
+
+## Customer relationships
+
+| ID | Relationship | Products | Cost to serve |
+| --- | --- | --- | --- |
+| `CR1` | Self-service | `PROD1`, `PROD3` | Near zero per user |
+| `CR2` | Community — feedback flowing back into the method | `PROD1` | The Requester's attention. Produces `RS1` |
+| `CR3` | Personal and direct — the Requester individually | `PROD2` | Their whole available time |
+
+## Key resources
+
+| ID | Resource | Kind | State |
+| --- | --- | --- | --- |
+| `KR1` | The Requester's knowledge and time | People | **Constrained — the binding limit on the whole organization** |
+| `KR2` | The method: skills, conventions, gates | Knowledge | Held, and improving |
+| `KR3` | The published guidance site | Asset | Held |
+| `KR4` | The portal | Asset | **Pending — future initiative** |
+
+## Key activities
+
+| ID | Activity | Products | Performed by |
+| --- | --- | --- | --- |
+| `KA1` | Developing and improving the method | `PROD1` | The Requester, with an AI agent at co-pilot autonomy |
+| `KA2` | Publishing guidance | `PROD1` | The Requester, with an AI agent |
+| `KA3` | Running discovery and delivery with clients | `PROD2` | The Requester |
+| `KA4` | Building and running the portal | `PROD3` | **Pending** |
+
+Every activity that exists today is performed by one person assisted by an
+AI agent. That is worth stating plainly rather than leaving implicit: this
+organization already operates the way it tells its customers to operate.
+
+## Revenue streams — monetary and not
+
+| ID | Revenue stream | Kind | Product | Shape |
+| --- | --- | --- | --- | --- |
+| `RS1` | **Continuous improvement** — community feedback and real usage flowing back into the method | Non-monetary | `PROD1` | Grows with adoption; the method improves because people use it in situations the Requester would never meet alone |
+| `RS2` | **Mission progress** — people building better things with AI while human knowledge improves rather than being delegated away | Non-monetary | `PROD1` | The reason the organization exists. Currently unmeasured |
+| `RS3` | Consulting fees | Monetary | `PROD2` | Hourly. Bounded by one person's available time |
+| `RS4` | Portal fees | Monetary | `PROD3` | One-off per use: agent cost plus a small product fee. **Pending** |
+
+`PROD1` is free and returns `RS1` and `RS2`. It also feeds `PROD2`: someone
+who starts with the open method and finds they would rather have an
+experienced person is exactly who becomes a consulting client. That is a
+real business return from a free product, and it is why `PROD1` is neither
+a loss leader nor charity — it is the thing that makes the other two
+possible.
+
+## Cost structure
+
+| ID | Cost | Products | Shape |
+| --- | --- | --- | --- |
+| `COST1` | **The Requester's time** | `PROD1`, `PROD2` | **Dominant today, and the binding constraint on everything** |
+| `COST2` | AI inference | `PROD2`, `PROD3` | Scales with usage. Becomes dominant for `PROD3` |
+| `COST3` | Hosting the repository and site | `PROD1` | Effectively zero — free tiers |
+| `COST4` | Portal operations | `PROD3` | **Pending** |
+
+## What the three share, and where they diverge
+
+This table is where the operating model actually lives.
+
+| | `PROD1` open method | `PROD2` consulting | `PROD3` portal |
+| --- | --- | --- | --- |
+| Who is served | `CS1` | `CS2` | `CS2`, `CS3` |
+| Return | Non-monetary | Monetary, hourly | Monetary, per use |
+| Relationship | Self-service | Personal | Self-service |
+| Dominant cost | The Requester's time | The Requester's time | Inference |
+| Scales? | Yes — cost does not grow with users | **No** — bounded by one person | Yes — cost grows with users but so does revenue |
+
+All three share `KR2` (the method) and `KP1` (model providers). The method
+is the single asset every product depends on, which is why improving it is
+`KA1` rather than an overhead.
+
+**The concentration is `KR1`.** One person is the key resource behind two of
+three products and the only human in the organization. That is the largest
+structural risk in this model. It is a deliberate choice — the Requester has
+no interest in scaling large — but a choice is not the same as an absence of
+risk, and the model should say so rather than imply resilience it does not
+have.
+
+## Key partners
+
+| ID | Partner | Provides | Dependency |
+| --- | --- | --- | --- |
+| `KP1` | AI model providers | The inference every product ultimately runs on | **Substitutable by design** — see below |
+| `KP2` | GitHub | Repository, plugin distribution, site hosting | Replaceable, and free at this scale |
+| `KP3` | Community contributors | Feedback and real-world usage that produce `RS1` | **Pending** — no contributor base exists yet |
+
+### Provider neutrality
+
+archreator is distributed today as a Claude Code plugin, and the skills are
+written for it. But **the method is not tied to one provider**: the skills
+are markdown instructions, transferable to any agent platform that can read
+them. The provider-specific parts are the plugin manifest and the packaging
+convention, not the method.
+
+The posture: **generic by design, one implementation today.** Optimising for
+a single target while it is the one in use is reasonable; letting the method
+itself become unportable would not be. This needs a decision record before
+anything provider-specific enters a skill body — see the open question.
+
+## Open questions
+
+| # | Question | Interpretation adopted |
+| - | -------- | ---------------------- |
+| 1 | How should the non-monetary returns `RS1` and `RS2` be valued? | **Social Return on Investment** is the candidate framework and the Requester has applied it in governmental work. Recorded as named-but-unvalued for now. Choosing a method is its own initiative — and archreator's own canvas guidance has no support for non-monetary return, so this is a gap in the method as well as in this model |
+| 2 | How far should provider neutrality go in practice? | Generic method, Claude Code as the current implementation. Needs a decision record fixing what may and may not be provider-specific, before the question is settled by accident |
+| 3 | Is `KP3` (contributors) a partner or an aspiration? | Recorded as **Pending**. `RS1` depends on it, so a community that never forms would make the primary non-monetary return theoretical |

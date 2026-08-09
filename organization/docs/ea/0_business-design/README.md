@@ -9,8 +9,8 @@ application.
 
 | # | Document | Covers | State |
 | - | -------- | ------ | ----- |
-| 1 | [1_value-proposition-canvas.md](./1_value-proposition-canvas.md) | One canvas per customer segment: jobs, pains, gains, and the value map that addresses them | **In progress** — segments identified, profiles pending |
-| 2 | `2_business-model-canvas.md` | One canvas per product: the nine blocks | **Not started** — needs theme 5 to settle how many products there are |
+| 1 | [1_value-proposition-canvas.md](./1_value-proposition-canvas.md) | Three customer segments — jobs, pains, gains, and the value map that addresses them | **Filled** |
+| 2 | [2_business-model-canvas.md](./2_business-model-canvas.md) | One canvas per product — the nine blocks, plus monetary and non-monetary return | **Filled** — three products |
 
 ## The rule this folder exists to enforce
 
