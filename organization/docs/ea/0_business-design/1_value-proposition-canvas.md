@@ -52,7 +52,7 @@ segment.
 | --- | --- | --- | --- | --- |
 | `JOB1` | **Understand the problem before answering it.** Solutions rarely fail because they were technically hard; they fail because the problem was misunderstood. Designing *is* how the understanding happens | Core | Core | Core |
 | `JOB2` | **Turn that understanding into something a builder can act on** — increasingly an AI builder | Core | Core | Core |
-| `JOB3` | **Deliver the solution, not only the design.** Reach the far end of the process instead of handing it over | Core | Optional | Optional |
+| `JOB3` | **Get from an approved design to a working solution** — by building it, or by finding a builder and directing them well. AI increasingly mediates either path | Core — builds it | Core — directs a builder | Core — directs a builder |
 | `JOB4` | **Keep one shared source others can work from**, so the same explanation is not repeated to every new person | Core | Core | Secondary |
 | `JOB5` | **Get architectural quality without scarce expertise** — without years of seniority, and without hiring someone expensive | Core | Core | Core |
 | `JOB6` | **Change direction without losing the work already designed** | Secondary | Secondary | Core |
@@ -62,9 +62,13 @@ arrive believing they know their business and often frame it wrongly — naming
 the wrong customer segments, for instance. The architecture is not a record
 of a strategy already known. It is how the strategy gets tested.
 
-`JOB3` is marked optional for owners on purpose. It suits small initiatives
-and technically-minded founders; assuming every owner wants it would
-overstate the offer.
+`JOB3` is one job with two ways of being done. A designer reaches the far
+end themselves. An owner usually gets there through a builder — so their
+version of the job is **finding an implementer and communicating well enough
+to get what they meant**, which is where the design earns its keep as the
+medium of that communication. Building it personally is a minority path,
+suiting small initiatives and technically-minded founders. The outcome
+wanted is the same either way, which is why it is one job and not two.
 
 ## Pains
 
@@ -161,10 +165,15 @@ creator:
 | `PAIN5` | `PREL5` | `GAIN5` | `GCRE5` |
 | | | `GAIN6` | `GCRE6` |
 
-**The honest gap:** `PREL4` and much of `PREL2` depend on `PROD3`, which does
-not exist. Today `CS2` and `CS3` are reachable only if they can already use a
-coding agent such as Claude Code. An owner who cannot is not served yet — not
-by choice, but because the product is not built.
+**Where the fit is weaker than it looks.** `PREL4` and much of `PREL2` lean
+on `PROD3`, which does not exist yet. Until it does, `CS2` and `CS3` are
+served through `PROD1` and a coding agent.
+
+That is a matter of degree rather than a wall. Someone without a paid AI
+subscription can still use the method: they get less thinking capacity, less
+coverage in one pass, and shorter usage limits, so the same work takes more
+sittings. There is no hard blocker. `PROD3` mainly removes that friction and
+the need to drive an agent at all.
 
 ## Resolved during discovery
 
