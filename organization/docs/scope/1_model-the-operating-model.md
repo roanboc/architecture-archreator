@@ -71,8 +71,9 @@ This is a **docs-only initiative**. No code is delivered.
   [`1_motivation.md`](../ea/1_strategy/1_motivation.md),
   [`2_capabilities-and-resources.md`](../ea/1_strategy/2_capabilities-and-resources.md),
   [`3_value-stream.md`](../ea/1_strategy/3_value-stream.md) — 5 stakeholders,
-  6 drivers, 5 assessments, 6 goals, 7 outcomes, 7 principles, 6
-  capabilities, 5 values, 4 resources, 3 courses of action, 1 value stream
+  6 drivers, 5 assessments, 6 goals, 7 outcomes, 7 principles, **9
+  capabilities on two levels** (three areas, six beneath them), 5 values,
+  4 resources, 3 courses of action, 1 value stream
 - **Outcome:** every canvas element either has a strategic consequence or is
   shown not to need one, and the seven principles are written down where a
   future change gets checked against them
@@ -101,6 +102,7 @@ This is a **docs-only initiative**. No code is delivered.
 | The non-monetary return, named, recorded, and given a measure | Instrumenting that measure (`COA3`), and valuing it — Social Return on Investment is named, not applied |
 | The single-person concentration, stated as a risk and carried into `RES1` | Doing anything about it. `COA1` names a route and nothing more |
 | Provider neutrality, promoted from a posture to `P6` | The decision record that would fix its limits |
+| A diagram notation the layers are self-documenting in — glyph, shape, tone and ID prefix, with a legend per document | Writing it into `ea-doc-style` and the palette source; that follows once it has been read at Gate 1 |
 
 ## Gap notes
 
@@ -146,6 +148,12 @@ This is a **docs-only initiative**. No code is delivered.
   first. Which comes first is a strategy decision this initiative
   deliberately does not take — it belongs to whoever opens that initiative,
   with this model in front of them.
+- **Capabilities gained a second level, and the ID numbers moved with it.**
+  Three areas over six capabilities makes an initiative answerable — does
+  this strengthen understanding, stewardship or delivery? — where six flat
+  ones did not. The renumbering is allowed only because Gate 1 has not been
+  granted; the same carve-out the canvases used before Gate 0, and the second
+  and last time it can be used on this model.
 - **The Principles were drafted from the Requester's own stated positions,
   not asked as fresh questions.** Every one of `P1`–`P7` traces to something
   the Requester said while the method was being built, which is why they

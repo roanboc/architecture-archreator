@@ -13,10 +13,10 @@ to value returning to the organization. Derived from the key activities
 
 ```mermaid
 flowchart LR
-  s1[["«Value Stream» stage<br>a step in the flow"]]:::stage
-  s2[["the next step"]]:::stage
-  cap["«Capability»<br>what makes the step possible"]:::capability
-  bif["«Business Interface»<br>where the stakeholder<br>meets it"]:::interface
+  s1[["⇉ «Value Stream» stage<br>a step in the flow"]]:::stage
+  s2[["⇉ the next step"]]:::stage
+  cap["✦ «Capability»<br>what makes the step possible"]:::capability
+  bif["⊸ «Business Interface»<br>where the stakeholder<br>meets it"]:::interface
 
   s1 -->|triggers| s2
   cap -->|serves| s1
@@ -32,30 +32,32 @@ stakeholder closer to the value. Stages are served by capabilities — what the
 organization must be able to do at that point — and, at the ends, by the
 interfaces the stakeholder actually touches.
 
-| Shape | Element | ID prefix | Reads as |
-| ----- | ------- | --------- | -------- |
-| Rectangle with double bars | «Value Stream» stage | `VS` | `VS1` = Value Stream 1; its stages are numbered inside it |
-| Rectangle | «Capability» — context, from [2_capabilities-and-resources.md](./2_capabilities-and-resources.md) | `CAP` | `CAP1` = Capability 1 |
-| Rectangle (yellow) | «Business Interface» — context, from [the business layer](../2_business/2_business-services.md) | `BIF` | `BIF1` = Business Interface 1 |
+| Glyph | Shape | Element | ID prefix | Reads as |
+| ----- | ----- | ------- | --------- | -------- |
+| `⇉` | Rectangle with double bars | «Value Stream» stage | `VS` | `VS1` = Value Stream 1; its stages are numbered inside it |
+| `✦` | Rectangle | «Capability» — context, from [2_capabilities-and-resources.md](./2_capabilities-and-resources.md) | `CAP` | `CAP1` = Capability 1 |
+| `▤` | Cylinder | «Resource» — context, same document | `RES` | `RES1` = Resource 1 |
+| `➤` | Hexagon | «Course of Action» — context, same document | `COA` | `COA1` = Course of Action 1 |
+| `⊸` | Rectangle (yellow) | «Business Interface» — context, from [the business layer](../2_business/2_business-services.md) | `BIF` | `BIF1` = Business Interface 1 |
 
 Stages carry a slightly deeper sand than capabilities, so the flow reads as
 one band and the things serving it as another. Business interfaces keep the
-Business yellow they have in their own layer.
+Business yellow, glyph and shape they have in their own layer — `⊸` is
+ArchiMate's interface lollipop.
 
-**The «stereotype» label appears on the first node of each type in a
-diagram** and is dropped on the rest; the legend carries it for the whole
-document.
+**The glyph rides on every node; the «stereotype» word appears once** — on the
+first node of each type in a diagram, dropped on the rest.
 
 ## The stream
 
 ```mermaid
 flowchart LR
-  s1[["«Value Stream» stage<br>1 Reach"]]:::stage
-  s2[["2 Frame"]]:::stage
-  s3[["3 Approve"]]:::stage
-  s4[["4 Model"]]:::stage
-  s5[["5 Build"]]:::stage
-  s6[["6 Feed back"]]:::stage
+  s1[["⇉ «Value Stream» stage<br>1 Reach"]]:::stage
+  s2[["⇉ 2 Frame"]]:::stage
+  s3[["⇉ 3 Approve"]]:::stage
+  s4[["⇉ 4 Model"]]:::stage
+  s5[["⇉ 5 Build"]]:::stage
+  s6[["⇉ 6 Feed back"]]:::stage
 
   s1 -->|triggers| s2
   s2 -->|triggers| s3
@@ -82,32 +84,32 @@ non-monetary return this organization has.
 
 ```mermaid
 flowchart TB
-  bif1["«Business Interface»<br>BIF1–BIF3 Repository,<br>site, marketplace"]:::interface
-  bif4["BIF4 Referral and<br>direct approach"]:::interface
+  bif1["⊸ «Business Interface»<br>BIF1–BIF3 Repository,<br>site, marketplace"]:::interface
+  bif4["⊸ BIF4 Referral and<br>direct approach"]:::interface
 
-  s1[["«Value Stream» stage<br>1 Reach"]]:::stage
-  s2[["2 Frame"]]:::stage
-  s3[["3 Approve"]]:::stage
-  s4[["4 Model"]]:::stage
-  s5[["5 Build"]]:::stage
-  s6[["6 Feed back"]]:::stage
+  s1[["⇉ «Value Stream» stage<br>1 Reach"]]:::stage
+  s2[["⇉ 2 Frame"]]:::stage
+  s3[["⇉ 3 Approve"]]:::stage
+  s4[["⇉ 4 Model"]]:::stage
+  s5[["⇉ 5 Build"]]:::stage
+  s6[["⇉ 6 Feed back"]]:::stage
 
-  cap1["«Capability»<br>CAP1 Gated<br>discovery"]:::capability
-  cap2["CAP2 Design-to-delivery<br>continuity"]:::capability
-  cap3["CAP3 One documented<br>model"]:::capability
-  cap4["CAP4 A shared<br>architectural language"]:::capability
-  cap5["CAP5 Method-carried<br>competence"]:::capability
-  cap6["CAP6 Layered change<br>absorption"]:::capability
+  c4["✦ «Capability»<br>CAP4 Gated<br>discovery"]:::capability
+  c8["✦ CAP8 Design-to-delivery<br>continuity"]:::capability
+  c6["✦ CAP6 One documented<br>model"]:::capability
+  c5["✦ CAP5 A shared<br>architectural language"]:::capability
+  c9["✦ CAP9 Method-carried<br>competence"]:::capability
+  c7["✦ CAP7 Layered change<br>absorption"]:::capability
 
   bif1 --> s1
   bif4 --> s1
-  cap1 --> s2
-  cap1 --> s3
-  cap3 --> s4
-  cap4 --> s4
-  cap2 --> s5
-  cap5 --> s5
-  cap6 --> s6
+  c4 --> s2
+  c4 --> s3
+  c6 --> s4
+  c5 --> s4
+  c8 --> s5
+  c9 --> s5
+  c7 --> s6
 
   s1 --> s2 --> s3 --> s4 --> s5 --> s6
 
@@ -121,11 +123,11 @@ Every capability and interface edge reads **serves**.
 | # | Stage | What happens | Capability | Reached through |
 | - | ----- | ------------ | ---------- | --------------- |
 | 1 | **Reach** | Someone finds the method, or the Requester is approached directly | — | `CH1` the repository, `CH2` the site, `CH3` the plugin marketplace, `CH4` referral |
-| 2 | **Frame** | Discovery: the business model and strategy are drawn out by questions, and the frame is tested rather than recorded | `CAP1` | `KA1`, `KA3` |
-| 3 | **Approve** | The Requester of that project grants the gate, against documents they were given links to | `CAP1` | `KA1`, `KA3` |
-| 4 | **Model** | The layers are derived from what was approved, in one place, in one language | `CAP3`, `CAP4` | `KA1` |
-| 5 | **Build** | The approved design is what an agent implements from | `CAP2`, `CAP5` | `KA3` |
-| 6 | **Feed back** | Real use exposes what the method gets wrong, and the method changes | `CAP6` | `KA1`, `KA2` |
+| 2 | **Frame** | Discovery: the business model and strategy are drawn out by questions, and the frame is tested rather than recorded | `CAP4` | `KA1`, `KA3` |
+| 3 | **Approve** | The Requester of that project grants the gate, against documents they were given links to | `CAP4` | `KA1`, `KA3` |
+| 4 | **Model** | The layers are derived from what was approved, in one place, in one language | `CAP5`, `CAP6` | `KA1` |
+| 5 | **Build** | The approved design is what an agent implements from | `CAP8`, `CAP9` | `KA3` |
+| 6 | **Feed back** | Real use exposes what the method gets wrong, and the method changes | `CAP7` | `KA1`, `KA2` |
 
 **Stage 1 is the only stage no capability serves.** Being found is not
 something this organization is currently able to do — it is something that
@@ -136,15 +138,15 @@ stage with nothing above it, and it is the gap the next section is about.
 
 ```mermaid
 flowchart TB
-  s1[["«Value Stream» stage<br>1 Reach"]]:::stage
-  s6[["6 Feed back"]]:::stage
+  s1[["⇉ «Value Stream» stage<br>1 Reach"]]:::stage
+  s6[["⇉ 6 Feed back"]]:::stage
 
-  bif5["«Business Interface»<br>BIF5 The web, self-serve<br>— Pending"]:::interface
+  bif5["⊸ «Business Interface»<br>BIF5 The web, self-serve<br>— Pending"]:::interface
 
-  coa2{{"«Course of Action»<br>COA2 Build the portal"}}:::action
-  coa3{{"COA3 Instrument the<br>adoption measure"}}:::action
+  coa2{{"➤ «Course of Action»<br>COA2 Build the portal"}}:::action
+  coa3{{"➤ COA3 Instrument the<br>adoption measure"}}:::action
 
-  res1[("«Resource»<br>RES1 The Requester's<br>knowledge and time")]:::resource
+  res1[("▤ «Resource»<br>RES1 The Requester's<br>knowledge and time")]:::resource
 
   coa2 -.->|would create| bif5
   bif5 -.->|would serve| s1
