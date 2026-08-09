@@ -40,13 +40,33 @@ draws one link of it: who is pressured, by what, what we judge about it, what
 must become true, and how we would know. Principles enter from the side —
 they constrain every goal without being caused by any driver.
 
-**Every element type has its own shape and its own tone.** All six tones are
-the Motivation violet; the ramp runs light at the start of the chain to dark
-at the end, so that in a single-layer view like this one the element type is
-readable without hunting for the «stereotype» label. In a **cross-layer**
-view the layer palette wins instead — the point of colour there is to
-separate motivation from business from technology, not one motivation
-element from another.
+**Every element type has its own shape, its own tone, and its own ID
+prefix:**
+
+| Shape | Element | ID prefix | Reads as |
+| ----- | ------- | --------- | -------- |
+| Stadium (rounded ends) | «Stakeholder» | `STK` | `STK1` = Stakeholder 1 |
+| Hexagon | «Driver» | `DRV` | `DRV1` = Driver 1 |
+| Flag (notched right edge) | «Assessment» | `ASM` | `ASM1` = Assessment 1 |
+| Rounded rectangle | «Goal» | `G` | `G1` = Goal 1 |
+| Rectangle with double bars | «Outcome» | `OUT` | `OUT1` = Outcome 1 |
+| Parallelogram | «Principle» | `P` | `P1` = Principle 1 |
+
+The prefix is how every other document in this model refers to an element
+here without restating it, so `relieved by G4` in a scope document three
+initiatives from now still resolves.
+
+All six tones are the Motivation violet; the ramp runs light at the start of
+the chain to dark at the end, so that in a single-layer view like this one
+the element type is readable without hunting for the «stereotype» label. In a
+**cross-layer** view the layer palette wins instead — the point of colour
+there is to separate motivation from business from technology, not one
+motivation element from another.
+
+**The «stereotype» label appears on the first node of each type in a
+diagram**, and is dropped on the rest. The legend above and this table carry
+it for the whole document; repeating it on thirteen nodes costs vertical
+space and teaches nobody anything on the thirteenth reading.
 
 ## Stakeholders
 
@@ -58,7 +78,7 @@ flowchart LR
   stk4(["«Stakeholder»<br>STK4 The Requester"]):::stakeholder
   stk5(["«Stakeholder»<br>STK5 Contributor<br>community — Pending"]):::stakeholder
 
-  drv1{{"DRV1 Misunderstanding,<br>not difficulty"}}:::driver
+  drv1{{"«Driver»<br>DRV1 Misunderstanding,<br>not difficulty"}}:::driver
   drv2{{"DRV2 Design and delivery<br>are separate worlds"}}:::driver
   drv3{{"DRV3 Knowledge decays<br>and leaves"}}:::driver
   drv4{{"DRV4 Expertise priced<br>out of reach"}}:::driver
@@ -111,13 +131,13 @@ flowchart LR
   drv5{{"«Driver»<br>DRV5 AI without<br>a framework"}}:::driver
   drv6{{"«Driver»<br>DRV6 Knowledge delegated,<br>not improved"}}:::driver
 
-  asm1>"ASM1 A wrong frame<br>stays invisible"]:::assessment
+  asm1>"«Assessment»<br>ASM1 A wrong frame<br>stays invisible"]:::assessment
   asm2>"ASM2 One failure,<br>three faces"]:::assessment
   asm3>"ASM3 Knowledge trapped<br>in whoever held it"]:::assessment
   asm4>"ASM4 Quality bought with<br>seniority or fees"]:::assessment
   asm5>"ASM5 The person is<br>the framework"]:::assessment
 
-  g6("G6 Human knowledge<br>improves"):::goal
+  g6("«Goal»<br>G6 Human knowledge<br>improves"):::goal
 
   drv1 --> asm1
   drv2 --> asm2
@@ -158,7 +178,7 @@ flowchart LR
   asm4>"«Assessment»<br>ASM4 Quality bought with<br>seniority or fees"]:::assessment
   asm5>"«Assessment»<br>ASM5 The person is<br>the framework"]:::assessment
 
-  g1("G1 Understood before<br>it is answered"):::goal
+  g1("«Goal»<br>G1 Understood before<br>it is answered"):::goal
   g2("G2 The design is<br>what gets built"):::goal
   g3("G3 One shared source<br>that outlives people"):::goal
   g4("G4 Quality without<br>scarce expertise"):::goal
@@ -203,7 +223,7 @@ flowchart LR
   g5("«Goal»<br>G5 A change of direction<br>keeps the work"):::goal
   g6("«Goal»<br>G6 Human knowledge<br>improves"):::goal
 
-  out1[["OUT1 Gaps surface<br>during the work"]]:::outcome
+  out1[["«Outcome»<br>OUT1 Gaps surface<br>during the work"]]:::outcome
   out2[["OUT2 Documentation needs<br>no rewrite"]]:::outcome
   out3[["OUT3 Delivery starts from<br>the approved design"]]:::outcome
   out4[["OUT4 A newcomer works<br>from the model"]]:::outcome
@@ -257,21 +277,21 @@ to become true.
 flowchart TB
   subgraph CHECKABLE["Checkable in the repository today"]
     out2[["«Outcome»<br>OUT2 Documentation needs<br>no rewrite"]]:::outcome
-    out3[["«Outcome»<br>OUT3 Delivery starts from<br>the approved design"]]:::outcome
-    out6[["«Outcome»<br>OUT6 A pivot costs<br>a layer"]]:::outcome
+    out3[["OUT3 Delivery starts from<br>the approved design"]]:::outcome
+    out6[["OUT6 A pivot costs<br>a layer"]]:::outcome
   end
 
   subgraph ANECDOTAL["Observable, never counted"]
-    out4[["«Outcome»<br>OUT4 A newcomer works<br>from the model"]]:::outcome
+    out4[["OUT4 A newcomer works<br>from the model"]]:::outcome
   end
 
   subgraph NOMETHOD["No collection method at all"]
-    out1[["«Outcome»<br>OUT1 Gaps surface<br>during the work"]]:::outcome
-    out5[["«Outcome»<br>OUT5 Architecture holds<br>without seniority"]]:::outcome
-    out7[["«Outcome»<br>OUT7 Adoption — the<br>real band only"]]:::outcome
+    out1[["OUT1 Gaps surface<br>during the work"]]:::outcome
+    out5[["OUT5 Architecture holds<br>without seniority"]]:::outcome
+    out7[["OUT7 Adoption — the<br>real band only"]]:::outcome
   end
 
-  coa3("«Course of Action»<br>COA3 Instrument the<br>adoption measure"):::action
+  coa3{{"«Course of Action»<br>COA3 Instrument the<br>adoption measure"}}:::action
 
   coa3 -.->|would close| NOMETHOD
   coa3 -.->|would close| ANECDOTAL
@@ -317,7 +337,7 @@ flowchart LR
   p6[/"«Principle»<br>P6 Generic by design"/]:::principle
   p7[/"«Principle»<br>P7 Priced at the cost<br>of running it"/]:::principle
 
-  g1("G1 Understood before<br>it is answered"):::goal
+  g1("«Goal»<br>G1 Understood before<br>it is answered"):::goal
   g2("G2 The design is<br>what gets built"):::goal
   g3("G3 One shared source<br>that outlives people"):::goal
   g4("G4 Quality without<br>scarce expertise"):::goal
