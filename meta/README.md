@@ -63,5 +63,6 @@ model makes visible that prose had not:
 | - | -------- | ---------- |
 | — | [ea/README.md](./ea/README.md) | The current-state model of the method |
 | 1 | [reviews/1_value-and-ux-review.md](./reviews/1_value-and-ux-review.md) | Value against BMAD and ArcKit, ten verified new-user defects, and the improvement backlog |
+| 2 | [reviews/2_diagram-notation-icons.md](./reviews/2_diagram-notation-icons.md) | Whether ArchiMate element icons can be drawn in Mermaid — five options, rendered side by side, pending a decision |
 | 1 | [scope/1_repo-value-and-fractal-domains.md](./scope/1_repo-value-and-fractal-domains.md) | Enterprise-first positioning, modeling depth, fractal domains, plugin packaging |
 | 2 | [scope/2_archreator-models-itself.md](./scope/2_archreator-models-itself.md) | The framework positioning, this self-model, and `restate-current-state` |

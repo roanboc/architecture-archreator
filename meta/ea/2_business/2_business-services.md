@@ -35,6 +35,7 @@ principle it enforces.
 | `RULE7` | A change that contradicts an existing Principle stops and goes back to the Requester | `P2` | `ea-first-change` Step 1c, Conflict verdict |
 | `RULE8` | Changing a domain's exposed service requires the consuming domains' Requesters at Gate 2 | `P2` | `domain-modeling` § Cross-domain changes |
 | `RULE9` | A skill links only within `.claude/skills/`; it names a project's documents in code spans | `P3` | `ea-doc-style` § Links. Added when packaging as a plugin made outbound links resolve to nothing |
+| `RULE10` | Every EA document opens with its own notation legend, and every section that has a diagram opens with it | **none — it costs `P3`** | `ea-doc-style` § Diagrams come first; `docs/ea/README.md` § Notation conventions. The per-document legend is a deliberate, bounded copy of the global notation — duplication `P3` would normally forbid — accepted because these documents are read one at a time and out of order, by people and agents who will not open a second file. Carried by **review**; nothing checks that a diagram was drawn |
 
 ## The process, in one view
 

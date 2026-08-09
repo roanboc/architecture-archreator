@@ -16,6 +16,55 @@ cross-platform path and URL-encoding issues. If ArchiMate stereotypes are
 translated, keep a correspondence table to the standard English element
 names near the top of `docs/ea/README.md`.
 
+### Write it out
+
+**Language is the interface** — to a human reader, and to an agent that has
+nothing but the text. So spell things out:
+
+- **Expand every acronym on its first use in each document**, then use the
+  short form freely. Per document, not per project: a reader arriving from a
+  deep link shouldn't have to hunt for what a prefix means.
+- **Element IDs are acronyms too.** First mention in a document reads
+  `CS1` (Customer Segment 1 — business and solution designers), or sits in a
+  table whose adjacent column gives the name. Never a bare `CS1` in prose
+  the first time.
+- **An abbreviation worth using is worth defining.** If the organization has
+  its own jargon, it belongs in the glossary in
+  `2_business/5_domain-context-and-rules.md`, not only in the head of
+  whoever wrote the document.
+- **Prefer the full word where it costs nothing.** "Customer segment" reads
+  better than "CS" in a sentence; the short form earns its place in tables,
+  diagrams, and cross-references where space is genuinely tight.
+
+This costs a few characters and buys the thing the whole method is for: a
+document that means the same to the person who wrote it, the person reading
+it a year later, and the agent acting on it.
+
+### Consolidate before you enumerate
+
+**Fewer, better-defined elements beat many narrow ones.** Every element in a
+catalogue is a row someone has to read and an edge someone has to trace in a
+diagram. Ten well-named elements with clear relationships are more useful
+than thirty precise ones nobody can hold in their head.
+
+Three rules follow:
+
+- **If two elements differ only in degree, they are one element.** The same
+  pain felt by two customer segments at different severity is one pain with
+  a severity column — not two pains. The same goes for a capability used
+  more heavily by one domain, or a rule enforced more strictly in one place.
+- **Merge before you split.** When a list grows past what fits on one screen,
+  the first question is which entries are the same thing seen from two
+  angles, not how to organise the list.
+- **This applies to what an agent proposes, not only to what it writes.**
+  Offer a consolidated recommendation, not an exhaustive menu. A Requester
+  reading five overlapping options has been handed the analysis work the
+  agent was supposed to do.
+
+The reason is the diagrams. The catalogues connect to each other, and the
+value of the model is in seeing how — which is exactly what a long list
+destroys.
+
 ## Numbering
 
 - Layer folders are numbered in assessment order and never reordered:
@@ -60,6 +109,10 @@ services" table holds. Anywhere else, a backticked ID is a reference.
 | Technology | `TSVC` Technology Service · `NODE` Node · `ART` Artifact |
 | Canvas (VPC) | `JOB` Job · `PAIN` Pain · `GAIN` Gain · `PREL` Pain Reliever · `GCRE` Gain Creator |
 | Canvas (BMC) | `KP` Key Partner · `KA` Key Activity · `KR` Key Resource · `VP` Value Proposition · `CR` Customer Relationship · `CH` Channel · `CS` Customer Segment · `RS` Revenue Stream · `COST` Cost |
+
+Every document's "How to read this document" table repeats the prefixes it
+uses, expanded — `STK1` = Stakeholder 1 — which is § Write it out applied to
+identifiers.
 
 Rules: an ID is assigned once and **never reused** after the element is
 removed (a dangling reference should fail loudly, not silently point at
@@ -131,22 +184,64 @@ should be able to open any EA document and check it against the repo.
 
 ## ArchiMate on Mermaid
 
-ArchiMate has no native Mermaid profile, so these documents encode
-ArchiMate semantics onto Mermaid flowcharts with two rules:
+ArchiMate has no native Mermaid profile — no icons, no standard shapes — so
+these documents encode its semantics with **four devices: label format,
+glyph, shape, and colour.** All four are specified in exactly one place,
+`docs/ea/README.md` § Notation conventions, including the glyph set, the
+default shape per element, the layer palette and the per-element tone ramps.
+Read that section before drawing anything, and copy its values rather than
+re-tabulating them here — a second copy is a second thing to drift.
 
-1. **Element type as a «stereotype»** in the first line of each node label,
-   e.g. `«Business Service»`, `«Data Object»`, `«Capability»`.
-2. **One `classDef` per layer**, using the per-layer palette. The exact
-   fills (Motivation, Strategy, Business, Application, Technology,
-   Implementation & Migration) live in exactly one place —
-   `docs/ea/README.md` § Notation conventions.
-   Copy the `classDef` lines from there rather than re-tabulating the hexes
-   here, so the palette never drifts between documents.
+The parts worth restating, because they are decisions rather than values:
+
+- **Node labels put the identifier first**:
+  `<glyph> [«Stereotype»] <ID><br><description>`. A reader scanning for
+  `CAP1` finds it in the same place on every node.
+- **The glyph rides on every node; the «stereotype» word appears once** — on
+  the first node of each type in a diagram, dropped on the rest. One
+  character can afford to be everywhere; a line cannot.
+- **Colour separates layers across a diagram and element types within one.**
+  A single-layer view ramps the layer's hue by element type; a cross-layer
+  view keeps the flat palette. An element borrowed from another layer keeps
+  its home colour, shape and glyph.
+- **Dashed edges mean Pending.** Solid is true today. This one rule turns a
+  diagram into a statement about the present rather than an aspiration.
 
 Relationships are labeled with their ArchiMate name (**serves**,
 **realizes**, **assigned to**, **accesses**, **triggers**, **flow**,
 **aggregates**, **influences**); where Mermaid arrowheads can't distinguish
 relation types, the label is authoritative.
+
+### Diagrams come first, one per section
+
+**A section that has a diagram opens with it**, and the tables and prose
+below describe it. Not the reverse: a reader who meets three tables before a
+picture has to build the picture themselves, and most will not.
+
+**One diagram per section, not one per document.** Past roughly fifteen
+elements a single view of a layer can only be a selection, and a selection
+that looks complete is worse than several honest parts — it teaches the
+reader something false about the size of the model. Draw one link of the
+chain per section, letting consecutive diagrams overlap by one rank so they
+can be read as a sequence.
+
+**A diagram earns its place by saying something the table cannot.** Which
+element has the most edges, which has none, where every path converges,
+which side of a boundary is thin. If a diagram only restates the rows
+beneath it, cut it — that is `P3` (each fact in one place) applied to
+pictures.
+
+### Every document opens with "How to read this document"
+
+A legend diagram showing this document's element types and how they connect,
+then a table of **glyph / shape / element / ID prefix** — including any
+element borrowed from another layer for context.
+
+The cost is a few lines per document. What it buys is that **each layer is
+self-documenting**: a reader arriving from a deep link, or an agent loading
+one file, has the notation in front of them and needs no second file open.
+That matters more here than in most documentation, because these documents
+are read one at a time and out of order.
 
 ## Actors: human, AI, and hybrid
 
@@ -180,6 +275,10 @@ that's exactly the kind of call the `decision-record` skill is for.
   `_[← <Layer> layer](./README.md) · [EA home](../README.md)_`
   (scope docs link to the scope index instead).
 - State the **ArchiMate elements/viewpoint** covered near the top.
+- A **"How to read this document"** section next: the legend diagram and the
+  glyph / shape / element / ID-prefix table.
+- Then one section per element group, each **opening with its diagram**,
+  followed by the inventory table, followed by prose.
 - Prefer tables for element inventories, Mermaid for relationships, and
   prose only for rationale (the "why", not the "what" — the diagrams and
   tables already say what).

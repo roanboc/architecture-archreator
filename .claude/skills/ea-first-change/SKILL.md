@@ -19,6 +19,25 @@ documents (`docs/ea/`), approved at the gates below, captured in a scope
 document (`docs/scope/`), and only then coded. The folder numbers give you
 the assessment order.
 
+## The standing principle: well-done less is more
+
+Every step below produces elements — goals, capabilities, services, rules,
+canvas blocks. **At every one of them, consolidate before you enumerate.**
+Two elements that differ only in degree are one element with a severity or
+intensity column. A list that has grown past one screen is asking which of
+its entries are the same thing seen from two angles, not how to be sorted.
+The rules are in `ea-doc-style` § Consolidate before you enumerate and are
+not restated here.
+
+This applies to what is **proposed** as much as to what is written: a
+Requester handed six overlapping options at a gate has been handed the
+analysis the process exists to do for them. It also applies to what is
+**presented**: a gate summary is a consolidation, not a table of contents.
+
+The reason is not brevity. The value of the model is in the relationships
+between its elements, and a catalogue nobody can hold in their head has none
+that anyone will trace.
+
 ## The gates
 
 | Gate | When | The Requester approves |
@@ -55,6 +74,32 @@ experience. Pick the one that fits who is approving:
 Whichever surface is used, the approval is still transcribed into the scope
 document's Approvals table with its date and what was shown — the table is
 the durable record, the surface is just where the conversation happened.
+
+#### Show the Requester what they are approving
+
+**Every gate presentation carries full clickable links to the exact content
+under review** — one per document being approved, resolving to the branch the
+work is on, not to the default branch:
+
+```
+https://github.com/<owner>/<repo>/blob/<branch>/<path>
+```
+
+Not a repository-relative path, not a file name, not "see the canvases". A
+Requester approving a business model is usually not the person who knows how
+to check out a branch, and on a hosted surface they may have no working copy
+at all. A summary they cannot verify against the document is not something
+they can meaningfully approve — and an approval granted against a summary is
+an approval of the summary.
+
+Two rules follow. **Link the branch, never the default branch**, because the
+work being approved is not merged yet and the default-branch URL will show
+the old content or a 404. And **give one link per document**, not a single
+link to a folder — the Requester should land on the thing, not on a listing
+they have to navigate.
+
+The same applies when the gate is presented as a pull-request comment: GitHub
+renders relative links there inconsistently, so write the full URLs.
 
 ## Step 0 — Check the open-questions log (if the project keeps one)
 
