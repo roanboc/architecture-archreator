@@ -231,11 +231,14 @@ which side of a boundary is thin. If a diagram only restates the rows
 beneath it, cut it — that is `P3` (each fact in one place) applied to
 pictures.
 
-### Every document opens with "How to read this document"
+### Every element document opens with "How to read this document"
 
 A legend diagram showing this document's element types and how they connect,
 then a table of **glyph / shape / element / ID prefix** — including any
 element borrowed from another layer for context.
+
+**A layer README that only indexes other documents is exempt**: it has no
+elements to legend, and giving it one would be ceremony rather than help.
 
 The cost is a few lines per document. What it buys is that **each layer is
 self-documenting**: a reader arriving from a deep link, or an agent loading

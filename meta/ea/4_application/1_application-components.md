@@ -4,11 +4,67 @@ _[← Application layer](./README.md) · [EA home](../README.md)_
 
 **ArchiMate elements:** Application Component, Application Service.
 
-Every row names its file, per `P1`. This table is the grounding rule applied
-to archreator itself: if a skill listed here doesn't exist at the path
-given, the model is wrong and CI should have caught it.
+## How to read this document
+
+```mermaid
+flowchart LR
+  acmp["⊞ «Application Component»<br>a skill or a script"]:::component
+  svc(["⬭ «Business Service»<br>what it offers an adopter"]):::service
+  rule[/"❒ «Business Rule»<br>what it enforces"/]:::rule
+
+  acmp -->|realizes| svc
+  acmp -->|enforces| rule
+
+  classDef component fill:#9adcf0,stroke:#1a6f8c,color:#333
+  classDef service fill:#efe57d,stroke:#8a7a00,color:#333
+  classDef rule fill:#e5d95f,stroke:#7a6c00,color:#333
+```
+
+| Glyph | Shape | Element | ID prefix | Reads as |
+| ----- | ----- | ------- | --------- | -------- |
+| `⊞` | Rectangle | «Application Component» | `ACMP` | `ACMP1` = Application Component 1 |
+| `⬭` | Stadium (yellow) | «Business Service» — context, from [layer 2](../2_business/2_business-services.md) | `BSVC` | `BSVC1` = Business Service 1 |
+| `❒` | Parallelogram (yellow) | «Business Rule» — same document | `RULE` | `RULE1` = Business Rule 1 |
+
+**The glyph rides on every node; the «stereotype» word appears once.**
 
 ## Components
+
+```mermaid
+flowchart TB
+  acmp2["⊞ «Application Component» ACMP2<br>Bootstrap"]:::component
+  acmp3["⊞ ACMP3/ACMP4<br>Discovery"]:::component
+  acmp1["⊞ ACMP1<br>Process spine"]:::component
+  acmp6["⊞ ACMP6<br>Notation authority"]:::component
+  acmp7["⊞ ACMP7<br>Scope document authoring"]:::component
+  acmp13["⊞ ACMP13<br>Link checker"]:::component
+  acmp15["⊞ ACMP15<br>Element-ID validator"]:::component
+
+  bsvc1(["⬭ «Business Service» BSVC1<br>Aligned change"]):::service
+  rule2[/"❒ «Business Rule» RULE2<br>Grounding"/]:::rule
+  rule5[/"❒ RULE5<br>IDs never reused"/]:::rule
+
+  acmp2 -->|hands off to| acmp3
+  acmp3 -->|hands off to| acmp1
+  acmp1 -->|realizes| bsvc1
+  acmp6 -->|serves| acmp1
+  acmp7 -->|serves| acmp1
+  acmp13 -.->|partially enforces| rule2
+  acmp15 -->|enforces| rule5
+
+  classDef component fill:#9adcf0,stroke:#1a6f8c,color:#333
+  classDef service fill:#efe57d,stroke:#8a7a00,color:#333
+  classDef rule fill:#e5d95f,stroke:#7a6c00,color:#333
+```
+
+**One dashed edge, and it is the important one.** `ACMP13` only *partially*
+enforces `RULE2` — it checks that links resolve, not that a named realizing
+artifact exists. Everything else here is solid; the grounding rule is the
+one this repository asks you to take on trust.
+
+The table below is that rule applied to archreator itself: if a skill listed
+here does not exist at the path given, the model is wrong and CI should have
+caught it.
 
 | ID | Component | Realizes | File |
 | -- | --------- | -------- | ---- |
@@ -56,29 +112,3 @@ badly-scoped description is a defect even when the body is perfect: the
 component never gets invoked. This is how `ACMP10` came to be effectively
 dead code for ten pull requests — its description was accurate and no other
 component pointed at it, so nothing ever reached it.
-
-## Component view
-
-```mermaid
-flowchart TB
-  acmp1["«Application Component»<br>ACMP1 Process spine"]:::application
-  acmp2["«Application Component»<br>ACMP2 Bootstrap"]:::application
-  acmp3["«Application Component»<br>ACMP3/4 Discovery"]:::application
-  acmp6["«Application Component»<br>ACMP6 Notation authority"]:::application
-  acmp13["«Application Component»<br>ACMP13 Link checker"]:::application
-  acmp15["«Application Component»<br>ACMP15 Element-ID validator"]:::application
-
-  bsvc1["«Business Service»<br>BSVC1 Aligned change"]:::business
-  rule2["«Business Rule»<br>RULE2 Grounding"]:::business
-  rule5["«Business Rule»<br>RULE5 IDs never reused"]:::business
-
-  acmp2 -->|hands off to| acmp3
-  acmp3 -->|hands off to| acmp1
-  acmp1 -->|realizes| bsvc1
-  acmp6 -->|serves| acmp1
-  acmp13 -.->|partially enforces| rule2
-  acmp15 -->|enforces| rule5
-
-  classDef application fill:#c2f0ff,stroke:#0288d1,color:#333
-  classDef business fill:#fffbb5,stroke:#b8a200,color:#333
-```

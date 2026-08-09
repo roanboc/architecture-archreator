@@ -9,7 +9,60 @@ Three actors, one of them an AI. Per
 every AI actor carries an autonomy level, concrete decision rights, and a
 named escalation path.
 
+## How to read this document
+
+```mermaid
+flowchart LR
+  act(["⚇ «Business Actor»<br>who acts"]):::actor
+  role["⚉ «Business Role»<br>the hat they wear"]:::role
+  svc(["⬭ «Business Service»<br>what that produces"]):::service
+
+  act -->|assigned to| role
+  role -->|realizes| svc
+
+  classDef actor fill:#fffbb5,stroke:#b8a200,color:#333
+  classDef role fill:#f7f099,stroke:#9a8800,color:#333
+  classDef service fill:#efe57d,stroke:#8a7a00,color:#333
+```
+
+| Glyph | Shape | Element | ID prefix | Reads as |
+| ----- | ----- | ------- | --------- | -------- |
+| `⚇` | Stadium | «Business Actor» | `ACT` | `ACT1` = Business Actor 1 |
+| `⚉` | Rectangle | «Business Role» | `ROLE` | `ROLE1` = Business Role 1 |
+| `⬭` | Stadium | «Business Service» — from [2_business-services.md](./2_business-services.md) | `BSVC` | `BSVC1` = Business Service 1 |
+
+An `(AI)` actor is drawn in the Application cyan even here, so a reader never
+mistakes it for a person. **The glyph rides on every node; the «stereotype»
+word appears once.**
+
 ## Actors
+
+```mermaid
+flowchart LR
+  act1(["⚇ «Business Actor (Human)» ACT1<br>Requester"]):::actor
+  act2(["⚇ «Business Actor (AI)» ACT2<br>Agent — co-pilot"]):::actorai
+  act3(["⚇ «Business Actor (Human)» ACT3<br>Reviewer"]):::actor
+
+  role1["⚉ «Business Role» ROLE1<br>Requesting and approving"]:::role
+  role2["⚉ ROLE2<br>Executing the method"]:::role
+  role3["⚉ ROLE3<br>Reviewing and merging"]:::role
+
+  act1 -->|assigned to| role1
+  act2 -->|assigned to| role2
+  act3 -->|assigned to| role3
+  act2 -.->|escalates to| act1
+  act2 -.->|escalates to| act3
+
+  classDef actor fill:#fffbb5,stroke:#b8a200,color:#333
+  classDef actorai fill:#c2f0ff,stroke:#2a8fb0,color:#333
+  classDef role fill:#f7f099,stroke:#9a8800,color:#333
+```
+
+**One actor per role, and the AI holds one of them outright.** `ACT2` is not
+drawn assisting `ROLE2` the way an agent assists elsewhere in this
+repository — it *is* the executor, and the two dashed escalation edges are
+what keep that safe: a human before the work and a human after it.
+
 
 | ID | Actor | Kind | Role | Autonomy level | Decision rights | Escalation path |
 | -- | ----- | ---- | ---- | -------------- | --------------- | --------------- |
@@ -28,6 +81,23 @@ for.
 
 ## Roles
 
+```mermaid
+flowchart LR
+  role1["⚉ «Business Role» ROLE1<br>Requesting and approving"]:::role
+  role2["⚉ ROLE2<br>Executing the method"]:::role
+  role3["⚉ ROLE3<br>Reviewing and merging"]:::role
+
+  bsvc1(["⬭ «Business Service» BSVC1<br>Aligned change"]):::service
+
+  role2 -->|realizes| bsvc1
+  bsvc1 -->|serves| role1
+  role3 -->|gates| bsvc1
+
+  classDef role fill:#f7f099,stroke:#9a8800,color:#333
+  classDef service fill:#efe57d,stroke:#8a7a00,color:#333
+```
+
+
 | ID | Role | Filled by | Covers |
 | -- | ---- | --------- | ------ |
 | `ROLE1` | Requesting and approving | `ACT1` (human) | Presenting a requirement or a problem; granting Gates 0–3 |
@@ -37,28 +107,3 @@ for.
 `ROLE2` is deliberately written so a human can fill it unchanged. The
 process does not branch on who or what is executing it — which is what makes
 the AI actor a member of the organization rather than a tool bolted onto it.
-
-## Actor view
-
-```mermaid
-flowchart TB
-  act1["«Business Actor (Human)»<br>ACT1 Requester"]:::business
-  act2["«Business Actor (AI)»<br>ACT2 Agent<br>co-pilot"]:::business
-  act3["«Business Actor (Human)»<br>ACT3 Reviewer"]:::business
-
-  role1["«Business Role»<br>ROLE1 Requesting<br>and approving"]:::business
-  role2["«Business Role»<br>ROLE2 Executing<br>the method"]:::business
-  role3["«Business Role»<br>ROLE3 Reviewing<br>and merging"]:::business
-
-  bsvc1["«Business Service»<br>BSVC1 Aligned change"]:::business
-
-  act1 -->|assigned to| role1
-  act2 -->|assigned to| role2
-  act3 -->|assigned to| role3
-  role2 -->|realizes| bsvc1
-  role1 -->|served by| bsvc1
-  act2 -.->|escalates to| act1
-  act2 -.->|escalates to| act3
-
-  classDef business fill:#fffbb5,stroke:#b8a200,color:#333
-```

@@ -8,7 +8,76 @@ Principle.
 At Depth 1 there is no `0_business-design/` to derive from, so every element
 here was discovered directly rather than mapped from a canvas block.
 
+## How to read this document
+
+```mermaid
+flowchart LR
+  stk(["◍ «Stakeholder»<br>who cares"]):::stakeholder
+  drv{{"✳ «Driver»<br>what pressures them"}}:::driver
+  asm>"⌕ «Assessment»<br>what we judge to be true"]:::assessment
+  g("◎ «Goal»<br>what must become true"):::goal
+  out[["◉ «Outcome»<br>how we would see it"]]:::outcome
+  p[/"⚑ «Principle»<br>what must always hold"/]:::principle
+
+  stk -->|concerned with| drv
+  drv -->|assessed by| asm
+  asm -->|realized by| g
+  g -->|realized by| out
+  p -->|influences| g
+
+  classDef stakeholder fill:#f4ecfc,stroke:#9575cd,color:#333
+  classDef driver fill:#e6d6f5,stroke:#7e57c2,color:#333
+  classDef assessment fill:#d8c3f0,stroke:#7e57c2,color:#333
+  classDef goal fill:#c6aae9,stroke:#673ab7,color:#333
+  classDef outcome fill:#b493e0,stroke:#5e35b1,color:#333
+  classDef principle fill:#a37cd8,stroke:#4527a0,color:#333
+```
+
+| Glyph | Shape | Element | ID prefix | Reads as |
+| ----- | ----- | ------- | --------- | -------- |
+| `◍` | Stadium | «Stakeholder» | `STK` | `STK1` = Stakeholder 1 |
+| `✳` | Hexagon | «Driver» | `DRV` | `DRV1` = Driver 1 |
+| `⌕` | Flag | «Assessment» | `ASM` | `ASM1` = Assessment 1 |
+| `◎` | Rounded rectangle | «Goal» | `G` | `G1` = Goal 1 |
+| `◉` | Rectangle, double bars | «Outcome» | `OUT` | `OUT1` = Outcome 1 |
+| `⚑` | Parallelogram | «Principle» | `P` | `P1` = Principle 1 |
+
+Six tones of the Motivation violet, light at the start of the chain and dark
+at the end. **The glyph rides on every node; the «stereotype» word appears
+once** — on the first node of each type in a diagram, dropped on the rest.
+The values come from
+[`docs/ea/README.md` § Notation conventions](../../../docs/ea/README.md#notation-conventions).
+
 ## Stakeholders and drivers
+
+```mermaid
+flowchart LR
+  stk1(["◍ «Stakeholder» STK1<br>Someone modeling a company"]):::stakeholder
+  stk2(["◍ STK2<br>Someone building one application"]):::stakeholder
+  stk3(["◍ STK3<br>A non-technical Requester"]):::stakeholder
+  stk4(["◍ STK4<br>The AI agent executing the method"]):::stakeholder
+  stk5(["◍ STK5<br>archreator's maintainer"]):::stakeholder
+
+  drv1{{"✳ «Driver» DRV1<br>Enterprise architecture is too slow"}}:::driver
+  drv2{{"✳ DRV2<br>AI builds faster than oversight"}}:::driver
+  drv3{{"✳ DRV3<br>Approvers cannot reach the tools"}}:::driver
+  drv4{{"✳ DRV4<br>Agents lose the thread"}}:::driver
+  drv5{{"✳ DRV5<br>A copied template cannot improve"}}:::driver
+
+  stk1 --> drv1
+  stk2 --> drv2
+  stk3 --> drv3
+  stk4 --> drv4
+  stk5 --> drv5
+
+  classDef stakeholder fill:#f4ecfc,stroke:#9575cd,color:#333
+  classDef driver fill:#e6d6f5,stroke:#7e57c2,color:#333
+```
+
+Every edge reads **concerned with**. One driver per stakeholder, which is
+what a Depth 1 model looks like when it is honest: five constituencies, five
+distinct pressures, and no pretence that they overlap.
+
 
 | ID | Stakeholder | Concern | Driver |
 | -- | ----------- | ------- | ------ |
@@ -27,6 +96,35 @@ here was discovered directly rather than mapped from a canvas block.
 | `DRV5` | **A copied template cannot be improved** — a method distributed by copy diverges the moment it is used |
 
 ## Assessments
+
+```mermaid
+flowchart LR
+  asm1>"⌕ «Assessment» ASM1<br>Artifacts need not match reality"]:::assessment
+  asm2>"⌕ ASM2<br>Confident inconsistency"]:::assessment
+  asm3>"⌕ ASM3<br>Approval is unrecorded or unreachable"]:::assessment
+  asm4>"⌕ ASM4<br>An agent picks a plausible order"]:::assessment
+  asm5>"⌕ ASM5<br>Scaffold and method have opposite lifecycles"]:::assessment
+
+  g1("◎ «Goal» G1<br>A model you can implement against"):::goal
+  g2("◎ G2<br>Speed without incoherence"):::goal
+  g3("◎ G3<br>The person who should decide, decides"):::goal
+  g4("◎ G4<br>The method improves without breaking users"):::goal
+
+  asm1 --> g1
+  asm2 --> g2
+  asm4 --> g2
+  asm3 --> g3
+  asm5 --> g4
+
+  classDef assessment fill:#d8c3f0,stroke:#7e57c2,color:#333
+  classDef goal fill:#c6aae9,stroke:#673ab7,color:#333
+```
+
+Every edge reads **realized by**. `G2` is the only goal two assessments
+point at, and that is the shape of the problem archreator exists for:
+inconsistency comes both from the agent's speed and from its lack of a fixed
+order to work in.
+
 
 | ID | Assessment | Assesses |
 | -- | ---------- | -------- |
@@ -52,6 +150,32 @@ here was discovered directly rather than mapped from a canvas block.
 
 ## Outcomes
 
+```mermaid
+flowchart LR
+  g1("◎ «Goal» G1<br>A model you can implement against"):::goal
+  g2("◎ G2<br>Speed without incoherence"):::goal
+  g3("◎ G3<br>The person who should decide, decides"):::goal
+  g4("◎ G4<br>The method improves without breaking users"):::goal
+
+  out1[["◉ «Outcome» OUT1<br>Any element checkable in under a minute"]]:::outcome
+  out2[["◉ OUT2<br>A conflicting change is stopped before it is built"]]:::outcome
+  out3[["◉ OUT3<br>A Requester with no terminal can grant every gate"]]:::outcome
+  out4[["◉ OUT4<br>An improvement reaches a project without hand-porting"]]:::outcome
+
+  g1 --> out1
+  g2 --> out2
+  g3 --> out3
+  g4 -.-> out4
+
+  classDef goal fill:#c6aae9,stroke:#673ab7,color:#333
+  classDef outcome fill:#b493e0,stroke:#5e35b1,color:#333
+```
+
+Every edge reads **realized by**. `OUT4`'s edge is dashed because it is
+**Pending**: the plugin mechanism exists and no second version has shipped
+through it, so nothing has proved the claim.
+
+
 | ID | Outcome | Realizes | Measured by |
 | -- | ------- | -------- | ----------- |
 | `OUT1` | Any element in the model can be checked against the repository or the people doing the work in under a minute | `G1` | A reader picks a row at random and finds the artifact, or an explicit "Pending" |
@@ -60,6 +184,33 @@ here was discovered directly rather than mapped from a canvas block.
 | `OUT4` | A method improvement reaches an existing project without hand-porting | `G4` | `/plugin update`. **Pending** until the plugin has shipped a second version |
 
 ## Principles
+
+```mermaid
+flowchart LR
+  p1[/"⚑ «Principle» P1<br>Every element names what realizes it"/]:::principle
+  p2[/"⚑ P2<br>A human approves, and it is recorded"/]:::principle
+  p3[/"⚑ P3<br>Each fact in exactly one document"/]:::principle
+  p4[/"⚑ P4<br>A skill states the what; the model reasons the how"/]:::principle
+  p5[/"⚑ P5<br>History is never rewritten"/]:::principle
+
+  g1("◎ «Goal» G1<br>A model you can implement against"):::goal
+  g2("◎ G2<br>Speed without incoherence"):::goal
+  g4("◎ G4<br>The method improves without breaking users"):::goal
+
+  p1 --> g1
+  p2 --> g2
+  p3 --> g1
+  p4 --> g4
+  p5 --> g2
+
+  classDef principle fill:#a37cd8,stroke:#4527a0,color:#333
+  classDef goal fill:#c6aae9,stroke:#673ab7,color:#333
+```
+
+Every edge reads **influences**. `G3` has no principle pointing at it — the
+person who should decide deciding is a goal the gates deliver structurally,
+not something a rule can be checked against.
+
 
 Few, load-bearing, and testable. These gate every change to the method
 itself, and `ea-first-change` Step 1c stops on a conflict with any of them.
@@ -75,33 +226,11 @@ itself, and `ea-first-change` Step 1c stops on a conflict with any of them.
 `P5` is the newest, added when `restate-current-state` made it necessary to
 say explicitly what compaction may and may not touch.
 
-## Motivation view
+## Why there is no single view of this layer
 
-```mermaid
-flowchart TB
-  drv1["«Driver»<br>DRV1 EA too slow"]:::motivation
-  drv2["«Driver»<br>DRV2 AI outpaces oversight"]:::motivation
-  drv5["«Driver»<br>DRV5 Templates can't improve"]:::motivation
-
-  asm1["«Assessment»<br>ASM1 Artifacts need not<br>correspond to reality"]:::motivation
-  asm2["«Assessment»<br>ASM2 Confident inconsistency"]:::motivation
-  asm5["«Assessment»<br>ASM5 Scaffold and method<br>have opposite lifecycles"]:::motivation
-
-  g1["«Goal»<br>G1 A model you can<br>implement against"]:::motivation
-  g2["«Goal»<br>G2 Speed without<br>incoherence"]:::motivation
-  g4["«Goal»<br>G4 Improves without<br>breaking its users"]:::motivation
-
-  p1["«Principle»<br>P1 Grounding rule"]:::motivation
-  p2["«Principle»<br>P2 Human approves,<br>recorded"]:::motivation
-
-  drv1 -->|assessed by| asm1
-  drv2 -->|assessed by| asm2
-  drv5 -->|assessed by| asm5
-  asm1 -->|realized by| g1
-  asm2 -->|realized by| g2
-  asm5 -->|realized by| g4
-  p1 -->|influences| g1
-  p2 -->|influences| g2
-
-  classDef motivation fill:#e6d6f5,stroke:#7e57c2,color:#333
-```
+The four diagrams above are the complete view, drawn one link of the chain at
+a time. An earlier version of this document ended with one picture of
+everything, which showed twelve of thirty-six elements and implied it showed
+all of them —
+[the notation standard](../../scope/5_diagram-notation-standard.md) exists
+because of exactly that.
