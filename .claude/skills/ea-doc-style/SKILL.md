@@ -40,6 +40,31 @@ This costs a few characters and buys the thing the whole method is for: a
 document that means the same to the person who wrote it, the person reading
 it a year later, and the agent acting on it.
 
+### Consolidate before you enumerate
+
+**Fewer, better-defined elements beat many narrow ones.** Every element in a
+catalogue is a row someone has to read and an edge someone has to trace in a
+diagram. Ten well-named elements with clear relationships are more useful
+than thirty precise ones nobody can hold in their head.
+
+Three rules follow:
+
+- **If two elements differ only in degree, they are one element.** The same
+  pain felt by two customer segments at different severity is one pain with
+  a severity column — not two pains. The same goes for a capability used
+  more heavily by one domain, or a rule enforced more strictly in one place.
+- **Merge before you split.** When a list grows past what fits on one screen,
+  the first question is which entries are the same thing seen from two
+  angles, not how to organise the list.
+- **This applies to what an agent proposes, not only to what it writes.**
+  Offer a consolidated recommendation, not an exhaustive menu. A Requester
+  reading five overlapping options has been handed the analysis work the
+  agent was supposed to do.
+
+The reason is the diagrams. The catalogues connect to each other, and the
+value of the model is in seeing how — which is exactly what a long list
+destroys.
+
 ## Numbering
 
 - Layer folders are numbered in assessment order and never reordered:
