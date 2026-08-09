@@ -41,11 +41,14 @@ flowchart TB
     dobj1["▦ «Data Object» DOBJ1<br>The method sources"]:::data
     dobj2["▦ DOBJ2<br>The published guidance"]:::data
     dobj3["▦ DOBJ3<br>This organization's own model"]:::data
+    dobj7x["▦ DOBJ7<br>Engagement pattern notes"]:::data
   end
 
   subgraph PRIVATE["Held by one person, outside any system"]
     dobj4["▦ DOBJ4<br>Client business information"]:::confidential
   end
+
+  dobj4 -->|patterns lifted out,<br>facts left behind| dobj7x
 
   subgraph NOTHELD["Not held — by design"]
     dobj5["▦ DOBJ5<br>Adopter models"]:::absent
@@ -71,6 +74,7 @@ things follow from it.
 | `DOBJ3` | **This organization's own model** — the canvases, the layers, the scope documents | `organization/` | **Public, deliberately.** An organization asking others to model themselves honestly should be readable | `ROLE3`, and any visitor |
 | `DOBJ4` | **Client business information** — what a consulting engagement learns about a client | Held by `ROLE2` personally, outside this repository and outside any system this model describes | **Confidential** | `ROLE2` only |
 | `DOBJ5` | **Adopter models** — the architecture an adopter builds with the method | **In the adopter's own repository.** This organization never receives a copy | Not held | Nobody here |
+| `DOBJ7` | **Engagement pattern notes** — what the method did not cover, and what was done instead | [`organization/docs/engagements/`](../../engagements/README.md) | **Public** — patterns lifted out of `DOBJ4` with every identifying fact left behind | `ROLE1`, `ROLE2`, and any visitor |
 | `DOBJ6` | **Portal submissions and generated repositories** — what an owner would upload and get back | **Pending — future initiative** (`COA2`) | Would be the first non-public data this organization systematically holds | Nobody yet |
 
 ### Why the organization cannot measure itself
@@ -85,6 +89,21 @@ into a **data decision**: it means starting to hold information about
 adopters, which this organization has never done. Self-reporting is the
 lightest version and still crosses the line. Whoever opens that initiative
 should know they are changing this layer, not just adding a counter.
+
+### `DOBJ7` is the only thing that crosses the line, and it crosses one way
+
+`DOBJ4` is confidential; `DOBJ7` is public; and the edge between them is the
+only place in this model where information moves from one to the other. That
+makes it the riskiest single relationship here, so the rule governing it is
+written down rather than assumed: **a pattern may be lifted out of a case;
+nothing identifying may travel with it.** Two tests, both in the
+`engagement-retrospective` skill — would the client recognise themselves, and
+does the pattern still teach anything once the specifics are gone.
+
+`DOBJ7` exists because `CAP10` needed somewhere to put its output. It is the
+first stage of [`COA1`](../../decisions/1_take-coa1-staged.md), and it is
+also the first mechanism `RS1` has ever had — the primary non-monetary return
+was claimed at Gate 0 with nothing behind it.
 
 ### `DOBJ4` is the whole confidentiality surface, and it has no system
 

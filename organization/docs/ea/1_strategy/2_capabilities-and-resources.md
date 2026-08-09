@@ -58,7 +58,7 @@ in two documents looks the same in both.
 
 ## Capabilities
 
-**Two levels.** Three capability areas, each composed of two capabilities.
+**Two levels.** Three capability areas over seven capabilities.
 The areas are what a decision gets taken at — "does this initiative
 strengthen understanding, stewardship or delivery?" is answerable, while the
 same question against six flat capabilities is not.
@@ -73,6 +73,7 @@ flowchart TB
   cap5["✦ CAP5<br>A shared architectural language"]:::capability
   cap6["✦ CAP6<br>One documented model"]:::capability
   cap7["✦ CAP7<br>Layered change absorption"]:::capability
+  cap10["✦ CAP10<br>Engagement-to-method learning"]:::capability
   cap8["✦ CAP8<br>Design-to-delivery continuity"]:::capability
   cap9["✦ CAP9<br>Method-carried competence"]:::capability
 
@@ -80,6 +81,7 @@ flowchart TB
   cap1 --> cap5
   cap2 --> cap6
   cap2 --> cap7
+  cap2 --> cap10
   cap3 --> cap8
   cap3 --> cap9
 
@@ -94,14 +96,22 @@ depth rather than to type.
 | ID | Level | Capability | Composed of / part of | Delivers | Realized by | Source |
 | -- | ----- | ---------- | --------------------- | -------- | ----------- | ------ |
 | `CAP1` | Area | **Business understanding** — the organization can arrive at what a business actually is, and say it in a form that survives being passed on | `CAP4`, `CAP5` | `VAL1` | — | — |
-| `CAP2` | Area | **Model stewardship** — it can keep that understanding true as time and change act on it | `CAP6`, `CAP7` | `VAL3`, `VAL5` | — | — |
+| `CAP2` | Area | **Model stewardship** — it can keep that understanding true as time and change act on it, and can improve the method that produces it | `CAP6`, `CAP7`, `CAP10` | `VAL3`, `VAL5` | — | — |
 | `CAP3` | Area | **Delivery from design** — it can turn an approved design into a working solution without an expert in the room | `CAP8`, `CAP9` | `VAL2`, `VAL4` | — | — |
 | `CAP4` | 2 | **Gated discovery** — question-driven discovery that tests the business rather than recording it, with approval gates forcing a complete frame before anything is built | `CAP1` | `VAL1` | The `ea-first-change`, `operating-model-discovery` and `strategy-discovery` skills | `PREL1` Pain Reliever 1, `GCRE1` Gain Creator 1 |
 | `CAP5` | 2 | **A shared architectural language** — standardised concepts with defined relationships, which is what makes the model mean the same thing to a person and to an agent | `CAP1` | `VAL1`, `VAL3` | ArchiMate-on-Mermaid notation, per the `ea-doc-style` skill | `GCRE4` |
 | `CAP6` | 2 | **One documented model** — markdown in git, catalogues and diagrams, every element naming what realizes it | `CAP2` | `VAL3` | The `ea-doc-style` skill, `scripts/check_links.py`, `scripts/check_model.py` | `PREL3`, `GCRE2` |
 | `CAP7` | 2 | **Layered change absorption** — strategy can change without redoing technology, and the reverse | `CAP2` | `VAL5` | The numbered layers and the per-layer "no change" verdict | `GCRE6` |
 | `CAP8` | 2 | **Design-to-delivery continuity** — the approved design is the input an agent builds from, so there is no handover | `CAP3` | `VAL2` | The `ea-first-change` skill, Steps 5–7, and the `story-sharding` skill | `PREL2`, `GCRE3` |
+| `CAP10` | 2 | **Engagement-to-method learning** — what the Requester improvises during an engagement becomes method that anyone can use, instead of staying in one person's head | `CAP2` | `VAL3` | The `engagement-retrospective` skill and the notes in [`docs/engagements/`](../../engagements/README.md) | — (no canvas source; added by [decision 1](../../decisions/1_take-coa1-staged.md)) |
 | `CAP9` | 2 | **Method-carried competence** — the expertise sits in the method, so the price of an architecture drops to the price of an agent | `CAP3` | `VAL4` | The skill set as a whole, distributed as a plugin | `PREL4`, `GCRE5` |
+
+**`CAP10` has no canvas source, and it is the only capability that does
+not.** Every other one was derived from a Pain Reliever or a Gain Creator at
+Gate 0. This one came from noticing that `CAP9` — method-carried competence —
+was a claim with no mechanism behind it: nothing in the organization turned
+what the Requester knows into method on purpose. It is the first stage of
+[`COA1`](#courses-of-action).
 
 **The areas have no `Realized by`, and that is correct rather than a gap.** An
 area is realized by its parts; only the level-2 capabilities point at an
@@ -266,14 +276,16 @@ could be done about it.
 
 ```mermaid
 flowchart LR
-  coa1{{"➤ «Course of Action» COA1<br>AI agents as consultants"}}:::action
+  coa1{{"➤ «Course of Action» COA1<br>AI agents as consultants — taken"}}:::action
   coa2{{"➤ COA2<br>Build the portal"}}:::action
   coa3{{"➤ COA3<br>Instrument the adoption measure"}}:::action
 
   res1[("▤ «Resource» RES1<br>The Requester's knowledge and time")]:::resource
+  res2[("▤ RES2<br>The method")]:::resource
   res4[("▤ RES4<br>The portal — Pending")]:::resource
 
-  coa1 -.->|would relieve| res1
+  coa1 -->|stage 1: relieves| res2
+  coa1 -.->|stages 2–4: would relieve| res1
   coa2 -.->|would create| res4
   coa2 -.->|would consume| res1
   coa3 -.->|would make the<br>outcomes measurable| res1
@@ -282,17 +294,23 @@ flowchart LR
   classDef resource fill:#faf0d5,stroke:#c8a24a,color:#333
 ```
 
-Choices the organization has named but not taken. Each is Pending, and each
-is a candidate initiative rather than a plan — which is why every edge is
-dashed.
+**One solid edge, and it is the whole decision.** `COA1`'s stage 1 lands on
+`RES2`, the method — it needs nothing that does not already exist, which is
+why it could be taken first. Every dashed edge is still Pending: `COA1`'s
+later stages, and both of the others.
 
 | ID | Course of action | Addresses | Requires | State |
 | -- | ---------------- | --------- | -------- | ----- |
-| `COA1` | **AI agents acting as consultants**, carrying the Requester's knowledge | The `RES1` concentration, if `PROD2` ever had to scale | More AI maturity than exists today | **Pending** — named at Gate 0 as a route, explicitly not a plan |
+| `COA1` | **AI agents acting as consultants**, carrying the Requester's knowledge | The `RES1` concentration, and the gap between what `CAP9` claims and what `BSVC3` needs a person for | Stage 1 needs nothing; later stages need evidence, then a decision on autonomy, then the ability to hold client data | **Taken, staged** — [decision 1](../../decisions/1_take-coa1-staged.md). Stage 1 delivered by `CAP10` |
 | `COA2` | **Build the portal** (`PROD3`) | `STK2` and `STK3` are reachable today only through a coding agent, and nothing reaches an owner who is not already looking | An application and technology layer this model does not yet have | **Pending — target state** |
 | `COA3` | **Instrument the adoption measure** | Only three of seven outcomes are checkable today; one is observable but never counted, and three have no collection method at all | A way for adopters to report use — self-reporting is the obvious candidate | **Pending.** Prerequisite for any Social Return on Investment valuation |
 
-**All three edges land on `RES1`, and two of them pull opposite ways.** `COA1`
-would relieve the Requester's time; `COA2` would spend a great deal of it
-first, and `COA3` spends some too. Which comes first is a strategy decision,
-not a sequencing detail, and it is not settled here.
+**`COA1` was taken first, and the diagram shows why it could be.** Its stage 1
+edge is solid and lands on `RES2`, the method — it needs nothing that does not
+already exist. The dashed edges to `RES1` are the later stages, and they are
+where the Requester's time actually gets relieved.
+
+`COA2` still pulls the opposite way: it would spend a great deal of `RES1`
+before returning anything. That ordering is now settled by
+[decision 1](../../decisions/1_take-coa1-staged.md), which also records what
+would reopen it.

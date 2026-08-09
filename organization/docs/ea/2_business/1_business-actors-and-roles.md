@@ -98,12 +98,27 @@ skill exists for, and it would need `P1` revisited first.
 | ID | Role | Filled by | Covers | Source |
 | -- | ---- | --------- | ------ | ------ |
 | `ROLE1` | **Method maintainer** | `ACT1`, assisted by `ACT2` | Developing the method, publishing guidance — `KA1` Key Activity 1 and `KA2` | `KA1`, `KA2` |
-| `ROLE2` | **Consultant** | `ACT1` | Running discovery and delivery with clients — `KA3` | `KA3` |
+| `ROLE2` | **Consultant** | `ACT1`, assisted by `ACT2` | Running discovery and delivery with clients — `KA3` — and capturing afterwards what the method did not cover (`CAP10`) | `KA3` |
 | `ROLE3` | **Owner** | `ACT1` | Deciding direction, pricing, and what the organization is for | `KR1` Key Resource 1 |
 
 `ROLE1` is written so a contributor could fill it unchanged — the method does
 not branch on who maintains it. That is what would make `STK5`, the
 contributor community, a real partner rather than an aspiration.
+
+**`ROLE2` gained an assisting actor, and that is `COA1` starting.**
+[Decision 1](../../decisions/1_take-coa1-staged.md) takes the course of
+action in four stages; stage 1 keeps `ACT2` at co-pilot and behind `ACT1` —
+the Requester is still the person in the room. Stage 3 would raise it inside
+this role, and stage 4 would put an agent in front of a client. Both need
+their own decision records.
+
+**A notation limit the model has now hit.** `ACT2` will eventually hold one
+autonomy level in `ROLE1` and a different one in `ROLE2`, and the actors
+table above has a single autonomy column. Today both are co-pilot, so nothing
+is lost — but from stage 3 the notation cannot say what the model needs to
+say. Recorded as an open question in
+[scope document 3](../../scope/3_take-coa1-stage-one.md) rather than fixed on
+a single case.
 
 ## External actors, and what binds them
 

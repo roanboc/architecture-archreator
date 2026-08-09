@@ -54,6 +54,7 @@ invoke them by name in normal use.
 | `decision-record` | One consequential call smaller than an initiative — most often an AI actor's autonomy level |
 | `story-sharding` | A work package is too large to finish in one sitting |
 | `stack-selection` | No technology stack chosen yet on a small application |
+| `engagement-retrospective` | An initiative or engagement just finished — capture what the method didn't cover before it evaporates |
 
 ## Layout
 

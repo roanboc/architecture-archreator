@@ -140,7 +140,7 @@ rendered as real, checkable architecture; the
 ## What's in the box
 
 This repo carries **no application code**: enterprise-architecture
-guidelines, twelve Claude Code skills that turn the method into agent
+guidelines, thirteen Claude Code skills that turn the method into agent
 behavior, and the documentation scaffolding a project starts from.
 
 ## Quick start
@@ -375,7 +375,7 @@ flowchart TB
   scope["docs/scope/<br><i>one doc per change, + the process writeup</i>"]
   decisions["docs/decisions/<br><i>one doc per smaller, non-obvious call</i>"]
   skillscore["skills: ea-first-change, ea-doc-style,<br>scope-doc, pr-description"]
-  skillssupport["skills: operating-model-discovery,<br>strategy-discovery, domain-modeling,<br>decision-record, story-sharding, stack-selection"]
+  skillssupport["skills: operating-model-discovery,<br>strategy-discovery, domain-modeling, decision-record,<br>story-sharding, stack-selection,<br>engagement-retrospective"]
   pr[".github/ PR templates<br>(default + bugfix)"]
 
   bootstrap -->|writes| claude
@@ -402,7 +402,7 @@ flowchart TB
 | [docs/ea/domains/](./docs/ea/domains/README.md) | **Depth 3 only.** One nested model per business line, each with a charter naming what it exposes, plus the split test and the federation rule governing cross-domain change |
 | [docs/scope/](./docs/scope/README.md)  | One document per **change** to that state: the EA-first process write-up, the initiative index, and the optional [open-questions.md](./docs/scope/open-questions.md) log |
 | [docs/decisions/](./docs/decisions/README.md) | Optional log of smaller, non-obvious calls that don't rise to a full scope document — most often *why* an AI actor's autonomy level or decision rights were set the way they were |
-| [`.claude/skills/`](./.claude/skills/README.md) | Twelve Claude Code skills that turn the method into concrete agent behavior — see the two tables below. Also the root of the installable plugin |
+| [`.claude/skills/`](./.claude/skills/README.md) | Thirteen Claude Code skills that turn the method into concrete agent behavior — see the two tables below. Also the root of the installable plugin |
 | [`meta/`](./meta/README.md) | archreator's own development record — the [value and UX review](./meta/reviews/1_value-and-ux-review.md) and the scope documents for changes to the method itself. Read it, don't inherit it |
 | [`organization/`](./organization/README.md) | The **live operating model of the organization behind archreator**, at Depth 2 — the worked company track, canvases through derived strategy and business layers. Read it, don't inherit it |
 | [.github/pull_request_template.md](./.github/pull_request_template.md) + [PULL_REQUEST_TEMPLATE/bugfix.md](./.github/PULL_REQUEST_TEMPLATE/bugfix.md) | Two PR bodies — one shaped to mirror a scope document's EA-alignment table, one for pure bug fixes that skip it — so the PR and the docs never drift apart |
@@ -435,6 +435,7 @@ project to fill in:
 | `decision-record`   | A short, durable rationale for a single consequential call that's smaller than an initiative — most often why an AI actor's autonomy level or decision rights were set the way they were |
 | `story-sharding`    | Adapted from [BMAD-METHOD](https://github.com/bmadcode/BMAD-METHOD)'s context-engineered development: when a scope document's work package is too large for one sitting, shard it into small, self-contained story files so an agent or person resuming later never has to re-derive the whole plan from the EA tree |
 | `stack-selection`   | A decision framework plus concrete defaults for choosing a stack on a small/solo app: static-only (GitHub Pages/Cloudflare Pages, no backend) vs. needs data/auth (Supabase for managed Postgres + Auth + RLS, Vercel for hosting/CI/CD) — with the reasoning for picking one over the other |
+| `engagement-retrospective` | Run after an initiative or a client engagement closes: captures where the method failed to say what to do and what was done instead, as a pattern note with client facts left behind. It proposes method changes; it never makes them |
 
 ## Keeping a project in sync with the method
 
