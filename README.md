@@ -17,6 +17,78 @@ you can reason about, delegate inside, and eventually hand work to.
 > method, and one of its own actors is an AI. It's the friendly front door
 > to everything below.
 
+
+## The shape of it, in two diagrams
+
+Both are drawn in the notation the method itself specifies — glyph, shape,
+tone and identifier, defined once in
+[`docs/ea/README.md` § Notation conventions](./docs/ea/README.md#notation-conventions).
+Everything under `docs/`, `meta/`, `organization/` and `site/` is drawn the
+same way.
+
+**What a change goes through.** A requirement never becomes code directly:
+
+```mermaid
+flowchart LR
+  req(["⚇ «Business Actor (Human)»<br>The Requester"]):::actor
+  frame{{"⚙ «Business Process»<br>Align the layers"}}:::process
+  gate[/"❒ «Business Rule»<br>Gate 2 — no code before this"/]:::rule
+  build{{"⚙ Implement from the approved design"}}:::process
+  agent(["⚇ «Business Actor (AI)»<br>The Agent — co-pilot"]):::actorai
+  out[["◉ «Outcome»<br>A change consistent with<br>everything already decided"]]:::outcome
+
+  req -->|states what is wanted| frame
+  agent -->|assigned to| frame
+  frame -->|stops at| gate
+  req -->|grants| gate
+  gate -->|then| build
+  agent -->|assigned to| build
+  build -->|realizes| out
+
+  classDef actor fill:#fffbb5,stroke:#b8a200,color:#333
+  classDef actorai fill:#c2f0ff,stroke:#2a8fb0,color:#333
+  classDef process fill:#f7f099,stroke:#9a8800,color:#333
+  classDef rule fill:#e5d95f,stroke:#7a6c00,color:#333
+  classDef outcome fill:#b493e0,stroke:#5e35b1,color:#333
+```
+
+The AI is cyan because it runs as software while holding a business role —
+that is the distinguishing bet above, drawn rather than asserted. It is
+assigned to the work on both sides of the gate and cannot grant the gate
+itself.
+
+**What the model is made of.** Six layers, each answering before the one
+below it can be right:
+
+```mermaid
+flowchart TB
+  l0["◍ «Customer Segment» · «Job» · «Pain»<br>0 Business design — who we serve"]:::motivation
+  l1["◎ «Goal» · «Principle» · ✦ «Capability»<br>1 Strategy — what must become true"]:::strategy
+  l2["⚇ «Business Actor» · ⬭ «Business Service»<br>2 Business — who acts, what is offered"]:::business
+  l3["▦ «Data Object»<br>3 Information — what is known"]:::information
+  l4["⊞ «Application Component»<br>4 Application — the software"]:::application
+  l5["⬒ «Node» · ⬯ «Technology Service»<br>5 Technology — what it runs on"]:::technology
+
+  l0 -->|derived into| l1
+  l1 -->|realized by| l2
+  l2 -->|handles| l3
+  l2 -->|realized by| l4
+  l4 -->|runs on| l5
+
+  classDef motivation fill:#e6d6f5,stroke:#7e57c2,color:#333
+  classDef strategy fill:#f5deaa,stroke:#c8a24a,color:#333
+  classDef business fill:#fffbb5,stroke:#b8a200,color:#333
+  classDef information fill:#c2f0ff,stroke:#0288d1,color:#333
+  classDef application fill:#c2f0ff,stroke:#0288d1,color:#333
+  classDef technology fill:#c9e7b7,stroke:#558b2f,color:#333
+```
+
+This is a **cross-layer** view, so each layer keeps its flat palette colour.
+Inside a single layer the tone ramps by element type instead — compare the
+[organization's motivation layer](./organization/docs/ea/1_strategy/1_motivation.md),
+where six shades of the same violet separate stakeholder from driver from
+goal.
+
 ## Who this is for
 
 - **Companies mapping how they actually work** — several business lines,
