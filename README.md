@@ -255,7 +255,7 @@ business elements derived from them. It is where to look for what the
 canvas-to-ArchiMate derivation actually produces, and for what an
 organization looks like when it says the uncomfortable parts out loud: one
 person is the binding constraint on every capability, most of the return is
-not money, and five of its seven outcomes have no working measure.
+not money, and four of its seven outcomes have no working measure.
 
 [`meta/`](./meta/README.md) is **archreator modeled with archreator** — the
 method pointed at its own author, at Depth 1. It is where to look for what a

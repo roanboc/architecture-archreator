@@ -62,7 +62,7 @@ is a candidate initiative rather than a plan.
 | -- | ---------------- | --------- | -------- | ----- |
 | `COA1` | **AI agents acting as consultants**, carrying the Requester's knowledge | The `RES1` concentration, if `PROD2` ever had to scale | More AI maturity than exists today | **Pending** — named at Gate 0 as a route, explicitly not a plan |
 | `COA2` | **Build the portal** (`PROD3`) | `STK2` and `STK3` are reachable today only through a coding agent, and nothing reaches an owner who is not already looking | An application and technology layer this model does not yet have | **Pending — target state** |
-| `COA3` | **Instrument the adoption measure** | Five of seven outcomes have no working measure, and `OUT7`'s real band has no collection method | A way for adopters to report use — self-reporting is the obvious candidate | **Pending.** Prerequisite for any Social Return on Investment valuation |
+| `COA3` | **Instrument the adoption measure** | Only three of seven outcomes are checkable today; one is observable but never counted, and three have no collection method at all | A way for adopters to report use — self-reporting is the obvious candidate | **Pending.** Prerequisite for any Social Return on Investment valuation |
 
 `COA1` and `COA2` pull in opposite directions on `RES1`: one reduces the
 dependency on the Requester's time, the other spends a large amount of it

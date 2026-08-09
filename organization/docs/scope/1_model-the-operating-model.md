@@ -135,11 +135,12 @@ This is a **docs-only initiative**. No code is delivered.
   rather than better: it is now visible in three places at once — the channel
   catalogue, the value stream's first stage, and the business interfaces —
   which is what a model is for.
-- **Five of the seven Outcomes have no working measure.** The organization
-  can observe that people star the repository and cannot observe whether
-  anyone finished an architecture with it. `COA3` is the named response and
-  it is Pending, so for now most of `1_motivation.md`'s outcome table is an
-  intention rather than an instrument.
+- **Four of the seven Outcomes have no working measure.** Three (`OUT2`,
+  `OUT3`, `OUT6`) are checkable by reading a document the method itself
+  produces. The other four are about what happened to a *person*, and the
+  organization can observe that people star the repository while being
+  unable to observe whether anyone finished an architecture with it. `COA3`
+  is the named response and it is Pending.
 - **`COA1` and `COA2` pull against each other on `RES1`.** One reduces the
   dependency on the Requester's time, the other spends a great deal of it
   first. Which comes first is a strategy decision this initiative
