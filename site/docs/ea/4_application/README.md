@@ -22,20 +22,8 @@ separate services document.
 
 ## Layer view
 
-```mermaid
-flowchart TB
-  index["«Application Component»<br>Landing page<br>(site/index.html)"]:::application
-  guide["«Application Component»<br>Guide page<br>(site/guide.html)"]:::application
-  walk["«Application Component»<br>Walkthrough page<br>(site/walkthrough.html)"]:::application
-  arch["«Application Component»<br>Architecture page<br>(site/architecture.html)"]:::application
-
-  index -->|links to| guide
-  guide -->|links to| walk
-  walk -->|links to| arch
-  arch -->|links to| index
-
-  classDef application fill:#c2f0ff,stroke:#0288d1,color:#333
-```
+The service, its six components and the one thing they share are drawn in
+[2_application-components.md](./2_application-components.md).
 
 See [2_application-components.md](./2_application-components.md) for the
 service each component realizes and its exact source file.

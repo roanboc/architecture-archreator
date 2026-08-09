@@ -23,21 +23,10 @@ standalone rules document yet.
 
 ## Layer view
 
-```mermaid
-flowchart TB
-  maint["«Business Actor (Human)»<br>Pilot"]:::business
-  agentAI["«Business Actor (AI)»<br>Copilot"]:::business
-  adopter["«Business Actor (Human)»<br>Template adopter (external)"]:::business
-  role["«Business Role»<br>Guidance author"]:::business
-  svc["«Business Service»<br>EA-first method guidance"]:::business
-
-  maint -->|assigned to| role
-  agentAI -->|assigned to| role
-  role -->|served by| svc
-  adopter -->|served by| svc
-
-  classDef business fill:#fffbb5,stroke:#b8a200,color:#333
-```
+The layer's diagrams live with their elements: actors and roles in
+[1_business-actors-and-roles.md](./1_business-actors-and-roles.md), the
+service and the process that realizes it in
+[2_business-services.md](./2_business-services.md).
 
 Every business service here is realized by the
 [Guidance publishing](../4_application/README.md) application service.
