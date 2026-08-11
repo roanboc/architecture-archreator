@@ -60,7 +60,7 @@ answer to a question this model left open — see below.
 
 | ID | Component | Realizes | Implemented by | Modeled in full by |
 | -- | --------- | -------- | -------------- | ------------------ |
-| `ACMP1` | **The skill set and plugin manifest** — twelve skills, the plugin and marketplace manifests | `ASVC1` | `.claude/skills/`, `.claude/.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` | [`meta/`](../../../../meta/README.md) |
+| `ACMP1` | **The skill set and plugin manifest** — thirteen skills, the plugin and marketplace manifests | `ASVC1` | `.claude/skills/`, `.claude/.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` | [`meta/`](../../../../meta/README.md) |
 | `ACMP2` | **The guidance site** — the published pages, English and Spanish | `ASVC2` | `site/public/` | [`site/docs/ea/`](../../../../site/docs/ea/README.md) |
 | `ACMP3` | **The documentation checks** — link resolution and element-identifier validation, run in CI | `ASVC3` | `scripts/check_links.py`, `scripts/check_model.py`, `.github/workflows/` | [`meta/`](../../../../meta/README.md) |
 | `ACMP4` | **The scaffold** — the empty layered tree a cloner inherits | `ASVC1` | `docs/` | [`meta/`](../../../../meta/README.md) |
@@ -84,7 +84,7 @@ consumes that model — rather than one document growing until nobody can
 change it safely.
 
 The rule that keeps it honest: **nothing about a component's internals is
-written here.** `ACMP1` has twelve skills and a manifest; how they fit
+written here.** `ACMP1` has thirteen skills and a manifest; how they fit
 together is `meta/`'s layer 4, and copying any of it into this table would
 create the second copy `P3` exists to prevent.
 

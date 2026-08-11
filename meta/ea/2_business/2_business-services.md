@@ -79,7 +79,7 @@ that realizes it, per `P1`.
 | `BSVC3` | **Right-sizing** — the method costs what the subject is worth, and says which weight it picked | `STK1`, `STK2` | The depth ladder in [`docs/ea/README.md`](../../../docs/ea/README.md#modeling-depth); [`project-bootstrap`](../../../.claude/skills/project-bootstrap/SKILL.md) |
 | `BSVC4` | **Approval that counts** — a business judgment is exercised by whoever holds it and survives in the record | `STK3` | `ea-first-change` § The gates and § Where a gate happens; the Approvals table in [`scope-doc`](../../../.claude/skills/scope-doc/SKILL.md) |
 | `BSVC5` | **Federated scale** — a business line is modeled on its own terms without being flattened into the enterprise | `STK1` | [`domain-modeling`](../../../.claude/skills/domain-modeling/SKILL.md); [`docs/ea/domains/`](../../../docs/ea/domains/README.md) |
-| `BSVC6` | **Staying true** — the model keeps describing today rather than accumulating into an archive | `STK1`, `STK2` | [`restate-current-state`](../../../.claude/skills/restate-current-state/SKILL.md) |
+| `BSVC6` | **Staying true** — the model keeps describing today, and the method keeps up with what using it actually teaches | `STK1`, `STK2` | [`restate-current-state`](../../../.claude/skills/restate-current-state/SKILL.md) for the model; [`engagement-retrospective`](../../../.claude/skills/engagement-retrospective/SKILL.md) for the method |
 | `BSVC7` | **Method upgrade** — an improvement to the method reaches an existing project without a migration | `STK5` | The plugin manifest at `.claude/.claude-plugin/plugin.json`; **partially Pending** — the mechanism exists, no second version has shipped through it yet |
 
 ## Business rules

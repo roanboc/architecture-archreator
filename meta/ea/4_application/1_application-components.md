@@ -83,6 +83,7 @@ caught it.
 | `ACMP13` | Link checker | `RULE2` (partially — it checks links, not realizations) | [`scripts/check_links.py`](../../../scripts/check_links.py) |
 | `ACMP14` | Plugin package | `BSVC7` | [`.claude/.claude-plugin/plugin.json`](../../../.claude/.claude-plugin/plugin.json), [`.claude-plugin/marketplace.json`](../../../.claude-plugin/marketplace.json) |
 | `ACMP15` | Element-ID validator | `RULE5` | [`scripts/check_model.py`](../../../scripts/check_model.py) |
+| `ACMP16` | Engagement retrospective | `BSVC6` (from the other end — it keeps the *method* current) | [`.claude/skills/engagement-retrospective/SKILL.md`](../../../.claude/skills/engagement-retrospective/SKILL.md) |
 
 ## What is enforced, and what still isn't
 
@@ -99,6 +100,13 @@ left out: distinguishing a repository path from a team name is fuzzy, and a
 wrong failure in CI teaches people to ignore CI. The grounding rule is
 therefore still carried by review, not by tooling — which is worth knowing
 when reading any row in this repository that claims a realization.
+
+**`ACMP16` is the newest and the least like the others.** Every other
+component here acts *during* a change; this one acts after one, and its
+output is a proposal rather than an edit. It exists because
+[the organization behind archreator](../../../organization/docs/decisions/1_take-coa1-staged.md)
+needed a mechanism for turning what a person improvised into method anyone
+can use.
 
 ## Interface
 

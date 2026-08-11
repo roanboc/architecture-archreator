@@ -37,3 +37,4 @@ correctly on both paths and is what `ea-doc-style` § Links requires.
 | `decision-record` | [decision-record/SKILL.md](./decision-record/SKILL.md) |
 | `stack-selection` | [stack-selection/SKILL.md](./stack-selection/SKILL.md) |
 | `story-sharding` | [story-sharding/SKILL.md](./story-sharding/SKILL.md) |
+| `engagement-retrospective` | [engagement-retrospective/SKILL.md](./engagement-retrospective/SKILL.md) |

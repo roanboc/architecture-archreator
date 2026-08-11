@@ -17,6 +17,78 @@ you can reason about, delegate inside, and eventually hand work to.
 > method, and one of its own actors is an AI. It's the friendly front door
 > to everything below.
 
+
+## The shape of it, in two diagrams
+
+Both are drawn in the notation the method itself specifies — glyph, shape,
+tone and identifier, defined once in
+[`docs/ea/README.md` § Notation conventions](./docs/ea/README.md#notation-conventions).
+Everything under `docs/`, `meta/`, `organization/` and `site/` is drawn the
+same way.
+
+**What a change goes through.** A requirement never becomes code directly:
+
+```mermaid
+flowchart LR
+  req(["⚇ «Business Actor (Human)»<br>The Requester"]):::actor
+  frame{{"⚙ «Business Process»<br>Align the layers"}}:::process
+  gate[/"❒ «Business Rule»<br>Gate 2 — no code before this"/]:::rule
+  build{{"⚙ Implement from the approved design"}}:::process
+  agent(["⚇ «Business Actor (AI)»<br>The Agent — co-pilot"]):::actorai
+  out[["◉ «Outcome»<br>A change consistent with<br>everything already decided"]]:::outcome
+
+  req -->|states what is wanted| frame
+  agent -->|assigned to| frame
+  frame -->|stops at| gate
+  req -->|grants| gate
+  gate -->|then| build
+  agent -->|assigned to| build
+  build -->|realizes| out
+
+  classDef actor fill:#fffbb5,stroke:#b8a200,color:#333
+  classDef actorai fill:#c2f0ff,stroke:#2a8fb0,color:#333
+  classDef process fill:#f7f099,stroke:#9a8800,color:#333
+  classDef rule fill:#e5d95f,stroke:#7a6c00,color:#333
+  classDef outcome fill:#b493e0,stroke:#5e35b1,color:#333
+```
+
+The AI is cyan because it runs as software while holding a business role —
+that is the distinguishing bet above, drawn rather than asserted. It is
+assigned to the work on both sides of the gate and cannot grant the gate
+itself.
+
+**What the model is made of.** Six layers, each answering before the one
+below it can be right:
+
+```mermaid
+flowchart TB
+  l0["◍ «Customer Segment» · «Job» · «Pain»<br>0 Business design — who we serve"]:::motivation
+  l1["◎ «Goal» · «Principle» · ✦ «Capability»<br>1 Strategy — what must become true"]:::strategy
+  l2["⚇ «Business Actor» · ⬭ «Business Service»<br>2 Business — who acts, what is offered"]:::business
+  l3["▦ «Data Object»<br>3 Information — what is known"]:::information
+  l4["⊞ «Application Component»<br>4 Application — the software"]:::application
+  l5["⬒ «Node» · ⬯ «Technology Service»<br>5 Technology — what it runs on"]:::technology
+
+  l0 -->|derived into| l1
+  l1 -->|realized by| l2
+  l2 -->|handles| l3
+  l2 -->|realized by| l4
+  l4 -->|runs on| l5
+
+  classDef motivation fill:#e6d6f5,stroke:#7e57c2,color:#333
+  classDef strategy fill:#f5deaa,stroke:#c8a24a,color:#333
+  classDef business fill:#fffbb5,stroke:#b8a200,color:#333
+  classDef information fill:#c2f0ff,stroke:#0288d1,color:#333
+  classDef application fill:#c2f0ff,stroke:#0288d1,color:#333
+  classDef technology fill:#c9e7b7,stroke:#558b2f,color:#333
+```
+
+This is a **cross-layer** view, so each layer keeps its flat palette colour.
+Inside a single layer the tone ramps by element type instead — compare the
+[organization's motivation layer](./organization/docs/ea/1_strategy/1_motivation.md),
+where six shades of the same violet separate stakeholder from driver from
+goal.
+
 ## Who this is for
 
 - **Companies mapping how they actually work** — several business lines,
@@ -68,7 +140,7 @@ rendered as real, checkable architecture; the
 ## What's in the box
 
 This repo carries **no application code**: enterprise-architecture
-guidelines, twelve Claude Code skills that turn the method into agent
+guidelines, thirteen Claude Code skills that turn the method into agent
 behavior, and the documentation scaffolding a project starts from.
 
 ## Quick start
@@ -303,7 +375,7 @@ flowchart TB
   scope["docs/scope/<br><i>one doc per change, + the process writeup</i>"]
   decisions["docs/decisions/<br><i>one doc per smaller, non-obvious call</i>"]
   skillscore["skills: ea-first-change, ea-doc-style,<br>scope-doc, pr-description"]
-  skillssupport["skills: operating-model-discovery,<br>strategy-discovery, domain-modeling,<br>decision-record, story-sharding, stack-selection"]
+  skillssupport["skills: operating-model-discovery,<br>strategy-discovery, domain-modeling, decision-record,<br>story-sharding, stack-selection,<br>engagement-retrospective"]
   pr[".github/ PR templates<br>(default + bugfix)"]
 
   bootstrap -->|writes| claude
@@ -330,7 +402,7 @@ flowchart TB
 | [docs/ea/domains/](./docs/ea/domains/README.md) | **Depth 3 only.** One nested model per business line, each with a charter naming what it exposes, plus the split test and the federation rule governing cross-domain change |
 | [docs/scope/](./docs/scope/README.md)  | One document per **change** to that state: the EA-first process write-up, the initiative index, and the optional [open-questions.md](./docs/scope/open-questions.md) log |
 | [docs/decisions/](./docs/decisions/README.md) | Optional log of smaller, non-obvious calls that don't rise to a full scope document — most often *why* an AI actor's autonomy level or decision rights were set the way they were |
-| [`.claude/skills/`](./.claude/skills/README.md) | Twelve Claude Code skills that turn the method into concrete agent behavior — see the two tables below. Also the root of the installable plugin |
+| [`.claude/skills/`](./.claude/skills/README.md) | Thirteen Claude Code skills that turn the method into concrete agent behavior — see the two tables below. Also the root of the installable plugin |
 | [`meta/`](./meta/README.md) | archreator's own development record — the [value and UX review](./meta/reviews/1_value-and-ux-review.md) and the scope documents for changes to the method itself. Read it, don't inherit it |
 | [`organization/`](./organization/README.md) | The **live operating model of the organization behind archreator**, at Depth 2 — the worked company track, canvases through derived strategy and business layers. Read it, don't inherit it |
 | [.github/pull_request_template.md](./.github/pull_request_template.md) + [PULL_REQUEST_TEMPLATE/bugfix.md](./.github/PULL_REQUEST_TEMPLATE/bugfix.md) | Two PR bodies — one shaped to mirror a scope document's EA-alignment table, one for pure bug fixes that skip it — so the PR and the docs never drift apart |
@@ -363,6 +435,7 @@ project to fill in:
 | `decision-record`   | A short, durable rationale for a single consequential call that's smaller than an initiative — most often why an AI actor's autonomy level or decision rights were set the way they were |
 | `story-sharding`    | Adapted from [BMAD-METHOD](https://github.com/bmadcode/BMAD-METHOD)'s context-engineered development: when a scope document's work package is too large for one sitting, shard it into small, self-contained story files so an agent or person resuming later never has to re-derive the whole plan from the EA tree |
 | `stack-selection`   | A decision framework plus concrete defaults for choosing a stack on a small/solo app: static-only (GitHub Pages/Cloudflare Pages, no backend) vs. needs data/auth (Supabase for managed Postgres + Auth + RLS, Vercel for hosting/CI/CD) — with the reasoning for picking one over the other |
+| `engagement-retrospective` | Run after an initiative or a client engagement closes: captures where the method failed to say what to do and what was done instead, as a pattern note with client facts left behind. It proposes method changes; it never makes them |
 
 ## Keeping a project in sync with the method
 
