@@ -43,6 +43,7 @@ unreliable on a single case.
 | # | Note | Kind | Date | Proposed |
 | - | ---- | ---- | ---- | -------- |
 | 1 | [1_modeling-and-notation-work.md](./1_modeling-and-notation-work.md) | Initiative ×6 | 2026-08-09 | 3 — one ready, two waiting for a second case |
+| 2 | [2_renaming-a-live-model.md](./2_renaming-a-live-model.md) | Initiative ×1 | 2026-08-12 | 5 — two ready, one a second appearance, two waiting |
 
 **Note 1 is written against the work that produced this mechanism**, which
 is not how the retrospective is meant to run: it is recollection from the
