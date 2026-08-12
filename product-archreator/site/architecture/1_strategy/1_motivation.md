@@ -158,5 +158,5 @@ a change is most likely to erode by accident.
 
 A proposed change that would publish unreviewed AI-drafted content, or
 that would make the site restate rather than link to its source, violates
-a Principle here — surface it instead of proceeding (`ea-first-change`,
+a Principle here — surface it instead of proceeding (`architecture-first-change`,
 step 1).

@@ -40,7 +40,7 @@ them.
 
 `1_business-actors-and-roles.md` states each actor's **kind** — human, AI,
 or hybrid — and, for AI/hybrid actors, its autonomy level, decision
-rights, and escalation path (see the `ea-doc-style` skill's actor
+rights, and escalation path (see the `architecture-doc-style` skill's actor
 notation). This is where an AI system's role **in the business being
 modeled** gets stated explicitly — not just its role in how this repo is
 developed (see `CONTRIBUTING.md`). If an initiative changes one of those

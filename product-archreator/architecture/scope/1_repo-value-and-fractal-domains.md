@@ -54,7 +54,7 @@ distinction exists (it is defect D10's resolution).
 
 - **Deliverables:** `.claude-plugin/plugin.json`,
   `.claude-plugin/marketplace.json`; gate-surface guidance in
-  [`ea-first-change`](../../../.claude/skills/ea-first-change/SKILL.md);
+  [`ea-first-change`](../../../.claude/skills/architecture-first-change/SKILL.md);
   plugin-first install path in [`README.md`](../../../README.md)
 - **Outcome:** `/plugin update` propagates method improvements, and a
   non-technical Requester has a named place to grant approvals

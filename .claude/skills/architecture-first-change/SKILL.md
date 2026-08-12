@@ -1,5 +1,5 @@
 ---
-name: ea-first-change
+name: architecture-first-change
 description: Use when requirements change or a new feature/behavior change is requested in this repo. Assesses whether the change needs strategy discovery first, aligns the change through the enterprise architecture layers (strategy → business → information → application → technology) with explicit Requester approval gates before implementation, records it in a scope document, and only then implements. Not needed for pure bug fixes that change no documented behavior.
 ---
 
@@ -26,7 +26,7 @@ canvas blocks. **At every one of them, consolidate before you enumerate.**
 Two elements that differ only in degree are one element with a severity or
 intensity column. A list that has grown past one screen is asking which of
 its entries are the same thing seen from two angles, not how to be sorted.
-The rules are in `ea-doc-style` § Consolidate before you enumerate and are
+The rules are in `architecture-doc-style` § Consolidate before you enumerate and are
 not restated here.
 
 This applies to what is **proposed** as much as to what is written: a
@@ -204,7 +204,7 @@ the same change set, not an afterthought):
    `5_domain-context-and-rules.md` (with the _why_) before they get code.
    New terms go into the glossary; reuse existing glossary terms in code.
    If the change adds an actor, or changes an existing AI actor's autonomy
-   level or decision rights (`ea-doc-style`'s actor notation), consider a
+   level or decision rights (`architecture-doc-style`'s actor notation), consider a
    `decision-record` alongside the scope document explaining why.
 2. **`architecture/3_information/`** — New or changed data objects, flows,
    representations, storage, classification, retention?
@@ -278,6 +278,12 @@ defines).
 - Every EA element you added names the code artifact that realizes it, or
   is marked "Pending — future initiative" with a link to the initiative
   that will deliver it — the EA set stays verifiable against the code.
+- **Name every other model in the repository whose current state this change
+  falsifies, and correct it in the same change** (`RULE12`). A federated
+  repository holds more than one model, and this process walks only the one
+  you are working in. Grep for the paths, directory names and artifact names
+  the change moved or renamed; every hit in another model's layer documents is
+  a statement that was true before and may not be now.
 - The scope document's "in scope / out of scope" table matches the diff.
 - The scope document's Approvals table has a row for **every** gate, each
   either approved or marked `N/A — <why>` (§ The gates is the single source
@@ -288,6 +294,14 @@ defines).
   carefully if the doc language uses accented headings).
 - If the scope document gained or resolved an "Open question", the
   project's open-questions log (if it keeps one) reflects the same.
+
+**Why the cross-model check is a step and not a nicety.** Neither validator
+can find these. `check_model` verifies that an element *reference* resolves;
+`check_links` verifies that a *link* resolves. Neither reads what a "Realized
+by" cell claims about a path, so a cell naming a directory that no longer
+exists passes both checks silently. The one time this was left to notice
+rather than to a step, an initiative that moved a scaffold and renamed three
+trees falsified seven statements in a second model and shipped them.
 
 **If this was a discovery initiative, say what comes next.** Discovery ends
 at Gate 0 or Gate 1 having delivered documents and no code — which is

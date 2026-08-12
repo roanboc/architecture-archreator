@@ -179,7 +179,7 @@ through it, so nothing has proved the claim.
 | ID | Outcome | Realizes | Measured by |
 | -- | ------- | -------- | ----------- |
 | `OUT1` | Any element in the model can be checked against the repository or the people doing the work in under a minute | `G1` | A reader picks a row at random and finds the artifact, or an explicit "Pending" |
-| `OUT2` | A change that contradicts an existing principle is stopped before it is built, not after | `G2` | `ea-first-change` Step 1c reaches a Conflict verdict rather than proceeding |
+| `OUT2` | A change that contradicts an existing principle is stopped before it is built, not after | `G2` | `architecture-first-change` Step 1c reaches a Conflict verdict rather than proceeding |
 | `OUT3` | A Requester with no terminal can grant every gate | `G3` | Gates are granted in conversation or on a PR comment, and transcribed into the Approvals table |
 | `OUT4` | A method improvement reaches an existing project without hand-porting | `G4` | `/plugin update`. **Pending** until the plugin has shipped a second version |
 
@@ -213,7 +213,7 @@ not something a rule can be checked against.
 
 
 Few, load-bearing, and testable. These gate every change to the method
-itself, and `ea-first-change` Step 1c stops on a conflict with any of them.
+itself, and `architecture-first-change` Step 1c stops on a conflict with any of them.
 
 | ID | Principle | What it rules out |
 | -- | --------- | ----------------- |

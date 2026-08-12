@@ -182,7 +182,7 @@ by hand, that skill is also the checklist:
    name, description, layout, and commands, and **declare the modeling
    depth** in `CLAUDE.md`.
 2. Decide the documentation language once (English is the default) and note
-   it in `CLAUDE.md` — see the `ea-doc-style` skill.
+   it in `CLAUDE.md` — see the `architecture-doc-style` skill.
 3. Delete what you didn't inherit: [`site/`](./product-archreator/site/README.md),
    [`product-archreator/`](./product-archreator/README.md) and
    [`org-archreator/`](./org-archreator/README.md) are archreator's own
@@ -218,7 +218,7 @@ Three roles, and only one of them needs to be technical:
 A non-technical stakeholder never installs anything. Someone technical sets
 the repository up once; the Requester participates in the discovery
 conversation and grants the gates — in Claude Code on the web, or as a reply
-on the PR, which doubles as the durable record. See `ea-first-change`
+on the PR, which doubles as the durable record. See `architecture-first-change`
 § Where a gate happens.
 
 ## Why this isn't TOGAF, or another documentation framework
@@ -374,7 +374,7 @@ flowchart TB
   domains["architecture/domains/<br><i>Depth 3 — one nested model per business line</i>"]
   scope["architecture/scope/<br><i>one doc per change, + the process writeup</i>"]
   decisions["architecture/decisions/<br><i>one doc per smaller, non-obvious call</i>"]
-  skillscore["skills: ea-first-change, ea-doc-style,<br>scope-doc, pr-description"]
+  skillscore["skills: architecture-first-change, architecture-doc-style,<br>scope-doc, pr-description"]
   skillssupport["skills: operating-model-discovery,<br>strategy-discovery, domain-modeling, decision-record,<br>story-sharding, stack-selection,<br>engagement-retrospective"]
   pr[".github/ PR templates<br>(default + bugfix)"]
 
@@ -419,8 +419,8 @@ project to fill in:
 | Skill              | Used for                                                                                                 |
 | ------------------- | ----------------------------------------------------------------------------------------------------------- |
 | `project-bootstrap` | **First contact.** Turns a fresh copy into *this* project: names it, declares the modeling depth out loud, prunes what wasn't inherited, and hands off to discovery |
-| `ea-first-change`  | The process itself: confirm the depth, locate the domain, assess the strategy (handing off to `strategy-discovery` when it's new or shifting), walk the EA layers top-down, stop at the Requester's approval gates, write a scope document, implement, verify alignment, write the PR |
-| `ea-doc-style`     | Numbering, ArchiMate-on-Mermaid notation (including the human/AI/hybrid actor convention), the grounding rule, link conventions for anything under `docs/` |
+| `architecture-first-change`  | The process itself: confirm the depth, locate the domain, assess the strategy (handing off to `strategy-discovery` when it's new or shifting), walk the EA layers top-down, stop at the Requester's approval gates, write a scope document, implement, verify alignment, write the PR |
+| `architecture-doc-style`     | Numbering, ArchiMate-on-Mermaid notation (including the human/AI/hybrid actor convention), the grounding rule, link conventions for anything under `docs/` |
 | `scope-doc`        | The scope-document template and its rules (every layer gets a verdict, deliverables are concrete, out-of-scope matters as much as in-scope) |
 | `pr-description`   | PR bodies describe the whole branch, not just the latest commit, and follow the template                 |
 
@@ -429,7 +429,7 @@ project to fill in:
 | Skill               | Used for                                                                                                |
 | -------------------- | ------------------------------------------------------------------------------------------------------------ |
 | `operating-model-discovery` | The company track: when the subject is an organization rather than an app, question-driven discovery of a value proposition canvas per customer segment and a business model canvas per product, ending at the business-model gate (Gate 0) — then handing off to `strategy-discovery`, which derives the EA from the approved canvases instead of re-asking |
-| `strategy-discovery` | Question-driven discovery of the strategy layer and key business elements with the Requester — triggered by `ea-first-change` when the strategy is still template placeholders (a project's first real initiative) or a change shifts it; a docs-only initiative ending at the strategy approval gate (Gate 1) |
+| `strategy-discovery` | Question-driven discovery of the strategy layer and key business elements with the Requester — triggered by `architecture-first-change` when the strategy is still template placeholders (a project's first real initiative) or a change shifts it; a docs-only initiative ending at the strategy approval gate (Gate 1) |
 | `domain-modeling`   | Depth 3: whether a business line deserves to be a domain at all (a five-part test), how to write its charter, how element IDs are namespaced across domains, and the federation rule — changing an exposed service needs the consuming domains' Requesters too |
 | `restate-current-state` | Compacts the model so it describes today: shipped "Pending"s get their realizing artifact, superseded elements move to a Retired table, resolved open questions are archived, and stale decision records are marked superseded. Merged scope documents are never rewritten — they are the record of what was approved when |
 | `decision-record`   | A short, durable rationale for a single consequential call that's smaller than an initiative — most often why an AI actor's autonomy level or decision rights were set the way they were |

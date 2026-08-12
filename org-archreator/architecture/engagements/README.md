@@ -33,7 +33,7 @@ a useful one — it is how anyone tells whether the method is converging or
 whether this mechanism is manufacturing lessons to justify itself.
 
 **Proposals become initiatives, not edits.** A note never changes a skill. It
-proposes, and each proposal goes through `ea-first-change` with the gates
+proposes, and each proposal goes through `architecture-first-change` with the gates
 that implies. A pattern that appears in **two** notes should be raised that
 week; a pattern in one should wait, because the generalization test is
 unreliable on a single case.
@@ -43,6 +43,7 @@ unreliable on a single case.
 | # | Note | Kind | Date | Proposed |
 | - | ---- | ---- | ---- | -------- |
 | 1 | [1_modeling-and-notation-work.md](./1_modeling-and-notation-work.md) | Initiative ×6 | 2026-08-09 | 3 — one ready, two waiting for a second case |
+| 2 | [2_renaming-a-live-model.md](./2_renaming-a-live-model.md) | Initiative ×1 | 2026-08-12 | 6 — three to act on, three waiting (two of them probably forever) |
 
 **Note 1 is written against the work that produced this mechanism**, which
 is not how the retrospective is meant to run: it is recollection from the

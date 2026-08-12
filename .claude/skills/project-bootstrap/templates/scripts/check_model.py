@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Check that element-ID references in this repo resolve to real elements.
 
-`ea-doc-style` gives every element an ID (`G1`, `CAP3`, `SALES.BSVC3`) and
+`architecture-doc-style` gives every element an ID (`G1`, `CAP3`, `SALES.BSVC3`) and
 says an ID is assigned once and never reused, so that a stale reference
 fails loudly rather than silently pointing at something else. Nothing
 enforced that until this script: `check_links.py` verifies that a *link*
@@ -77,7 +77,7 @@ MODEL_DIR = "architecture"
 NARRATIVE = {"scope", "decisions", "reviews", "engagements"}
 FENCE_RE = re.compile(r"```.*?```", re.DOTALL)
 
-# Element-ID prefixes, from `ea-doc-style` § Element IDs. Longest first so
+# Element-ID prefixes, from `architecture-doc-style` § Element IDs. Longest first so
 # that alternation matches `BSVC` before `B`-prefixed neighbours.
 PREFIXES = sorted(
     [

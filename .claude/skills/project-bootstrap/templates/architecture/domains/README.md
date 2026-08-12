@@ -77,7 +77,7 @@ entitled to depend on. It carries:
 | **Exposed services** | The «Business Service» elements other domains may reference, with their IDs. This is the interface — nothing else is public |
 | **Consumed services** | What it depends on from other domains, by qualified ID |
 | **Decision rights and escalation** | What it decides alone, and who it escalates to |
-| **Operated by** | Human, AI, or hybrid — with the autonomy level, decision rights, and escalation path from `ea-doc-style`'s actor notation, applied to the domain as a whole |
+| **Operated by** | Human, AI, or hybrid — with the autonomy level, decision rights, and escalation path from `architecture-doc-style`'s actor notation, applied to the domain as a whole |
 
 That last row is what makes this useful for an AI-first organization: a
 domain operated by an AI at a declared autonomy level, with declared
@@ -111,7 +111,7 @@ Bare inside the owning domain (`BSVC3`), qualified from outside
 prefix **per domain**, so two domains may each own a `BSVC3` — the qualifier
 is what distinguishes them, and this is deliberate: globally unique
 numbering would make every new domain a merge conflict against every other.
-Full rules in `ea-doc-style` § Element IDs.
+Full rules in `architecture-doc-style` § Element IDs.
 
 ## Layer view
 

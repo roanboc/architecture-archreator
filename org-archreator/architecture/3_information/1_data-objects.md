@@ -69,8 +69,8 @@ things follow from it.
 
 | ID | Data object | Where it lives | Classification | Accessed by |
 | -- | ----------- | -------------- | -------------- | ----------- |
-| `DOBJ1` | **The method sources** — skills, conventions, the scaffold, the validators | `.claude/skills/`, `docs/`, `scripts/` in the public repository | Public | `ROLE1`, and every adopter |
-| `DOBJ2` | **The published guidance** — the pages a reader lands on | `site/public/` | Public | `ROLE1`, and any visitor |
+| `DOBJ1` | **The method sources** — skills, conventions, the scaffold, the validators | `.claude/skills/` in the public repository, which now carries all four | Public | `ROLE1`, and every adopter |
+| `DOBJ2` | **The published guidance** — the pages a reader lands on | `product-archreator/site/public/` | Public | `ROLE1`, and any visitor |
 | `DOBJ3` | **This organization's own model** — the canvases, the layers, the scope documents | `org-archreator/` | **Public, deliberately.** An organization asking others to model themselves honestly should be readable | `ROLE3`, and any visitor |
 | `DOBJ4` | **Client business information** — what a consulting engagement learns about a client | Held by `ROLE2` personally, outside this repository and outside any system this model describes | **Confidential** | `ROLE2` only |
 | `DOBJ5` | **Adopter models** — the architecture an adopter builds with the method | **In the adopter's own repository.** This organization never receives a copy | Not held | Nobody here |

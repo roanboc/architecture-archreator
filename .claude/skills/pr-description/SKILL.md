@@ -44,7 +44,7 @@ For the **default** template, fill every section:
 - **Summary** — what the branch delivers, 2–4 sentences.
 - **Scope document** — link the `architecture/scope/N_*.md` file(s) this branch adds
   or updates. Its Approvals table must already record the gates the change
-  required (Gate 2 at minimum — see `ea-first-change`); an empty table
+  required (Gate 2 at minimum — see `architecture-first-change`); an empty table
   means the branch isn't ready for review. A pure bug fix may state "no
   scope document" with a reason (but should probably be using the bugfix
   template instead).

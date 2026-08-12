@@ -22,7 +22,7 @@ redoing layers 1 and 2 when the canvas moves.
 **Gate 0 was granted on 2026-08-08**, and
 [layers 1](../1_strategy/README.md) and [2](../2_business/README.md) were
 derived after it. The rule now cuts the other way: a change to either canvas
-is a change to everything derived from it, so it re-enters `ea-first-change`
+is a change to everything derived from it, so it re-enters `architecture-first-change`
 rather than being edited in place.
 
 The canvas-block-to-ArchiMate mapping lives in

@@ -23,7 +23,7 @@ does and how its pieces relate.
 
 Requirements are aligned through the model and approved at explicit gates
 before anything is built. [`CLAUDE.md`](./CLAUDE.md) states the rule and the
-declared modeling depth; the `ea-first-change` skill runs the process.
+declared modeling depth; the `architecture-first-change` skill runs the process.
 
 ## Built with
 

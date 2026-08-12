@@ -10,7 +10,7 @@ _[← Scope index](./README.md) · [EA home](../README.md)_
 
 A living index of every adopted interpretation, across all scope documents,
 that still needs confirmation from the project's stakeholder(s). Reviewed
-as step 0 of `ea-first-change` before starting a new initiative, and kept in
+as step 0 of `architecture-first-change` before starting a new initiative, and kept in
 sync with each scope document's own "Open questions" section.
 
 ## Pending

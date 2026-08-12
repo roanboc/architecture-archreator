@@ -6,7 +6,7 @@ _[← Business layer](./README.md) · [EA home](../README.md)_
 Collaboration.
 
 Two internal actors, three external. One of the internal two is an AI, and
-per [`ea-doc-style` § Actors](../../../.claude/skills/ea-doc-style/SKILL.md)
+per [`architecture-doc-style` § Actors](../../../.claude/skills/architecture-doc-style/SKILL.md)
 it carries an autonomy level, concrete decision rights, and a named
 escalation path.
 

@@ -23,7 +23,7 @@ a portal has a runtime, callers, and contracts.
 
 **Name the application; do not restate how it is built.** Each component
 points at the Depth 1 model that details it — `product-archreator/` for the method and its
-tooling, `site/architecture/` for the guidance site. That link is the whole
+tooling, `product-archreator/site/architecture/` for the guidance site. That link is the whole
 relationship between this tree and those, and
 [2_application-components.md](./2_application-components.md#how-this-layer-relates-to-meta-and-site)
 sets it out.

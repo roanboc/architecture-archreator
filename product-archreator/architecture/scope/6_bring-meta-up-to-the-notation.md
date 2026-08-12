@@ -79,7 +79,7 @@ applying it exposed.
 
 - **Deliverables:** `RULE10` in
   [`2_business-services.md`](../2_business/2_business-services.md), and
-  [`ea-doc-style`](../../../.claude/skills/ea-doc-style/SKILL.md) § Every
+  [`ea-doc-style`](../../../.claude/skills/architecture-doc-style/SKILL.md) § Every
   element document opens with "How to read this document"
 - **Outcome:** a layer README that only indexes other documents is exempt,
   which is what applying the rule at scale showed it should always have said

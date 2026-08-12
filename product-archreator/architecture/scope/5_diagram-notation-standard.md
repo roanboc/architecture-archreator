@@ -65,7 +65,7 @@ every diagram in `organization/` was redrawn to the new standard as the test.
 
 ### WP2 — Put it in the skill
 
-- **Deliverables:** [`ea-doc-style`](../../../.claude/skills/ea-doc-style/SKILL.md)
+- **Deliverables:** [`ea-doc-style`](../../../.claude/skills/architecture-doc-style/SKILL.md)
   § ArchiMate on Mermaid, § Diagrams come first, § How to read this document,
   and the document skeleton
 - **Outcome:** an agent drawing a diagram reaches the rules through the skill

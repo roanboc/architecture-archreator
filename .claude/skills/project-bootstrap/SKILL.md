@@ -12,7 +12,7 @@ leads into._
 This skill is the bridge between an installed method and a modeled project:
 it **emits the scaffold**, turns it into *this* project, declares how deeply
 the project intends to model itself, and hands off to discovery. Everything
-after that is the normal `ea-first-change` process — there is no separate
+after that is the normal `architecture-first-change` process — there is no separate
 "template mode" to graduate out of.
 
 The scaffold ships inside this skill, at `templates/`. Nothing is inherited
@@ -20,7 +20,7 @@ by cloning, so nothing has to be pruned afterwards: the project gets exactly
 the empty model, and the method stays where it was installed.
 
 **Run this before anything else on a fresh project.** An agent that skips
-straight to `ea-first-change` will find placeholder strategy, trigger
+straight to `architecture-first-change` will find placeholder strategy, trigger
 discovery, and produce a strategy layer for a project that still has no
 name, no declared language, and no declared depth.
 
@@ -75,13 +75,13 @@ afterwards.
 Then, in one pass, so the first commit is coherent:
 
 1. **`CLAUDE.md`** — the real project name and description, the layout, the
-   commands, and the **declared modeling depth** (`ea-first-change` Step 1a
+   commands, and the **declared modeling depth** (`architecture-first-change` Step 1a
    reads it on every subsequent change). This file is the agent entry point;
    leaving placeholders in it is what makes later sessions guess.
 2. **`README.md`** — the project's own front door. What it is, who it's for,
    how to run it. Not archreator's README with names swapped.
 3. **Documentation language** — decide once, note it in `CLAUDE.md`. English
-   is the template's default. If it's another language, `ea-doc-style`
+   is the template's default. If it's another language, `architecture-doc-style`
    requires a stereotype-correspondence table in `architecture/README.md` so the
    ArchiMate vocabulary stays traceable.
 4. **`CONTRIBUTING.md` § Development workflow** — fill in once a stack

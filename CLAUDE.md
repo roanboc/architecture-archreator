@@ -49,8 +49,8 @@ invoke them by name in normal use.
 | Skill | Reach for it when |
 | ----- | ----------------- |
 | `project-bootstrap` | A project from the template hasn't been set up yet — start here |
-| `ea-first-change` | Any requirement change. **The spine**: it defines the gates and the order |
-| `ea-doc-style` | Editing anything under `architecture/` — numbering, element IDs, ArchiMate-on-Mermaid, the grounding rule |
+| `architecture-first-change` | Any requirement change. **The spine**: it defines the gates and the order |
+| `architecture-doc-style` | Editing anything under `architecture/` — numbering, element IDs, ArchiMate-on-Mermaid, the grounding rule |
 | `scope-doc` | Writing the initiative's scope document; its Approvals table is the durable record of the gates |
 | `pr-description` | Opening or updating a PR — the body covers the whole branch, not the latest commit |
 | `operating-model-discovery` | The subject is an organization: canvases first (Gate 0), strategy derived from them |

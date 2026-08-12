@@ -10,7 +10,7 @@ publishes it, the guidance site, and the empty scaffold a cloner inherits —
 and its directory names identify none of them. `docs/` is a template, `product-archreator/`
 is the method, `org-archreator/` is the business, and `site/` is a channel. A
 reader cannot tell which is which without opening them, and neither can the
-process: [`ea-first-change`](../../../.claude/skills/ea-first-change/SKILL.md)
+process: [`architecture-first-change`](../../../.claude/skills/architecture-first-change/SKILL.md)
 step 1a reads the declared modeling depth from `CLAUDE.md`, and the only
 `CLAUDE.md` at the root still says _"This project has not been bootstrapped
 yet"_ with depth _"not yet declared"_. This initiative names the parts, moves
@@ -100,7 +100,7 @@ keeps `RULE6` intact.
   in each tree declaring its depth — **Depth 2** for the organization,
   **Depth 1** for the method and for the site (the site already declares it).
   The root `CLAUDE.md` and `README.md` become archreator's own.
-- **Outcome:** step 1a of `ea-first-change` can be executed against this
+- **Outcome:** step 1a of `architecture-first-change` can be executed against this
   repository, and a reader can tell the four things apart from the root
   listing.
 

@@ -52,7 +52,7 @@ This model follows the template's conventions rather than restating them —
 stereotypes, the layer palette, relationship labels, the human/AI/hybrid
 actor notation, and element IDs all live in
 [the template's EA README](../../.claude/skills/project-bootstrap/templates/architecture/README.md#notation-conventions) and
-the `ea-doc-style` skill.
+the `architecture-doc-style` skill.
 
 ## Layered overview
 

@@ -93,7 +93,7 @@ the draft and it.
   [1_business-actors-and-roles.md](./1_business-actors-and-roles.md))
   walks the EA layers for the requested change, updates the affected
   `architecture/` and `site/` files, and opens a PR — same process as any other
-  change to this repository, per `ea-first-change`.
+  change to this repository, per `architecture-first-change`.
 - **Review** — `ACT1` Pilot approves or requests changes. Nothing merges
   without this step (`P2`,
   [1_strategy/1_motivation.md](../1_strategy/1_motivation.md)).

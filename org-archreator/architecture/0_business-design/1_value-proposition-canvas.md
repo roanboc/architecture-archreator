@@ -311,7 +311,7 @@ how much they have to feed it, not in what they buy.
 
 | ID | Pain reliever | Relieves | Realized by |
 | --- | --- | --- | --- |
-| `PREL1` | **The gated layer walk.** Approval gates force a complete frame before anything is built, so a misframed problem surfaces at the gate rather than at delivery | `PAIN1` | `PROD1` — the `ea-first-change` skill and the gates |
+| `PREL1` | **The gated layer walk.** Approval gates force a complete frame before anything is built, so a misframed problem surfaces at the gate rather than at delivery | `PAIN1` | `PROD1` — the `architecture-first-change` skill and the gates |
 | `PREL2` | **The method continues past design into delivery.** The design is what an agent builds from, so there is no handover for information to change shape in | `PAIN2` | `PROD1`, `PROD3` |
 | `PREL3` | **One model in one place** — markdown in git, catalogues and diagrams, every element naming what realizes it | `PAIN3` | `PROD1` |
 | `PREL4` | **The cost of an architect collapses to the cost of an agent.** With a coding agent, the price is a subscription instead of consultancy hours; through the portal, a one-off payment that is faster and cheaper than hiring, and the owner stays on top of it | `PAIN4` | `PROD1` with a coding agent; `PROD3` |

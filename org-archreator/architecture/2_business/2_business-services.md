@@ -96,7 +96,7 @@ this table records what each one aggregates and returns.
 
 | ID | Business service | Realizes | Product | Realized by | Source |
 | -- | ---------------- | -------- | ------- | ----------- | ------ |
-| `BSVC1` | **The method, published and installable** — the skills, the conventions, the gates, obtainable and usable without asking anyone | `CAP1`, `CAP2`, `CAP3` — all three areas | `PROD1` | `.claude/skills/`, the plugin manifest, `docs/` | Value propositions of `PROD1` |
+| `BSVC1` | **The method, published and installable** — the skills, the conventions, the gates, obtainable and usable without asking anyone | `CAP1`, `CAP2`, `CAP3` — all three areas | `PROD1` | `.claude/skills/` — the skills, the scaffold and the validators — and the plugin manifest | Value propositions of `PROD1` |
 | `BSVC2` | **Guidance and worked reference** — how to start, what the method is for, and a model built with it that a reader can inspect | `CAP3` | `PROD1` | `product-archreator/site/`, `product-archreator/`, and this tree | Value propositions of `PROD1` |
 | `BSVC3` | **Advisory and delivery with the method** — the Requester runs discovery and delivery personally, and what the method did not cover is captured afterwards | `CAP1`, `CAP3`, `CAP10` | `PROD2` | `ROLE2`, in person | Value propositions of `PROD2` |
 | `BSVC4` | **Architecture as a service** — an owner supplies what they have and receives a working architecture repository | `CAP1`, `CAP3` | `PROD3` | **Pending — future initiative** (`COA2`) | Value propositions of `PROD3` |

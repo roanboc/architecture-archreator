@@ -12,7 +12,7 @@ Folders and files carry a numeric prefix giving the order in which they are
 assessed. **Any change in requirements is aligned through these layers in
 this order — strategy first, technology last — and captured in a
 [scope document](./scope/README.md) before implementation starts** (see
-[CLAUDE.md](../CLAUDE.md) and the `ea-first-change` skill in
+[CLAUDE.md](../CLAUDE.md) and the `architecture-first-change` skill in
 `../../../.claude/skills/`).
 
 ## Layers, in assessment order
@@ -36,7 +36,7 @@ state; scope documents describe the **changes** that produce it.
 Same conventions as the parent template's
 [architecture/README.md](../../../.claude/skills/project-bootstrap/templates/architecture/README.md) — stereotype in the node
 label, one `classDef` per layer, ArchiMate relationship names on edges, plus
-the human/AI/hybrid actor convention from `ea-doc-style`. Not restated here;
+the human/AI/hybrid actor convention from `architecture-doc-style`. Not restated here;
 see that document for the full palette and rules.
 
 ## Layered overview

@@ -165,4 +165,4 @@ anything else (`scope-doc` skill), with:
 - **It does not change what the model asserts about the world** — only
   whether the model still describes today. If restating reveals the
   architecture should be different, that is the *next* initiative, through
-  `ea-first-change`, with its own gates.
+  `architecture-first-change`, with its own gates.

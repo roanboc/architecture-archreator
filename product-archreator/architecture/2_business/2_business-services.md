@@ -74,10 +74,10 @@ that realizes it, per `P1`.
 
 | ID | Service | Serves | Realized by |
 | -- | ------- | ------ | ----------- |
-| `BSVC1` | **Aligned change** — a requirement becomes a change that is consistent with everything already decided | `STK1`, `STK2` | [`ea-first-change`](../../../.claude/skills/ea-first-change/SKILL.md) |
+| `BSVC1` | **Aligned change** — a requirement becomes a change that is consistent with everything already decided | `STK1`, `STK2` | [`architecture-first-change`](../../../.claude/skills/architecture-first-change/SKILL.md) |
 | `BSVC2` | **Discovery** — an unstated strategy or business model becomes a documented one, by asking rather than assuming | `STK1`, `STK2` | [`operating-model-discovery`](../../../.claude/skills/operating-model-discovery/SKILL.md), [`strategy-discovery`](../../../.claude/skills/strategy-discovery/SKILL.md) |
 | `BSVC3` | **Right-sizing** — the method costs what the subject is worth, and says which weight it picked | `STK1`, `STK2` | The depth ladder in [`architecture/README.md`](../../../.claude/skills/project-bootstrap/templates/architecture/README.md#modeling-depth); [`project-bootstrap`](../../../.claude/skills/project-bootstrap/SKILL.md) |
-| `BSVC4` | **Approval that counts** — a business judgment is exercised by whoever holds it and survives in the record | `STK3` | `ea-first-change` § The gates and § Where a gate happens; the Approvals table in [`scope-doc`](../../../.claude/skills/scope-doc/SKILL.md) |
+| `BSVC4` | **Approval that counts** — a business judgment is exercised by whoever holds it and survives in the record | `STK3` | `architecture-first-change` § The gates and § Where a gate happens; the Approvals table in [`scope-doc`](../../../.claude/skills/scope-doc/SKILL.md) |
 | `BSVC5` | **Federated scale** — a business line is modeled on its own terms without being flattened into the enterprise | `STK1` | [`domain-modeling`](../../../.claude/skills/domain-modeling/SKILL.md); [`architecture/domains/`](../../../.claude/skills/project-bootstrap/templates/architecture/domains/README.md) |
 | `BSVC6` | **Staying true** — the model keeps describing today, and the method keeps up with what using it actually teaches | `STK1`, `STK2` | [`restate-current-state`](../../../.claude/skills/restate-current-state/SKILL.md) for the model; [`engagement-retrospective`](../../../.claude/skills/engagement-retrospective/SKILL.md) for the method |
 | `BSVC7` | **Method upgrade** — an improvement to the method reaches an existing project without a migration | `STK5` | The plugin manifest at `.claude/.claude-plugin/plugin.json`; **partially Pending** — the mechanism exists, no second version has shipped through it yet |
@@ -110,7 +110,7 @@ flowchart LR
 
 Solid edges read **enforces**. `RULE10`'s edge is dashed and points the other
 way: it is the one rule that **costs** a principle rather than serving one,
-and the table below says why that is accepted. Five of the ten rules are
+and the table below says why that is accepted. Five of the twelve rules are
 shown; the rest follow the same pattern.
 
 The rules that constrain how the services are delivered. Each traces to the
@@ -118,16 +118,18 @@ principle it enforces.
 
 | ID | Rule | Enforces | Where it bites |
 | -- | ---- | -------- | -------------- |
-| `RULE1` | No code is written before the Requester grants Gate 2 | `P2` | `ea-first-change` Step 4 |
-| `RULE2` | Every EA element names its realizing artifact, or is explicitly "Pending — future initiative" | `P1` | `ea-doc-style` § Grounding rule; `ea-first-change` Step 7. Carried by **review**, not tooling — see `ACMP13` |
+| `RULE1` | No code is written before the Requester grants Gate 2 | `P2` | `architecture-first-change` Step 4 |
+| `RULE2` | Every EA element names its realizing artifact, or is explicitly "Pending — future initiative" | `P1` | `architecture-doc-style` § Grounding rule; `architecture-first-change` Step 7. Carried by **review**, not tooling — see `ACMP13` |
 | `RULE3` | Every layer gets an explicit verdict in a scope document, including "no change" | `P2` | `scope-doc` § Rules |
 | `RULE4` | An approval that isn't recorded didn't happen; a gate that didn't apply is written `N/A — <why>` rather than deleted | `P2` | The Approvals table |
-| `RULE5` | An element ID is assigned once and never reused, even after the element is retired | `P5` | `ea-doc-style` § Element IDs; `restate-current-state`. Enforced in CI by `ACMP15` |
+| `RULE5` | An element ID is assigned once and never reused, even after the element is retired | `P5` | `architecture-doc-style` § Element IDs; `restate-current-state`. Enforced in CI by `ACMP15` |
 | `RULE6` | A merged scope document is never rewritten — follow-up work gets a new numbered document | `P5` | `scope-doc`; `restate-current-state` § The one rule |
-| `RULE7` | A change that contradicts an existing Principle stops and goes back to the Requester | `P2` | `ea-first-change` Step 1c, Conflict verdict |
+| `RULE7` | A change that contradicts an existing Principle stops and goes back to the Requester | `P2` | `architecture-first-change` Step 1c, Conflict verdict |
 | `RULE8` | Changing a domain's exposed service requires the consuming domains' Requesters at Gate 2 | `P2` | `domain-modeling` § Cross-domain changes |
-| `RULE9` | A skill links only within `.claude/skills/`; it names a project's documents in code spans | `P3` | `ea-doc-style` § Links. Added when packaging as a plugin made outbound links resolve to nothing |
-| `RULE10` | Every EA document **that carries elements** opens with its own notation legend, and every section that has a diagram opens with it | **none — it costs `P3`** | `ea-doc-style` § Diagrams come first; `architecture/README.md` § Notation conventions. The per-document legend is a deliberate, bounded copy of the global notation — duplication `P3` would normally forbid — accepted because these documents are read one at a time and out of order, by people and agents who will not open a second file. Narrowed to element documents when the rule was first applied at scale: a layer README that only indexes other documents has no elements to legend, and giving it one would be ceremony. Carried by **review**; nothing checks that a diagram was drawn |
+| `RULE9` | A skill links only within `.claude/skills/`; it names a project's documents in code spans | `P3` | `architecture-doc-style` § Links. Added when packaging as a plugin made outbound links resolve to nothing |
+| `RULE10` | Every EA document **that carries elements** opens with its own notation legend, and every section that has a diagram opens with it | **none — it costs `P3`** | `architecture-doc-style` § Diagrams come first; `architecture/README.md` § Notation conventions. The per-document legend is a deliberate, bounded copy of the global notation — duplication `P3` would normally forbid — accepted because these documents are read one at a time and out of order, by people and agents who will not open a second file. Narrowed to element documents when the rule was first applied at scale: a layer README that only indexes other documents has no elements to legend, and giving it one would be ceremony. Carried by **review**; nothing checks that a diagram was drawn |
+| `RULE11` | A tier refines what the tier above exposed and never restates it; every refining element names its parent | `P3` | `architecture-doc-style` § What belongs at which tier. Carried by **review** — nothing checks that a parent is named, and nothing could until enough elements carry one to make the absence meaningful. See [scope document 10](../scope/10_what-belongs-at-which-tier.md) |
+| `RULE12` | A change that touches more than one model corrects every current-state statement it falsifies, in the same change | `P1` | `architecture-first-change` Step 7. Carried by **review**, and it has already failed once: initiative 9 falsified seven statements in the organization's model and shipped them, because the process walks one model's layers and asks nothing about the others |
 
 ## The process, in one view
 
