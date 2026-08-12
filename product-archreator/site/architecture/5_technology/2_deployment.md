@@ -60,5 +60,5 @@ the way through to deployment.
   Actions**) before the workflow's deploy step can succeed. This can't be
   done from a commit — it's a repository-settings change an admin makes
   once. See
-  [`scope/1_publish-guidance-site.md`](../../scope/1_publish-guidance-site.md)'s
+  [`architecture/scope/1_publish-guidance-site.md`](../scope/1_publish-guidance-site.md)'s
   open questions.

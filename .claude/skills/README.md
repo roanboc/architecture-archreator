@@ -7,7 +7,7 @@ frontmatter — they aren't invoked by name in normal use. This file is a
 directory listing for humans browsing the folder; see the
 [root README](../../README.md#how-everything-fits-together) for the
 core-vs-supporting breakdown and how each skill relates to `architecture/` and
-`scope/`.
+`architecture/scope/`.
 
 This folder is also the root of the **`archreator` plugin** — its manifest
 is `.claude/.claude-plugin/plugin.json`, and the marketplace that publishes

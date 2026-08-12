@@ -1,6 +1,6 @@
 # Enterprise Architecture — the organization behind archreator
 
-_[← Project README](../README.md) · [Scope documents](../scope/README.md)_
+_[← Project README](../README.md) · [Scope documents](./scope/README.md)_
 
 **Modeling depth: 2 — Organization.** The subject is the organization that
 produces archreator, not the method itself. The method is one of the things

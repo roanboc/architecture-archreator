@@ -21,7 +21,7 @@ alongside the human Pilot who reviews its work.
 
 It used to be called `example/`, back when a fictional company sat beside it
 as the second worked example. That company was
-[removed](../scope/4_remove-the-fractal-example.md) — real projects are
+[removed](../architecture/scope/4_remove-the-fractal-example.md) — real projects are
 better evidence than a maintained fiction — and this folder was renamed for
 what it actually is.
 
@@ -32,16 +32,16 @@ that clicking "Use this template" hands a new project a clean scaffold,
 not someone else's filled-in architecture. This folder is kept separate
 from that scaffold on purpose: read it as a reference, don't inherit it.
 If you bootstrapped your own project from archreator, your `architecture/` and
-`scope/` live at your project's root, structured exactly like this
+`architecture/scope/` live at your project's root, structured exactly like this
 folder's — just about your project instead.
 
 ## Reading it
 
 - [`architecture/`](./architecture/README.md) — this project's current-state
   architecture, including the actor-notation example.
-- [`scope/`](./scope/README.md) — the one initiative that built
+- [`architecture/scope/`](./architecture/scope/README.md) — the one initiative that built
   this project, `1_publish-guidance-site.md`.
-- [`decisions/`](./decisions/README.md) — the smaller rationale
+- [`architecture/decisions/`](./architecture/decisions/README.md) — the smaller rationale
   calls behind this project: why the Copilot's autonomy level was set the
   way it was, and why the site renders its diagrams in CSS rather than with a
   library.

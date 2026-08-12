@@ -80,9 +80,9 @@ caught it.
 | `ACMP10` | Story sharding | — (supports `BSVC1`) | [`.claude/skills/story-sharding/SKILL.md`](../../../.claude/skills/story-sharding/SKILL.md) |
 | `ACMP11` | Stack selection | — (supports `BSVC1`) | [`.claude/skills/stack-selection/SKILL.md`](../../../.claude/skills/stack-selection/SKILL.md) |
 | `ACMP12` | PR authoring | — (supports `BSVC1`) | [`.claude/skills/pr-description/SKILL.md`](../../../.claude/skills/pr-description/SKILL.md) |
-| `ACMP13` | Link checker | `RULE2` (partially — it checks links, not realizations) | [`scripts/check_links.py`](../../../scripts/check_links.py) |
+| `ACMP13` | Link checker | `RULE2` (partially — it checks links, not realizations) | [`.claude/skills/project-bootstrap/templates/scripts/check_links.py`](../../../.claude/skills/project-bootstrap/templates/scripts/check_links.py) |
 | `ACMP14` | Plugin package | `BSVC7` | [`.claude/.claude-plugin/plugin.json`](../../../.claude/.claude-plugin/plugin.json), [`.claude-plugin/marketplace.json`](../../../.claude-plugin/marketplace.json) |
-| `ACMP15` | Element-ID validator | `RULE5` | [`scripts/check_model.py`](../../../scripts/check_model.py) |
+| `ACMP15` | Element-ID validator | `RULE5` | [`.claude/skills/project-bootstrap/templates/scripts/check_model.py`](../../../.claude/skills/project-bootstrap/templates/scripts/check_model.py) |
 | `ACMP16` | Engagement retrospective | `BSVC6` (from the other end — it keeps the *method* current) | [`.claude/skills/engagement-retrospective/SKILL.md`](../../../.claude/skills/engagement-retrospective/SKILL.md) |
 
 ## What is enforced, and what still isn't
@@ -90,7 +90,7 @@ caught it.
 `ACMP15` closes `RULE5`: every element reference under an `architecture/` tree
 resolves, no ID is defined twice, and no retired ID reappears as live. It
 builds the graph in memory and exits — there is no exported model, and
-deliberately so ([decision 4](../../decisions/4_defer-the-model-database.md)
+deliberately so ([decision 4](../decisions/4_defer-the-model-database.md)
 records why, and what would change the answer).
 
 **`RULE2` is still only partly enforced.** `ACMP13` verifies that a *link*
@@ -104,7 +104,7 @@ when reading any row in this repository that claims a realization.
 **`ACMP16` is the newest and the least like the others.** Every other
 component here acts *during* a change; this one acts after one, and its
 output is a proposal rather than an edit. It exists because
-[the organization behind archreator](../../../org-archreator/decisions/1_take-coa1-staged.md)
+[the organization behind archreator](../../../org-archreator/architecture/decisions/1_take-coa1-staged.md)
 needed a mechanism for turning what a person improvised into method anyone
 can use.
 

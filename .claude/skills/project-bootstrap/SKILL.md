@@ -61,10 +61,12 @@ Requester already approved.
 ## Step 2 — Emit the scaffold, then make it this project
 
 **First, copy the scaffold** from this skill's `templates/` directory into
-the project root. It holds `CLAUDE.md`, `README.md`, `architecture/`,
-`scope/` and `decisions/` — an empty model with every layer README in place.
-Copy it whole; the checklist below replaces the placeholders, and Step 3
-sets the layers to the declared depth.
+the project root. It holds `CLAUDE.md`, `README.md`, `architecture/` — with
+`architecture/scope/` and `architecture/decisions/` inside it — and
+`scripts/`, the two validators that keep the model honest. An empty model
+with every layer README in place, and the checks that enforce it. Copy it
+whole; the checklist below replaces the placeholders, and Step 3 sets the
+layers to the declared depth.
 
 The scaffold is the only thing that lands. The method itself stays where the
 plugin installed it, which is why there is nothing of archreator's to delete
@@ -85,9 +87,9 @@ Then, in one pass, so the first commit is coherent:
 4. **`CONTRIBUTING.md` § Development workflow** — fill in once a stack
    exists; leave the TEMPLATE comment until then rather than inventing
    commands.
-5. **Optional files** — keep `scope/open-questions.md` only if there's
+5. **Optional files** — keep `architecture/scope/open-questions.md` only if there's
    a stakeholder who can't be consulted synchronously; keep
-   `decisions/` only if the project will make enough
+   `architecture/decisions/` only if the project will make enough
    architecture-significant calls to justify a log. Delete either otherwise;
    both can come back later.
 
@@ -121,7 +123,7 @@ against gates. Hand off by depth:
 | 3 | `operating-model-discovery` for the enterprise, then `domain-modeling` per business line |
 
 Discovery is a full initiative: it gets scope document `1_...md` in
-`scope/`, indexed in `scope/README.md`, created before its gate.
+`architecture/scope/`, indexed in `architecture/scope/README.md`, created before its gate.
 That is the project's first initiative and the reason the index isn't empty
 on day one.
 
@@ -137,5 +139,6 @@ is still unbuilt. Say so, and offer to open it as the next initiative.
   are kept or deleted deliberately.
 - Every layer README's table says either what exists or "not started".
 - Scope document `1_...md` exists and is indexed.
-- The project's own link check passes, if it has one. Nothing about the
-  method requires the project to carry archreator's `scripts/`.
+- `python3 scripts/check_links.py` and `python3 scripts/check_model.py`
+  both pass. They came with the scaffold, so every project has them from
+  its first commit.

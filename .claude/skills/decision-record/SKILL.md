@@ -32,9 +32,9 @@ from the EA-alignment table row it explains; it never replaces it.
 
 ## Where decisions live
 
-`decisions/<n>_<kebab-case-slug>.md`, numbered chronologically across
+`architecture/decisions/<n>_<kebab-case-slug>.md`, numbered chronologically across
 all decisions (one flat sequence, not per-layer), indexed in
-`decisions/README.md`. Optional — like `scope/open-questions.md`,
+`architecture/decisions/README.md`. Optional — like `architecture/scope/open-questions.md`,
 projects with only a handful of significant calls can skip the folder
 entirely and fold the rationale into the relevant scope document's prose
 instead; add the folder the first time a decision doesn't fit that mold.

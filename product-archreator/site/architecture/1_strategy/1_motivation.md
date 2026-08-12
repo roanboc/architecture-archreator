@@ -154,7 +154,7 @@ a change is most likely to erode by accident.
   may draft complete changes, but nothing publishes without a human
   merging it (see
   [2_business/1_business-actors-and-roles.md](../2_business/1_business-actors-and-roles.md) and
-  [../decisions/1_docs-agent-autonomy.md](../../decisions/1_docs-agent-autonomy.md)).
+  [../decisions/1_docs-agent-autonomy.md](../decisions/1_docs-agent-autonomy.md)).
 
 A proposed change that would publish unreviewed AI-drafted content, or
 that would make the site restate rather than link to its source, violates

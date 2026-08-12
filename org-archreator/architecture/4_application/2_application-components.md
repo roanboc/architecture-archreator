@@ -69,7 +69,7 @@ answer to a question this model left open — see below.
 ## How this layer relates to `product-archreator/` and `site/`
 
 This resolves the question
-[the first initiative left open](../../scope/1_model-the-operating-model.md):
+[the first initiative left open](../scope/1_model-the-operating-model.md):
 what happens to `product-archreator/` once the organization's layer 4 exists.
 
 **The organization's layer 4 names *that* an application exists, what it

@@ -8,7 +8,7 @@ organization that produces archreator, modeled with archreator, in the open.
 That distinction is the point. A fictional company demonstrates the notation
 and proves nothing about whether the method survives contact with a real
 business — which is why the fictional one was
-[removed](../product-archreator/scope/4_remove-the-fractal-example.md). This tree is what
+[removed](../product-archreator/architecture/scope/4_remove-the-fractal-example.md). This tree is what
 archreator looks like applied to a real organization, and it happens to be
 readable because that organization is this one.
 
@@ -24,7 +24,7 @@ architecture/0_business-design/   the canvases everything else derives from
 architecture/1_strategy/          motivation, capabilities, the value stream
 architecture/2_business/          actors and roles; products, services, channels
 architecture/3_information/ … 5_technology/   not started
-scope/                  one document per initiative
+architecture/scope/                  one document per initiative
 ```
 
 **Modeling depth: 2 — Organization.** No `domains/`: this organization does

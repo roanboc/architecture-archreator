@@ -103,7 +103,7 @@ depth rather than to type.
 | `CAP6` | 2 | **One documented model** — markdown in git, catalogues and diagrams, every element naming what realizes it | `CAP2` | `VAL3` | The `ea-doc-style` skill, `scripts/check_links.py`, `scripts/check_model.py` | `PREL3`, `GCRE2` |
 | `CAP7` | 2 | **Layered change absorption** — strategy can change without redoing technology, and the reverse | `CAP2` | `VAL5` | The numbered layers and the per-layer "no change" verdict | `GCRE6` |
 | `CAP8` | 2 | **Design-to-delivery continuity** — the approved design is the input an agent builds from, so there is no handover | `CAP3` | `VAL2` | The `ea-first-change` skill, Steps 5–7, and the `story-sharding` skill | `PREL2`, `GCRE3` |
-| `CAP10` | 2 | **Engagement-to-method learning** — what the Requester improvises during an engagement becomes method that anyone can use, instead of staying in one person's head | `CAP2` | `VAL3` | The `engagement-retrospective` skill and the notes in [`docs/engagements/`](../../engagements/README.md) | — (no canvas source; added by [decision 1](../../decisions/1_take-coa1-staged.md)) |
+| `CAP10` | 2 | **Engagement-to-method learning** — what the Requester improvises during an engagement becomes method that anyone can use, instead of staying in one person's head | `CAP2` | `VAL3` | The `engagement-retrospective` skill and the notes in [`docs/engagements/`](../engagements/README.md) | — (no canvas source; added by [decision 1](../decisions/1_take-coa1-staged.md)) |
 | `CAP9` | 2 | **Method-carried competence** — the expertise sits in the method, so the price of an architecture drops to the price of an agent | `CAP3` | `VAL4` | The skill set as a whole, distributed as a plugin | `PREL4`, `GCRE5` |
 
 **`CAP10` has no canvas source, and it is the only capability that does
@@ -301,7 +301,7 @@ later stages, and both of the others.
 
 | ID | Course of action | Addresses | Requires | State |
 | -- | ---------------- | --------- | -------- | ----- |
-| `COA1` | **AI agents acting as consultants**, carrying the Requester's knowledge | The `RES1` concentration, and the gap between what `CAP9` claims and what `BSVC3` needs a person for | Stage 1 needs nothing; later stages need evidence, then a decision on autonomy, then the ability to hold client data | **Taken, staged** — [decision 1](../../decisions/1_take-coa1-staged.md). Stage 1 delivered by `CAP10` |
+| `COA1` | **AI agents acting as consultants**, carrying the Requester's knowledge | The `RES1` concentration, and the gap between what `CAP9` claims and what `BSVC3` needs a person for | Stage 1 needs nothing; later stages need evidence, then a decision on autonomy, then the ability to hold client data | **Taken, staged** — [decision 1](../decisions/1_take-coa1-staged.md). Stage 1 delivered by `CAP10` |
 | `COA2` | **Build the portal** (`PROD3`) | `STK2` and `STK3` are reachable today only through a coding agent, and nothing reaches an owner who is not already looking | An application and technology layer this model does not yet have | **Pending — target state** |
 | `COA3` | **Instrument the adoption measure** | Only three of seven outcomes are checkable today; one is observable but never counted, and three have no collection method at all | A way for adopters to report use — self-reporting is the obvious candidate | **Pending.** Prerequisite for any Social Return on Investment valuation |
 
@@ -312,5 +312,5 @@ where the Requester's time actually gets relieved.
 
 `COA2` still pulls the opposite way: it would spend a great deal of `RES1`
 before returning anything. That ordering is now settled by
-[decision 1](../../decisions/1_take-coa1-staged.md), which also records what
+[decision 1](../decisions/1_take-coa1-staged.md), which also records what
 would reopen it.

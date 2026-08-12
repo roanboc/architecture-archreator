@@ -19,7 +19,7 @@ placeholder it will replace.
 and the Requester approves at explicit gates before development.** A change
 in requirements is never coded directly: align it through the numbered EA
 layers (`architecture/1_strategy` → … → `5_technology`), stop at the gates for
-the Requester's approval, record it in a scope document (`scope/`),
+the Requester's approval, record it in a scope document (`architecture/scope/`),
 then implement. Pure bug fixes that change no documented behavior skip the
 alignment and the gates, but still keep the docs true.
 
@@ -63,9 +63,11 @@ invoke them by name in normal use.
 - `tests/` — ...
 -->
 
-- `architecture/` — the layered model (numbered ArchiMate layers), with
-  `architecture/domains/` used only at Depth 3;
-  `scope/` — one document per initiative.
+- `architecture/` — everything architectural: the numbered ArchiMate layers
+  describing the current state, `architecture/domains/` (Depth 3 only),
+  `architecture/scope/` — one document per initiative — and
+  `architecture/decisions/` for calls smaller than an initiative.
+- `scripts/` — the two validators, run before every push.
 
 ## Commands
 
@@ -81,7 +83,10 @@ All of them must be green before pushing; CI runs the same.
 
 ```bash
 python3 scripts/check_links.py    # relative links and HTML anchors resolve
+python3 scripts/check_model.py    # element-ID references resolve
 ```
+
+Both must be green before pushing.
 
 ## Conventions
 

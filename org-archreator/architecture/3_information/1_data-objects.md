@@ -74,7 +74,7 @@ things follow from it.
 | `DOBJ3` | **This organization's own model** — the canvases, the layers, the scope documents | `org-archreator/` | **Public, deliberately.** An organization asking others to model themselves honestly should be readable | `ROLE3`, and any visitor |
 | `DOBJ4` | **Client business information** — what a consulting engagement learns about a client | Held by `ROLE2` personally, outside this repository and outside any system this model describes | **Confidential** | `ROLE2` only |
 | `DOBJ5` | **Adopter models** — the architecture an adopter builds with the method | **In the adopter's own repository.** This organization never receives a copy | Not held | Nobody here |
-| `DOBJ7` | **Engagement pattern notes** — what the method did not cover, and what was done instead | [`org-archreator/engagements/`](../../engagements/README.md) | **Public** — patterns lifted out of `DOBJ4` with every identifying fact left behind | `ROLE1`, `ROLE2`, and any visitor |
+| `DOBJ7` | **Engagement pattern notes** — what the method did not cover, and what was done instead | [`org-archreator/engagements/`](../engagements/README.md) | **Public** — patterns lifted out of `DOBJ4` with every identifying fact left behind | `ROLE1`, `ROLE2`, and any visitor |
 | `DOBJ6` | **Portal submissions and generated repositories** — what an owner would upload and get back | **Pending — future initiative** (`COA2`) | Would be the first non-public data this organization systematically holds | Nobody yet |
 
 ### Why the organization cannot measure itself
@@ -101,7 +101,7 @@ nothing identifying may travel with it.** Two tests, both in the
 does the pattern still teach anything once the specifics are gone.
 
 `DOBJ7` exists because `CAP10` needed somewhere to put its output. It is the
-first stage of [`COA1`](../../decisions/1_take-coa1-staged.md), and it is
+first stage of [`COA1`](../decisions/1_take-coa1-staged.md), and it is
 also the first mechanism `RS1` has ever had — the primary non-monetary return
 was claimed at Gate 0 with nothing behind it.
 

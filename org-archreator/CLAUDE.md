@@ -14,7 +14,7 @@ and the Requester approves at explicit gates before development.** A change
 in requirements is never coded directly: align it through the numbered EA
 layers (`architecture/0_business-design` → … → `5_technology`), stop at the
 gates for the Requester's approval, record it in a scope document
-(`scope/`), then implement. The `ea-first-change` skill runs the process and
+(`architecture/scope/`), then implement. The `ea-first-change` skill runs the process and
 defines which gate applies.
 
 ## Modeling depth
@@ -28,18 +28,18 @@ Gate 0 before anything was derived from them.
 `architecture/domains/` is **not** used. The split test asks whether a part
 of the business has its own goals, its own people and its own economics;
 nothing here does yet. See
-[`../product-archreator/decisions/5_no-per-product-strategy-folders.md`](../product-archreator/decisions/5_no-per-product-strategy-folders.md)
+[`../product-archreator/decisions/5_no-per-product-strategy-folders.md`](../product-archreator/architecture/decisions/5_no-per-product-strategy-folders.md)
 for why products do not get folders inside the strategy layer, and
-[`decision 7`](../product-archreator/decisions/7_one-tree-per-federated-project.md)
+[`decision 7`](../product-archreator/architecture/decisions/7_one-tree-per-federated-project.md)
 for why they do get trees of their own.
 
 ## Layout
 
 - `architecture/` — the current-state model, numbered ArchiMate layers
   0–5, with the canvases at layer 0
-- `scope/` — one document per initiative, each carrying its Approvals table
-- `decisions/` — consequential calls smaller than an initiative
-- `engagements/` — retrospective notes capturing what the method did not
+- `architecture/scope/` — one document per initiative, each carrying its Approvals table
+- `architecture/decisions/` — consequential calls smaller than an initiative
+- `architecture/engagements/` — retrospective notes capturing what the method did not
   cover, the mechanism behind `COA1` stage 1
 
 ## Conventions

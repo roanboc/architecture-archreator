@@ -64,13 +64,13 @@ column below, not a different box on the diagram.
 | ID | Actor | Kind | Role | Autonomy level | Decision rights | Escalation path |
 | -- | ----- | ---- | ---- | --------------- | ---------------- | ----------------- |
 | `ACT1` | **Pilot** | Human | `ROLE1` | — (human) | Approves/merges any change to `site/`, `docs/`, or repo settings; sole authority over GitHub Pages configuration | — |
-| `ACT2` | **Copilot** | **AI** | `ROLE1` | **Co-pilot** — drafts complete changes; nothing it writes reaches the published site without a human merging it | May edit `site/*.html`, `architecture/**`, `scope/**` within this `site/` folder and open a PR. May **not** merge PRs, change GitHub Pages/repo settings, or edit content outside `site/` | Opens a PR to `ACT1`; if a proposed change would contradict a Principle in [`1_strategy/1_motivation.md`](../1_strategy/1_motivation.md), stops and surfaces the conflict instead of proceeding (mirrors `ea-first-change` step 1) |
+| `ACT2` | **Copilot** | **AI** | `ROLE1` | **Co-pilot** — drafts complete changes; nothing it writes reaches the published site without a human merging it | May edit `site/*.html`, `architecture/**`, `architecture/scope/**` within this `site/` folder and open a PR. May **not** merge PRs, change GitHub Pages/repo settings, or edit content outside `site/` | Opens a PR to `ACT1`; if a proposed change would contradict a Principle in [`1_strategy/1_motivation.md`](../1_strategy/1_motivation.md), stops and surfaces the conflict instead of proceeding (mirrors `ea-first-change` step 1) |
 | `ACT3` | **Template adopter** | Human, external | Consumer of `BSVC1` | — (human) | None — read-only visitor to the published site | — |
 
-See [`../../decisions/1_docs-agent-autonomy.md`](../../decisions/1_docs-agent-autonomy.md)
+See [`../../decisions/1_docs-agent-autonomy.md`](../decisions/1_docs-agent-autonomy.md)
 for why Copilot's autonomy is set at co-pilot rather than fully
 autonomous or advisory-only, and
-[`../../decisions/3_actor-naming.md`](../../decisions/3_actor-naming.md)
+[`../../decisions/3_actor-naming.md`](../decisions/3_actor-naming.md)
 for why these two actors are named **Pilot** and **Copilot** — the human
 who drives the design and the AI that collaborates.
 

@@ -187,9 +187,9 @@ by hand, that skill is also the checklist:
    [`product-archreator/`](./product-archreator/README.md) and
    [`org-archreator/`](./org-archreator/README.md) are archreator's own
    material, there to read on GitHub rather than to carry.
-4. Keep [`scope/open-questions.md`](./.claude/skills/project-bootstrap/templates/scope/open-questions.md)
+4. Keep [`architecture/scope/open-questions.md`](./.claude/skills/project-bootstrap/templates/architecture/scope/open-questions.md)
    only if there's a stakeholder who can't be consulted synchronously; keep
-   [`decisions/`](./.claude/skills/project-bootstrap/templates/decisions/README.md) only if the project will
+   [`architecture/decisions/`](./.claude/skills/project-bootstrap/templates/architecture/decisions/README.md) only if the project will
    make enough architecture-significant calls to justify a log. Delete
    either otherwise — both can come back later.
 5. Let discovery write the strategy. `strategy-discovery` for an
@@ -201,7 +201,7 @@ by hand, that skill is also the checklist:
    `stack-selection` rather than re-deriving one.
 
 Discovery produces the project's first scope document in
-[`scope/`](./.claude/skills/project-bootstrap/templates/scope/README.md), so the initiative index isn't empty
+[`architecture/scope/`](./.claude/skills/project-bootstrap/templates/architecture/scope/README.md), so the initiative index isn't empty
 on day one. From there, every further change follows the same process these
 files describe — there's no separate "template mode" to graduate out of.
 
@@ -267,7 +267,7 @@ numbered ArchiMate layers — starting at
 [`architecture/0_business-design/`](./.claude/skills/project-bootstrap/templates/architecture/0_business-design/README.md) when
 the subject is an organization, then `1_strategy` → `2_business` →
 `3_information` → `4_application` → `5_technology` — recorded in a scope
-document (`scope/`), and only then implemented. Validation is explicit:
+document (`architecture/scope/`), and only then implemented. Validation is explicit:
 the Requester approves at named gates before development — the business
 model (Gate 0), a new or shifted strategy (Gate 1), the
 strategy/business/information changes before any code (Gate 2), and
@@ -277,7 +277,7 @@ document. Every element names the artifact that realizes it — a team, a
 written procedure, a module — or is marked "Pending", so the architecture
 stays verifiable at any time. Full write-up:
 [CONTRIBUTING.md](./CONTRIBUTING.md) and
-[scope/README.md](./.claude/skills/project-bootstrap/templates/scope/README.md).
+[architecture/scope/README.md](./.claude/skills/project-bootstrap/templates/architecture/scope/README.md).
 
 ### Modeling an organization
 
@@ -372,8 +372,8 @@ flowchart TB
   contrib["CONTRIBUTING.md<br><i>the method, for humans</i>"]
   ea["architecture/<br><i>layers 0–5 — current-state architecture</i>"]
   domains["architecture/domains/<br><i>Depth 3 — one nested model per business line</i>"]
-  scope["scope/<br><i>one doc per change, + the process writeup</i>"]
-  decisions["decisions/<br><i>one doc per smaller, non-obvious call</i>"]
+  scope["architecture/scope/<br><i>one doc per change, + the process writeup</i>"]
+  decisions["architecture/decisions/<br><i>one doc per smaller, non-obvious call</i>"]
   skillscore["skills: ea-first-change, ea-doc-style,<br>scope-doc, pr-description"]
   skillssupport["skills: operating-model-discovery,<br>strategy-discovery, domain-modeling, decision-record,<br>story-sharding, stack-selection,<br>engagement-retrospective"]
   pr[".github/ PR templates<br>(default + bugfix)"]
@@ -400,10 +400,10 @@ flowchart TB
 | [CONTRIBUTING.md](./CONTRIBUTING.md)   | **Start here if you're a person.** The method in prose, the actors in the process (Requester / Agent / Reviewer) with a process-flow diagram, the dev workflow, and a definition-of-done checklist |
 | [architecture/](./.claude/skills/project-bootstrap/templates/architecture/README.md)        | The layered EA skeleton describing the subject's **current** state: the [depth ladder](./.claude/skills/project-bootstrap/templates/architecture/README.md#modeling-depth), numbering, ArchiMate-on-Mermaid notation and palette (including the human/AI/hybrid actor convention), per-layer analysis order, and a fill-in-the-blank layer view for each of `1_strategy` → `5_technology`. Plus [`0_business-design/`](./.claude/skills/project-bootstrap/templates/architecture/0_business-design/README.md) — the canvases, filled in when the subject is an organization |
 | [architecture/domains/](./.claude/skills/project-bootstrap/templates/architecture/domains/README.md) | **Depth 3 only.** One nested model per business line, each with a charter naming what it exposes, plus the split test and the federation rule governing cross-domain change |
-| [scope/](./.claude/skills/project-bootstrap/templates/scope/README.md)  | One document per **change** to that state: the EA-first process write-up, the initiative index, and the optional [open-questions.md](./.claude/skills/project-bootstrap/templates/scope/open-questions.md) log |
-| [decisions/](./.claude/skills/project-bootstrap/templates/decisions/README.md) | Optional log of smaller, non-obvious calls that don't rise to a full scope document — most often *why* an AI actor's autonomy level or decision rights were set the way they were |
+| [architecture/scope/](./.claude/skills/project-bootstrap/templates/architecture/scope/README.md)  | One document per **change** to that state: the EA-first process write-up, the initiative index, and the optional [open-questions.md](./.claude/skills/project-bootstrap/templates/architecture/scope/open-questions.md) log |
+| [architecture/decisions/](./.claude/skills/project-bootstrap/templates/architecture/decisions/README.md) | Optional log of smaller, non-obvious calls that don't rise to a full scope document — most often *why* an AI actor's autonomy level or decision rights were set the way they were |
 | [`.claude/skills/`](./.claude/skills/README.md) | Thirteen Claude Code skills that turn the method into concrete agent behavior — see the two tables below. Also the root of the installable plugin |
-| [`product-archreator/`](./product-archreator/README.md) | archreator's own development record — the [value and UX review](./product-archreator/reviews/1_value-and-ux-review.md) and the scope documents for changes to the method itself. Read it, don't inherit it |
+| [`product-archreator/`](./product-archreator/README.md) | archreator's own development record — the [value and UX review](./product-archreator/architecture/reviews/1_value-and-ux-review.md) and the scope documents for changes to the method itself. Read it, don't inherit it |
 | [`org-archreator/`](./org-archreator/README.md) | The **live operating model of the organization behind archreator**, at Depth 2 — the worked company track, canvases through derived strategy and business layers. Read it, don't inherit it |
 | [.github/pull_request_template.md](./.github/pull_request_template.md) + [PULL_REQUEST_TEMPLATE/bugfix.md](./.github/PULL_REQUEST_TEMPLATE/bugfix.md) | Two PR bodies — one shaped to mirror a scope document's EA-alignment table, one for pure bug fixes that skip it — so the PR and the docs never drift apart |
 

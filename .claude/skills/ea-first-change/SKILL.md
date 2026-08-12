@@ -16,7 +16,7 @@ explicitly approves at named gates before development proceeds, the way a
 business reference group signs off before building starts. A requirement
 change is never implemented directly: it is first aligned through the EA
 documents (`architecture/`), approved at the gates below, captured in a scope
-document (`scope/`), and only then coded. The folder numbers give you
+document (`architecture/scope/`), and only then coded. The folder numbers give you
 the assessment order.
 
 ## The standing principle: well-done less is more
@@ -48,7 +48,7 @@ that anyone will trace.
 | **Gate 3 — Solution design** | Only if the Requester opts in when asked at Gate 2 | The solution architecture and logical application components, with the good practices and design patterns applied called out |
 
 **This table is the single source for which gate applies when.**
-`CONTRIBUTING.md`, `scope/README.md`, and the `scope-doc` skill point
+`CONTRIBUTING.md`, `architecture/scope/README.md`, and the `scope-doc` skill point
 here rather than restating it.
 
 Approval is granted by the **Requester** (see `CONTRIBUTING.md` § Actors)
@@ -103,7 +103,7 @@ renders relative links there inconsistently, so write the full URLs.
 
 ## Step 0 — Check the open-questions log (if the project keeps one)
 
-If this project maintains `scope/open-questions.md`, read it: does any
+If this project maintains `architecture/scope/open-questions.md`, read it: does any
 row bear on the requested change? If the user (or whoever owns the product)
 answers one during this conversation, record the answer there and in the
 originating scope document's "Resolved" section in the same change, before
@@ -183,7 +183,7 @@ four verdicts, explicitly:
 
 Both discovery verdicts switch skills, but they do **not** leave this
 process. A discovery initiative is still an initiative: it gets the next
-numbered scope document in `scope/`, indexed in `scope/README.md`,
+numbered scope document in `architecture/scope/`, indexed in `architecture/scope/README.md`,
 exactly as Step 3 describes — created **before** its gate, so the Requester
 approves against a concrete document and the approval has somewhere to be
 recorded. Then it finishes at Step 7 (verify) and Step 8 (PR) like any other.
@@ -214,7 +214,7 @@ in the scope document rather than skipping them.
 
 ## Step 3 — Draft the scope document
 
-Create the next-numbered file in `scope/` using the `scope-doc` skill.
+Create the next-numbered file in `architecture/scope/` using the `scope-doc` skill.
 Do this **before Gate 2**, so the Requester approves against a concrete
 document; refine it as implementation proceeds.
 

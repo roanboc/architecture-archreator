@@ -107,7 +107,7 @@ deployment pipeline to draw.
 | -- | -------- | ----------- |
 | `ART1` | `SKILL.md` files under `.claude/skills/` | `NODE1` |
 | `ART2` | [`plugin.json`](../../../.claude/.claude-plugin/plugin.json) and [`marketplace.json`](../../../.claude-plugin/marketplace.json) | `NODE1` via `TSVC3` |
-| `ART3` | [`check_links.py`](../../../scripts/check_links.py) and [`check_model.py`](../../../scripts/check_model.py) | `NODE2` |
+| `ART3` | [`check_links.py`](../../../.claude/skills/project-bootstrap/templates/scripts/check_links.py) and [`check_model.py`](../../../.claude/skills/project-bootstrap/templates/scripts/check_model.py) | `NODE2` |
 | `ART4` | The `site/public/` static pages | `NODE3` |
 
 ## Why there is no more than this

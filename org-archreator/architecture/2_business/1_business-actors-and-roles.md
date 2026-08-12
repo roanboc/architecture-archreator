@@ -106,7 +106,7 @@ not branch on who maintains it. That is what would make `STK5`, the
 contributor community, a real partner rather than an aspiration.
 
 **`ROLE2` gained an assisting actor, and that is `COA1` starting.**
-[Decision 1](../../decisions/1_take-coa1-staged.md) takes the course of
+[Decision 1](../decisions/1_take-coa1-staged.md) takes the course of
 action in four stages; stage 1 keeps `ACT2` at co-pilot and behind `ACT1` —
 the Requester is still the person in the room. Stage 3 would raise it inside
 this role, and stage 4 would put an agent in front of a client. Both need
@@ -117,7 +117,7 @@ autonomy level in `ROLE1` and a different one in `ROLE2`, and the actors
 table above has a single autonomy column. Today both are co-pilot, so nothing
 is lost — but from stage 3 the notation cannot say what the model needs to
 say. Recorded as an open question in
-[scope document 3](../../scope/3_take-coa1-stage-one.md) rather than fixed on
+[scope document 3](../scope/3_take-coa1-stage-one.md) rather than fixed on
 a single case.
 
 ## External actors, and what binds them

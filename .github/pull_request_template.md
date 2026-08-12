@@ -21,7 +21,7 @@
 
 ## Scope document
 
-<!-- Link the initiative's scope/N_*.md (added or updated in this PR),
+<!-- Link the initiative's architecture/scope/N_*.md (added or updated in this PR),
      or state "pure bug fix — no scope document" and why. Its Approvals
      table records the gates this branch passed (Gate 2 at minimum for any
      change in documented behavior). -->

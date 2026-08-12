@@ -16,8 +16,8 @@ as numbered ArchiMate layers. Start there to understand what the project
 does and how its pieces relate.
 
 - [`architecture/`](./architecture/README.md) — the layered model, current state
-- [`scope/`](./scope/README.md) — one document per initiative, with its approval gates
-- [`decisions/`](./decisions/README.md) — consequential calls smaller than an initiative
+- [`architecture/scope/`](./architecture/scope/README.md) — one document per initiative, with its approval gates
+- [`architecture/decisions/`](./architecture/decisions/README.md) — consequential calls smaller than an initiative
 
 ## How changes are made
 

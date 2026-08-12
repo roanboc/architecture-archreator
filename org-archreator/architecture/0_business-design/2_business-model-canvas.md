@@ -413,7 +413,7 @@ The posture: **generic by design, one implementation today.** Optimising for
 a single target while it is the one in use is reasonable; letting the method
 itself become unportable would not be. Where exactly that line falls is
 fixed by
-[decision 6](../../../product-archreator/decisions/6_the-portability-boundary.md):
+[decision 6](../../../product-archreator/architecture/decisions/6_the-portability-boundary.md):
 method content and skill frontmatter are portable, packaging is not, and a
 file is assigned to a tier by asking whether it would need *editing* or just
 *moving* if Claude Code disappeared.
@@ -423,5 +423,5 @@ file is assigned to a tier by asking whether it would need *editing* or just
 | # | Question | Interpretation adopted |
 | - | -------- | ---------------------- |
 | 1 | How should the non-monetary returns `RS1` and `RS2` be valued? | **Answered at Gate 0, in part.** The *measure* is adoption in two bands — pre-engagement and real — as recorded above. The *valuation* is still open: **Social Return on Investment** remains the candidate framework, and it needs the real band instrumented before it has quantities to work on. archreator's own canvas guidance still has no support for non-monetary return, so that part is a gap in the method as well as in this model |
-| 2 | How far should provider neutrality go in practice? | **Answered.** [Decision 6](../../../product-archreator/decisions/6_the-portability-boundary.md) fixes three tiers — method content and skill frontmatter are portable, packaging is provider-specific — with a test that assigns any file to one: *would it need editing if Claude Code vanished, or just moving?* `CH3` is packaging, so a second platform adds a channel rather than replacing one |
+| 2 | How far should provider neutrality go in practice? | **Answered.** [Decision 6](../../../product-archreator/architecture/decisions/6_the-portability-boundary.md) fixes three tiers — method content and skill frontmatter are portable, packaging is provider-specific — with a test that assigns any file to one: *would it need editing if Claude Code vanished, or just moving?* `CH3` is packaging, so a second platform adds a channel rather than replacing one |
 | 3 | Is `KP3` (contributors) a partner or an aspiration? | Recorded as **Pending**. `RS1` depends on it, so a community that never forms would make the primary non-monetary return theoretical |

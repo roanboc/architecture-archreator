@@ -108,8 +108,8 @@ document like any other. **Create it before presenting Gate 1**, not after:
 the Requester should approve against a concrete document, and the approval
 needs somewhere to be recorded the moment it is granted.
 
-Using the `scope-doc` skill, add the next-numbered file to `scope/`
-and its row to `scope/README.md`'s index. On this track the EA
+Using the `scope-doc` skill, add the next-numbered file to `architecture/scope/`
+and its row to `architecture/scope/README.md`'s index. On this track the EA
 alignment table records the impact on layers 1–2 with an explicit "not
 started" verdict for the rest, and the Approvals table carries a Gate 1 row
 plus `N/A` rows for the gates that don't apply (Gate 2 and Gate 3 always;

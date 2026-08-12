@@ -15,7 +15,7 @@ realizes `BSVC2` for this product rather than standing on its own. See
 and the Requester approves at explicit gates before development.** A change
 in requirements is never coded directly: align it through the numbered EA
 layers (`architecture/1_strategy` → … → `5_technology`), stop at the gates
-for the Requester's approval, record it in a scope document (`scope/`), then
+for the Requester's approval, record it in a scope document (`architecture/scope/`), then
 implement. Use `ea-first-change` for the process, `ea-doc-style` when
 touching anything under `architecture/`, `scope-doc` for the scope document,
 `decision-record` for a call smaller than an initiative, and
@@ -43,18 +43,19 @@ artifacts are:
   — the packaging
 
 What may and may not be provider-specific among those is fixed by
-[decision 6](./decisions/6_the-portability-boundary.md): method content and
+[decision 6](./architecture/decisions/6_the-portability-boundary.md): method content and
 skill frontmatter are portable, packaging is not.
 
 ## Layout
 
 - `architecture/` — the current-state model, numbered ArchiMate layers
   (1, 2, 4, 5)
-- `scope/` — one document per initiative, each carrying its Approvals table
-- `decisions/` — consequential calls smaller than an initiative
-- `reviews/` — point-in-time assessments of the method against itself
-- `open-questions.md` — the consolidated index of adopted interpretations
-  still awaiting confirmation, read as step 0 of `ea-first-change`
+- `architecture/scope/` — one document per initiative, each carrying its Approvals table
+- `architecture/decisions/` — consequential calls smaller than an initiative
+- `architecture/reviews/` — point-in-time assessments of the method against itself
+- `architecture/scope/open-questions.md` — the consolidated index of adopted
+  interpretations still awaiting confirmation, read as step 0 of
+  `ea-first-change`
 - `site/` — the guidance site, its own Depth 1 project
 
 ## Conventions

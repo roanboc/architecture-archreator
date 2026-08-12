@@ -1,6 +1,6 @@
 ---
 name: ea-doc-style
-description: Use when creating or editing any document under architecture/ or scope/ — numbering, ArchiMate-on-Mermaid notation, grounding rules, and link conventions for this repo's documentation.
+description: Use when creating or editing any document under architecture/ — numbering, ArchiMate-on-Mermaid notation, grounding rules, and link conventions for this repo's documentation.
 ---
 
 # EA documentation style
@@ -8,7 +8,7 @@ description: Use when creating or editing any document under architecture/ or sc
 ## Language
 
 Pick one documentation language for the project and use it consistently
-across `architecture/`, `scope/`, commit messages, and code identifiers
+across `architecture/`, `architecture/scope/`, commit messages, and code identifiers
 (see the project's `CLAUDE.md`). Whatever language is chosen, **folder and
 file names stay plain ASCII** (no accents, no non-Latin punctuation) even
 if the prose inside is written in a language that uses them — this avoids
@@ -78,7 +78,7 @@ destroys.
   order**, which each layer README explains in an "Analysis order" table.
   A new file gets the next number, plus a row in that table; only renumber
   when the analysis order genuinely changes.
-- Scope documents (`scope/`) are numbered **chronologically** per
+- Scope documents (`architecture/scope/`) are numbered **chronologically** per
   initiative.
 
 ## Element IDs

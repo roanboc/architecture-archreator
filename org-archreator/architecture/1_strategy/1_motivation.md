@@ -56,7 +56,7 @@ Assessment magnifier, `◎` its Goal, `◉` its Outcome, and `✳` echoes the
 Driver's steering wheel. `◍` and `⚑` carry no resemblance and are simply
 consistent — like the shapes and the tones, they are learned from this table
 once and then read everywhere. ArchiMate's own icons cannot be drawn here;
-[the notation review](../../../product-archreator/reviews/2_diagram-notation-icons.md)
+[the notation review](../../../product-archreator/architecture/reviews/2_diagram-notation-icons.md)
 records what was tried.
 
 The ID prefix is how every other document in this model refers to an element

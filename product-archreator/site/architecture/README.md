@@ -1,6 +1,6 @@
 # Enterprise Architecture — archreator-guide
 
-_[← Repository README](../README.md) · [Scope documents](../scope/README.md)_
+_[← Repository README](../README.md) · [Scope documents](./scope/README.md)_
 
 This folder is the **primary documentation of the system**, organized as an
 ArchiMate-layered enterprise architecture. Every element is grounded in the
@@ -11,7 +11,7 @@ so the architecture can be verified against the code at any time.
 Folders and files carry a numeric prefix giving the order in which they are
 assessed. **Any change in requirements is aligned through these layers in
 this order — strategy first, technology last — and captured in a
-[scope document](../scope/README.md) before implementation starts** (see
+[scope document](./scope/README.md) before implementation starts** (see
 [CLAUDE.md](../CLAUDE.md) and the `ea-first-change` skill in
 `../../../.claude/skills/`).
 
@@ -28,7 +28,7 @@ this order — strategy first, technology last — and captured in a
 Files inside each layer folder are numbered the same way; each layer README
 explains its own analysis order. Delivered initiatives (ArchiMate
 Implementation & Migration viewpoint) are documented per initiative in
-[../scope/](../scope/README.md), not here — the EA describes the **current**
+[../scope/](./scope/README.md), not here — the EA describes the **current**
 state; scope documents describe the **changes** that produce it.
 
 ## Notation conventions

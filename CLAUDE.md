@@ -21,20 +21,20 @@ one for the tree you are working in.
 and the Requester approves at explicit gates before development.** A change
 in requirements is never coded directly: align it through the numbered EA
 layers (`architecture/1_strategy` → … → `5_technology`), stop at the gates
-for the Requester's approval, record it in a scope document (`scope/`), then
+for the Requester's approval, record it in a scope document (`architecture/scope/`), then
 implement. Pure bug fixes that change no documented behavior skip the
 alignment and the gates, but still keep the docs true.
 
 A change to **the method** is recorded in
-[`product-archreator/scope/`](./product-archreator/scope/README.md); a change
+[`product-archreator/architecture/scope/`](./product-archreator/architecture/scope/README.md); a change
 to **the organization** in
-[`org-archreator/scope/`](./org-archreator/scope/README.md) — even when the
+[`org-archreator/architecture/scope/`](./org-archreator/architecture/scope/README.md) — even when the
 organization is what motivated the method change.
 
 ## Portability
 
 archreator ships as a Claude Code plugin today, and is not tied to it.
-[Decision 6](./product-archreator/decisions/6_the-portability-boundary.md)
+[Decision 6](./product-archreator/architecture/decisions/6_the-portability-boundary.md)
 fixes the boundary: **method content and skill frontmatter are portable;
 packaging is provider-specific and disposable.** The test for any file is
 _would this need editing if Claude Code vanished tomorrow, or just moving?_
@@ -65,8 +65,8 @@ invoke them by name in normal use.
 ## Commands
 
 ```bash
-python3 scripts/check_links.py    # relative links and HTML anchors resolve
-python3 scripts/check_model.py    # element-ID references resolve, per project
+python3 .claude/skills/project-bootstrap/templates/scripts/check_links.py    # relative links and HTML anchors resolve
+python3 .claude/skills/project-bootstrap/templates/scripts/check_model.py    # element-ID references resolve, per project
 ```
 
 Both must be green before pushing; CI runs the same.

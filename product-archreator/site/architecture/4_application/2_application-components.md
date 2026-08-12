@@ -103,4 +103,4 @@ direct copy of `public/` (see
 diagrams are a *derived* rendering of the canonical Mermaid diagrams in
 `architecture/`; the choice to render them in CSS rather than load a library is
 recorded in
-[decision 2 — how the site renders its diagrams](../../decisions/2_site-diagram-rendering.md).
+[decision 2 — how the site renders its diagrams](../decisions/2_site-diagram-rendering.md).

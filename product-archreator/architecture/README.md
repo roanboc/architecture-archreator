@@ -1,6 +1,6 @@
 # Enterprise Architecture — archreator itself
 
-_[← meta index](../README.md) · [Scope documents](../scope/README.md)_
+_[← meta index](../README.md) · [Scope documents](./scope/README.md)_
 
 The current-state model of **archreator, the method** — modeled with the
 method. This is the dogfood: if the process is worth asking a downstream
@@ -26,8 +26,8 @@ decisions, and open questions.
 
 The rule: **`docs/` is what you get; `product-archreator/` is what archreator did to
 itself.** A change to the method gets a scope document in
-[`product-archreator/scope/`](../scope/README.md). A change to a project *built from*
-archreator gets one in that project's own `scope/`.
+[`product-archreator/scope/`](./scope/README.md). A change to a project *built from*
+archreator gets one in that project's own `architecture/scope/`.
 
 ## Layers, in assessment order
 

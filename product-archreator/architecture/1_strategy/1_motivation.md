@@ -232,5 +232,5 @@ The four diagrams above are the complete view, drawn one link of the chain at
 a time. An earlier version of this document ended with one picture of
 everything, which showed twelve of thirty-six elements and implied it showed
 all of them —
-[the notation standard](../../scope/5_diagram-notation-standard.md) exists
+[the notation standard](../scope/5_diagram-notation-standard.md) exists
 because of exactly that.

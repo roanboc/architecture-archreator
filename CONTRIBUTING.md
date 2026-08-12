@@ -5,7 +5,7 @@
 This repo practices **architecture-first development**: strategy and
 business architecture are validated before information, application, and
 technology — and all of it before code. The full process is described in
-[scope/README.md](./.claude/skills/project-bootstrap/templates/scope/README.md); in short, for any change in
+[architecture/scope/README.md](./.claude/skills/project-bootstrap/templates/architecture/scope/README.md); in short, for any change in
 requirements:
 
 0. **Know the depth you're working at.** `CLAUDE.md` declares the project's
@@ -30,7 +30,7 @@ requirements:
    business layers are then derived (see the `operating-model-discovery`
    skill).
 2. **Document the scope** — add the next-numbered initiative document to
-   [scope/](./.claude/skills/project-bootstrap/templates/scope/README.md).
+   [architecture/scope/](./.claude/skills/project-bootstrap/templates/architecture/scope/README.md).
 3. **Pass the gates** — before any code, the requester approves the
    strategy, business, and information changes (**Gate 2 — Business**),
    and chooses whether to also review the solution design before it is
@@ -88,12 +88,12 @@ flowchart TD
     assess["Assess 1_strategy<br>against the change"]
     canvases["Operating-model discovery —<br>value proposition + business<br>model canvases, docs-only<br>(operating-model-discovery skill)"]
     discovery["Strategy discovery —<br>question-driven, docs-only<br>(strategy-discovery skill)"]
-    dscope["Draft scope document<br>scope/N_*.md"]
+    dscope["Draft scope document<br>architecture/scope/N_*.md"]
     nextinit["Offer the implementation<br>initiative that triggered<br>discovery"]
     conflict{"Contradicts an existing<br>Principle?"}
     bugfix{"Pure bug fix — no<br>documented behavior<br>changes?"}
     walk23["Align 2_business and<br>3_information"]
-    scopedoc["Draft scope document<br>scope/N_*.md"]
+    scopedoc["Draft scope document<br>architecture/scope/N_*.md"]
     walk45["Align 4_application and<br>5_technology"]
     implement["Implement, keeping EA +<br>scope docs true to the code"]
     verify["Verify alignment<br>(ea-first-change, step 7)"]
