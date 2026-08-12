@@ -15,8 +15,8 @@ before any other layer is touched** — and "validated" means the Requester
 explicitly approves at named gates before development proceeds, the way a
 business reference group signs off before building starts. A requirement
 change is never implemented directly: it is first aligned through the EA
-documents (`docs/ea/`), approved at the gates below, captured in a scope
-document (`docs/scope/`), and only then coded. The folder numbers give you
+documents (`architecture/`), approved at the gates below, captured in a scope
+document (`scope/`), and only then coded. The folder numbers give you
 the assessment order.
 
 ## The standing principle: well-done less is more
@@ -48,7 +48,7 @@ that anyone will trace.
 | **Gate 3 — Solution design** | Only if the Requester opts in when asked at Gate 2 | The solution architecture and logical application components, with the good practices and design patterns applied called out |
 
 **This table is the single source for which gate applies when.**
-`CONTRIBUTING.md`, `docs/scope/README.md`, and the `scope-doc` skill point
+`CONTRIBUTING.md`, `scope/README.md`, and the `scope-doc` skill point
 here rather than restating it.
 
 Approval is granted by the **Requester** (see `CONTRIBUTING.md` § Actors)
@@ -103,7 +103,7 @@ renders relative links there inconsistently, so write the full URLs.
 
 ## Step 0 — Check the open-questions log (if the project keeps one)
 
-If this project maintains `docs/scope/open-questions.md`, read it: does any
+If this project maintains `scope/open-questions.md`, read it: does any
 row bear on the requested change? If the user (or whoever owns the product)
 answers one during this conversation, record the answer there and in the
 originating scope document's "Resolved" section in the same change, before
@@ -115,7 +115,7 @@ optional (see the `scope-doc` skill).
 ### 1a — Confirm the modeling depth, and say it out loud
 
 `CLAUDE.md` records this project's declared **modeling depth** (see
-`docs/ea/README.md` § Modeling depth).
+`architecture/README.md` § Modeling depth).
 Read it, and check the request against it:
 
 - **The request fits the declared depth** — say which depth you're working
@@ -137,7 +137,7 @@ Requester who is told nothing finds out three initiatives later.
 ### 1b — Locate the domain (Depth 3 only)
 
 At Depth 3 the model is split into domains
-(`docs/ea/domains/README.md`). Before
+(`architecture/domains/README.md`). Before
 assessing anything, name which domain owns this change, and check whether it
 touches another domain's **exposed** services. If it does, this is a
 cross-domain change: the consuming domains' Requesters approve at Gate 2 too,
@@ -146,13 +146,13 @@ and 2 skip this step.
 
 ### 1c — Assess strategy, and decide whether this is discovery
 
-Read `docs/ea/1_strategy/` against the requested change and reach one of
+Read `architecture/1_strategy/` against the requested change and reach one of
 four verdicts, explicitly:
 
 - **Operating-model discovery needed.** Triggered when the subject being
   modeled is an **organization** rather than a single application — a
   company, a department, or a service line whose operating model is itself
-  the deliverable — and `docs/ea/0_business-design/` is empty or no longer
+  the deliverable — and `architecture/0_business-design/` is empty or no longer
   matches. Switch to the `operating-model-discovery` skill: the initiative
   becomes documenting the Value Proposition Canvas per segment and the
   Business Model Canvas per product, ending at **Gate 0**, and then handing
@@ -162,7 +162,7 @@ four verdicts, explicitly:
   business" is this verdict; "this app needs a new feature" is not.
   **Step 3 still applies** — see "Handing off is not an exit" below.
 - **Strategy discovery needed.** Triggered when either (a)
-  `docs/ea/1_strategy/` still contains template placeholders — this is the
+  `architecture/1_strategy/` still contains template placeholders — this is the
   first real initiative of a project created from the template — or (b) the
   change adds or modifies a Stakeholder, Driver, Goal, or Principle, or
   reshapes the value stream. Stop treating this as an implementation
@@ -183,7 +183,7 @@ four verdicts, explicitly:
 
 Both discovery verdicts switch skills, but they do **not** leave this
 process. A discovery initiative is still an initiative: it gets the next
-numbered scope document in `docs/scope/`, indexed in `docs/scope/README.md`,
+numbered scope document in `scope/`, indexed in `scope/README.md`,
 exactly as Step 3 describes — created **before** its gate, so the Requester
 approves against a concrete document and the approval has somewhere to be
 recorded. Then it finishes at Step 7 (verify) and Step 8 (PR) like any other.
@@ -199,14 +199,14 @@ For each layer, read the layer README and answer its question for the
 requested change. Update the affected documents as you go (they are part of
 the same change set, not an afterthought):
 
-1. **`docs/ea/2_business/`** — Which business services/processes/objects
+1. **`architecture/2_business/`** — Which business services/processes/objects
    are added or changed? New business rules get a row in the rules table of
    `5_domain-context-and-rules.md` (with the _why_) before they get code.
    New terms go into the glossary; reuse existing glossary terms in code.
    If the change adds an actor, or changes an existing AI actor's autonomy
    level or decision rights (`ea-doc-style`'s actor notation), consider a
    `decision-record` alongside the scope document explaining why.
-2. **`docs/ea/3_information/`** — New or changed data objects, flows,
+2. **`architecture/3_information/`** — New or changed data objects, flows,
    representations, storage, classification, retention?
 
 Layers with no impact still get a "no change" verdict — say so explicitly
@@ -214,7 +214,7 @@ in the scope document rather than skipping them.
 
 ## Step 3 — Draft the scope document
 
-Create the next-numbered file in `docs/scope/` using the `scope-doc` skill.
+Create the next-numbered file in `scope/` using the `scope-doc` skill.
 Do this **before Gate 2**, so the Requester approves against a concrete
 document; refine it as implementation proceeds.
 
@@ -239,10 +239,10 @@ again.
 
 ## Step 5 — Align application and technology (Gate 3 if requested)
 
-1. **`docs/ea/4_application/`** — Which application services/components
+1. **`architecture/4_application/`** — Which application services/components
    change? New ports/interfaces follow `5_interface-contracts.md`; new
    platforms/adapters follow `4_solution-design.md`.
-2. **`docs/ea/5_technology/`** — Any impact on runtimes, build, CI, or
+2. **`architecture/5_technology/`** — Any impact on runtimes, build, CI, or
    hosting? If no stack has been chosen yet, use the `stack-selection`
    skill instead of re-deriving one from scratch.
 

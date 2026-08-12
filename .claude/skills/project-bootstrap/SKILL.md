@@ -1,6 +1,6 @@
 ---
 name: project-bootstrap
-description: Use when a project created from the archreator template has not been set up yet — CLAUDE.md or README.md still contain placeholder markers, docs/ea/ holds only layer READMEs, or the user says they just cloned or generated the repository and wants to start. Walks the first-commit checklist, assesses and announces the modeling depth, and hands off to the right discovery track. Not needed once CLAUDE.md declares a depth.
+description: Use when a project has the archreator method available but no model yet — there is no architecture/ folder, CLAUDE.md or README.md still contain placeholder markers, architecture/ holds only layer READMEs, or the user says they just installed the plugin, cloned or generated the repository and wants to start. Emits the scaffold, walks the first-commit checklist, assesses and announces the modeling depth, and hands off to the right discovery track. Not needed once CLAUDE.md declares a depth.
 ---
 
 # Bootstrapping a project from the template
@@ -9,11 +9,15 @@ _`README.md` is the human-facing version of this
 checklist; `CONTRIBUTING.md` is the method it
 leads into._
 
-A project generated from archreator arrives as a working method with an
-empty model. This skill is the bridge: it turns the template into *this*
-project, declares how deeply the project intends to model itself, and hands
-off to discovery. Everything after that is the normal `ea-first-change`
-process — there is no separate "template mode" to graduate out of.
+This skill is the bridge between an installed method and a modeled project:
+it **emits the scaffold**, turns it into *this* project, declares how deeply
+the project intends to model itself, and hands off to discovery. Everything
+after that is the normal `ea-first-change` process — there is no separate
+"template mode" to graduate out of.
+
+The scaffold ships inside this skill, at `templates/`. Nothing is inherited
+by cloning, so nothing has to be pruned afterwards: the project gets exactly
+the empty model, and the method stays where it was installed.
 
 **Run this before anything else on a fresh project.** An agent that skips
 straight to `ea-first-change` will find placeholder strategy, trigger
@@ -30,7 +34,7 @@ Ask, don't infer. Two questions carry the whole step:
    being built, or the way a business works?
 
 From the answers, pick a depth from
-`docs/ea/README.md` § Modeling depth:
+`architecture/README.md` § Modeling depth:
 
 | The Requester describes | Depth |
 | ----------------------- | ----- |
@@ -54,9 +58,19 @@ sentence; a Requester who is told nothing finds out three initiatives later.
 unwinding an over-modeled project means throwing away documents the
 Requester already approved.
 
-## Step 2 — Make the template into this project
+## Step 2 — Emit the scaffold, then make it this project
 
-In one pass, so the first commit is coherent:
+**First, copy the scaffold** from this skill's `templates/` directory into
+the project root. It holds `CLAUDE.md`, `README.md`, `architecture/`,
+`scope/` and `decisions/` — an empty model with every layer README in place.
+Copy it whole; Step 3 sets the layers to the declared depth and Step 2
+replaces the placeholders.
+
+The scaffold is the only thing that lands. The method itself stays where the
+plugin installed it, which is why there is nothing of archreator's to delete
+afterwards.
+
+Then, in one pass, so the first commit is coherent:
 
 1. **`CLAUDE.md`** — the real project name and description, the layout, the
    commands, and the **declared modeling depth** (`ea-first-change` Step 1a
@@ -66,17 +80,14 @@ In one pass, so the first commit is coherent:
    how to run it. Not archreator's README with names swapped.
 3. **Documentation language** — decide once, note it in `CLAUDE.md`. English
    is the template's default. If it's another language, `ea-doc-style`
-   requires a stereotype-correspondence table in `docs/ea/README.md` so the
+   requires a stereotype-correspondence table in `architecture/README.md` so the
    ArchiMate vocabulary stays traceable.
 4. **`CONTRIBUTING.md` § Development workflow** — fill in once a stack
    exists; leave the TEMPLATE comment until then rather than inventing
    commands.
-5. **Delete what you didn't inherit** — `site/`, `meta/` and
-   `organization/` are archreator's own material. They are there to read on
-   GitHub, not to carry.
-6. **Optional files** — keep `docs/scope/open-questions.md` only if there's
+5. **Optional files** — keep `scope/open-questions.md` only if there's
    a stakeholder who can't be consulted synchronously; keep
-   `docs/decisions/` only if the project will make enough
+   `decisions/` only if the project will make enough
    architecture-significant calls to justify a log. Delete either otherwise;
    both can come back later.
 
@@ -90,13 +101,13 @@ folder is an unknown one.
 - **Depth 1** — leave `0_business-design/` and `domains/` empty and say so.
 - **Depth 2** — `0_business-design/` gets filled by discovery; `domains/`
   stays empty.
-- **Depth 3** — read `docs/ea/domains/README.md` and use the
+- **Depth 3** — read `architecture/domains/README.md` and use the
   `domain-modeling` skill; the enterprise level is modeled first, domains
   after.
 
 If no stack is chosen yet and this is a small application, use
 `stack-selection` rather than re-deriving one, and record the choice in
-`docs/ea/5_technology/1_technology-services.md`.
+`architecture/5_technology/1_technology-services.md`.
 
 ## Step 4 — Hand off to discovery
 
@@ -110,7 +121,7 @@ against gates. Hand off by depth:
 | 3 | `operating-model-discovery` for the enterprise, then `domain-modeling` per business line |
 
 Discovery is a full initiative: it gets scope document `1_...md` in
-`docs/scope/`, indexed in `docs/scope/README.md`, created before its gate.
+`scope/`, indexed in `scope/README.md`, created before its gate.
 That is the project's first initiative and the reason the index isn't empty
 on day one.
 
@@ -122,8 +133,9 @@ is still unbuilt. Say so, and offer to open it as the next initiative.
 - `CLAUDE.md` and `README.md` contain no `<placeholder>` markers, and
   `CLAUDE.md` declares the modeling depth.
 - The documentation language is decided and recorded.
-- `site/`, `meta/` and `organization/` are gone; the optional files
+- The scaffold has been copied out of `templates/` and the optional files
   are kept or deleted deliberately.
 - Every layer README's table says either what exists or "not started".
 - Scope document `1_...md` exists and is indexed.
-- `python3 scripts/check_links.py` passes.
+- The project's own link check passes, if it has one. Nothing about the
+  method requires the project to carry archreator's `scripts/`.

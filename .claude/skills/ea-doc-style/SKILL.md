@@ -1,6 +1,6 @@
 ---
 name: ea-doc-style
-description: Use when creating or editing any document under docs/ea/ or docs/scope/ — numbering, ArchiMate-on-Mermaid notation, grounding rules, and link conventions for this repo's documentation.
+description: Use when creating or editing any document under architecture/ or scope/ — numbering, ArchiMate-on-Mermaid notation, grounding rules, and link conventions for this repo's documentation.
 ---
 
 # EA documentation style
@@ -8,13 +8,13 @@ description: Use when creating or editing any document under docs/ea/ or docs/sc
 ## Language
 
 Pick one documentation language for the project and use it consistently
-across `docs/ea/`, `docs/scope/`, commit messages, and code identifiers
+across `architecture/`, `scope/`, commit messages, and code identifiers
 (see the project's `CLAUDE.md`). Whatever language is chosen, **folder and
 file names stay plain ASCII** (no accents, no non-Latin punctuation) even
 if the prose inside is written in a language that uses them — this avoids
 cross-platform path and URL-encoding issues. If ArchiMate stereotypes are
 translated, keep a correspondence table to the standard English element
-names near the top of `docs/ea/README.md`.
+names near the top of `architecture/README.md`.
 
 ### Write it out
 
@@ -78,7 +78,7 @@ destroys.
   order**, which each layer README explains in an "Analysis order" table.
   A new file gets the next number, plus a row in that table; only renumber
   when the analysis order genuinely changes.
-- Scope documents (`docs/scope/`) are numbered **chronologically** per
+- Scope documents (`scope/`) are numbered **chronologically** per
   initiative.
 
 ## Element IDs
@@ -123,7 +123,7 @@ description.
 
 **`scripts/check_model.py` enforces this**, and CI runs it: every reference
 resolves, no ID is defined twice, and no retired ID reappears as live. It
-checks `docs/ea/` only. Scope documents, decision records, and reviews are
+checks `architecture/` only. Scope documents, decision records, and reviews are
 narrative *about* the model — they cite retired elements, illustrate the
 convention, and are frozen once merged (`scope-doc`), so a reference check
 there could never be made to pass. Keep IDs accurate in them anyway; nothing
@@ -132,7 +132,7 @@ but review will catch a mistake.
 ### Namespacing across domains
 
 A project modeling multiple domains (see the `domain-modeling` skill and
-`docs/ea/domains/README.md`) qualifies
+`architecture/domains/README.md`) qualifies
 IDs by domain, the way a module path qualifies a symbol:
 
 | Where the reference is written | How the ID is written | Example |
@@ -141,7 +141,7 @@ IDs by domain, the way a module path qualifies a symbol:
 | From another domain, or from the enterprise level | `<DOMAIN>.` prefix, domain in upper case | `SALES.BSVC3` |
 | An element owned at the enterprise level | always bare | `G1` |
 
-The domain segment is the folder name under `docs/ea/domains/`, upper-cased
+The domain segment is the folder name under `architecture/domains/`, upper-cased
 (`domains/sales/` → `SALES.`). A subdomain chains it — `SALES.EMEA.BSVC2` —
 which is also why the tree is capped at three levels; beyond that the IDs
 stop being readable, and the thing being modeled is a team, not a domain.
@@ -168,7 +168,7 @@ Where a canvas *is* drawn — a layer view showing fit — use the canvas
 block name as the stereotype (`«Pain»`, `«Gain Creator»`, `«Customer
 Segment»`) with the Motivation fill for the customer profile and the
 Strategy fill for the value map, as in
-`docs/ea/0_business-design/README.md` § Layer view.
+`architecture/0_business-design/README.md` § Layer view.
 The canvas-block-to-ArchiMate-element mapping lives in that same README and
 is not restated anywhere else.
 
@@ -187,7 +187,7 @@ should be able to open any EA document and check it against the repo.
 ArchiMate has no native Mermaid profile — no icons, no standard shapes — so
 these documents encode its semantics with **four devices: label format,
 glyph, shape, and colour.** All four are specified in exactly one place,
-`docs/ea/README.md` § Notation conventions, including the glyph set, the
+`architecture/README.md` § Notation conventions, including the glyph set, the
 default shape per element, the layer palette and the per-element tone ramps.
 Read that section before drawing anything, and copy its values rather than
 re-tabulating them here — a second copy is a second thing to drift.
@@ -290,14 +290,14 @@ that's exactly the kind of call the `decision-record` skill is for.
 
 - Always relative, always to a specific file (`../2_business/README.md`,
   not `../2_business/`), keeping `#anchors` when pointing at a section.
-- Human-readable link text (`[solution design](…)`), not raw paths.
+- Human-readable link text (`[solution design](./…)`), not raw paths.
 - Each fact lives in exactly one document; everything else links to it. If
   you are about to restate a table or diagram, link instead.
 - When renaming or moving a doc, grep the whole repo for the old path and
   fix every reference in the same change.
 - **Skill files are the exception: they link only within `.claude/skills/`.**
   A skill points at a consuming project's documents by naming the path in a
-  code span — `` `docs/ea/README.md` § Modeling depth `` — never as a
+  code span — `` `architecture/README.md` § Modeling depth `` — never as a
   relative link. Skills ship as a plugin, and installing one copies its
   directory to a cache, so a link reaching outside that directory resolves
   to nothing for anyone who installed rather than cloned.

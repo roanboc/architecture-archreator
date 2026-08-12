@@ -8,11 +8,11 @@ real file. Two categories are deliberately not flagged:
 
 - Links inside fenced code blocks or inline code spans — skill files quote
   illustrative link syntax (e.g. `./<n>_*.md`) as examples, not real links.
-- Links under docs/ea/ whose target is a numbered EA content file
-  (`<n>_kebab-name.md`) that doesn't exist yet — layer READMEs deliberately
-  forward-reference the numbered docs a downstream project will write; a
-  pure, unfilled template (like this repo's own main branch) is expected to
-  have every one of these unresolved.
+- Links inside a skill's `templates/architecture/` scaffold whose target is
+  a numbered EA content file (`<n>_kebab-name.md`) that doesn't exist yet —
+  layer READMEs deliberately forward-reference the numbered docs a
+  downstream project will write, so an unfilled template is expected to have
+  every one of these unresolved.
 
 **HTML** (`*.html`) — relative `href`/`src` targets must resolve to a real
 file, and any fragment (`#id`, or `page.html#id`) must resolve to an element
@@ -52,9 +52,17 @@ def strip_code(text: str) -> str:
 
 
 def is_expected_forward_reference(resolved: Path) -> bool:
-    try:
-        resolved.relative_to(REPO_ROOT / "docs" / "ea")
-    except ValueError:
+    """A numbered EA doc the scaffold points at but no project has written yet.
+
+    The scaffold ships inside the skill that emits it, so the exemption is
+    keyed on `templates/architecture/` rather than on any one project path.
+    """
+    parts = resolved.parts
+    in_template_scaffold = any(
+        parts[i] == "templates" and parts[i + 1] == "architecture"
+        for i in range(len(parts) - 1)
+    )
+    if not in_template_scaffold:
         return False
     return bool(NUMBERED_EA_DOC_RE.match(resolved.name))
 

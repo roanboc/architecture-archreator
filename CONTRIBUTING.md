@@ -5,17 +5,17 @@
 This repo practices **architecture-first development**: strategy and
 business architecture are validated before information, application, and
 technology — and all of it before code. The full process is described in
-[docs/scope/README.md](./docs/scope/README.md); in short, for any change in
+[scope/README.md](./.claude/skills/project-bootstrap/templates/scope/README.md); in short, for any change in
 requirements:
 
 0. **Know the depth you're working at.** `CLAUDE.md` declares the project's
-   [modeling depth](./docs/ea/README.md#modeling-depth) — one application
+   [modeling depth](./.claude/skills/project-bootstrap/templates/architecture/README.md#modeling-depth) — one application
    (1), one organization (2), or several business lines each modeled as a
-   [domain](./docs/ea/domains/README.md) (3). It decides how much of the
+   [domain](./.claude/skills/project-bootstrap/templates/architecture/domains/README.md) (3). It decides how much of the
    ladder below applies and which gates you'll pass. At Depth 3, also name
    which domain owns the change, and whether it touches another domain's
    exposed services — if it does, that domain's Requester approves too.
-1. **Align the EA** — walk [docs/ea/](./docs/ea/README.md) top-down
+1. **Align the EA** — walk [architecture/](./.claude/skills/project-bootstrap/templates/architecture/README.md) top-down
    (`1_strategy` → `5_technology`), updating the affected documents. If
    the strategy layer is still template placeholders, or the change shifts
    the strategy itself (a new/changed stakeholder, driver, goal, or
@@ -24,13 +24,13 @@ requirements:
    (see the `strategy-discovery` skill); implementation follows as a
    separate initiative. If the subject is an **organization** rather than
    an application, it starts one step earlier still, at
-   [`0_business-design/`](./docs/ea/0_business-design/README.md) — a value
+   [`0_business-design/`](./.claude/skills/project-bootstrap/templates/architecture/0_business-design/README.md) — a value
    proposition canvas per segment and a business model canvas per product,
    approved at **Gate 0 — Business model**, from which the strategy and
    business layers are then derived (see the `operating-model-discovery`
    skill).
 2. **Document the scope** — add the next-numbered initiative document to
-   [docs/scope/](./docs/scope/README.md).
+   [scope/](./.claude/skills/project-bootstrap/templates/scope/README.md).
 3. **Pass the gates** — before any code, the requester approves the
    strategy, business, and information changes (**Gate 2 — Business**),
    and chooses whether to also review the solution design before it is
@@ -88,12 +88,12 @@ flowchart TD
     assess["Assess 1_strategy<br>against the change"]
     canvases["Operating-model discovery —<br>value proposition + business<br>model canvases, docs-only<br>(operating-model-discovery skill)"]
     discovery["Strategy discovery —<br>question-driven, docs-only<br>(strategy-discovery skill)"]
-    dscope["Draft scope document<br>docs/scope/N_*.md"]
+    dscope["Draft scope document<br>scope/N_*.md"]
     nextinit["Offer the implementation<br>initiative that triggered<br>discovery"]
     conflict{"Contradicts an existing<br>Principle?"}
     bugfix{"Pure bug fix — no<br>documented behavior<br>changes?"}
     walk23["Align 2_business and<br>3_information"]
-    scopedoc["Draft scope document<br>docs/scope/N_*.md"]
+    scopedoc["Draft scope document<br>scope/N_*.md"]
     walk45["Align 4_application and<br>5_technology"]
     implement["Implement, keeping EA +<br>scope docs true to the code"]
     verify["Verify alignment<br>(ea-first-change, step 7)"]
@@ -192,7 +192,7 @@ A change is done when:
 
 - the project's verification commands (lint, typecheck, tests, build, or
   whatever this stack defines) pass;
-- the affected EA documents ([docs/ea/](./docs/ea/README.md)) still
+- the affected EA documents ([architecture/](./.claude/skills/project-bootstrap/templates/architecture/README.md)) still
   describe the system as it now is — services, rules, data objects, and
   their realizations (or explicit "Pending") are up to date;
 - the initiative's scope document reflects what was actually delivered,

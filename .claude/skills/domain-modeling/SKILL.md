@@ -7,7 +7,7 @@ description: Use when an organization's model is large enough to split into busi
 
 _Reached from `ea-first-change` Step 1b, or when a Requester asks to model a
 business line. The structure this skill produces is described in
-`docs/ea/domains/README.md`;
+`architecture/domains/README.md`;
 `README.md` orients a person._
 
 A **domain** is a part of the organization modeled as though it were an
@@ -16,15 +16,15 @@ purpose larger than itself. Some of its customers are external; some are
 other domains. The model shape repeats at every level, so a business line
 can be understood on its own terms.
 
-This is `docs/ea/README.md` § Modeling depth. Reaching it is
+This is `architecture/README.md` § Modeling depth. Reaching it is
 a decision, not a default: at Depth 2 the whole organization shares one
-`docs/ea/` tree, and that is correct until it isn't.
+`architecture/` tree, and that is correct until it isn't.
 
 ## Step 1 — Decide whether to split at all
 
 Splitting costs a charter to maintain, a boundary to respect, and a set of
 Requesters to consult on every contract change. Apply the test in
-`docs/ea/domains/README.md` § When to split a domain out:
+`architecture/domains/README.md` § When to split a domain out:
 carve one out only when **two or more** hold — its own customers, its own
 economics, its own decision rights, its own capabilities, a named interface.
 

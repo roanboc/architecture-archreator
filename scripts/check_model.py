@@ -17,10 +17,10 @@ Three things are checked, per project:
 - **Retired then live** — no ID appears in both a live table and a
   `## Retired` section. Retired IDs stay retired.
 
-A **project** is the directory containing an `ea/` folder, so IDs are
+A **project** is the directory containing an `architecture/` folder, so IDs are
 scoped per project and two projects may each own a `G1`.
 
-**Only `ea/` is checked**, because only `ea/` describes the current state.
+**Only `architecture/` is checked**, because only it describes the current state.
 Scope documents, decision records, and reviews are narrative *about* the
 model, and narrative legitimately contains illustrations ("no component
 verifies that `PAIN2` resolves"), hypotheticals, and references to elements
@@ -35,11 +35,11 @@ Reference-checking a frozen document is incoherent, not merely awkward.
 
 Deliberately not checked:
 
-- Anything outside a project's `ea/` folder, per above.
+- Anything outside a project's `architecture/` folder, per above.
 - `.claude/skills/` — skill files carry illustrative IDs inside templates
   (`BSVC1`, `SALES.BSVC3`, `RULE7`); validating the documentation of the
   convention would fail on itself.
-- A project whose `ea/` defines no elements — an unfilled template scaffold,
+- A project whose `architecture/` defines no elements — an unfilled scaffold,
   whose layer READMEs are full of illustrative placeholders by design.
 - Tables with no ID column — they predate the convention or hold prose.
   They are counted and reported as unvalidated coverage, not as errors.
@@ -53,6 +53,9 @@ from collections import defaultdict
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+# The layered model's directory name, in every project tree and in the
+# scaffold the skills emit.
+MODEL_DIR = "architecture"
 FENCE_RE = re.compile(r"```.*?```", re.DOTALL)
 
 # Element-ID prefixes, from `ea-doc-style` § Element IDs. Longest first so
@@ -119,17 +122,17 @@ def unvalidated_tables(text: str) -> int:
 
 
 def find_projects() -> list[Path]:
-    """A project is the directory containing an `ea/` folder."""
+    """A project is the directory containing an `architecture/` folder."""
     projects = []
-    for ea_dir in sorted(REPO_ROOT.rglob("ea")):
-        if ".git" in ea_dir.parts or not ea_dir.is_dir():
+    for model_dir in sorted(REPO_ROOT.rglob(MODEL_DIR)):
+        if ".git" in model_dir.parts or not model_dir.is_dir():
             continue
-        projects.append(ea_dir.parent)
+        projects.append(model_dir.parent)
     return projects
 
 
 def domain_of(md_file: Path, project: Path) -> str:
-    """Upper-cased domain path for a file inside `<ea>/domains/<name>/`."""
+    """Upper-cased domain path for a file inside `architecture/domains/<name>/`."""
     parts = md_file.relative_to(project).parts
     segments = [parts[i + 1] for i, part in enumerate(parts[:-1]) if part == "domains"]
     return ".".join(s.upper() for s in segments)
@@ -148,7 +151,7 @@ def check_project(project: Path) -> tuple[list[str], int, int]:
 
     files = [
         path
-        for path in sorted((project / "ea").rglob("*.md"))
+        for path in sorted((project / MODEL_DIR).rglob("*.md"))
         if ".git" not in path.parts and ".claude" not in path.parts
     ]
 
@@ -218,11 +221,11 @@ def main() -> int:
         if not defined:
             # An unfilled template scaffold: its layer READMEs are full of
             # illustrative placeholders by design, so there is nothing to check.
-            summary.append(f"  {rel}/ea: no elements defined — scaffold, not checked")
+            summary.append(f"  {rel}/{MODEL_DIR}: no elements defined — scaffold, not checked")
             continue
         all_errors.extend(errors)
         note = f", {skipped} table(s) without an ID column not validated" if skipped else ""
-        summary.append(f"  {rel}/ea: {defined} element(s){note}")
+        summary.append(f"  {rel}/{MODEL_DIR}: {defined} element(s){note}")
 
     for line in summary:
         print(line)
