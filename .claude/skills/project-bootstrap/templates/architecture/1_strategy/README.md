@@ -33,7 +33,7 @@ and is not restated here. Principles are the exception — they have no canvas
 block, and are discovered directly with the Requester in either track.
 
 `1_motivation.md` is where **Principles** live — the constraints that a
-proposed change is checked against in step 1 of `ea-first-change` before
+proposed change is checked against in step 1 of `architecture-first-change` before
 anything else. Keep them few, load-bearing, and testable (e.g. "role
 determines access", not "be secure").
 

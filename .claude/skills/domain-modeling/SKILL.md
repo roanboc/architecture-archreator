@@ -5,7 +5,7 @@ description: Use when an organization's model is large enough to split into busi
 
 # Modeling an organization as domains
 
-_Reached from `ea-first-change` Step 1b, or when a Requester asks to model a
+_Reached from `architecture-first-change` Step 1b, or when a Requester asks to model a
 business line. The structure this skill produces is described in
 `architecture/domains/README.md`;
 `README.md` orients a person._
@@ -42,7 +42,7 @@ own customers, own economics, own decision rights — so I'd model Advisory
 as a domain" is a sentence the Requester can disagree with. Silently
 restructuring the tree is not.
 
-**Splitting is a business-layer change.** It goes through `ea-first-change`
+**Splitting is a business-layer change.** It goes through `architecture-first-change`
 like anything else: a scope document, and Gate 2 before the folders move.
 
 ## Step 2 — Write the charter
@@ -88,7 +88,7 @@ The interface. Other domains may reference these IDs and nothing else.
 ## Operated by
 
 <Human / AI / Hybrid>, at <autonomy level>. <Decision rights and escalation
-path, per `ea-doc-style` § Actors — applied to the domain as a whole.>
+path, per `architecture-doc-style` § Actors — applied to the domain as a whole.>
 ```
 
 Two rules that decide whether the charter is worth anything:
@@ -102,7 +102,7 @@ Two rules that decide whether the charter is worth anything:
 
 ## Step 3 — Fill in the domain's layers
 
-Same numbered layers as the enterprise, same skills (`ea-doc-style` for
+Same numbered layers as the enterprise, same skills (`architecture-doc-style` for
 notation, `strategy-discovery` if the domain needs its own strategy). Fill
 in only the layers the domain has something to say about and mark the rest
 "not started".
@@ -120,7 +120,7 @@ customer segment the enterprise canvases don't already cover.
 Bare inside the owning domain (`BSVC3`), qualified from outside
 (`SALES.BSVC3`), bare at the enterprise level (`G1`). Numbering is per
 prefix **per domain** — two domains may each own a `BSVC3`. Full rules in
-`ea-doc-style` § Element IDs.
+`architecture-doc-style` § Element IDs.
 
 The qualifier is the folder name upper-cased, so renaming a domain folder
 rewrites every inbound reference. Pick the name once, and prefer the

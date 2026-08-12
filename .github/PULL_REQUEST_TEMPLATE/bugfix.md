@@ -49,4 +49,4 @@
 <!-- Confirm this changes no documented behavior: "pure bug fix — no scope
      document." If implementing the fix turned out to require a documented
      behavior change after all, this isn't a pure bug fix — switch to the
-     default PR template and follow the ea-first-change process instead. -->
+     default PR template and follow the architecture-first-change process instead. -->

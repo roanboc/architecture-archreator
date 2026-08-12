@@ -13,7 +13,7 @@ One file per decision, numbered chronologically, each explaining a single
 call that's smaller than an initiative (see [docs/scope/](../scope/README.md))
 but consequential enough that a future reader will ask "why this and not
 the alternative?" — most often an AI actor's autonomy level or decision
-rights (see `ea-doc-style`'s actor notation in
+rights (see `architecture-doc-style`'s actor notation in
 [docs/ea/2_business/](../2_business/README.md)).
 
 Agent guidance: `.claude/skills/decision-record/`.

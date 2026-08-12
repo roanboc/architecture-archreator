@@ -11,7 +11,7 @@ improvising was still recent.
 
 ## What the method did not cover
 
-**Which *other* model a change falsifies.** `ea-first-change` walks one
+**Which *other* model a change falsifies.** `architecture-first-change` walks one
 model's layers. This initiative changed two — the method's and the
 organization's — and no step asks what current-state statements elsewhere
 have just become false. The scope document named the one organization
@@ -99,10 +99,21 @@ police has still never been tested against a real client engagement.
 
 ## Proposed
 
+**A note on how much of this will recur.** The Requester's calibration, given
+when these proposals were reviewed: *structural churn is a founding-phase
+phenomenon, not the steady state.* A repository whose shape has been settled
+properly should not be renaming trees every other initiative. Proposals 4 and
+5 are both about moving structure around, so if that judgement holds they are
+not "waiting for a second sighting" — they are waiting for a recurrence that
+probably should never come, and the method is better off without rules for
+it. Proposal 1 is not structural: any change touching two models hits it, and
+that is ordinary work.
+
 | # | Skill or document | The sentence it would add | Raised as |
 | - | ----------------- | ------------------------- | --------- |
-| 1 | `ea-first-change` § Step 7 | Name every other model in the repository whose current state this change falsifies, and correct it in the same change — the grounding rule is not enforced across models by any tool | **Ready.** Departs from the two-occurrence threshold deliberately: the evidence is not one improvisation that worked but seven false statements that shipped |
-| 2 | `ea-doc-style` | A tier may refine what the tier above exposed, never restate it, and every refining element names its parent; business and information layers below the owning tier cite their parent and detail only what the implementation requires | **Ready** — requested directly by the Requester, and already stated informally in `org-archreator/architecture/4_application/` |
-| 3 | `ea-first-change` § Step 6 | A gate-approved document that states something false about existing state is corrected in place and the correction recorded; only a change to what was *decided* returns to the Requester | Not yet — one case |
-| 4 | `scope-doc` § Rules | When a tree moves, repair a merged document's links by resolving each against its old location and recomputing it, never by pattern replacement | **Second appearance of a family.** Note 1 §3 raised the deleted-target case; this is the moved-target case. Related, not identical — the Requester should judge whether the family counts |
-| 5 | `ea-doc-style` or a decision | What happens to element identifiers when two models **merge** — the inverse of [decision 2](../../../product-archreator/architecture/decisions/2_no-renumbering-on-domain-split.md), which refuses renumbering on a split | Not yet — surfaced while planning the next initiative, never yet attempted |
+| 1 | `architecture-first-change` § Step 7 | Name every other model in the repository whose current state this change falsifies, and correct it in the same change — the grounding rule is not enforced across models by any tool | **Act now**, approved by the Requester. Seen once, not twice. The justification is that the evidence is a shipped defect rather than an improvisation that worked — which is a *third* standard, neither the one this skill states nor the one note 1 applied. See proposal 6 |
+| 2 | `architecture-doc-style` | A tier may refine what the tier above exposed, never restate it, and every refining element names its parent; business and information layers below the owning tier cite their parent and detail only what the implementation requires | **Act now**, requested directly by the Requester, and already stated informally in `org-archreator/architecture/4_application/` |
+| 3 | `architecture-first-change` § Step 6 | A gate-approved document that states something false about existing state is corrected in place and the correction recorded; only a change to what was *decided* returns to the Requester | Wait — one case |
+| 4 | `scope-doc` § Rules | When a tree moves, repair a merged document's links by resolving each against its old location and recomputing it, never by pattern replacement | Wait, and probably forever. Structural churn should not recur once a repository is shaped properly |
+| 5 | `architecture-doc-style` or a decision | What happens to element identifiers when two models **merge** — the inverse of [decision 2](../../../product-archreator/architecture/decisions/2_no-renumbering-on-domain-split.md), which refuses renumbering on a split | Wait, same reasoning as 4. Surfaced while planning, never attempted |
+| 6 | `engagement-retrospective` § Following through | State whether "two" means two **notes** or two **occurrences** — the skill says notes, note 1 counted occurrences within a single note, and note 2 argued from one occurrence with a demonstrated defect | **Ready on any reading.** Three different standards have now been applied across two notes, which is itself the recurrence |

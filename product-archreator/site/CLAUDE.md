@@ -14,10 +14,10 @@ layer, and the requester approves at explicit gates before development.**
 A change in requirements is never coded directly: align it through the
 numbered EA layers (`architecture/1_strategy` → … → `5_technology`), stop at
 the gates for the Requester's approval, record it all in a scope document
-(`architecture/scope/`), then implement. Use the `ea-first-change` skill for the
+(`architecture/scope/`), then implement. Use the `architecture-first-change` skill for the
 process (it defines the gates), `strategy-discovery` if a change shifts
 the strategy itself, `scope-doc` for the scope document (its Approvals
-table is the durable record of the gates), `ea-doc-style` when touching
+table is the durable record of the gates), `architecture-doc-style` when touching
 anything under `architecture/`, `restate-current-state` when the model has drifted
 into a history rather than a description of today, and `pr-description`
 when opening or updating a PR. If a change touches the Copilot's autonomy

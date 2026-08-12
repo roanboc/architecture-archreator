@@ -367,7 +367,7 @@ block feeds this section** — these came directly from the Requester, and
 every one of them has already overruled something during the method's
 development.
 
-They gate every change: `ea-first-change` Step 1c stops on a conflict with
+They gate every change: `architecture-first-change` Step 1c stops on a conflict with
 any of them.
 
 | ID | Principle | What it rules out |

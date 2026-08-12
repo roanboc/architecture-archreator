@@ -68,12 +68,12 @@ caught it.
 
 | ID | Component | Realizes | File |
 | -- | --------- | -------- | ---- |
-| `ACMP1` | Process spine | `BSVC1` | [`.claude/skills/ea-first-change/SKILL.md`](../../../.claude/skills/ea-first-change/SKILL.md) |
+| `ACMP1` | Process spine | `BSVC1` | [`.claude/skills/architecture-first-change/SKILL.md`](../../../.claude/skills/architecture-first-change/SKILL.md) |
 | `ACMP2` | Bootstrap | `BSVC3` | [`.claude/skills/project-bootstrap/SKILL.md`](../../../.claude/skills/project-bootstrap/SKILL.md) and [`templates/`](../../../.claude/skills/project-bootstrap/templates/CLAUDE.md) — the scaffold it emits |
 | `ACMP3` | Operating-model discovery | `BSVC2` | [`.claude/skills/operating-model-discovery/SKILL.md`](../../../.claude/skills/operating-model-discovery/SKILL.md) |
 | `ACMP4` | Strategy discovery | `BSVC2` | [`.claude/skills/strategy-discovery/SKILL.md`](../../../.claude/skills/strategy-discovery/SKILL.md) |
 | `ACMP5` | Domain modeling | `BSVC5` | [`.claude/skills/domain-modeling/SKILL.md`](../../../.claude/skills/domain-modeling/SKILL.md) |
-| `ACMP6` | Notation authority | `RULE2`, `RULE5`, `RULE9` | [`.claude/skills/ea-doc-style/SKILL.md`](../../../.claude/skills/ea-doc-style/SKILL.md) |
+| `ACMP6` | Notation authority | `RULE2`, `RULE5`, `RULE9` | [`.claude/skills/architecture-doc-style/SKILL.md`](../../../.claude/skills/architecture-doc-style/SKILL.md) |
 | `ACMP7` | Scope document authoring | `BSVC4`, `RULE3`, `RULE4` | [`.claude/skills/scope-doc/SKILL.md`](../../../.claude/skills/scope-doc/SKILL.md) |
 | `ACMP8` | Restatement | `BSVC6` | [`.claude/skills/restate-current-state/SKILL.md`](../../../.claude/skills/restate-current-state/SKILL.md) |
 | `ACMP9` | Decision records | — (supports `BSVC1`) | [`.claude/skills/decision-record/SKILL.md`](../../../.claude/skills/decision-record/SKILL.md) |

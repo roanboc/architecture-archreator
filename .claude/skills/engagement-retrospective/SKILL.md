@@ -69,7 +69,7 @@ finding to make a note look worthwhile.**
 
 **Proposals become initiatives, not edits.** This skill never edits a skill,
 a layer document, or a rule. It writes a note whose last section proposes,
-and each proposal is picked up as its own change through `ea-first-change`
+and each proposal is picked up as its own change through `architecture-first-change`
 with the gates that implies. That is what keeps a human between the learning
 and the method.
 
@@ -142,5 +142,5 @@ initiative that week. When it appears in one, wait — the generalization test
 in question 3 is unreliable on a single case, and encoding a one-off makes
 the method worse rather than better.
 
-Follow `ea-doc-style` for numbering and links, and `scope-doc` for any
+Follow `architecture-doc-style` for numbering and links, and `scope-doc` for any
 initiative a proposal becomes.

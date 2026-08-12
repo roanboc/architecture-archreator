@@ -96,7 +96,7 @@ flowchart TD
     scopedoc["Draft scope document<br>architecture/scope/N_*.md"]
     walk45["Align 4_application and<br>5_technology"]
     implement["Implement, keeping EA +<br>scope docs true to the code"]
-    verify["Verify alignment<br>(ea-first-change, step 7)"]
+    verify["Verify alignment<br>(architecture-first-change, step 7)"]
     openpr["Open PR — default or<br>bugfix template"]
     address["Address review feedback"]
   end
@@ -142,7 +142,7 @@ Every arrow into the Agent subgraph is a decision the agent makes
 explicitly and records — a "no change" verdict on an EA layer, a "pure bug
 fix, no scope document" statement, a gate approval written into the scope
 document's Approvals table, an open question logged for the requester —
-never a silent skip. See `ea-first-change` for the full step-by-step
+never a silent skip. See `architecture-first-change` for the full step-by-step
 version of this same flow, `strategy-discovery` for the discovery branch,
 and `operating-model-discovery` for the company track that precedes it.
 

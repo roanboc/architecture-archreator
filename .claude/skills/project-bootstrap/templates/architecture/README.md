@@ -12,7 +12,7 @@ Folders and files carry a numeric prefix giving the order in which they are
 assessed. **Any change in requirements is aligned through these layers in
 this order — strategy first, technology last — and captured in a
 [scope document](./scope/README.md) before implementation starts** (see
-[CONTRIBUTING.md](https://github.com/roanboc/archreator/blob/main/CONTRIBUTING.md) and the `ea-first-change` skill in
+[CONTRIBUTING.md](https://github.com/roanboc/archreator/blob/main/CONTRIBUTING.md) and the `architecture-first-change` skill in
 `.claude/skills/`).
 
 ## Layers, in assessment order
@@ -51,7 +51,7 @@ depths in `CLAUDE.md`:
 Rules that make the ladder work:
 
 - **The agent declares the depth out loud** and says why, at
-  `ea-first-change` Step 1a. A Requester told "I'm treating this as Depth 1 —
+  `architecture-first-change` Step 1a. A Requester told "I'm treating this as Depth 1 —
   one application, light strategy layer; say the word if you want the
   organization modeled properly" can correct it in a sentence.
 - **Depth is a starting posture, never a ceiling.** Deepening is its own
@@ -159,7 +159,7 @@ ArchiMate palette:
 | Technology                  | `technology`     | green `#c9e7b7`  |
 | Implementation & Migration  | `implementation` | rose `#ffd6d6`   |
 
-This table is the **single source** for the layer palette; the `ea-doc-style`
+This table is the **single source** for the layer palette; the `architecture-doc-style`
 skill and every other document point here for the exact fills. Mermaid
 `classDef` blocks necessarily inline these hexes per diagram (Mermaid has no
 cross-file classDef), but no other prose table restates them.
@@ -210,7 +210,7 @@ relation types, the label is authoritative.
   If this project documents in a language other than English, keep a
   stereotype-correspondence table here (translated label → standard
   ArchiMate element name) so the vocabulary stays traceable. See the
-  ea-doc-style skill.
+  architecture-doc-style skill.
 -->
 
 ## Layered overview

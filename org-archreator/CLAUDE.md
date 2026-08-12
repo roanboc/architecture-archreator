@@ -14,7 +14,7 @@ and the Requester approves at explicit gates before development.** A change
 in requirements is never coded directly: align it through the numbered EA
 layers (`architecture/0_business-design` → … → `5_technology`), stop at the
 gates for the Requester's approval, record it in a scope document
-(`architecture/scope/`), then implement. The `ea-first-change` skill runs the process and
+(`architecture/scope/`), then implement. The `architecture-first-change` skill runs the process and
 defines which gate applies.
 
 ## Modeling depth
@@ -47,7 +47,7 @@ for why they do get trees of their own.
 - Documentation language: English.
 - Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`, …).
 - Element IDs are assigned once and never reused
-  (`ea-doc-style` § Element IDs); `.claude/skills/project-bootstrap/templates/scripts/check_model.py`
+  (`architecture-doc-style` § Element IDs); `.claude/skills/project-bootstrap/templates/scripts/check_model.py`
   enforces it.
 - A merged scope document is a historical record. Its link targets may be
   repaired when files move; its words may not change (`RULE6`).

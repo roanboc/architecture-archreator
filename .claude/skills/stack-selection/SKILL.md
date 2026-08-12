@@ -74,7 +74,7 @@ section answers is what, if anything, should be derived from it.
 `grep` traverses it, and an agent reads Markdown natively — there is no
 parsing gap to close for the reader the model is written for. A derived
 store would be a second representation that can fall behind the first, which
-is the drift `ea-doc-style`'s one-fact-one-place rule exists to prevent.
+is the drift `architecture-doc-style`'s one-fact-one-place rule exists to prevent.
 
 What *is* needed is **validation**, and that needs a parse, not a store.
 `scripts/check_model.py` builds the graph in memory, checks that every
@@ -107,7 +107,7 @@ CREATE TABLE edges(src TEXT, dst TEXT, rel TEXT);  -- realizes, serves, …
 ```
 
 The projection is regenerated, never hand-edited, and `check_model.py`
-already extracts what it would need — element IDs (`ea-doc-style` § Element
+already extracts what it would need — element IDs (`architecture-doc-style` § Element
 IDs) are what make it mechanical rather than a parsing exercise, which is
 the reason to use them consistently from the first document.
 

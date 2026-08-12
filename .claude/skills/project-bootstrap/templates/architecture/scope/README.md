@@ -46,13 +46,13 @@ folders are numbered in:
    scope document's Approvals table — who approved, when, and what was
    shown, with `N/A — <why>` for the gates that didn't apply. Which gate
    applies to which initiative is defined in exactly one place,
-   `.claude/skills/ea-first-change/` § The gates, which also says **where**
+   `.claude/skills/architecture-first-change/` § The gates, which also says **where**
    an approval can be granted — the conversation, or a reply on the pull
    request for a Requester who doesn't work in a terminal.
 4. **Implement.** Only then write the code, keeping the scope document and
    EA docs in sync with what is actually delivered.
 
-Agent guidance for this process lives in `.claude/skills/ea-first-change/`,
+Agent guidance for this process lives in `.claude/skills/architecture-first-change/`,
 `.claude/skills/strategy-discovery/`, and `.claude/skills/scope-doc/`; PR
 descriptions follow `.github/pull_request_template.md` (see
 `.claude/skills/pr-description/`) and must cover the whole branch.

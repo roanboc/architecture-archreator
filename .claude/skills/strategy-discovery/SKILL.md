@@ -1,11 +1,11 @@
 ---
 name: strategy-discovery
-description: Use when the ea-first-change process finds that a change needs a new or significantly revised strategy — the strategy layer still contains template placeholders (first real initiative of a project created from the template), or the change adds/modifies a Stakeholder, Driver, Goal, or Principle, or reshapes the value stream. Runs a question-driven discovery with the Requester to document the strategy and the key business elements, ending at an explicit strategy approval gate (Gate 1) before anything else is built.
+description: Use when the architecture-first-change process finds that a change needs a new or significantly revised strategy — the strategy layer still contains template placeholders (first real initiative of a project created from the template), or the change adds/modifies a Stakeholder, Driver, Goal, or Principle, or reshapes the value stream. Runs a question-driven discovery with the Requester to document the strategy and the key business elements, ending at an explicit strategy approval gate (Gate 1) before anything else is built.
 ---
 
 # Strategy discovery
 
-_Reached from `ea-first-change` Step 1c. `README.md`
+_Reached from `architecture-first-change` Step 1c. `README.md`
 orients a person; `CONTRIBUTING.md` draws where
 this branch sits in the whole flow._
 
@@ -14,7 +14,7 @@ no application design, no stack decisions. The deliverables are the
 strategy layer, the key business elements it implies, and a scope document
 recording the Requester's **Gate 1 — Strategy** approval. Implementation —
 whatever request originally triggered the discovery — follows as a
-separate initiative through the normal `ea-first-change` process, which
+separate initiative through the normal `architecture-first-change` process, which
 will then find the strategy filled in and current.
 
 ## How to run the conversation
@@ -29,12 +29,12 @@ will then find the strategy filled in and current.
   language, not in ArchiMate vocabulary — "who would be upset if this
   didn't exist?" beats "enumerate your stakeholders".
 - **Write as you go, and show it back.** After each round, update the
-  affected documents (per `ea-doc-style`) and reflect a short summary back
+  affected documents (per `architecture-doc-style`) and reflect a short summary back
   to the Requester so misunderstandings surface immediately — the docs are
   the record of the conversation, not a transcript kept elsewhere.
 - **Consolidate as you go.** Goals that differ only in wording are one goal;
   a capability named twice at different granularity is one capability. Merge
-  per round rather than at the end, per `ea-doc-style` § Consolidate before
+  per round rather than at the end, per `architecture-doc-style` § Consolidate before
   you enumerate. A strategy layer with six load-bearing goals is worth more
   than one with twenty, because every later initiative gets checked against
   it and nobody checks against twenty.
@@ -80,14 +80,14 @@ elements underneath.
    each stage?
 6. **Key business elements** (`architecture/2_business/`): Who are the actors
    and roles — and is any role performed or assisted by an AI, at what
-   autonomy level and decision rights (`ea-doc-style`'s actor notation)?
+   autonomy level and decision rights (`architecture-doc-style`'s actor notation)?
    What core services are offered, what main business objects are handled,
    and which terms and rules came up repeatedly (they seed the glossary
    and rules table)?
 
 Theme 6 discovers the **key** business elements — enough for the strategy
 to be judged coherent and for Gate 1 to mean something. The full business
-and information alignment still happens per initiative in `ea-first-change`
+and information alignment still happens per initiative in `architecture-first-change`
 steps 2–4.
 
 ## Deliverables
@@ -121,7 +121,7 @@ it is already recorded).
 When the themes are exhausted (or the Requester's answers are), present
 one compact summary — stakeholders, drivers, goals, principles, value
 stream, key business elements — with **full branch links to each document
-behind it** (`ea-first-change` § Show the Requester what they are approving),
+behind it** (`architecture-first-change` § Show the Requester what they are approving),
 and ask explicitly for approval of the strategy. Record the approval in the
 scope document's Approvals table (who, when, what was shown). Only after
 Gate 1 is granted may an implementation initiative build on this strategy;

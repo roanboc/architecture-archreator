@@ -77,7 +77,7 @@ editions of a page are updated in the same change (see
 [2_business/2_business-services.md](../2_business/2_business-services.md)).
 
 This distinction — derived guidance page vs. canonical skill/EA source —
-is itself an instance of the `ea-doc-style` rule "each fact lives in
+is itself an instance of the `architecture-doc-style` rule "each fact lives in
 exactly one document; everything else links to it," applied one level up:
 the fact lives in `../../../.claude/skills/` or in this project's own
 `architecture/`, and the site links to it rather than restating it as a second

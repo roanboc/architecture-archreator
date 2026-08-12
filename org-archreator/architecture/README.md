@@ -49,7 +49,7 @@ This project follows the template's conventions rather than restating them —
 stereotypes, the layer palette, relationship labels, the human/AI/hybrid
 actor notation, and element IDs all live in
 [the template's EA README](../../.claude/skills/project-bootstrap/templates/architecture/README.md#notation-conventions)
-and the `ea-doc-style` skill.
+and the `architecture-doc-style` skill.
 
 The grounding rule reads differently here than in a software project: an
 organization's capabilities are realized by **people, teams, and written

@@ -71,7 +71,7 @@ glossary terms this story needs, e.g.:>
   history will carry it.
 - **Links, not restated rationale.** A story points at the EA document that
   owns a rule or a component; it does not re-explain the rule. Rationale
-  still lives in exactly one place (`ea-doc-style`'s rule).
+  still lives in exactly one place (`architecture-doc-style`'s rule).
 - **Treat each story as a clean handoff.** When you pick up a story — in a
   new session, a fresh agent context, or after a long gap — read only the
   story and what it links to before starting; you shouldn't need the whole

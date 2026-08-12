@@ -61,9 +61,9 @@ archreator's differentiation against it is real but currently undersold:
 
 | # | The differentiator | Where it lives today |
 | - | ------------------ | -------------------- |
-| 1 | **AI actors as first-class modeled organization members** — `«Business Actor (AI)»` carrying a mandatory autonomy level (advisory / co-pilot / autonomous-with-checkpoint / fully autonomous), decision rights, and an escalation path | [`ea-doc-style` § Actors](../../../.claude/skills/ea-doc-style/SKILL.md) |
+| 1 | **AI actors as first-class modeled organization members** — `«Business Actor (AI)»` carrying a mandatory autonomy level (advisory / co-pilot / autonomous-with-checkpoint / fully autonomous), decision rights, and an escalation path | [`ea-doc-style` § Actors](../../../.claude/skills/architecture-doc-style/SKILL.md) |
 | 2 | **A standing ArchiMate model as the deliverable**, not generated governance artifacts | [`meta/ea/`](../README.md) |
-| 3 | **The grounding rule** — every element names the artifact realizing it, or is explicitly "Pending", so the model is falsifiable against the repository | [`ea-doc-style` § Grounding rule](../../../.claude/skills/ea-doc-style/SKILL.md) |
+| 3 | **The grounding rule** — every element names the artifact realizing it, or is explicitly "Pending", so the model is falsifiable against the repository | [`ea-doc-style` § Grounding rule](../../../.claude/skills/architecture-doc-style/SKILL.md) |
 | 4 | **Reasoning-first skills, not a command catalogue** — the skill states the *what*, the model reasons the *how* | [`.claude/skills/`](../../../.claude/skills/README.md) |
 
 Differentiator 1 is the strongest and the most defensible: neither BMAD nor
@@ -96,7 +96,7 @@ plugins and 165 prompt files. Nine skills is a feature, not a shortfall.
 Three critiques:
 
 **The enterprise graph is load-bearing, not a nice-to-have.**
-[`ea-doc-style` § Element IDs](../../../.claude/skills/ea-doc-style/SKILL.md)
+[`ea-doc-style` § Element IDs](../../../.claude/skills/architecture-doc-style/SKILL.md)
 already mandates the full prefix scheme, and
 [`stack-selection` § The model as data](../../../.claude/skills/stack-selection/SKILL.md)
 already specifies the exact `nodes`/`edges` SQLite schema. The design is

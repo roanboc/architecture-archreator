@@ -5,7 +5,7 @@ _[← Business layer](./README.md) · [EA home](../README.md)_
 **ArchiMate elements:** Business Actor, Business Role.
 
 Three actors, one of them an AI. Per
-[`ea-doc-style` § Actors](../../../.claude/skills/ea-doc-style/SKILL.md),
+[`architecture-doc-style` § Actors](../../../.claude/skills/architecture-doc-style/SKILL.md),
 every AI actor carries an autonomy level, concrete decision rights, and a
 named escalation path.
 
@@ -101,7 +101,7 @@ flowchart LR
 | ID | Role | Filled by | Covers |
 | -- | ---- | --------- | ------ |
 | `ROLE1` | Requesting and approving | `ACT1` (human) | Presenting a requirement or a problem; granting Gates 0–3 |
-| `ROLE2` | Executing the method | `ACT2` (AI), or a person following the same steps | `ea-first-change` Steps 0–8 |
+| `ROLE2` | Executing the method | `ACT2` (AI), or a person following the same steps | `architecture-first-change` Steps 0–8 |
 | `ROLE3` | Reviewing and merging | `ACT3` (human) | PR review, gate-record verification, merge |
 
 `ROLE2` is deliberately written so a human can fill it unchanged. The

@@ -21,17 +21,17 @@ inside this folder.** Installing a plugin copies its directory to a cache,
 so a relative link out of it (`../../../architecture/README.md`) resolves to
 nothing for a plugin user. Skills refer to a consuming project's documents
 by naming the path in a code span — `` `architecture/README.md` `` — which reads
-correctly on both paths and is what `ea-doc-style` § Links requires.
+correctly on both paths and is what `architecture-doc-style` § Links requires.
 
 | Skill | `SKILL.md` |
 | ----- | ---------- |
 | `project-bootstrap` | [project-bootstrap/SKILL.md](./project-bootstrap/SKILL.md) |
-| `ea-first-change` | [ea-first-change/SKILL.md](./ea-first-change/SKILL.md) |
+| `architecture-first-change` | [architecture-first-change/SKILL.md](./architecture-first-change/SKILL.md) |
 | `operating-model-discovery` | [operating-model-discovery/SKILL.md](./operating-model-discovery/SKILL.md) |
 | `domain-modeling` | [domain-modeling/SKILL.md](./domain-modeling/SKILL.md) |
 | `restate-current-state` | [restate-current-state/SKILL.md](./restate-current-state/SKILL.md) |
 | `strategy-discovery` | [strategy-discovery/SKILL.md](./strategy-discovery/SKILL.md) |
-| `ea-doc-style` | [ea-doc-style/SKILL.md](./ea-doc-style/SKILL.md) |
+| `architecture-doc-style` | [architecture-doc-style/SKILL.md](./architecture-doc-style/SKILL.md) |
 | `scope-doc` | [scope-doc/SKILL.md](./scope-doc/SKILL.md) |
 | `pr-description` | [pr-description/SKILL.md](./pr-description/SKILL.md) |
 | `decision-record` | [decision-record/SKILL.md](./decision-record/SKILL.md) |

@@ -5,7 +5,7 @@ description: Use when the initiative is modeling an organization rather than bui
 
 # Operating model discovery
 
-_Reached from `ea-first-change` Step 1c, or from `project-bootstrap` on a
+_Reached from `architecture-first-change` Step 1c, or from `project-bootstrap` on a
 project whose subject is an organization. `README.md`
 orients a person; `CONTRIBUTING.md` draws where
 this branch sits in the whole flow._
@@ -14,7 +14,7 @@ The company track. When this skill applies, **the product is the
 architecture**: the deliverable is a documented business model and the
 operating model derived from it — no application design, no stack
 decisions, no code. Whatever gets built later is a separate initiative that
-runs the normal `ea-first-change` process and finds the organization
+runs the normal `architecture-first-change` process and finds the organization
 already modeled.
 
 Use this instead of `strategy-discovery` when the thing being modeled is an
@@ -57,7 +57,7 @@ you do:
   fast — a round of questions about pains easily yields twelve. Before
   writing them down, merge the ones that are the same pain felt at different
   severity, or the same job seen from two segments, and give the survivor a
-  per-segment column instead. `ea-doc-style` § Consolidate before you
+  per-segment column instead. `architecture-doc-style` § Consolidate before you
   enumerate has the rules. Doing this at the end means renumbering
   everything; doing it per round means the canvas is always readable, and the
   Requester is reviewing a model rather than a transcript.
@@ -108,7 +108,7 @@ Ask, at theme 7 and again while deriving, whether any activity or role is
 performed or assisted by an **AI system** — and if so at what autonomy
 level, with what decision rights, and escalating to which role. An
 organization that has AI in its delivery or in its products should say so
-in the model rather than leave it implicit (see `ea-doc-style`'s actor
+in the model rather than leave it implicit (see `architecture-doc-style`'s actor
 notation).
 
 ## Before the gate — create the scope document
@@ -133,7 +133,7 @@ flag the gaps — do not quietly present an unfit canvas.
 Then present one compact summary — segments, their jobs, the sharpest
 pains and gains, the products, and for each product the blocks that
 distinguish it (revenue, channels, dominant cost) — with **full branch links
-to each canvas document** (`ea-first-change` § Show the Requester what they
+to each canvas document** (`architecture-first-change` § Show the Requester what they
 are approving), and ask explicitly for approval of the business model.
 
 Name the consolidation in the summary: how many elements each catalogue
@@ -175,7 +175,7 @@ A docs-only initiative:
   and whose Approvals table records **both Gate 0 and Gate 1**;
 - open questions logged for everything adopted-but-unconfirmed.
 
-Follow `ea-doc-style` for numbering, element IDs, ArchiMate-on-Mermaid
+Follow `architecture-doc-style` for numbering, element IDs, ArchiMate-on-Mermaid
 notation, and the grounding rule. The grounding rule reads differently on
 this track: an organization's business processes are realized by people and
 procedures, not source files, so name the team, role, or written procedure

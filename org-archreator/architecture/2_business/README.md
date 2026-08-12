@@ -18,5 +18,5 @@ Who acts in this organization, and what it offers them. Derived from
 
 Documents 1 and 2 are the **key business elements** Gate 1 covers — enough
 for the strategy to be judged coherent. Documents 3–5 are filled per
-initiative by `ea-first-change` Step 2, when an initiative actually touches
+initiative by `architecture-first-change` Step 2, when an initiative actually touches
 them. Writing them now would mean inventing processes nobody has run.

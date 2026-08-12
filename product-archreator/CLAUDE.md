@@ -16,7 +16,7 @@ and the Requester approves at explicit gates before development.** A change
 in requirements is never coded directly: align it through the numbered EA
 layers (`architecture/1_strategy` → … → `5_technology`), stop at the gates
 for the Requester's approval, record it in a scope document (`architecture/scope/`), then
-implement. Use `ea-first-change` for the process, `ea-doc-style` when
+implement. Use `architecture-first-change` for the process, `architecture-doc-style` when
 touching anything under `architecture/`, `scope-doc` for the scope document,
 `decision-record` for a call smaller than an initiative, and
 `restate-current-state` when the model reads as a history rather than a
@@ -55,7 +55,7 @@ skill frontmatter are portable, packaging is not.
 - `architecture/reviews/` — point-in-time assessments of the method against itself
 - `architecture/scope/open-questions.md` — the consolidated index of adopted
   interpretations still awaiting confirmation, read as step 0 of
-  `ea-first-change`
+  `architecture-first-change`
 - `site/` — the guidance site, its own Depth 1 project
 
 ## Conventions

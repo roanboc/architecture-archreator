@@ -1,5 +1,5 @@
 ---
-name: ea-first-change
+name: architecture-first-change
 description: Use when requirements change or a new feature/behavior change is requested in this repo. Assesses whether the change needs strategy discovery first, aligns the change through the enterprise architecture layers (strategy → business → information → application → technology) with explicit Requester approval gates before implementation, records it in a scope document, and only then implements. Not needed for pure bug fixes that change no documented behavior.
 ---
 
@@ -26,7 +26,7 @@ canvas blocks. **At every one of them, consolidate before you enumerate.**
 Two elements that differ only in degree are one element with a severity or
 intensity column. A list that has grown past one screen is asking which of
 its entries are the same thing seen from two angles, not how to be sorted.
-The rules are in `ea-doc-style` § Consolidate before you enumerate and are
+The rules are in `architecture-doc-style` § Consolidate before you enumerate and are
 not restated here.
 
 This applies to what is **proposed** as much as to what is written: a
@@ -204,7 +204,7 @@ the same change set, not an afterthought):
    `5_domain-context-and-rules.md` (with the _why_) before they get code.
    New terms go into the glossary; reuse existing glossary terms in code.
    If the change adds an actor, or changes an existing AI actor's autonomy
-   level or decision rights (`ea-doc-style`'s actor notation), consider a
+   level or decision rights (`architecture-doc-style`'s actor notation), consider a
    `decision-record` alongside the scope document explaining why.
 2. **`architecture/3_information/`** — New or changed data objects, flows,
    representations, storage, classification, retention?

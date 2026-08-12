@@ -1,6 +1,6 @@
 ---
 name: scope-doc
-description: Use when creating or updating a project scope document in architecture/scope/ — one per initiative, drafted before the pre-implementation gate as step 3 of the ea-first-change process, and the durable record of gate approvals.
+description: Use when creating or updating a project scope document in architecture/scope/ — one per initiative, drafted before the pre-implementation gate as step 3 of the architecture-first-change process, and the durable record of gate approvals.
 ---
 
 # Writing a scope document
@@ -79,7 +79,7 @@ _[← Scope index](./README.md) · [EA home](../ea/README.md)_
   explicit "no change" — silence is not a decision.
 - **Every gate gets a row, including the ones that didn't apply.** Which
   gate applies to which initiative is defined in exactly one place —
-  `ea-first-change` § The gates — and the shortest form of it is:
+  `architecture-first-change` § The gates — and the shortest form of it is:
   **Gate 2 applies to every initiative that changes documented behavior,
   which is every initiative that will produce code; a docs-only initiative
   passes Gate 0 and/or Gate 1 instead.** A gate that didn't apply is written
@@ -88,7 +88,7 @@ _[← Scope index](./README.md) · [EA home](../ea/README.md)_
   scope document is a historical record, so the table shows who accepted
   what, durably. **"What was approved" names the documents that were put in
   front of the Requester**, not the topic in the abstract — the gate
-  presentation links them in full (`ea-first-change` § Show the Requester
+  presentation links them in full (`architecture-first-change` § Show the Requester
   what they are approving), and the row is what says which ones they were.
 - **Deliverables are concrete artifacts** (file paths, page/screen names),
   never vague ("improved UX").
@@ -119,7 +119,7 @@ confirmation. If the project keeps one:
 - **Every new (or resolved) "Open questions" row is mirrored there** in the
   same change — it is the consolidated index reviewed between initiatives
   so questions don't get lost in old scope documents.
-- Step 0 of `ea-first-change` reads it before starting a new change.
+- Step 0 of `architecture-first-change` reads it before starting a new change.
 
 Projects without an external stakeholder to reconcile with can skip this
 file entirely — the "Open questions" section within each scope document is

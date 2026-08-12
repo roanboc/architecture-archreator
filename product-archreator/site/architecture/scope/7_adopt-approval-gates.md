@@ -8,7 +8,7 @@ _[← Scope index](./README.md) · [EA home](../README.md)_
 
 The archreator method gained explicit Requester approval gates and a
 strategy-discovery path (defined canonically in
-[`.claude/skills/ea-first-change`](../../../../.claude/skills/ea-first-change/SKILL.md)
+[`.claude/skills/ea-first-change`](../../../../.claude/skills/architecture-first-change/SKILL.md)
 and
 [`.claude/skills/strategy-discovery`](../../../../.claude/skills/strategy-discovery/SKILL.md)).
 This site's pages are a **derived** representation of those canonical

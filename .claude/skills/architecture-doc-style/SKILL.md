@@ -1,5 +1,5 @@
 ---
-name: ea-doc-style
+name: architecture-doc-style
 description: Use when creating or editing any document under architecture/ — numbering, ArchiMate-on-Mermaid notation, grounding rules, and link conventions for this repo's documentation.
 ---
 

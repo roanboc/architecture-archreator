@@ -11,7 +11,7 @@ place future readers will actually look for it. Reach for this when the
 call is smaller than an initiative but too consequential to leave as an
 unrecorded judgment buried in a PR thread — the clearest recurring case in
 this template is an **AI actor's autonomy level or decision rights**
-(`ea-doc-style`'s actor notation): "why is this role co-pilot and not fully
+(`architecture-doc-style`'s actor notation): "why is this role co-pilot and not fully
 autonomous?" deserves a citable answer, not just a table cell.
 
 ## When to use this instead of (or alongside) a scope document
@@ -27,7 +27,7 @@ autonomous?" deserves a citable answer, not just a table cell.
   structure, but too consequential to leave unrecorded.
 
 If the change also adds or changes EA elements, write the scope document
-first (`ea-first-change`) — the decision record supplements it, linked
+first (`architecture-first-change`) — the decision record supplements it, linked
 from the EA-alignment table row it explains; it never replaces it.
 
 ## Where decisions live
