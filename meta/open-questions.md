@@ -20,6 +20,7 @@ remembers it is how a model starts lying.
 | 1 | Should the template repository be **generated** from the plugin, or hand-maintained alongside it? | Hand-maintained for now — acceptable while twelve skills are reviewable by eye. The two can drift, and nothing detects it | [1_repo-value-and-fractal-domains.md](./scope/1_repo-value-and-fractal-domains.md) |
 | 3 | Does `RULE6` (merged scope documents are never rewritten) need technical enforcement, or is the convention enough? | Convention is enough at current scale. A pre-merge check comparing merged scope documents against their merge-commit versions would close it, and is not worth building until a project has enough contributors for the convention to fail | [1_technology-services.md](./ea/5_technology/1_technology-services.md) |
 | 4 | Is a three-level cap on domain nesting right, or should a fourth level be allowed for genuine conglomerates? | Three, with separate repositories federated by contract as the answer beyond it. Untested — no model has reached even three | [1_repo-value-and-fractal-domains.md](./scope/1_repo-value-and-fractal-domains.md) |
+| 9 | Should the guidance site keep its own model once nested inside the method's tree, or fold into it? | **Keep its own.** `BSVC2` is realized by the site *and* the method *and* the organization's tree, so the site has content of its own to model — and it is intended to become a separate repository later, which folding would undo | [9_the-repository-says-what-it-is.md](./scope/9_the-repository-says-what-it-is.md) |
 
 ## Resolved
 
