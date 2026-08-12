@@ -61,12 +61,12 @@ answer to a question this model left open — see below.
 | ID | Component | Realizes | Implemented by | Modeled in full by |
 | -- | --------- | -------- | -------------- | ------------------ |
 | `ACMP1` | **The skill set and plugin manifest** — thirteen skills, the plugin and marketplace manifests | `ASVC1` | `.claude/skills/`, `.claude/.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` | [`product-archreator/`](../../../product-archreator/README.md) |
-| `ACMP2` | **The guidance site** — the published pages, English and Spanish | `ASVC2` | `site/public/` | [`site/architecture/`](../../../product-archreator/site/architecture/README.md) |
-| `ACMP3` | **The documentation checks** — link resolution and element-identifier validation, run in CI | `ASVC3` | `scripts/check_links.py`, `scripts/check_model.py`, `.github/workflows/` | [`product-archreator/`](../../../product-archreator/README.md) |
-| `ACMP4` | **The scaffold** — the empty layered tree a cloner inherits | `ASVC1` | `docs/` | [`product-archreator/`](../../../product-archreator/README.md) |
+| `ACMP2` | **The guidance site** — the published pages, English and Spanish | `ASVC2` | `product-archreator/site/public/` | [`site/architecture/`](../../../product-archreator/site/architecture/README.md) |
+| `ACMP3` | **The documentation checks** — link resolution and element-identifier validation, run in CI | `ASVC3` | `.claude/skills/project-bootstrap/templates/scripts/`, `.github/workflows/` | [`product-archreator/`](../../../product-archreator/README.md) |
+| `ACMP4` | **The scaffold** — the empty layered tree, and the validators, that `ACMP1` emits into a new project | `ASVC1` | `.claude/skills/project-bootstrap/templates/` | [`product-archreator/`](../../../product-archreator/README.md) |
 | `ACMP5` | **The portal** | `ASVC4` | **Pending — future initiative** (`COA2`) | Nothing yet — it would need its own Depth 1 model |
 
-## How this layer relates to `product-archreator/` and `site/`
+## How this layer relates to `product-archreator/` and its `site/`
 
 This resolves the question
 [the first initiative left open](../scope/1_model-the-operating-model.md):
@@ -92,7 +92,7 @@ create the second copy `P3` exists to prevent.
 
 Four components, and three of them are **text that other people execute**.
 `ACMP1` is instructions an adopter's agent reads; `ACMP4` is a directory
-they copy. Only `ACMP3` runs anywhere this organization controls, and it
+it copies for them. Only `ACMP3` runs anywhere this organization controls, and it
 runs in someone else's continuous-integration service for a few seconds per
 push.
 

@@ -100,7 +100,7 @@ depth rather than to type.
 | `CAP3` | Area | **Delivery from design** — it can turn an approved design into a working solution without an expert in the room | `CAP8`, `CAP9` | `VAL2`, `VAL4` | — | — |
 | `CAP4` | 2 | **Gated discovery** — question-driven discovery that tests the business rather than recording it, with approval gates forcing a complete frame before anything is built | `CAP1` | `VAL1` | The `ea-first-change`, `operating-model-discovery` and `strategy-discovery` skills | `PREL1` Pain Reliever 1, `GCRE1` Gain Creator 1 |
 | `CAP5` | 2 | **A shared architectural language** — standardised concepts with defined relationships, which is what makes the model mean the same thing to a person and to an agent | `CAP1` | `VAL1`, `VAL3` | ArchiMate-on-Mermaid notation, per the `ea-doc-style` skill | `GCRE4` |
-| `CAP6` | 2 | **One documented model** — markdown in git, catalogues and diagrams, every element naming what realizes it | `CAP2` | `VAL3` | The `ea-doc-style` skill, `scripts/check_links.py`, `scripts/check_model.py` | `PREL3`, `GCRE2` |
+| `CAP6` | 2 | **One documented model** — markdown in git, catalogues and diagrams, every element naming what realizes it | `CAP2` | `VAL3` | The `ea-doc-style` skill, `.claude/skills/project-bootstrap/templates/scripts/` | `PREL3`, `GCRE2` |
 | `CAP7` | 2 | **Layered change absorption** — strategy can change without redoing technology, and the reverse | `CAP2` | `VAL5` | The numbered layers and the per-layer "no change" verdict | `GCRE6` |
 | `CAP8` | 2 | **Design-to-delivery continuity** — the approved design is the input an agent builds from, so there is no handover | `CAP3` | `VAL2` | The `ea-first-change` skill, Steps 5–7, and the `story-sharding` skill | `PREL2`, `GCRE3` |
 | `CAP10` | 2 | **Engagement-to-method learning** — what the Requester improvises during an engagement becomes method that anyone can use, instead of staying in one person's head | `CAP2` | `VAL3` | The `engagement-retrospective` skill and the notes in [`docs/engagements/`](../engagements/README.md) | — (no canvas source; added by [decision 1](../decisions/1_take-coa1-staged.md)) |
@@ -269,7 +269,7 @@ could be done about it.
 | -- | -------- | ---- | ----- | ------ |
 | `RES1` | **The Requester's knowledge and time** | People | **Constrained — the binding limit on the whole organization** | `KR1` Key Resource 1 |
 | `RES2` | **The method** — skills, conventions, gates | Knowledge | Held, and improving. All three areas depend on it | `KR2` |
-| `RES3` | **The published guidance site** | Asset | Held — realized by `site/` | `KR3` |
+| `RES3` | **The published guidance site** | Asset | Held — realized by `product-archreator/site/` | `KR3` |
 | `RES4` | **The portal** | Asset | **Pending — future initiative** (`COA2`) | `KR4` |
 
 ## Courses of action
