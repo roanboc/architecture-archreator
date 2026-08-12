@@ -75,7 +75,9 @@ what happens to `product-archreator/` once the organization's layer 4 exists.
 **The organization's layer 4 names *that* an application exists, what it
 offers, and who runs it. A Depth 1 model says *how* it is built.** Neither
 restates the other, and the link between them is the `Modeled in full by`
-column above.
+column above. This is the enterprise tier of the rule the method now owns —
+see `architecture-doc-style` § What belongs at which tier. Stated here once
+because it is what this table *is*; the rule itself is not restated.
 
 That is the Depth 2 → Depth 1 relationship archreator recommends to every
 adopter, running on itself for the first time. An adopting company models its
@@ -85,8 +87,8 @@ change it safely.
 
 The rule that keeps it honest: **nothing about a component's internals is
 written here.** `ACMP1` has thirteen skills and a manifest; how they fit
-together is `product-archreator/`'s layer 4, and copying any of it into this table would
-create the second copy `P3` exists to prevent.
+together is `product-archreator/`'s layer 4, and copying any of it into this
+table would be the enumeration `P5` exists to prevent.
 
 ## The organization runs almost no software
 

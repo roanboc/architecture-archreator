@@ -19,5 +19,6 @@ explains *why* one row reads the way it does.
 | 3 | [3_agent-autonomy-level.md](./3_agent-autonomy-level.md) | Accepted | `ACT2` |
 | 4 | [4_defer-the-model-database.md](./4_defer-the-model-database.md) | Accepted | `ACMP15`, `RULE5` |
 | 5 | [5_no-per-product-strategy-folders.md](./5_no-per-product-strategy-folders.md) | Accepted | `1_strategy/`, `domains/` |
-| 6 | [6_the-portability-boundary.md](./6_the-portability-boundary.md) | Accepted | `P6`, `RULE9`, `CH3`, `ACMP4` |
-| 7 | [7_one-tree-per-federated-project.md](./7_one-tree-per-federated-project.md) | Accepted | decision 5, `ACMP4`, `BSVC2` |
+| 6 | [6_the-portability-boundary.md](./6_the-portability-boundary.md) | Accepted | `P6`, `RULE9`, `ACMP2` |
+| 7 | [7_one-tree-per-federated-project.md](./7_one-tree-per-federated-project.md) | Accepted | decision 5, `ACMP2` |
+| 8 | [8_where-an-implementations-model-lives.md](./8_where-an-implementations-model-lives.md) | Accepted | decision 7, `RULE11` |

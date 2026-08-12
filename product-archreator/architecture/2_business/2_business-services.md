@@ -110,7 +110,7 @@ flowchart LR
 
 Solid edges read **enforces**. `RULE10`'s edge is dashed and points the other
 way: it is the one rule that **costs** a principle rather than serving one,
-and the table below says why that is accepted. Five of the ten rules are
+and the table below says why that is accepted. Five of the twelve rules are
 shown; the rest follow the same pattern.
 
 The rules that constrain how the services are delivered. Each traces to the
@@ -128,6 +128,8 @@ principle it enforces.
 | `RULE8` | Changing a domain's exposed service requires the consuming domains' Requesters at Gate 2 | `P2` | `domain-modeling` § Cross-domain changes |
 | `RULE9` | A skill links only within `.claude/skills/`; it names a project's documents in code spans | `P3` | `architecture-doc-style` § Links. Added when packaging as a plugin made outbound links resolve to nothing |
 | `RULE10` | Every EA document **that carries elements** opens with its own notation legend, and every section that has a diagram opens with it | **none — it costs `P3`** | `architecture-doc-style` § Diagrams come first; `architecture/README.md` § Notation conventions. The per-document legend is a deliberate, bounded copy of the global notation — duplication `P3` would normally forbid — accepted because these documents are read one at a time and out of order, by people and agents who will not open a second file. Narrowed to element documents when the rule was first applied at scale: a layer README that only indexes other documents has no elements to legend, and giving it one would be ceremony. Carried by **review**; nothing checks that a diagram was drawn |
+| `RULE11` | A tier refines what the tier above exposed and never restates it; every refining element names its parent | `P3` | `architecture-doc-style` § What belongs at which tier. Carried by **review** — nothing checks that a parent is named, and nothing could until enough elements carry one to make the absence meaningful. See [scope document 10](../scope/10_what-belongs-at-which-tier.md) |
+| `RULE12` | A change that touches more than one model corrects every current-state statement it falsifies, in the same change | `P1` | `architecture-first-change` Step 7. Carried by **review**, and it has already failed once: initiative 9 falsified seven statements in the organization's model and shipped them, because the process walks one model's layers and asks nothing about the others |
 
 ## The process, in one view
 

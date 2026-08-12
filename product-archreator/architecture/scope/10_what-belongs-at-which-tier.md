@@ -68,8 +68,8 @@ already contains and could not previously describe.
 | ---- | ----------- | ---- | ----------------- |
 | Gate 0 — Business model | — | — | **N/A** — the subject is the method at Depth 1 |
 | Gate 1 — Strategy | — | — | **N/A** — no Stakeholder, Driver, Goal or Principle added or modified; `P3` is applied, not changed |
-| Gate 2 — Business | _awaiting_ | — | This document, the two rules, and the tier table |
-| Gate 3 — Solution design | _to be asked at Gate 2_ | — | The skill edits, if the Requester opts in |
+| Gate 2 — Business | Requester | 2026-08-12 | This document, the two rules, and the tier table |
+| Gate 3 — Solution design | — | — | **N/A** — not requested |
 
 ## Plateaus
 
@@ -140,12 +140,20 @@ abstract. What it may not do is *restate* what the tier above already owns.
   differently without either looking like a mistake, and this repository
   demonstrates both.
 
-### WP5 — Close open question 9
+### WP5 — Close open question 9, and run the new step on this initiative
 
 - **Deliverables:** open question 9 moves to Resolved, citing the tier rule
   as what makes "keep its own model" a well-defined answer rather than an
   adopted interpretation.
 - **Outcome:** the answer given in initiative 9 now has a rule behind it.
+- **WP3's step, applied to this change, found two things** — which is the
+  argument for it. The organization's layer 4 cited `P3` for a property the
+  organization's `P3` does not have: two trees each own a `P3`, and the one
+  meaning "each fact in exactly one document" belongs to `product-archreator`.
+  `check_model` cannot catch that, because the reference *resolves* — it just
+  means something else. Corrected to `P5`, and the paragraph now defers to the
+  rule rather than restating it, which is `RULE11` applied to the document
+  that first stated it informally.
 
 ## In scope / out of scope
 
@@ -154,6 +162,7 @@ abstract. What it may not do is *restate* what the tier above already owns.
 | The rule, the two model elements, and the process step | **Applying the rule to the site's existing model** — its strategy layer restates the method's drivers, and `DRV1` belongs upstream. That is a migration, and its own initiative |
 | The parent-naming requirement, for elements written from now on | Backfilling a parent onto every existing element across three trees |
 | The tier-is-not-depth distinction | Any change to the depth ladder itself |
+| Correcting the organization's mis-cited principle, found by the new step | A notation for referencing another project's element — see open question 11 |
 | A decision on where an implementation's model lives | Moving any model as a result of it |
 
 ## Gap notes
@@ -177,6 +186,15 @@ abstract. What it may not do is *restate* what the tier above already owns.
   adopter to federate a model will be the first real test.
 
 ## Open questions
+
+- **How does a document in one project reference an element owned by another?**
+  Adopted interpretation: **it does not** — it names the owning skill and
+  section in prose. Found the hard way: writing `RULE11` in the organization's
+  tree failed `check_model`, correctly, because identifiers are scoped per
+  project. `domain-modeling` has qualified identifiers for domains *within* a
+  project; nothing covers across projects, which is exactly the federation
+  this initiative is writing a rule for. Mirrored to
+  [open questions](./open-questions.md).
 
 - **Does an implementation tier ever own a Driver?** Adopted interpretation:
   **yes, when the driver is about delivery rather than about the product** —
