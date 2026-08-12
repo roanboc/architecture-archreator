@@ -3,7 +3,11 @@
 _[← Scope index](./README.md) · [EA home](../README.md)_
 
 **ArchiMate viewpoint:** Implementation & Migration.
-**Delivered as:** branch `claude/product-1-roadmap-74giay`.
+**Status: proposed, not approved.** Gate 2 was declined on 2026-08-12 —
+twelve business rules already exist and a thirteenth was judged not to earn
+its place yet. [Open question 11](./open-questions.md) stays open, and this
+document is the analysis behind it rather than an initiative that ran. Nothing
+here has been implemented.
 
 archreator tells every adopter to federate: model the organization once, and
 give each application its own project consuming that model. It provides no way
@@ -74,8 +78,8 @@ trigger to add there, not a new mechanism here.
 | ---- | ----------- | ---- | ----------------- |
 | Gate 0 — Business model | — | — | **N/A** — the subject is the method at Depth 1 |
 | Gate 1 — Strategy | — | — | **N/A** — no Stakeholder, Driver, Goal or Principle added or modified |
-| Gate 2 — Business | _awaiting_ | — | This document, `RULE13`, and the notation |
-| Gate 3 — Solution design | _to be asked at Gate 2_ | — | The validator's resolution rules, if the Requester opts in |
+| Gate 2 — Business | Requester | 2026-08-12 | **Not granted.** `RULE13` judged not to earn its place against `P5` — consolidate before enumerating. The problem stays recorded as open question 11 |
+| Gate 3 — Solution design | — | — | **N/A** — Gate 2 not granted |
 
 ## Plateaus
 
