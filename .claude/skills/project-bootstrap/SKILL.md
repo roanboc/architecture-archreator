@@ -63,8 +63,8 @@ Requester already approved.
 **First, copy the scaffold** from this skill's `templates/` directory into
 the project root. It holds `CLAUDE.md`, `README.md`, `architecture/`,
 `scope/` and `decisions/` — an empty model with every layer README in place.
-Copy it whole; Step 3 sets the layers to the declared depth and Step 2
-replaces the placeholders.
+Copy it whole; the checklist below replaces the placeholders, and Step 3
+sets the layers to the declared depth.
 
 The scaffold is the only thing that lands. The method itself stays where the
 plugin installed it, which is why there is nothing of archreator's to delete
