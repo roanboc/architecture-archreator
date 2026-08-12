@@ -28,7 +28,7 @@ Gate 0 before anything was derived from them.
 `architecture/domains/` is **not** used. The split test asks whether a part
 of the business has its own goals, its own people and its own economics;
 nothing here does yet. See
-[`../product-archreator/decisions/5_no-per-product-strategy-folders.md`](../product-archreator/architecture/decisions/5_no-per-product-strategy-folders.md)
+[`../product-archreator/architecture/decisions/5_no-per-product-strategy-folders.md`](../product-archreator/architecture/decisions/5_no-per-product-strategy-folders.md)
 for why products do not get folders inside the strategy layer, and
 [`decision 7`](../product-archreator/architecture/decisions/7_one-tree-per-federated-project.md)
 for why they do get trees of their own.
@@ -47,6 +47,7 @@ for why they do get trees of their own.
 - Documentation language: English.
 - Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`, …).
 - Element IDs are assigned once and never reused
-  (`ea-doc-style` § Element IDs); `scripts/check_model.py` enforces it.
+  (`ea-doc-style` § Element IDs); `.claude/skills/project-bootstrap/templates/scripts/check_model.py`
+  enforces it.
 - A merged scope document is a historical record. Its link targets may be
   repaired when files move; its words may not change (`RULE6`).

@@ -62,7 +62,7 @@ skill frontmatter are portable, packaging is not.
 
 - Documentation language: English.
 - Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`, …).
-- Element IDs are assigned once and never reused; `scripts/check_model.py`
-  enforces it.
+- Element IDs are assigned once and never reused;
+  `.claude/skills/project-bootstrap/templates/scripts/check_model.py` enforces it.
 - A merged scope document is a historical record. Its link targets may be
   repaired when files move; its words may not change (`RULE6`).
