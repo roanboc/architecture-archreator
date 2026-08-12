@@ -5,8 +5,8 @@ description: Use when the model has accumulated history that obscures what is tr
 
 # Restating the current state
 
-`docs/ea/` describes the **current** state. `docs/scope/` and
-`docs/decisions/` describe **how it got there**. Over a dozen initiatives
+`architecture/` describes the **current** state. `architecture/scope/` and
+`architecture/decisions/` describe **how it got there**. Over a dozen initiatives
 those two drift into each other: elements marked "Pending" that shipped
 three initiatives ago, services that were replaced but never removed,
 open questions answered in a conversation nobody wrote down, decision
@@ -23,8 +23,8 @@ history.**
 
 | Rewritable — it describes now | Immutable — it describes then |
 | ----------------------------- | ----------------------------- |
-| Everything under `docs/ea/` | Merged scope documents in `docs/scope/` |
-| `docs/scope/README.md`'s index and `open-questions.md` | The Approvals tables inside them |
+| Everything under `architecture/` | Merged scope documents in `architecture/scope/` |
+| `architecture/scope/README.md`'s index and `open-questions.md` | The Approvals tables inside them |
 | A decision record's **Status** line | A decision record's Context, Options, Decision, Consequences |
 | Layer README state tables | Anything a Requester approved at a gate |
 
@@ -134,7 +134,7 @@ anything else (`scope-doc` skill), with:
   exactly the mistake this gate catches;
 - Gates 0, 1, and 3 marked `N/A — restatement changes no strategy and
   delivers no code`;
-- an in-scope/out-of-scope table. Restating is famously easy to let sprawl
+- an in-architecture/scope/out-of-scope table. Restating is famously easy to let sprawl
   into "and while I was there I improved…". It shouldn't. A change to what
   the model *says about the world* is a different initiative from a change
   to *how accurately the model reports itself*.
@@ -148,7 +148,7 @@ anything else (`scope-doc` skill), with:
 - No ID has been reused.
 - Every merged scope document is byte-identical to before, except where it
   was only linked to. Check this deliberately: `git diff` should show no
-  changes to `docs/scope/<n>_*.md` for any already-merged `<n>`.
+  changes to `architecture/scope/<n>_*.md` for any already-merged `<n>`.
 - `open-questions.md`'s Pending table contains only questions genuinely
   still open.
 - Cross-links resolve.

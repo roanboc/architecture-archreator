@@ -1,12 +1,12 @@
 ---
 name: stack-selection
-description: Use when bootstrapping a new project from this template and no technology stack has been chosen yet, or when assessing docs/ea/5_technology/ for a small application. Gives a decision framework and concrete default recommendations for small/solo apps, rather than re-deriving the choice from scratch each time.
+description: Use when bootstrapping a new project from this template and no technology stack has been chosen yet, or when assessing architecture/5_technology/ for a small application. Gives a decision framework and concrete default recommendations for small/solo apps, rather than re-deriving the choice from scratch each time.
 ---
 
 # Choosing a stack for a small application
 
 This is guidance for **deciding**, not a substitute for
-`docs/ea/5_technology/README.md` — once a
+`architecture/5_technology/README.md` — once a
 choice is made, document it (and why) in
 `1_technology-services.md`/`2_deployment.md` as usual. It exists because
 for a small or solo project, the honest default answer to "what should we
@@ -60,13 +60,13 @@ data": **Next.js + Vercel + Supabase**. Vercel handles hosting/CI/CD via
 its GitHub integration; Supabase provides Postgres with Row-Level Security
 policies as the single point of access-control enforcement — document the
 role × operation mapping in
-the `docs/ea/2_business/README.md`
+the `architecture/2_business/README.md`
 once the project's roles are known, so the RLS policies stay traceable to
 that matrix.
 
 ## The model as data
 
-The Markdown under `docs/ea/` is the **source of truth**: it is what the
+The Markdown under `architecture/` is the **source of truth**: it is what the
 Requester approves at the gates and what review acts on. The question this
 section answers is what, if anything, should be derived from it.
 
@@ -137,6 +137,6 @@ one is a real risk.
   disagreeing with data-access logic) is usually worth more than the
   flexibility of wiring the two together yourself.
 - **Whatever is chosen, record it and the reasoning** in
-  `docs/ea/5_technology/1_technology-services.md` — this skill helps you
+  `architecture/5_technology/1_technology-services.md` — this skill helps you
   decide quickly, but the EA doc is what stays true and verifiable over
   the life of the project.

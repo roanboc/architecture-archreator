@@ -69,7 +69,7 @@ you do:
 
 ## Question themes, in order
 
-Themes 1–6 fill `docs/ea/0_business-design/1_value-proposition-canvas.md`,
+Themes 1–6 fill `architecture/0_business-design/1_value-proposition-canvas.md`,
 one canvas per customer segment. Theme 7 fills
 `2_business-model-canvas.md`, one canvas per product.
 
@@ -118,8 +118,8 @@ document like any other. **Create it before presenting Gate 0**, not after:
 the Requester should approve against a concrete document, and the approval
 needs somewhere to be recorded the moment it is granted.
 
-Using the `scope-doc` skill, add the next-numbered file to `docs/scope/` and
-its row to `docs/scope/README.md`'s index. One document covers this whole
+Using the `scope-doc` skill, add the next-numbered file to `architecture/scope/` and
+its row to `architecture/scope/README.md`'s index. One document covers this whole
 track — the same file gains its Gate 1 row when `strategy-discovery` takes
 over, so don't open a second one at the handoff.
 
@@ -155,7 +155,7 @@ and 2 when the canvas moves.
 Once Gate 0 is granted, run `strategy-discovery` — which will find the
 canvases filled and **derive rather than re-ask**. Its themes map onto the
 canvas blocks per the mapping in
-`docs/ea/0_business-design/README.md`;
+`architecture/0_business-design/README.md`;
 the only theme with no canvas source is **Principles**, which is still
 discovered directly with the Requester. That handoff ends at **Gate 1 —
 Strategy**, as usual.
@@ -164,9 +164,9 @@ Strategy**, as usual.
 
 A docs-only initiative:
 
-- `docs/ea/0_business-design/1_value-proposition-canvas.md` — one canvas
+- `architecture/0_business-design/1_value-proposition-canvas.md` — one canvas
   per customer segment, plus the fit check;
-- `docs/ea/0_business-design/2_business-model-canvas.md` — one canvas per
+- `architecture/0_business-design/2_business-model-canvas.md` — one canvas per
   product, plus the revenue and cost tables keyed to element IDs;
 - the strategy and key business layers derived from them via
   `strategy-discovery`;

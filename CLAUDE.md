@@ -1,39 +1,45 @@
 # CLAUDE.md
 
-**This project has not been bootstrapped yet.** It is a fresh copy of the
-[archreator](./README.md) template: the method works, the model is empty.
-Run the `project-bootstrap` skill before anything else — it names the
-project, declares the modeling depth, prunes what wasn't inherited, and
-hands off to discovery. Everything in this file below the rule is a
-placeholder it will replace.
+This repository is **archreator** — an enterprise architecture method that
+lives in git as markdown, and the organization that publishes it. It holds
+four things, each named for what it is:
 
-<!--
-  TEMPLATE — project-bootstrap replaces this comment block, the line above,
-  and the placeholders below. Keep "The rule that governs everything else"
-  and "Modeling depth"; they are the whole point of this template.
--->
+| Directory | What it holds | Depth |
+| --------- | ------------- | ----- |
+| [`.claude/skills/`](./.claude/skills/README.md) | **The method itself** — the skill bodies, and the scaffold `project-bootstrap` emits from `project-bootstrap/templates/` | — |
+| [`org-archreator/`](./org-archreator/CLAUDE.md) | The organization behind archreator: segments, products, capabilities, economics | 2 — Organization |
+| [`product-archreator/`](./product-archreator/CLAUDE.md) | archreator modeled with archreator — the method's own architecture | 1 — Application |
+| [`product-archreator/site/`](./product-archreator/site/CLAUDE.md) | The guidance site, deployed to GitHub Pages | 1 — Application |
+
+The model **describes** the method; `.claude/skills/` **is** the method.
+Each tree declares its own modeling depth in its own `CLAUDE.md` — read the
+one for the tree you are working in.
 
 ## The rule that governs everything else
 
 **Strategy and business architecture are validated before any other layer,
 and the Requester approves at explicit gates before development.** A change
 in requirements is never coded directly: align it through the numbered EA
-layers (`docs/ea/1_strategy` → … → `5_technology`), stop at the gates for
-the Requester's approval, record it in a scope document (`docs/scope/`),
-then implement. Pure bug fixes that change no documented behavior skip the
+layers (`architecture/1_strategy` → … → `5_technology`), stop at the gates
+for the Requester's approval, record it in a scope document (`architecture/scope/`), then
+implement. Pure bug fixes that change no documented behavior skip the
 alignment and the gates, but still keep the docs true.
 
-## Modeling depth
+A change to **the method** is recorded in
+[`product-archreator/architecture/scope/`](./product-archreator/architecture/scope/README.md); a change
+to **the organization** in
+[`org-archreator/architecture/scope/`](./org-archreator/architecture/scope/README.md) — even when the
+organization is what motivated the method change.
 
-**Declared depth: _not yet declared_** — `project-bootstrap` sets this.
+## Portability
 
-The six layers describe a weekend app and a twenty-business-line company
-alike; the depth says how much of them gets filled in and which gates apply
-(see [`docs/ea/README.md` § Modeling depth](./docs/ea/README.md#modeling-depth)).
-Depth 1 is one application with a light strategy layer; Depth 2 is one
-organization; Depth 3 splits the model into [domains](./docs/ea/domains/README.md).
-It is a starting posture, never a ceiling — deepening or descoping is a
-normal initiative, decided by the Requester.
+archreator ships as a Claude Code plugin today, and is not tied to it.
+[Decision 6](./product-archreator/architecture/decisions/6_the-portability-boundary.md)
+fixes the boundary: **method content and skill frontmatter are portable;
+packaging is provider-specific and disposable.** The test for any file is
+_would this need editing if Claude Code vanished tomorrow, or just moving?_
+Anything in a skill body that would need editing violates `P6`. Further
+platforms are additive — each adds a manifest, none forks the method.
 
 ## The skills
 
@@ -44,7 +50,7 @@ invoke them by name in normal use.
 | ----- | ----------------- |
 | `project-bootstrap` | A project from the template hasn't been set up yet — start here |
 | `ea-first-change` | Any requirement change. **The spine**: it defines the gates and the order |
-| `ea-doc-style` | Editing anything under `docs/` — numbering, element IDs, ArchiMate-on-Mermaid, the grounding rule |
+| `ea-doc-style` | Editing anything under `architecture/` — numbering, element IDs, ArchiMate-on-Mermaid, the grounding rule |
 | `scope-doc` | Writing the initiative's scope document; its Approvals table is the durable record of the gates |
 | `pr-description` | Opening or updating a PR — the body covers the whole branch, not the latest commit |
 | `operating-model-discovery` | The subject is an organization: canvases first (Gate 0), strategy derived from them |
@@ -56,41 +62,21 @@ invoke them by name in normal use.
 | `stack-selection` | No technology stack chosen yet on a small application |
 | `engagement-retrospective` | An initiative or engagement just finished — capture what the method didn't cover before it evaporates |
 
-## Layout
-
-<!-- Replace with the real source layout once the project has code, e.g.:
-- `src/` — ...
-- `tests/` — ...
--->
-
-- `docs/ea/` — the documentation home (numbered ArchiMate layers), with
-  `docs/ea/domains/` used only at Depth 3;
-  `docs/scope/` — one document per initiative.
-
 ## Commands
 
-<!-- Replace with the project's real commands once they exist, e.g.:
 ```bash
-npm run lint
-npm run typecheck
-npm test
-npm run build
+python3 .claude/skills/project-bootstrap/templates/scripts/check_links.py    # relative links and HTML anchors resolve
+python3 .claude/skills/project-bootstrap/templates/scripts/check_model.py    # element-ID references resolve, per project
 ```
-All of them must be green before pushing; CI runs the same.
--->
 
-```bash
-python3 scripts/check_links.py    # relative links and HTML anchors resolve
-```
+Both must be green before pushing; CI runs the same.
 
 ## Conventions
 
-<!-- Project-specific conventions go here as they're established —
-     glossary location, code language, naming rules, single point of
-     enforcement for business rules, etc. Keep this section short; link to
-     the EA docs for anything that has a canonical home there instead of
-     restating it. -->
-
 - Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`, …).
-- Documentation language: **English** (change during bootstrap; see
-  `ea-doc-style`).
+- Documentation language: **English**.
+- Element IDs are assigned once and never reused, and are scoped per
+  project — two trees may each own a `G1`.
+- **A merged scope document is a historical record.** When a file moves, its
+  link *targets* are repaired so they still resolve; its words — including
+  link text — are never changed (`RULE6`).

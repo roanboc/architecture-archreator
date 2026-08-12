@@ -25,9 +25,9 @@ in one sitting doesn't need splitting. Shard when a work package (from
 
 ## Where stories live
 
-Alongside the initiative's scope document: `docs/scope/<n>_<name>-stories/`,
+Alongside the initiative's scope document: `architecture/scope/<n>_<name>-stories/`,
 one file per story, numbered in build order:
-`docs/scope/<n>_<name>-stories/1_<slug>.md`. The scope document's work
+`architecture/scope/<n>_<name>-stories/1_<slug>.md`. The scope document's work
 package keeps its **Deliverables**/**Outcome** summary and links to the
 story files instead of expanding into full task lists inline.
 

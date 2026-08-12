@@ -1,13 +1,13 @@
 ---
 name: scope-doc
-description: Use when creating or updating a project scope document in docs/scope/ — one per initiative, drafted before the pre-implementation gate as step 3 of the ea-first-change process, and the durable record of gate approvals.
+description: Use when creating or updating a project scope document in architecture/scope/ — one per initiative, drafted before the pre-implementation gate as step 3 of the ea-first-change process, and the durable record of gate approvals.
 ---
 
 # Writing a scope document
 
-One file per initiative in `docs/scope/`, named `<n>_<kebab-case-name>.md`
+One file per initiative in `architecture/scope/`, named `<n>_<kebab-case-name>.md`
 where `<n>` is the next number in the chronological sequence (check the
-index table in `docs/scope/README.md`, and add the new document to it).
+index table in `architecture/scope/README.md`, and add the new document to it).
 
 ## Template
 
@@ -106,13 +106,13 @@ _[← Scope index](./README.md) · [EA home](../ea/README.md)_
   claim — a deliverable, a verdict, an approval — is still forbidden.
 - Optionally include a small Mermaid plateau diagram using the
   `implementation` classDef from the EA notation conventions
-  (`docs/ea/README.md`).
+  (`architecture/README.md`).
 
 ## Optional: the open-questions log
 
 Projects with an external stakeholder or governing body who cannot be
 consulted synchronously (a board, a client, a compliance owner) benefit
-from a single living index, `docs/scope/open-questions.md`, listing every
+from a single living index, `architecture/scope/open-questions.md`, listing every
 adopted interpretation across all scope documents that still needs
 confirmation. If the project keeps one:
 

@@ -6,8 +6,8 @@ Claude Code picks these up automatically from their `description:`
 frontmatter — they aren't invoked by name in normal use. This file is a
 directory listing for humans browsing the folder; see the
 [root README](../../README.md#how-everything-fits-together) for the
-core-vs-supporting breakdown and how each skill relates to `docs/ea/` and
-`docs/scope/`.
+core-vs-supporting breakdown and how each skill relates to `architecture/` and
+`architecture/scope/`.
 
 This folder is also the root of the **`archreator` plugin** — its manifest
 is `.claude/.claude-plugin/plugin.json`, and the marketplace that publishes
@@ -18,9 +18,9 @@ in a project created from the template, and installed via
 
 That dual role constrains how skills link. **A skill may only link to files
 inside this folder.** Installing a plugin copies its directory to a cache,
-so a relative link out of it (`../../../docs/ea/README.md`) resolves to
+so a relative link out of it (`../../../architecture/README.md`) resolves to
 nothing for a plugin user. Skills refer to a consuming project's documents
-by naming the path in a code span — `` `docs/ea/README.md` `` — which reads
+by naming the path in a code span — `` `architecture/README.md` `` — which reads
 correctly on both paths and is what `ea-doc-style` § Links requires.
 
 | Skill | `SKILL.md` |

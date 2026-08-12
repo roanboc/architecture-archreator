@@ -43,7 +43,7 @@ will then find the strategy filled in and current.
   from what's documented: confirm what still holds, and focus the
   questions on what the new requirement bends or breaks.
 - **Derive, don't re-ask.** If
-  `docs/ea/0_business-design/README.md`
+  `architecture/0_business-design/README.md`
   is filled in, the Requester has already answered most of theme 1, 2, 4
   and 5 in business language and approved the answers at Gate 0. Start each
   theme from the canvas blocks it derives from — per the mapping in that
@@ -55,7 +55,7 @@ will then find the strategy filled in and current.
 ## Question themes, in order
 
 The order matches the strategy layer's own analysis order (see
-`docs/ea/1_strategy/README.md`): who wants what and why, then what we must
+`architecture/1_strategy/README.md`): who wants what and why, then what we must
 be able to do, then how value flows — and only then the key business
 elements underneath.
 
@@ -78,7 +78,7 @@ elements underneath.
 5. **Value stream** (`3_value-stream.md`): From the first stakeholder
    need to value delivered, what are the stages? Which capability serves
    each stage?
-6. **Key business elements** (`docs/ea/2_business/`): Who are the actors
+6. **Key business elements** (`architecture/2_business/`): Who are the actors
    and roles — and is any role performed or assisted by an AI, at what
    autonomy level and decision rights (`ea-doc-style`'s actor notation)?
    What core services are offered, what main business objects are handled,
@@ -94,8 +94,8 @@ steps 2–4.
 
 A docs-only initiative:
 
-- `docs/ea/1_strategy/` filled in (or revised), and the key business
-  elements captured in `docs/ea/2_business/`;
+- `architecture/1_strategy/` filled in (or revised), and the key business
+  elements captured in `architecture/2_business/`;
 - a scope document (`scope-doc` skill) whose EA-alignment table records
   the impact on layers 1–2 and an explicit "not started" / "no change"
   verdict for the rest, and whose Approvals table records Gate 1;
@@ -108,8 +108,8 @@ document like any other. **Create it before presenting Gate 1**, not after:
 the Requester should approve against a concrete document, and the approval
 needs somewhere to be recorded the moment it is granted.
 
-Using the `scope-doc` skill, add the next-numbered file to `docs/scope/`
-and its row to `docs/scope/README.md`'s index. On this track the EA
+Using the `scope-doc` skill, add the next-numbered file to `architecture/scope/`
+and its row to `architecture/scope/README.md`'s index. On this track the EA
 alignment table records the impact on layers 1–2 with an explicit "not
 started" verdict for the rest, and the Approvals table carries a Gate 1 row
 plus `N/A` rows for the gates that don't apply (Gate 2 and Gate 3 always;
