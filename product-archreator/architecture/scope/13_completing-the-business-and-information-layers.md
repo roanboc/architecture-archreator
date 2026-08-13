@@ -1,18 +1,25 @@
-# Project Scope — Completing the business and information layers
+# Project Scope — Grounding the vocabulary, and rules in their proper file
 
 _[← Scope index](./README.md) · [EA home](../README.md)_
 
 **ArchiMate viewpoint:** Implementation & Migration.
 **Delivered as:** branch `claude/product-1-roadmap-74giay`.
 
-Both models stop short of a complete business layer, and the method's own
-vocabulary — the forty-one element types `ACMP15` enforces — is defined
-nowhere except a Python list. This completes what the tier rule says each
-model should hold, and grounds the vocabulary in the model that owns it.
+The method's own vocabulary — the forty-one element types `ACMP15` enforces —
+is defined nowhere except a Python list, and its twelve business rules sit in
+a file the method's own template does not put them in. This fixes both.
+
+**The organization's half is a separate initiative.** Completing that model's
+business layer is a change to the organization, which the repository's
+`CLAUDE.md` says is recorded in its own scope index — see
+[initiative 4 there](../../../org-archreator/architecture/scope/4_completing-the-business-layer.md).
+They were split rather than combined because the alternative was one document
+citing an initiative in another model, which open question 11 records that the
+method cannot express.
 
 Gate 2 on [initiative 12](./12_the-site-becomes-an-implementation-tier.md)
-waits on this: migrating the site to an implementation tier means citing
-parents in the tiers above, and two of those tiers are unfinished.
+waits on both halves: migrating the site to an implementation tier means citing
+parents in the tiers above it.
 
 ## What is missing, and what only looks missing
 
@@ -54,7 +61,7 @@ the concepts archreator has added of its own.
 | Layer | Impact |
 | ----- | ------ |
 | 1_strategy | **No change** in any tree |
-| 2_business | **`org-archreator` gains business processes and business objects**, and a domain-context document carrying its glossary. **`product-archreator`'s twelve rules move** from `2_business-services.md` to `5_domain-context-and-rules.md`, unchanged in content |
+| 2_business | **The twelve rules move** from `2_business-services.md` to `5_domain-context-and-rules.md`, unchanged in content, and the file gains the method's glossary. No rule is added, altered or removed |
 | 3_information | **`product-archreator` gains layer 3**, which its `CLAUDE.md` currently says it does not need. That statement was true when the method was thought to hold no data of its own; its vocabulary is data of its own |
 | 4_application | **No element change.** `ACMP15` gains a grounding reference to the entity catalogue its prefix list implements |
 | 5_technology | **No change** |
@@ -77,38 +84,16 @@ the concepts archreator has added of its own.
 
 ## Work packages and deliverables
 
-### WP1 — The organization's business processes
+### WP1 — The twelve rules, in their proper file
 
-- **Deliverables:**
-  `org-archreator/architecture/2_business/3_business-processes.md`, one
-  high-level process per stage of `VS1` — **Reach, Frame, Approve, Model,
-  Build, Feed back** — each naming the services it realizes and the actors it
-  is assigned to.
-- **Outcome:** the value stream stops being the only place the organization's
-  work is described, and the services gain the processes that deliver them.
-
-### WP2 — The organization's business objects
-
-- **Deliverables:**
-  `org-archreator/architecture/2_business/4_business-objects.md`, covering
-  **both** the client-facing objects — an engagement, a delivered architecture,
-  an approval given by a client's Requester — and the internal ones: a model,
-  an initiative, a scope document, an engagement note.
-- **Outcome:** the things the business handles are named, which is what the
-  processes in WP1 act on and what layer 3's documents represent.
-
-### WP3 — Domain context and rules, in their proper file
-
-- **Deliverables:**
-  `org-archreator/architecture/2_business/5_domain-context-and-rules.md` — the
-  organization's glossary and any rules it owns.
-  `product-archreator/architecture/2_business/5_domain-context-and-rules.md` —
-  the twelve existing rules **moved unchanged** out of `2_business-services.md`,
-  where they have been living since before the file existed.
+- **Deliverables:** `2_business/5_domain-context-and-rules.md` — the twelve
+  existing rules **moved unchanged** out of `2_business-services.md`, where
+  they have been living since before the destination file existed, plus the
+  method's own glossary.
 - **Outcome:** a reader looking for the rules finds them where the method's own
   template says they are.
 
-### WP4 — The entity catalogue
+### WP2 — The entity catalogue
 
 - **Deliverables:** `product-archreator/architecture/3_information/1_data-entities.md`,
   in two parts:
@@ -129,7 +114,7 @@ the concepts archreator has added of its own.
 
 | In scope | Out of scope (gaps, candidate future work) |
 | -------- | ------------------------------------------- |
-| The enterprise's processes, objects and domain context | Business processes at the product tier — the method's gated walk is already the enterprise's `Frame`/`Approve`/`Model` stages, and a copy is what `RULE11` forbids |
+| The rules relocated and a glossary | Business processes at the product tier — the method's gated walk is already the enterprise's `Frame`/`Approve`/`Model` stages, and a copy is what `RULE11` forbids |
 | Relocating the twelve rules, content unchanged | Any change to what the rules say. This is a move |
 | The entity catalogue, ArchiMate types referenced not restated | Redefining ArchiMate. The catalogue records adoption, not semantics |
 | `ACMP15` naming the catalogue it implements | Making `check_model` *read* the catalogue at runtime — see the gap notes |
