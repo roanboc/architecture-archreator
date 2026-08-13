@@ -25,7 +25,7 @@ parents in the tiers above it.
 
 | Tree | Tier | State |
 | ---- | ---- | ----- |
-| `org-archreator` | Enterprise | Strategy complete. Business has actors and services; **processes, objects and domain context are absent** |
+| `org-archreator` | Enterprise | Complete as of [its own initiative 4](../../../org-archreator/architecture/scope/4_completing-the-business-layer.md), on this branch |
 | `product-archreator` | Product | Business has actors and services; the twelve rules sit **in the wrong file**. **Layer 3 does not exist at all** |
 | `product-archreator/site` | Implementation | Owns a `3_value-stream.md` that **restates the enterprise's** |
 
@@ -72,15 +72,15 @@ the concepts archreator has added of its own.
 | ---- | ----------- | ---- | ----------------- |
 | Gate 0 — Business model | — | — | **N/A** — the canvases are unaffected; nothing about products, segments or economics changes |
 | Gate 1 — Strategy | — | — | **N/A** — no Stakeholder, Driver, Goal or Principle added or modified. The value stream is the *source* for the processes, not changed by them |
-| Gate 2 — Business | _awaiting_ | — | This document, the process spine, the object scope, and the entity catalogue |
+| Gate 2 — Business | _awaiting_ | — | This document, the rules relocation, and the entity catalogue |
 | Gate 3 — Solution design | _to be asked at Gate 2_ | — | No code changes are proposed; likely `N/A` |
 
 ## Plateaus
 
 | Plateau | State |
 | ------- | ----- |
-| **Baseline** (before) | Two models with half a business layer, a product model with no information layer, and a vocabulary of forty-one types that lives only in a validator |
-| **Target** (delivered) | Each tier holds what `RULE11` says it should. The vocabulary is a catalogue in the model, and the validator implements it rather than defining it |
+| **Baseline** (before) | Twelve rules in a file the template does not put them in, no information layer, and a vocabulary of forty-one types that lives only in a validator |
+| **Target** (delivered) | The rules are where the method's own template says they are, and the vocabulary is a catalogue in the model that the validator implements rather than defines |
 
 ## Work packages and deliverables
 
