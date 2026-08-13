@@ -59,24 +59,24 @@ the `architecture-doc-style` skill.
 ```mermaid
 flowchart TB
   subgraph MOT["Motivation & Strategy"]
-    g1["«Goal»<br>G1 A model you can<br>implement against"]:::motivation
-    p1["«Principle»<br>P1 Every element names<br>what realizes it"]:::motivation
+    g1["«Goal» A model you can implement against [G1]"]:::motivation
+    p1["«Principle» Every element names what realizes it [P1]"]:::motivation
   end
 
   subgraph BUS["Business layer"]
-    req["«Business Actor (Human)»<br>ACT1 Requester"]:::business
-    agent["«Business Actor (AI)»<br>ACT2 Agent"]:::business
-    bsvc1["«Business Service»<br>BSVC1 Aligned change"]:::business
+    req["«Business Actor (Human)» Requester [ACT1]"]:::business
+    agent["«Business Actor (AI)» Agent [ACT2]"]:::business
+    bsvc1["«Business Service» Aligned change [BSVC1]"]:::business
   end
 
   subgraph APP["Application layer"]
-    acmp1["«Application Component»<br>ACMP1 The skill set"]:::application
-    acmp3["«Application Component»<br>ACMP3 Link checker"]:::application
+    acmp1["«Application Component» The skill set [ACMP1]"]:::application
+    acmp3["«Application Component» Link checker [ACMP3]"]:::application
   end
 
   subgraph TEC["Technology layer"]
-    node1["«Node»<br>NODE1 Claude Code"]:::technology
-    node2["«Node»<br>NODE2 GitHub Actions"]:::technology
+    node1["«Node» Claude Code [NODE1]"]:::technology
+    node2["«Node» GitHub Actions [NODE2]"]:::technology
   end
 
   g1 -->|realized by| bsvc1

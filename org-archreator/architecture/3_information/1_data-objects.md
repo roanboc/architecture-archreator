@@ -11,9 +11,9 @@ enough to be the point of the layer.
 
 ```mermaid
 flowchart LR
-  role["⚉ «Business Role»<br>who handles it"]:::business
-  dobj["▦ «Data Object»<br>information held"]:::data
-  cls(["◍ Classification<br>public, confidential, or not held"]):::note
+  role["⚉ «Business Role» who handles it"]:::business
+  dobj["▦ «Data Object» information held"]:::data
+  cls(["◍ Classification public, confidential, or not held"]):::note
 
   role -->|accesses| dobj
   dobj -->|classified as| cls
@@ -38,21 +38,21 @@ diagram, dropped on the rest.
 ```mermaid
 flowchart TB
   subgraph HELD["Held by this organization — all of it public"]
-    dobj1["▦ «Data Object» DOBJ1<br>The method sources"]:::data
-    dobj2["▦ DOBJ2<br>The published guidance"]:::data
-    dobj3["▦ DOBJ3<br>This organization's own model"]:::data
-    dobj7x["▦ DOBJ7<br>Engagement pattern notes"]:::data
+    dobj1["▦ «Data Object» The method sources [DOBJ1]"]:::data
+    dobj2["▦ The published guidance [DOBJ2]"]:::data
+    dobj3["▦ This organization's own model [DOBJ3]"]:::data
+    dobj7x["▦ Engagement pattern notes [DOBJ7]"]:::data
   end
 
   subgraph PRIVATE["Held by one person, outside any system"]
-    dobj4["▦ DOBJ4<br>Client business information"]:::confidential
+    dobj4["▦ Client business information [DOBJ4]"]:::confidential
   end
 
-  dobj4 -->|patterns lifted out,<br>facts left behind| dobj7x
+  dobj4 -->|patterns lifted out, facts left behind| dobj7x
 
   subgraph NOTHELD["Not held — by design"]
-    dobj5["▦ DOBJ5<br>Adopter models"]:::absent
-    dobj6["▦ DOBJ6<br>Portal submissions — Pending"]:::absent
+    dobj5["▦ Adopter models [DOBJ5]"]:::absent
+    dobj6["▦ Portal submissions — Pending [DOBJ6]"]:::absent
   end
 
   classDef data fill:#c2f0ff,stroke:#2a8fb0,color:#333

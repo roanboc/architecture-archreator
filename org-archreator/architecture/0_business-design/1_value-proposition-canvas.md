@@ -19,16 +19,16 @@ this after **Gate 0**.
 ```mermaid
 flowchart TB
   subgraph PROFILE["Customer profile — what is true of them"]
-    cs(["◍ «Customer Segment»<br>who we serve"]):::segment
-    job{{"⚙ «Customer Job»<br>what they are trying to do"}}:::job
-    pain>"✖ «Pain»<br>what goes wrong today"]:::pain
-    gain[["✔ «Gain»<br>what they would call a win"]]:::gain
+    cs(["◍ «Customer Segment» who we serve"]):::segment
+    job{{"⚙ «Customer Job» what they are trying to do"}}:::job
+    pain>"✖ «Pain» what goes wrong today"]:::pain
+    gain[["✔ «Gain» what they would call a win"]]:::gain
   end
 
   subgraph VALUEMAP["Value map — what we offer"]
-    prod["▣ «Product»<br>what they actually get"]:::product
-    prel[/"⊖ «Pain Reliever»<br>how the pain is removed"\]:::reliever
-    gcre[/"⊕ «Gain Creator»<br>how the gain is produced"\]:::creator
+    prod["▣ «Product» what they actually get"]:::product
+    prel[/"⊖ «Pain Reliever» how the pain is removed"\]:::reliever
+    gcre[/"⊕ «Gain Creator» how the gain is produced"\]:::creator
   end
 
   cs -->|performs| job
@@ -78,13 +78,13 @@ first node of each type in a diagram, dropped on the rest.
 
 ```mermaid
 flowchart LR
-  cs1(["◍ «Customer Segment» CS1<br>Business and solution designers"]):::segment
-  cs2(["◍ CS2<br>Established business owners"]):::segment
-  cs3(["◍ CS3<br>Founders at the idea stage"]):::segment
+  cs1(["◍ «Customer Segment» Business and solution designers [CS1]"]):::segment
+  cs2(["◍ Established business owners [CS2]"]):::segment
+  cs3(["◍ Founders at the idea stage [CS3]"]):::segment
 
-  prod1["▣ «Product» PROD1<br>The open method — free"]:::product
-  prod2["▣ PROD2<br>Consulting — hourly"]:::product
-  prod3["▣ PROD3<br>The portal — Pending"]:::product
+  prod1["▣ «Product» The open method — free [PROD1]"]:::product
+  prod2["▣ Consulting — hourly [PROD2]"]:::product
+  prod3["▣ The portal — Pending [PROD3]"]:::product
 
   cs1 --> prod1
   cs2 --> prod1
@@ -138,16 +138,16 @@ segment.
 
 ```mermaid
 flowchart LR
-  cs1(["◍ «Customer Segment» CS1<br>Designers"]):::segment
-  cs2(["◍ CS2<br>Established owners"]):::segment
-  cs3(["◍ CS3<br>Founders"]):::segment
+  cs1(["◍ «Customer Segment» Designers [CS1]"]):::segment
+  cs2(["◍ Established owners [CS2]"]):::segment
+  cs3(["◍ Founders [CS3]"]):::segment
 
-  job1{{"⚙ «Customer Job» JOB1<br>Understand the problem first"}}:::job
-  job2{{"⚙ JOB2<br>Turn it into something buildable"}}:::job
-  job3{{"⚙ JOB3<br>Reach a working solution"}}:::job
-  job4{{"⚙ JOB4<br>Keep one shared source"}}:::job
-  job5{{"⚙ JOB5<br>Quality without scarce expertise"}}:::job
-  job6{{"⚙ JOB6<br>Change direction, keep the work"}}:::job
+  job1{{"⚙ «Customer Job» Understand the problem first [JOB1]"}}:::job
+  job2{{"⚙ Turn it into something buildable [JOB2]"}}:::job
+  job3{{"⚙ Reach a working solution [JOB3]"}}:::job
+  job4{{"⚙ Keep one shared source [JOB4]"}}:::job
+  job5{{"⚙ Quality without scarce expertise [JOB5]"}}:::job
+  job6{{"⚙ Change direction, keep the work [JOB6]"}}:::job
 
   cs1 --> job1
   cs1 --> job2
@@ -203,17 +203,17 @@ wanted is the same either way, which is why it is one job and not two.
 
 ```mermaid
 flowchart LR
-  job1{{"⚙ «Customer Job» JOB1<br>Understand the problem first"}}:::job
-  job2{{"⚙ JOB2<br>Turn it into something buildable"}}:::job
-  job3{{"⚙ JOB3<br>Reach a working solution"}}:::job
-  job4{{"⚙ JOB4<br>Keep one shared source"}}:::job
-  job5{{"⚙ JOB5<br>Quality without scarce expertise"}}:::job
+  job1{{"⚙ «Customer Job» Understand the problem first [JOB1]"}}:::job
+  job2{{"⚙ Turn it into something buildable [JOB2]"}}:::job
+  job3{{"⚙ Reach a working solution [JOB3]"}}:::job
+  job4{{"⚙ Keep one shared source [JOB4]"}}:::job
+  job5{{"⚙ Quality without scarce expertise [JOB5]"}}:::job
 
-  pain1>"✖ «Pain» PAIN1<br>The problem is framed wrongly"]:::pain
-  pain2>"✖ PAIN2<br>Design and delivery are separate worlds"]:::pain
-  pain3>"✖ PAIN3<br>Knowledge is scattered or trapped"]:::pain
-  pain4>"✖ PAIN4<br>Architectural quality is out of reach"]:::pain
-  pain5>"✖ PAIN5<br>AI works with no framework behind it"]:::pain
+  pain1>"✖ «Pain» The problem is framed wrongly [PAIN1]"]:::pain
+  pain2>"✖ Design and delivery are separate worlds [PAIN2]"]:::pain
+  pain3>"✖ Knowledge is scattered or trapped [PAIN3]"]:::pain
+  pain4>"✖ Architectural quality is out of reach [PAIN4]"]:::pain
+  pain5>"✖ AI works with no framework behind it [PAIN5]"]:::pain
 
   job1 --> pain1
   job2 --> pain2
@@ -253,19 +253,19 @@ explicitly: every pain above is targeted.
 
 ```mermaid
 flowchart LR
-  job1{{"⚙ «Customer Job» JOB1<br>Understand the problem first"}}:::job
-  job2{{"⚙ JOB2<br>Turn it into something buildable"}}:::job
-  job3{{"⚙ JOB3<br>Reach a working solution"}}:::job
-  job4{{"⚙ JOB4<br>Keep one shared source"}}:::job
-  job5{{"⚙ JOB5<br>Quality without scarce expertise"}}:::job
-  job6{{"⚙ JOB6<br>Change direction, keep the work"}}:::job
+  job1{{"⚙ «Customer Job» Understand the problem first [JOB1]"}}:::job
+  job2{{"⚙ Turn it into something buildable [JOB2]"}}:::job
+  job3{{"⚙ Reach a working solution [JOB3]"}}:::job
+  job4{{"⚙ Keep one shared source [JOB4]"}}:::job
+  job5{{"⚙ Quality without scarce expertise [JOB5]"}}:::job
+  job6{{"⚙ Change direction, keep the work [JOB6]"}}:::job
 
-  gain1[["✔ «Gain» GAIN1<br>Understand the business wider and deeper"]]:::gain
-  gain2[["✔ GAIN2<br>Documentation ready for the business"]]:::gain
-  gain3[["✔ GAIN3<br>Build from the design"]]:::gain
-  gain4[["✔ GAIN4<br>A shared language that keeps working"]]:::gain
-  gain5[["✔ GAIN5<br>Speed with structure, at any level"]]:::gain
-  gain6[["✔ GAIN6<br>Pivots that cost less"]]:::gain
+  gain1[["✔ «Gain» Understand the business wider and deeper [GAIN1]"]]:::gain
+  gain2[["✔ Documentation ready for the business [GAIN2]"]]:::gain
+  gain3[["✔ Build from the design [GAIN3]"]]:::gain
+  gain4[["✔ A shared language that keeps working [GAIN4]"]]:::gain
+  gain5[["✔ Speed with structure, at any level [GAIN5]"]]:::gain
+  gain6[["✔ Pivots that cost less [GAIN6]"]]:::gain
 
   job1 --> gain1
   job2 --> gain2
@@ -346,20 +346,20 @@ possible at all.
 
 ```mermaid
 flowchart LR
-  prod1["▣ «Product» PROD1<br>The open method"]:::product
-  prod3["▣ PROD3<br>The portal — Pending"]:::product
+  prod1["▣ «Product» The open method [PROD1]"]:::product
+  prod3["▣ The portal — Pending [PROD3]"]:::product
 
-  prel1[/"⊖ «Pain Reliever» PREL1<br>The gated layer walk"\]:::reliever
-  prel2[/"⊖ PREL2<br>The method continues into delivery"\]:::reliever
-  prel3[/"⊖ PREL3<br>One model in one place"\]:::reliever
-  prel4[/"⊖ PREL4<br>An architect's cost becomes an agent's"\]:::reliever
-  prel5[/"⊖ PREL5<br>The whole thing operating together"\]:::reliever
+  prel1[/"⊖ «Pain Reliever» The gated layer walk [PREL1]"\]:::reliever
+  prel2[/"⊖ The method continues into delivery [PREL2]"\]:::reliever
+  prel3[/"⊖ One model in one place [PREL3]"\]:::reliever
+  prel4[/"⊖ An architect's cost becomes an agent's [PREL4]"\]:::reliever
+  prel5[/"⊖ The whole thing operating together [PREL5]"\]:::reliever
 
-  pain1>"✖ «Pain» PAIN1<br>Framed wrongly"]:::pain
-  pain2>"✖ PAIN2<br>Design and delivery split"]:::pain
-  pain3>"✖ PAIN3<br>Knowledge scattered"]:::pain
-  pain4>"✖ PAIN4<br>Quality out of reach"]:::pain
-  pain5>"✖ PAIN5<br>AI without a framework"]:::pain
+  pain1>"✖ «Pain» Framed wrongly [PAIN1]"]:::pain
+  pain2>"✖ Design and delivery split [PAIN2]"]:::pain
+  pain3>"✖ Knowledge scattered [PAIN3]"]:::pain
+  pain4>"✖ Quality out of reach [PAIN4]"]:::pain
+  pain5>"✖ AI without a framework [PAIN5]"]:::pain
 
   prod1 --> prel1
   prod1 --> prel2

@@ -44,22 +44,22 @@ see that document for the full palette and rules.
 ```mermaid
 flowchart TB
   subgraph MOT["Motivation & Strategy"]
-    g1("◎ «Goal» G1<br>Legible guidance"):::motivation
-    vs1[["⇉ «Value Stream» VS1<br>Discover → Understand → Adopt"]]:::strategy
+    g1("◎ «Goal» Legible guidance [G1]"):::motivation
+    vs1[["⇉ «Value Stream» Discover → Understand → Adopt [VS1]"]]:::strategy
   end
 
   subgraph BUS["Business layer"]
-    bsvc1(["⬭ «Business Service» BSVC1<br>EA-first method guidance"]):::business
-    act1(["⚇ «Business Actor (Human)» ACT1<br>Pilot"]):::business
-    act2(["⚇ «Business Actor (AI)» ACT2<br>Copilot"]):::application
+    bsvc1(["⬭ «Business Service» EA-first method guidance [BSVC1]"]):::business
+    act1(["⚇ «Business Actor (Human)» Pilot [ACT1]"]):::business
+    act2(["⚇ «Business Actor (AI)» Copilot [ACT2]"]):::application
   end
 
   subgraph APP["Application layer"]
-    asvc1(["⬮ «Application Service» ASVC1<br>Guidance publishing"]):::application
+    asvc1(["⬮ «Application Service» Guidance publishing [ASVC1]"]):::application
   end
 
   subgraph TEC["Technology layer"]
-    tsvc1(["⬯ «Technology Service» TSVC1<br>Static hosting"]):::technology
+    tsvc1(["⬯ «Technology Service» Static hosting [TSVC1]"]):::technology
   end
 
   g1 -->|realized by| vs1

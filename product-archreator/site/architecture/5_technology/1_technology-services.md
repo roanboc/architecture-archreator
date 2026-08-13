@@ -8,8 +8,8 @@ _[← Technology layer](./README.md) · [EA home](../README.md)_
 
 ```mermaid
 flowchart LR
-  node["⬒ «Node»<br>where something runs"]:::node
-  tsvc(["⬯ «Technology Service»<br>what it provides"]):::techservice
+  node["⬒ «Node» where something runs"]:::node
+  tsvc(["⬯ «Technology Service» what it provides"]):::techservice
 
   node -->|provides| tsvc
 
@@ -28,11 +28,11 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  node1["⬒ «Node» NODE1<br>GitHub Pages"]:::node
-  node2["⬒ NODE2<br>GitHub Actions"]:::node
+  node1["⬒ «Node» GitHub Pages [NODE1]"]:::node
+  node2["⬒ GitHub Actions [NODE2]"]:::node
 
-  tsvc1(["⬯ «Technology Service» TSVC1<br>Static hosting"]):::techservice
-  tsvc2(["⬯ TSVC2<br>CI/CD"]):::techservice
+  tsvc1(["⬯ «Technology Service» Static hosting [TSVC1]"]):::techservice
+  tsvc2(["⬯ CI/CD [TSVC2]"]):::techservice
 
   node1 --> tsvc1
   node2 --> tsvc2

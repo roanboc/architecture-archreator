@@ -8,9 +8,9 @@ _[← Business layer](./README.md) · [EA home](../README.md)_
 
 ```mermaid
 flowchart LR
-  svc(["⬭ «Business Service»<br>what adopters are offered"]):::service
-  proc{{"⚙ «Business Process»<br>how it is delivered"}}:::process
-  act(["⚇ «Business Actor»<br>who performs it"]):::actor
+  svc(["⬭ «Business Service» what adopters are offered"]):::service
+  proc{{"⚙ «Business Process» how it is delivered"}}:::process
+  act(["⚇ «Business Actor» who performs it"]):::actor
 
   proc -->|realizes| svc
   act -->|assigned to| proc
@@ -32,9 +32,9 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  bsvc1(["⬭ «Business Service» BSVC1<br>EA-first method guidance"]):::service
-  act3(["⚇ «Business Actor» ACT3<br>Template adopter"]):::actor
-  vs1[["⇉ «Value Stream» VS1<br>Discover → Understand → Adopt"]]:::stage
+  bsvc1(["⬭ «Business Service» EA-first method guidance [BSVC1]"]):::service
+  act3(["⚇ «Business Actor» Template adopter [ACT3]"]):::actor
+  vs1[["⇉ «Value Stream» Discover → Understand → Adopt [VS1]"]]:::stage
 
   bsvc1 --> act3
   bsvc1 --> vs1
@@ -64,12 +64,12 @@ doc drift, the same as a stale source link.
 
 ```mermaid
 flowchart LR
-  draft{{"⚙ «Business Process» BPROC1 · 1<br>Copilot drafts a change"}}:::process
-  review{{"⚙ BPROC1 · 2<br>Pilot reviews and merges"}}:::process
-  deploy{{"⚙ BPROC1 · 3<br>CI/CD deploys to Pages"}}:::process
+  draft{{"⚙ «Business Process» · 1 Copilot drafts a change [BPROC1]"}}:::process
+  review{{"⚙ · 2 Pilot reviews and merges [BPROC1]"}}:::process
+  deploy{{"⚙ · 3 CI/CD deploys to Pages [BPROC1]"}}:::process
 
-  act2(["⚇ «Business Actor» ACT2<br>Copilot"]):::actorai
-  act1(["⚇ ACT1<br>Pilot"]):::actor
+  act2(["⚇ «Business Actor» Copilot [ACT2]"]):::actorai
+  act1(["⚇ Pilot [ACT1]"]):::actor
 
   act2 -->|assigned to| draft
   act1 -->|assigned to| review

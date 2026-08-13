@@ -76,28 +76,28 @@ where each actor's responsibility starts and ends:
 ```mermaid
 flowchart TD
   subgraph REQ["Requester"]
-    req(["Presents a requirement<br>or reports a problem"])
-    gate0{"Gate 0 — approve<br>the business model?"}
-    gate1{"Gate 1 — approve<br>the strategy?"}
-    gate2{"Gate 2 — approve strategy,<br>business, information?<br>Review the solution<br>design too?"}
-    gate3{"Gate 3 — approve the<br>solution design?"}
+    req(["Presents a requirement or reports a problem"])
+    gate0{"Gate 0 — approve the business model?"}
+    gate1{"Gate 1 — approve the strategy?"}
+    gate2{"Gate 2 — approve strategy, business, information? Review the solution design too?"}
+    gate3{"Gate 3 — approve the solution design?"}
   end
 
   subgraph AGENT["Agent (person or AI)"]
-    depth["Confirm the modeling depth<br>and say it out loud;<br>at Depth 3, locate the domain"]
-    assess["Assess 1_strategy<br>against the change"]
-    canvases["Operating-model discovery —<br>value proposition + business<br>model canvases, docs-only<br>(operating-model-discovery skill)"]
-    discovery["Strategy discovery —<br>question-driven, docs-only<br>(strategy-discovery skill)"]
-    dscope["Draft scope document<br>architecture/scope/N_*.md"]
-    nextinit["Offer the implementation<br>initiative that triggered<br>discovery"]
-    conflict{"Contradicts an existing<br>Principle?"}
-    bugfix{"Pure bug fix — no<br>documented behavior<br>changes?"}
-    walk23["Align 2_business and<br>3_information"]
-    scopedoc["Draft scope document<br>architecture/scope/N_*.md"]
-    walk45["Align 4_application and<br>5_technology"]
-    implement["Implement, keeping EA +<br>scope docs true to the code"]
-    verify["Verify alignment<br>(architecture-first-change, step 7)"]
-    openpr["Open PR — default or<br>bugfix template"]
+    depth["Confirm the modeling depth and say it out loud; at Depth 3, locate the domain"]
+    assess["Assess 1_strategy against the change"]
+    canvases["Operating-model discovery — value proposition + business model canvases, docs-only (operating-model-discovery skill)"]
+    discovery["Strategy discovery — question-driven, docs-only (strategy-discovery skill)"]
+    dscope["Draft scope document architecture/scope/N_*.md"]
+    nextinit["Offer the implementation initiative that triggered discovery"]
+    conflict{"Contradicts an existing Principle?"}
+    bugfix{"Pure bug fix — no documented behavior changes?"}
+    walk23["Align 2_business and 3_information"]
+    scopedoc["Draft scope document architecture/scope/N_*.md"]
+    walk45["Align 4_application and 5_technology"]
+    implement["Implement, keeping EA + scope docs true to the code"]
+    verify["Verify alignment (architecture-first-change, step 7)"]
+    openpr["Open PR — default or bugfix template"]
     address["Address review feedback"]
   end
 
@@ -105,33 +105,33 @@ flowchart TD
     review{"Approve?"}
   end
 
-  stop[["Stop — surface the conflict<br>to the requester instead<br>of proceeding"]]
+  stop[["Stop — surface the conflict to the requester instead of proceeding"]]
   merged(["Merged"])
 
   req --> depth --> assess
-  assess -->|the subject is an<br>organization, not an app| canvases
+  assess -->|the subject is an organization, not an app| canvases
   canvases --> dscope
   dscope --> gate0
   gate0 -- changes requested --> canvases
-  gate0 -- "approved (recorded in<br>scope doc)" --> discovery
-  assess -->|strategy is placeholders,<br>or the change shifts it| discovery
+  gate0 -- "approved (recorded in scope doc)" --> discovery
+  assess -->|strategy is placeholders, or the change shifts it| discovery
   discovery --> dscope
   dscope --> gate1
   gate1 -- changes requested --> discovery
-  gate1 -- "approved (recorded in<br>scope doc)" --> verify
+  gate1 -- "approved (recorded in scope doc)" --> verify
   verify -.->|docs-only initiative| nextinit
-  nextinit -.->|implementation follows<br>as a new initiative| req
+  nextinit -.->|implementation follows as a new initiative| req
   assess --> conflict
   conflict -- yes --> stop
-  stop -.->|requester decides how<br>to resolve it| req
+  stop -.->|requester decides how to resolve it| req
   conflict -- no --> bugfix
   bugfix -- yes --> implement
   bugfix -- no --> walk23 --> scopedoc --> gate2
   gate2 -- changes requested --> walk23
-  gate2 -- "approved (recorded in<br>scope doc)" --> walk45
-  walk45 -->|Gate 3 requested<br>at Gate 2| gate3
+  gate2 -- "approved (recorded in scope doc)" --> walk45
+  walk45 -->|Gate 3 requested at Gate 2| gate3
   gate3 -- changes requested --> walk45
-  gate3 -- "approved (recorded in<br>scope doc)" --> implement
+  gate3 -- "approved (recorded in scope doc)" --> implement
   walk45 -->|Gate 3 not requested| implement
   implement --> verify --> openpr --> review
   review -- changes requested --> address --> openpr

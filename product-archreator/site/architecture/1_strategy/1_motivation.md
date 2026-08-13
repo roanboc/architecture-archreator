@@ -8,10 +8,10 @@ _[← Strategy layer](./README.md) · [EA home](../README.md)_
 
 ```mermaid
 flowchart LR
-  stk(["◍ «Stakeholder»<br>who cares"]):::stakeholder
-  drv{{"✳ «Driver»<br>what pressures them"}}:::driver
-  g("◎ «Goal»<br>what must become true"):::goal
-  p[/"⚑ «Principle»<br>what must always hold"/]:::principle
+  stk(["◍ «Stakeholder» who cares"]):::stakeholder
+  drv{{"✳ «Driver» what pressures them"}}:::driver
+  g("◎ «Goal» what must become true"):::goal
+  p[/"⚑ «Principle» what must always hold"/]:::principle
 
   stk -->|concerned with| drv
   drv -->|realized by| g
@@ -39,13 +39,13 @@ the chain runs driver straight to goal. The tones and glyphs come from
 
 ```mermaid
 flowchart LR
-  stk1(["◍ «Stakeholder» STK1<br>Pilot"]):::stakeholder
-  stk2(["◍ STK2<br>Template adopters"]):::stakeholder
-  stk3(["◍ STK3<br>Spanish-speaking adopters"]):::stakeholder
+  stk1(["◍ «Stakeholder» Pilot [STK1]"]):::stakeholder
+  stk2(["◍ Template adopters [STK2]"]):::stakeholder
+  stk3(["◍ Spanish-speaking adopters [STK3]"]):::stakeholder
 
-  drv1{{"✳ «Driver» DRV1<br>Nothing shows the method applied"}}:::driver
-  drv2{{"✳ DRV2<br>English-only guidance excludes readers"}}:::driver
-  drv3{{"✳ DRV3<br>Nobody can tell why it exists or who it is for"}}:::driver
+  drv1{{"✳ «Driver» Nothing shows the method applied [DRV1]"}}:::driver
+  drv2{{"✳ English-only guidance excludes readers [DRV2]"}}:::driver
+  drv3{{"✳ Nobody can tell why it exists or who it is for [DRV3]"}}:::driver
 
   stk1 --> drv1
   stk1 --> drv3
@@ -77,15 +77,15 @@ two edges rather than two elements saying the same thing.
 
 ```mermaid
 flowchart LR
-  drv1{{"✳ «Driver» DRV1<br>Nothing shows the method applied"}}:::driver
-  drv2{{"✳ DRV2<br>English-only guidance excludes readers"}}:::driver
-  drv3{{"✳ DRV3<br>Nobody can tell why it exists"}}:::driver
+  drv1{{"✳ «Driver» Nothing shows the method applied [DRV1]"}}:::driver
+  drv2{{"✳ English-only guidance excludes readers [DRV2]"}}:::driver
+  drv3{{"✳ Nobody can tell why it exists [DRV3]"}}:::driver
 
-  g1("◎ «Goal» G1<br>Legible guidance"):::goal
-  g2("◎ G2<br>Living proof"):::goal
-  g3("◎ G3<br>Frictionless, free start"):::goal
-  g4("◎ G4<br>Guidance legible in Spanish"):::goal
-  g5("◎ G5<br>The reason lands first"):::goal
+  g1("◎ «Goal» Legible guidance [G1]"):::goal
+  g2("◎ Living proof [G2]"):::goal
+  g3("◎ Frictionless, free start [G3]"):::goal
+  g4("◎ Guidance legible in Spanish [G4]"):::goal
+  g5("◎ The reason lands first [G5]"):::goal
 
   drv1 --> g1
   drv1 --> g2
@@ -128,11 +128,11 @@ answers the one that comes before all of them: caring at all.
 
 ```mermaid
 flowchart LR
-  p1[/"⚑ «Principle» P1<br>Guidance stays traceable to its source"/]:::principle
-  p2[/"⚑ P2<br>No unreviewed content reaches the public site"/]:::principle
+  p1[/"⚑ «Principle» Guidance stays traceable to its source [P1]"/]:::principle
+  p2[/"⚑ No unreviewed content reaches the public site [P2]"/]:::principle
 
-  g1("◎ «Goal» G1<br>Legible guidance"):::goal
-  g2("◎ G2<br>Living proof"):::goal
+  g1("◎ «Goal» Legible guidance [G1]"):::goal
+  g2("◎ Living proof [G2]"):::goal
 
   p1 --> g1
   p2 --> g2

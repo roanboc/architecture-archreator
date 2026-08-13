@@ -39,10 +39,10 @@ repeats often enough to be worth writing down once.
 
 ```mermaid
 flowchart TB
-  entry["«Application Component»<br><Entry point>"]:::application
-  core["«Application Component»<br><Core logic>"]:::application
-  iface["«Application Interface»<br><Port/interface>"]:::application
-  adapter["«Application Component»<br><Adapter/implementation>"]:::application
+  entry["«Application Component» <Entry point>"]:::application
+  core["«Application Component» <Core logic>"]:::application
+  iface["«Application Interface» <Port/interface>"]:::application
+  adapter["«Application Component» <Adapter/implementation>"]:::application
 
   entry -->|uses| core
   core -->|via| iface

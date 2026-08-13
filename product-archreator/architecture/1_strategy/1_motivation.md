@@ -12,12 +12,12 @@ here was discovered directly rather than mapped from a canvas block.
 
 ```mermaid
 flowchart LR
-  stk(["◍ «Stakeholder»<br>who cares"]):::stakeholder
-  drv{{"✳ «Driver»<br>what pressures them"}}:::driver
-  asm>"⌕ «Assessment»<br>what we judge to be true"]:::assessment
-  g("◎ «Goal»<br>what must become true"):::goal
-  out[["◉ «Outcome»<br>how we would see it"]]:::outcome
-  p[/"⚑ «Principle»<br>what must always hold"/]:::principle
+  stk(["◍ «Stakeholder» who cares"]):::stakeholder
+  drv{{"✳ «Driver» what pressures them"}}:::driver
+  asm>"⌕ «Assessment» what we judge to be true"]:::assessment
+  g("◎ «Goal» what must become true"):::goal
+  out[["◉ «Outcome» how we would see it"]]:::outcome
+  p[/"⚑ «Principle» what must always hold"/]:::principle
 
   stk -->|concerned with| drv
   drv -->|assessed by| asm
@@ -52,17 +52,17 @@ The values come from
 
 ```mermaid
 flowchart LR
-  stk1(["◍ «Stakeholder» STK1<br>Someone modeling a company"]):::stakeholder
-  stk2(["◍ STK2<br>Someone building one application"]):::stakeholder
-  stk3(["◍ STK3<br>A non-technical Requester"]):::stakeholder
-  stk4(["◍ STK4<br>The AI agent executing the method"]):::stakeholder
-  stk5(["◍ STK5<br>archreator's maintainer"]):::stakeholder
+  stk1(["◍ «Stakeholder» Someone modeling a company [STK1]"]):::stakeholder
+  stk2(["◍ Someone building one application [STK2]"]):::stakeholder
+  stk3(["◍ A non-technical Requester [STK3]"]):::stakeholder
+  stk4(["◍ The AI agent executing the method [STK4]"]):::stakeholder
+  stk5(["◍ archreator's maintainer [STK5]"]):::stakeholder
 
-  drv1{{"✳ «Driver» DRV1<br>Enterprise architecture is too slow"}}:::driver
-  drv2{{"✳ DRV2<br>AI builds faster than oversight"}}:::driver
-  drv3{{"✳ DRV3<br>Approvers cannot reach the tools"}}:::driver
-  drv4{{"✳ DRV4<br>Agents lose the thread"}}:::driver
-  drv5{{"✳ DRV5<br>A copied template cannot improve"}}:::driver
+  drv1{{"✳ «Driver» Enterprise architecture is too slow [DRV1]"}}:::driver
+  drv2{{"✳ AI builds faster than oversight [DRV2]"}}:::driver
+  drv3{{"✳ Approvers cannot reach the tools [DRV3]"}}:::driver
+  drv4{{"✳ Agents lose the thread [DRV4]"}}:::driver
+  drv5{{"✳ A copied template cannot improve [DRV5]"}}:::driver
 
   stk1 --> drv1
   stk2 --> drv2
@@ -99,16 +99,16 @@ distinct pressures, and no pretence that they overlap.
 
 ```mermaid
 flowchart LR
-  asm1>"⌕ «Assessment» ASM1<br>Artifacts need not match reality"]:::assessment
-  asm2>"⌕ ASM2<br>Confident inconsistency"]:::assessment
-  asm3>"⌕ ASM3<br>Approval is unrecorded or unreachable"]:::assessment
-  asm4>"⌕ ASM4<br>An agent picks a plausible order"]:::assessment
-  asm5>"⌕ ASM5<br>Scaffold and method have opposite lifecycles"]:::assessment
+  asm1>"⌕ «Assessment» Artifacts need not match reality [ASM1]"]:::assessment
+  asm2>"⌕ Confident inconsistency [ASM2]"]:::assessment
+  asm3>"⌕ Approval is unrecorded or unreachable [ASM3]"]:::assessment
+  asm4>"⌕ An agent picks a plausible order [ASM4]"]:::assessment
+  asm5>"⌕ Scaffold and method have opposite lifecycles [ASM5]"]:::assessment
 
-  g1("◎ «Goal» G1<br>A model you can implement against"):::goal
-  g2("◎ G2<br>Speed without incoherence"):::goal
-  g3("◎ G3<br>The person who should decide, decides"):::goal
-  g4("◎ G4<br>The method improves without breaking users"):::goal
+  g1("◎ «Goal» A model you can implement against [G1]"):::goal
+  g2("◎ Speed without incoherence [G2]"):::goal
+  g3("◎ The person who should decide, decides [G3]"):::goal
+  g4("◎ The method improves without breaking users [G4]"):::goal
 
   asm1 --> g1
   asm2 --> g2
@@ -152,15 +152,15 @@ order to work in.
 
 ```mermaid
 flowchart LR
-  g1("◎ «Goal» G1<br>A model you can implement against"):::goal
-  g2("◎ G2<br>Speed without incoherence"):::goal
-  g3("◎ G3<br>The person who should decide, decides"):::goal
-  g4("◎ G4<br>The method improves without breaking users"):::goal
+  g1("◎ «Goal» A model you can implement against [G1]"):::goal
+  g2("◎ Speed without incoherence [G2]"):::goal
+  g3("◎ The person who should decide, decides [G3]"):::goal
+  g4("◎ The method improves without breaking users [G4]"):::goal
 
-  out1[["◉ «Outcome» OUT1<br>Any element checkable in under a minute"]]:::outcome
-  out2[["◉ OUT2<br>A conflicting change is stopped before it is built"]]:::outcome
-  out3[["◉ OUT3<br>A Requester with no terminal can grant every gate"]]:::outcome
-  out4[["◉ OUT4<br>An improvement reaches a project without hand-porting"]]:::outcome
+  out1[["◉ «Outcome» Any element checkable in under a minute [OUT1]"]]:::outcome
+  out2[["◉ A conflicting change is stopped before it is built [OUT2]"]]:::outcome
+  out3[["◉ A Requester with no terminal can grant every gate [OUT3]"]]:::outcome
+  out4[["◉ An improvement reaches a project without hand-porting [OUT4]"]]:::outcome
 
   g1 --> out1
   g2 --> out2
@@ -187,15 +187,15 @@ through it, so nothing has proved the claim.
 
 ```mermaid
 flowchart LR
-  p1[/"⚑ «Principle» P1<br>Every element names what realizes it"/]:::principle
-  p2[/"⚑ P2<br>A human approves, and it is recorded"/]:::principle
-  p3[/"⚑ P3<br>Each fact in exactly one document"/]:::principle
-  p4[/"⚑ P4<br>A skill states the what; the model reasons the how"/]:::principle
-  p5[/"⚑ P5<br>History is never rewritten"/]:::principle
+  p1[/"⚑ «Principle» Every element names what realizes it [P1]"/]:::principle
+  p2[/"⚑ A human approves, and it is recorded [P2]"/]:::principle
+  p3[/"⚑ Each fact in exactly one document [P3]"/]:::principle
+  p4[/"⚑ A skill states the what; the model reasons the how [P4]"/]:::principle
+  p5[/"⚑ History is never rewritten [P5]"/]:::principle
 
-  g1("◎ «Goal» G1<br>A model you can implement against"):::goal
-  g2("◎ G2<br>Speed without incoherence"):::goal
-  g4("◎ G4<br>The method improves without breaking users"):::goal
+  g1("◎ «Goal» A model you can implement against [G1]"):::goal
+  g2("◎ Speed without incoherence [G2]"):::goal
+  g4("◎ The method improves without breaking users [G4]"):::goal
 
   p1 --> g1
   p2 --> g2

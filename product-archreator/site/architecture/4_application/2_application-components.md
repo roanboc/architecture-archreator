@@ -8,9 +8,9 @@ _[← Application layer](./README.md) · [EA home](../README.md)_
 
 ```mermaid
 flowchart LR
-  asvc(["⬮ «Application Service»<br>what the software offers"]):::appservice
-  acmp["⊞ «Application Component»<br>a page that provides it"]:::component
-  bsvc(["⬭ «Business Service»<br>what the business offers"]):::business
+  asvc(["⬮ «Application Service» what the software offers"]):::appservice
+  acmp["⊞ «Application Component» a page that provides it"]:::component
+  bsvc(["⬭ «Business Service» what the business offers"]):::business
 
   acmp -->|realizes| asvc
   asvc -->|realizes| bsvc
@@ -32,13 +32,13 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-  bsvc1(["⬭ «Business Service» BSVC1<br>EA-first method guidance"]):::business
-  asvc1(["⬮ «Application Service» ASVC1<br>Guidance publishing"]):::appservice
+  bsvc1(["⬭ «Business Service» EA-first method guidance [BSVC1]"]):::business
+  asvc1(["⬮ «Application Service» Guidance publishing [ASVC1]"]):::appservice
 
-  acmp1["⊞ «Application Component» ACMP1<br>Landing page"]:::component
-  acmp7["⊞ ACMP7<br>How-it-works page"]:::component
-  acmp2["⊞ ACMP2<br>Start page"]:::component
-  acmp6["⊞ ACMP6<br>Shared stylesheet"]:::component
+  acmp1["⊞ «Application Component» Landing page [ACMP1]"]:::component
+  acmp7["⊞ How-it-works page [ACMP7]"]:::component
+  acmp2["⊞ Start page [ACMP2]"]:::component
+  acmp6["⊞ Shared stylesheet [ACMP6]"]:::component
 
   acmp1 --> asvc1
   acmp7 --> asvc1

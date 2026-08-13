@@ -21,12 +21,12 @@ diagram archreator cannot use.
 
 ```mermaid
 flowchart LR
-  stk(["«Stakeholder»<br>STK1 Business and<br>solution designers"]):::stakeholder
-  drv{{"«Driver»<br>DRV1 Misunderstanding,<br>not difficulty"}}:::driver
-  asm>"«Assessment»<br>ASM1 A wrong frame<br>stays invisible"]:::assessment
-  g("«Goal»<br>G1 Understood before<br>it is answered"):::goal
-  out[["«Outcome»<br>OUT1 Gaps surface<br>during the work"]]:::outcome
-  p[/"«Principle»<br>P3 Better language"/]:::principle
+  stk(["«Stakeholder» Business and solution designers [STK1]"]):::stakeholder
+  drv{{"«Driver» Misunderstanding, not difficulty [DRV1]"}}:::driver
+  asm>"«Assessment» A wrong frame stays invisible [ASM1]"]:::assessment
+  g("«Goal» Understood before it is answered [G1]"):::goal
+  out[["«Outcome» Gaps surface during the work [OUT1]"]]:::outcome
+  p[/"«Principle» Better language [P3]"/]:::principle
 
   stk -->|concerned with| drv
   drv -->|assessed by| asm
@@ -50,12 +50,12 @@ nothing about a hexagon says "driver" to someone who has not read it.
 
 ```mermaid
 flowchart LR
-  stk(["◍ «Stakeholder»<br>STK1 Business and<br>solution designers"]):::stakeholder
-  drv{{"☸ «Driver»<br>DRV1 Misunderstanding,<br>not difficulty"}}:::driver
-  asm>"🔍 «Assessment»<br>ASM1 A wrong frame<br>stays invisible"]:::assessment
-  g("◎ «Goal»<br>G1 Understood before<br>it is answered"):::goal
-  out[["◉ «Outcome»<br>OUT1 Gaps surface<br>during the work"]]:::outcome
-  p[/"⚑ «Principle»<br>P3 Better language"/]:::principle
+  stk(["◍ «Stakeholder» Business and solution designers [STK1]"]):::stakeholder
+  drv{{"☸ «Driver» Misunderstanding, not difficulty [DRV1]"}}:::driver
+  asm>"🔍 «Assessment» A wrong frame stays invisible [ASM1]"]:::assessment
+  g("◎ «Goal» Understood before it is answered [G1]"):::goal
+  out[["◉ «Outcome» Gaps surface during the work [OUT1]"]]:::outcome
+  p[/"⚑ «Principle» Better language [P3]"/]:::principle
 
   stk --> drv --> asm --> g --> out
   p --> g
@@ -77,8 +77,8 @@ renders differently depending on the reader's installed fonts.
 
 ```mermaid
 flowchart LR
-  a["fa:fa-user «Stakeholder»<br>STK1 Designers"]
-  b["fa:fa-bullseye «Goal»<br>G1 Understood first"]
+  a["fa:fa-user «Stakeholder» Designers [STK1]"]
+  b["fa:fa-bullseye «Goal» Understood first [G1]"]
   a --> b
 ```
 
@@ -107,12 +107,12 @@ trades three signals for one.
 
 ```mermaid
 flowchart LR
-  stk(["<img src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDUyN2EwIiBzdHJva2Utd2lkdGg9IjIuNSIvPjxsaW5lIHgxPSIxNiIgeTE9IjYiIHgyPSIxNiIgeTI9IjI2IiBzdHJva2U9IiM0NTI3YTAiIHN0cm9rZS13aWR0aD0iMi41Ii8+PC9zdmc+' width='18' height='18' /><br>«Stakeholder»<br>STK1 Business and<br>solution designers"]):::stakeholder
-  drv{{"<img src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDUyN2EwIiBzdHJva2Utd2lkdGg9IjIuNSIvPjxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjMuNSIgZmlsbD0iIzQ1MjdhMCIvPjxsaW5lIHgxPSIxNiIgeTE9IjUiIHgyPSIxNiIgeTI9IjEyLjUiIHN0cm9rZT0iIzQ1MjdhMCIgc3Ryb2tlLXdpZHRoPSIyLjUiLz48bGluZSB4MT0iMTYiIHkxPSIxOS41IiB4Mj0iMTYiIHkyPSIyNyIgc3Ryb2tlPSIjNDUyN2EwIiBzdHJva2Utd2lkdGg9IjIuNSIvPjxsaW5lIHgxPSI1IiB5MT0iMTYiIHgyPSIxMi41IiB5Mj0iMTYiIHN0cm9rZT0iIzQ1MjdhMCIgc3Ryb2tlLXdpZHRoPSIyLjUiLz48bGluZSB4MT0iMTkuNSIgeTE9IjE2IiB4Mj0iMjciIHkyPSIxNiIgc3Ryb2tlPSIjNDUyN2EwIiBzdHJva2Utd2lkdGg9IjIuNSIvPjwvc3ZnPg==' width='18' height='18' /><br>«Driver»<br>DRV1 Misunderstanding,<br>not difficulty"}}:::driver
-  asm>"<img src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIj48Y2lyY2xlIGN4PSIxMyIgY3k9IjEzIiByPSI4IiBmaWxsPSJub25lIiBzdHJva2U9IiM0NTI3YTAiIHN0cm9rZS13aWR0aD0iMi41Ii8+PGxpbmUgeDE9IjE5IiB5MT0iMTkiIHgyPSIyNyIgeTI9IjI3IiBzdHJva2U9IiM0NTI3YTAiIHN0cm9rZS13aWR0aD0iMyIvPjwvc3ZnPg==' width='18' height='18' /><br>«Assessment»<br>ASM1 A wrong frame<br>stays invisible"]:::assessment
-  g("<img src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDUyN2EwIiBzdHJva2Utd2lkdGg9IjIuNSIvPjxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzQ1MjdhMCIgc3Ryb2tlLXdpZHRoPSIyLjUiLz48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIyLjUiIGZpbGw9IiM0NTI3YTAiLz48L3N2Zz4=' width='18' height='18' /><br>«Goal»<br>G1 Understood before<br>it is answered"):::goal
-  out[["<img src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIj48Y2lyY2xlIGN4PSIxNCIgY3k9IjE4IiByPSIxMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDUyN2EwIiBzdHJva2Utd2lkdGg9IjIuNSIvPjxjaXJjbGUgY3g9IjE0IiBjeT0iMTgiIHI9IjUuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDUyN2EwIiBzdHJva2Utd2lkdGg9IjIuNSIvPjxsaW5lIHgxPSIxNCIgeTE9IjE4IiB4Mj0iMjgiIHkyPSI0IiBzdHJva2U9IiM0NTI3YTAiIHN0cm9rZS13aWR0aD0iMi41Ii8+PHBvbHlsaW5lIHBvaW50cz0iMjEsNCAyOCw0IDI4LDExIiBmaWxsPSJub25lIiBzdHJva2U9IiM0NTI3YTAiIHN0cm9rZS13aWR0aD0iMi41Ii8+PC9zdmc+' width='18' height='18' /><br>«Outcome»<br>OUT1 Gaps surface<br>during the work"]]:::outcome
-  p[/"<img src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIj48cmVjdCB4PSI0IiB5PSI1IiB3aWR0aD0iMjQiIGhlaWdodD0iMjIiIHJ4PSIyIiBmaWxsPSJub25lIiBzdHJva2U9IiM0NTI3YTAiIHN0cm9rZS13aWR0aD0iMi41Ii8+PGxpbmUgeDE9IjE2IiB5MT0iMTAiIHgyPSIxNiIgeTI9IjE5IiBzdHJva2U9IiM0NTI3YTAiIHN0cm9rZS13aWR0aD0iMyIvPjxjaXJjbGUgY3g9IjE2IiBjeT0iMjMiIHI9IjEuOCIgZmlsbD0iIzQ1MjdhMCIvPjwvc3ZnPg==' width='18' height='18' /><br>«Principle»<br>P3 Better language"/]:::principle
+  stk(["<img src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDUyN2EwIiBzdHJva2Utd2lkdGg9IjIuNSIvPjxsaW5lIHgxPSIxNiIgeTE9IjYiIHgyPSIxNiIgeTI9IjI2IiBzdHJva2U9IiM0NTI3YTAiIHN0cm9rZS13aWR0aD0iMi41Ii8+PC9zdmc+' width='18' height='18' /> «Stakeholder» Business and solution designers [STK1]"]):::stakeholder
+  drv{{"<img src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDUyN2EwIiBzdHJva2Utd2lkdGg9IjIuNSIvPjxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjMuNSIgZmlsbD0iIzQ1MjdhMCIvPjxsaW5lIHgxPSIxNiIgeTE9IjUiIHgyPSIxNiIgeTI9IjEyLjUiIHN0cm9rZT0iIzQ1MjdhMCIgc3Ryb2tlLXdpZHRoPSIyLjUiLz48bGluZSB4MT0iMTYiIHkxPSIxOS41IiB4Mj0iMTYiIHkyPSIyNyIgc3Ryb2tlPSIjNDUyN2EwIiBzdHJva2Utd2lkdGg9IjIuNSIvPjxsaW5lIHgxPSI1IiB5MT0iMTYiIHgyPSIxMi41IiB5Mj0iMTYiIHN0cm9rZT0iIzQ1MjdhMCIgc3Ryb2tlLXdpZHRoPSIyLjUiLz48bGluZSB4MT0iMTkuNSIgeTE9IjE2IiB4Mj0iMjciIHkyPSIxNiIgc3Ryb2tlPSIjNDUyN2EwIiBzdHJva2Utd2lkdGg9IjIuNSIvPjwvc3ZnPg==' width='18' height='18' /> «Driver» Misunderstanding, not difficulty [DRV1]"}}:::driver
+  asm>"<img src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIj48Y2lyY2xlIGN4PSIxMyIgY3k9IjEzIiByPSI4IiBmaWxsPSJub25lIiBzdHJva2U9IiM0NTI3YTAiIHN0cm9rZS13aWR0aD0iMi41Ii8+PGxpbmUgeDE9IjE5IiB5MT0iMTkiIHgyPSIyNyIgeTI9IjI3IiBzdHJva2U9IiM0NTI3YTAiIHN0cm9rZS13aWR0aD0iMyIvPjwvc3ZnPg==' width='18' height='18' /> «Assessment» A wrong frame stays invisible [ASM1]"]:::assessment
+  g("<img src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDUyN2EwIiBzdHJva2Utd2lkdGg9IjIuNSIvPjxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzQ1MjdhMCIgc3Ryb2tlLXdpZHRoPSIyLjUiLz48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIyLjUiIGZpbGw9IiM0NTI3YTAiLz48L3N2Zz4=' width='18' height='18' /> «Goal» Understood before it is answered [G1]"):::goal
+  out[["<img src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIj48Y2lyY2xlIGN4PSIxNCIgY3k9IjE4IiByPSIxMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDUyN2EwIiBzdHJva2Utd2lkdGg9IjIuNSIvPjxjaXJjbGUgY3g9IjE0IiBjeT0iMTgiIHI9IjUuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDUyN2EwIiBzdHJva2Utd2lkdGg9IjIuNSIvPjxsaW5lIHgxPSIxNCIgeTE9IjE4IiB4Mj0iMjgiIHkyPSI0IiBzdHJva2U9IiM0NTI3YTAiIHN0cm9rZS13aWR0aD0iMi41Ii8+PHBvbHlsaW5lIHBvaW50cz0iMjEsNCAyOCw0IDI4LDExIiBmaWxsPSJub25lIiBzdHJva2U9IiM0NTI3YTAiIHN0cm9rZS13aWR0aD0iMi41Ii8+PC9zdmc+' width='18' height='18' /> «Outcome» Gaps surface during the work [OUT1]"]]:::outcome
+  p[/"<img src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIj48cmVjdCB4PSI0IiB5PSI1IiB3aWR0aD0iMjQiIGhlaWdodD0iMjIiIHJ4PSIyIiBmaWxsPSJub25lIiBzdHJva2U9IiM0NTI3YTAiIHN0cm9rZS13aWR0aD0iMi41Ii8+PGxpbmUgeDE9IjE2IiB5MT0iMTAiIHgyPSIxNiIgeTI9IjE5IiBzdHJva2U9IiM0NTI3YTAiIHN0cm9rZS13aWR0aD0iMyIvPjxjaXJjbGUgY3g9IjE2IiBjeT0iMjMiIHI9IjEuOCIgZmlsbD0iIzQ1MjdhMCIvPjwvc3ZnPg==' width='18' height='18' /> «Principle» Better language [P3]"/]:::principle
 
   stk -->|concerned with| drv
   drv -->|assessed by| asm

@@ -13,10 +13,10 @@ to value returning to the organization. Derived from the key activities
 
 ```mermaid
 flowchart LR
-  s1[["⇉ «Value Stream» stage<br>a step in the flow"]]:::stage
+  s1[["⇉ «Value Stream» stage a step in the flow"]]:::stage
   s2[["⇉ the next step"]]:::stage
-  cap["✦ «Capability»<br>what makes the step possible"]:::capability
-  bif["⊸ «Business Interface»<br>where the stakeholder meets it"]:::interface
+  cap["✦ «Capability» what makes the step possible"]:::capability
+  bif["⊸ «Business Interface» where the stakeholder meets it"]:::interface
 
   s1 -->|triggers| s2
   cap -->|serves| s1
@@ -52,12 +52,12 @@ first node of each type in a diagram, dropped on the rest.
 
 ```mermaid
 flowchart LR
-  s1[["⇉ «Value Stream» stage 1<br>Reach"]]:::stage
-  s2[["⇉ 2<br>Frame"]]:::stage
-  s3[["⇉ 3<br>Approve"]]:::stage
-  s4[["⇉ 4<br>Model"]]:::stage
-  s5[["⇉ 5<br>Build"]]:::stage
-  s6[["⇉ 6<br>Feed back"]]:::stage
+  s1[["⇉ «Value Stream» stage 1 Reach"]]:::stage
+  s2[["⇉ 2 Frame"]]:::stage
+  s3[["⇉ 3 Approve"]]:::stage
+  s4[["⇉ 4 Model"]]:::stage
+  s5[["⇉ 5 Build"]]:::stage
+  s6[["⇉ 6 Feed back"]]:::stage
 
   s1 -->|triggers| s2
   s2 -->|triggers| s3
@@ -84,22 +84,22 @@ non-monetary return this organization has.
 
 ```mermaid
 flowchart TB
-  bif1["⊸ «Business Interface» BIF1–BIF3<br>Repository, site, marketplace"]:::interface
-  bif4["⊸ BIF4<br>Referral and direct approach"]:::interface
+  bif1["⊸ «Business Interface» –BIF3 Repository, site, marketplace [BIF1]"]:::interface
+  bif4["⊸ Referral and direct approach [BIF4]"]:::interface
 
-  s1[["⇉ «Value Stream» stage 1<br>Reach"]]:::stage
-  s2[["⇉ 2<br>Frame"]]:::stage
-  s3[["⇉ 3<br>Approve"]]:::stage
-  s4[["⇉ 4<br>Model"]]:::stage
-  s5[["⇉ 5<br>Build"]]:::stage
-  s6[["⇉ 6<br>Feed back"]]:::stage
+  s1[["⇉ «Value Stream» stage 1 Reach"]]:::stage
+  s2[["⇉ 2 Frame"]]:::stage
+  s3[["⇉ 3 Approve"]]:::stage
+  s4[["⇉ 4 Model"]]:::stage
+  s5[["⇉ 5 Build"]]:::stage
+  s6[["⇉ 6 Feed back"]]:::stage
 
-  c4["✦ «Capability» CAP4<br>Gated discovery"]:::capability
-  c8["✦ CAP8<br>Design-to-delivery continuity"]:::capability
-  c6["✦ CAP6<br>One documented model"]:::capability
-  c5["✦ CAP5<br>A shared architectural language"]:::capability
-  c9["✦ CAP9<br>Method-carried competence"]:::capability
-  c7["✦ CAP7<br>Layered change absorption"]:::capability
+  c4["✦ «Capability» Gated discovery [CAP4]"]:::capability
+  c8["✦ Design-to-delivery continuity [CAP8]"]:::capability
+  c6["✦ One documented model [CAP6]"]:::capability
+  c5["✦ A shared architectural language [CAP5]"]:::capability
+  c9["✦ Method-carried competence [CAP9]"]:::capability
+  c7["✦ Layered change absorption [CAP7]"]:::capability
 
   bif1 --> s1
   bif4 --> s1
@@ -138,15 +138,15 @@ stage with nothing above it, and it is the gap the next section is about.
 
 ```mermaid
 flowchart TB
-  s1[["⇉ «Value Stream» stage 1<br>Reach"]]:::stage
-  s6[["⇉ 6<br>Feed back"]]:::stage
+  s1[["⇉ «Value Stream» stage 1 Reach"]]:::stage
+  s6[["⇉ 6 Feed back"]]:::stage
 
-  bif5["⊸ «Business Interface» BIF5<br>The web, self-serve — Pending"]:::interface
+  bif5["⊸ «Business Interface» The web, self-serve — Pending [BIF5]"]:::interface
 
-  coa2{{"➤ «Course of Action» COA2<br>Build the portal"}}:::action
-  coa3{{"➤ COA3<br>Instrument the adoption measure"}}:::action
+  coa2{{"➤ «Course of Action» Build the portal [COA2]"}}:::action
+  coa3{{"➤ Instrument the adoption measure [COA3]"}}:::action
 
-  res1[("▤ «Resource» RES1<br>The Requester's knowledge and time")]:::resource
+  res1[("▤ «Resource» The Requester's knowledge and time [RES1]")]:::resource
 
   coa2 -.->|would create| bif5
   bif5 -.->|would serve| s1

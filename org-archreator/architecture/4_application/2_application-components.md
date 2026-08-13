@@ -11,9 +11,9 @@ implement it, or is marked Pending.
 
 ```mermaid
 flowchart LR
-  acmp["⊞ «Application Component»<br>software this organization owns"]:::component
-  asvc(["⬮ «Application Service»<br>what it offers"]):::appservice
-  model(["◍ A Depth 1 model<br>how it is built"]):::external
+  acmp["⊞ «Application Component» software this organization owns"]:::component
+  asvc(["⬮ «Application Service» what it offers"]):::appservice
+  model(["◍ A Depth 1 model how it is built"]):::external
 
   acmp -->|realizes| asvc
   acmp -.->|detailed in| model
@@ -34,14 +34,14 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-  acmp1["⊞ «Application Component» ACMP1<br>The skill set and plugin manifest"]:::component
-  acmp2["⊞ ACMP2<br>The guidance site"]:::component
-  acmp3["⊞ ACMP3<br>The documentation checks"]:::component
-  acmp4["⊞ ACMP4<br>The scaffold"]:::component
-  acmp5["⊞ ACMP5<br>The portal — Pending"]:::component
+  acmp1["⊞ «Application Component» The skill set and plugin manifest [ACMP1]"]:::component
+  acmp2["⊞ The guidance site [ACMP2]"]:::component
+  acmp3["⊞ The documentation checks [ACMP3]"]:::component
+  acmp4["⊞ The scaffold [ACMP4]"]:::component
+  acmp5["⊞ The portal — Pending [ACMP5]"]:::component
 
-  meta(["◍ product-archreator/<br>the method modeled at Depth 1"]):::external
-  sitem(["◍ site/architecture/<br>the site modeled at Depth 1"]):::external
+  meta(["◍ product-archreator/ the method modeled at Depth 1"]):::external
+  sitem(["◍ site/architecture/ the site modeled at Depth 1"]):::external
   none(["◍ No model yet"]):::absent
 
   acmp1 -.-> meta

@@ -8,8 +8,8 @@ _[← Technology layer](./README.md) · [EA home](../README.md)_
 
 ```mermaid
 flowchart LR
-  art[/"⎔ «Artifact»<br>what is produced"/]:::artifact
-  node["⬒ «Node»<br>where it lands"]:::node
+  art[/"⎔ «Artifact» what is produced"/]:::artifact
+  node["⬒ «Node» where it lands"]:::node
 
   art -->|deployed to| node
 
@@ -28,10 +28,10 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  push(["Push or merge to main<br>touching site/public/**"]):::implementation
-  node2["⬒ «Node» NODE2<br>GitHub Actions — deploy-site.yml"]:::node
-  art1[/"⎔ «Artifact» ART1<br>The contents of public/"/]:::artifact
-  node1["⬒ NODE1<br>GitHub Pages"]:::node
+  push(["Push or merge to main touching site/public/**"]):::implementation
+  node2["⬒ «Node» GitHub Actions — deploy-site.yml [NODE2]"]:::node
+  art1[/"⎔ «Artifact» The contents of public/ [ART1]"/]:::artifact
+  node1["⬒ GitHub Pages [NODE1]"]:::node
 
   push -->|triggers| node2
   node2 -->|uploads| art1

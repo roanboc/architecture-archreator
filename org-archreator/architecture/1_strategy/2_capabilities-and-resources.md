@@ -11,11 +11,11 @@ Gate 0 on 2026-08-08.
 
 ```mermaid
 flowchart LR
-  res[("▤ «Resource»<br>what it is built with")]:::resource
-  cap["✦ «Capability»<br>what we must be able to do"]:::capability
-  val[/"◈ «Value»<br>what that is worth to someone"\]:::value
-  coa{{"➤ «Course of Action»<br>a direction named, not yet taken"}}:::action
-  g("◎ «Goal»<br>what must become true"):::goal
+  res[("▤ «Resource» what it is built with")]:::resource
+  cap["✦ «Capability» what we must be able to do"]:::capability
+  val[/"◈ «Value» what that is worth to someone"\]:::value
+  coa{{"➤ «Course of Action» a direction named, not yet taken"}}:::action
+  g("◎ «Goal» what must become true"):::goal
 
   res -->|assigned to| cap
   cap -->|delivers| val
@@ -65,17 +65,17 @@ same question against six flat capabilities is not.
 
 ```mermaid
 flowchart TB
-  cap1["✦ «Capability» CAP1<br>Business understanding"]:::area
-  cap2["✦ CAP2<br>Model stewardship"]:::area
-  cap3["✦ CAP3<br>Delivery from design"]:::area
+  cap1["✦ «Capability» Business understanding [CAP1]"]:::area
+  cap2["✦ Model stewardship [CAP2]"]:::area
+  cap3["✦ Delivery from design [CAP3]"]:::area
 
-  cap4["✦ CAP4<br>Gated discovery"]:::capability
-  cap5["✦ CAP5<br>A shared architectural language"]:::capability
-  cap6["✦ CAP6<br>One documented model"]:::capability
-  cap7["✦ CAP7<br>Layered change absorption"]:::capability
-  cap10["✦ CAP10<br>Engagement-to-method learning"]:::capability
-  cap8["✦ CAP8<br>Design-to-delivery continuity"]:::capability
-  cap9["✦ CAP9<br>Method-carried competence"]:::capability
+  cap4["✦ Gated discovery [CAP4]"]:::capability
+  cap5["✦ A shared architectural language [CAP5]"]:::capability
+  cap6["✦ One documented model [CAP6]"]:::capability
+  cap7["✦ Layered change absorption [CAP7]"]:::capability
+  cap10["✦ Engagement-to-method learning [CAP10]"]:::capability
+  cap8["✦ Design-to-delivery continuity [CAP8]"]:::capability
+  cap9["✦ Method-carried competence [CAP9]"]:::capability
 
   cap1 --> cap4
   cap1 --> cap5
@@ -128,23 +128,23 @@ which is the leaves.
 
 ```mermaid
 flowchart LR
-  prel1[["PREL1<br>The gated layer walk"]]:::canvas
-  prel2[["PREL2<br>The method continues into delivery"]]:::canvas
-  prel3[["PREL3<br>One model in one place"]]:::canvas
-  prel4[["PREL4<br>An architect's cost becomes an agent's"]]:::canvas
-  gcre1[["GCRE1<br>Question-driven discovery"]]:::canvas
-  gcre2[["GCRE2<br>Markdown and diagrams for people"]]:::canvas
-  gcre3[["GCRE3<br>Design turns into implementation work"]]:::canvas
-  gcre4[["GCRE4<br>Standardised concepts"]]:::canvas
-  gcre5[["GCRE5<br>The method carries the competence"]]:::canvas
-  gcre6[["GCRE6<br>The layered model"]]:::canvas
+  prel1[["The gated layer walk [PREL1]"]]:::canvas
+  prel2[["The method continues into delivery [PREL2]"]]:::canvas
+  prel3[["One model in one place [PREL3]"]]:::canvas
+  prel4[["An architect's cost becomes an agent's [PREL4]"]]:::canvas
+  gcre1[["Question-driven discovery [GCRE1]"]]:::canvas
+  gcre2[["Markdown and diagrams for people [GCRE2]"]]:::canvas
+  gcre3[["Design turns into implementation work [GCRE3]"]]:::canvas
+  gcre4[["Standardised concepts [GCRE4]"]]:::canvas
+  gcre5[["The method carries the competence [GCRE5]"]]:::canvas
+  gcre6[["The layered model [GCRE6]"]]:::canvas
 
-  cap4["✦ «Capability» CAP4<br>Gated discovery"]:::capability
-  cap5["✦ CAP5<br>A shared architectural language"]:::capability
-  cap6["✦ CAP6<br>One documented model"]:::capability
-  cap7["✦ CAP7<br>Layered change absorption"]:::capability
-  cap8["✦ CAP8<br>Design-to-delivery continuity"]:::capability
-  cap9["✦ CAP9<br>Method-carried competence"]:::capability
+  cap4["✦ «Capability» Gated discovery [CAP4]"]:::capability
+  cap5["✦ A shared architectural language [CAP5]"]:::capability
+  cap6["✦ One documented model [CAP6]"]:::capability
+  cap7["✦ Layered change absorption [CAP7]"]:::capability
+  cap8["✦ Design-to-delivery continuity [CAP8]"]:::capability
+  cap9["✦ Method-carried competence [CAP9]"]:::capability
 
   prel1 --> cap4
   gcre1 --> cap4
@@ -180,19 +180,19 @@ exactly why it cannot be a peer of any of them.
 
 ```mermaid
 flowchart LR
-  cap1["✦ «Capability» CAP1<br>Business understanding"]:::area
-  cap2["✦ CAP2<br>Model stewardship"]:::area
-  cap3["✦ CAP3<br>Delivery from design"]:::area
+  cap1["✦ «Capability» Business understanding [CAP1]"]:::area
+  cap2["✦ Model stewardship [CAP2]"]:::area
+  cap3["✦ Delivery from design [CAP3]"]:::area
 
-  val1[/"◈ «Value» VAL1<br>The problem is framed completely"\]:::value
-  val2[/"◈ VAL2<br>A working solution, not a document"\]:::value
-  val3[/"◈ VAL3<br>One source that survives people"\]:::value
-  val4[/"◈ VAL4<br>Quality at a price the segment can carry"\]:::value
-  val5[/"◈ VAL5<br>A pivot costs a layer, not the project"\]:::value
+  val1[/"◈ «Value» The problem is framed completely [VAL1]"\]:::value
+  val2[/"◈ A working solution, not a document [VAL2]"\]:::value
+  val3[/"◈ One source that survives people [VAL3]"\]:::value
+  val4[/"◈ Quality at a price the segment can carry [VAL4]"\]:::value
+  val5[/"◈ A pivot costs a layer, not the project [VAL5]"\]:::value
 
-  stk1(["◍ «Stakeholder» STK1<br>Designers"]):::stakeholder
-  stk2(["◍ STK2<br>Established owners"]):::stakeholder
-  stk3(["◍ STK3<br>Founders"]):::stakeholder
+  stk1(["◍ «Stakeholder» Designers [STK1]"]):::stakeholder
+  stk2(["◍ Established owners [STK2]"]):::stakeholder
+  stk3(["◍ Founders [STK3]"]):::stakeholder
 
   cap1 --> val1
   cap1 --> val3
@@ -237,14 +237,14 @@ organization cannot drop without changing who it serves.
 
 ```mermaid
 flowchart LR
-  res1[("▤ «Resource» RES1<br>The Requester's knowledge and time")]:::resource
-  res2[("▤ RES2<br>The method")]:::resource
-  res3[("▤ RES3<br>The published guidance site")]:::resource
-  res4[("▤ RES4<br>The portal — Pending")]:::resource
+  res1[("▤ «Resource» The Requester's knowledge and time [RES1]")]:::resource
+  res2[("▤ The method [RES2]")]:::resource
+  res3[("▤ The published guidance site [RES3]")]:::resource
+  res4[("▤ The portal — Pending [RES4]")]:::resource
 
-  cap1["✦ «Capability» CAP1<br>Business understanding"]:::area
-  cap2["✦ CAP2<br>Model stewardship"]:::area
-  cap3["✦ CAP3<br>Delivery from design"]:::area
+  cap1["✦ «Capability» Business understanding [CAP1]"]:::area
+  cap2["✦ Model stewardship [CAP2]"]:::area
+  cap3["✦ Delivery from design [CAP3]"]:::area
 
   res1 --> res2
   res1 --> res3
@@ -276,19 +276,19 @@ could be done about it.
 
 ```mermaid
 flowchart LR
-  coa1{{"➤ «Course of Action» COA1<br>AI agents as consultants — taken"}}:::action
-  coa2{{"➤ COA2<br>Build the portal"}}:::action
-  coa3{{"➤ COA3<br>Instrument the adoption measure"}}:::action
+  coa1{{"➤ «Course of Action» AI agents as consultants — taken [COA1]"}}:::action
+  coa2{{"➤ Build the portal [COA2]"}}:::action
+  coa3{{"➤ Instrument the adoption measure [COA3]"}}:::action
 
-  res1[("▤ «Resource» RES1<br>The Requester's knowledge and time")]:::resource
-  res2[("▤ RES2<br>The method")]:::resource
-  res4[("▤ RES4<br>The portal — Pending")]:::resource
+  res1[("▤ «Resource» The Requester's knowledge and time [RES1]")]:::resource
+  res2[("▤ The method [RES2]")]:::resource
+  res4[("▤ The portal — Pending [RES4]")]:::resource
 
   coa1 -->|stage 1: relieves| res2
   coa1 -.->|stages 2–4: would relieve| res1
   coa2 -.->|would create| res4
   coa2 -.->|would consume| res1
-  coa3 -.->|would make the<br>outcomes measurable| res1
+  coa3 -.->|would make the outcomes measurable| res1
 
   classDef action fill:#d9ad5c,stroke:#8a6a2a,color:#333
   classDef resource fill:#faf0d5,stroke:#c8a24a,color:#333
