@@ -34,12 +34,12 @@ piece of data is.
 ```mermaid
 flowchart TB
   subgraph CORE["Domain (in-memory)"]
-    obj["«Data Object»<br><Domain type>"]:::application
+    obj["«Data Object» <Domain type>"]:::application
   end
 
   subgraph EDGE["Representations"]
-    input["«Representation»<br><Input format>"]:::business
-    store[("«Artifact»<br><Persisted form>")]:::technology
+    input["«Representation» <Input format>"]:::business
+    store[("«Artifact» <Persisted form>")]:::technology
   end
 
   input -->|parsed into| obj

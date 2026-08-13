@@ -46,13 +46,13 @@ determines access", not "be secure").
 
 ```mermaid
 flowchart TB
-  stakeholder["«Stakeholder»<br><Who cares>"]:::motivation
-  driver["«Driver»<br><What pressures them>"]:::motivation
-  goal["«Goal»<br><What must become true>"]:::motivation
+  stakeholder["«Stakeholder» <Who cares>"]:::motivation
+  driver["«Driver» <What pressures them>"]:::motivation
+  goal["«Goal» <What must become true>"]:::motivation
 
-  vs["«Value Stream»<br><Stage 1 → Stage 2 → …>"]:::strategy
-  cap["«Capability»<br><What we must be able to do>"]:::strategy
-  res["«Resource»<br><What it's built with>"]:::strategy
+  vs["«Value Stream» <Stage 1 → Stage 2 → …>"]:::strategy
+  cap["«Capability» <What we must be able to do>"]:::strategy
+  res["«Resource» <What it's built with>"]:::strategy
 
   stakeholder -->|concerned with| driver
   driver -->|influences| goal

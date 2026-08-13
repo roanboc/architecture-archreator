@@ -22,15 +22,15 @@ points at them.
 
 ```mermaid
 flowchart LR
-  kp{{"⧉ «Key Partner»<br>who we depend on"}}:::partner
-  kr[("▤ «Key Resource»<br>what we have")]:::resource
-  ka{{"⚙ «Key Activity»<br>what we do with it"}}:::activity
-  prod["▣ «Product»<br>what a customer gets"]:::product
-  ch["⊸ «Channel»<br>how it reaches them"]:::channel
-  cr["⇄ «Customer Relationship»<br>how we deal with them"]:::relationship
-  cs(["◍ «Customer Segment»<br>who they are"]):::segment
-  rs[/"▲ «Revenue Stream»<br>what comes back"\]:::revenue
-  cost[\"▼ «Cost»<br>what it takes"/]:::cost
+  kp{{"⧉ «Key Partner» who we depend on"}}:::partner
+  kr[("▤ «Key Resource» what we have")]:::resource
+  ka{{"⚙ «Key Activity» what we do with it"}}:::activity
+  prod["▣ «Product» what a customer gets"]:::product
+  ch["⊸ «Channel» how it reaches them"]:::channel
+  cr["⇄ «Customer Relationship» how we deal with them"]:::relationship
+  cs(["◍ «Customer Segment» who they are"]):::segment
+  rs[/"▲ «Revenue Stream» what comes back"\]:::revenue
+  cost[\"▼ «Cost» what it takes"/]:::cost
 
   kp --> ka
   kr --> ka
@@ -102,21 +102,21 @@ the end.
 
 ```mermaid
 flowchart LR
-  prod1["▣ «Product» PROD1<br>The open method"]:::product
-  prod2["▣ PROD2<br>Consulting"]:::product
-  prod3["▣ PROD3<br>The portal — Pending"]:::product
+  prod1["▣ «Product» The open method [PROD1]"]:::product
+  prod2["▣ Consulting [PROD2]"]:::product
+  prod3["▣ The portal — Pending [PROD3]"]:::product
 
-  cs1(["◍ «Customer Segment» CS1<br>Designers"]):::segment
-  cs2(["◍ CS2<br>Established owners"]):::segment
-  cs3(["◍ CS3<br>Founders"]):::segment
+  cs1(["◍ «Customer Segment» Designers [CS1]"]):::segment
+  cs2(["◍ Established owners [CS2]"]):::segment
+  cs3(["◍ Founders [CS3]"]):::segment
 
-  rs1[/"▲ «Revenue Stream» RS1<br>Continuous improvement — non-monetary"\]:::revenue
-  rs2[/"▲ RS2<br>Mission progress — non-monetary"\]:::revenue
-  rs3[/"▲ RS3<br>Consulting fees — hourly"\]:::revenue
-  rs4[/"▲ RS4<br>Portal fees — per use"\]:::revenue
+  rs1[/"▲ «Revenue Stream» Continuous improvement — non-monetary [RS1]"\]:::revenue
+  rs2[/"▲ Mission progress — non-monetary [RS2]"\]:::revenue
+  rs3[/"▲ Consulting fees — hourly [RS3]"\]:::revenue
+  rs4[/"▲ Portal fees — per use [RS4]"\]:::revenue
 
-  cost1[\"▼ «Cost» COST1<br>The Requester's time"/]:::cost
-  cost2[\"▼ COST2<br>AI inference"/]:::cost
+  cost1[\"▼ «Cost» The Requester's time [COST1]"/]:::cost
+  cost2[\"▼ AI inference [COST2]"/]:::cost
 
   prod1 --> cs1
   prod2 --> cs2
@@ -265,11 +265,11 @@ organization already operates the way it tells its customers to operate.
 
 ```mermaid
 flowchart LR
-  rs1[/"▲ «Revenue Stream» RS1<br>Continuous improvement"\]:::revenue
-  rs2[/"▲ RS2<br>Mission progress"\]:::revenue
+  rs1[/"▲ «Revenue Stream» Continuous improvement [RS1]"\]:::revenue
+  rs2[/"▲ Mission progress [RS2]"\]:::revenue
 
-  pre["⊸ Pre-engagement band<br>stars, forks, contributions, discussions"]:::band
-  real["⊸ Real band<br>enterprises and initiatives actually built"]:::band
+  pre["⊸ Pre-engagement band stars, forks, contributions, discussions"]:::band
+  real["⊸ Real band enterprises and initiatives actually built"]:::band
 
   rs1 --> pre
   rs1 --> real
@@ -332,17 +332,17 @@ This table is where the operating model actually lives.
 
 ```mermaid
 flowchart TB
-  kr2[("▤ «Key Resource» KR2<br>The method")]:::resource
-  kp1{{"⧉ «Key Partner» KP1<br>AI model providers"}}:::partner
-  kr1[("▤ KR1<br>The Requester's knowledge and time")]:::resource
+  kr2[("▤ «Key Resource» The method [KR2]")]:::resource
+  kp1{{"⧉ «Key Partner» AI model providers [KP1]"}}:::partner
+  kr1[("▤ The Requester's knowledge and time [KR1]")]:::resource
 
-  prod1["▣ «Product» PROD1<br>The open method"]:::product
-  prod2["▣ PROD2<br>Consulting"]:::product
-  prod3["▣ PROD3<br>The portal — Pending"]:::product
+  prod1["▣ «Product» The open method [PROD1]"]:::product
+  prod2["▣ Consulting [PROD2]"]:::product
+  prod3["▣ The portal — Pending [PROD3]"]:::product
 
-  ch1["⊸ «Channel» CH1–CH3<br>Repository, site, marketplace"]:::channel
-  ch4["⊸ CH4<br>Referral and direct approach"]:::channel
-  ch5["⊸ CH5<br>The web, self-serve — Pending"]:::channel
+  ch1["⊸ «Channel» –CH3 Repository, site, marketplace [CH1]"]:::channel
+  ch4["⊸ Referral and direct approach [CH4]"]:::channel
+  ch5["⊸ The web, self-serve — Pending [CH5]"]:::channel
 
   kr2 --> prod1
   kr2 --> prod2

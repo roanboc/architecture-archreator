@@ -10,9 +10,9 @@ Infrastructure this organization uses. It operates none of it.
 
 ```mermaid
 flowchart LR
-  node["⬒ «Node»<br>where something runs"]:::node
-  tsvc(["⬯ «Technology Service»<br>what it provides"]):::techservice
-  acmp["⊞ «Application Component»<br>what uses it"]:::component
+  node["⬒ «Node» where something runs"]:::node
+  tsvc(["⬯ «Technology Service» what it provides"]):::techservice
+  acmp["⊞ «Application Component» what uses it"]:::component
 
   node -->|provides| tsvc
   tsvc -->|serves| acmp
@@ -38,23 +38,23 @@ appears once.**
 ```mermaid
 flowchart TB
   subgraph OTHERS["Someone else's platform"]
-    node1["⬒ «Node» NODE1<br>GitHub"]:::node
-    node3["⬒ NODE3<br>AI model providers"]:::node
+    node1["⬒ «Node» GitHub [NODE1]"]:::node
+    node3["⬒ AI model providers [NODE3]"]:::node
   end
 
   subgraph ADOPTER["The adopter's own machine"]
-    node2["⬒ NODE2<br>The adopter's agent runtime"]:::adopter
+    node2["⬒ The adopter's agent runtime [NODE2]"]:::adopter
   end
 
   subgraph OURS["Operated by this organization"]
-    node4["⬒ NODE4<br>Portal hosting — Pending"]:::absent
+    node4["⬒ Portal hosting — Pending [NODE4]"]:::absent
   end
 
-  tsvc1(["⬯ «Technology Service» TSVC1<br>Version control and public hosting"]):::techservice
-  tsvc2(["⬯ TSVC2<br>Continuous checks"]):::techservice
-  tsvc3(["⬯ TSVC3<br>Static site hosting"]):::techservice
-  tsvc4(["⬯ TSVC4<br>Plugin distribution"]):::techservice
-  tsvc5(["⬯ TSVC5<br>Inference"]):::techservice
+  tsvc1(["⬯ «Technology Service» Version control and public hosting [TSVC1]"]):::techservice
+  tsvc2(["⬯ Continuous checks [TSVC2]"]):::techservice
+  tsvc3(["⬯ Static site hosting [TSVC3]"]):::techservice
+  tsvc4(["⬯ Plugin distribution [TSVC4]"]):::techservice
+  tsvc5(["⬯ Inference [TSVC5]"]):::techservice
 
   node1 --> tsvc1
   node1 --> tsvc2

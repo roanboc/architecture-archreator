@@ -8,8 +8,8 @@ _[← Information layer](./README.md) · [EA home](../README.md)_
 
 ```mermaid
 flowchart LR
-  src(["◍ Canonical source<br>a skill file or EA document"]):::note
-  en["▦ «Data Object»<br>English page — derived"]:::data
+  src(["◍ Canonical source a skill file or EA document"]):::note
+  en["▦ «Data Object» English page — derived"]:::data
   es["▦ Spanish edition — derived again"]:::data
 
   src -->|derived into| en
@@ -31,10 +31,10 @@ rides on every node; the «stereotype» word appears once.**
 
 ```mermaid
 flowchart LR
-  skill(["◍ Skill file or EA document<br>canonical"]):::note
-  dobj1["▦ «Data Object» DOBJ1<br>Guidance page — English"]:::data
+  skill(["◍ Skill file or EA document canonical"]):::note
+  dobj1["▦ «Data Object» Guidance page — English [DOBJ1]"]:::data
   dobj1es["▦ DOBJ1 — Spanish edition"]:::data
-  vendor(["◍ A vendor's own documentation<br>canonical, outside this repository"]):::note
+  vendor(["◍ A vendor's own documentation canonical, outside this repository"]):::note
 
   skill -->|derived into| dobj1
   dobj1 -->|translated into| dobj1es

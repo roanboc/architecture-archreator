@@ -11,9 +11,9 @@ running today.
 
 ```mermaid
 flowchart LR
-  bsvc(["⬭ «Business Service»<br>what the business offers"]):::business
-  asvc(["⬮ «Application Service»<br>what software offers the business"]):::appservice
-  acmp["⊞ «Application Component»<br>what provides it"]:::component
+  bsvc(["⬭ «Business Service» what the business offers"]):::business
+  asvc(["⬮ «Application Service» what software offers the business"]):::appservice
+  acmp["⊞ «Application Component» what provides it"]:::component
 
   acmp -->|realizes| asvc
   asvc -->|realizes| bsvc
@@ -37,16 +37,16 @@ to dark for what provides it. **The glyph rides on every node; the
 
 ```mermaid
 flowchart LR
-  asvc1(["⬮ «Application Service» ASVC1<br>Method distribution and update"]):::appservice
-  asvc2(["⬮ ASVC2<br>Guidance publication"]):::appservice
-  asvc3(["⬮ ASVC3<br>Model validation"]):::appservice
-  asvc4(["⬮ ASVC4<br>Architecture generation — Pending"]):::appservice
+  asvc1(["⬮ «Application Service» Method distribution and update [ASVC1]"]):::appservice
+  asvc2(["⬮ Guidance publication [ASVC2]"]):::appservice
+  asvc3(["⬮ Model validation [ASVC3]"]):::appservice
+  asvc4(["⬮ Architecture generation — Pending [ASVC4]"]):::appservice
 
-  bsvc1(["⬭ «Business Service» BSVC1<br>The method, published"]):::business
-  bsvc2(["⬭ BSVC2<br>Guidance and worked reference"]):::business
-  bsvc4(["⬭ BSVC4<br>Architecture as a service — Pending"]):::business
+  bsvc1(["⬭ «Business Service» The method, published [BSVC1]"]):::business
+  bsvc2(["⬭ Guidance and worked reference [BSVC2]"]):::business
+  bsvc4(["⬭ Architecture as a service — Pending [BSVC4]"]):::business
 
-  cap2["✦ «Capability» CAP2<br>Model stewardship"]:::capability
+  cap2["✦ «Capability» Model stewardship [CAP2]"]:::capability
 
   asvc1 --> bsvc1
   asvc2 --> bsvc2

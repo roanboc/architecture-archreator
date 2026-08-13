@@ -13,9 +13,9 @@ named escalation path.
 
 ```mermaid
 flowchart LR
-  act(["⚇ «Business Actor»<br>who acts"]):::actor
-  role["⚉ «Business Role»<br>the hat they wear"]:::role
-  svc(["⬭ «Business Service»<br>what that produces"]):::service
+  act(["⚇ «Business Actor» who acts"]):::actor
+  role["⚉ «Business Role» the hat they wear"]:::role
+  svc(["⬭ «Business Service» what that produces"]):::service
 
   act -->|assigned to| role
   role -->|realizes| svc
@@ -39,13 +39,13 @@ word appears once.**
 
 ```mermaid
 flowchart LR
-  act1(["⚇ «Business Actor (Human)» ACT1<br>Requester"]):::actor
-  act2(["⚇ «Business Actor (AI)» ACT2<br>Agent — co-pilot"]):::actorai
-  act3(["⚇ «Business Actor (Human)» ACT3<br>Reviewer"]):::actor
+  act1(["⚇ «Business Actor (Human)» Requester [ACT1]"]):::actor
+  act2(["⚇ «Business Actor (AI)» Agent — co-pilot [ACT2]"]):::actorai
+  act3(["⚇ «Business Actor (Human)» Reviewer [ACT3]"]):::actor
 
-  role1["⚉ «Business Role» ROLE1<br>Requesting and approving"]:::role
-  role2["⚉ ROLE2<br>Executing the method"]:::role
-  role3["⚉ ROLE3<br>Reviewing and merging"]:::role
+  role1["⚉ «Business Role» Requesting and approving [ROLE1]"]:::role
+  role2["⚉ Executing the method [ROLE2]"]:::role
+  role3["⚉ Reviewing and merging [ROLE3]"]:::role
 
   act1 -->|assigned to| role1
   act2 -->|assigned to| role2
@@ -83,11 +83,11 @@ for.
 
 ```mermaid
 flowchart LR
-  role1["⚉ «Business Role» ROLE1<br>Requesting and approving"]:::role
-  role2["⚉ ROLE2<br>Executing the method"]:::role
-  role3["⚉ ROLE3<br>Reviewing and merging"]:::role
+  role1["⚉ «Business Role» Requesting and approving [ROLE1]"]:::role
+  role2["⚉ Executing the method [ROLE2]"]:::role
+  role3["⚉ Reviewing and merging [ROLE3]"]:::role
 
-  bsvc1(["⬭ «Business Service» BSVC1<br>Aligned change"]):::service
+  bsvc1(["⬭ «Business Service» Aligned change [BSVC1]"]):::service
 
   role2 -->|realizes| bsvc1
   bsvc1 -->|serves| role1

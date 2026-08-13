@@ -8,9 +8,9 @@ _[← Strategy layer](./README.md) · [EA home](../README.md)_
 
 ```mermaid
 flowchart LR
-  s1[["⇉ «Value Stream» stage<br>a step toward adopting"]]:::stage
+  s1[["⇉ «Value Stream» stage a step toward adopting"]]:::stage
   s2[["⇉ the next step"]]:::stage
-  acmp["⊞ «Application Component»<br>the page that realizes it"]:::component
+  acmp["⊞ «Application Component» the page that realizes it"]:::component
 
   s1 -->|triggers| s2
   acmp -->|realizes| s1
@@ -30,13 +30,13 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  s1[["⇉ «Value Stream» stage<br>1 Discover — lands on the site"]]:::stage
-  s2[["⇉ 2 Understand — reads the method<br>and the actor-notation example"]]:::stage
+  s1[["⇉ «Value Stream» stage 1 Discover — lands on the site"]]:::stage
+  s2[["⇉ 2 Understand — reads the method and the actor-notation example"]]:::stage
   s3[["⇉ 3 Adopt — uses 'Use this template'"]]:::stage
 
-  acmp1["⊞ «Application Component» ACMP1<br>Landing page"]:::component
-  acmp7["⊞ ACMP7<br>How-it-works page"]:::component
-  acmp2["⊞ ACMP2<br>Start page"]:::component
+  acmp1["⊞ «Application Component» Landing page [ACMP1]"]:::component
+  acmp7["⊞ How-it-works page [ACMP7]"]:::component
+  acmp2["⊞ Start page [ACMP2]"]:::component
 
   acmp1 --> s1
   acmp1 --> s2

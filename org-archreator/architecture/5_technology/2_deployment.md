@@ -11,9 +11,9 @@ and the reason is structural rather than immature.
 
 ```mermaid
 flowchart LR
-  art[/"⎔ «Artifact»<br>what is produced"/]:::artifact
-  node["⬒ «Node»<br>where it lands"]:::node
-  tsvc(["⬯ «Technology Service»<br>what carries it"]):::techservice
+  art[/"⎔ «Artifact» what is produced"/]:::artifact
+  node["⬒ «Node» where it lands"]:::node
+  tsvc(["⬯ «Technology Service» what carries it"]):::techservice
 
   art -->|deployed on| node
   tsvc -->|serves| art
@@ -35,12 +35,12 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  art1[/"⎔ «Artifact» ART1<br>The repository at a commit"/]:::artifact
-  art2[/"⎔ ART2<br>The published site"/]:::artifact
-  art3[/"⎔ ART3<br>The plugin, as the manifest resolves it"/]:::artifact
+  art1[/"⎔ «Artifact» The repository at a commit [ART1]"/]:::artifact
+  art2[/"⎔ The published site [ART2]"/]:::artifact
+  art3[/"⎔ The plugin, as the manifest resolves it [ART3]"/]:::artifact
 
-  node1["⬒ «Node» NODE1<br>GitHub"]:::node
-  node2["⬒ NODE2<br>The adopter's machine"]:::adopter
+  node1["⬒ «Node» GitHub [NODE1]"]:::node
+  node2["⬒ The adopter's machine [NODE2]"]:::adopter
 
   art1 --> node1
   art2 --> node1

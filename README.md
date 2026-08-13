@@ -30,12 +30,12 @@ drawn the same way.
 
 ```mermaid
 flowchart LR
-  req(["⚇ «Business Actor (Human)»<br>The Requester"]):::actor
-  frame{{"⚙ «Business Process»<br>Align the layers"}}:::process
-  gate[/"❒ «Business Rule»<br>Gate 2 — no code before this"/]:::rule
+  req(["⚇ «Business Actor (Human)» The Requester"]):::actor
+  frame{{"⚙ «Business Process» Align the layers"}}:::process
+  gate[/"❒ «Business Rule» Gate 2 — no code before this"/]:::rule
   build{{"⚙ Implement from the approved design"}}:::process
-  agent(["⚇ «Business Actor (AI)»<br>The Agent — co-pilot"]):::actorai
-  out[["◉ «Outcome»<br>A change consistent with<br>everything already decided"]]:::outcome
+  agent(["⚇ «Business Actor (AI)» The Agent — co-pilot"]):::actorai
+  out[["◉ «Outcome» A change consistent with everything already decided"]]:::outcome
 
   req -->|states what is wanted| frame
   agent -->|assigned to| frame
@@ -62,12 +62,12 @@ below it can be right:
 
 ```mermaid
 flowchart TB
-  l0["◍ «Customer Segment» · «Job» · «Pain»<br>0 Business design — who we serve"]:::motivation
-  l1["◎ «Goal» · «Principle» · ✦ «Capability»<br>1 Strategy — what must become true"]:::strategy
-  l2["⚇ «Business Actor» · ⬭ «Business Service»<br>2 Business — who acts, what is offered"]:::business
-  l3["▦ «Data Object»<br>3 Information — what is known"]:::information
-  l4["⊞ «Application Component»<br>4 Application — the software"]:::application
-  l5["⬒ «Node» · ⬯ «Technology Service»<br>5 Technology — what it runs on"]:::technology
+  l0["◍ «Customer Segment» · «Job» · «Pain» 0 Business design — who we serve"]:::motivation
+  l1["◎ «Goal» · «Principle» · ✦ «Capability» 1 Strategy — what must become true"]:::strategy
+  l2["⚇ «Business Actor» · ⬭ «Business Service» 2 Business — who acts, what is offered"]:::business
+  l3["▦ «Data Object» 3 Information — what is known"]:::information
+  l4["⊞ «Application Component» 4 Application — the software"]:::application
+  l5["⬒ «Node» · ⬯ «Technology Service» 5 Technology — what it runs on"]:::technology
 
   l0 -->|derived into| l1
   l1 -->|realized by| l2
@@ -367,16 +367,16 @@ file below links back to its neighbors, so nothing here is a dead end.
 
 ```mermaid
 flowchart TB
-  bootstrap["skill: project-bootstrap<br><i>first contact — declares the depth</i>"]
-  claude["CLAUDE.md<br><i>agent entry point — the rule + the declared depth</i>"]
-  contrib["CONTRIBUTING.md<br><i>the method, for humans</i>"]
-  ea["architecture/<br><i>layers 0–5 — current-state architecture</i>"]
-  domains["architecture/domains/<br><i>Depth 3 — one nested model per business line</i>"]
-  scope["architecture/scope/<br><i>one doc per change, + the process writeup</i>"]
-  decisions["architecture/decisions/<br><i>one doc per smaller, non-obvious call</i>"]
-  skillscore["skills: architecture-first-change, architecture-doc-style,<br>scope-doc, pr-description"]
-  skillssupport["skills: operating-model-discovery,<br>strategy-discovery, domain-modeling, decision-record,<br>story-sharding, stack-selection,<br>engagement-retrospective"]
-  pr[".github/ PR templates<br>(default + bugfix)"]
+  bootstrap["skill: project-bootstrap <i>first contact — declares the depth</i>"]
+  claude["CLAUDE.md <i>agent entry point — the rule + the declared depth</i>"]
+  contrib["CONTRIBUTING.md <i>the method, for humans</i>"]
+  ea["architecture/ <i>layers 0–5 — current-state architecture</i>"]
+  domains["architecture/domains/ <i>Depth 3 — one nested model per business line</i>"]
+  scope["architecture/scope/ <i>one doc per change, + the process writeup</i>"]
+  decisions["architecture/decisions/ <i>one doc per smaller, non-obvious call</i>"]
+  skillscore["skills: architecture-first-change, architecture-doc-style, scope-doc, pr-description"]
+  skillssupport["skills: operating-model-discovery, strategy-discovery, domain-modeling, decision-record, story-sharding, stack-selection, engagement-retrospective"]
+  pr[".github/ PR templates (default + bugfix)"]
 
   bootstrap -->|writes| claude
   bootstrap -->|hands off to| skillssupport

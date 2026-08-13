@@ -8,10 +8,10 @@ _[← Business layer](./README.md) · [EA home](../README.md)_
 
 ```mermaid
 flowchart LR
-  svc(["⬭ «Business Service»<br>what archreator offers"]):::service
-  rule[/"❒ «Business Rule»<br>what constrains it"/]:::rule
-  p[/"⚑ «Principle»<br>what the rule enforces"/]:::principle
-  proc{{"⚙ «Business Process»<br>how it is delivered"}}:::process
+  svc(["⬭ «Business Service» what archreator offers"]):::service
+  rule[/"❒ «Business Rule» what constrains it"/]:::rule
+  p[/"⚑ «Principle» what the rule enforces"/]:::principle
+  proc{{"⚙ «Business Process» how it is delivered"}}:::process
 
   proc -->|realizes| svc
   rule -->|constrains| proc
@@ -36,18 +36,18 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  bsvc1(["⬭ «Business Service» BSVC1<br>Aligned change"]):::service
-  bsvc2(["⬭ BSVC2<br>Discovery"]):::service
-  bsvc3(["⬭ BSVC3<br>Right-sizing"]):::service
-  bsvc4(["⬭ BSVC4<br>Approval that counts"]):::service
-  bsvc5(["⬭ BSVC5<br>Federated scale"]):::service
-  bsvc6(["⬭ BSVC6<br>Staying true"]):::service
-  bsvc7(["⬭ BSVC7<br>Method upgrade — partially Pending"]):::service
+  bsvc1(["⬭ «Business Service» Aligned change [BSVC1]"]):::service
+  bsvc2(["⬭ Discovery [BSVC2]"]):::service
+  bsvc3(["⬭ Right-sizing [BSVC3]"]):::service
+  bsvc4(["⬭ Approval that counts [BSVC4]"]):::service
+  bsvc5(["⬭ Federated scale [BSVC5]"]):::service
+  bsvc6(["⬭ Staying true [BSVC6]"]):::service
+  bsvc7(["⬭ Method upgrade — partially Pending [BSVC7]"]):::service
 
-  stk1(["◍ «Stakeholder» STK1<br>Modeling a company"]):::stakeholder
-  stk2(["◍ STK2<br>Building one application"]):::stakeholder
-  stk3(["◍ STK3<br>A non-technical Requester"]):::stakeholder
-  stk5(["◍ STK5<br>archreator's maintainer"]):::stakeholder
+  stk1(["◍ «Stakeholder» Modeling a company [STK1]"]):::stakeholder
+  stk2(["◍ Building one application [STK2]"]):::stakeholder
+  stk3(["◍ A non-technical Requester [STK3]"]):::stakeholder
+  stk5(["◍ archreator's maintainer [STK5]"]):::stakeholder
 
   bsvc1 --> stk1
   bsvc1 --> stk2
@@ -87,16 +87,16 @@ that realizes it, per `P1`.
 
 ```mermaid
 flowchart LR
-  rule1[/"❒ «Business Rule» RULE1<br>No code before Gate 2"/]:::rule
-  rule2[/"❒ RULE2<br>Every element names what realizes it"/]:::rule
-  rule5[/"❒ RULE5<br>IDs are never reused"/]:::rule
-  rule6[/"❒ RULE6<br>Merged scope documents are never rewritten"/]:::rule
-  rule10[/"❒ RULE10<br>Every element document opens with its legend"/]:::rule
+  rule1[/"❒ «Business Rule» No code before Gate 2 [RULE1]"/]:::rule
+  rule2[/"❒ Every element names what realizes it [RULE2]"/]:::rule
+  rule5[/"❒ IDs are never reused [RULE5]"/]:::rule
+  rule6[/"❒ Merged scope documents are never rewritten [RULE6]"/]:::rule
+  rule10[/"❒ Every element document opens with its legend [RULE10]"/]:::rule
 
-  p1[/"⚑ «Principle» P1<br>Every element names what realizes it"/]:::principle
-  p2[/"⚑ P2<br>A human approves, recorded"/]:::principle
-  p5[/"⚑ P5<br>History is never rewritten"/]:::principle
-  p3[/"⚑ P3<br>Each fact in one document"/]:::principle
+  p1[/"⚑ «Principle» Every element names what realizes it [P1]"/]:::principle
+  p2[/"⚑ A human approves, recorded [P2]"/]:::principle
+  p5[/"⚑ History is never rewritten [P5]"/]:::principle
+  p3[/"⚑ Each fact in one document [P3]"/]:::principle
 
   rule1 --> p2
   rule2 --> p1
@@ -136,9 +136,9 @@ principle it enforces.
 ```mermaid
 flowchart LR
   req(["Requirement or problem"]):::start
-  depth{{"⚙ «Business Process»<br>Confirm depth, locate domain"}}:::process
+  depth{{"⚙ «Business Process» Confirm depth, locate domain"}}:::process
   align{{"⚙ Align layers 1–3"}}:::process
-  gate[/"❒ RULE1<br>Gate 2 granted?"/]:::rule
+  gate[/"❒ Gate 2 granted? [RULE1]"/]:::rule
   build{{"⚙ Align 4–5, implement"}}:::process
   verify{{"⚙ Verify RULE2, open PR"}}:::process
   merged(["Merged"]):::start

@@ -254,9 +254,13 @@ re-tabulating them here — a second copy is a second thing to drift.
 
 The parts worth restating, because they are decisions rather than values:
 
-- **Node labels put the identifier first**:
-  `<glyph> [«Stereotype»] <ID><br><description>`. A reader scanning for
-  `CAP1` finds it in the same place on every node.
+- **Node labels are one line, identifier last**:
+  `<glyph> [«Stereotype»] <description> [<ID>]`. One line because a label
+  spanning two depends on the viewer rendering `<br>`, and whether it does
+  depends on that viewer's HTML-label setting — the same diagram reads
+  correctly in one place and runs together in another. A single line cannot
+  break. The identifier goes last, in brackets, where it is still in the same
+  place on every node; the tables carry the full context.
 - **The glyph rides on every node; the «stereotype» word appears once** — on
   the first node of each type in a diagram, dropped on the rest. One
   character can afford to be everywhere; a line cannot.

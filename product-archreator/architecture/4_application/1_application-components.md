@@ -8,9 +8,9 @@ _[← Application layer](./README.md) · [EA home](../README.md)_
 
 ```mermaid
 flowchart LR
-  acmp["⊞ «Application Component»<br>a skill or a script"]:::component
-  svc(["⬭ «Business Service»<br>what it offers an adopter"]):::service
-  rule[/"❒ «Business Rule»<br>what it enforces"/]:::rule
+  acmp["⊞ «Application Component» a skill or a script"]:::component
+  svc(["⬭ «Business Service» what it offers an adopter"]):::service
+  rule[/"❒ «Business Rule» what it enforces"/]:::rule
 
   acmp -->|realizes| svc
   acmp -->|enforces| rule
@@ -32,17 +32,17 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-  acmp2["⊞ «Application Component» ACMP2<br>Bootstrap"]:::component
-  acmp3["⊞ ACMP3/ACMP4<br>Discovery"]:::component
-  acmp1["⊞ ACMP1<br>Process spine"]:::component
-  acmp6["⊞ ACMP6<br>Notation authority"]:::component
-  acmp7["⊞ ACMP7<br>Scope document authoring"]:::component
-  acmp13["⊞ ACMP13<br>Link checker"]:::component
-  acmp15["⊞ ACMP15<br>Element-ID validator"]:::component
+  acmp2["⊞ «Application Component» Bootstrap [ACMP2]"]:::component
+  acmp3["⊞ Discovery [ACMP3/ACMP4]"]:::component
+  acmp1["⊞ Process spine [ACMP1]"]:::component
+  acmp6["⊞ Notation authority [ACMP6]"]:::component
+  acmp7["⊞ Scope document authoring [ACMP7]"]:::component
+  acmp13["⊞ Link checker [ACMP13]"]:::component
+  acmp15["⊞ Element-ID validator [ACMP15]"]:::component
 
-  bsvc1(["⬭ «Business Service» BSVC1<br>Aligned change"]):::service
-  rule2[/"❒ «Business Rule» RULE2<br>Grounding"/]:::rule
-  rule5[/"❒ RULE5<br>IDs never reused"/]:::rule
+  bsvc1(["⬭ «Business Service» Aligned change [BSVC1]"]):::service
+  rule2[/"❒ «Business Rule» Grounding [RULE2]"/]:::rule
+  rule5[/"❒ IDs never reused [RULE5]"/]:::rule
 
   acmp2 -->|hands off to| acmp3
   acmp3 -->|hands off to| acmp1

@@ -14,11 +14,11 @@ escalation path.
 
 ```mermaid
 flowchart LR
-  act(["⚇ «Business Actor»<br>who acts"]):::actor
-  role["⚉ «Business Role»<br>the hat they wear"]:::role
-  svc(["⬭ «Business Service»<br>what that produces"]):::service
-  ctr[/"❒ «Contract»<br>what binds two parties"/]:::contract
-  bcol{{"⧉ «Business Collaboration»<br>parties acting together"}}:::collab
+  act(["⚇ «Business Actor» who acts"]):::actor
+  role["⚉ «Business Role» the hat they wear"]:::role
+  svc(["⬭ «Business Service» what that produces"]):::service
+  ctr[/"❒ «Contract» what binds two parties"/]:::contract
+  bcol{{"⧉ «Business Collaboration» parties acting together"}}:::collab
 
   act -->|assigned to| role
   role -->|realizes| svc
@@ -52,12 +52,12 @@ first node of each type in a diagram, dropped on the rest.
 
 ```mermaid
 flowchart LR
-  act1(["⚇ «Business Actor (Human)» ACT1<br>The Requester"]):::actor
-  act2(["⚇ «Business Actor (AI)» ACT2<br>The AI agent co-pilot"]):::actorai
+  act1(["⚇ «Business Actor (Human)» The Requester [ACT1]"]):::actor
+  act2(["⚇ «Business Actor (AI)» The AI agent co-pilot [ACT2]"]):::actorai
 
-  role1["⚉ «Business Role» ROLE1<br>Method maintainer"]:::role
-  role2["⚉ ROLE2<br>Consultant"]:::role
-  role3["⚉ ROLE3<br>Owner"]:::role
+  role1["⚉ «Business Role» Method maintainer [ROLE1]"]:::role
+  role2["⚉ Consultant [ROLE2]"]:::role
+  role3["⚉ Owner [ROLE3]"]:::role
 
   act1 -->|assigned to| role1
   act1 -->|assigned to| role2
@@ -124,14 +124,14 @@ a single case.
 
 ```mermaid
 flowchart LR
-  act1(["⚇ «Business Actor» ACT1<br>The Requester"]):::actor
-  act3(["⚇ ACT3<br>AI model providers"]):::actor
-  act4(["⚇ ACT4<br>GitHub"]):::actor
-  act5(["⚇ ACT5<br>Contributor community — Pending"]):::actor
+  act1(["⚇ «Business Actor» The Requester [ACT1]"]):::actor
+  act3(["⚇ AI model providers [ACT3]"]):::actor
+  act4(["⚇ GitHub [ACT4]"]):::actor
+  act5(["⚇ Contributor community — Pending [ACT5]"]):::actor
 
-  ctr1[/"❒ «Contract» CTR1<br>Provider subscription terms"/]:::contract
-  ctr2[/"❒ CTR2<br>Platform terms"/]:::contract
-  bcol1{{"⧉ «Business Collaboration» BCOL1<br>Open-source collaboration — Pending"}}:::collab
+  ctr1[/"❒ «Contract» Provider subscription terms [CTR1]"/]:::contract
+  ctr2[/"❒ Platform terms [CTR2]"/]:::contract
+  bcol1{{"⧉ «Business Collaboration» Open-source collaboration — Pending [BCOL1]"}}:::collab
 
   act1 --> ctr1
   act3 --> ctr1

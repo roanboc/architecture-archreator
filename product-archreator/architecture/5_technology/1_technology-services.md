@@ -8,9 +8,9 @@ _[← Technology layer](./README.md) · [EA home](../README.md)_
 
 ```mermaid
 flowchart LR
-  node["⬒ «Node»<br>where something runs"]:::node
-  tsvc(["⬯ «Technology Service»<br>what it provides"]):::techservice
-  art[/"⎔ «Artifact»<br>what is deployed on it"/]:::artifact
+  node["⬒ «Node» where something runs"]:::node
+  tsvc(["⬯ «Technology Service» what it provides"]):::techservice
+  art[/"⎔ «Artifact» what is deployed on it"/]:::artifact
 
   node -->|provides| tsvc
   art -->|deployed on| node
@@ -32,16 +32,16 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  node1["⬒ «Node» NODE1<br>Claude Code"]:::node
-  node2["⬒ NODE2<br>GitHub Actions"]:::node
-  node3["⬒ NODE3<br>GitHub Pages"]:::node
-  node4["⬒ NODE4<br>Python 3 standard library"]:::node
-  node5["⬒ NODE5<br>Git"]:::node
+  node1["⬒ «Node» Claude Code [NODE1]"]:::node
+  node2["⬒ GitHub Actions [NODE2]"]:::node
+  node3["⬒ GitHub Pages [NODE3]"]:::node
+  node4["⬒ Python 3 standard library [NODE4]"]:::node
+  node5["⬒ Git [NODE5]"]:::node
 
-  tsvc1(["⬯ «Technology Service» TSVC1<br>Skill discovery"]):::techservice
-  tsvc2(["⬯ TSVC2<br>Model validation on every change"]):::techservice
-  tsvc3(["⬯ TSVC3<br>Plugin distribution and update"]):::techservice
-  tsvc4(["⬯ TSVC4<br>Published read-only view of a model"]):::techservice
+  tsvc1(["⬯ «Technology Service» Skill discovery [TSVC1]"]):::techservice
+  tsvc2(["⬯ Model validation on every change [TSVC2]"]):::techservice
+  tsvc3(["⬯ Plugin distribution and update [TSVC3]"]):::techservice
+  tsvc4(["⬯ Published read-only view of a model [TSVC4]"]):::techservice
 
   node1 --> tsvc1
   node2 --> tsvc2
@@ -80,14 +80,14 @@ runner already had.
 
 ```mermaid
 flowchart LR
-  art1[/"⎔ «Artifact» ART1<br>SKILL.md files"/]:::artifact
-  art2[/"⎔ ART2<br>plugin.json and marketplace.json"/]:::artifact
-  art3[/"⎔ ART3<br>check_links.py and check_model.py"/]:::artifact
-  art4[/"⎔ ART4<br>The site's static pages"/]:::artifact
+  art1[/"⎔ «Artifact» SKILL.md files [ART1]"/]:::artifact
+  art2[/"⎔ plugin.json and marketplace.json [ART2]"/]:::artifact
+  art3[/"⎔ check_links.py and check_model.py [ART3]"/]:::artifact
+  art4[/"⎔ The site's static pages [ART4]"/]:::artifact
 
-  node1["⬒ «Node» NODE1<br>Claude Code"]:::node
-  node2["⬒ NODE2<br>GitHub Actions"]:::node
-  node3["⬒ NODE3<br>GitHub Pages"]:::node
+  node1["⬒ «Node» Claude Code [NODE1]"]:::node
+  node2["⬒ GitHub Actions [NODE2]"]:::node
+  node3["⬒ GitHub Pages [NODE3]"]:::node
 
   art1 --> node1
   art2 --> node1

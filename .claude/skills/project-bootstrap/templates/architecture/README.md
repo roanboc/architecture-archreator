@@ -77,15 +77,21 @@ ArchiMate has no native Mermaid profile — no element icons, no standard
 shapes. These documents encode ArchiMate semantics onto Mermaid flowcharts
 with four devices, and this section is the **single source** for all of them.
 
-### 1. Node labels: identifier first, description second
+### 1. Node labels: one line, identifier last
 
 ```
-<glyph> [«Stereotype»] <ID><br><description>
+<glyph> [«Stereotype»] <description> [<ID>]
 ```
 
-`✦ «Capability» CAP1<br>Business understanding`, then `✦ CAP2<br>Model
-stewardship` for the next one. A reader scanning for `CAP1` finds it in the
-same place on every node, and the description gets a line to itself.
+`✦ «Capability» Business understanding [CAP1]`, then `✦ Model stewardship
+[CAP2]` for the next one.
+
+**One line, always.** A label spanning two lines needs the viewer to render
+`<br>`, and whether it does depends on that viewer's HTML-label setting — so
+the same diagram reads correctly in one place and runs together into a single
+string in another. A single-line label cannot break anywhere. The identifier
+sits last in brackets, still in the same place on every node, and the tables
+below the diagram carry the full context.
 
 **The glyph rides on every node; the «stereotype» word appears once** — on the
 first node of each type in a diagram, dropped on the rest. A glyph costs one
@@ -225,21 +231,21 @@ relation types, the label is authoritative.
 ```mermaid
 flowchart TB
   subgraph MOT["Motivation & Strategy"]
-    goal["«Goal»<br><Why this exists>"]:::motivation
-    vs["«Value Stream»<br><Stage 1 → Stage 2 → …>"]:::strategy
+    goal["«Goal» <Why this exists>"]:::motivation
+    vs["«Value Stream» <Stage 1 → Stage 2 → …>"]:::strategy
   end
 
   subgraph BUS["Business layer"]
-    svc["«Business Service»<br><What's offered>"]:::business
-    actor["«Business Actor»<br><Who uses it>"]:::business
+    svc["«Business Service» <What's offered>"]:::business
+    actor["«Business Actor» <Who uses it>"]:::business
   end
 
   subgraph APP["Application layer"]
-    app["«Application Component»<br><What realizes the service>"]:::application
+    app["«Application Component» <What realizes the service>"]:::application
   end
 
   subgraph TEC["Technology layer"]
-    tech["«Node»<br><What it runs on>"]:::technology
+    tech["«Node» <What it runs on>"]:::technology
   end
 
   goal -->|realized by| vs
