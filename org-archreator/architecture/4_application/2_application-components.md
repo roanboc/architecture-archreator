@@ -60,7 +60,7 @@ answer to a question this model left open — see below.
 
 | ID | Component | Realizes | Implemented by | Modeled in full by |
 | -- | --------- | -------- | -------------- | ------------------ |
-| `ACMP1` | **The skill set and plugin manifest** — thirteen skills, the plugin and marketplace manifests | `ASVC1` | `.claude/skills/`, `.claude/.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` | [`product-archreator/`](../../../product-archreator/README.md) |
+| `ACMP1` | **The skill set and plugin manifest** — fourteen skills, the plugin and marketplace manifests | `ASVC1` | `.claude/skills/`, `.claude/.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` | [`product-archreator/`](../../../product-archreator/README.md) |
 | `ACMP2` | **The guidance site** — the published pages, English and Spanish | `ASVC2` | `product-archreator/site/public/` | [`site/architecture/`](../../../product-archreator/site/architecture/README.md) |
 | `ACMP3` | **The documentation checks** — link resolution and element-identifier validation, run in CI | `ASVC3` | `.claude/skills/project-bootstrap/templates/scripts/`, `.github/workflows/` | [`product-archreator/`](../../../product-archreator/README.md) |
 | `ACMP4` | **The scaffold** — the empty layered tree, and the validators, that `ACMP1` emits into a new project | `ASVC1` | `.claude/skills/project-bootstrap/templates/` | [`product-archreator/`](../../../product-archreator/README.md) |
@@ -86,7 +86,7 @@ consumes that model — rather than one document growing until nobody can
 change it safely.
 
 The rule that keeps it honest: **nothing about a component's internals is
-written here.** `ACMP1` has thirteen skills and a manifest; how they fit
+written here.** `ACMP1` has fourteen skills and a manifest; how they fit
 together is `product-archreator/`'s layer 4, and copying any of it into this
 table would be the enumeration `P5` exists to prevent.
 

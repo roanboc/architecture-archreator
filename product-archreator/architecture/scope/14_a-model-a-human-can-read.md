@@ -145,8 +145,8 @@ rule that did not earn its place, and that is taken as guidance here.
 | ---- | ----------- | ---- | ----------------- |
 | Gate 0 — Business model | — | — | **N/A** — Depth 1; no canvases exist in this tree |
 | Gate 1 — Strategy | — | — | **N/A** — no Stakeholder, Driver, Goal or Principle added or modified |
-| Gate 2 — Business | _awaiting_ | — | This document, and the notation and leveling changes it describes |
-| Gate 3 — Solution design | _to be asked at Gate 2_ | — | The new skill's structure and where it hooks into the existing ones |
+| Gate 2 — Business | Requester | 2026-08-14 | This document and [engagement note 3](../../../org-archreator/architecture/engagements/3_breadth-first-depth-on-pain.md), presented with branch links, including the four calls listed as overturnable and open question 12 |
+| Gate 3 — Solution design | — | — | **N/A — declined at Gate 2.** The new skill's structure and its hooks are covered by ordinary pull-request review instead |
 
 ## Plateaus
 
@@ -163,8 +163,20 @@ rule that did not earn its place, and that is taken as guidance here.
   `.claude/skills/project-bootstrap/templates/architecture/README.md`
   § Notation conventions § 1 — the label format becomes
   `<glyph> <description> [<ID>]`, with the one exception stated;
-  `.claude/skills/architecture-doc-style/SKILL.md` § ArchiMate on Mermaid —
-  the same decision, restated as a decision rather than a value.
+  `.claude/skills/architecture-doc-style/SKILL.md` § ArchiMate on Mermaid,
+  § Canvas notation and § Actors — the same decision, and the two places where
+  a stereotype was carrying information rather than repeating it. Plus the
+  scaffold's own six placeholder views, redrawn to the new form, so a project
+  generated tomorrow does not start on the superseded one.
+- **The carve-out found while writing it:** an actor's kind — `(Human)`,
+  `(AI)`, `(Hybrid)` — stays on the node. Colour distinguishes an AI actor and
+  nothing distinguishes a hybrid one, so dropping it would lose information
+  rather than repetition, and § Actors exists precisely to stop a reader
+  defaulting to "person".
+- **One repair, taken because the section was open:** `▧`, the Business Object
+  glyph, was introduced by the organization's model and never reached the
+  notation table that is supposed to be its single source. The two are now
+  reconciled; it was the only such gap of twenty-seven glyphs in use.
 - **Outcome:** every future diagram is a quarter narrower per node, and the
   legend becomes the one place the vocabulary is taught.
 
@@ -199,7 +211,21 @@ rule that did not earn its place, and that is taken as guidance here.
   `2_business/2_business-services.md`.
 - **Outcome:** the model still describes the method after the method changes.
 
-### WP5 — The engagement note
+### WP5 — What this falsified elsewhere (`RULE12`)
+
+- **Deliverables:** the skill count corrected from thirteen to fourteen in
+  `README.md` (twice) and in the organization's `ACMP1` row and the paragraph
+  below it; the site's `architecture/README.md` § Notation conventions, which
+  described the label format as "stereotype in the node label" and now
+  describes the new one, with an explicit note that its own diagrams have not
+  been redrawn yet.
+- **Left alone deliberately:** the organization's
+  [initiative 3](../../../org-archreator/architecture/scope/3_take-coa1-stage-one.md)
+  says the skill count "moves from twelve to thirteen". That was true when it
+  was written and it is a merged scope document, so `RULE6` forbids touching
+  the words.
+
+### WP6 — The engagement note
 
 - **Deliverables:**
   `org-archreator/architecture/engagements/3_breadth-first-depth-on-pain.md`
@@ -217,6 +243,7 @@ rule that did not earn its place, and that is taken as guidance here.
 | Levels as a table column | Dotted identifiers (`BPROC1.1`). `ACMP15` accepts `<prefix><integer>` and changing that would renumber every model that exists |
 | Naming a reference model as the source of a proposed capability map | Reproducing any reference model's content. The skill cites; it does not copy |
 | `BSVC2` and `BSVC3` gaining a realizing artifact | Any new business service or rule |
+| Six of the scaffold's eight placeholder views, and the `▧` glyph reaching its single source | The two views drawing an element type that has no identifier prefix — see the gap notes |
 
 ## Gap notes
 
@@ -234,6 +261,16 @@ rule that did not earn its place, and that is taken as guidance here.
   `RULE12` before it, the rule is carried by review. A check would need to
   distinguish a justification from a sentence, which is the same fuzziness that
   kept `RULE2` out of tooling.
+- **Two placeholder views could not be redrawn, and the reason is a finding.**
+  The new label form ends in an identifier, and two element types the scaffold
+  draws have none: «Representation» in `3_information/README.md` has neither a
+  glyph nor a prefix, and «Application Interface» in `4_application/README.md`
+  has a glyph but no prefix. Both were left in the old form rather than
+  inventing vocabulary mid-sweep — that is
+  [initiative 13](./13_completing-the-business-and-information-layers.md)'s
+  work, and it now has two concrete holes to fill instead of an abstract
+  claim that the vocabulary is undocumented. The remaining six views were
+  redrawn.
 - **One file is shared with an unapproved initiative.** Initiative 13 proposes
   moving the rules out of `2_business/2_business-services.md` and is still
   awaiting Gate 2. This initiative touches only two "Realized by" cells in that

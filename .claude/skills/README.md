@@ -28,6 +28,7 @@ correctly on both paths and is what `architecture-doc-style` § Links requires.
 | `project-bootstrap` | [project-bootstrap/SKILL.md](./project-bootstrap/SKILL.md) |
 | `architecture-first-change` | [architecture-first-change/SKILL.md](./architecture-first-change/SKILL.md) |
 | `operating-model-discovery` | [operating-model-discovery/SKILL.md](./operating-model-discovery/SKILL.md) |
+| `process-and-capability-levels` | [process-and-capability-levels/SKILL.md](./process-and-capability-levels/SKILL.md) |
 | `domain-modeling` | [domain-modeling/SKILL.md](./domain-modeling/SKILL.md) |
 | `restate-current-state` | [restate-current-state/SKILL.md](./restate-current-state/SKILL.md) |
 | `strategy-discovery` | [strategy-discovery/SKILL.md](./strategy-discovery/SKILL.md) |

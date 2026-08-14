@@ -140,7 +140,7 @@ rendered as real, checkable architecture; the
 ## What's in the box
 
 This repo carries **no application code**: enterprise-architecture
-guidelines, thirteen Claude Code skills that turn the method into agent
+guidelines, fourteen Claude Code skills that turn the method into agent
 behavior, and the documentation scaffolding a project starts from.
 
 ## Quick start
@@ -375,7 +375,7 @@ flowchart TB
   scope["architecture/scope/ <i>one doc per change, + the process writeup</i>"]
   decisions["architecture/decisions/ <i>one doc per smaller, non-obvious call</i>"]
   skillscore["skills: architecture-first-change, architecture-doc-style, scope-doc, pr-description"]
-  skillssupport["skills: operating-model-discovery, strategy-discovery, domain-modeling, decision-record, story-sharding, stack-selection, engagement-retrospective"]
+  skillssupport["skills: operating-model-discovery, strategy-discovery, process-and-capability-levels, domain-modeling, decision-record, story-sharding, stack-selection, engagement-retrospective"]
   pr[".github/ PR templates (default + bugfix)"]
 
   bootstrap -->|writes| claude
@@ -402,7 +402,7 @@ flowchart TB
 | [architecture/domains/](./.claude/skills/project-bootstrap/templates/architecture/domains/README.md) | **Depth 3 only.** One nested model per business line, each with a charter naming what it exposes, plus the split test and the federation rule governing cross-domain change |
 | [architecture/scope/](./.claude/skills/project-bootstrap/templates/architecture/scope/README.md)  | One document per **change** to that state: the EA-first process write-up, the initiative index, and the optional [open-questions.md](./.claude/skills/project-bootstrap/templates/architecture/scope/open-questions.md) log |
 | [architecture/decisions/](./.claude/skills/project-bootstrap/templates/architecture/decisions/README.md) | Optional log of smaller, non-obvious calls that don't rise to a full scope document — most often *why* an AI actor's autonomy level or decision rights were set the way they were |
-| [`.claude/skills/`](./.claude/skills/README.md) | Thirteen Claude Code skills that turn the method into concrete agent behavior — see the two tables below. Also the root of the installable plugin |
+| [`.claude/skills/`](./.claude/skills/README.md) | Fourteen Claude Code skills that turn the method into concrete agent behavior — see the two tables below. Also the root of the installable plugin |
 | [`product-archreator/`](./product-archreator/README.md) | archreator's own development record — the [value and UX review](./product-archreator/architecture/reviews/1_value-and-ux-review.md) and the scope documents for changes to the method itself. Read it, don't inherit it |
 | [`org-archreator/`](./org-archreator/README.md) | The **live operating model of the organization behind archreator**, at Depth 2 — the worked company track, canvases through derived strategy and business layers. Read it, don't inherit it |
 | [.github/pull_request_template.md](./.github/pull_request_template.md) + [PULL_REQUEST_TEMPLATE/bugfix.md](./.github/PULL_REQUEST_TEMPLATE/bugfix.md) | Two PR bodies — one shaped to mirror a scope document's EA-alignment table, one for pure bug fixes that skip it — so the PR and the docs never drift apart |
@@ -430,6 +430,7 @@ project to fill in:
 | -------------------- | ------------------------------------------------------------------------------------------------------------ |
 | `operating-model-discovery` | The company track: when the subject is an organization rather than an app, question-driven discovery of a value proposition canvas per customer segment and a business model canvas per product, ending at the business-model gate (Gate 0) — then handing off to `strategy-discovery`, which derives the EA from the approved canvases instead of re-asking |
 | `strategy-discovery` | Question-driven discovery of the strategy layer and key business elements with the Requester — triggered by `architecture-first-change` when the strategy is still template placeholders (a project's first real initiative) or a change shifts it; a docs-only initiative ending at the strategy approval gate (Gate 1) |
+| `process-and-capability-levels` | The shape of an organization's two unbounded catalogues: the macro process map in four categories (strategic, operational, support, evaluation), what each level means and how its elements are described, seeding a capability map from an industry reference the Requester then confirms — and the rule that decides how far down to go, *breadth first, depth on pain*: levels 1 and 2 complete, level 3 only where a named pain justifies it |
 | `domain-modeling`   | Depth 3: whether a business line deserves to be a domain at all (a five-part test), how to write its charter, how element IDs are namespaced across domains, and the federation rule — changing an exposed service needs the consuming domains' Requesters too |
 | `restate-current-state` | Compacts the model so it describes today: shipped "Pending"s get their realizing artifact, superseded elements move to a Retired table, resolved open questions are archived, and stale decision records are marked superseded. Merged scope documents are never rewritten — they are the record of what was approved when |
 | `decision-record`   | A short, durable rationale for a single consequential call that's smaller than an initiative — most often why an AI actor's autonomy level or decision rights were set the way they were |

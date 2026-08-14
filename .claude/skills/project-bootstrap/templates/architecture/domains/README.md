@@ -124,16 +124,16 @@ Full rules in `architecture-doc-style` § Element IDs.
 ```mermaid
 flowchart TB
   subgraph ENT["Enterprise"]
-    goal["«Goal» <What the whole organization is for>"]:::motivation
+    goal("◎ <What the whole organization is for> [G1]"):::motivation
   end
 
   subgraph D1["Domain — <name>"]
-    d1svc["«Business Service» <Exposed service>"]:::business
+    d1svc(["⬭ <Exposed service> [BSVC1]"]):::business
   end
 
   subgraph D2["Domain — <name>"]
-    d2svc["«Business Service» <Exposed service>"]:::business
-    d2proc["«Business Process» <Internal — not exposed>"]:::business
+    d2svc(["⬭ <Exposed service> [BSVC1]"]):::business
+    d2proc{{"⚙ <Internal — not exposed> [BPROC1]"}}:::business
   end
 
   goal -->|realized by| d1svc

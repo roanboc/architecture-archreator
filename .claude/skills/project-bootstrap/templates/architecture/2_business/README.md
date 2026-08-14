@@ -16,9 +16,20 @@ handled_, and finally the domain vocabulary and rules.
 | --- | -------------------------------------------------------------------| ---------------------------------------------------- | --------------------------------------------------- |
 | 1   | [1_business-actors-and-roles.md](./1_business-actors-and-roles.md) | Business Actors and Roles, organizational units, external partners (Contracts, Collaborations) | Who interacts with the system, and who do we depend on? |
 | 2   | [2_business-services.md](./2_business-services.md)                | Products, Business Services, Business Interfaces (channels) | What is offered to them, and through which channels? |
-| 3   | [3_business-processes.md](./3_business-processes.md)              | Business Processes                                 | How are those services delivered?                 |
+| 3   | [3_business-processes.md](./3_business-processes.md) — or a folder of the same name, one document per level, once leveled | Business Processes | How are those services delivered, and at what level of detail? |
 | 4   | [4_business-objects.md](./4_business-objects.md)                  | Business Objects                                   | What things do the processes handle?              |
 | 5   | [5_domain-context-and-rules.md](./5_domain-context-and-rules.md)  | Problem statement, system context, glossary, rules | What vocabulary and constraints bind everything?  |
+
+`3_business-processes.md` is one document while the catalogue is small. **On
+an organization it becomes leveled**: level 1 is the macro process map,
+classified into strategic, operational, support and evaluation; level 2 is the
+end-to-end processes inside each; and level 3 exists only for the branches a
+named pain justifies detailing. Past roughly fifteen elements in a level the
+file becomes a folder of the same name with one document per level. The
+`process-and-capability-levels` skill holds the categories, the level
+definitions, the description each level carries, and the focus table that
+records which branches were deliberately left at level 2 — that table is what
+separates a scoped model from an unfinished one.
 
 `5_domain-context-and-rules.md` carries the project's **glossary** (reuse
 its terms in code and commits) and its **business rules table** — every new
@@ -52,17 +63,18 @@ values, consider a `decision-record` alongside the scope document.
   TEMPLATE — replace with the project's real actors, roles, services, and
   business objects once known. Keep at least one actor's kind explicit
   (Human/AI/Hybrid) even if every actor in this project turns out to be
-  human — an explicit "(Human)" beats a silent default.
+  human — an explicit "(Human)" beats a silent default. The kind is the one
+  type word a content node keeps; the stereotype belongs in the legend.
 -->
 
 ```mermaid
 flowchart TB
-  actorH["«Business Actor (Human)» <Who>"]:::business
-  actorAI["«Business Actor (AI)» <Who, and at what autonomy>"]:::business
-  role["«Business Role» <Role they play>"]:::business
-  svc["«Business Service» <What's offered>"]:::business
-  proc["«Business Process» <How it's delivered>"]:::business
-  obj["«Business Object» <What's handled>"]:::business
+  actorH(["⚇ <Who> (Human) [ACT1]"]):::business
+  actorAI(["⚇ <Who, and at what autonomy> (AI) [ACT2]"]):::application
+  role["⚉ <Role they play> [ROLE1]"]:::business
+  svc(["⬭ <What's offered> [BSVC1]"]):::business
+  proc{{"⚙ <How it's delivered> [BPROC1]"}}:::business
+  obj["▧ <What's handled> [BOBJ1]"]:::business
 
   actorH -->|assigned to| role
   actorAI -->|assigned to| role
@@ -71,7 +83,13 @@ flowchart TB
   proc -->|accesses| obj
 
   classDef business fill:#fffbb5,stroke:#b8a200,color:#333
+  classDef application fill:#c2f0ff,stroke:#0288d1,color:#333
 ```
+
+The AI actor is drawn in the Application cyan even though it sits in a
+business diagram — one of the two colour overrides in
+[README.md § Notation conventions](../README.md#notation-conventions), so a
+reader never mistakes it for a person.
 
 Every business service is realized by application services — the mapping is
 in [4_application/1_application-services.md](../4_application/1_application-services.md).

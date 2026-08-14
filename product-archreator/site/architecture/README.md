@@ -34,10 +34,18 @@ state; scope documents describe the **changes** that produce it.
 ## Notation conventions
 
 Same conventions as the parent template's
-[architecture/README.md](../../../.claude/skills/project-bootstrap/templates/architecture/README.md) — stereotype in the node
-label, one `classDef` per layer, ArchiMate relationship names on edges, plus
+[architecture/README.md](../../../.claude/skills/project-bootstrap/templates/architecture/README.md) — glyph,
+description and identifier in the node label with the stereotype left to the
+legend, one `classDef` per layer, ArchiMate relationship names on edges, plus
 the human/AI/hybrid actor convention from `architecture-doc-style`. Not restated here;
 see that document for the full palette and rules.
+
+**The diagrams below this line still carry stereotypes on their nodes.** The
+convention changed in
+[the method's initiative 14](../../architecture/scope/14_a-model-a-human-can-read.md)
+and redrawing every model in the repository is the initiative after it, so
+this document names the rule it will follow rather than the one it currently
+shows.
 
 ## Layered overview
 

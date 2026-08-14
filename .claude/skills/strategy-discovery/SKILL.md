@@ -74,7 +74,12 @@ elements underneath.
    tracks, so ask these questions even when the canvases are filled.
 4. **Capabilities and resources** (`2_capabilities-and-resources.md`):
    What must the project be able to do to reach those goals? With what —
-   people, systems, data, budget — and what is missing today?
+   people, systems, data, budget — and what is missing today? **On an
+   organization, this theme runs through `process-and-capability-levels`**:
+   capabilities are leveled, seeded from a named industry reference as a
+   proposal the Requester confirms, and detailed below level 2 only where a
+   pain justifies it. Asking an organization to recall its capabilities from
+   a blank page is the version of this theme that produces an org chart.
 5. **Value stream** (`3_value-stream.md`): From the first stakeholder
    need to value delivered, what are the stages? Which capability serves
    each stage?
@@ -83,7 +88,9 @@ elements underneath.
    autonomy level and decision rights (`architecture-doc-style`'s actor notation)?
    What core services are offered, what main business objects are handled,
    and which terms and rules came up repeatedly (they seed the glossary
-   and rules table)?
+   and rules table)? On an organization, ask what process map already exists —
+   a quality management system often holds a correct level 1 — and shape what
+   you find with `process-and-capability-levels`.
 
 Theme 6 discovers the **key** business elements — enough for the strategy
 to be judged coherent and for Gate 1 to mean something. The full business

@@ -55,6 +55,7 @@ invoke them by name in normal use.
 | `pr-description` | Opening or updating a PR — the body covers the whole branch, not the latest commit |
 | `operating-model-discovery` | The subject is an organization: canvases first (Gate 0), strategy derived from them |
 | `strategy-discovery` | The strategy is unfilled or the change shifts it (Gate 1) |
+| `process-and-capability-levels` | An organization's processes or capabilities need shaping — the four macro categories, the levels, and how far down to go |
 | `domain-modeling` | The organization is large enough to split into business lines, or a change crosses a domain boundary |
 | `restate-current-state` | The model has accumulated history — shipped "Pending"s, superseded elements, resolved questions — and no longer reads as a description of today |
 | `decision-record` | One consequential call smaller than an initiative — most often an AI actor's autonomy level |

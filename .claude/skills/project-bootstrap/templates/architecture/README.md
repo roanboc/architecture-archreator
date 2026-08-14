@@ -80,11 +80,10 @@ with four devices, and this section is the **single source** for all of them.
 ### 1. Node labels: one line, identifier last
 
 ```
-<glyph> [«Stereotype»] <description> [<ID>]
+<glyph> <description> [<ID>]
 ```
 
-`✦ «Capability» Business understanding [CAP1]`, then `✦ Model stewardship
-[CAP2]` for the next one.
+`✦ Business understanding [CAP1]`, then `✦ Model stewardship [CAP2]`.
 
 **One line, always.** A label spanning two lines needs the viewer to render
 `<br>`, and whether it does depends on that viewer's HTML-label setting — so
@@ -93,10 +92,20 @@ string in another. A single-line label cannot break anywhere. The identifier
 sits last in brackets, still in the same place on every node, and the tables
 below the diagram carry the full context.
 
-**The glyph rides on every node; the «stereotype» word appears once** — on the
-first node of each type in a diagram, dropped on the rest. A glyph costs one
-character and can afford to be everywhere; the word costs a line and teaches
-nobody anything on its thirteenth repetition.
+**The stereotype does not appear on the node.** `«Business Service»` is written
+in exactly one kind of diagram: one whose **subject is the notation** — the
+legend under "How to read this document", and the examples in this section.
+Everywhere else the type is already carried three times, by glyph, shape and
+colour, with the legend one screen above; a fourth carrier is the widest thing
+on the node and the least informative. A legend node reads
+`<glyph> «Stereotype» <what the type is>`, and it is the only place the word
+earns its width.
+
+**One carve-out: an actor's kind rides on the node.** `(Human)`, `(AI)` or
+`(Hybrid)` stays in the label — `⚇ Requester (Human) [ACT1]` — because it is
+information nothing else carries. Colour distinguishes an `(AI)` actor and
+nothing distinguishes a `(Hybrid)` one, and defaulting a reader to "person" is
+the mistake § Actors exists to prevent.
 
 ### 2. Element glyphs
 
@@ -109,7 +118,7 @@ legend says which is which.
 | ----- | ------ |
 | Motivation | `◍` Stakeholder · `✳` Driver · `⌕` Assessment · `◎` Goal · `◉` Outcome · `⚑` Principle |
 | Strategy | `✦` Capability · `▤` Resource · `◈` Value · `➤` Course of Action · `⇉` Value Stream |
-| Business | `⚇` Actor · `⚉` Role · `▣` Product · `⬭` Business Service · `⊸` Business Interface · `❒` Contract · `⧉` Collaboration · `⚙` Business Process |
+| Business | `⚇` Actor · `⚉` Role · `▣` Product · `⬭` Business Service · `⊸` Business Interface · `❒` Contract · `⧉` Collaboration · `⚙` Business Process · `▧` Business Object |
 | Information | `▦` Data Object |
 | Application | `⊞` Application Component · `⬮` Application Service · `⊸` Application Interface |
 | Technology | `⬒` Node · `⬯` Technology Service · `⎔` Artifact |
@@ -117,7 +126,9 @@ legend says which is which.
 | Canvas (BMC) | `⧉` Key Partner · `⚙` Key Activity · `▤` Key Resource · `⊸` Channel · `⇄` Customer Relationship · `▲` Revenue Stream · `▼` Cost |
 
 `⌕` is ArchiMate's Assessment magnifier, `◎` its Goal, `◉` its Outcome, `⊸`
-its interface lollipop; `✳` echoes the Driver's steering wheel; `⊖`/`⊕` and
+its interface lollipop; `✳` echoes the Driver's steering wheel; `▧` is a
+deliberate near-neighbour of `▦`, because a Business Object and the Data
+Object holding it are usually one thing seen from two layers; `⊖`/`⊕` and
 `▲`/`▼` make canvas arithmetic visible. **Unicode only** — glyphs render
 everywhere Markdown does, which
 [the notation review](https://github.com/roanboc/archreator/blob/main/product-archreator/reviews/2_diagram-notation-icons.md) found
@@ -204,7 +215,9 @@ as a visitor.
 - **Each document opens with a "How to read this document" section**: a
   legend diagram showing the element types and how they connect, then the
   glyph / shape / element / ID-prefix table. Layers are self-documenting;
-  nobody should need another file open to read one.
+  nobody should need another file open to read one. **This legend is what
+  makes § 1 affordable** — it is the one diagram that names the stereotypes,
+  so the diagrams below it don't have to.
 - **Dashed edges mean Pending.** Solid is true today.
 
 Relationships are labeled with their ArchiMate name: **serves**,
@@ -225,27 +238,28 @@ relation types, the label is authoritative.
   TEMPLATE — replace with the project's real stakeholders, goal, value
   stream, business service(s), application component(s), and technology
   node(s) once they're known. Keep the shape (one subgraph per layer, a
-  classDef per layer, ArchiMate relationship labels on the edges).
+  classDef per layer, ArchiMate relationship labels on the edges), and the
+  label form from § 1: glyph, description, identifier — no stereotype.
 -->
 
 ```mermaid
 flowchart TB
   subgraph MOT["Motivation & Strategy"]
-    goal["«Goal» <Why this exists>"]:::motivation
-    vs["«Value Stream» <Stage 1 → Stage 2 → …>"]:::strategy
+    goal("◎ <Why this exists> [G1]"):::motivation
+    vs[["⇉ <Stage 1 → Stage 2 → …> [VS1]"]]:::strategy
   end
 
   subgraph BUS["Business layer"]
-    svc["«Business Service» <What's offered>"]:::business
-    actor["«Business Actor» <Who uses it>"]:::business
+    svc(["⬭ <What's offered> [BSVC1]"]):::business
+    actor(["⚇ <Who uses it> (Human) [ACT1]"]):::business
   end
 
   subgraph APP["Application layer"]
-    app["«Application Component» <What realizes the service>"]:::application
+    app["⊞ <What realizes the service> [ACMP1]"]:::application
   end
 
   subgraph TEC["Technology layer"]
-    tech["«Node» <What it runs on>"]:::technology
+    tech["⬒ <What it runs on> [NODE1]"]:::technology
   end
 
   goal -->|realized by| vs

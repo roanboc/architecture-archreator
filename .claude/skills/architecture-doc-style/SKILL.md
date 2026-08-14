@@ -224,10 +224,10 @@ diagrams — a nine-block grid is unreadable in Mermaid and a table diffs
 cleanly. Each canvas gets its own `###` heading naming the segment or
 product it belongs to.
 
-Where a canvas *is* drawn — a layer view showing fit — use the canvas
-block name as the stereotype (`«Pain»`, `«Gain Creator»`, `«Customer
-Segment»`) with the Motivation fill for the customer profile and the
-Strategy fill for the value map, as in
+Where a canvas *is* drawn — a layer view showing fit — the canvas block name
+is the element type: it goes in the legend (`«Pain»`, `«Gain Creator»`,
+`«Customer Segment»`) and not on the nodes, with the Motivation fill for the
+customer profile and the Strategy fill for the value map, as in
 `architecture/0_business-design/README.md` § Layer view.
 The canvas-block-to-ArchiMate-element mapping lives in that same README and
 is not restated anywhere else.
@@ -255,15 +255,24 @@ re-tabulating them here — a second copy is a second thing to drift.
 The parts worth restating, because they are decisions rather than values:
 
 - **Node labels are one line, identifier last**:
-  `<glyph> [«Stereotype»] <description> [<ID>]`. One line because a label
+  `<glyph> <description> [<ID>]`. One line because a label
   spanning two depends on the viewer rendering `<br>`, and whether it does
   depends on that viewer's HTML-label setting — the same diagram reads
   correctly in one place and runs together in another. A single line cannot
   break. The identifier goes last, in brackets, where it is still in the same
   place on every node; the tables carry the full context.
-- **The glyph rides on every node; the «stereotype» word appears once** — on
-  the first node of each type in a diagram, dropped on the rest. One
-  character can afford to be everywhere; a line cannot.
+- **The stereotype appears only where the notation is the subject** — the
+  legend under "How to read this document", and the notation section of
+  `architecture/README.md`. A legend node reads
+  `<glyph> «Stereotype» <what the type is>`; a content node drops the word,
+  because glyph, shape and colour already carry the type and the legend is one
+  screen above. The word is the widest thing on a node and the only one of the
+  four devices that costs label width.
+- **An actor's kind is not a stereotype and stays on the node.**
+  `⚇ Requester (Human) [ACT1]`, `⚇ The drafting agent (AI) [ACT2]` — see
+  § Actors. Nothing else in the notation distinguishes a `(Hybrid)` actor, and
+  a reader who defaults to "person" has been misled rather than merely
+  under-informed.
 - **Colour separates layers across a diagram and element types within one.**
   A single-layer view ramps the layer's hue by element type; a cross-layer
   view keeps the flat palette. An element borrowed from another layer keeps
@@ -299,7 +308,9 @@ pictures.
 
 A legend diagram showing this document's element types and how they connect,
 then a table of **glyph / shape / element / ID prefix** — including any
-element borrowed from another layer for context.
+element borrowed from another layer for context. **This is the one diagram
+that names the stereotypes**, which is what lets every diagram below it drop
+them.
 
 **A layer README that only indexes other documents is exempt**: it has no
 elements to legend, and giving it one would be ceremony rather than help.
@@ -314,12 +325,13 @@ are read one at a time and out of order.
 
 `«Business Actor»` and `«Business Role»` nodes name **who** — and in a
 system where an AI can hold a role, "who" is no longer implicitly human.
-State the actor's kind on the same line as the stereotype:
-`«Business Actor (Human)»`, `«Business Actor (AI)»`, or
-`«Business Actor (Hybrid)»` (a human and an AI sharing one role, e.g. a
-co-pilot pattern). Default to `(Human)` only when the actor is provably
-never an AI system acting with delegated authority — don't omit the
-qualifier to save space.
+State the actor's kind as `(Human)`, `(AI)`, or `(Hybrid)` (a human and an AI
+sharing one role, e.g. a co-pilot pattern). It rides on the node itself —
+`⚇ Requester (Human) [ACT1]` — which is the one exception to § ArchiMate on
+Mermaid's rule that a content node carries no type word; the legend writes it
+against the stereotype, `⚇ «Business Actor (Human)»`. Default to `(Human)`
+only when the actor is provably never an AI system acting with delegated
+authority — don't omit the qualifier to save space.
 
 When populating `2_business/1_business-actors-and-roles.md`, explicitly
 ask, for every role: **does an AI system perform or assist this role, and

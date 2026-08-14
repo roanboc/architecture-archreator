@@ -84,6 +84,7 @@ caught it.
 | `ACMP14` | Plugin package | `BSVC7` | [`.claude/.claude-plugin/plugin.json`](../../../.claude/.claude-plugin/plugin.json), [`.claude-plugin/marketplace.json`](../../../.claude-plugin/marketplace.json) |
 | `ACMP15` | Element-ID validator | `RULE5` | [`.claude/skills/project-bootstrap/templates/scripts/check_model.py`](../../../.claude/skills/project-bootstrap/templates/scripts/check_model.py) |
 | `ACMP16` | Engagement retrospective | `BSVC6` (from the other end — it keeps the *method* current) | [`.claude/skills/engagement-retrospective/SKILL.md`](../../../.claude/skills/engagement-retrospective/SKILL.md) |
+| `ACMP17` | Process and capability levels | `BSVC2`, `BSVC3` | [`.claude/skills/process-and-capability-levels/SKILL.md`](../../../.claude/skills/process-and-capability-levels/SKILL.md) |
 
 ## What is enforced, and what still isn't
 
@@ -101,7 +102,19 @@ wrong failure in CI teaches people to ignore CI. The grounding rule is
 therefore still carried by review, not by tooling — which is worth knowing
 when reading any row in this repository that claims a realization.
 
-**`ACMP16` is the newest and the least like the others.** Every other
+**`ACMP17` is the first component that exists to make the method do less.**
+Every other one adds a step, a document or a check; this one says which
+branches of a model not to write, and its whole value is in the elements it
+prevents. It also came from the mechanism `ACMP16` exists to run — a client
+engagement, generalized into
+[a note](../../../org-archreator/architecture/engagements/3_breadth-first-depth-on-pain.md)
+and then into
+[initiative 14](../scope/14_a-model-a-human-can-read.md) — the organization's
+[staged course of action](../../../org-archreator/architecture/decisions/1_take-coa1-staged.md)
+for turning what an engagement teaches into method, working end to end for the
+first time. Named in prose rather than by identifier, per open question 11.
+
+**`ACMP16` is the least like the others.** Every other
 component here acts *during* a change; this one acts after one, and its
 output is a proposal rather than an edit. It exists because
 [the organization behind archreator](../../../org-archreator/architecture/decisions/1_take-coa1-staged.md)

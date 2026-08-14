@@ -160,6 +160,13 @@ the only theme with no canvas source is **Principles**, which is still
 discovered directly with the Requester. That handoff ends at **Gate 1 —
 Strategy**, as usual.
 
+The capabilities and processes derived there are **leveled**, and how far down
+they go is decided rather than assumed — `process-and-capability-levels` holds
+that, including the rule that pays for this whole track's breadth: levels 1
+and 2 complete, level 3 only where one of the Pains on the canvas you just had
+approved justifies it. The Pains are what make that rule usable, which is why
+it lands on this track and not on the application one.
+
 ## Deliverables
 
 A docs-only initiative:

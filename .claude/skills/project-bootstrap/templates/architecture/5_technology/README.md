@@ -30,9 +30,9 @@ Vercel, etc.) before writing `1_technology-services.md`.
 
 ```mermaid
 flowchart TB
-  runtime["«Node» <Where it runs>"]:::technology
-  hosting["«Technology Service» <Hosting/platform>"]:::technology
-  ci["«Technology Service» <CI/CD>"]:::technology
+  runtime["⬒ <Where it runs> [NODE1]"]:::technology
+  hosting(["⬯ <Hosting/platform> [TSVC1]"]):::technology
+  ci(["⬯ <CI/CD> [TSVC2]"]):::technology
 
   ci -->|builds and publishes to| hosting
   runtime -->|requests| hosting
