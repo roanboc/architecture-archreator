@@ -92,6 +92,13 @@ _[← Scope index](./README.md) · [EA home](../ea/README.md)_
   what they are approving), and the row is what says which ones they were.
 - **Deliverables are concrete artifacts** (file paths, page/screen names),
   never vague ("improved UX").
+- **The consolidation record lives here, not in the layer documents.** How
+  many elements each catalogue ended up with, what was merged into what, and
+  why — that is a modeling decision the Requester approves, so it belongs in
+  this document and in the gate presentation drawn from it. An architecture
+  document that also states it is a second copy of the fact, and describes its
+  own construction rather than its subject
+  (`architecture-doc-style` § What the document contains).
 - **Out of scope is as important as in scope**: it is where the next
   initiative's backlog lives. Pair each meaningful exclusion with a gap
   note.

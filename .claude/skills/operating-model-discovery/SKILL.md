@@ -142,6 +142,11 @@ pains became five is being shown a modeling decision they can overturn — and
 that decision is usually more consequential than any single element in the
 list.
 
+**In the summary and the scope document — not in the canvas.** The canvas
+describes the business; how many elements it took to describe it is a fact
+about the modeling, and belongs where the decision is recorded
+(`architecture-doc-style` § What the document contains).
+
 Record the approval in the scope document's Approvals table (who, when,
 what was shown). If changes are requested, revise and present again.
 

@@ -121,6 +121,33 @@ never changes when it is renamed. Referencing an element in prose or a
 table cell means writing its ID — `relieves GAIN2` — not repeating its
 description.
 
+### Never-reused starts at the gate
+
+**An identifier is draft until the gate that approves its element, and
+permanent afterwards.**
+
+| The element was | Removing it means |
+| --------------- | ----------------- |
+| **Never approved** — added while drafting, before the gate covering its layer | Renumber so the sequence stays continuous. No Retired row, no note explaining the gap. It never existed as far as the model is concerned |
+| **Approved at a gate** | The identifier is retired permanently and never reused, and the retirement is recorded (see `restate-current-state` § The Retired section) |
+
+Which gate covers which element is `architecture-first-change` § The gates:
+canvases freeze at Gate 0, the strategy layer at Gate 1, business and
+information at Gate 2. An element added to an already-approved layer by a
+later initiative is draft until *that* initiative's gate.
+
+The reason is what a gap in a sequence should mean. If identifiers freeze the
+moment they are typed, a reader finding `CS1`, `CS3`, `CS4` has to wonder what
+happened to a customer segment that in fact existed for one afternoon of
+drafting and was never shown to anyone. If they freeze at the gate, a gap means
+something real was retired — which is exactly what `P5` is protecting, and
+nothing is protected by preserving the history of a draft nobody approved.
+
+**A gate presentation on a renumbered draft says so in one line.** The
+validators only check that references resolve, so renumbering passes silently;
+a Requester who reviewed the previous draft will otherwise see identifiers
+shift under them without explanation.
+
 **`scripts/check_model.py` enforces this**, and CI runs it: every reference
 resolves, no ID is defined twice, and no retired ID reappears as live. It
 checks `architecture/` only. Scope documents, decision records, and reviews are
@@ -348,6 +375,57 @@ columns beyond the usual name/description:
 If an initiative changes an AI actor's autonomy level or decision rights,
 that's exactly the kind of call the `decision-record` skill is for.
 
+## What the document contains: the subject, not its own construction
+
+**Every sentence in an architecture document is either about the subject or
+about the act of modeling it. The first belongs here; the second belongs in
+the scope document.**
+
+| Stays — it is about the subject | Goes — it is about making the document |
+| ------------------------------- | -------------------------------------- |
+| "This diagram is the risk, drawn" | "The source material lists seven industries and eight customer types" |
+| "`BPROC1` uses no capability — Reach is the only stage the organization does nothing skilful in" | "Writing them as separate elements would have produced an unreadable catalogue" |
+| "`VAL1` is the only value every stakeholder receives" | "Twelve pains were consolidated into five" |
+| "The areas have no realizing artifact, and that is correct rather than a gap" | "Identifiers were renumbered once, here, before the gate" |
+
+Interpretation of the subject is not only allowed, it is most of what makes a
+model worth reading — the left column is the payoff of § Diagrams come first.
+What goes is the document narrating its own drafting.
+
+**The removed material is not lost; it moves to where it was already
+required.** A consolidation — what was merged into what, and how many elements
+each catalogue ended up with — is a modeling decision the Requester approves at
+a gate, so it belongs in the scope document and the gate presentation
+(`operating-model-discovery` § Gate 0 already asks for it there). Writing it in
+the layer document as well is a second copy of a fact, which is `P3` broken.
+
+### Two carve-outs
+
+- **Anything awaiting validation stays inline.** A "Pending — future
+  initiative" marker, an adopted interpretation, a figure nobody has confirmed
+  — these sit in the body, where the reviewer who can correct them will see
+  them. Moving them to the end is how they stop being corrected.
+- **Provenance attaches to elements; history attaches to documents.** A table
+  cell naming the initiative that delivered an element is a trace worth
+  keeping. A sentence saying the *document* is new as of that initiative is the
+  document talking about itself. The first is a reference, the second is a
+  narrative.
+
+### No version commentary
+
+No "as of initiative N", no note about what an unapproved proposal would
+change, no record of a draft's revisions, no "Retired — None". The document
+states what is true now; git holds how it got there and the scope documents
+hold why. A model carrying its own changelog gives a reader two accounts to
+reconcile and no way to tell which is current.
+
+### Notes that survive go to the end
+
+A note worth keeping that belongs to no single section goes in a final
+**Additional notes** section, after the last element group — not woven between
+a diagram and the table it explains, where it displaces what the reader came
+for.
+
 ## Document skeleton
 
 - Title (`# …`), then a nav line:
@@ -358,9 +436,13 @@ that's exactly the kind of call the `decision-record` skill is for.
   glyph / shape / element / ID-prefix table.
 - Then one section per element group, each **opening with its diagram**,
   followed by the inventory table, followed by prose.
+- A **Retired** section, only if something approved has been retired
+  (`restate-current-state`).
+- **Additional notes**, last, and only if there is one — see § What the
+  document contains.
 - Prefer tables for element inventories, Mermaid for relationships, and
   prose only for rationale (the "why", not the "what" — the diagrams and
-  tables already say what).
+  tables already say what), and only where the "why" is about the subject.
 
 ## Links
 

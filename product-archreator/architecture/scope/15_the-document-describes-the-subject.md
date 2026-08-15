@@ -116,8 +116,8 @@ skill text and the rest of this initiative is unaffected.
 | ---- | ----------- | ---- | ----------------- |
 | Gate 0 — Business model | — | — | **N/A** — Depth 1; no canvases in this tree |
 | Gate 1 — Strategy | — | — | **N/A** — no Stakeholder, Driver, Goal or Principle added or modified |
-| Gate 2 — Business | _awaiting_ | — | This document, the two rules, and the skill changes it describes |
-| Gate 3 — Solution design | _to be asked at Gate 2_ | — | No component is added and no code is written, so it is likely `N/A` again |
+| Gate 2 — Business | Requester | 2026-08-15 | This document, presented with a branch link, including `RULE13` flagged as a judgement call after a thirteenth rule was declined once before |
+| Gate 3 — Solution design | — | — | **N/A** — not requested; no component is added and no code is written |
 
 ## Plateaus
 

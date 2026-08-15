@@ -39,9 +39,16 @@ leave every word alone, link text included. A dangling link makes the record
 less usable without making it more truthful — fixing the path preserves the
 history, and changing a claim would rewrite it. See `scope-doc` § Rules.
 
-**IDs are never reused, ever.** A retired element's ID stays retired. If you
-find yourself wanting to reassign `BSVC3` because the old one is gone, stop:
-a stale reference must fail loudly, not silently resolve to something else.
+**An approved element's ID is never reused.** A retired element's ID stays
+retired. If you find yourself wanting to reassign `BSVC3` because the old one
+is gone, stop: a stale reference must fail loudly, not silently resolve to
+something else.
+
+The rule starts at the gate, not at first writing — an element removed before
+it was ever approved is renumbered out of the sequence and leaves nothing
+behind (`architecture-doc-style` § Never-reused starts at the gate). By the
+time this skill runs, everything in the model has been through a gate, so in
+practice restatement only ever meets permanent identifiers.
 
 ## When to run it
 
@@ -77,6 +84,13 @@ Work through the model and collect, without changing anything yet:
    replaced.
 6. **Layer state tables that lie.** A layer README saying "not started" for
    a layer that now has three documents, or vice versa.
+7. **The document narrating its own construction.** Sentences about what the
+   source material held, what was consolidated into what, why identifiers
+   moved, which initiative the document is new as of, or an empty Retired
+   section. `architecture-doc-style` § What the document contains has the test
+   and the worked examples; a restatement is the natural pass to apply it,
+   because this is a document reading as its own history rather than as a
+   description of today.
 
 Present the list to the Requester before touching anything. Restating is
 mechanical only where the answer is obvious; "is this element still live?"
@@ -95,8 +109,15 @@ corrective in the current-state documents, and leaves history alone.**
 | Resolved open question | Move the row from Pending to Resolved in `open-questions.md`, with the answer and where it was given. The originating scope document's Open Questions section is *not* edited — it recorded what was open at the time |
 | Decision no longer binding | Set the decision record's Status to `Superseded by <n>_<slug>.md`, or `Retired — <one line why>`. Leave every other section untouched |
 | Layer state table wrong | Correct it to what the folder actually contains |
+| Document narrating its own construction | Delete it, or move it to the scope document that should have carried it. Keep anything awaiting validation where it is, and move a surviving subject note to an **Additional notes** section at the end |
 
 ### The Retired section
+
+**It holds gate-approved elements only, and a document that has retired
+nothing does not have one.** Not an empty table, not a "None" line — an
+absent section says "nothing retired here" more clearly than a sentence
+saying so, and a sentence saying so is the version commentary
+`architecture-doc-style` § No version commentary forbids.
 
 Each layer document that retires anything gains a short section at the end:
 
@@ -146,6 +167,8 @@ anything else (`scope-doc` skill), with:
   model rather than one layer.
 - No ID appears in both a live table and a Retired table.
 - No ID has been reused.
+- No document narrates its own construction, and none carries an empty
+  Retired section.
 - Every merged scope document is byte-identical to before, except where it
   was only linked to. Check this deliberately: `git diff` should show no
   changes to `architecture/scope/<n>_*.md` for any already-merged `<n>`.
