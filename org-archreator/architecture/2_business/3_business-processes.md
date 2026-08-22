@@ -87,14 +87,14 @@ whether the method held while it was built.
 
 Which branches are detailed, and why the rest are not.
 
-| ID | Detailed to | Justified by | Note |
-| -- | ----------- | ------------ | ---- |
-| `BPROC1` | Level 1 | — | No pain raised. It is also the process no capability serves — see the value stream |
-| `BPROC2` | Level 1 | — | The conversation's shape is the discovery skills' subject, not a sequence this organization owns |
-| `BPROC3` | Level 1 | — | One step and one table |
-| `BPROC4` | Level 1 | — | The sequence is the layer numbering, which is already written down once |
-| `BPROC5` | Level 1 | — | Varies entirely by the project's stack. Detailing it would model the client's work rather than this organization's |
-| `BPROC6` | Level 1 | — | Six questions with no sequence between them |
+| Process | Detailed to | Justified by | Note |
+| ------- | ----------- | ------------ | ---- |
+| `BPROC1` Reach | Level 1 | — | No pain raised. It is also the process no capability serves — see the value stream |
+| `BPROC2` Frame | Level 1 | — | The conversation's shape is the discovery skills' subject, not a sequence this organization owns |
+| `BPROC3` Approve | Level 1 | — | One step and one table |
+| `BPROC4` Model | Level 1 | — | The sequence is the layer numbering, which is already written down once |
+| `BPROC5` Build | Level 1 | — | Varies entirely by the project's stack. Detailing it would model the client's work rather than this organization's |
+| `BPROC6` Feed back | Level 1 | — | Six questions with no sequence between them |
 
 **Nothing is at level 2, and no branch has raised a pain yet.** That is the
 breadth-first, depth-on-pain rule producing its expected result on a small
