@@ -20,17 +20,22 @@ Files are numbered in the order they are analyzed: first _who wants what
 and why_, then _what we must be able to do_, and only then _how value
 flows_.
 
-| #   | Document                                                             | Elements                                                         | Question it answers                                | Source (company track)                             |
-| --- | ---------------------------------------------------------------------| ------------------------------------------------------------------ | ---------------------------------------------------- | ---------------------------------------------------- |
-| 1   | `1_motivation.md`                                 | Stakeholders, Drivers, Assessments, Goals, Outcomes, Principles | Who cares, what pressures them, what must be true?  | Customer Segments, Jobs, Pains, Gains               |
-| 2   | `2_capabilities-and-resources.md` — capabilities split into a folder of one document per level once leveled | Capabilities, Resources, Courses of Action                      | What must we be able to do, and with what?          | Pain Relievers, Gain Creators, Key Resources, Key Activities |
-| 3   | `3_value-stream.md`                             | Value Stream and its stage mapping                               | How does value flow end-to-end?                     | Key Activities, Channels                             |
+| #   | Document | Elements | Question it answers |
+| --- | -------- | -------- | ------------------- |
+| 1   | [1_motivation.md](./1_motivation.md) | Stakeholders, Drivers, Assessments, Goals, Outcomes, Principles | Who cares, what pressures them, what must be true? |
+| 2   | [2_capabilities-and-resources.md](./2_capabilities-and-resources.md) | Capabilities, Resources | What must the method be able to do, and with what? |
+| 3   | [3_value-stream.md](./3_value-stream.md) | Value Stream and its stage mapping | How does value reach an adopter, end to end? |
 
-The `Source` column names the canvas blocks each document is derived from;
-the block-by-block element mapping lives in
-[0_business-design/](../0_business-design/README.md#from-canvas-to-archimate)
-and is not restated here. Principles are the exception — they have no canvas
-block, and are discovered directly with the Requester in either track.
+**There is no `Source` column, because there are no canvases to source from.**
+On the company track every element here traces back to a block of a value
+proposition or business model canvas. This tree is on the application track:
+`0_business-design/` is empty, discovery starts at motivation, and the
+elements are derived from what the method itself says it does.
+
+Courses of action are absent for the same reason — they are an organization's
+instrument, and this subject is a deliverable. The reasoning is in
+[2_capabilities-and-resources.md](./2_capabilities-and-resources.md) §
+Courses of action.
 
 **Capabilities are not leveled in this tree.** Leveling — areas, then
 capabilities, then sub-capabilities only where a named pain justifies going
@@ -41,27 +46,27 @@ holds the rule, the safeguard that keeps a reference model a proposal rather
 than an answer, and the distinction that keeps this document honest:
 capabilities are nouns, processes are verbs.
 
-`1_motivation.md` is where **Principles** live — the constraints that a
+[1_motivation.md](./1_motivation.md) is where **Principles** live — the constraints that a
 proposed change is checked against in step 1 of `align-change-through-layers` before
 anything else. Keep them few, load-bearing, and testable (e.g. "role
 determines access", not "be secure").
 
 ## Layer view
 
-<!--
-  TEMPLATE — replace with the project's real stakeholder(s), driver(s),
-  goal, value stream, capability, and resource once known.
--->
+One chain through the layer: the stakeholder the method is written for, the
+driver that presses on them, the goal that answers it, and the stream,
+capability and resource that deliver it. The full sets are in the three
+documents above.
 
 ```mermaid
 flowchart TB
-  stakeholder(["◍ <Who cares> [STK1]"]):::motivation
-  driver{{"✳ <What pressures them> [DRV1]"}}:::motivation
-  goal("◎ <What must become true> [G1]"):::motivation
+  stakeholder(["◍ Agent in an adopting project [STK2]"]):::motivation
+  driver{{"✳ The context an agent needs is not written down [DRV2]"}}:::motivation
+  goal("◎ An agent reads the business context natively [G1]"):::motivation
 
-  vs[["⇉ <Stage 1 → Stage 2 → …> [VS1]"]]:::strategy
-  cap["✦ <What we must be able to do> [CAP1]"]:::strategy
-  res[("▤ <What it's built with> [RES1]")]:::strategy
+  vs[["⇉ Adopt → Model → Decide → Build → Keep true [VS1]"]]:::strategy
+  cap["✦ Align a change through the layers [CAP2]"]:::strategy
+  res[("▤ The skill corpus [RES1]")]:::strategy
 
   stakeholder -->|concerned with| driver
   driver -->|influences| goal
@@ -72,3 +77,8 @@ flowchart TB
   classDef motivation fill:#e6d6f5,stroke:#7e57c2,color:#333
   classDef strategy fill:#f5deaa,stroke:#c8a24a,color:#333
 ```
+
+This is a **cross-layer** view, so it uses the flat layer palette — violet for
+motivation, sand for strategy — rather than the tone ramps the single-layer
+documents use. Colour here separates the layers, not the element types within
+them.
