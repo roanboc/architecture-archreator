@@ -14,11 +14,11 @@ handled_, and finally the domain vocabulary and rules.
 
 | #   | Document                                                          | Elements                                           | Question it answers                              |
 | --- | -------------------------------------------------------------------| ---------------------------------------------------- | --------------------------------------------------- |
-| 1   | `1_business-actors-and-roles.md` | Business Actors and Roles, organizational units, external partners (Contracts, Collaborations) | Who interacts with the system, and who do we depend on? |
-| 2   | `2_business-services.md`                | Products, Business Services, Business Interfaces (channels) | What is offered to them, and through which channels? |
+| 1   | [1_business-actors-and-roles.md](./1_business-actors-and-roles.md) | Business Actors and Roles, organizational units, external partners (Contracts, Collaborations) | Who interacts with the system, and who do we depend on? |
+| 2   | [2_business-services.md](./2_business-services.md)                | Products, Business Services, Business Interfaces (channels) | What is offered to them, and through which channels? |
 | 3   | — | Business Processes | **Not held here** — see § The process catalogue |
-| 4   | `4_business-objects.md`                  | Business Objects                                   | What things do the processes handle?              |
-| 5   | `5_domain-context-and-rules.md`  | Problem statement, system context, glossary, rules | What vocabulary and constraints bind everything?  |
+| 4   | [4_business-objects.md](./4_business-objects.md)                  | Business Objects                                   | What things do the processes handle?              |
+| 5   | [5_domain-context-and-rules.md](./5_domain-context-and-rules.md)  | Problem statement, system context, glossary, rules | What vocabulary and constraints bind everything?  |
 
 ## The process catalogue
 
@@ -43,56 +43,35 @@ repository over, and no validator here would notice if that catalogue were
 renumbered underneath this model. That mismatch is caught by review or not at
 all.
 
-`5_domain-context-and-rules.md` carries the project's **glossary** (reuse
-its terms in code and commits) and its **business rules table** — every new
-rule gets a row there, with its rationale, before it gets a line of code.
-It is also the natural home for a role × operation access matrix if the
-project has segregated roles.
+[1_business-actors-and-roles.md](./1_business-actors-and-roles.md) states each
+actor's **kind** — human, AI or hybrid — and, for the AI one, its autonomy
+level, decision rights and escalation path. That is the method's distinguishing
+claim made concrete: an agent is a member of the organization with stated
+authority, not a tool somebody uses.
 
-`2_business-services.md` is where a **«Product»** aggregates the services
-that make it up. A single-application project usually has one implicit
-product and can leave it out; an organization sells several, and the
-portfolio is what makes the rest of the model make sense — two products may
-share every capability and still need entirely different channels and
-processes. On the company track the products, channels, and customer
-relationships are derived from the business model canvases (see
-[0_business-design/](../0_business-design/README.md#from-canvas-to-archimate)),
-and Key Partners land in `1_business-actors-and-roles.md` as external
-actors, each with the «Contract» or «Business Collaboration» that binds
-them.
-
-`1_business-actors-and-roles.md` states each actor's **kind** — human, AI,
-or hybrid — and, for AI/hybrid actors, its autonomy level, decision
-rights, and escalation path (see the `architecture-document-style` skill's actor
-notation). This is where an AI system's role **in the business being
-modeled** gets stated explicitly — not just its role in how this repo is
-developed (see `CONTRIBUTING.md`). If an initiative changes one of those
-values, consider a `record-decision` alongside the scope document.
+[5_domain-context-and-rules.md](./5_domain-context-and-rules.md) carries the
+**glossary** — reuse its terms in documents and commits — and the **business
+rules**, each with what enforces it. A rule nothing enforces is a preference,
+so the table says which are mechanical and which are carried by review.
 
 ## Layer view
 
-<!--
-  TEMPLATE — replace with the project's real actors, roles, services, and
-  business objects once known. Keep at least one actor's kind explicit
-  (Human/AI/Hybrid) even if every actor in this project turns out to be
-  human — an explicit "(Human)" beats a silent default. The kind is the one
-  type word a content node keeps; the stereotype belongs in the legend.
--->
+One chain through the layer: the AI actor, the role it fills, the service that
+role delivers, and the object that service changes. The full sets are in the
+documents above.
 
 ```mermaid
 flowchart TB
-  actorH(["⚇ <Who> (Human) [ACT1]"]):::business
-  actorAI(["⚇ <Who, and at what autonomy> (AI) [ACT2]"]):::application
-  role["⚉ <Role they play> [ROLE1]"]:::business
-  svc(["⬭ <What's offered> [BSVC1]"]):::business
-  proc{{"⚙ <How it's delivered> [BPROC1]"}}:::business
-  obj["▧ <What's handled> [BOBJ1]"]:::business
+  actorH(["⚇ A person in the adopting organization (Human) [ACT1]"]):::business
+  actorAI(["⚇ An AI coding agent, co-pilot (AI) [ACT2]"]):::application
+  role["⚉ Agent [ROLE2]"]:::business
+  svc(["⬭ Gated change alignment [BSVC1]"]):::business
+  obj["▧ The architecture model [BOBJ1]"]:::business
 
-  actorH -->|assigned to| role
   actorAI -->|assigned to| role
-  role -->|served by| svc
-  proc -->|realizes| svc
-  proc -->|accesses| obj
+  actorH -.->|may also fill| role
+  role -->|delivers| svc
+  svc -->|accesses| obj
 
   classDef business fill:#fffbb5,stroke:#b8a200,color:#333
   classDef application fill:#c2f0ff,stroke:#0288d1,color:#333
@@ -103,5 +82,10 @@ business diagram — one of the two colour overrides in
 [README.md § Notation conventions](../README.md#notation-conventions), so a
 reader never mistakes it for a person.
 
-Every business service is realized by application services — the mapping is
-in `4_application/1_application-services.md`.
+**The process box is missing from this view on purpose.** A business service
+is normally realized by a process, and this method's processes live one
+repository over — see § The process catalogue. Drawing a placeholder would
+imply this tree holds something it does not.
+
+Every business service is realized by application services — the mapping is in
+[4_application/](../4_application/README.md).
