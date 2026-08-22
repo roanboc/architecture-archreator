@@ -233,36 +233,28 @@ relation types, the label is authoritative.
 
 ## Layered overview
 
-<!--
-  TEMPLATE — replace with the project's real stakeholders, goal, value
-  stream, business service(s), application component(s), and technology
-  node(s) once they're known. Keep the shape (one subgraph per layer, a
-  classDef per layer, ArchiMate relationship labels on the edges), and the
-  label form from § 1: glyph, description, identifier — no stereotype.
--->
-
 ```mermaid
 flowchart TB
   subgraph MOT["Motivation & Strategy"]
-    goal("◎ <Why this exists> [G1]"):::motivation
-    vs[["⇉ <Stage 1 → Stage 2 → …> [VS1]"]]:::strategy
+    goal("◎ A prospective adopter can decide in one page [G1]"):::motivation
+    cap["✦ State the method in one read [CAP1]"]:::strategy
   end
 
   subgraph BUS["Business layer"]
-    svc(["⬭ <What's offered> [BSVC1]"]):::business
-    actor(["⚇ <Who uses it> (Human) [ACT1]"]):::business
+    actor(["⚇ A visitor (Human) [ACT1]"]):::business
+    svc(["⬭ Explain the problem and the answer [BSVC1]"]):::business
   end
 
   subgraph APP["Application layer"]
-    app["⊞ <What realizes the service> [ACMP1]"]:::application
+    app["⊞ The page [ACMP1]"]:::application
   end
 
   subgraph TEC["Technology layer"]
-    tech["⬒ <What it runs on> [NODE1]"]:::technology
+    tech["⬒ GitHub Pages [NODE1]"]:::technology
   end
 
-  goal -->|realized by| vs
-  vs -->|realized by| svc
+  goal -->|realized by| cap
+  cap -->|realized by| svc
   actor -->|served by| svc
   svc -->|realized by| app
   app -->|runs on| tech
@@ -273,6 +265,9 @@ flowchart TB
   classDef application fill:#c2f0ff,stroke:#0288d1,color:#333
   classDef technology fill:#c9e7b7,stroke:#558b2f,color:#333
 ```
+
+**No value stream box.** One stage — somebody reads a page — is not a flow,
+so the strategy band carries the capability instead.
 
 ## Reading order
 

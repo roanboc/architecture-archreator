@@ -33,11 +33,11 @@ product, and the products are named by the value proposition.
 
 | #   | Document                                                             | Elements                                                                          | Question it answers                                     |
 | --- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| 1   | `1_value-proposition-canvas.md`     | Customer Segments, Jobs, Pains, Gains, Products & Services, Pain Relievers, Gain Creators | Who do we serve, what do they need, and what do we offer? |
-| 2   | `2_business-model-canvas.md`           | The nine BMC blocks, one canvas per product or service                            | How is each offering delivered, and how does it pay?     |
+| 1   | [1_value-proposition-canvas.md](./1_value-proposition-canvas.md)     | Customer Segments, Jobs, Pains, Gains, Products & Services, Pain Relievers, Gain Creators | Who do we serve, what do they need, and what do we offer? |
+| 2   | [2_business-model-canvas.md](./2_business-model-canvas.md)           | The nine BMC blocks, one canvas per product or service                            | How is each offering delivered, and how does it pay?     |
 
-`1_value-proposition-canvas.md` carries one canvas **per customer segment**;
-`2_business-model-canvas.md` carries one canvas **per product or service**.
+[1_value-proposition-canvas.md](./1_value-proposition-canvas.md) carries one canvas **per customer segment**;
+[2_business-model-canvas.md](./2_business-model-canvas.md) carries one canvas **per product or service**.
 A company with two product lines serving two different segments therefore
 has two of each — and the interesting architecture is usually in what they
 _share_ (capabilities, resources, partners) versus what they don't (channels,
@@ -93,45 +93,32 @@ documents and skills link here rather than restating it.
 
 Revenue and cost have no first-class ArchiMate element, and inventing a
 stereotype for them would put the model out of step with the standard. They
-stay as tables in `2_business-model-canvas.md`, keyed by element ID to the
+stay as tables in [2_business-model-canvas.md](./2_business-model-canvas.md), keyed by element ID to the
 Product, Resource, or Capability they attach to — which keeps them
 traceable without pretending they are architecture.
 
 ## Layer view
 
-<!--
-  TEMPLATE — replace with the project's real segment, job, pain, gain,
-  product, and the capability that relieves the pain, once known. Keep the
-  shape: the customer profile on the left, the value map on the right, and
-  the "addresses"/"produces" edges between them — those edges are the fit.
--->
-
 ```mermaid
 flowchart LR
-  subgraph PROFILE["Customer profile"]
-    seg(["◍ <Who we serve> [CS1]"]):::motivation
-    job{{"⚙ <What they're trying to do> [JOB1]"}}:::motivation
-    pain>"✖ <What hurts today> [PAIN1]"]:::motivation
-    gain[["✔ <What they'd call a win> [GAIN1]"]]:::motivation
-  end
+  cs2(["◍ Established business owners [CS2]"]):::segment
+  pain4>"✖ Architectural quality is out of reach [PAIN4]"]:::pain
+  prel4[/"⊖ The cost of an architect collapses [PREL4]"\]:::reliever
+  prod3["▣ The archreator portal [PROD3]"]:::pending
 
-  subgraph VALUEMAP["Value map"]
-    prod["▣ <What we offer> [PROD1]"]:::strategy
-    prel[/"⊖ <How it removes the pain> [PREL1]"\]:::strategy
-    gcre[/"⊕ <How it produces the gain> [GCRE1]"\]:::strategy
-  end
+  cs2 -->|suffers| pain4
+  prel4 -->|relieves| pain4
+  prod3 -.->|would offer| prel4
 
-  seg -->|performs| job
-  job -->|frustrated by| pain
-  job -->|rewarded by| gain
-  prod -->|aggregates| prel
-  prod -->|aggregates| gcre
-  prel -->|addresses| pain
-  gcre -->|produces| gain
-
-  classDef motivation fill:#e6d6f5,stroke:#7e57c2,color:#333
-  classDef strategy fill:#f5deaa,stroke:#c8a24a,color:#333
+  classDef segment fill:#fffbb5,stroke:#c8c04a,color:#333
+  classDef pain fill:#ffd6d6,stroke:#c62828,color:#333
+  classDef reliever fill:#ffe9e9,stroke:#d99b9b,color:#333
+  classDef pending fill:#efe57d,stroke:#b8ad3f,color:#333,stroke-dasharray: 4 3
 ```
+
+One chain of the canvas, and the dashed edge is the organization's central
+gap: the reliever exists, and the product that would carry it to this segment
+does not.
 
 The canvas blocks are drawn with the Motivation and Strategy fills because
 that is where they land once derived — the customer profile becomes

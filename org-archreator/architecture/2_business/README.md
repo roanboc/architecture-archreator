@@ -14,32 +14,28 @@ handled_, and finally the domain vocabulary and rules.
 
 | #   | Document                                                          | Elements                                           | Question it answers                              |
 | --- | -------------------------------------------------------------------| ---------------------------------------------------- | --------------------------------------------------- |
-| 1   | `1_business-actors-and-roles.md` | Business Actors and Roles, organizational units, external partners (Contracts, Collaborations) | Who interacts with the system, and who do we depend on? |
-| 2   | `2_business-services.md`                | Products, Business Services, Business Interfaces (channels) | What is offered to them, and through which channels? |
-| 3   | `3_business-processes.md` — or a folder of the same name, one document per level, once leveled | Business Processes | How are those services delivered, and at what level of detail? |
-| 4   | `4_business-objects.md`                  | Business Objects                                   | What things do the processes handle?              |
-| 5   | `5_domain-context-and-rules.md`  | Problem statement, system context, glossary, rules | What vocabulary and constraints bind everything?  |
+| 1   | [1_business-actors-and-roles.md](./1_business-actors-and-roles.md) | Business Actors and Roles, organizational units, external partners (Contracts, Collaborations) | Who interacts with the system, and who do we depend on? |
+| 2   | [2_business-services.md](./2_business-services.md)                | Products, Business Services, Business Interfaces (channels) | What is offered to them, and through which channels? |
+| 3   | [3_business-processes.md](./3_business-processes.md) — or a folder of the same name, one document per level, once leveled | Business Processes | How are those services delivered, and at what level of detail? |
+| 4   | [4_business-objects.md](./4_business-objects.md)                  | Business Objects                                   | What things do the processes handle?              |
+| 5   | [5_domain-context-and-rules.md](./5_domain-context-and-rules.md)  | Problem statement, system context, glossary, rules | What vocabulary and constraints bind everything?  |
 
-`3_business-processes.md` is one document while the catalogue is small. **On
-an organization it becomes leveled**: level 1 is the macro process map,
-classified into strategic, operational, support and evaluation; level 2 is the
-end-to-end processes inside each; and level 3 exists only for the branches a
-named pain justifies detailing. Past roughly fifteen elements in a level the
-file becomes a folder of the same name with one document per level.
-**Identifiers carry the level** — `BPROC7`, then `BPROC7.2`, then
-`BPROC7.2.1` — so no table needs a parent column. The
-`process-and-capability-levels` skill holds the categories, the level
-definitions, the description each level carries, and the focus table that
-records which branches were deliberately left at level 2 — that table is what
+[3_business-processes.md](./3_business-processes.md) holds the **macro process
+map**: six processes at level 1, classified into the four bands — strategic,
+operational, support and evaluation. **Nothing is decomposed to level 2**, and
+the focus table there records that decision per branch, which is what
 separates a scoped model from an unfinished one.
 
-`5_domain-context-and-rules.md` carries the project's **glossary** (reuse
+Two of the four bands are empty, and the document treats that as a finding
+about the organization rather than a hole in the model.
+
+[5_domain-context-and-rules.md](./5_domain-context-and-rules.md) carries the project's **glossary** (reuse
 its terms in code and commits) and its **business rules table** — every new
 rule gets a row there, with its rationale, before it gets a line of code.
 It is also the natural home for a role × operation access matrix if the
 project has segregated roles.
 
-`2_business-services.md` is where a **«Product»** aggregates the services
+[2_business-services.md](./2_business-services.md) is where a **«Product»** aggregates the services
 that make it up. A single-application project usually has one implicit
 product and can leave it out; an organization sells several, and the
 portfolio is what makes the rest of the model make sense — two products may
@@ -47,11 +43,11 @@ share every capability and still need entirely different channels and
 processes. On the company track the products, channels, and customer
 relationships are derived from the business model canvases (see
 [0_business-design/](../0_business-design/README.md#from-canvas-to-archimate)),
-and Key Partners land in `1_business-actors-and-roles.md` as external
+and Key Partners land in [1_business-actors-and-roles.md](./1_business-actors-and-roles.md) as external
 actors, each with the «Contract» or «Business Collaboration» that binds
 them.
 
-`1_business-actors-and-roles.md` states each actor's **kind** — human, AI,
+[1_business-actors-and-roles.md](./1_business-actors-and-roles.md) states each actor's **kind** — human, AI,
 or hybrid — and, for AI/hybrid actors, its autonomy level, decision
 rights, and escalation path (see the `architecture-document-style` skill's actor
 notation). This is where an AI system's role **in the business being
@@ -61,32 +57,30 @@ values, consider a `record-decision` alongside the scope document.
 
 ## Layer view
 
-<!--
-  TEMPLATE — replace with the project's real actors, roles, services, and
-  business objects once known. Keep at least one actor's kind explicit
-  (Human/AI/Hybrid) even if every actor in this project turns out to be
-  human — an explicit "(Human)" beats a silent default. The kind is the one
-  type word a content node keeps; the stereotype belongs in the legend.
--->
-
 ```mermaid
 flowchart TB
-  actorH(["⚇ <Who> (Human) [ACT1]"]):::business
-  actorAI(["⚇ <Who, and at what autonomy> (AI) [ACT2]"]):::application
-  role["⚉ <Role they play> [ROLE1]"]:::business
-  svc(["⬭ <What's offered> [BSVC1]"]):::business
-  proc{{"⚙ <How it's delivered> [BPROC1]"}}:::business
-  obj["▧ <What's handled> [BOBJ1]"]:::business
+  act1(["⚇ The Requester (Human) [ACT1]"]):::business
+  act2(["⚇ The AI agent, co-pilot (AI) [ACT2]"]):::application
+  role2["⚉ Consultant [ROLE2]"]:::business
+  svc(["⬭ Advisory and delivery [BSVC3]"]):::business
+  proc{{"⚙ Frame [BPROC2]"}}:::business
+  obj["▧ An engagement [BOBJ5]"]:::external
 
-  actorH -->|assigned to| role
-  actorAI -->|assigned to| role
-  role -->|served by| svc
+  act1 -->|assigned to| role2
+  act2 -->|assists in| role2
+  role2 -->|delivers| svc
   proc -->|realizes| svc
-  proc -->|accesses| obj
+  proc -->|accesses, never keeps| obj
 
   classDef business fill:#fffbb5,stroke:#b8a200,color:#333
   classDef application fill:#c2f0ff,stroke:#0288d1,color:#333
+  classDef external fill:#eeeeee,stroke:#999999,color:#333
 ```
+
+The AI actor is drawn in the Application cyan even inside a business diagram,
+so a reader never mistakes it for a person — and it **assists in** the role
+rather than being assigned to it, which is `P1` drawn rather than asserted.
+The grey object belongs to the client.
 
 The AI actor is drawn in the Application cyan even though it sits in a
 business diagram — one of the two colour overrides in

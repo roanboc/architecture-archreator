@@ -233,32 +233,24 @@ relation types, the label is authoritative.
 
 ## Layered overview
 
-<!--
-  TEMPLATE — replace with the project's real stakeholders, goal, value
-  stream, business service(s), application component(s), and technology
-  node(s) once they're known. Keep the shape (one subgraph per layer, a
-  classDef per layer, ArchiMate relationship labels on the edges), and the
-  label form from § 1: glyph, description, identifier — no stereotype.
--->
-
 ```mermaid
 flowchart TB
   subgraph MOT["Motivation & Strategy"]
-    goal("◎ <Why this exists> [G1]"):::motivation
-    vs[["⇉ <Stage 1 → Stage 2 → …> [VS1]"]]:::strategy
+    goal("◎ An agent reads the business context natively [G1]"):::motivation
+    vs[["⇉ Adopt → Model → Decide → Build → Keep true [VS1]"]]:::strategy
   end
 
   subgraph BUS["Business layer"]
-    svc(["⬭ <What's offered> [BSVC1]"]):::business
-    actor(["⚇ <Who uses it> (Human) [ACT1]"]):::business
+    actor(["⚇ An AI coding agent (AI) [ACT2]"]):::application
+    svc(["⬭ Gated change alignment [BSVC1]"]):::business
   end
 
   subgraph APP["Application layer"]
-    app["⊞ <What realizes the service> [ACMP1]"]:::application
+    app["⊞ The change-alignment skills [ACMP1]"]:::application
   end
 
   subgraph TEC["Technology layer"]
-    tech["⬒ <What it runs on> [NODE1]"]:::technology
+    tech["⬒ The agent host platform [NODE4]"]:::technology
   end
 
   goal -->|realized by| vs
@@ -273,6 +265,10 @@ flowchart TB
   classDef application fill:#c2f0ff,stroke:#0288d1,color:#333
   classDef technology fill:#c9e7b7,stroke:#558b2f,color:#333
 ```
+
+The actor served by this product is an AI, drawn in the Application cyan even
+inside the business band — which is the method's own claim about itself, in
+one node.
 
 ## Reading order
 

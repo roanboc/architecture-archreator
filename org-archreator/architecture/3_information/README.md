@@ -14,7 +14,7 @@ physically stored, classified, and retained_.
 
 | #   | Document                                           | Elements                                              | Question it answers                                 |
 | --- | ---------------------------------------------------| -------------------------------------------------------| ------------------------------------------------------ |
-| 1   | `1_data-objects.md`           | Data Objects (domain types) and their code locations  | What information exists?                             |
+| 1   | [1_data-objects.md](./1_data-objects.md)           | Data Objects (domain types) and their code locations  | What information exists?                             |
 | 2   | `2_data-flows.md`               | Representations, persistence and flow relationships   | How does it move between representations?            |
 | 3   | `3_data-architecture.md` | Schema, classification, retention                     | Where does it live, how sensitive is it, how long?   |
 
@@ -25,27 +25,22 @@ piece of data is.
 
 ## Layer view
 
-<!--
-  TEMPLATE — replace with the project's real data objects and how they
-  flow between representations (input format, in-memory model, persisted
-  form) once known.
--->
-
 ```mermaid
 flowchart TB
-  subgraph CORE["Domain (in-memory)"]
-    obj["«Data Object» <Domain type>"]:::application
-  end
+  dobj4["▦ Client business information [DOBJ4]"]:::confidential
+  dobj7["▦ Engagement pattern notes [DOBJ7]"]:::data
+  dobj1["▦ The method sources [DOBJ1]"]:::data
+  dobj5["▦ Adopter models [DOBJ5]"]:::external
 
-  subgraph EDGE["Representations"]
-    input["«Representation» <Input format>"]:::business
-    store[("«Artifact» <Persisted form>")]:::technology
-  end
+  dobj4 -->|stripped of identity| dobj7
+  dobj7 -->|recurs, becomes| dobj1
+  dobj1 -->|produces| dobj5
 
-  input -->|parsed into| obj
-  obj -->|persisted as| store
-
-  classDef business fill:#fffbb5,stroke:#b8a200,color:#333
-  classDef application fill:#c2f0ff,stroke:#0288d1,color:#333
-  classDef technology fill:#c9e7b7,stroke:#558b2f,color:#333
+  classDef data fill:#c2f0ff,stroke:#0288d1,color:#333
+  classDef confidential fill:#ffd6d6,stroke:#c62828,color:#333
+  classDef external fill:#eeeeee,stroke:#999999,color:#333
 ```
+
+The learning loop, and every step removes information. It ends outside the
+boundary: what an adopter builds is never seen here, which is why the
+organization cannot measure its own main outcome.

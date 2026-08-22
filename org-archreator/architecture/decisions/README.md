@@ -1,27 +1,15 @@
 # Decisions
 
-_[← Repository README](../../README.md) · [Enterprise architecture](../README.md)_
+_[← EA home](../README.md)_
 
-<!--
-  OPTIONAL — delete this folder if the project has too few
-  architecture-significant, non-obvious calls to justify a standalone log;
-  fold the rationale into the relevant scope document's prose instead. See
-  the `record-decision` skill.
--->
+Calls that are **architecture-significant but smaller than an initiative** —
+each a numbered record explaining *why*, while the layer document it touches
+carries the *what*.
 
-One file per decision, numbered chronologically, each explaining a single
-call that's smaller than an initiative (see [docs/scope/](../scope/README.md))
-but consequential enough that a future reader will ask "why this and not
-the alternative?" — most often an AI actor's autonomy level or decision
-rights (see `architecture-document-style`'s actor notation in
-[architecture/2_business/](../2_business/README.md)).
+A decision record is a historical document once accepted: its words do not
+change. A call later reversed gets a new record, and the old one's `Status`
+line points at it.
 
-Agent guidance: the `record-decision` skill.
-
-## Index
-
-<!-- TEMPLATE — add one row per decision as it's recorded. -->
-
-| #   | Decision | Status | Touches |
-| --- | -------- | ------ | ------- |
-|     |          |        |         |
+| # | Decision | Status | Touches |
+| - | -------- | ------ | ------- |
+| 1 | [Take `COA1` before `COA2`, in four stages](./1_take-coa1-staged.md) | Accepted | [Courses of action](../1_strategy/2_capabilities-and-resources.md#courses-of-action) |

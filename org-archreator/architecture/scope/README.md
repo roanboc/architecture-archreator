@@ -82,8 +82,6 @@ approved on a date and against what information.
 
 ## Initiatives
 
-<!-- TEMPLATE — add one row per initiative as it's delivered. -->
-
 | #   | Scope document | Delivered as | Summary |
 | --- | --------------- | ------------ | ------- |
-|     |                 |              |         |
+| 1 | [Rebuild the models on the current method](./1_rebuild-the-models-on-the-current-method.md) | The `rebuild` branch | The organization re-expressed on the current method: capabilities and stream stages levelled, the four process bands applied, every skill name and path corrected |
