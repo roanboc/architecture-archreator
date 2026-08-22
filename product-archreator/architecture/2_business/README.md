@@ -16,22 +16,32 @@ handled_, and finally the domain vocabulary and rules.
 | --- | -------------------------------------------------------------------| ---------------------------------------------------- | --------------------------------------------------- |
 | 1   | `1_business-actors-and-roles.md` | Business Actors and Roles, organizational units, external partners (Contracts, Collaborations) | Who interacts with the system, and who do we depend on? |
 | 2   | `2_business-services.md`                | Products, Business Services, Business Interfaces (channels) | What is offered to them, and through which channels? |
-| 3   | `3_business-processes.md` — or a folder of the same name, one document per level, once leveled | Business Processes | How are those services delivered, and at what level of detail? |
+| 3   | — | Business Processes | **Not held here** — see § The process catalogue |
 | 4   | `4_business-objects.md`                  | Business Objects                                   | What things do the processes handle?              |
 | 5   | `5_domain-context-and-rules.md`  | Problem statement, system context, glossary, rules | What vocabulary and constraints bind everything?  |
 
-`3_business-processes.md` is one document while the catalogue is small. **On
-an organization it becomes leveled**: level 1 is the macro process map,
-classified into strategic, operational, support and evaluation; level 2 is the
-end-to-end processes inside each; and level 3 exists only for the branches a
-named pain justifies detailing. Past roughly fifteen elements in a level the
-file becomes a folder of the same name with one document per level.
-**Identifiers carry the level** — `BPROC7`, then `BPROC7.2`, then
-`BPROC7.2.1` — so no table needs a parent column. The
-`process-and-capability-levels` skill holds the categories, the level
-definitions, the description each level carries, and the focus table that
-records which branches were deliberately left at level 2 — that table is what
-separates a scoped model from an unfinished one.
+## The process catalogue
+
+**This tree does not hold the method's processes, and that is deliberate.**
+They live in `docs/process/` of the
+[`archreator`](https://github.com/roanboc/archreator) repository — four macro
+processes classified into operational, support and evaluation bands, their
+level-2 children, and the one branch decomposed to level 3, each carrying a
+trigger, an input, an output, an owner, and the skill that realizes it.
+
+They stay there because the catalogue exists to make a binding checkable:
+every process must name a skill that exists, and every skill must name a
+process that exists. That check runs where the processes and the skills sit
+together, and nowhere else. Moving the documents here would have kept the
+catalogue and lost the proof it was written for.
+
+Full reasoning in
+[decision 1](../decisions/1_the-process-model-stays-with-the-skills.md).
+
+**What it costs.** A reader looking for the method's processes is sent one
+repository over, and no validator here would notice if that catalogue were
+renumbered underneath this model. That mismatch is caught by review or not at
+all.
 
 `5_domain-context-and-rules.md` carries the project's **glossary** (reuse
 its terms in code and commits) and its **business rules table** — every new
