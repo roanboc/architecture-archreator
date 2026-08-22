@@ -3,23 +3,85 @@
 _[← Repository README](../../README.md) · [Enterprise architecture](../README.md)_
 
 One document per delivered (or in-flight) initiative, numbered
-chronologically. The [EA docs](../README.md) describe the **current**
-state; each scope document describes one **change**.
+chronologically. While the [EA docs](../README.md) describe the
+**current** state of the system, each scope document describes one
+**change**: what plateau it started from, what it delivered, and what it
+deliberately left out.
 
 **ArchiMate viewpoint:** Implementation & Migration (Work Package,
 Deliverable, Plateau, Gap).
+
+## The EA-first change process
+
+Every change in requirements follows the same order — the same order the EA
+folders are numbered in:
+
+1. **Align the EA first.** Walk the layers top-down and record what the
+   change means for each: [1_strategy](../1_strategy/README.md) (does it
+   serve an existing goal, or introduce a new driver?) →
+   [2_business](../2_business/README.md) (new/changed services,
+   processes, rules?) → [3_information](../3_information/README.md)
+   (new/changed data objects, flows, storage?) →
+   [4_application](../4_application/README.md) (which services,
+   components, ports change?) → [5_technology](../5_technology/README.md)
+   (any runtime, build, or hosting impact?). Update the affected EA
+   documents in the same change. If the strategy layer is still template
+   placeholders, or the change adds/modifies a stakeholder, driver, goal,
+   or principle, the initiative becomes **strategy discovery** first — a
+   docs-only, question-driven initiative ending at **Gate 1 — Strategy**
+   approval (see the `discover-strategy` skill); implementation
+   follows as a separate initiative. If the subject is an **organization**
+   rather than an application, the walk starts one layer earlier, at
+   [0_business-design](../0_business-design/README.md) — the value
+   proposition and business model canvases, approved at **Gate 0 —
+   Business model** (see the `discover-business-model` skill)
+   before layers 1–2 are derived from them.
+2. **Document the scope.** Add the next-numbered file to this folder
+   describing plateaus, work packages, in/out of scope, gaps, and gate
+   approvals — before implementation starts, refined as it proceeds.
+3. **Pass the gates.** Before any code, the Requester approves the
+   strategy, business, and information changes (**Gate 2 — Business**) and
+   chooses whether to also review the solution design before it is coded
+   (**Gate 3 — Solution design**, optional). Approvals are recorded in the
+   scope document's Approvals table — who approved, when, and what was
+   shown, with `N/A — <why>` for the gates that didn't apply. Which gate
+   applies to which initiative is defined in exactly one place,
+   the `align-change-through-layers` skill § The gates, which also says **where**
+   an approval can be granted — the conversation, or a reply on the pull
+   request for a Requester who doesn't work in a terminal.
+4. **Implement.** Only then write the code, keeping the scope document and
+   EA docs in sync with what is actually delivered.
+
+Agent guidance for this process lives in the `align-change-through-layers`,
+`discover-strategy`, and `write-scope-document` skills; PR descriptions follow
+`.github/pull_request_template.md` (see the `write-pr-description` skill) and
+must cover the whole branch.
+
+If the project needs a single running index of adopted interpretations that
+still need sign-off from a stakeholder who can't be consulted synchronously,
+keep it in [open-questions.md](./open-questions.md) — optional, see the
+`write-scope-document` skill.
+
+If a work package is too large or long-running to implement in one sitting,
+shard it into self-contained story files instead of leaving it as one
+inline task list — see the `shard-stories` skill.
+
+For a single consequential call smaller than a full initiative — most
+often why an AI actor's autonomy level or decision rights were set the way
+they were — see [docs/decisions/](../decisions/README.md) (optional) and
+the `record-decision` skill.
+
+Scope documents accumulate. After a run of initiatives the EA can be
+accurate line by line and no longer read as a description of *today* —
+shipped work still marked "Pending", elements that were replaced but never
+retired, questions answered in a conversation nobody recorded. The
+`restate-current-state` skill compacts that, as its own initiative with its
+own Gate 2. It changes the current-state documents only: **a merged scope
+document is never rewritten**, because it is the record of what was
+approved on a date and against what information.
 
 ## Initiatives
 
 | #   | Scope document | Delivered as | Summary |
 | --- | --------------- | ------------ | ------- |
-| 1   | [1_publish-guidance-site.md](./1_publish-guidance-site.md) | `site/` on `claude/enterprise-architecture-template-review-8addo4` | Built and published this guidance site, demonstrating the EA-first process and the human/AI actor notation on a real, small project |
-| 2   | [2_redesign-guidance-site.md](./2_redesign-guidance-site.md) | `site/` on `claude/repo-ux-example-app-dhy09b` | Gave the site a design system built on the ArchiMate layer palette, made the Requester → Agent → Reviewer loop its centrepiece, and replaced the Mermaid CDN with self-contained CSS diagrams |
-| 3   | [3_deepen-guidance-coverage.md](./3_deepen-guidance-coverage.md) | `site/` on `claude/repo-ux-example-app-dhy09b` | Added a start-to-finish walkthrough page (a requirement climbing the five layers, Requester vs. Agent at each step) and dedicated coverage of the `stack-selection` and `story-sharding` skills |
-| 4   | [4_standardize-structure-and-vocabulary.md](./4_standardize-structure-and-vocabulary.md) | `site/` on `claude/repo-ux-example-app-dhy09b` | Standardised the change loop on the canonical Requester/Agent/Reviewer vocabulary, mapped Pilot/Copilot to those roles, and fixed the application layer-view drift |
-| 5   | [5_beginner-setup-guide.md](./5_beginner-setup-guide.md) | `site/` on `claude/beginner-setup-guide-dnef32` | Added a `Start here` page taking a total newcomer from no GitHub account to their first reviewed change — free-first, no editor install required |
-| 6   | [6_spanish-language-support.md](./6_spanish-language-support.md) | `site/` on `claude/spanish-language-support-7k2sxw` | Published a Spanish edition of the site: every page mirrored under `public/es/`, an EN ⇄ ES switcher in every header, `hreflang` pairing — English edition stays canonical between the two |
-| 7   | [7_adopt-approval-gates.md](./7_adopt-approval-gates.md) | `site/` on `claude/agent-strategy-gates-vfny5p` | Aligned the guidance with the gated method: pages (both editions) teach strategy discovery + Gates 1–3, and every scope document carries an Approvals table — retroactive for 1–6 from the commit history, live from this one on |
-| 8   | [8_align-with-the-current-method.md](./8_align-with-the-current-method.md) | `site/` on `claude/repo-value-ux-review-3ur5y4` | Renamed `example/` to `site/` (pages under `public/`) now that this is the project's own documentation rather than one of two examples, and brought both editions up to the current method: layer 0, the modeling-depth ladder, domains, Gate 0, the plugin path, the gate surfaces, and why ArchiMate rather than TOGAF |
-| 9   | [9_element-ids-and-the-notation.md](./9_element-ids-and-the-notation.md) | `site/` on `claude/repo-value-ux-review-3ur5y4` | Element identifiers assigned across the model (6 → 31, all validated in CI), and every document redrawn to the parent template's notation standard — 9 diagrams became 20, one per section |
-| 10  | [10_rebuild-around-the-why.md](./10_rebuild-around-the-why.md) | `site/` on `claude/repo-value-ux-review-3ur5y4` | Rebuilt the site around why the project exists, for the open-source project only: three pages per language instead of five, a new design system, `G5` added and three components retired |
+| 1 | [Model the site on the current method](./1_model-the-site-on-the-current-method.md) | The `rebuild` branch | The site modeled as the one static file it is, replacing a model of a multi-page structure that no longer exists |

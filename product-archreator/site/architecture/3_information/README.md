@@ -2,25 +2,15 @@
 
 _[← EA home](../README.md)_
 
-The passive structure: the guidance content itself, and how it relates to
-its canonical source.
+**Not used.** The site holds no information. There is no data object, no
+representation and no persistence: one HTML file is served, identically, to
+everyone, and nothing about a visit is read, written or remembered.
 
-## Analysis order
+The folder stays rather than being deleted, because an empty folder that says
+why is a known gap and a missing one is an unknown gap.
 
-| #   | Document                                           | Elements                                              | Question it answers                                 |
-| --- | ---------------------------------------------------| -------------------------------------------------------| ------------------------------------------------------ |
-| 1   | [1_data-objects.md](./1_data-objects.md)           | Data Objects (domain types) and their code locations  | What information exists?                             |
-| 2   | 2_data-flows.md                                    | Representations, persistence and flow relationships   | How does it move between representations?            |
-| 3   | 3_data-architecture.md                             | Schema, classification, retention                     | Where does it live, how sensitive is it, how long?   |
-
-Documents 2–3 are not written for this project: there is exactly one data
-object with exactly one representation (a static HTML file, publicly
-readable, no classification or retention concerns) — nothing that flow or
-architecture documents would add.
-
-## Layer view
-
-The derivation chain — canonical source to English page to Spanish edition —
-is drawn in [1_data-objects.md](./1_data-objects.md).
-
-See [1_data-objects.md](./1_data-objects.md).
+**What would fill it.** Anything the page had to *know* — a form, a search
+index, a list of pages generated from somewhere, an analytics identifier. Each
+of those is also the thing that would put pressure on
+[`P2`](../1_strategy/1_motivation.md), so a filled information layer here
+would be a signal that the site had become something else.

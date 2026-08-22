@@ -1,81 +1,80 @@
-# Application Services — the organization behind archreator
+# Application services
 
 _[← Application layer](./README.md) · [EA home](../README.md)_
 
-**ArchiMate elements:** Application Service.
-
-What the software offers the business layer. Four services, three of them
-running today.
+**ArchiMate viewpoint:** Application. What software does for this
+organization's business layer — and, just as importantly, what it does not.
 
 ## How to read this document
 
 ```mermaid
 flowchart LR
-  bsvc(["⬭ «Business Service» what the business offers"]):::business
-  asvc(["⬮ «Application Service» what software offers the business"]):::appservice
-  acmp["⊞ «Application Component» what provides it"]:::component
+  asvc(["⬮ «Application Service» what software offers"]):::service
+  bsvc(["⬭ «Business Service» — context, from the business layer"]):::business
 
-  acmp -->|realizes| asvc
   asvc -->|realizes| bsvc
 
-  classDef business fill:#fffbb5,stroke:#b8a200,color:#333
-  classDef appservice fill:#c2f0ff,stroke:#2a8fb0,color:#333
-  classDef component fill:#9adcf0,stroke:#1a6f8c,color:#333
+  classDef service fill:#c2f0ff,stroke:#0288d1,color:#333
+  classDef business fill:#efe57d,stroke:#b8ad3f,color:#333
 ```
 
 | Glyph | Shape | Element | ID prefix | Reads as |
 | ----- | ----- | ------- | --------- | -------- |
 | `⬮` | Stadium | «Application Service» | `ASVC` | `ASVC1` = Application Service 1 |
-| `⊞` | Rectangle | «Application Component» — detailed in [2_application-components.md](./2_application-components.md) | `ACMP` | `ACMP1` = Application Component 1 |
-| `⬭` | Stadium (yellow) | «Business Service» — context, from [layer 2](../2_business/2_business-services.md) | `BSVC` | `BSVC1` = Business Service 1 |
-
-Application elements take the cyan; the ramp runs light for what is offered
-to dark for what provides it. **The glyph rides on every node; the
-«stereotype» word appears once.**
+| `⬭` | Stadium (yellow) | «Business Service» — context, from [2_business/2_business-services.md](../2_business/2_business-services.md) | `BSVC` | `BSVC1` = Business Service 1 |
 
 ## The services
 
 ```mermaid
 flowchart LR
-  asvc1(["⬮ «Application Service» Method distribution and update [ASVC1]"]):::appservice
-  asvc2(["⬮ Guidance publication [ASVC2]"]):::appservice
-  asvc3(["⬮ Model validation [ASVC3]"]):::appservice
-  asvc4(["⬮ Architecture generation — Pending [ASVC4]"]):::appservice
+  asvc1(["⬮ Method distribution and update [ASVC1]"]):::service
+  asvc2(["⬮ Guidance publication [ASVC2]"]):::service
+  asvc3(["⬮ Model validation [ASVC3]"]):::service
+  asvc4(["⬮ Architecture generation [ASVC4]"]):::pending
 
-  bsvc1(["⬭ «Business Service» The method, published [BSVC1]"]):::business
+  bsvc1(["⬭ The method, published and installable [BSVC1]"]):::business
   bsvc2(["⬭ Guidance and worked reference [BSVC2]"]):::business
-  bsvc4(["⬭ Architecture as a service — Pending [BSVC4]"]):::business
+  bsvc3(["⬭ Advisory and delivery [BSVC3]"]):::business
+  bsvc4(["⬭ Architecture as a service [BSVC4]"]):::pendingbusiness
 
-  cap2["✦ «Capability» Model stewardship [CAP2]"]:::capability
+  asvc1 -->|realizes| bsvc1
+  asvc2 -->|realizes| bsvc2
+  asvc3 -->|guards| bsvc1
+  asvc4 -.->|would realize| bsvc4
+  bsvc3 -.->|nothing realizes| bsvc3
 
-  asvc1 --> bsvc1
-  asvc2 --> bsvc2
-  asvc3 --> cap2
-  asvc4 -.-> bsvc4
-
-  classDef appservice fill:#c2f0ff,stroke:#2a8fb0,color:#333
-  classDef business fill:#fffbb5,stroke:#b8a200,color:#333
-  classDef capability fill:#f5deaa,stroke:#c8a24a,color:#333
+  classDef service fill:#c2f0ff,stroke:#0288d1,color:#333
+  classDef pending fill:#c2f0ff,stroke:#0288d1,color:#333,stroke-dasharray: 4 3
+  classDef business fill:#efe57d,stroke:#b8ad3f,color:#333
+  classDef pendingbusiness fill:#efe57d,stroke:#b8ad3f,color:#333,stroke-dasharray: 4 3
 ```
 
-Every edge reads **realizes**.
-
-| ID | Application service | Realizes | Provided by | State |
-| -- | ------------------- | -------- | ----------- | ----- |
+| ID | Application service | What it does | Realizes | Provided by | State |
+| -- | ------------------- | ------------ | -------- | ----------- | ----- |
 | `ASVC1` | **Method distribution and update** — obtaining the method, and receiving improvements to it without hand-porting | `BSVC1` | `ACMP1` | Live |
 | `ASVC2` | **Guidance publication** — the readable explanation of what the method is and how to start | `BSVC2` | `ACMP2` | Live |
-| `ASVC3` | **Model validation** — every element reference resolves, no identifier is defined twice or reused after retirement | `CAP2` model stewardship | `ACMP3` | Live |
+| `ASVC3` | **Model validation** — every element reference resolves, no identifier is defined twice or reused after retirement | `CAP2` | `ACMP3` | Live |
 | `ASVC4` | **Architecture generation** — an owner supplies what they have and receives a working architecture repository | `BSVC4` | `ACMP5` | **Pending — future initiative** (`COA2`) |
 
+## What the business does not get from software
+
+**`BSVC3` has no application service, and that is the finding this layer
+exists to make.** Advisory and delivery is realized by a person, in person.
+There is no software behind it, nothing to scale, and no marginal cost that
+falls with the second client — the second client costs exactly what the first
+one did.
+
+That single empty cell is the same fact as `RES1` being the binding
+constraint, `COST1` being dominant, and `PROD2` being the only product that
+cannot grow. Four layers state it in four vocabularies, and this is where it
+is least deniable: a business service with no realizing software is a business
+service that scales at the speed of one person's calendar.
+
+**`COA1` is the response**, and it targets this row specifically. Its stages
+move what the consultant knows into `ACMP1`, where `ASVC1` already delivers it
+to everyone at zero marginal cost. The course of action is not "add software
+under `BSVC3`" — it is "make `BSVC1` carry what `BSVC3` currently carries".
+
 **`ASVC3` realizes a capability rather than a business service**, which is
-unusual and correct: nobody buys model validation. It exists so that
-`CAP2` (model stewardship) is something the organization can actually do
-rather than something it intends, and it is the only place in this model
-where software enforces a rule instead of a person remembering one.
-
-## What the business does *not* get from software
-
-`BSVC3` — advisory and delivery — has no application service behind it. It is
-`ROLE2` in a room with a client, assisted by an agent the organization does
-not own or run. That is why `PROD2` does not scale, restated one layer down:
-**there is no software to scale.**
+unusual and correct: model validation is not something an adopter buys, it is
+something that keeps `CAP2` true. Nobody meets it except when it fails.

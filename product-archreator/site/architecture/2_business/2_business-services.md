@@ -1,103 +1,81 @@
-# Business Services
+# Business services
 
 _[← Business layer](./README.md) · [EA home](../README.md)_
 
-**ArchiMate elements:** Business Service, Business Process.
+**ArchiMate viewpoint:** Business. What the page does for whoever opens it.
 
 ## How to read this document
 
 ```mermaid
 flowchart LR
-  svc(["⬭ «Business Service» what adopters are offered"]):::service
-  proc{{"⚙ «Business Process» how it is delivered"}}:::process
-  act(["⚇ «Business Actor» who performs it"]):::actor
+  bsvc(["⬭ «Business Service» one thing the page does for a reader"]):::service
+  bif["⊸ «Business Interface» where it is met"]:::interface
 
-  proc -->|realizes| svc
-  act -->|assigned to| proc
+  bsvc -->|reached through| bif
 
-  classDef service fill:#efe57d,stroke:#8a7a00,color:#333
-  classDef process fill:#f7f099,stroke:#9a8800,color:#333
-  classDef actor fill:#fffbb5,stroke:#b8a200,color:#333
+  classDef service fill:#efe57d,stroke:#b8ad3f,color:#333
+  classDef interface fill:#e5d95f,stroke:#a89a34,color:#333
 ```
 
 | Glyph | Shape | Element | ID prefix | Reads as |
 | ----- | ----- | ------- | --------- | -------- |
 | `⬭` | Stadium | «Business Service» | `BSVC` | `BSVC1` = Business Service 1 |
-| `⚙` | Hexagon | «Business Process» | `BPROC` | `BPROC1` = Business Process 1 |
-| `⚇` | Stadium | «Business Actor» — context, from [1_business-actors-and-roles.md](./1_business-actors-and-roles.md) | `ACT` | `ACT1` = Business Actor 1 |
+| `⊸` | Rectangle | «Business Interface» | `BIF` | `BIF1` = Business Interface 1 |
 
-**The glyph rides on every node; the «stereotype» word appears once.**
+**No «Product» is modeled.** A product aggregates services into something
+offered as a whole, and the whole here is the method itself, whose product
+element lives in the tree above. The site is one of the channels that product
+is met through, not a product beside it.
 
-## The service
+It is named in prose rather than cited by identifier on purpose: identifiers
+are scoped per tree, and this method has no notation for referencing an
+element another model owns. Writing it as an identifier would be a dangling
+reference, not a citation.
 
-```mermaid
-flowchart LR
-  bsvc1(["⬭ «Business Service» EA-first method guidance [BSVC1]"]):::service
-  act3(["⚇ «Business Actor» Template adopter [ACT3]"]):::actor
-  vs1[["⇉ «Value Stream» Discover → Understand → Adopt [VS1]"]]:::stage
-
-  bsvc1 --> act3
-  bsvc1 --> vs1
-
-  classDef service fill:#efe57d,stroke:#8a7a00,color:#333
-  classDef actor fill:#fffbb5,stroke:#b8a200,color:#333
-  classDef stage fill:#eed4a0,stroke:#c8a24a,color:#333
-```
-
-**One service, and that is the whole business layer.** This project offers
-exactly one thing, which is what a Depth 1 model of a three-page site should
-look like. What changed in the rebuild is not how many services there are but
-what the one service is *for*: persuading before explaining.
-
-| ID | Business service | Serves | Realized by |
-| -- | ---------------- | ------ | ----------- |
-| `BSVC1` | **The case for the method, and the way in** — why the project exists and what problem it solves, what the method does, and how to start; kept current with the parent template | `ACT3`, and `VS1` end to end | `BPROC1`, and `ASVC1` in [layer 4](../4_application/2_application-components.md) |
-
-The service is offered in **English and Spanish** (`G4`,
-[1_strategy/1_motivation.md](../1_strategy/1_motivation.md)): each guidance
-page has a Spanish edition under
-[`public/es/`](../../public/es/index.html), and updating a page means
-updating both editions in the same change — a Spanish edition left behind is
-doc drift, the same as a stale source link.
-
-## The process that realizes it
+## The services
 
 ```mermaid
 flowchart LR
-  draft{{"⚙ «Business Process» · 1 Copilot drafts a change [BPROC1]"}}:::process
-  review{{"⚙ · 2 Pilot reviews and merges [BPROC1]"}}:::process
-  deploy{{"⚙ · 3 CI/CD deploys to Pages [BPROC1]"}}:::process
+  bsvc1(["⬭ Explain the problem and the answer [BSVC1]"]):::service
+  bsvc2(["⬭ Say what an adopter receives [BSVC2]"]):::service
+  bsvc3(["⬭ Give the two install commands [BSVC3]"]):::service
+  bsvc4(["⬭ Send the reader to the right repository [BSVC4]"]):::service
 
-  act2(["⚇ «Business Actor» Copilot [ACT2]"]):::actorai
-  act1(["⚇ Pilot [ACT1]"]):::actor
+  bif1["⊸ The published page [BIF1]"]:::interface
 
-  act2 -->|assigned to| draft
-  act1 -->|assigned to| review
-  draft -->|opens PR| review
-  review -->|triggers| deploy
+  bsvc1 -->|then| bsvc2 -->|then| bsvc3
+  bsvc1 -->|or straight to| bsvc4
+  bsvc1 -->|reached through| bif1
+  bsvc2 -->|reached through| bif1
+  bsvc3 -->|reached through| bif1
+  bsvc4 -->|reached through| bif1
 
-  classDef process fill:#f7f099,stroke:#9a8800,color:#333
-  classDef actor fill:#fffbb5,stroke:#b8a200,color:#333
-  classDef actorai fill:#c2f0ff,stroke:#2a8fb0,color:#333
+  classDef service fill:#efe57d,stroke:#b8ad3f,color:#333
+  classDef interface fill:#e5d95f,stroke:#a89a34,color:#333
 ```
 
-**No actor is assigned to the third step**, and that is the point of `P2`:
-deployment is automatic precisely because a human has already stood between
-the draft and it.
+**Every service arrives through one interface**, which is what it means to be
+a single page: a reader does not navigate between these, they scroll past
+them. The order in the diagram is the order on the page, and the branch to
+`BSVC4` is the reader who has decided early and wants the repository.
 
-| ID | Business process | Steps |
-| -- | ---------------- | ----- |
-| `BPROC1` | **Publish guidance update** | Draft → Review → Deploy, below |
+| ID | Business service | What the reader gets | Realizes | Realized by |
+| -- | ---------------- | -------------------- | -------- | ----------- |
+| `BSVC1` | **Explain the problem and the answer** | Why an AI that can build anything still needs to be told what was meant, and what the method does about it | `CAP1` | `site/index.html` § Why it exists |
+| `BSVC2` | **Say what an adopter receives** | Four concrete things — the method, the skills, the scaffold, and AI actors as first-class citizens — rather than a promise | `CAP1` | `site/index.html` § What you get |
+| `BSVC3` | **Give the two install commands** | The exact commands, copyable, and the sentence about what to say next | `CAP1` | `site/index.html` § Get started |
+| `BSVC4` | **Send the reader to the right repository** | Which of the two repositories holds the method and which holds the worked models, so the reader does not land in the wrong one | `CAP2` | `site/index.html` § Two repositories, and the two header actions |
 
-- **Draft** — `ACT2` Copilot (see
-  [1_business-actors-and-roles.md](./1_business-actors-and-roles.md))
-  walks the EA layers for the requested change, updates the affected
-  `architecture/` and `site/` files, and opens a PR — same process as any other
-  change to this repository, per `architecture-first-change`.
-- **Review** — `ACT1` Pilot approves or requests changes. Nothing merges
-  without this step (`P2`,
-  [1_strategy/1_motivation.md](../1_strategy/1_motivation.md)).
-- **Deploy** — merging to `main` triggers
-  [`deploy-site.yml`](../../../../.github/workflows/deploy-site.yml),
-  which publishes [`public/`](../../public/index.html) to GitHub Pages (see
-  [5_technology/2_deployment.md](../5_technology/2_deployment.md)).
+| ID | Interface | Who meets it | Serves |
+| -- | --------- | ------------ | ------ |
+| `BIF1` | **The published page** | `ROLE1`, anonymously, over HTTPS | `BSVC1`–`BSVC4` |
+
+**`BSVC3` is the one that dates fastest.** It reproduces two commands and a
+skill name that live in another repository, and nothing checks that they still
+work. That is `CAP3`'s weakness made concrete: the link checker proves the
+page's links resolve, not that a command inside a `<pre>` block is still the
+right one.
+
+**`BSVC2` names four things and the method now has fifteen skills.** A count
+on a page is a fact with an owner elsewhere, and it is the specific sentence
+most likely to be wrong first.

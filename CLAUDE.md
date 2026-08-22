@@ -1,82 +1,72 @@
 # CLAUDE.md
 
-This repository is **archreator** — an enterprise architecture method that
-lives in git as markdown, and the organization that publishes it. It holds
-four things, each named for what it is:
-
-| Directory | What it holds | Depth |
-| --------- | ------------- | ----- |
-| [`.claude/skills/`](./.claude/skills/README.md) | **The method itself** — the skill bodies, and the scaffold `project-bootstrap` emits from `project-bootstrap/templates/` | — |
-| [`org-archreator/`](./org-archreator/CLAUDE.md) | The organization behind archreator: segments, products, capabilities, economics | 2 — Organization |
-| [`product-archreator/`](./product-archreator/CLAUDE.md) | archreator modeled with archreator — the method's own architecture | 1 — Application |
-| [`product-archreator/site/`](./product-archreator/site/CLAUDE.md) | The guidance site, deployed to GitHub Pages | 1 — Application |
-
-The model **describes** the method; `.claude/skills/` **is** the method.
-Each tree declares its own modeling depth in its own `CLAUDE.md` — read the
-one for the tree you are working in.
+This repository holds **the worked models** — archreator applied to real
+subjects, so that a prospective adopter can read a filled-in model rather than
+an empty scaffold. The method itself is the sibling repository
+[`archreator`](https://github.com/roanboc/archreator): skills, scaffold and
+docs there, models here.
 
 ## The rule that governs everything else
 
 **Strategy and business architecture are validated before any other layer,
-and the Requester approves at explicit gates before development.** A change
-in requirements is never coded directly: align it through the numbered EA
-layers (`architecture/1_strategy` → … → `5_technology`), stop at the gates
-for the Requester's approval, record it in a scope document (`architecture/scope/`), then
-implement. Pure bug fixes that change no documented behavior skip the
-alignment and the gates, but still keep the docs true.
+and the Requester approves at explicit gates before development.** A
+requirement is never coded directly: it is aligned through the numbered
+layers, stopped at the gates, recorded in a scope document under the tree's
+`architecture/scope/`, and only then implemented. Pure bug fixes that change
+no documented behavior skip the gates but still update whatever the fix
+falsifies.
 
-A change to **the method** is recorded in
-[`product-archreator/architecture/scope/`](./product-archreator/architecture/scope/README.md); a change
-to **the organization** in
-[`org-archreator/architecture/scope/`](./org-archreator/architecture/scope/README.md) — even when the
-organization is what motivated the method change.
+The Requester for every tree here is the repository owner.
 
-## Portability
+## Layout
 
-archreator ships as a Claude Code plugin today, and is not tied to it.
-[Decision 6](./product-archreator/architecture/decisions/6_the-portability-boundary.md)
-fixes the boundary: **method content and skill frontmatter are portable;
-packaging is provider-specific and disposable.** The test for any file is
-_would this need editing if Claude Code vanished tomorrow, or just moving?_
-Anything in a skill body that would need editing violates `P6`. Further
-platforms are additive — each adds a manifest, none forks the method.
+**One tree per federated project.** Each thing the organization builds keeps a
+model of its own rather than becoming a folder inside the organization's, and
+the prefix says which kind of thing it is. `org-` is the organization;
+`product-` is something it builds and delivers.
 
-## The skills
+| Tree | Subject | Depth |
+| ---- | ------- | ----- |
+| [`org-archreator/`](./org-archreator/architecture/README.md) | The organization that publishes archreator — its stakeholders, capabilities and courses of action | 2 — Organization |
+| [`product-archreator/`](./product-archreator/architecture/README.md) | archreator the method, as a product: its skills, validators and scaffold | 1 — Application |
+| [`product-archreator/site/`](./product-archreator/site/architecture/README.md) | The published guidance site, nested because it realizes a service of the product rather than standing alone | 1 — Application |
+| [`scripts/`](./scripts/README.md) | The two validators and the projection, one copy for the whole repository |
 
-Claude Code surfaces these from their `description:` frontmatter; you don't
-invoke them by name in normal use.
+A tree earns its place by having **application components and technology of
+its own**. A directory that only restates elements belonging somewhere else is
+a folder pretending to be a project, and its contents belong in the model
+above it.
 
-| Skill | Reach for it when |
-| ----- | ----------------- |
-| `project-bootstrap` | A project from the template hasn't been set up yet — start here |
-| `architecture-first-change` | Any requirement change. **The spine**: it defines the gates and the order |
-| `architecture-doc-style` | Editing anything under `architecture/` — numbering, element IDs, ArchiMate-on-Mermaid, the grounding rule |
-| `scope-doc` | Writing the initiative's scope document; its Approvals table is the durable record of the gates |
-| `pr-description` | Opening or updating a PR — the body covers the whole branch, not the latest commit |
-| `operating-model-discovery` | The subject is an organization: canvases first (Gate 0), strategy derived from them |
-| `strategy-discovery` | The strategy is unfilled or the change shifts it (Gate 1) |
-| `domain-modeling` | The organization is large enough to split into business lines, or a change crosses a domain boundary |
-| `restate-current-state` | The model has accumulated history — shipped "Pending"s, superseded elements, resolved questions — and no longer reads as a description of today |
-| `decision-record` | One consequential call smaller than an initiative — most often an AI actor's autonomy level |
-| `story-sharding` | A work package is too large to finish in one sitting |
-| `stack-selection` | No technology stack chosen yet on a small application |
-| `engagement-retrospective` | An initiative or engagement just finished — capture what the method didn't cover before it evaporates |
+## What is modeled where
+
+The method's **motivation** — why archreator exists, who it serves, what it
+must be true of — is modeled here, in `product-archreator/1_strategy/`.
+
+The method's **process model** is not. `BPROC1`–`BPROC4` and their level-2
+children live in `docs/process/` of the `archreator` repository, beside the
+skills that realize them, because that adjacency is what lets CI prove that
+every process has a skill and every skill a process. Splitting the two would
+leave the binding the process model exists for unenforced. See
+[decision 1](./product-archreator/architecture/decisions/1_the-process-model-stays-with-the-skills.md).
 
 ## Commands
 
 ```bash
-python3 .claude/skills/project-bootstrap/templates/scripts/check_links.py    # relative links and HTML anchors resolve
-python3 .claude/skills/project-bootstrap/templates/scripts/check_model.py    # element-ID references resolve, per project
+python3 scripts/check_links.py    # relative links and HTML anchors resolve
+python3 scripts/check_model.py    # element-ID references resolve, per tree
 ```
 
-Both must be green before pushing; CI runs the same.
+Both must be green before pushing; CI runs the same two.
+`python3 scripts/build_model.py` projects every tree into `.model/` for a
+rendered view — a tool, not a gate.
 
 ## Conventions
 
 - Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`, …).
-- Documentation language: **English**.
-- Element IDs are assigned once and never reused, and are scoped per
-  project — two trees may each own a `G1`.
-- **A merged scope document is a historical record.** When a file moves, its
-  link *targets* are repaired so they still resolve; its words — including
-  link text — are never changed (`RULE6`).
+- **Documentation language: English.**
+- Element IDs are scoped per tree, so each tree may own its own `G1`. An ID is
+  assigned once and never reused after the gate that approves its element.
+- The skills come from the [archreator](https://github.com/roanboc/archreator)
+  plugin, enabled in [`.claude/settings.json`](./.claude/settings.json). They
+  are never vendored into this repository: a copy is a thing that drifts from
+  the method it is supposed to be.

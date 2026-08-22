@@ -1,53 +1,44 @@
 # CLAUDE.md
 
-This tree models **the organization behind archreator** — who it serves,
-what it offers, how it makes and spends, and which capabilities carry that.
-It is the enterprise model the other trees federate from: the method
-([`../product-archreator/`](../product-archreator/README.md)) and the
-guidance site are things this organization builds, each with its own project
-model. See [`../CLAUDE.md`](../CLAUDE.md) for the repository-wide rule.
+The architecture model of **the organization that publishes archreator** — the
+company, not the method. What it builds is modeled in its own trees:
+[`product-archreator/`](../product-archreator/architecture/README.md) for the
+method, and the site nested inside it.
 
-## The rule that governs everything else
-
-**Strategy and business architecture are validated before any other layer,
-and the Requester approves at explicit gates before development.** A change
-in requirements is never coded directly: align it through the numbered EA
-layers (`architecture/0_business-design` → … → `5_technology`), stop at the
-gates for the Requester's approval, record it in a scope document
-(`architecture/scope/`), then implement. The `architecture-first-change` skill runs the process and
-defines which gate applies.
+Repository-wide rules, the actors and the commands are in the
+[root `CLAUDE.md`](../CLAUDE.md). This file carries only what is specific to
+this tree.
 
 ## Modeling depth
 
-**Declared depth: 2 — Organization.** The subject is one organization with
-three products sharing one capability base, so
-`architecture/0_business-design/` **is** used — a Value Proposition Canvas
-per customer segment and a Business Model Canvas per product, approved at
-Gate 0 before anything was derived from them.
+**Declared depth: 2 — Organization.**
 
-`architecture/domains/` is **not** used. The split test asks whether a part
-of the business has its own goals, its own people and its own economics;
-nothing here does yet. See
-[`../product-archreator/architecture/decisions/5_no-per-product-strategy-folders.md`](../product-archreator/architecture/decisions/5_no-per-product-strategy-folders.md)
-for why products do not get folders inside the strategy layer, and
-[`decision 7`](../product-archreator/architecture/decisions/7_one-tree-per-federated-project.md)
-for why they do get trees of their own.
+The subject is an organization sharing one strategy: one capability base, one
+portfolio of things it builds, and one person who says yes. So
+`0_business-design/` is filled with the value proposition and business model
+canvases, `1_strategy/` is complete, and
+[`architecture/domains/`](./architecture/domains/README.md) stays **unused**.
+Gates 0 to 3 apply.
 
-## Layout
+**When to move to Depth 3.** When something the organization builds acquires
+customers, economics and an approver distinct from the rest of it. That day the
+model splits into domains — an ordinary initiative, not a restart.
 
-- `architecture/` — the current-state model, numbered ArchiMate layers
-  0–5, with the canvases at layer 0
-- `architecture/scope/` — one document per initiative, each carrying its Approvals table
-- `architecture/decisions/` — consequential calls smaller than an initiative
-- `architecture/engagements/` — retrospective notes capturing what the method did not
-  cover, the mechanism behind `COA1` stage 1
+## What this tree owns, and what it does not
 
-## Conventions
+This model holds the organization's **motivation, capabilities, resources and
+courses of action**. It names *that* a product exists and links to its tree; it
+never reaches into that tree's elements. A product's own components, technology
+and scope history belong to the product.
 
-- Documentation language: English.
-- Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`, …).
-- Element IDs are assigned once and never reused
-  (`architecture-doc-style` § Element IDs); `.claude/skills/project-bootstrap/templates/scripts/check_model.py`
-  enforces it.
-- A merged scope document is a historical record. Its link targets may be
-  repaired when files move; its words may not change (`RULE6`).
+References run one way — a product's model cites the organization's, never the
+reverse — so a new product needs to know its parent and the parent needs to
+know nothing about it.
+
+## Structure
+
+- `architecture/` — six numbered layers, plus `scope/` (one document per
+  initiative), `decisions/` and `engagements/`.
+- `engagements/` — what applying the method to a real client taught, generalized
+  past recognition of the client. Not architecture, and no elements are defined
+  there.

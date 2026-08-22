@@ -1,38 +1,87 @@
-# Scope documents — archreator
+# Project Scope Documents
 
-_[← meta index](../../README.md) · [EA home](../README.md)_
+_[← Repository README](../../README.md) · [Enterprise architecture](../README.md)_
 
-One document per initiative that changes **the method itself**, numbered
-chronologically. While [`product-archreator/architecture/`](../README.md) describes archreator's
-current state, each of these describes one **change** to it: what it started
-from, what it delivered, and what it deliberately left out.
+One document per delivered (or in-flight) initiative, numbered
+chronologically. While the [EA docs](../README.md) describe the
+**current** state of the system, each scope document describes one
+**change**: what plateau it started from, what it delivered, and what it
+deliberately left out.
 
 **ArchiMate viewpoint:** Implementation & Migration (Work Package,
 Deliverable, Plateau, Gap).
 
-The process is the one in [CONTRIBUTING.md](../../../CONTRIBUTING.md) — the
-same one a downstream project follows, applied here. A change to a project
-*built from* archreator belongs in that project's own `architecture/scope/`, not
-here.
+## The EA-first change process
 
-Related: [decisions](../decisions/README.md) for single calls smaller than
-an initiative, and [open questions](./open-questions.md) for the
-consolidated index of adopted interpretations awaiting confirmation.
+Every change in requirements follows the same order — the same order the EA
+folders are numbered in:
+
+1. **Align the EA first.** Walk the layers top-down and record what the
+   change means for each: [1_strategy](../1_strategy/README.md) (does it
+   serve an existing goal, or introduce a new driver?) →
+   [2_business](../2_business/README.md) (new/changed services,
+   processes, rules?) → [3_information](../3_information/README.md)
+   (new/changed data objects, flows, storage?) →
+   [4_application](../4_application/README.md) (which services,
+   components, ports change?) → [5_technology](../5_technology/README.md)
+   (any runtime, build, or hosting impact?). Update the affected EA
+   documents in the same change. If the strategy layer is still template
+   placeholders, or the change adds/modifies a stakeholder, driver, goal,
+   or principle, the initiative becomes **strategy discovery** first — a
+   docs-only, question-driven initiative ending at **Gate 1 — Strategy**
+   approval (see the `discover-strategy` skill); implementation
+   follows as a separate initiative. If the subject is an **organization**
+   rather than an application, the walk starts one layer earlier, at
+   [0_business-design](../0_business-design/README.md) — the value
+   proposition and business model canvases, approved at **Gate 0 —
+   Business model** (see the `discover-business-model` skill)
+   before layers 1–2 are derived from them.
+2. **Document the scope.** Add the next-numbered file to this folder
+   describing plateaus, work packages, in/out of scope, gaps, and gate
+   approvals — before implementation starts, refined as it proceeds.
+3. **Pass the gates.** Before any code, the Requester approves the
+   strategy, business, and information changes (**Gate 2 — Business**) and
+   chooses whether to also review the solution design before it is coded
+   (**Gate 3 — Solution design**, optional). Approvals are recorded in the
+   scope document's Approvals table — who approved, when, and what was
+   shown, with `N/A — <why>` for the gates that didn't apply. Which gate
+   applies to which initiative is defined in exactly one place,
+   the `align-change-through-layers` skill § The gates, which also says **where**
+   an approval can be granted — the conversation, or a reply on the pull
+   request for a Requester who doesn't work in a terminal.
+4. **Implement.** Only then write the code, keeping the scope document and
+   EA docs in sync with what is actually delivered.
+
+Agent guidance for this process lives in the `align-change-through-layers`,
+`discover-strategy`, and `write-scope-document` skills; PR descriptions follow
+`.github/pull_request_template.md` (see the `write-pr-description` skill) and
+must cover the whole branch.
+
+If the project needs a single running index of adopted interpretations that
+still need sign-off from a stakeholder who can't be consulted synchronously,
+keep it in [open-questions.md](./open-questions.md) — optional, see the
+`write-scope-document` skill.
+
+If a work package is too large or long-running to implement in one sitting,
+shard it into self-contained story files instead of leaving it as one
+inline task list — see the `shard-stories` skill.
+
+For a single consequential call smaller than a full initiative — most
+often why an AI actor's autonomy level or decision rights were set the way
+they were — see [docs/decisions/](../decisions/README.md) (optional) and
+the `record-decision` skill.
+
+Scope documents accumulate. After a run of initiatives the EA can be
+accurate line by line and no longer read as a description of *today* —
+shipped work still marked "Pending", elements that were replaced but never
+retired, questions answered in a conversation nobody recorded. The
+`restate-current-state` skill compacts that, as its own initiative with its
+own Gate 2. It changes the current-state documents only: **a merged scope
+document is never rewritten**, because it is the record of what was
+approved on a date and against what information.
 
 ## Initiatives
 
-| # | Scope document | Delivered as | Summary |
-| - | -------------- | ------------ | ------- |
-| 1 | [1_repo-value-and-fractal-domains.md](./1_repo-value-and-fractal-domains.md) | `claude/repo-value-ux-review-3ur5y4` | Enterprise-first positioning and the modeling-depth ladder; fractal domains with charters and a federation rule; plugin packaging; ten journey defects closed; `example-company` split into two domains |
-| 2 | [2_archreator-models-itself.md](./2_archreator-models-itself.md) | `claude/repo-value-ux-review-3ur5y4` | The positioning against TOGAF, ArcKit, BMAD and C4; archreator modeled with archreator at Depth 1, with decisions and an open-questions log; the `restate-current-state` skill |
-| 3 | [3_element-id-validator.md](./3_element-id-validator.md) | `claude/repo-value-ux-review-3ur5y4` | `scripts/check_model.py` enforcing `RULE5` in CI; the database dropped from `ACMP15` and deferred with recorded triggers |
-| 4 | [4_remove-the-fractal-example.md](./4_remove-the-fractal-example.md) | `claude/repo-value-ux-review-3ur5y4` | Removed the fictional worked example — real projects are the test. Depth 3 is now documented and undemonstrated |
-| 5 | [5_diagram-notation-standard.md](./5_diagram-notation-standard.md) | `claude/repo-value-ux-review-3ur5y4` | Four notation devices — label format, glyph, shape, colour — specified in one place; diagrams first and one per section; `RULE10` |
-| 6 | [6_bring-meta-up-to-the-notation.md](./6_bring-meta-up-to-the-notation.md) | `claude/repo-value-ux-review-3ur5y4` | archreator's own model redrawn to the standard it publishes — 5 diagrams became 17, one per section, each document self-documenting. `RULE10` narrowed to element documents |
-| 7 | [7_the-front-door-in-the-notation.md](./7_the-front-door-in-the-notation.md) | `claude/repo-value-ux-review-3ur5y4` | Two diagrams at the top of `README.md` — the change process and the six layers — so the front page uses the notation it specifies |
-| 8 | [8_the-engagement-retrospective-skill.md](./8_the-engagement-retrospective-skill.md) | `claude/repo-value-ux-review-3ur5y4` | The thirteenth skill: capturing what the method did not tell someone to do, as the mechanism behind `COA1` stage 1 |
-| 9 | [9_the-repository-says-what-it-is.md](./9_the-repository-says-what-it-is.md) | `claude/product-1-roadmap-74giay` | The four trees named for what they are — `org-archreator/` and `product-archreator/` with the site nested; `architecture/` becomes `architecture/`; the scaffold moves inside the skills that emit it; the portability boundary drawn as decisions 6 and 7 |
-| 10 | [10_what-belongs-at-which-tier.md](./10_what-belongs-at-which-tier.md) | `claude/product-1-roadmap-74giay` | The granularity rule for a federated model — enterprise names *that*, product decomposes, implementation details; `RULE11` and `RULE12`; the cross-model step that initiative 9 needed |
-| 11 | [11_referencing-across-models.md](./11_referencing-across-models.md) | **Not approved** | Proposed a qualified form for citing another model's element (`product-archreator:RULE11`). Gate 2 declined — a thirteenth rule judged not to earn its place. Kept as the analysis behind open question 11 |
-| 12 | [12_the-site-becomes-an-implementation-tier.md](./12_the-site-becomes-an-implementation-tier.md) | `claude/product-1-roadmap-74giay` | The worked example `RULE11` shipped without: the site cites what it refines, using a cross-model qualifier adopted as addressing rather than as a thirteenth rule. Corrects a layer-1 row that contradicted its own open question |
-| 13 | [13_completing-the-business-and-information-layers.md](./13_completing-the-business-and-information-layers.md) | `claude/product-1-roadmap-74giay` | The enterprise gains processes, objects and domain context; the twelve rules move to their proper file; and the forty-one element types `ACMP15` enforces become a catalogue in the model instead of a Python list |
+| #   | Scope document | Delivered as | Summary |
+| --- | --------------- | ------------ | ------- |
+| 1 | [Rebuild the models on the current method](./1_rebuild-the-models-on-the-current-method.md) | The `rebuild` branch | Three trees rebuilt from an empty branch against the current method, with the previous corpus preserved at the tag `pre-rebuild-2026-08` |

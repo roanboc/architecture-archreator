@@ -1,36 +1,39 @@
-# Motivation — archreator
+# Motivation
 
 _[← Strategy layer](./README.md) · [EA home](../README.md)_
 
-**ArchiMate elements:** Stakeholder, Driver, Assessment, Goal, Outcome,
-Principle.
+**ArchiMate viewpoint:** Motivation. Who has a stake in archreator, what
+presses on them, what must become true, and the principles every change is
+checked against.
 
-At Depth 1 there is no `0_business-design/` to derive from, so every element
-here was discovered directly rather than mapped from a canvas block.
+The subject is **the method** — fifteen skills, the scaffold they emit, the
+validators, and the plugin that ships them. The organization that publishes it
+is modeled one tree up, in
+[`org-archreator/`](../../../org-archreator/architecture/README.md).
 
 ## How to read this document
 
 ```mermaid
 flowchart LR
-  stk(["◍ «Stakeholder» who cares"]):::stakeholder
-  drv{{"✳ «Driver» what pressures them"}}:::driver
-  asm>"⌕ «Assessment» what we judge to be true"]:::assessment
-  g("◎ «Goal» what must become true"):::goal
-  out[["◉ «Outcome» how we would see it"]]:::outcome
-  p[/"⚑ «Principle» what must always hold"/]:::principle
+  stk(["◍ «Stakeholder» whose interests the method serves"]):::stakeholder
+  drv{{"✳ «Driver» what presses on them"}}:::driver
+  asm>"⌕ «Assessment» what is true today"]:::assessment
+  goal("◎ «Goal» what must become true"):::goal
+  out[["◉ «Outcome» how we would know"]]:::outcome
+  prin[/"⚑ «Principle» what every change is checked against"/]:::principle
 
   stk -->|concerned with| drv
-  drv -->|assessed by| asm
-  asm -->|realized by| g
-  g -->|realized by| out
-  p -->|influences| g
+  drv -->|evidenced by| asm
+  drv -->|influences| goal
+  goal -->|measured by| out
+  prin -->|constrains| goal
 
   classDef stakeholder fill:#f4ecfc,stroke:#9575cd,color:#333
-  classDef driver fill:#e6d6f5,stroke:#7e57c2,color:#333
+  classDef driver fill:#e6d6f5,stroke:#8e63c8,color:#333
   classDef assessment fill:#d8c3f0,stroke:#7e57c2,color:#333
-  classDef goal fill:#c6aae9,stroke:#673ab7,color:#333
-  classDef outcome fill:#b493e0,stroke:#5e35b1,color:#333
-  classDef principle fill:#a37cd8,stroke:#4527a0,color:#333
+  classDef goal fill:#c6aae9,stroke:#6f4bb2,color:#333
+  classDef outcome fill:#b493e0,stroke:#5f3da0,color:#333
+  classDef principle fill:#a37cd8,stroke:#4f318c,color:#333
 ```
 
 | Glyph | Shape | Element | ID prefix | Reads as |
@@ -42,195 +45,146 @@ flowchart LR
 | `◉` | Rectangle, double bars | «Outcome» | `OUT` | `OUT1` = Outcome 1 |
 | `⚑` | Parallelogram | «Principle» | `P` | `P1` = Principle 1 |
 
-Six tones of the Motivation violet, light at the start of the chain and dark
-at the end. **The glyph rides on every node; the «stereotype» word appears
-once** — on the first node of each type in a diagram, dropped on the rest.
-The values come from
-[`architecture/README.md` § Notation conventions](../../../.claude/skills/project-bootstrap/templates/architecture/README.md#notation-conventions).
+The tone darkens along the chain, from the stakeholder who cares to the
+principle that constrains.
 
-## Stakeholders and drivers
+## Stakeholders
 
 ```mermaid
 flowchart LR
-  stk1(["◍ «Stakeholder» Someone modeling a company [STK1]"]):::stakeholder
-  stk2(["◍ Someone building one application [STK2]"]):::stakeholder
-  stk3(["◍ A non-technical Requester [STK3]"]):::stakeholder
-  stk4(["◍ The AI agent executing the method [STK4]"]):::stakeholder
-  stk5(["◍ archreator's maintainer [STK5]"]):::stakeholder
+  stk1(["◍ Requester in an adopting project [STK1]"]):::stakeholder
+  stk2(["◍ Agent in an adopting project [STK2]"]):::stakeholder
+  stk3(["◍ Reviewer in an adopting project [STK3]"]):::stakeholder
+  stk4(["◍ Method maintainer [STK4]"]):::stakeholder
 
-  drv1{{"✳ «Driver» Enterprise architecture is too slow [DRV1]"}}:::driver
-  drv2{{"✳ AI builds faster than oversight [DRV2]"}}:::driver
-  drv3{{"✳ Approvers cannot reach the tools [DRV3]"}}:::driver
-  drv4{{"✳ Agents lose the thread [DRV4]"}}:::driver
-  drv5{{"✳ A copied template cannot improve [DRV5]"}}:::driver
-
-  stk1 --> drv1
-  stk2 --> drv2
-  stk3 --> drv3
-  stk4 --> drv4
-  stk5 --> drv5
+  stk1 -->|delegates the modeling to| stk2
+  stk2 -->|hands the branch to| stk3
+  stk4 -->|changes what all three follow| stk1
 
   classDef stakeholder fill:#f4ecfc,stroke:#9575cd,color:#333
-  classDef driver fill:#e6d6f5,stroke:#7e57c2,color:#333
 ```
 
-Every edge reads **concerned with**. One driver per stakeholder, which is
-what a Depth 1 model looks like when it is honest: five constituencies, five
-distinct pressures, and no pretence that they overlap.
+| ID | Stakeholder | What they want from the method | Where they meet it |
+| -- | ----------- | ------------------------------ | ------------------ |
+| `STK1` | **Requester in an adopting project** | To own a subject — a company, a department, an app — and have it modeled without doing the modeling. To decide at points they choose, and be shown enough to decide honestly | The gates, and whatever surface a gate is presented on |
+| `STK2` | **Agent in an adopting project** | To know the business context before writing code, and to be stopped from acting on a fact that is no longer true. Usually an AI agent | The skills, the model, and the validators |
+| `STK3` | **Reviewer in an adopting project** | To read a whole branch and see what it claims to change, against documents that were true before it started | The pull request and the scope document |
+| `STK4` | **Method maintainer** | To change the method without silently falsifying the models built on it | The skill corpus and its own validator |
 
+**`STK1` and `STK3` are usually the same person, and that is not a
+redundancy.** They want different things at different moments: one decides
+before the work, the other checks after it. Collapsing them would lose the
+distinction that makes the second reading worth doing.
 
-| ID | Stakeholder | Concern | Driver |
-| -- | ----------- | ------- | ------ |
-| `STK1` | Someone modeling a company (external, adopts and uses) | Getting their organization into a form AI agents can work from, without a six-month architecture programme | `DRV1` |
-| `STK2` | Someone building one application (external, adopts and uses) | The same discipline at a weight a single app can carry | `DRV2` |
-| `STK3` | A non-technical Requester (external, approves) | Being able to approve what gets built without learning git | `DRV3` |
-| `STK4` | The AI agent executing the method (internal, non-human) | Instructions unambiguous enough to act on without re-deriving intent each session | `DRV4` |
-| `STK5` | archreator's maintainer (internal, owner) | A method that improves without every downstream project having to be rebuilt | `DRV5` |
+**`STK2` is the stakeholder the method is written for.** The documents are
+Markdown in git rather than a modeling tool's file format because that is what
+an agent reads natively.
 
-| ID | Driver | What pressures it |
-| -- | ------ | ----------------- |
-| `DRV1` | **Enterprise architecture is too slow to be useful** — by the time a traditional practice produces a model, the organization has moved |
-| `DRV2` | **AI builds faster than humans can keep track** — drift, contradiction, and code nobody can explain a week later |
-| `DRV3` | **The people who should approve can't reach the tools** — the person who knows whether the business model is right does not work in a terminal |
-| `DRV4` | **Agents lose the thread across sessions** — context that isn't written down is context that doesn't survive |
-| `DRV5` | **A copied template cannot be improved** — a method distributed by copy diverges the moment it is used |
-
-## Assessments
+## Drivers and assessments
 
 ```mermaid
 flowchart LR
-  asm1>"⌕ «Assessment» Artifacts need not match reality [ASM1]"]:::assessment
-  asm2>"⌕ Confident inconsistency [ASM2]"]:::assessment
-  asm3>"⌕ Approval is unrecorded or unreachable [ASM3]"]:::assessment
-  asm4>"⌕ An agent picks a plausible order [ASM4]"]:::assessment
-  asm5>"⌕ Scaffold and method have opposite lifecycles [ASM5]"]:::assessment
+  drv1{{"✳ Agents build faster than anyone can specify [DRV1]"}}:::driver
+  drv2{{"✳ The context an agent needs is not written down [DRV2]"}}:::driver
+  drv3{{"✳ Documentation stops being true when code moves [DRV3]"}}:::driver
 
-  g1("◎ «Goal» A model you can implement against [G1]"):::goal
-  g2("◎ Speed without incoherence [G2]"):::goal
-  g3("◎ The person who should decide, decides [G3]"):::goal
-  g4("◎ The method improves without breaking users [G4]"):::goal
+  asm1>"⌕ Requirements reach code without passing through architecture [ASM1]"]:::assessment
+  asm2>"⌕ An agent cannot tell a deleted element from a live one [ASM2]"]:::assessment
+  asm3>"⌕ Modeling tools produce files agents cannot read or diff [ASM3]"]:::assessment
+  asm4>"⌕ AI is modeled as a tool, so its decisions have no owner [ASM4]"]:::assessment
 
-  asm1 --> g1
-  asm2 --> g2
-  asm4 --> g2
-  asm3 --> g3
-  asm5 --> g4
+  drv1 -->|evidenced by| asm1
+  drv2 -->|evidenced by| asm3
+  drv2 -->|evidenced by| asm4
+  drv3 -->|evidenced by| asm2
 
+  classDef driver fill:#e6d6f5,stroke:#8e63c8,color:#333
   classDef assessment fill:#d8c3f0,stroke:#7e57c2,color:#333
-  classDef goal fill:#c6aae9,stroke:#673ab7,color:#333
 ```
 
-Every edge reads **realized by**. `G2` is the only goal two assessments
-point at, and that is the shape of the problem archreator exists for:
-inconsistency comes both from the agent's speed and from its lack of a fixed
-order to work in.
+| ID | Driver | Why it presses | Concerns |
+| -- | ------ | -------------- | -------- |
+| `DRV1` | **Agents build faster than anyone can specify** | The constraint on delivery has moved from writing code to deciding what should be written. A requirement handed straight to an agent produces working software nobody agreed to | `STK1`, `STK2` |
+| `DRV2` | **The context an agent needs is not written down** | Who the customers are, what the organization is trying to do, which rules bind a change — an agent with none of this fills the gap with something plausible | `STK2` |
+| `DRV3` | **Documentation stops being true when code moves** | A model describing last quarter is worse than no model, because it is trusted | `STK2`, `STK3` |
 
+| ID | Assessment | What it means for the method |
+| -- | ---------- | --------------------------- |
+| `ASM1` | **Requirements reach code without passing through architecture** | The ladder from strategy to technology exists in every methodology and is skipped in most projects, because nothing stops the skip. Something has to stop it |
+| `ASM2` | **An agent cannot tell a deleted element from a live one** | An agent reading a claim that one element relieves another has no cheap way to notice the second was removed three initiatives ago, and will reason confidently from it. This is the failure agents are worst at unaided |
+| `ASM3` | **Modeling tools produce files agents cannot read or diff** | An architecture kept in a tool's own format is invisible to the reader who most needs it, and invisible to code review |
+| `ASM4` | **AI is modeled as a tool, so its decisions have no owner** | When an agent is drawn as a box rather than an actor, nothing records what it may decide alone, or who it escalates to |
 
-| ID | Assessment | Assesses |
-| -- | ---------- | -------- |
-| `ASM1` | Documentation frameworks produce artifacts that describe an architecture without anything having to correspond to reality; nothing detects the gap | `DRV1` |
-| `ASM2` | The failure mode of AI-assisted building isn't bad code, it's confident inconsistency — each change is locally reasonable and the set is incoherent | `DRV2` |
-| `ASM3` | Approval that lives in a chat message is not a record; approval that requires a git client is not accessible | `DRV3` |
-| `ASM4` | An agent given a process but not the order to apply it in will pick a plausible order, and a different one next time | `DRV4` |
-| `ASM5` | A template's scaffold and its method have opposite lifecycles — one is overwritten on day one, the other should keep improving — and bundling them means neither can be handled correctly | `DRV5` |
-
-## Goals
-
-- **G1 — A model you can implement against.** Every element points at
-  something real, so the model is checkable rather than merely written.
-  Derived from `ASM1`.
-- **G2 — Speed without incoherence.** A change moves as fast as an agent
-  can work, and still lands consistent with everything already decided.
-  Derived from `ASM2`.
-- **G3 — The person who should decide, decides.** Business judgment is
-  exercised by whoever holds it, at a surface they can actually use.
-  Derived from `ASM3`.
-- **G4 — The method improves without breaking its users.** Adopting an
-  improvement is an install, not a migration. Derived from `ASM5`.
-
-## Outcomes
+## Goals and outcomes
 
 ```mermaid
 flowchart LR
-  g1("◎ «Goal» A model you can implement against [G1]"):::goal
-  g2("◎ Speed without incoherence [G2]"):::goal
-  g3("◎ The person who should decide, decides [G3]"):::goal
-  g4("◎ The method improves without breaking users [G4]"):::goal
+  g1("◎ An agent reads the business context natively [G1]"):::goal
+  g2("◎ A person approves before code exists [G2]"):::goal
+  g3("◎ The model still describes today after the merge [G3]"):::goal
+  g4("◎ An adopter starts without learning a tool [G4]"):::goal
 
-  out1[["◉ «Outcome» Any element checkable in under a minute [OUT1]"]]:::outcome
-  out2[["◉ A conflicting change is stopped before it is built [OUT2]"]]:::outcome
-  out3[["◉ A Requester with no terminal can grant every gate [OUT3]"]]:::outcome
-  out4[["◉ An improvement reaches a project without hand-porting [OUT4]"]]:::outcome
+  out1[["◉ Every element names what realizes it [OUT1]"]]:::outcome
+  out2[["◉ Every gate is recorded with what was shown [OUT2]"]]:::outcome
+  out3[["◉ No reference resolves to something deleted [OUT3]"]]:::outcome
 
-  g1 --> out1
-  g2 --> out2
-  g3 --> out3
-  g4 -.-> out4
+  g1 -->|measured by| out1
+  g2 -->|measured by| out2
+  g3 -->|measured by| out3
+  g4 -->|measured by| out1
 
-  classDef goal fill:#c6aae9,stroke:#673ab7,color:#333
-  classDef outcome fill:#b493e0,stroke:#5e35b1,color:#333
+  classDef goal fill:#c6aae9,stroke:#6f4bb2,color:#333
+  classDef outcome fill:#b493e0,stroke:#5f3da0,color:#333
 ```
 
-Every edge reads **realized by**. `OUT4`'s edge is dashed because it is
-**Pending**: the plugin mechanism exists and no second version has shipped
-through it, so nothing has proved the claim.
+| ID | Goal | Answers | Realized by |
+| -- | ---- | ------- | ----------- |
+| `G1` | **An agent reads the business context natively** | `DRV2`, `ASM3` | The model is Markdown in git — no export, no tool, no database |
+| `G2` | **A person approves before code exists** | `DRV1`, `ASM1` | The gates, and the rule that an unrecorded approval did not happen |
+| `G3` | **The model still describes today after the merge** | `DRV3`, `ASM2` | The validators, and the rule that a change updates whatever it falsifies |
+| `G4` | **An adopter starts without learning a tool** | `ASM3` | A scaffold of Markdown and two scripts, installed as a plugin |
 
+| ID | Outcome | How it is checked | Happening today? |
+| -- | ------- | ----------------- | ---------------- |
+| `OUT1` | **Every element names what realizes it, or says it is Pending** | Review. No validator can tell a repository path from a team name, and a wrong failure in CI teaches people to ignore CI | Partly — the convention holds, the check does not exist |
+| `OUT2` | **Every gate is recorded with who approved and what they were shown** | The Approvals table in the scope document | Yes, by convention |
+| `OUT3` | **No reference resolves to something that was deleted** | `check_model.py`, on every pull request | Yes, mechanically |
 
-| ID | Outcome | Realizes | Measured by |
-| -- | ------- | -------- | ----------- |
-| `OUT1` | Any element in the model can be checked against the repository or the people doing the work in under a minute | `G1` | A reader picks a row at random and finds the artifact, or an explicit "Pending" |
-| `OUT2` | A change that contradicts an existing principle is stopped before it is built, not after | `G2` | `architecture-first-change` Step 1c reaches a Conflict verdict rather than proceeding |
-| `OUT3` | A Requester with no terminal can grant every gate | `G3` | Gates are granted in conversation or on a PR comment, and transcribed into the Approvals table |
-| `OUT4` | A method improvement reaches an existing project without hand-porting | `G4` | `/plugin update`. **Pending** until the plugin has shipped a second version |
+**`OUT1` is the weakest of the three, and deliberately so.** Grounding is the
+rule that makes the model verifiable, and it is the one the tooling cannot
+enforce — distinguishing a path from a description is fuzzy, and a check that
+fails wrongly is worse than no check.
 
 ## Principles
 
-```mermaid
-flowchart LR
-  p1[/"⚑ «Principle» Every element names what realizes it [P1]"/]:::principle
-  p2[/"⚑ A human approves, and it is recorded [P2]"/]:::principle
-  p3[/"⚑ Each fact in exactly one document [P3]"/]:::principle
-  p4[/"⚑ A skill states the what; the model reasons the how [P4]"/]:::principle
-  p5[/"⚑ History is never rewritten [P5]"/]:::principle
+Constraints every proposed change is tested against, before anything else.
+They are few on purpose: a principle nobody could violate is a slogan.
 
-  g1("◎ «Goal» A model you can implement against [G1]"):::goal
-  g2("◎ Speed without incoherence [G2]"):::goal
-  g4("◎ The method improves without breaking users [G4]"):::goal
+- **P1 — Each fact has exactly one home.** Every other place that needs it
+  points there rather than restating it. A second copy is a second thing to
+  drift, and the drift is always silent. Where a copy is unavoidable, a check
+  holds the two in step.
+- **P2 — Every element names what realizes it.** A skill file, a script, a
+  written procedure — or an explicit `Pending — future initiative`. An element
+  grounded in nothing is a claim, and a model of claims cannot be verified.
+- **P3 — An approval that is not recorded did not happen.** The Requester's
+  decision lives in the scope document's Approvals table, with what they were
+  shown. A gate that did not apply is marked `N/A` with its reason rather than
+  deleted, so a skipped gate is distinguishable from a forgotten one.
+- **P4 — Consolidate before enumerating.** A new rule, element or document
+  must earn its place against the ones that already exist. The method is read
+  by people who are busy; length is a cost paid by every future reader.
+- **P5 — Method content is portable; packaging is disposable.** The test for
+  any file is whether it would need *editing* if the host platform vanished
+  tomorrow, or merely *moving*. Anything that would need editing is packaging,
+  and packaging is allowed to be thrown away.
 
-  p1 --> g1
-  p2 --> g2
-  p3 --> g1
-  p4 --> g4
-  p5 --> g2
+**`P1` and `P4` pull the same way from different ends** — one forbids saying a
+thing twice, the other forbids saying it at all unless it earns the space.
+Together they are why this document is short.
 
-  classDef principle fill:#a37cd8,stroke:#4527a0,color:#333
-  classDef goal fill:#c6aae9,stroke:#673ab7,color:#333
-```
+## Notes
 
-Every edge reads **influences**. `G3` has no principle pointing at it — the
-person who should decide deciding is a goal the gates deliver structurally,
-not something a rule can be checked against.
-
-
-Few, load-bearing, and testable. These gate every change to the method
-itself, and `architecture-first-change` Step 1c stops on a conflict with any of them.
-
-| ID | Principle | What it rules out |
-| -- | --------- | ----------------- |
-| `P1` | **Every element names what realizes it, or is explicitly Pending.** | A model that describes an intention as though it were a fact. This is the grounding rule, and it is the one that makes archreator a modeling-for-implementation method rather than a documentation method |
-| `P2` | **A human approves before anything is built, and the approval is recorded where it can be found later.** | Silent agent autonomy; approvals that exist only in a chat scrollback |
-| `P3` | **Each fact lives in exactly one document; everything else links to it.** | Drift between two copies of the same table — the failure that makes large models untrustworthy |
-| `P4` | **A skill states the *what*; the model reasons the *how*.** | A command catalogue that grows faster than anyone can learn it, and instructions that break when the situation differs slightly from the one anticipated |
-| `P5` | **History is never rewritten.** A merged scope document, an assigned element ID, and a granted approval are permanent. | Retroactively making the past agree with the present — which destroys the only evidence that a decision was made against different information |
-
-`P5` is the newest, added when `restate-current-state` made it necessary to
-say explicitly what compaction may and may not touch.
-
-## Why there is no single view of this layer
-
-The four diagrams above are the complete view, drawn one link of the chain at
-a time. An earlier version of this document ended with one picture of
-everything, which showed twelve of thirty-six elements and implied it showed
-all of them —
-[the notation standard](../scope/5_diagram-notation-standard.md) exists
-because of exactly that.
+`0_business-design/` is empty in this tree and stays that way. The canvases
+describe an organization's customers and economics, and this subject has
+neither of its own. They are filled one tree up.

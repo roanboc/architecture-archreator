@@ -1,29 +1,53 @@
-# Application Layer — the organization behind archreator
+# Application Layer
 
 _[← EA home](../README.md)_
 
-The software this organization owns. There is less of it than the products
-suggest, and that is the finding rather than an omission.
+The software that realizes the
+`business services`: application
+services, the components providing them, how the components collaborate,
+and — at the finest grain — the solution design and the contracts of every
+interface/port.
 
 ## Analysis order
 
-| # | Document | Elements | Question it answers | State |
-| - | -------- | -------- | ------------------- | ----- |
-| 1 | [1_application-services.md](./1_application-services.md) | Application Services and what they realize | What does the software offer the business? | **Filled** — 4 services, 3 live |
-| 2 | [2_application-components.md](./2_application-components.md) | Application Components, mapped to files, and the Depth 1 model detailing each | Which components provide them? | **Filled** — 5 components, 4 live |
-| 3 | `3_application-collaborations.md` | Collaborations and interaction sequences | How do components interact? | **Not started** — they do not. Four components with no runtime coupling have no interactions to draw |
-| 4 | `4_solution-design.md` | Overall design, patterns, tooling | How is the code structured, and why? | **Not started** — belongs to each component's own Depth 1 model, not here |
-| 5 | `5_interface-contracts.md` | Per-interface promises | What does each interface promise? | **Not started** — no component exposes an interface to another |
+Files are numbered in the order they are analyzed, from the coarsest view
+(services offered to the business) down to the finest (per-method interface
+contracts). Not every project needs all five from day one — a small
+project may only ever populate 1 and 2; add 3–5 when the component count or
+the number of interchangeable adapters justifies the extra grain.
 
-Documents 3 to 5 are empty because this organization's applications do not
-call each other, not because the analysis stopped. `COA2` would change that:
-a portal has a runtime, callers, and contracts.
+| #   | Document                                                             | Elements                                                     | Question it answers                              |
+| --- | -----------------------------------------------------------------------| --------------------------------------------------------------- | --------------------------------------------------- |
+| 1   | [1_application-services.md](./1_application-services.md)             | Application Services and the business services they realize | What does the software offer the business layer? |
+| 2   | [2_application-components.md](./2_application-components.md)         | Application Components, mapped to source files               | Which components provide those services?          |
+| 3   | `3_application-collaborations.md` | Collaborations and interaction sequences                     | How do the components interact?                   |
+| 4   | `4_solution-design.md`                       | Overall design, diagrams, patterns, tooling                  | How is the code structured, and why?               |
+| 5   | `5_interface-contracts.md`               | Per-interface pre/postconditions, invariants, error behavior | What exactly does each interface promise?          |
 
-## The rule this layer follows
+[2_application-components.md](./2_application-components.md) is where the **grounding rule** bites
+hardest: every component row must point at the module/file that implements
+it. `4_solution-design.md` is the natural place to document "how to add a
+new X" recipes (a new port, a new adapter, a new platform) once the shape
+repeats often enough to be worth writing down once.
 
-**Name the application; do not restate how it is built.** Each component
-points at the Depth 1 model that details it — `product-archreator/` for the method and its
-tooling, `product-archreator/site/architecture/` for the guidance site. That link is the whole
-relationship between this tree and those, and
-[2_application-components.md](./2_application-components.md#how-this-layer-relates-to-meta-and-site)
-sets it out.
+## Layer view
+
+```mermaid
+flowchart TB
+  acmp1["⊞ The skill corpus and plugin manifest [ACMP1]"]:::application
+  acmp4["⊞ The scaffold [ACMP4]"]:::application
+  acmp3["⊞ The documentation checks [ACMP3]"]:::application
+  asvc1(["⬮ Method distribution and update [ASVC1]"]):::application
+  bsvc3(["⬭ Advisory and delivery [BSVC3]"]):::business
+
+  acmp1 -->|emits| acmp4
+  acmp4 -->|carries| acmp3
+  acmp1 -->|provides| asvc1
+  bsvc3 -.->|nothing realizes| bsvc3
+
+  classDef application fill:#c2f0ff,stroke:#0288d1,color:#333
+  classDef business fill:#efe57d,stroke:#b8ad3f,color:#333
+```
+
+The self-loop is the finding: **no application service realizes advisory and
+delivery.** It is done by a person, so it scales at the speed of one calendar.

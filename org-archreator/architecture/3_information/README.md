@@ -1,19 +1,46 @@
-# Information Layer — the organization behind archreator
+# Information Layer
 
 _[← EA home](../README.md)_
 
-What information this organization holds, and — more informatively — what it
-does not.
+The passive structure of the architecture: the data objects that represent
+the `business objects`, and how
+information flows, is represented, and persists.
 
 ## Analysis order
 
-| # | Document | Elements | Question it answers | State |
-| - | -------- | -------- | ------------------- | ----- |
-| 1 | [1_data-objects.md](./1_data-objects.md) | Data Objects and their classification | What information exists? | **Filled** — 6 objects, 3 of them not held |
-| 2 | `2_data-flows.md` | Representations, persistence, flow | How does it move? | **Not started** — one flow exists (an adopter clones a public repository) and it needs no document |
-| 3 | `3_data-architecture.md` | Schema, classification, retention | Where does it live, how sensitive, how long? | **Not started** — nothing is stored by this organization, so there is nothing to classify beyond the table in document 1 |
+Files are numbered in the order they are analyzed: first _what information
+exists_, then _how it moves and is represented_, and finally _where it is
+physically stored, classified, and retained_.
 
-Documents 2 and 3 are what `COA2` would have to write. They are empty
-because the organization operates no storage, not because nobody got to them
-— and the distinction is worth keeping, because an empty data architecture
-usually means the opposite.
+| #   | Document                                           | Elements                                              | Question it answers                                 |
+| --- | ---------------------------------------------------| -------------------------------------------------------| ------------------------------------------------------ |
+| 1   | [1_data-objects.md](./1_data-objects.md)           | Data Objects (domain types) and their code locations  | What information exists?                             |
+| 2   | `2_data-flows.md`               | Representations, persistence and flow relationships   | How does it move between representations?            |
+| 3   | `3_data-architecture.md` | Schema, classification, retention                     | Where does it live, how sensitive is it, how long?   |
+
+`3_data-architecture.md` is where **data classification** (public,
+internal, sensitive, regulated, …) and **retention** live — reference it
+whenever a business rule or technology decision depends on how sensitive a
+piece of data is.
+
+## Layer view
+
+```mermaid
+flowchart TB
+  dobj4["▦ Client business information [DOBJ4]"]:::confidential
+  dobj7["▦ Engagement pattern notes [DOBJ7]"]:::data
+  dobj1["▦ The method sources [DOBJ1]"]:::data
+  dobj5["▦ Adopter models [DOBJ5]"]:::external
+
+  dobj4 -->|stripped of identity| dobj7
+  dobj7 -->|recurs, becomes| dobj1
+  dobj1 -->|produces| dobj5
+
+  classDef data fill:#c2f0ff,stroke:#0288d1,color:#333
+  classDef confidential fill:#ffd6d6,stroke:#c62828,color:#333
+  classDef external fill:#eeeeee,stroke:#999999,color:#333
+```
+
+The learning loop, and every step removes information. It ends outside the
+boundary: what an adopter builds is never seen here, which is why the
+organization cannot measure its own main outcome.

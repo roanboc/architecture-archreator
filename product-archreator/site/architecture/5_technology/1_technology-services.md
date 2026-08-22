@@ -1,8 +1,12 @@
-# Technology Services
+# Technology services
 
 _[← Technology layer](./README.md) · [EA home](../README.md)_
 
-**ArchiMate elements:** Technology Service, Node.
+**ArchiMate viewpoint:** Technology. What the page runs on.
+
+Two nodes, two services, and nothing operated by anyone here. This is
+`stack-selection`'s "no backend" case in its purest form: the state is not
+merely small, it does not exist.
 
 ## How to read this document
 
@@ -22,39 +26,48 @@ flowchart LR
 | `⬒` | Rectangle | «Node» | `NODE` | `NODE1` = Node 1 |
 | `⬯` | Stadium | «Technology Service» | `TSVC` | `TSVC1` = Technology Service 1 |
 
-**The glyph rides on every node; the «stereotype» word appears once.**
-
 ## The stack
 
 ```mermaid
 flowchart LR
-  node1["⬒ «Node» GitHub Pages [NODE1]"]:::node
+  node1["⬒ GitHub Pages [NODE1]"]:::node
   node2["⬒ GitHub Actions [NODE2]"]:::node
 
-  tsvc1(["⬯ «Technology Service» Static hosting [TSVC1]"]):::techservice
-  tsvc2(["⬯ CI/CD [TSVC2]"]):::techservice
+  tsvc1(["⬯ Static hosting [TSVC1]"]):::techservice
+  tsvc2(["⬯ Build-free deployment [TSVC2]"]):::techservice
 
-  node1 --> tsvc1
-  node2 --> tsvc2
+  node1 -->|provides| tsvc1
+  node2 -->|provides| tsvc2
+  tsvc2 -->|publishes to| node1
 
   classDef node fill:#a9d68f,stroke:#4a7a35,color:#333
   classDef techservice fill:#c9e7b7,stroke:#5a8a45,color:#333
 ```
 
-**Two nodes, two services, and no edges between them.** Nothing here calls
-anything else at request time, which is what makes the whole layer this
-short.
+**The one edge in this layer is a deployment, not a call.** `TSVC2` reaches
+`NODE1` when something is merged, and never while anyone is reading. At
+request time the two nodes are unrelated.
 
-| ID | Technology service | Provided by | Why |
-| -- | ------------------ | ----------- | --- |
-| `TSVC1` | **Static hosting** | `NODE1` | Zero servers to secure or pay for; the content is fully static and public — exactly the `stack-selection` "no backend" case |
-| `TSVC2` | **CI/CD** | `NODE2` | Already the template's assumed CI/CD provider (`stack-selection`); no new tooling to adopt |
+| ID | Technology service | Provided by | Why this one |
+| -- | ------------------ | ----------- | ------------ |
+| `TSVC1` | **Static hosting** | `NODE1` | Free, versioned with the source, HTTPS and a certificate without asking. Nothing to secure, patch or pay for — which is `G2` as an infrastructure choice |
+| `TSVC2` | **Build-free deployment** | `NODE2` | Uploads a directory and publishes it. There is no build because there is nothing to compile; the source file *is* the artifact |
 
-| ID | Node | Operated by |
-| -- | ---- | ----------- |
-| `NODE1` | **GitHub Pages** | GitHub |
-| `NODE2` | **GitHub Actions** | GitHub |
+| ID | Node | Operated by | Substitutable? |
+| -- | ---- | ----------- | -------------- |
+| `NODE1` | **GitHub Pages** | GitHub | **Yes, trivially.** One static file with no server-side behaviour runs anywhere. Cloudflare Pages or Netlify would need a different workflow file and nothing else |
+| `NODE2` | **GitHub Actions** | GitHub | Yes. The workflow is four steps and none is provider-specific except the two Pages actions |
 
-No database, no auth provider, no application server — there is nothing
-here that mutates shared state, so none of `stack-selection`'s "needs a
-backend" guidance applies.
+**This is the layer that would change if the repository moved**, and it is the
+cheapest layer to change. That asymmetry is deliberate: the method keeps its
+value in Markdown, so the hosting underneath is a preference rather than a
+commitment.
+
+## What this layer deliberately does not have
+
+| Absent | Because |
+| ------ | ------- |
+| A build step | The source is the artifact. Nothing is compiled, bundled or minified |
+| A CDN, font host or analytics | `P2`. The page fetches nothing at request time, from anyone |
+| A domain of its own | A project path under `github.io` is free and adequate. A custom domain is a renewal somebody has to remember |
+| Any secret | Deployment uses the repository's own token. There is nothing to rotate |

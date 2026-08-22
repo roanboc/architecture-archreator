@@ -1,8 +1,18 @@
-# Technology Services — archreator
+# Technology services
 
 _[← Technology layer](./README.md) · [EA home](../README.md)_
 
-**ArchiMate elements:** Node, Technology Service, Artifact.
+**ArchiMate viewpoint:** Technology. What the method runs on.
+
+**Nothing here is operated by the organization**, and that is the whole shape
+of this layer. archreator has no server, no database, no account system and no
+state — it is text in a repository plus scripts that run and exit. Every node
+below is somebody else's, on a free tier, and the layer is short because there
+is nothing to keep running.
+
+This is `stack-selection`'s "no backend" case taken literally: the method
+stores no shared state, so none of its guidance about databases, auth or
+hosting applies.
 
 ## How to read this document
 
@@ -10,14 +20,14 @@ _[← Technology layer](./README.md) · [EA home](../README.md)_
 flowchart LR
   node["⬒ «Node» where something runs"]:::node
   tsvc(["⬯ «Technology Service» what it provides"]):::techservice
-  art[/"⎔ «Artifact» what is deployed on it"/]:::artifact
+  art[/"⎔ «Artifact» what is deployed"/]:::artifact
 
   node -->|provides| tsvc
   art -->|deployed on| node
 
   classDef node fill:#a9d68f,stroke:#4a7a35,color:#333
   classDef techservice fill:#c9e7b7,stroke:#5a8a45,color:#333
-  classDef artifact fill:#dcefd0,stroke:#5a8a45,color:#333
+  classDef artifact fill:#dcefd0,stroke:#7aa860,color:#333
 ```
 
 | Glyph | Shape | Element | ID prefix | Reads as |
@@ -26,104 +36,71 @@ flowchart LR
 | `⬯` | Stadium | «Technology Service» | `TSVC` | `TSVC1` = Technology Service 1 |
 | `⎔` | Parallelogram | «Artifact» | `ART` | `ART1` = Artifact 1 |
 
-**The glyph rides on every node; the «stereotype» word appears once.**
-
-## Nodes
+## The stack
 
 ```mermaid
 flowchart LR
-  node1["⬒ «Node» Claude Code [NODE1]"]:::node
-  node2["⬒ GitHub Actions [NODE2]"]:::node
-  node3["⬒ GitHub Pages [NODE3]"]:::node
-  node4["⬒ Python 3 standard library [NODE4]"]:::node
-  node5["⬒ Git [NODE5]"]:::node
+  node1["⬒ Git hosting [NODE1]"]:::node
+  node2["⬒ Continuous integration [NODE2]"]:::node
+  node3["⬒ Static hosting [NODE3]"]:::node
+  node4["⬒ The agent host platform [NODE4]"]:::node
 
-  tsvc1(["⬯ «Technology Service» Skill discovery [TSVC1]"]):::techservice
-  tsvc2(["⬯ Model validation on every change [TSVC2]"]):::techservice
-  tsvc3(["⬯ Plugin distribution and update [TSVC3]"]):::techservice
-  tsvc4(["⬯ Published read-only view of a model [TSVC4]"]):::techservice
+  tsvc1(["⬯ Version control and review [TSVC1]"]):::techservice
+  tsvc2(["⬯ Checks on every change [TSVC2]"]):::techservice
+  tsvc3(["⬯ Public page delivery [TSVC3]"]):::techservice
+  tsvc4(["⬯ Skill execution [TSVC4]"]):::techservice
 
-  node1 --> tsvc1
-  node2 --> tsvc2
-  node4 --> tsvc2
-  node1 --> tsvc3
-  node5 --> tsvc3
-  node3 --> tsvc4
+  node1 -->|provides| tsvc1
+  node2 -->|provides| tsvc2
+  node3 -->|provides| tsvc3
+  node4 -->|provides| tsvc4
 
   classDef node fill:#a9d68f,stroke:#4a7a35,color:#333
   classDef techservice fill:#c9e7b7,stroke:#5a8a45,color:#333
 ```
 
-Every edge reads **provides**. **Nothing here was installed.** Every node is
-either the developer's own tooling or a GitHub feature — no runtime, no
-database, no dependencies, no build, and `NODE4` is whatever Python the
-runner already had.
+**Four nodes, four services, and no edge between any of them.** Nothing calls
+anything else at request time, which is what makes the whole layer this short
+and why there is no deployment topology to draw.
 
-| ID | Node | Runs | State |
-| -- | ---- | ---- | ----- |
-| `NODE1` | Claude Code | `ACMP1`–`ACMP12` — the skills are loaded and executed by it, from `.claude/skills/` or from the installed plugin | In use |
-| `NODE2` | GitHub Actions | `ACMP13` and `ACMP15` on every PR and every push to `main` touching markdown, HTML, or the scripts | In use — [`.github/workflows/docs-check.yml`](../../../.github/workflows/docs-check.yml) |
-| `NODE3` | GitHub Pages | The guidance site built by the `site/` project | In use — [`.github/workflows/deploy-site.yml`](../../../.github/workflows/deploy-site.yml) |
-| `NODE4` | Python 3 standard library | `ACMP13` and `ACMP15`. No packages, no lockfile, no `setup-python` step — the runner's Python is enough | In use |
-| `NODE5` | Git | The model's storage and its history. `RULE6`'s immutability is enforced by convention, not by git — nothing prevents editing a merged scope document except the rule | In use |
+| ID | Technology service | Provided by | Why this one |
+| -- | ------------------ | ----------- | ------------ |
+| `TSVC1` | **Version control and review** | `NODE1` | The model is Markdown in git, so the thing that versions the code versions the architecture. Review of a change and review of its documents are the same act |
+| `TSVC2` | **Checks on every change** | `NODE2` | The validators are worthless if running them is somebody's discipline. Free at this scale, and already where the code is |
+| `TSVC3` | **Public page delivery** | `NODE3` | Zero servers to secure or pay for, and the site is fully static |
+| `TSVC4` | **Skill execution** | `NODE4` | The only node the method does not choose — it is wherever the adopting agent runs |
 
-## Technology services
+| ID | Node | Operated by | Substitutable? |
+| -- | ---- | ----------- | -------------- |
+| `NODE1` | **Git hosting** — GitHub today | GitHub | Yes, with edits. Pull-request URLs appear in `ACMP1`'s gate-presentation guidance, so a move would need those repaired |
+| `NODE2` | **Continuous integration** — GitHub Actions today | GitHub | Yes. Two workflow files invoking three scripts |
+| `NODE3` | **Static hosting** — GitHub Pages today | GitHub | Yes, trivially. See [`site/`](../../site/architecture/5_technology/README.md) |
+| `NODE4` | **The agent host platform** — Claude Code today | The adopter | Yes, and this is what `P5` is about: a second platform adds a manifest, and forks nothing |
 
-| ID | Service | Realizes | Realized by |
-| -- | ------- | -------- | ----------- |
-| `TSVC1` | Skill discovery — a component is selected by matching its description against the situation | `ACMP1`–`ACMP12`'s interface | `NODE1` |
-| `TSVC2` | Model validation on every change — links, and element-ID references | `RULE5` fully; `RULE2` partially | `NODE2` + `NODE4` |
-| `TSVC3` | Plugin distribution and update | `BSVC7` | `NODE1`'s marketplace mechanism, over `NODE5` |
-| `TSVC4` | Published read-only view of a model | `BSVC4`'s third gate surface | `NODE3` |
+**`NODE4` is the one that matters for portability.** The skills are Markdown
+with YAML frontmatter; what makes them *runnable* is a host that reads a
+description and routes to a procedure. `ACMP11` is the adapter, and it is the
+only component that would need rewriting rather than moving.
+
+**`NODE1`'s substitutability is qualified on purpose.** The method is not tied
+to GitHub for storage, but it does assume a pull request exists as a surface
+where a Requester can approve and a Reviewer can read a whole branch. A host
+without that concept would need more than a path change.
 
 ## Artifacts
 
-```mermaid
-flowchart LR
-  art1[/"⎔ «Artifact» SKILL.md files [ART1]"/]:::artifact
-  art2[/"⎔ plugin.json and marketplace.json [ART2]"/]:::artifact
-  art3[/"⎔ check_links.py and check_model.py [ART3]"/]:::artifact
-  art4[/"⎔ The site's static pages [ART4]"/]:::artifact
+| ID | Artifact | What it is | Deployed on |
+| -- | -------- | ---------- | ----------- |
+| `ART1` | **The installable plugin** | The skill corpus and scaffold, resolved from the marketplace manifest at install time | `NODE4` |
 
-  node1["⬒ «Node» Claude Code [NODE1]"]:::node
-  node2["⬒ GitHub Actions [NODE2]"]:::node
-  node3["⬒ GitHub Pages [NODE3]"]:::node
+There is no build. `ART1` is the repository contents at a ref, which is why
+there is no packaging step, no version to publish and nothing to sign.
 
-  art1 --> node1
-  art2 --> node1
-  art3 --> node2
-  art4 --> node3
+## What this layer deliberately does not have
 
-  classDef artifact fill:#dcefd0,stroke:#5a8a45,color:#333
-  classDef node fill:#a9d68f,stroke:#4a7a35,color:#333
-```
-
-Every edge reads **deployed on**. Three of the four artifacts are the source
-files themselves — nothing is compiled or bundled, which is why there is no
-deployment pipeline to draw.
-
-
-| ID | Artifact | Deployed on |
-| -- | -------- | ----------- |
-| `ART1` | `SKILL.md` files under `.claude/skills/` | `NODE1` |
-| `ART2` | [`plugin.json`](../../../.claude/.claude-plugin/plugin.json) and [`marketplace.json`](../../../.claude-plugin/marketplace.json) | `NODE1` via `TSVC3` |
-| `ART3` | [`check_links.py`](../../../.claude/skills/project-bootstrap/templates/scripts/check_links.py) and [`check_model.py`](../../../.claude/skills/project-bootstrap/templates/scripts/check_model.py) | `NODE2` |
-| `ART4` | The `site/public/` static pages | `NODE3` |
-
-## Why there is no more than this
-
-`stack-selection`'s first principle is that a project's traffic and data
-volume essentially never justify operating infrastructure. archreator has
-neither, so it operates none. Two consequences worth stating rather than
-discovering later:
-
-- **CI enforces two rules out of nine.** `TSVC2` checks that links resolve
-  and that element references do. Nothing checks whether an element's named
-  realizing artifact exists — the grounding rule is still carried by review,
-  because distinguishing a repository path from a team name is fuzzy and a
-  wrong CI failure teaches people to ignore CI.
-- **`RULE6` has no technical enforcement.** Nothing stops someone editing a
-  merged scope document; git records that they did, but only if someone
-  looks. A pre-merge check comparing merged scope documents against their
-  merge-commit versions would close it. Not built, and probably not worth it
-  until a project has enough contributors for the convention to fail.
+| Absent | Because |
+| ------ | ------- |
+| A database | Nothing mutates shared state. The projection is a file, regenerated and thrown away |
+| Authentication | There are no accounts. Repository permissions carry `ROLE1` and `ROLE3` |
+| An application server | Nothing runs between requests, because there are no requests |
+| A monitoring stack | Nothing is running to monitor. A failure is a red check on a pull request |

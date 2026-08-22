@@ -1,24 +1,18 @@
-name: Docs check
+name: docs-check
 
 on:
   pull_request:
-    paths:
-      - "**/*.md"
-      - "**/*.html"
-      - ".claude/skills/project-bootstrap/templates/scripts/*.py"
+    paths: ["**/*.md", "**/*.html", "scripts/*.py"]
   push:
     branches: [main]
-    paths:
-      - "**/*.md"
-      - "**/*.html"
-      - ".claude/skills/project-bootstrap/templates/scripts/*.py"
+    paths: ["**/*.md", "**/*.html", "scripts/*.py"]
 
 jobs:
-  check-docs:
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check relative Markdown and HTML links
-        run: python3 .claude/skills/project-bootstrap/templates/scripts/check_links.py
-      - name: Check element-ID references
-        run: python3 .claude/skills/project-bootstrap/templates/scripts/check_model.py
+      - name: Relative links and HTML anchors resolve
+        run: python3 scripts/check_links.py
+      - name: Element-ID references resolve
+        run: python3 scripts/check_model.py

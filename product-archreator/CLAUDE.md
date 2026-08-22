@@ -1,68 +1,53 @@
 # CLAUDE.md
 
-This tree models **archreator itself** — `PROD1`, the open method: the
-skills, the conventions, the gates, and the scaffold they emit. It is
-archreator applied to archreator, which is what makes the method's own
-claims checkable. The organization that publishes it is modeled in
-[`../org-archreator/`](../org-archreator/README.md); the guidance site that
-explains it is nested here as [`site/`](./site/README.md), because it
-realizes `BSVC2` for this product rather than standing on its own. See
-[`../CLAUDE.md`](../CLAUDE.md) for the repository-wide rule.
+The architecture model of **archreator the method**, treated as the product it
+is. The method's own source — skills, scaffold, validators, docs — lives in
+the [`archreator`](https://github.com/roanboc/archreator) repository; this
+tree is the model *of* it.
 
-## The rule that governs everything else
-
-**Strategy and business architecture are validated before any other layer,
-and the Requester approves at explicit gates before development.** A change
-in requirements is never coded directly: align it through the numbered EA
-layers (`architecture/1_strategy` → … → `5_technology`), stop at the gates
-for the Requester's approval, record it in a scope document (`architecture/scope/`), then
-implement. Use `architecture-first-change` for the process, `architecture-doc-style` when
-touching anything under `architecture/`, `scope-doc` for the scope document,
-`decision-record` for a call smaller than an initiative, and
-`restate-current-state` when the model reads as a history rather than a
-description of today.
+Repository-wide rules, the actors and the commands are in the
+[root `CLAUDE.md`](../CLAUDE.md). This file carries only what is specific to
+this tree.
 
 ## Modeling depth
 
-**Declared depth: 1 — Application.** The subject is one thing that gets
-built: a method that ships as instructions. `architecture/0_business-design/`
-and `architecture/domains/` are not used — the canvases belong to the
-organization, one tree up — and layer 3 is absent because the method holds
-no data objects of its own.
+**Declared depth: 1 — Application.**
 
-## Where the method actually lives
+The subject is one deliverable with one aim, not an organization. It has no
+customers of its own, no revenue and no staff — those belong to
+[`org-archreator/`](../org-archreator/architecture/README.md) one tree up, and
+this model consumes that one rather than restating it. So
+`0_business-design/` stays empty and says so, `domains/` stays unused, and
+**Gate 2 is the gate that applies** to a change here. Gates 0 and 1 belong to
+the organization's tree.
 
-The model here **describes** the method; it is not the method. The shipped
-artifacts are:
+## What this tree does not model
 
-- `../.claude/skills/` — the skill bodies, which are the method's
-  instructions
-- `../.claude/skills/project-bootstrap/templates/` — the scaffold a new
-  project is generated from
-- `../.claude/.claude-plugin/plugin.json` and `../.claude-plugin/marketplace.json`
-  — the packaging
+**The process model.** `BPROC1`–`BPROC4` and their level-2 children live in
+`docs/process/` of the `archreator` repository, beside the skills that realize
+them. The reason is in
+[decision 1](./architecture/decisions/1_the-process-model-stays-with-the-skills.md):
+the catalogue exists so that CI can prove every process has a skill and every
+skill a process, and that proof only works where both sit together.
 
-What may and may not be provider-specific among those is fixed by
-[decision 6](./architecture/decisions/6_the-portability-boundary.md): method content and
-skill frontmatter are portable, packaging is not.
+`2_business/` therefore models the services, actors, roles and rules of the
+method, and states where the process catalogue lives rather than copying it.
 
-## Layout
+## Structure
 
-- `architecture/` — the current-state model, numbered ArchiMate layers
-  (1, 2, 4, 5)
-- `architecture/scope/` — one document per initiative, each carrying its Approvals table
-- `architecture/decisions/` — consequential calls smaller than an initiative
-- `architecture/reviews/` — point-in-time assessments of the method against itself
-- `architecture/scope/open-questions.md` — the consolidated index of adopted
-  interpretations still awaiting confirmation, read as step 0 of
-  `architecture-first-change`
-- `site/` — the guidance site, its own Depth 1 project
+- `architecture/` — the six numbered layers describing the method as it is
+  today, plus `scope/` (one document per initiative) and `decisions/`.
+- `site/` — a tree of its own, for the published guidance site. It nests here
+  because it realizes one of this product's services rather than standing
+  alone.
 
 ## Conventions
 
-- Documentation language: English.
-- Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`, …).
-- Element IDs are assigned once and never reused;
-  `.claude/skills/project-bootstrap/templates/scripts/check_model.py` enforces it.
-- A merged scope document is a historical record. Its link targets may be
-  repaired when files move; its words may not change (`RULE6`).
+Beyond the repository-wide ones:
+
+- **This model describes the method, not the repository that holds it.** A
+  statement about how many files something takes belongs nowhere; a statement
+  about what the method can do belongs in a layer.
+- **An element names what realizes it** — a skill file, a script, a manifest —
+  or is marked `Pending — future initiative`. An element grounded in nothing
+  is a claim, not an architecture.

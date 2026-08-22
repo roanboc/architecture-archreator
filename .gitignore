@@ -1,3 +1,12 @@
 # Python bytecode from running the checks in scripts/.
 __pycache__/
 *.pyc
+
+# Personal, machine-local Claude Code settings — never shared.
+# Project-scoped settings (.claude/settings.json) ARE committed.
+.claude/settings.local.json
+
+# The projection built by scripts/build_model.py. Regenerated from the
+# Markdown under architecture/ on every run, so it is never committed: a
+# derived file that is checked in is a derived file that can go stale.
+.model/

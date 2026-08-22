@@ -1,109 +1,113 @@
-# Business Actors and Roles — archreator
+# Business actors and roles
 
 _[← Business layer](./README.md) · [EA home](../README.md)_
 
-**ArchiMate elements:** Business Actor, Business Role.
+**ArchiMate viewpoint:** Business. Who fills each responsibility the method
+defines, and — for the one filled by an AI — what it may decide alone.
 
-Three actors, one of them an AI. Per
-[`architecture-doc-style` § Actors](../../../.claude/skills/architecture-doc-style/SKILL.md),
-every AI actor carries an autonomy level, concrete decision rights, and a
-named escalation path.
+The method defines **roles**, not people. Its central claim is that the same
+three roles work whether a human or an AI fills the middle one, so the roles
+are modeled as responsibilities and the actors as whoever takes them on.
 
 ## How to read this document
 
 ```mermaid
 flowchart LR
-  act(["⚇ «Business Actor» who acts"]):::actor
-  role["⚉ «Business Role» the hat they wear"]:::role
-  svc(["⬭ «Business Service» what that produces"]):::service
+  act(["⚇ «Business Actor» who exists"]):::actor
+  actAI(["⚇ «Business Actor» an AI actor (AI)"]):::application
+  role["⚉ «Business Role» a responsibility somebody takes on"]:::role
 
   act -->|assigned to| role
-  role -->|realizes| svc
+  actAI -->|assigned to| role
 
-  classDef actor fill:#fffbb5,stroke:#b8a200,color:#333
-  classDef role fill:#f7f099,stroke:#9a8800,color:#333
-  classDef service fill:#efe57d,stroke:#8a7a00,color:#333
+  classDef actor fill:#fffbb5,stroke:#c8c04a,color:#333
+  classDef role fill:#f7f099,stroke:#b8ad3f,color:#333
+  classDef application fill:#c2f0ff,stroke:#0288d1,color:#333
 ```
 
 | Glyph | Shape | Element | ID prefix | Reads as |
 | ----- | ----- | ------- | --------- | -------- |
-| `⚇` | Stadium | «Business Actor» | `ACT` | `ACT1` = Business Actor 1 |
-| `⚉` | Rectangle | «Business Role» | `ROLE` | `ROLE1` = Business Role 1 |
-| `⬭` | Stadium | «Business Service» — from [2_business-services.md](./2_business-services.md) | `BSVC` | `BSVC1` = Business Service 1 |
+| `⚇` | Stadium | «Business Actor» | `ACT` | `ACT1` = Actor 1 |
+| `⚉` | Rectangle | «Business Role» | `ROLE` | `ROLE1` = Role 1 |
 
-An `(AI)` actor is drawn in the Application cyan even here, so a reader never
-mistakes it for a person. **The glyph rides on every node; the «stereotype»
-word appears once.**
+**An `(AI)` actor is drawn in the application cyan**, even here in a business
+diagram, so that no reader mistakes it for a person. That override is the
+notation's, not this document's.
 
-## Actors
+## The actors
 
 ```mermaid
 flowchart LR
-  act1(["⚇ «Business Actor (Human)» Requester [ACT1]"]):::actor
-  act2(["⚇ «Business Actor (AI)» Agent — co-pilot [ACT2]"]):::actorai
-  act3(["⚇ «Business Actor (Human)» Reviewer [ACT3]"]):::actor
+  act1(["⚇ A person in the adopting organization (Human) [ACT1]"]):::actor
+  act2(["⚇ An AI coding agent (AI) [ACT2]"]):::application
 
-  role1["⚉ «Business Role» Requesting and approving [ROLE1]"]:::role
-  role2["⚉ Executing the method [ROLE2]"]:::role
-  role3["⚉ Reviewing and merging [ROLE3]"]:::role
+  role1["⚉ Requester [ROLE1]"]:::role
+  role2["⚉ Agent [ROLE2]"]:::role
+  role3["⚉ Reviewer [ROLE3]"]:::role
+  role4["⚉ Method maintainer [ROLE4]"]:::role
 
   act1 -->|assigned to| role1
+  act1 -->|assigned to| role3
+  act1 -->|assigned to| role4
   act2 -->|assigned to| role2
-  act3 -->|assigned to| role3
-  act2 -.->|escalates to| act1
-  act2 -.->|escalates to| act3
+  act1 -.->|may also fill| role2
 
-  classDef actor fill:#fffbb5,stroke:#b8a200,color:#333
-  classDef actorai fill:#c2f0ff,stroke:#2a8fb0,color:#333
-  classDef role fill:#f7f099,stroke:#9a8800,color:#333
+  classDef actor fill:#fffbb5,stroke:#c8c04a,color:#333
+  classDef role fill:#f7f099,stroke:#b8ad3f,color:#333
+  classDef application fill:#c2f0ff,stroke:#0288d1,color:#333
 ```
 
-**One actor per role, and the AI holds one of them outright.** `ACT2` is not
-drawn assisting `ROLE2` the way an agent assists elsewhere in this
-repository — it *is* the executor, and the two dashed escalation edges are
-what keep that safe: a human before the work and a human after it.
+**The dashed edge is the whole bet.** `ACT1` filling `ROLE2` is the ordinary
+case in every other method; here it is the exception, drawn dashed, and
+everything still works when it happens. Nothing in the method assumes a human
+walks the layers.
 
+| ID | Actor | Kind | Who it is | Fills |
+| -- | ----- | ---- | --------- | ----- |
+| `ACT1` | **A person in the adopting organization** | Human | Whoever owns the subject, reviews the work, or maintains the method. One person routinely holds several of these responsibilities on a small project | `ROLE1`, `ROLE3`, `ROLE4`, and `ROLE2` when no agent is used |
+| `ACT2` | **An AI coding agent** | AI | The agent running the skills — reading the model, walking the layers, writing the documents, implementing, opening the pull request | `ROLE2` |
 
-| ID | Actor | Kind | Role | Autonomy level | Decision rights | Escalation path |
-| -- | ----- | ---- | ---- | -------------- | --------------- | --------------- |
-| `ACT1` | **Requester** | Human | `ROLE1` Requesting and approving | — (human) | Owns what gets built and why: approves at Gates 0–3, sets the modeling depth, and resolves conflicts with a Principle. The only actor who can approve a gate | — |
-| `ACT2` | **Agent** | **AI** | `ROLE2` Executing the method | **Co-pilot** — walks the layers, drafts every document, implements, and opens the PR; nothing reaches `main` without `ACT3` merging it, and nothing is built before `ACT1` grants Gate 2 | May draft and edit any document under `architecture/`, write code, choose an implementation approach within an approved design, declare a modeling depth, and open a PR. May **not** approve its own gate, merge, change a Principle, retire an element during restatement without `ACT1` confirming, or proceed past a Conflict verdict | **`ACT1` Requester** for anything that touches strategy, business, or a gate; **`ACT3` Reviewer** for anything in the diff |
-| `ACT3` | **Reviewer** | Human | `ROLE3` Reviewing and merging | — (human) | Approves or rejects the PR, checks that the gates the change required are recorded, and merges. Often the same person as `ACT1` on a small project — but the roles stay distinct because the checks differ | — |
+### `ACT2` — autonomy, decision rights, escalation
 
-`ACT2` sits at **co-pilot** rather than autonomous-with-checkpoint for the
-reason `P2` states: the consequence of a wrong architectural change is
-absorbed by whoever maintains the project afterwards, and is not trivially
-reversible once other work builds on it. A human gate before code and a
-human merge after it are two independent checks, and the method keeps both.
-Raising `ACT2`'s autonomy would be exactly the kind of call
-[`decision-record`](../../../.claude/skills/decision-record/SKILL.md) exists
-for.
+| Column | Value |
+| ------ | ----- |
+| **Autonomy level** | **Co-pilot** — it acts, and a human reviews before the work takes effect |
+| **Decision rights** | Which layers a change touches, and the verdict that a layer is unchanged; how a work package is sharded; the wording of every document it writes; the implementation, within an approved design; what a pull request says. It may also **stop** — declaring a conflict with an approved principle and refusing to proceed |
+| **Escalation path** | `ROLE1` for anything at a gate, any conflict with an approved principle, and any open question it cannot close from the documents. `ROLE3` for anything that would merge |
 
-## Roles
+**Co-pilot rather than autonomous-with-checkpoint, and the difference is the
+gates.** An autonomous-with-checkpoint actor acts and a human may intervene
+afterwards. Here the human intervenes *first*, twice — once at each gate that
+applies, and again at review — and neither is a notification the Requester can
+ignore. An unapproved gate stops the work rather than logging a warning.
 
-```mermaid
-flowchart LR
-  role1["⚉ «Business Role» Requesting and approving [ROLE1]"]:::role
-  role2["⚉ Executing the method [ROLE2]"]:::role
-  role3["⚉ Reviewing and merging [ROLE3]"]:::role
+**What `ACT2` may never decide:** whether a gate is passed, whether a principle
+may be set aside, and whether anything merges. Those three are the method.
 
-  bsvc1(["⬭ «Business Service» Aligned change [BSVC1]"]):::service
+## The roles
 
-  role2 -->|realizes| bsvc1
-  bsvc1 -->|serves| role1
-  role3 -->|gates| bsvc1
+| ID | Role | Responsibility | Ends when |
+| -- | ---- | -------------- | --------- |
+| `ROLE1` | **Requester** | Says what should change — a requirement or a problem, never a diff. Grants the gate approvals, and is shown enough at each to decide honestly | The Approvals table is filled |
+| `ROLE2` | **Agent** | Walks the change through the layers, stops at each gate, writes the scope document, implements, and opens the pull request | The branch is handed over |
+| `ROLE3` | **Reviewer** | Reads the whole branch against documents that were true before it started, and merges | Merged |
+| `ROLE4` | **Method maintainer** | Changes the method itself, and repairs what each change falsifies in the models built on it | The corpus checks green |
 
-  classDef role fill:#f7f099,stroke:#9a8800,color:#333
-  classDef service fill:#efe57d,stroke:#8a7a00,color:#333
-```
+**`ROLE1` and `ROLE3` are usually one person and are still two roles.** One
+decides before the work exists, the other checks what came back. A person
+wearing both reads the branch twice for different reasons, and the model says
+so rather than pretending the second reading is free.
 
+**`ROLE4` sits outside the loop the other three run.** It is the only role
+whose subject is the method rather than a model built with it, which is why
+its work lands in a different repository from everything the other three
+produce.
 
-| ID | Role | Filled by | Covers |
-| -- | ---- | --------- | ------ |
-| `ROLE1` | Requesting and approving | `ACT1` (human) | Presenting a requirement or a problem; granting Gates 0–3 |
-| `ROLE2` | Executing the method | `ACT2` (AI), or a person following the same steps | `architecture-first-change` Steps 0–8 |
-| `ROLE3` | Reviewing and merging | `ACT3` (human) | PR review, gate-record verification, merge |
+## External partners
 
-`ROLE2` is deliberately written so a human can fill it unchanged. The
-process does not branch on who or what is executing it — which is what makes
-the AI actor a member of the organization rather than a tool bolted onto it.
+**None modeled.** The method depends on a host platform to run its skills and
+on a marketplace to distribute them, and neither is a business relationship —
+there is no contract, no counterparty and no negotiated service. Both are
+technology, and both are `P5`'s disposable packaging rather than anything the
+method is built around. They appear in
+[5_technology/](../5_technology/README.md) instead.

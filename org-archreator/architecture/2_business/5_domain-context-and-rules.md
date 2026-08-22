@@ -1,62 +1,105 @@
-# Domain Context and Rules — the organization behind archreator
+# Domain context and rules
 
 _[← Business layer](./README.md) · [EA home](../README.md)_
 
-**ArchiMate elements:** Business Rule, and the glossary that fixes what the
-other documents' words mean.
+**ArchiMate viewpoint:** Business. What this organization is trying to do, the
+vocabulary it uses, and the rules that bind it.
 
-Two sections, and one of them is deliberately empty.
+## Problem statement
 
-## The glossary
+AI can now build almost anything somebody can describe, and cannot know what
+they meant. Most software fails because the problem was misunderstood rather
+than because the code was hard — and an AI amplifies that, confidently, at
+speed.
 
-Terms this organization uses in a fixed sense. A word not listed here means
-what it ordinarily means; a word listed here means **only** this, in every
-document in this tree.
+This organization's answer is to make the understanding the deliverable, and
+to give it away: a method, published free, that walks a requirement down six
+architecture layers with a person approving at named gates, so that what an
+agent builds is what somebody actually meant.
 
-| Term | Means, here | Does not mean |
-| ---- | ----------- | ------------- |
-| **Requester** | The human who grants gates for a given project — `ACT1` in this organization's own work, `ROLE3` on a client engagement. Always a person, never a committee and never an agent | A customer, a sponsor, or whoever paid |
-| **Adopter** | Someone using the method on their own project, without engaging this organization. Reaches it through `BIF1`–`BIF3` and is never seen again — the source of `DOBJ5`'s absence | A client, a user account, anyone this organization can count |
-| **Engagement** | A client relationship where `ROLE2` performs the work personally, delivering `BOBJ6`. Bounded, paid, and the only place client-confidential material exists | An installation of the method, or a support arrangement |
-| **Initiative** | One change to one model, from framing through delivery, recorded in exactly one scope document with its own Approvals table — `BOBJ2` | A project, a release, or a body of work spanning several models |
-| **Gate** | A named point where a Requester accepts named documents on a date, recorded whether granted, declined or `N/A`. An approval that is not recorded did not happen | A review, a checkpoint, or a stage a process passes through |
-| **Tier** | How much design detail a model carries and which model it defers to — enterprise, product, or implementation. Held by the method, not by this organization | Modeling depth, which says how much of the six layers gets filled in |
-| **Model** | A subject described through the numbered layers — `BOBJ1`. One per project, with its own identifier space | The repository holding it, or any one document within it |
-| **The method** | `PROD1`: the skills, the conventions, the gates and the scaffold. Distinct from **this organization**, which publishes it, and from **archreator** unqualified, which is ambiguous between the two | The documentation, the site, or this model |
+**It is not primarily selling for money.** Two of its four revenue streams are
+non-monetary, and the product with real reach is free. The test it answers is
+whether the method reaches the people it is for without exhausting the one
+person running it.
 
-**"archreator" names three things** and the glossary cannot fix that: the
-organization, `PROD1`, and the repository. Every document in this tree should
-qualify it — *the method*, *this organization* — and where it appears bare, a
-reader should assume the product. The collision is
-[decision 7](../../../product-archreator/architecture/decisions/7_one-tree-per-federated-project.md)'s
-subject, and the directory prefixes are what resolve it on disk.
+## System context
+
+```mermaid
+flowchart LR
+  stk1(["◍ Designers [STK1]"]):::motivation
+  stk2(["◍ Business owners [STK2]"]):::motivation
+
+  org["▣ This organization"]:::business
+  method(["⬭ The method, published [BSVC1]"]):::business
+  consult(["⬭ Advisory and delivery [BSVC3]"]):::business
+
+  host(["⚇ The code host [ACT4]"]):::external
+  models(["⚇ AI model providers [ACT3]"]):::external
+
+  org -->|publishes| method
+  org -->|delivers| consult
+  method -->|self-service to| stk1
+  consult -->|in person to| stk2
+  host -->|carries| method
+  models -->|run| consult
+
+  classDef motivation fill:#e6d6f5,stroke:#7e57c2,color:#333
+  classDef business fill:#fffbb5,stroke:#c8c04a,color:#333
+  classDef external fill:#eeeeee,stroke:#999999,color:#333
+```
+
+Grey is outside the boundary. The organization operates nothing: what it
+publishes is carried by somebody else's platform, and what it delivers runs on
+somebody else's inference.
+
+## Glossary
+
+Terms with a specific meaning here. The method's own vocabulary — subject,
+depth, gate, layer, element, grounding, initiative — is defined once, in the
+method's business layer, and is not restated.
+
+| Term | Means |
+| ---- | ----- |
+| **The Requester** | In this tree, the one person who is the organization. In an adopting project, whoever owns that subject and grants its gates. The word is the same because the responsibility is |
+| **Adopter** | Someone using the method on their own project, without paying and usually without contact |
+| **Client** | Someone the Requester delivers to personally, under `PROD2` |
+| **Engagement** | One client's work, start to finish. Distinct from an initiative, which is one change inside a model |
+| **Tree** | One federated project's complete model. This repository holds three |
+| **Tier** | The relationship between trees: an organization above, the things it builds below. A tier refines what the tier above exposed and never restates it |
 
 ## Business rules
 
 **None at this tier — and that is a verdict, not an omission.**
 
 Every rule that governs how this organization works is a rule of **the
-method**, held one tier down in `product-archreator`'s business layer, where
-twelve of them live. This organization does not add rules of its own: it
-follows the method it publishes, which is the strongest available claim that
-the method is usable, and the claim would be worth nothing if the organization
-kept a private set.
+method**, held one tier down in `product-archreator`'s business layer. This
+organization adds none of its own: it follows the method it publishes, which
+is the strongest available claim that the method is usable, and the claim
+would be worth nothing if the organization kept a private set.
 
-The tier rule — a tier refines what the tier above exposed and never restates
-it, in `architecture-doc-style` § What belongs at which tier — is what makes
-this the correct answer rather than a gap. Copying the twelve rules up here to
-make the file look complete is precisely what it forbids. (Naming that rule by
-its identifier is not possible from this tree: identifiers are scoped per
-project and the method owns it. That limitation is the method's open question
-11, and this is its third occurrence.)
+The tier rule is what makes this the correct answer rather than a gap —
+copying the method's rules up here to make the file look complete is precisely
+what it forbids.
 
-The one thing that would change this: a rule binding **the organization** and
-not anyone using the method — how an engagement is priced, what may be said
-about a client, when `ROLE2` declines work. `BOBJ5`'s confidentiality boundary
-is the likeliest first candidate, and it is currently carried by the
-`engagement-retrospective` skill rather than by a rule here.
+**Naming them by identifier is not possible from this tree.** Identifiers are
+scoped per tree and the method owns those, so a citation would be a dangling
+reference rather than a link. The method has no notation for referencing an
+element another model owns; this is the third place in this repository where
+that limitation shows up.
 
-## Retired
+**What would change this:** a rule binding **the organization** and not anyone
+using the method — how an engagement is priced, what may be said about a
+client, when `ROLE2` declines work. The confidentiality boundary around
+`BOBJ5` is the likeliest first candidate, and it is currently carried by the
+`run-retrospective` skill rather than by a rule here.
 
-None. This document is new as of
-[initiative 4](../scope/4_completing-the-business-layer.md).
+## Access control
+
+**None.** There is one person, no accounts and no system holding anything
+worth restricting. `ROLE1`, `ROLE2` and `ROLE3` are responsibilities rather
+than permissions, and the repository's own settings carry whatever
+authorization exists.
+
+Stage 4 of [decision 1](../decisions/1_take-coa1-staged.md) is what would end
+this: an agent running discovery with a client directly means holding client
+data, and holding client data means a real access model for the first time.
