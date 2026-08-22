@@ -1,0 +1,18 @@
+name: docs-check
+
+on:
+  pull_request:
+    paths: ["**/*.md", "**/*.html", "scripts/*.py"]
+  push:
+    branches: [main]
+    paths: ["**/*.md", "**/*.html", "scripts/*.py"]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Relative links and HTML anchors resolve
+        run: python3 scripts/check_links.py
+      - name: Element-ID references resolve
+        run: python3 scripts/check_model.py
