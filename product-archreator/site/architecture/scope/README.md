@@ -82,8 +82,6 @@ approved on a date and against what information.
 
 ## Initiatives
 
-<!-- TEMPLATE — add one row per initiative as it's delivered. -->
-
 | #   | Scope document | Delivered as | Summary |
 | --- | --------------- | ------------ | ------- |
-|     |                 |              |         |
+| 1 | [Model the site on the current method](./1_model-the-site-on-the-current-method.md) | The `rebuild` branch | The site modeled as the one static file it is, replacing a model of a multi-page structure that no longer exists |

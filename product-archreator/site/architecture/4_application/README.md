@@ -18,13 +18,13 @@ the number of interchangeable adapters justifies the extra grain.
 
 | #   | Document                                                             | Elements                                                     | Question it answers                              |
 | --- | -----------------------------------------------------------------------| --------------------------------------------------------------- | --------------------------------------------------- |
-| 1   | `1_application-services.md`             | Application Services and the business services they realize | What does the software offer the business layer? |
-| 2   | `2_application-components.md`         | Application Components, mapped to source files               | Which components provide those services?          |
+| 1   | [1_application-services.md](./1_application-services.md)             | Application Services and the business services they realize | What does the software offer the business layer? |
+| 2   | [2_application-components.md](./2_application-components.md)         | Application Components, mapped to source files               | Which components provide those services?          |
 | 3   | `3_application-collaborations.md` | Collaborations and interaction sequences                     | How do the components interact?                   |
 | 4   | `4_solution-design.md`                       | Overall design, diagrams, patterns, tooling                  | How is the code structured, and why?               |
 | 5   | `5_interface-contracts.md`               | Per-interface pre/postconditions, invariants, error behavior | What exactly does each interface promise?          |
 
-`2_application-components.md` is where the **grounding rule** bites
+[2_application-components.md](./2_application-components.md) is where the **grounding rule** bites
 hardest: every component row must point at the module/file that implements
 it. `4_solution-design.md` is the natural place to document "how to add a
 new X" recipes (a new port, a new adapter, a new platform) once the shape
@@ -32,21 +32,16 @@ repeats often enough to be worth writing down once.
 
 ## Layer view
 
-<!--
-  TEMPLATE — replace with the project's real components and how they
-  depend on each other once known.
--->
-
 ```mermaid
 flowchart TB
-  entry["«Application Component» <Entry point>"]:::application
-  core["«Application Component» <Core logic>"]:::application
-  iface["«Application Interface» <Port/interface>"]:::application
-  adapter["«Application Component» <Adapter/implementation>"]:::application
+  acmp1["⊞ The page [ACMP1]"]:::application
+  asvc1(["⬮ Page delivery [ASVC1]"]):::application
 
-  entry -->|uses| core
-  core -->|via| iface
-  iface -->|realized by| adapter
+  acmp1 -->|provides| asvc1
 
   classDef application fill:#c2f0ff,stroke:#0288d1,color:#333
 ```
+
+**One component, and the layer is complete.** There is no entry point, no core
+and no adapter, because there is nothing to enter, compute or adapt — the
+whole application is a file that is already correct when it is written.

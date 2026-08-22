@@ -20,8 +20,17 @@ Agent guidance: the `record-decision` skill.
 
 ## Index
 
-<!-- TEMPLATE — add one row per decision as it's recorded. -->
+**None recorded yet.** The calls this tree has made so far — one file rather
+than several, nothing fetched at request time, no diagrams — are stated in
+[1_motivation.md](../1_strategy/1_motivation.md) as principles and in
+[2_application-components.md](../4_application/2_application-components.md) as
+component properties, each with its reasoning beside it.
 
-| #   | Decision | Status | Touches |
-| --- | -------- | ------ | ------- |
-|     |          |        |         |
+A decision record earns its place when a call needs a rationale that has no
+home in a layer document. The first candidate is named in the scope document:
+**if the site ever shows a diagram**, how it renders one is exactly that kind
+of call.
+
+| # | Decision | Status | Touches |
+| - | -------- | ------ | ------- |
+| — | — | — | — |
