@@ -85,3 +85,4 @@ approved on a date and against what information.
 | #   | Scope document | Delivered as | Summary |
 | --- | --------------- | ------------ | ------- |
 | 1 | [Rebuild the models on the current method](./1_rebuild-the-models-on-the-current-method.md) | The `rebuild` branch | Three trees rebuilt from an empty branch against the current method, with the previous corpus preserved at the tag `pre-rebuild-2026-08` |
+| 2 | [Publish the model beyond the repository](./2_publish-the-model-beyond-the-repository.md) | [`archreator` PR #33](https://github.com/roanboc/archreator/pull/33), and the model changes it makes necessary | The method learned to render a model as a portal and print it as one PDF; the four layers that describe it are repaired to match |
