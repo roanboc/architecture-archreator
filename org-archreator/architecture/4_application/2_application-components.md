@@ -49,7 +49,7 @@ flowchart TB
 
 | ID | Component | Provides | Realized by | Modeled in |
 | -- | --------- | -------- | ----------- | ---------- |
-| `ACMP1` | **The skill corpus and plugin manifest** — fifteen skills, plus the plugin and marketplace manifests | `ASVC1` | `plugins/archreator/skills/`, `plugins/archreator/.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` | [`product-archreator/`](../../../product-archreator/README.md) |
+| `ACMP1` | **The skill corpus and plugin manifest** — seventeen skills, plus the plugin and marketplace manifests | `ASVC1` | `plugins/archreator/skills/`, `plugins/archreator/.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` | [`product-archreator/`](../../../product-archreator/README.md) |
 | `ACMP2` | **The guidance site** — the published page | `ASVC2` | `site/index.html` | [`product-archreator/site/`](../../../product-archreator/site/README.md) |
 | `ACMP3` | **The documentation checks** — link resolution and element-identifier validation, run in CI | `ASVC3` | `plugins/archreator/scaffold/scripts/`, and the workflows beside them | [`product-archreator/`](../../../product-archreator/README.md) |
 | `ACMP4` | **The scaffold** — the empty layered tree, and the validators, that `ACMP1` emits into a new project | `ASVC1` | `plugins/archreator/scaffold/` | [`product-archreator/`](../../../product-archreator/README.md) |

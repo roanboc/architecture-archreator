@@ -53,9 +53,9 @@ flowchart TB
 | ID | Data object | Structure | Where it lives | Read by |
 | -- | ----------- | --------- | -------------- | ------- |
 | `DOBJ1` | **Skill frontmatter** | YAML: `name`, `description`, and `metadata.archreator` carrying `kind`, `realizes_process` and `gates` | The head of every `SKILL.md` | The host platform, to route a request to a skill; `check_skills.py`, to bind skills to processes |
-| `DOBJ2` | **The element-prefix registry** | JSON: layer group → prefix → element type name. Thirty-eight prefixes in eight groups | `scaffold/scripts/element-prefixes.json` | `model_graph.py`, to recognise and type an identifier |
+| `DOBJ2` | **The element-prefix registry** | JSON: layer group → prefix → element type name. Forty-three prefixes in nine groups | `scaffold/scripts/element-prefixes.json` | `model_graph.py`, to recognise and type an identifier |
 | `DOBJ3` | **The plugin manifests** | JSON: the plugin's name, version and entry points, and the marketplace entry that publishes it | `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` | The host platform, at install time |
-| `DOBJ4` | **The model projection** | `nodes` and `edges` tables, plus `mentions`. Regenerated, never hand-edited, never committed | `.model/model.json`, `.model/model.db` | Whatever cannot read Markdown — a rendered view, a report |
+| `DOBJ4` | **The model projection** | `nodes` and `edges` tables, plus `mentions`. Regenerated, never hand-edited, never committed | `.model/model.json`, `.model/model.db` | `query_model.py`, to traverse the graph and to report grounding; and whatever else cannot read Markdown |
 
 **`DOBJ1` is the only one an author writes by hand**, and it is why a skill's
 description is method content rather than packaging: the description is what

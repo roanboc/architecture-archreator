@@ -40,6 +40,8 @@ flowchart TB
   bsvc5(["⬭ Method distribution [BSVC5]"]):::service
   bsvc6(["⬭ Model restatement [BSVC6]"]):::service
   bsvc7(["⬭ Model publication [BSVC7]"]):::service
+  bsvc8(["⬭ Model interrogation [BSVC8]"]):::service
+  bsvc9(["⬭ Transition planning [BSVC9]"]):::service
 
   prod1 -->|aggregates| bsvc1
   prod1 -->|aggregates| bsvc2
@@ -48,11 +50,16 @@ flowchart TB
   prod1 -->|aggregates| bsvc5
   prod1 -->|aggregates| bsvc6
   prod1 -->|aggregates| bsvc7
+  prod1 -->|aggregates| bsvc8
+  prod1 -->|aggregates| bsvc9
 
   bsvc5 -->|precedes| bsvc2
   bsvc2 -->|produces the model for| bsvc1
+  bsvc2 -->|produces the baseline for| bsvc9
+  bsvc9 -->|gives a target to| bsvc1
   bsvc1 -->|is recorded by| bsvc4
   bsvc3 -->|guards| bsvc1
+  bsvc8 -->|answers questions about| bsvc1
   bsvc6 -->|returns a current model to| bsvc1
   bsvc1 -->|is published by| bsvc7
 
@@ -63,12 +70,14 @@ flowchart TB
 | ID | Business service | What the adopter gets | Realizes | Realized by |
 | -- | ---------------- | --------------------- | -------- | ----------- |
 | `BSVC1` | **Gated change alignment** | A requirement walked top-down through six layers, stopped at every gate that applies, with each layer either changed or explicitly declared unchanged | `CAP2` | `align-change-through-layers`, `shard-stories`, `write-pr-description` |
-| `BSVC2` | **Subject discovery** | A company or an application turned into canvases, a strategy layer and — at enterprise depth — a domain split, each approved before the next begins | `CAP1` | `establish-project`, `discover-business-model`, `discover-strategy`, `model-domains` |
+| `BSVC2` | **Subject discovery** | A company or an application turned into canvases, a strategy layer and — at enterprise depth — a domain split, each approved before the next begins; and where the subject was already running, its estate described in the four layers below the strategy, with a declared boundary | `CAP1` | `establish-project`, `discover-business-model`, `discover-strategy`, `model-domains`, `discover-current-landscape` |
 | `BSVC3` | **Model validation** | Mechanical proof that references resolve, identifiers are not reused, levelled identifiers have parents, and links and anchors point at something | `CAP4` | `check_model.py`, `check_links.py`, `check_skills.py` |
 | `BSVC4` | **Decision and scope recording** | A durable record of what was approved, by whom, and what they were shown — and of the calls too small to be initiatives | `CAP2`, `CAP3` | `write-scope-document`, `record-decision` |
 | `BSVC5` | **Method distribution** | An installable plugin and a scaffold that is a working project on its first commit | `CAP5` | `plugin.json`, `marketplace.json`, the scaffold, `docs/` |
 | `BSVC6` | **Model restatement** | A model that has stopped reading as a description of today turned back into one, and what the method failed to cover captured before it evaporates | `CAP3`, `CAP6` | `restate-current-state`, `run-retrospective` |
 | `BSVC7` | **Model publication** | The model they already have, rendered as a searchable website and printed as one document, with every page carrying the path of the file that produced it and a route back for a question | `CAP5` | `build_docs.py`, `export_pdf.py`, `mkdocs.yml` and `overrides/` in the scaffold, and the question form beside them |
+| `BSVC8` | **Model interrogation** | Answers to the two questions a table cannot give — what a change to one element would touch, and which catalogue rows name no realizing artifact while their neighbours do | `CAP2`, `CAP4` | `query_model.py`, reading what `build_model.py` writes |
+| `BSVC9` | **Transition planning** | A destination the adopter's own goals justify, the gaps between it and today derived rather than asserted, and a sequence ordered by dependency — approved as direction and never as permission to build | `CAP7` | `plan-the-transition` |
 
 | ID | Product | What it aggregates | Realized by |
 | -- | ------- | ------------------ | ----------- |
