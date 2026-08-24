@@ -5,6 +5,8 @@ _[← Business layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Business. Who acts on the site, and in which
 direction.
 
+**Status:** ● Validated at **Gate 2**, 2026-08-22.
+
 Two roles, and they never meet. A visitor reads and leaves; a maintainer edits
 and deploys. There is no interaction between them, no account, and no state
 that survives a visit — which is why this layer is a page rather than a

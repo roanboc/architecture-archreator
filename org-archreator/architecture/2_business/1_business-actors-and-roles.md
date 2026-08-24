@@ -5,6 +5,8 @@ _[← Business layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Business. Who acts inside this organization, who it
 depends on outside it, and — for the AI actor — what it may decide alone.
 
+**Status:** ● Validated at **Gate 2**, 2026-08-22.
+
 **One person holds every internal role**, and the roles are still modeled
 separately: they want different things, are exercised at different moments,
 and the day any of them is delegated the model already says what is being

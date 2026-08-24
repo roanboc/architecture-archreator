@@ -4,6 +4,8 @@ _[← Business layer](./README.md) · [EA home](../README.md)_
 
 **ArchiMate viewpoint:** Business. What the page does for whoever opens it.
 
+**Status:** ● Validated at **Gate 2**, 2026-08-22.
+
 ## How to read this document
 
 ```mermaid
@@ -76,6 +78,6 @@ work. That is `CAP3`'s weakness made concrete: the link checker proves the
 page's links resolve, not that a command inside a `<pre>` block is still the
 right one.
 
-**`BSVC2` names four things and the method now has fifteen skills.** A count
+**`BSVC2` names four things and the method now has seventeen skills.** A count
 on a page is a fact with an owner elsewhere, and it is the specific sentence
 most likely to be wrong first.

@@ -5,6 +5,8 @@ _[← Strategy layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Strategy. How value reaches the people this
 organization serves, end to end — and back.
 
+**Status:** ● Validated at **Gate 1**, 2026-08-22.
+
 One stream, six stages, and the sixth returns to the second. **The stream
 closes**, which is the one thing worth seeing before the detail: real use is
 what improves the method, so the organization's own product is the output of

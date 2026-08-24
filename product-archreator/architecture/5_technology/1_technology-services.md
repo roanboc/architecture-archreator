@@ -4,6 +4,8 @@ _[← Technology layer](./README.md) · [EA home](../README.md)_
 
 **ArchiMate viewpoint:** Technology. What the method runs on.
 
+**Status:** ● Validated — **Gate 3** declined at Gate 2 ([scope document 1](../scope/1_rebuild-the-models-on-the-current-method.md), 2026-08-22), which routed the layers below the business layer to pull-request review.
+
 **Nothing here is operated by the organization**, and that is the whole shape
 of this layer. archreator has no server, no database, no account system and no
 state — it is text in a repository plus scripts that run and exit. Every node

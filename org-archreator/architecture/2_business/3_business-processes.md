@@ -4,6 +4,8 @@ _[← Business layer](./README.md) · [EA home](../README.md)_
 
 **ArchiMate viewpoint:** Business. How the services are actually delivered.
 
+**Status:** ● Validated at **Gate 2**, 2026-08-22.
+
 Six processes, classified into the four macro bands. They are the
 [value stream](../1_strategy/3_value-stream.md)'s six stages seen as work
 rather than as flow: the stream says where value moves, this says who does

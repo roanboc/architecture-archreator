@@ -3,7 +3,8 @@
 _[← Project home](../README.md)_
 
 Two validators that keep this repository's architecture documents honest, and
-three tools for the readers a repository does not reach. They came with the
+four tools — one for the reader who queries a model, three for the readers a
+repository does not reach. They came with the
 scaffold, so this repository has had the validators since its first commit,
 and CI runs both on every pull request.
 
@@ -11,12 +12,14 @@ and CI runs both on every pull request.
 python3 scripts/check_links.py    # relative links and HTML anchors resolve
 python3 scripts/check_model.py    # element-ID references resolve
 python3 scripts/build_model.py    # project a model into .model/
+python3 scripts/query_model.py coverage           # what is grounded, and what is not
+python3 scripts/query_model.py trace CAP5 --project product-archreator
 python3 scripts/build_docs.py --project <tree>    # that model as a website
 python3 scripts/export_pdf.py  --project <tree>   # that model as one PDF
 ```
 
 Both validators exit `0` when everything resolves and `1` otherwise, printing
-what failed. The other three are tools rather than gates: nothing has to be
+what failed. The other four are tools rather than gates: nothing has to be
 green for them, and nothing breaks if they are never run.
 
 **The two publishing tools take a `--project`, and that is not optional here.**
@@ -33,9 +36,10 @@ python3 scripts/export_pdf.py --project product-archreator/site
 | File | What it is |
 | ---- | ---------- |
 | `check_links.py` | Executable. Every relative Markdown link and every HTML `href`, `src` and `#fragment` points at something that exists |
-| `check_model.py` | Executable. Every backticked element ID resolves to a definition, none is defined twice, none is both live and retired, and a levelled ID has its parent defined |
+| `check_model.py` | Executable. Every backticked element ID resolves to a definition, none is defined twice, none is both live and retired, a levelled ID has its parent defined, and every document that defines an element declares how far it has been validated |
 | `build_model.py` | Executable. Writes `.model/model.json` and `.model/model.db` — the model as nodes and edges, for a rendered view or a report. `--inventory` prints one line per element instead |
-| `build_docs.py` | Executable. Stages one tree's documents into `<tree>/.docs/src/` and builds its portal into `<tree>/.docs/site/`. `--serve` rebuilds as the model is edited. Also the staging hook each `mkdocs.yml` runs |
+| `query_model.py` | Executable. Reads the projection and answers the two questions a table cannot. `trace <ID>` follows relationships outward and says what a change to one element would touch; `coverage` reports what names a realizing artifact, what is explicitly Pending, and what its own catalogue leaves blank beside grounded neighbours. Builds the projection first if it is missing. **Three trees each own a `CAP1`**, so `trace` takes `--project` when an ID is not unique — it says so rather than picking one |
+| `build_docs.py` | Executable. Stages one tree's documents into `<tree>/.docs/src/` and builds its portal into `<tree>/.docs/site/`, and reports links pointing at files it does not publish. `--serve` rebuilds as the model is edited. Also the staging hook each `mkdocs.yml` runs |
 | `export_pdf.py` | Executable. Prints that portal's single-page view to `<tree>/.docs/architecture.pdf` with a headless browser, and checks that the diagrams were drawn rather than left as source text. What a PDF leaves out is the `print-site` `exclude` list in the tree's `mkdocs.yml` |
 | `model_graph.py` | Library, imported by the others. The single parse of the document convention — element IDs, catalogue tables, Mermaid edges |
 | `element-prefixes.json` | Data, read by `model_graph.py`. The element-ID prefixes and what each stands for |
@@ -51,9 +55,41 @@ Three things keep it honest. It is **regenerated** from scratch on every run,
 never hand-edited. It is **gitignored**, so no stale copy can be committed.
 And **nothing reads it that could have read the Markdown instead** — an agent
 reads the documents natively, so this exists for the consumers that cannot: a
-published view of the model, a dashboard, a report.
+dashboard, a report, and `query_model.py`, whose traversals are the reason a
+graph is worth materializing at all.
 
 Delete `.model/` and nothing is lost.
+
+## Two folders the tools treat differently
+
+`architecture/reference/` holds source documents as they were provided. The
+validators and the projection do not read it — a transcript in which somebody
+says an element identifier is a person talking — and the portal does not
+publish it. Because of that last one, a link into `reference/` resolves here
+and 404s on the site, so `build_docs.py` reports every staged link pointing at
+a file it did not publish. None of these trees has a `reference/` folder; the
+method ships one and nobody has handed this repository a document.
+
+`architecture/scope/` and `architecture/decisions/` are unread for the older
+reason: a merged scope document is immutable and will outlive the elements it
+names.
+
+## `query_model.py` reports; it never fails a build
+
+Every element must name what realizes it, and that is the one rule the
+validators do not enforce: telling a repository path from a team name is fuzzy,
+and a check that fails wrongly teaches people to ignore the checks that do not.
+
+So `coverage` prints and **always exits 0**, and there is no `--strict`. It
+judges by catalogue table rather than by element — a table grounding none of
+its rows is not modeling realization at all, and reporting each of its elements
+is how a report becomes noise. What it reports is a table that grounds some
+rows and leaves others blank.
+
+It cannot say what nothing points at. The projection drops a reference made
+inside the document that defines the element, so an element named only by its
+own neighbours looks unreferenced, and answering the question properly would
+mean re-reading the Markdown.
 
 ## So is the portal, and one thing it cannot do
 

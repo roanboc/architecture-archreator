@@ -5,6 +5,8 @@ _[← Business layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Business. The vocabulary the method uses, and the
 rules that bind every change made with it.
 
+**Status:** ● Validated at **Gate 2**, 2026-08-22.
+
 ## Problem statement
 
 An AI agent can now build faster than anyone can specify what to build. The

@@ -6,6 +6,8 @@ _[← Strategy layer](./README.md) · [EA home](../README.md)_
 the value each ability produces, what it has to work with, and the courses of
 action open to it.
 
+**Status:** ● Validated at **Gate 1**, 2026-08-22.
+
 **Capabilities are levelled.** Three areas at level 1, seven capabilities at
 level 2, and nothing below — no named pain justifies a third level yet. The
 identifier carries the parent, so these tables have no parent column:

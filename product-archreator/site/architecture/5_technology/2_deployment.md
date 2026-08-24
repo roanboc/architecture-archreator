@@ -4,6 +4,8 @@ _[← Technology layer](./README.md) · [EA home](../README.md)_
 
 **ArchiMate viewpoint:** Technology. What gets deployed, and what moves it.
 
+**Status:** ● Validated — **Gate 3** declined at Gate 2 ([scope document 1](../scope/1_model-the-site-on-the-current-method.md), 2026-08-22), which routed the application and technology layers to pull-request review.
+
 ## How to read this document
 
 ```mermaid
