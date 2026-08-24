@@ -35,12 +35,14 @@ flowchart LR
   asvc6(["⬮ Project emission [ASVC6]"]):::service
   asvc7(["⬮ Plugin distribution [ASVC7]"]):::service
   asvc8(["⬮ Model projection [ASVC8]"]):::service
+  asvc9(["⬮ Model publication [ASVC9]"]):::service
 
   bsvc1(["⬭ Gated change alignment [BSVC1]"]):::business
   bsvc2(["⬭ Subject discovery [BSVC2]"]):::business
   bsvc3(["⬭ Model validation [BSVC3]"]):::business
   bsvc4(["⬭ Decision and scope recording [BSVC4]"]):::business
   bsvc5(["⬭ Method distribution [BSVC5]"]):::business
+  bsvc7(["⬭ Model publication [BSVC7]"]):::business
 
   asvc1 -->|realizes| bsvc1
   asvc2 -->|realizes| bsvc2
@@ -50,6 +52,7 @@ flowchart LR
   asvc6 -->|realizes| bsvc5
   asvc7 -->|realizes| bsvc5
   asvc8 -.->|no consumer yet| bsvc3
+  asvc9 -->|realizes| bsvc7
 
   classDef service fill:#c2f0ff,stroke:#0288d1,color:#333
   classDef business fill:#efe57d,stroke:#b8ad3f,color:#333
@@ -65,12 +68,21 @@ flowchart LR
 | `ASVC6` | **Project emission** | Copies the scaffold into a new project and turns it into that project | `BSVC5` | `ACMP2`, `ACMP10` |
 | `ASVC7` | **Plugin distribution** | Publishes the corpus so a host platform can install it | `BSVC5` | `ACMP11` |
 | `ASVC8` | **Model projection** | Reads a model and writes it as nodes and edges for a consumer that cannot read Markdown | **Pending — no consumer yet** | `ACMP7`, `ACMP8` |
+| `ASVC9` | **Model publication** | Renders a model as a website and prints it as one document, both from the Markdown, and gives every page a route back to the file it came from | `BSVC7` | `ACMP12`, `ACMP13` |
 
 **`ASVC8` has a dashed edge, and the dash is the honest part.** The projection
-is built and works; nothing in the business layer consumes it. Its intended
-consumer is a published view of the model, which is a course of action the
-organization has not taken. Drawing it solid would claim a delivery that has
-not happened.
+is built and works; nothing in the business layer consumes it. The published
+view it was expected to serve now exists — `ASVC9` — and does not read it:
+rendering documents means rendering the documents, and a renderer fed the
+projection would publish a second-hand copy of what is already Markdown. The
+dash stays, and its reason is now evidence rather than expectation. A consumer
+that genuinely asks graph questions — coverage, blast radius — would take it
+solid; none exists.
+
+**`ASVC9` renders and never summarizes.** A page it publishes says exactly
+what the file says, which is what makes the rendering safe to hand to someone
+who will never see the file. `RULE7` is the constraint, and every page carries
+its source path so a reader can check it.
 
 **`ASVC4` and `ASVC5` both realize `BSVC3`, and neither is redundant.** One
 checks a model an adopter wrote; the other checks the method itself. They

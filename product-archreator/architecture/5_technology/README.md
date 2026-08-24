@@ -23,7 +23,7 @@ Vercel, etc.) before writing [1_technology-services.md](./1_technology-services.
 
 ## Layer view
 
-Four nodes, none of them operated by the organization, and no edge between
+Five nodes, none of them operated by the organization, and no edge between
 any of them.
 
 ```mermaid
@@ -32,16 +32,19 @@ flowchart LR
   node2["⬒ Continuous integration [NODE2]"]:::node
   node3["⬒ Static hosting [NODE3]"]:::node
   node4["⬒ The agent host platform [NODE4]"]:::node
+  node5["⬒ The documentation toolchain [NODE5]"]:::node
 
   tsvc1(["⬯ Version control and review [TSVC1]"]):::technology
   tsvc2(["⬯ Checks on every change [TSVC2]"]):::technology
   tsvc3(["⬯ Public page delivery [TSVC3]"]):::technology
   tsvc4(["⬯ Skill execution [TSVC4]"]):::technology
+  tsvc5(["⬯ Documentation rendering [TSVC5]"]):::technology
 
   node1 -->|provides| tsvc1
   node2 -->|provides| tsvc2
   node3 -->|provides| tsvc3
   node4 -->|provides| tsvc4
+  node5 -->|provides| tsvc5
 
   classDef node fill:#a9d68f,stroke:#4a7a35,color:#333
   classDef technology fill:#c9e7b7,stroke:#5a8a45,color:#333

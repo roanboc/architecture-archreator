@@ -43,6 +43,8 @@ flowchart TB
   acmp9["⊞ The corpus validator [ACMP9]"]:::component
   acmp10["⊞ The scaffold [ACMP10]"]:::component
   acmp11["⊞ The plugin package [ACMP11]"]:::component
+  acmp12["⊞ The portal builder [ACMP12]"]:::component
+  acmp13["⊞ The document exporter [ACMP13]"]:::component
 
   acmp4 -->|constrains| acmp1
   acmp4 -->|constrains| acmp2
@@ -53,6 +55,9 @@ flowchart TB
   acmp10 -->|carries| acmp6
   acmp10 -->|carries| acmp7
   acmp10 -->|carries| acmp8
+  acmp10 -->|carries| acmp12
+  acmp10 -->|carries| acmp13
+  acmp12 -->|builds the page| acmp13
   acmp11 -->|publishes| acmp10
   acmp9 -->|checks| acmp1
   acmp9 -->|checks| acmp2
@@ -61,6 +66,11 @@ flowchart TB
 
   classDef component fill:#9adcf0,stroke:#0277bd,color:#333
 ```
+
+**`ACMP13` prints what `ACMP12` built**, rather than rendering anything of its
+own. A second renderer would be a second set of rules about how a model looks,
+and the two would drift; the document is the portal's own single-page view,
+printed by a browser.
 
 **`ACMP7` is the only component two others depend on**, and it exists because
 they were about to grow a second copy of the same parse. `ACMP4` is the only
@@ -78,8 +88,10 @@ running, not invoked.
 | `ACMP7` | **The model parser** | `ASVC4`, `ASVC8` | `scaffold/scripts/model_graph.py` |
 | `ACMP8` | **The projection builder** | `ASVC8` | `scaffold/scripts/build_model.py` |
 | `ACMP9` | **The corpus validator** | `ASVC5` | `scripts/check_skills.py` |
-| `ACMP10` | **The scaffold** | `ASVC6` | `scaffold/` — the layer folders, the notation, the validators, and the placeholder entry points |
+| `ACMP10` | **The scaffold** | `ASVC6` | `scaffold/` — the layer folders, the notation, the validators, the portal configuration, and the placeholder entry points |
 | `ACMP11` | **The plugin package** | `ASVC7` | `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` |
+| `ACMP12` | **The portal builder** | `ASVC9` | `scaffold/scripts/build_docs.py`, with `scaffold/mkdocs.yml` and `scaffold/overrides/` |
+| `ACMP13` | **The document exporter** | `ASVC9` | `scaffold/scripts/export_pdf.py` |
 
 All paths are relative to `plugins/archreator/` in the
 [`archreator`](https://github.com/roanboc/archreator) repository, except
@@ -87,10 +99,11 @@ All paths are relative to `plugins/archreator/` in the
 
 ## What is inside the scaffold, and what is not
 
-`ACMP10` carries `ACMP5`–`ACMP8` and does not carry `ACMP9`. The line is
-whether a downstream project has anything for the component to act on: an
-adopter's project has a model, so it needs the validators and the projection;
-it has no skills, so the corpus validator would have nothing to check.
+`ACMP10` carries `ACMP5`–`ACMP8` and `ACMP12`–`ACMP13`, and does not carry
+`ACMP9`. The line is whether a downstream project has anything for the
+component to act on: an adopter's project has a model, so it needs the
+validators, the projection and the two that publish it; it has no skills, so
+the corpus validator would have nothing to check.
 
 That is also why `ACMP9` lives at `scripts/` rather than `scaffold/scripts/` —
 the directory a component sits in states who it is for.
