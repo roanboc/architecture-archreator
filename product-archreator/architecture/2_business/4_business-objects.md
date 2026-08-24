@@ -5,6 +5,8 @@ _[← Business layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Business. The things the method's services create,
 read and hand to each other.
 
+**Status:** ● Validated at **Gate 2**, 2026-08-22.
+
 Every object here is a **Markdown file in git**, and that is the point rather
 than an implementation detail: it is what makes the model readable by the
 agent the method is written for, diffable in review, and versioned by

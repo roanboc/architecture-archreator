@@ -7,6 +7,8 @@ done, what hurts, what would delight — and, against those, what this
 organization offers. The [strategy layer](../1_strategy/README.md) is derived
 from this document, block by block, and never invented alongside it.
 
+**Status:** ● Validated at **Gate 0**, 2026-08-22.
+
 ## How to read this document
 
 ```mermaid

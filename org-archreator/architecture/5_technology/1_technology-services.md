@@ -5,6 +5,8 @@ _[← Technology layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Technology. What everything runs on, and who pays
 for it.
 
+**Status:** ● Validated — **Gate 3** declined at Gate 2 ([scope document 1](../scope/1_rebuild-the-models-on-the-current-method.md), 2026-08-22), which routed layers 3 to 5 to pull-request review.
+
 **This organization operates nothing.** Four of its five technology services
 run on somebody else's free tier, and the fifth runs on hardware and accounts
 belonging to whoever is using the method. That is not frugality; it is what

@@ -6,6 +6,8 @@ _[← Strategy layer](./README.md) · [EA home](../README.md)_
 presses on them, what must become true, and the principles every change is
 checked against.
 
+**Status:** ● Validated at **Gate 1**, 2026-08-24.
+
 The subject is **the method** — seventeen skills, the scaffold they emit, the
 validators, and the plugin that ships them. The organization that publishes it
 is modeled one tree up, in
@@ -102,6 +104,8 @@ flowchart LR
   asm4>"⌕ AI is modeled as a tool, so its decisions have no owner [ASM4]"]:::assessment
   asm5>"⌕ An estate that predates the model is context nothing will ask for [ASM5]"]:::assessment
   asm6>"⌕ Nothing says which change matters more than another [ASM6]"]:::assessment
+  asm7>"⌕ An unapproved element looks exactly like an approved one [ASM7]"]:::assessment
+  asm8>"⌕ A claim outlives the conversation it came from [ASM8]"]:::assessment
 
   drv1 -->|evidenced by| asm1
   drv1 -->|evidenced by| asm6
@@ -109,6 +113,8 @@ flowchart LR
   drv2 -->|evidenced by| asm4
   drv2 -->|evidenced by| asm5
   drv3 -->|evidenced by| asm2
+  drv3 -->|evidenced by| asm7
+  drv3 -->|evidenced by| asm8
 
   classDef driver fill:#e6d6f5,stroke:#8e63c8,color:#333
   classDef assessment fill:#d8c3f0,stroke:#7e57c2,color:#333
@@ -128,6 +134,8 @@ flowchart LR
 | `ASM4` | **AI is modeled as a tool, so its decisions have no owner** | When an agent is drawn as a box rather than an actor, nothing records what it may decide alone, or who it escalates to |
 | `ASM5` | **An estate that predates the model is context nothing will ask for** | Every route into the lower layers starts from a requirement, and no requirement ever asks for the applications that were already running. An organization modeled by a method that only follows change requests gets a strategy layer and four empty folders below it |
 | `ASM6` | **Nothing says which change matters more than another** | Each request is defensible on its own, and a method that only judges one change at a time can say whether it is coherent but never whether it is the one to make first. The question a Requester asks most often is the one the model was least able to answer |
+| `ASM7` | **An unapproved element looks exactly like an approved one** | A catalogue of things three people mentioned in a workshop and a layer a Requester signed are the same tables, the same identifiers, the same shape. Nothing on either says which it is, so a reader supplies the answer from how finished it looks — and a document is at its most finished-looking on the day it is drafted |
+| `ASM8` | **A claim outlives the conversation it came from** | The figure came off a slide, the process came from someone describing it once. Eighteen months later the model still says so and nobody can say why. The claim is not wrong, but it is unreviewable, which over enough time is the same thing |
 
 ## Goals and outcomes
 
@@ -139,16 +147,19 @@ flowchart LR
   g4("◎ An adopter starts without learning a tool [G4]"):::goal
   g5("◎ The model reaches the people who never open the repository [G5]"):::goal
   g6("◎ The model says where the subject is going, not only where it is [G6]"):::goal
+  g7("◎ What the model is worth is written on the model [G7]"):::goal
 
   out1[["◉ Every element names what realizes it [OUT1]"]]:::outcome
   out2[["◉ Every gate is recorded with what was shown [OUT2]"]]:::outcome
   out3[["◉ No reference resolves to something deleted [OUT3]"]]:::outcome
+  out4[["◉ Every defining document declares its standing [OUT4]"]]:::outcome
 
   g1 -->|measured by| out1
   g2 -->|measured by| out2
   g3 -->|measured by| out3
   g4 -->|measured by| out1
   g6 -->|measured by| out2
+  g7 -->|measured by| out4
 
   classDef goal fill:#c6aae9,stroke:#6f4bb2,color:#333
   classDef outcome fill:#b493e0,stroke:#5f3da0,color:#333
@@ -162,17 +173,27 @@ flowchart LR
 | `G4` | **An adopter starts without learning a tool** | `ASM3` | A scaffold of Markdown and two scripts, installed as a plugin |
 | `G5` | **The model reaches the people who never open the repository** | `ASM3` | The portal and the PDF, both rendered from the Markdown, both thrown away and rebuilt |
 | `G6` | **The model says where the subject is going, not only where it is** | `DRV1`, `ASM6` | `architecture/roadmap/` — target plateaus, a gap register derived from the baseline, and a sequence — approved as direction at Gate 1 |
+| `G7` | **What the model is worth is written on the model** | `DRV3`, `ASM7`, `ASM8` | A status glyph on every document that defines an element, and `architecture/reference/` holding what each was built from |
 
 | ID | Outcome | How it is checked | Happening today? |
 | -- | ------- | ----------------- | ---------------- |
 | `OUT1` | **Every element names what realizes it, or says it is Pending** | `query_model.py coverage`, read by a person. No validator can tell a repository path from a team name, and a wrong failure in CI teaches people to ignore CI — so this reports and never fails a build | Partly — the convention holds, and the omissions are now listed rather than hunted |
 | `OUT2` | **Every gate is recorded with who approved and what they were shown** | The Approvals table in the scope document | Yes, by convention |
 | `OUT3` | **No reference resolves to something that was deleted** | `check_model.py`, on every pull request | Yes, mechanically |
+| `OUT4` | **Every document that defines an element declares how far it has been validated** | `check_model.py`, on every pull request. Checked on the glyph, never on the words beside it, so it holds in a model written in any language | Yes, mechanically |
 
 **`G1` and `G5` are the two halves of `ASM3`.** An architecture in a tool's
 own format is unreadable by the agent that must build from it *and* by the
 person who must agree to it. Markdown in git answers the first directly; the
 second is answered by rendering the same files, never by keeping a second copy.
+
+**`OUT4` is the only one of the four that is both mechanical and complete.**
+`OUT1` cannot be fully checked because grounding is fuzzy; `OUT2` is a
+convention; `OUT3` is mechanical but narrow. Whether a status glyph is present
+is neither fuzzy nor narrow — it is there or it is not, and it is there on
+every document or the build fails. The reason this one could be gated when
+grounding could not is worth keeping in view: the check asks whether a
+declaration was made, never whether it was true.
 
 **`G6` shares `OUT2` rather than earning an outcome.** What would prove the
 model says where the subject is going is that a direction was approved and

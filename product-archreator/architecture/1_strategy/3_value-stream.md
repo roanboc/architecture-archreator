@@ -5,6 +5,8 @@ _[← Strategy layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Strategy. How value reaches an adopter, end to end,
 and which capability carries each stage.
 
+**Status:** ● Validated at **Gate 1**, 2026-08-24.
+
 One stream, five stages. It starts before the method is installed and ends
 with something merged that the documents still describe truthfully — which is
 the only definition of done the method accepts.

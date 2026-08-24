@@ -5,6 +5,8 @@ _[← Application layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Application. What provides each service, and which
 tree models it in detail.
 
+**Status:** ● Validated — **Gate 3** declined at Gate 2 ([scope document 1](../scope/1_rebuild-the-models-on-the-current-method.md), 2026-08-22), which routed layers 3 to 5 to pull-request review.
+
 **This layer names components; it does not describe them.** Each one is a
 deliverable with a model of its own, one tier down. Restating what those
 models say would be two copies of the same fact — so the last column links to

@@ -7,6 +7,8 @@ it takes, and what comes back. Read
 [the value proposition canvas](./1_value-proposition-canvas.md) first: the
 segments, products, pains and gains are defined there and reused here.
 
+**Status:** ● Validated at **Gate 0**, 2026-08-22.
+
 ## A note before the blocks
 
 **This organization is not primarily selling for money.** Two of its four

@@ -5,6 +5,8 @@ _[← Business layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Business. What the method offers an adopter, and
 through which channel each service reaches them.
 
+**Status:** ● Validated at **Gate 2**, 2026-08-24.
+
 ## How to read this document
 
 ```mermaid
@@ -70,8 +72,8 @@ flowchart TB
 | ID | Business service | What the adopter gets | Realizes | Realized by |
 | -- | ---------------- | --------------------- | -------- | ----------- |
 | `BSVC1` | **Gated change alignment** | A requirement walked top-down through six layers, stopped at every gate that applies, with each layer either changed or explicitly declared unchanged | `CAP2` | `align-change-through-layers`, `shard-stories`, `write-pr-description` |
-| `BSVC2` | **Subject discovery** | A company or an application turned into canvases, a strategy layer and — at enterprise depth — a domain split, each approved before the next begins; and where the subject was already running, its estate described in the four layers below the strategy, with a declared boundary | `CAP1` | `establish-project`, `discover-business-model`, `discover-strategy`, `model-domains`, `discover-current-landscape` |
-| `BSVC3` | **Model validation** | Mechanical proof that references resolve, identifiers are not reused, levelled identifiers have parents, and links and anchors point at something | `CAP4` | `check_model.py`, `check_links.py`, `check_skills.py` |
+| `BSVC2` | **Subject discovery** | A company or an application turned into canvases, a strategy layer and — at enterprise depth — a domain split, each approved before the next begins; and where the subject was already running, its estate described in the four layers below the strategy, with a declared boundary, and the transcripts and documents it was built from kept beside it | `CAP1` | `establish-project`, `discover-business-model`, `discover-strategy`, `model-domains`, `discover-current-landscape` |
+| `BSVC3` | **Model validation** | Mechanical proof that references resolve, identifiers are not reused, levelled identifiers have parents, links and anchors point at something, and no document defines an element without declaring how far it has been validated | `CAP4` | `check_model.py`, `check_links.py`, `check_skills.py` |
 | `BSVC4` | **Decision and scope recording** | A durable record of what was approved, by whom, and what they were shown — and of the calls too small to be initiatives | `CAP2`, `CAP3` | `write-scope-document`, `record-decision` |
 | `BSVC5` | **Method distribution** | An installable plugin and a scaffold that is a working project on its first commit | `CAP5` | `plugin.json`, `marketplace.json`, the scaffold, `docs/` |
 | `BSVC6` | **Model restatement** | A model that has stopped reading as a description of today turned back into one, and what the method failed to cover captured before it evaporates | `CAP3`, `CAP6` | `restate-current-state`, `run-retrospective` |

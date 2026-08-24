@@ -4,6 +4,8 @@ _[← Business layer](./README.md) · [EA home](../README.md)_
 
 **ArchiMate viewpoint:** Business. What the page does for whoever opens it.
 
+**Status:** ● Validated at **Gate 2**, 2026-08-22.
+
 ## How to read this document
 
 ```mermaid

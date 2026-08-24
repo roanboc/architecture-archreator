@@ -5,6 +5,8 @@ _[← Business layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Business. What the organization offers, to whom, and
 through which channel each offering reaches them.
 
+**Status:** ● Validated at **Gate 2**, 2026-08-22.
+
 **The products are defined on the canvases, not here.** They first exist as
 canvas blocks at Gate 0, so that is where they are assigned an identifier;
 this document references them and adds what the canvases do not carry — the

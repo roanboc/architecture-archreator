@@ -5,6 +5,8 @@ _[← Information layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Passive structure. The machine-readable structures
 the method's components read and write.
 
+**Status:** ● Validated — **Gate 3** declined at Gate 2 ([scope document 1](../scope/1_rebuild-the-models-on-the-current-method.md), 2026-08-22), which routed the layers below the business layer to pull-request review.
+
 **This layer is short, and the reason is the method's central choice.** Almost
 everything archreator handles is prose in Markdown — a business object read by
 people and by agents, not a data structure parsed by software. Only four
@@ -55,7 +57,8 @@ flowchart TB
 | `DOBJ1` | **Skill frontmatter** | YAML: `name`, `description`, and `metadata.archreator` carrying `kind`, `realizes_process` and `gates` | The head of every `SKILL.md` | The host platform, to route a request to a skill; `check_skills.py`, to bind skills to processes |
 | `DOBJ2` | **The element-prefix registry** | JSON: layer group → prefix → element type name. Forty-three prefixes in nine groups | `scaffold/scripts/element-prefixes.json` | `model_graph.py`, to recognise and type an identifier |
 | `DOBJ3` | **The plugin manifests** | JSON: the plugin's name, version and entry points, and the marketplace entry that publishes it | `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` | The host platform, at install time |
-| `DOBJ4` | **The model projection** | `nodes` and `edges` tables, plus `mentions`. Regenerated, never hand-edited, never committed | `.model/model.json`, `.model/model.db` | `query_model.py`, to traverse the graph and to report grounding; and whatever else cannot read Markdown |
+| `DOBJ4` | **The model projection** | `nodes` and `edges` tables, plus `mentions`. Every node carries the declared status of the document defining it. Regenerated, never hand-edited, never committed | `.model/model.json`, `.model/model.db` | `query_model.py`, to traverse the graph and to report grounding; and whatever else cannot read Markdown |
+| `DOBJ5` | **Provided source documents** | Whatever a Requester handed over — transcripts, decks, specifications — under a dated name, with an index row naming the original filename, who provided it and what was derived from it | `architecture/reference/` in an adopting project; this repository keeps none | A reader asking where a claim came from. Not the validators, not the projection, and not the portal |
 
 **`DOBJ1` is the only one an author writes by hand**, and it is why a skill's
 description is method content rather than packaging: the description is what

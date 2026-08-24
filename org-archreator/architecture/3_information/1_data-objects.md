@@ -5,6 +5,8 @@ _[← Information layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Passive structure. What information exists, where it
 lives, and who can see it.
 
+**Status:** ● Validated — **Gate 3** declined at Gate 2 ([scope document 1](../scope/1_rebuild-the-models-on-the-current-method.md), 2026-08-22), which routed layers 3 to 5 to pull-request review.
+
 **The column that matters is where it lives.** Three of these seven objects
 are not held by this organization at all — one is in an adopter's repository,
 one in a client's, and one in a single person's head. That distribution is the

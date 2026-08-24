@@ -5,6 +5,8 @@ _[← Business layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Business. Who fills each responsibility the method
 defines, and — for the one filled by an AI — what it may decide alone.
 
+**Status:** ● Validated at **Gate 2**, 2026-08-22.
+
 The method defines **roles**, not people. Its central claim is that the same
 three roles work whether a human or an AI fills the middle one, so the roles
 are modeled as responsibilities and the actors as whoever takes them on.

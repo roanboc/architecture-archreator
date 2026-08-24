@@ -6,6 +6,8 @@ _[← Strategy layer](./README.md) · [EA home](../README.md)_
 what presses on them, what must become true, and the principles every change
 is tested against.
 
+**Status:** ● Validated at **Gate 1**, 2026-08-22.
+
 Every element here is **derived from the canvases**, and the `Source` column
 says from which block. The correspondence itself is stated once, in
 [the business model canvas](../0_business-design/2_business-model-canvas.md#from-canvas-to-archimate),
