@@ -44,7 +44,7 @@ flowchart TB
   cap2["✦ Align a change through the layers [CAP2]"]:::capability
   cap3["✦ Keep the model describing today [CAP3]"]:::capability
   cap4["✦ Prove the model is internally consistent [CAP4]"]:::capability
-  cap5["✦ Put the method in an adopter's hands [CAP5]"]:::capability
+  cap5["✦ Put the method and the model in the hands that need them [CAP5]"]:::capability
   cap6["✦ Learn from an engagement [CAP6]"]:::capability
 
   cap5 -->|precedes| cap1
@@ -69,7 +69,7 @@ and a different cadence.
 | `CAP2` | **Align a change through the layers** | Taking a requirement top-down through the six layers, stopping at the gates, recording it in a scope document, and handing over a reviewable branch | `align-change-through-layers`, `write-scope-document`, `shard-stories`, `write-pr-description` | Established — the spine of the method |
 | `CAP3` | **Keep the model describing today** | Removing accumulated history from a model that has stopped reading as a description of now, and recording calls too small to be initiatives | `restate-current-state`, `record-decision` | Established |
 | `CAP4` | **Prove the model is internally consistent** | Checking mechanically that references resolve, that no identifier is reused, that levelled identifiers have parents, and that links and anchors point at something | `check_model.py`, `check_links.py`, `check_skills.py` | Established, and narrower than the rule it serves — see `OUT1` |
-| `CAP5` | **Put the method in an adopter's hands** | Publishing the skills as an installable plugin, emitting a scaffold that is a working project on the first commit, and explaining the method in public | `plugin.json` and `marketplace.json`, the scaffold, `docs/`, and the [guidance site](../../site/README.md) | Established |
+| `CAP5` | **Put the method and the model in the hands that need them** | Publishing the skills as an installable plugin, emitting a scaffold that is a working project on the first commit, explaining the method in public — and rendering any model built with it as a website and as one document, for the readers who will never open a repository | `plugin.json` and `marketplace.json`, the scaffold, `docs/`, the [guidance site](../../site/README.md), `scaffold/scripts/build_docs.py` and `scaffold/scripts/export_pdf.py` | Established for the method; new for the model |
 | `CAP6` | **Learn from an engagement** | Capturing what the method failed to cover while the memory of it is fresh, generalized past recognition of the client | `run-retrospective` | Established, and rarely exercised |
 
 **`CAP4` is deliberately narrower than `P2`.** Grounding says every element
@@ -77,6 +77,12 @@ names what realizes it; the validators check that *references* and *links*
 resolve, not that a "Realized by" cell points at a file that exists.
 Distinguishing a repository path from a team name is fuzzy, and a check that
 fails wrongly teaches people to ignore the checks that do not.
+
+**`CAP5` covers two audiences on purpose, rather than splitting.** Handing an
+adopter the method and handing their stakeholders the model are the same
+ability pointed at different people: publish what exists, to whoever cannot
+otherwise reach it. A second capability would have restated the first with a
+different object, which `P4` forbids.
 
 **`CAP6` is the one capability with no pull on it.** Nothing triggers a
 retrospective except an initiative ending and somebody remembering. It is
@@ -96,7 +102,7 @@ flowchart LR
   cap1["✦ Discover a subject from nothing [CAP1]"]:::capability
   cap2["✦ Align a change through the layers [CAP2]"]:::capability
   cap4["✦ Prove the model is internally consistent [CAP4]"]:::capability
-  cap5["✦ Put the method in an adopter's hands [CAP5]"]:::capability
+  cap5["✦ Put the method and the model in the hands that need them [CAP5]"]:::capability
 
   res1 -->|enables| cap1
   res1 -->|enables| cap2
@@ -113,7 +119,7 @@ flowchart LR
 | ID | Resource | Kind | What it is | State |
 | -- | -------- | ---- | ---------- | ----- |
 | `RES1` | **The skill corpus** | Knowledge | Fifteen skills in a fixed format — a description that declares its kind, a set of required sections, and frontmatter binding it to the process it realizes. `plugins/archreator/skills/` | Held, and the thing most often changed |
-| `RES2` | **The scaffold** | Asset | The empty project an adopter starts from: six layer folders, the notation, the validators, and placeholder entry points. `plugins/archreator/scaffold/` | Held |
+| `RES2` | **The scaffold** | Asset | The empty project an adopter starts from: six layer folders, the notation, the validators, the portal configuration, and placeholder entry points. `plugins/archreator/scaffold/` | Held |
 | `RES3` | **The validators** | Asset | `check_links.py` and `check_model.py`, which ship inside the scaffold, plus `check_skills.py`, which does not — a downstream project has no skills to check | Held |
 | `RES4` | **The notation** | Knowledge | ArchiMate semantics encoded onto Mermaid with four devices — label form, glyph, shape, colour — stated once in `scaffold/architecture/README.md` | Held |
 | `RES5` | **The plugin package** | Asset | The manifests that publish the corpus to a marketplace an adopter can install from. `plugin.json` and `marketplace.json` | Held, and the only part `P5` calls disposable |

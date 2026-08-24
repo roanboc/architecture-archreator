@@ -25,22 +25,28 @@ The implementation merged in `archreator` before this record existed, at the
 Requester's direction. That is the wrong order and the record says so rather
 than being backdated.
 
-What follows from it is that **the gates below are real, not retrospective**.
-The model changes in the EA alignment table have *not* been applied: they are
-what Gate 1 and Gate 2 approve, and the branch carrying them starts once they
-are granted. A gate whose work is already done approves nothing; a gate whose
-work is still in front of it is the method working as written.
+What follows from it is that **the gates below were real, not retrospective**.
+When they were presented, the model changes in the EA alignment table had not
+been made: they were what Gate 1 and Gate 2 approved, and the layer documents
+in this branch were written afterwards. A gate whose work is already done
+approves nothing; a gate whose work is still in front of it is the method
+working as written.
 
-Every identifier proposed below is draft under `RULE4` — renumbering to close
-a gap is free until the gate passes, and forbidden afterwards.
+**One element was declined at the gate.** The presentation proposed `CAP7` —
+a capability for putting a model in front of its readers. The Requester
+widened `CAP5` instead, on `P4`: publishing the method to an adopter and
+publishing a model to its readers are the same ability pointed at different
+people, and a second capability would have restated the first with a different
+object. The identifier `CAP7` was never assigned, which `RULE4` allows because
+no gate had passed on it.
 
 ## EA alignment (assessed top-down before implementing)
 
 | Layer | Impact |
 | ----- | ------ |
 | 0_business-design | **Not used** — Depth 1, unchanged. The canvases describe an organization's customers and economics; this subject has neither |
-| 1_strategy | **Changed — Gate 1.** A stakeholder nobody modeled (`STK5`, the reader outside the repository), the goal that serves them (`G5`), and the capability that delivers it (`CAP7`). No new driver: `STK5`'s concern carries the change, and `P4` says an element earns its place or does not get one. **`G1`'s realization is corrected**: "no export, no tool, no database" now reads as "nothing has to be exported before the model can be used", which is what it always meant and is no longer what it literally says |
-| 2_business | **Changed.** `BSVC7` — model publication, realizing `CAP7`; `BIF5` — the model, rendered, as the interface `STK5` meets it through; `RULE7` — a rendering is never the model, which is the constraint the whole feature stands on |
+| 1_strategy | **Changed — Gate 1.** A stakeholder nobody modeled (`STK5`, the reader outside the repository) and the goal that serves them (`G5`). The ability that delivers it widens `CAP5` rather than adding one. No new driver and no new outcome: `STK5`'s concern carries the change, and reach is not something this repository can measure. `VS1` is unchanged — publishing is an output of the stream, not a stage in it. **`G1`'s realization is corrected**: "no export, no tool, no database" now reads as "nothing has to be exported before it can be used", which is what it always meant and is no longer what it literally says |
+| 2_business | **Changed.** `BSVC7` — model publication, realizing the widened `CAP5`; `BIF5` — the model, rendered, as the interface `STK5` meets it through; `RULE7` — a rendering is never the model, which is the constraint the whole feature stands on |
 | 3_information | **No change.** The portal introduces no information. Its staged copy, its built site and the PDF are renderings of documents rather than structures anything parses, and they already follow `DOBJ4`'s discipline — regenerated, never hand-edited, never committed. A data object for each would model the same four documents a second time |
 | 4_application | **Changed.** `ASVC9` — model publication, realizing `BSVC7`; `ACMP12` — the portal builder (`scaffold/scripts/build_docs.py`, with `scaffold/mkdocs.yml` and `scaffold/overrides/`); `ACMP13` — the document exporter (`scaffold/scripts/export_pdf.py`). `ACMP10`'s description gains the portal configuration it now ships. **`ASVC8`'s note is falsified and must be repaired**: it says the projection's intended consumer is a published view of the model that the organization has not built. The published view now exists and does not read the projection — it reads the Markdown. `ASVC8` stays dashed, for a better-evidenced reason |
 | 5_technology | **Changed.** `TSVC5` — documentation rendering, provided by `NODE5`, the toolchain the portal needs: MkDocs with Material, and a Chromium-family browser for the PDF. `NODE3` — static hosting — is **explicitly unchanged**: nothing publishes these models, and the method deliberately ships no workflow that would |
@@ -50,8 +56,8 @@ a gap is free until the gate passes, and forbidden afterwards.
 | Gate | Approved by | Date | What was approved |
 | ---- | ----------- | ---- | ----------------- |
 | Gate 0 — Business model | — | — | **N/A** — Depth 1; this tree holds no canvases |
-| Gate 1 — Strategy | — | — | **Pending.** `STK5`, `G5`, `CAP7` and the correction to `G1`, as stated in the EA alignment table above. This document is the presentation |
-| Gate 2 — Business | — | — | **Pending.** `BSVC7`, `BIF5` and `RULE7`, and with them the application and technology changes that follow. This document is the presentation |
+| Gate 1 — Strategy | Requester | 2026-08-24 | This document as first pushed, presenting `STK5`, `G5`, the correction to `G1` and a proposed `CAP7`. Granted with `CAP7` declined in favour of widening `CAP5` |
+| Gate 2 — Business | Requester | 2026-08-24 | The same presentation: `BSVC7`, `BIF5` and `RULE7`, and with them the application and technology changes that follow |
 | Gate 3 — Solution design | — | — | **N/A — not requested.** The design it would cover is merged in `archreator` and was reviewed there as PR #33. Available on request, against the same code |
 
 ## Plateaus
@@ -67,9 +73,10 @@ a gap is free until the gate passes, and forbidden afterwards.
 
 - **Deliverables:** `STK5` and `G5` in
   [1_motivation.md](../1_strategy/1_motivation.md), with `G1`'s realization
-  corrected in the same pass; `CAP7` in
+  corrected in the same pass; `CAP5` widened in
   [2_capabilities-and-resources.md](../1_strategy/2_capabilities-and-resources.md),
-  and its edge to `BSVC7`.
+  and `RES2`'s description extended to the portal configuration the scaffold
+  now ships.
 - **Outcome:** the model names the audience the method just learned to serve,
   instead of implying the only readers are the three roles inside the repository.
 
@@ -147,4 +154,7 @@ a gap is free until the gate passes, and forbidden afterwards.
   Adopted interpretation: **Gate 1**. The words being repaired are the ones a
   reader uses to judge whether the method still holds its own line — "no
   export" is the sentence the method has been sold on — so the Requester sees
-  the new wording rather than finding it in a diff. Applied in WP1.
+  the new wording rather than finding it in a diff. **Confirmed at the gate on
+  2026-08-24**, and applied in WP1. The same sentence appears in the glossary
+  note in [5_domain-context-and-rules.md](../2_business/5_domain-context-and-rules.md)
+  and was repaired with it, under `RULE5`.

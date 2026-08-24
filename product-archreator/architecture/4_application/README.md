@@ -58,6 +58,6 @@ flowchart TB
   classDef business fill:#fffbb5,stroke:#b8a200,color:#333
 ```
 
-A selection, not the whole layer — eleven components do not fit one honest
+A selection, not the whole layer — thirteen components do not fit one honest
 view. The full set is in
 [2_application-components.md](./2_application-components.md).

@@ -56,10 +56,12 @@ flowchart LR
   stk2(["◍ Agent in an adopting project [STK2]"]):::stakeholder
   stk3(["◍ Reviewer in an adopting project [STK3]"]):::stakeholder
   stk4(["◍ Method maintainer [STK4]"]):::stakeholder
+  stk5(["◍ Reader outside the repository [STK5]"]):::stakeholder
 
   stk1 -->|delegates the modeling to| stk2
   stk2 -->|hands the branch to| stk3
   stk4 -->|changes what all three follow| stk1
+  stk1 -->|shows the model to| stk5
 
   classDef stakeholder fill:#f4ecfc,stroke:#9575cd,color:#333
 ```
@@ -70,6 +72,7 @@ flowchart LR
 | `STK2` | **Agent in an adopting project** | To know the business context before writing code, and to be stopped from acting on a fact that is no longer true. Usually an AI agent | The skills, the model, and the validators |
 | `STK3` | **Reviewer in an adopting project** | To read a whole branch and see what it claims to change, against documents that were true before it started | The pull request and the scope document |
 | `STK4` | **Method maintainer** | To change the method without silently falsifying the models built on it | The skill corpus and its own validator |
+| `STK5` | **Reader outside the repository** | To read the architecture they are asked to agree with, fund or audit, without cloning anything or being taught where it lives | The portal, and the PDF |
 
 **`STK1` and `STK3` are usually the same person, and that is not a
 redundancy.** They want different things at different moments: one decides
@@ -79,6 +82,11 @@ distinction that makes the second reading worth doing.
 **`STK2` is the stakeholder the method is written for.** The documents are
 Markdown in git rather than a modeling tool's file format because that is what
 an agent reads natively.
+
+**`STK5` decides nothing, and that is what separates them from `STK1`.** A
+Requester is shown a change and grants a gate; a reader is shown the model and
+has to be able to follow it. The same documents serve both, which is why
+reaching `STK5` is a rendering rather than a second model.
 
 ## Drivers and assessments
 
@@ -123,6 +131,7 @@ flowchart LR
   g2("◎ A person approves before code exists [G2]"):::goal
   g3("◎ The model still describes today after the merge [G3]"):::goal
   g4("◎ An adopter starts without learning a tool [G4]"):::goal
+  g5("◎ The model reaches the people who never open the repository [G5]"):::goal
 
   out1[["◉ Every element names what realizes it [OUT1]"]]:::outcome
   out2[["◉ Every gate is recorded with what was shown [OUT2]"]]:::outcome
@@ -139,16 +148,27 @@ flowchart LR
 
 | ID | Goal | Answers | Realized by |
 | -- | ---- | ------- | ----------- |
-| `G1` | **An agent reads the business context natively** | `DRV2`, `ASM3` | The model is Markdown in git — no export, no tool, no database |
+| `G1` | **An agent reads the business context natively** | `DRV2`, `ASM3` | The model is Markdown in git — nothing has to be exported before it can be used |
 | `G2` | **A person approves before code exists** | `DRV1`, `ASM1` | The gates, and the rule that an unrecorded approval did not happen |
 | `G3` | **The model still describes today after the merge** | `DRV3`, `ASM2` | The validators, and the rule that a change updates whatever it falsifies |
 | `G4` | **An adopter starts without learning a tool** | `ASM3` | A scaffold of Markdown and two scripts, installed as a plugin |
+| `G5` | **The model reaches the people who never open the repository** | `ASM3` | The portal and the PDF, both rendered from the Markdown, both thrown away and rebuilt |
 
 | ID | Outcome | How it is checked | Happening today? |
 | -- | ------- | ----------------- | ---------------- |
 | `OUT1` | **Every element names what realizes it, or says it is Pending** | Review. No validator can tell a repository path from a team name, and a wrong failure in CI teaches people to ignore CI | Partly — the convention holds, the check does not exist |
 | `OUT2` | **Every gate is recorded with who approved and what they were shown** | The Approvals table in the scope document | Yes, by convention |
 | `OUT3` | **No reference resolves to something that was deleted** | `check_model.py`, on every pull request | Yes, mechanically |
+
+**`G1` and `G5` are the two halves of `ASM3`.** An architecture in a tool's
+own format is unreadable by the agent that must build from it *and* by the
+person who must agree to it. Markdown in git answers the first directly; the
+second is answered by rendering the same files, never by keeping a second copy.
+
+**`G5` is measured by no outcome, because nothing here can measure it.** The
+repository knows whether a page can be traced back to its source; it cannot
+know whether anyone read it. An outcome invented to fill the row would be
+checked by nobody.
 
 **`OUT1` is the weakest of the three, and deliberately so.** Grounding is the
 rule that makes the model verifiable, and it is the one the tooling cannot
