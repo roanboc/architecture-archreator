@@ -115,8 +115,8 @@ publish". It could not, because it never asked.
 | ---- | ----------- | ---- | ----------------- |
 | Gate 0 — Business model | — | — | **N/A** — Depth 1; this tree holds no canvases |
 | Gate 1 — Strategy | — | — | **N/A** — no new stakeholder, driver, goal or principle. The strategy layer changes by one description, which `align-change-through-layers` § The gates places under Gate 2 |
-| Gate 2 — Business | **Pending** | — | This document, and with it the `1_strategy`, `2_business` and `3_information` verdicts above — `RES2`'s extension, `RULE8`, `BSVC7`'s extension, and the explicit no-change at the information layer |
-| Gate 3 — Solution design | **Pending — offered with Gate 2** | — | The available-versus-enabled split, the folder the templates ship in, and the contents of the two workflows. Worth taking rather than declining: it is the one design call in this initiative that is expensive to reverse once adopters have copied the scaffold |
+| Gate 2 — Business | Requester | 2026-08-26 | This document as first pushed, and with it the `1_strategy`, `2_business` and `3_information` verdicts in the table above — `RES2`'s extension, `RULE8`, `BSVC7`'s extension, and the explicit no-change at the information layer. Granted as presented |
+| Gate 3 — Solution design | **Taken at Gate 2, 2026-08-26 — presentation pending** | — | § Solution design below: the available-versus-enabled split, the directory the templates ship in, the triggers and jobs of both workflows, and the two steps `establish-project` gains. No file in `archreator` is written until this is granted |
 
 ## Plateaus
 
@@ -189,6 +189,86 @@ publish". It could not, because it never asked.
 - **Outcome:** the model says what the method does, including the sentence it
   used to say and no longer means.
 
+## Solution design
+
+Presented for **Gate 3**, which the Requester took at Gate 2. Nothing below is
+written until it is granted.
+
+### The directory
+
+`scaffold/.github/workflows-available/`, chosen over a top-level
+`scaffold/workflows/`. Both are equally inert — the automation host reads
+`.github/workflows/` and nothing else — so the choice is legibility, and it
+turns on one thing: keeping every GitHub-shaped asset under one directory
+means the instruction to a project hosted elsewhere stays *delete `.github/`*,
+one sentence about one path, rather than two deletions a reader can half-do.
+
+### `checks.yml`
+
+| | |
+| --- | --- |
+| **Triggers** | `pull_request`, and `push` to the default branch. No path filter: both validators read the whole tree, and both are fast |
+| **Job** | One, on `ubuntu-latest` — checkout, `python3 scripts/check_links.py`, `python3 scripts/check_model.py` |
+| **Dependencies** | None. Both validators are standard library, which is what makes this safe to activate on any GitHub repository without asking anything further |
+| **Permissions** | Default read. It declares no block, because it needs nothing |
+
+### `publish-docs.yml`
+
+| | |
+| --- | --- |
+| **Triggers** | `push` to the default branch, filtered to `architecture/**`, `*.md`, `mkdocs.yml`, `overrides/**` and `scripts/**`; plus `workflow_dispatch`, so it can be run once by hand before it is trusted on every push |
+| **Build job** | Checkout, `astral-sh/setup-uv`, `uv run scripts/build_docs.py`, `actions/upload-pages-artifact` from `.docs/site` |
+| **Deploy job** | `actions/deploy-pages` into the `github-pages` environment, with `concurrency: pages` |
+| **Permissions** | Exactly three — `contents: read`, `pages: write`, `id-token: write` |
+
+This is the workflow [`docs/publishing.md`](https://github.com/roanboc/archreator/blob/main/docs/publishing.md)
+already carries, moved from a fenced block into a file. It is deliberately not
+redesigned: the thing being fixed is where it lives, not what it does.
+
+### What activation does
+
+| The answer | `checks.yml` | `publish-docs.yml` | The rest of `.github/` |
+| ---------- | ------------ | ------------------ | ---------------------- |
+| Public GitHub repository | Moved to `.github/workflows/` | Moved to `.github/workflows/` | Kept |
+| Other GitHub repository | Moved to `.github/workflows/` | Deleted | Kept |
+| Not GitHub, or undecided | Deleted | Deleted | Deleted, with `mkdocs.yml`'s `repo_url` and `edit_uri` left unset and the question link in `overrides/main.html` removed |
+
+In every case `workflows-available/` itself is gone by the end of bootstrap.
+A project that later changes host adds the workflow back as an ordinary
+change, from the copy in the plugin.
+
+### The two steps `establish-project` gains
+
+**Step 1 gains a third question** — *where does this project live?* — beside
+the two it already asks. It is asked, never inferred: a repository that has no
+remote yet, or one cloned from a template, tells an agent nothing reliable, and
+`establish-project`'s own invariant is already **ask, don't infer**.
+
+**Step 2's optional-files table gains the rows above**, so the workflows and
+the GitHub-shaped assets are kept or deleted by the same keep-or-delete pass
+that already handles `open-questions.md` and `decisions/`. The answer is then
+recorded in `architecture/5_technology/2_deployment.md` (WP4), which is where a
+later change reads it rather than asking again.
+
+### Patterns applied, and the practices they carry
+
+- **Available versus enabled**, borrowed from `sites-available`/`sites-enabled`.
+  One authored copy; activation is a move, not a generation. It is the only
+  convention borrowed here, and `RULE8` is what states it.
+- **Fail safe.** An answer not given, not understood, or given as "not sure"
+  activates nothing. The default outcome of this whole feature is today's
+  behavior.
+- **Nothing generated at runtime.** Both files are authored, reviewed and
+  diffable in the plugin, per `AGENTS.md` § Portability.
+- **Least privilege**, on the permissions blocks above.
+- **Pinned action majors** (`@v4`, `@v5`) as shipped, which is a floor rather
+  than a recommendation — an adopting organization that pins to a SHA should.
+
+### What Gate 3 does not cover
+
+The contents of an adopting project's own model, and any workflow for a host
+other than GitHub. Both are out of scope below.
+
 ## In scope / out of scope
 
 | In scope | Out of scope (gaps, candidate future work) |
@@ -220,10 +300,10 @@ publish". It could not, because it never asked.
 
 ## Open questions
 
-- **Does Gate 3 get taken?** Recorded above as offered rather than assumed.
-  The available-versus-enabled split and the folder name are cheap to change
-  now and expensive once adopters have copied the scaffold, which is the
-  argument for taking it.
-- **Is `workflows-available/` the name?** `scaffold/workflows/` with a README
-  does the same job and reads less like a borrowed convention. Either is inert;
-  the choice is legibility, and it belongs to Gate 3 if Gate 3 is taken.
+- **What a project answers when it does not know yet.** Bootstrap runs before
+  many projects have a remote at all. The design treats "undecided" as the
+  not-GitHub answer, which is safe but throws the templates away — a project
+  that decides a week later re-copies them from the plugin. Whether that
+  deserves a fourth answer that keeps `workflows-available/` in place rather
+  than deleting it is not settled, and is worth one question to the Requester
+  the first time a real project hits it.

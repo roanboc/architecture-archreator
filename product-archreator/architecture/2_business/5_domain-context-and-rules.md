@@ -5,7 +5,7 @@ _[← Business layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Business. The vocabulary the method uses, and the
 rules that bind every change made with it.
 
-**Status:** ● Validated at **Gate 2**, 2026-08-22.
+**Status:** ● Validated at **Gate 2**, 2026-08-26.
 
 ## Problem statement
 
@@ -85,11 +85,13 @@ says which. A rule nothing enforces is a preference.
 | `RULE5` | **A change repairs every document it falsifies**, in the same branch | A model that is true in the layer somebody edited and false two layers up is worse than one nobody updated, because it looks maintained | Review |
 | `RULE6` | **An architecture document describes its subject, not its own construction.** No "this used to say", no counts of what was consolidated | A reader wants to know what is true, not how the document got there. The change log is `BOBJ3` | Review |
 | `RULE7` | **A rendering is never the model.** A portal or a PDF is rebuilt from the Markdown on every run, is never committed, and carries on every page the path of the file that produced it | A published copy a reader cannot trace back becomes the version they treat as true, and it drifts the moment the documents move | Construction: the staged copy is regenerated on every build, the whole tree is gitignored, and the theme prints and links each page's source |
+| `RULE8` | **The scaffold ships nothing that runs by itself.** A workflow arrives inert, in a directory the automation host does not read, and only an answer the Requester gave moves it where it runs | A pipeline that turns red on a project's first push teaches a team that the checks are noise, and one that publishes a model nobody agreed to publish cannot be un-published | Construction: the templates ship outside `.github/workflows/`, which is the only path the automation host reads, and `establish-project` moves what the answer selected and deletes the rest |
 
-**Four of seven are carried by review, and that is not an oversight.**
-`RULE4` is fully mechanical and `RULE7` is carried by construction — a copy
-that is rebuilt from scratch every time and never committed cannot drift,
-whoever forgets. The other five need a judgement — whether a layer genuinely
+**Four of eight are carried by review, and that is not an oversight.**
+`RULE4` is fully mechanical, and `RULE7` and `RULE8` are carried by
+construction — a copy that is rebuilt from scratch every time and never
+committed cannot drift, and a file the automation host never reads cannot
+run, whoever forgets. The other five need a judgement — whether a layer genuinely
 did not change, whether a cell names a path or a team — and a check that fails
 wrongly teaches people to ignore the checks that do not.
 
