@@ -3,9 +3,8 @@
 _[← Scope index](./README.md) · [Model home](../README.md)_
 
 **ArchiMate viewpoint:** Implementation & Migration.
-**Delivered as:** the `claude/repo-agnostic-deployments-3e9qfb` branch in
-[`archreator`](https://github.com/roanboc/archreator), and the model changes
-this document holds the gate for.
+**Delivered as:** [`archreator` PR #39](https://github.com/roanboc/archreator/pull/39),
+and the model changes this document holds the gate for.
 
 The scaffold ships two validators that no project runs, and a portal that no
 project hosts. Both gaps have the same cause: **the method never asks where
