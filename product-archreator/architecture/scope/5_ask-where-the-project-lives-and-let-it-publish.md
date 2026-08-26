@@ -4,8 +4,8 @@ _[← Scope index](./README.md) · [Model home](../README.md)_
 
 **ArchiMate viewpoint:** Implementation & Migration.
 **Delivered as:** the `claude/repo-agnostic-deployments-3e9qfb` branch in
-[`archreator`](https://github.com/roanboc/archreator) — **not yet written**,
-and the model changes this document holds the gate for.
+[`archreator`](https://github.com/roanboc/archreator), and the model changes
+this document holds the gate for.
 
 The scaffold ships two validators that no project runs, and a portal that no
 project hosts. Both gaps have the same cause: **the method never asks where
@@ -116,7 +116,7 @@ publish". It could not, because it never asked.
 | Gate 0 — Business model | — | — | **N/A** — Depth 1; this tree holds no canvases |
 | Gate 1 — Strategy | — | — | **N/A** — no new stakeholder, driver, goal or principle. The strategy layer changes by one description, which `align-change-through-layers` § The gates places under Gate 2 |
 | Gate 2 — Business | Requester | 2026-08-26 | This document as first pushed, and with it the `1_strategy`, `2_business` and `3_information` verdicts in the table above — `RES2`'s extension, `RULE8`, `BSVC7`'s extension, and the explicit no-change at the information layer. Granted as presented |
-| Gate 3 — Solution design | **Taken at Gate 2, 2026-08-26 — presentation pending** | — | § Solution design below: the available-versus-enabled split, the directory the templates ship in, the triggers and jobs of both workflows, and the two steps `establish-project` gains. No file in `archreator` is written until this is granted |
+| Gate 3 — Solution design | Requester | 2026-08-26 | § Solution design below, as presented: the available-versus-enabled split, `.github/workflows-available/` as the directory, the triggers and jobs of both workflows, the activation table, and the two steps `establish-project` gains. Granted as presented, and the layers below the business layer are validated at this gate rather than routed to review |
 
 ## Plateaus
 
@@ -191,8 +191,11 @@ publish". It could not, because it never asked.
 
 ## Solution design
 
-Presented for **Gate 3**, which the Requester took at Gate 2. Nothing below is
-written until it is granted.
+Approved at **Gate 3**, 2026-08-26, and built as described. One thing was
+settled during the build rather than at the gate: the scaffold ships
+`5_technology/2_deployment.md` as a template with placeholder sections, which
+`establish-project` fills from the third answer — the same shipped-with-
+placeholders pattern `AGENTS.md`, `README.md` and `mkdocs.yml` already follow.
 
 ### The directory
 

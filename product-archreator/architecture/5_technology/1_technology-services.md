@@ -4,7 +4,7 @@ _[← Technology layer](./README.md) · [EA home](../README.md)_
 
 **ArchiMate viewpoint:** Technology. What the method runs on.
 
-**Status:** ● Validated — **Gate 3** declined at Gate 2 ([scope document 1](../scope/1_rebuild-the-models-on-the-current-method.md), 2026-08-22), which routed the layers below the business layer to pull-request review.
+**Status:** ● Validated at **Gate 3**, 2026-08-26.
 
 **Nothing here is operated by the organization**, and that is the whole shape
 of this layer. archreator has no server, no database, no account system and no
@@ -71,8 +71,8 @@ and why there is no deployment topology to draw.
 | ID | Technology service | Provided by | Why this one |
 | -- | ------------------ | ----------- | ------------ |
 | `TSVC1` | **Version control and review** | `NODE1` | The model is Markdown in git, so the thing that versions the code versions the architecture. Review of a change and review of its documents are the same act |
-| `TSVC2` | **Checks on every change** | `NODE2` | The validators are worthless if running them is somebody's discipline. Free at this scale, and already where the code is |
-| `TSVC3` | **Public page delivery** | `NODE3` | Zero servers to secure or pay for, and the site is fully static |
+| `TSVC2` | **Checks on every change** | `NODE2` | The validators are worthless if running them is somebody's discipline. Free at this scale, and already where the code is. The scaffold now carries the same service to the projects the method emits, as a workflow it ships switched off |
+| `TSVC3` | **Public page delivery** | `NODE3` | Zero servers to secure or pay for, and the site is fully static. An adopting project on a public repository can reach the same service for its own portal, with the workflow the scaffold ships |
 | `TSVC4` | **Skill execution** | `NODE4` | The only node the method does not choose — it is wherever the adopting agent runs |
 | `TSVC5` | **Documentation rendering** | `NODE5` | Turning the model into a website and a document is the one thing the method cannot do with Python's standard library, so it is the one dependency it takes |
 
@@ -97,10 +97,16 @@ page is being *read*, so a reader behind a strict proxy sees diagram source
 instead of diagrams. `ACMP13` checks for exactly that before handing over a
 document; a hosted portal has nothing running to check it.
 
-**`NODE3` is not what serves a portal.** It carries the guidance site and
-nothing else. The method builds a folder of static files and stops — where a
-model goes, and whether it goes anywhere, is the adopting organization's call
-and its infrastructure.
+**`NODE3` carries the guidance site, and no model.** These models are not
+published anywhere, which is a decision rather than a limit — the method can
+now publish one, and this organization has not asked it to.
+
+What the method does for an adopter is narrower than running anything. It
+ships the workflow that would publish a model and leaves it inert, and
+bootstrap activates it only for a public GitHub repository. Where a model goes,
+and whether it goes anywhere, is still the adopting organization's call on its
+own infrastructure; what changed is that the commonest answer no longer has to
+be assembled by hand.
 
 **`NODE1`'s substitutability is qualified on purpose.** The method is not tied
 to GitHub for storage, but it does assume a pull request exists as a surface

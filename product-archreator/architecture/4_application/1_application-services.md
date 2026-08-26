@@ -5,7 +5,7 @@ _[← Application layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Application. What the software offers the business
 layer, and which business service each one realizes.
 
-**Status:** ● Validated — **Gate 3** declined at Gate 2 ([scope document 1](../scope/1_rebuild-the-models-on-the-current-method.md), 2026-08-22), which routed the layers below the business layer to pull-request review.
+**Status:** ● Validated at **Gate 3**, 2026-08-26.
 
 ## How to read this document
 
@@ -76,7 +76,7 @@ flowchart LR
 | `ASVC6` | **Project emission** | Copies the scaffold into a new project and turns it into that project | `BSVC5` | `ACMP2`, `ACMP10` |
 | `ASVC7` | **Plugin distribution** | Publishes the corpus so a host platform can install it | `BSVC5` | `ACMP11` |
 | `ASVC8` | **Model projection** | Reads a model and writes it as nodes and edges for a consumer that cannot read Markdown | `BSVC8` | `ACMP7`, `ACMP8` |
-| `ASVC9` | **Model publication** | Renders a model as a website and prints it as one document, both from the Markdown, and gives every page a route back to the file it came from. Publishes no source document — the portal hands a reader the model, and a transcript carries the rest of the room | `BSVC7` | `ACMP12`, `ACMP13` |
+| `ASVC9` | **Model publication** | Renders a model as a website and prints it as one document, both from the Markdown, and gives every page a route back to the file it came from — and, where the project activated the workflow that does it, puts the website where its readers are. Publishes no source document — the portal hands a reader the model, and a transcript carries the rest of the room | `BSVC7` | `ACMP12`, `ACMP13`, `ACMP10` |
 | `ASVC10` | **Model interrogation** | Walks the projected graph outward from one element to say what a change would touch, and reports which catalogue rows name no realizing artifact while their neighbours do | `BSVC8` | `ACMP14` |
 | `ASVC11` | **Transition planning** | Turns approved goals and a described baseline into target plateaus, a derived gap register and a dependency-ordered sequence, ending at a gate | `BSVC9` | `ACMP15` |
 
