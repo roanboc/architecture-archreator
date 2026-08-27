@@ -12,9 +12,17 @@ and applies its four checks; `build_model.py` imports it and writes the
 projection. This module only reads Markdown and returns what it found.
 
 **Two levels of detail.** `parse_project()` returns what validation needs —
-definitions, references, retirements, domains. `parse_project(detail=True)`
-additionally reads element names, the remaining table columns, and the typed
-edges drawn in Mermaid, none of which a validator has any use for.
+definitions, references, retirements, domains, and the names a restatement is
+checked against. `parse_project(detail=True)` additionally reads the remaining
+table columns and builds the edges, which a validator has no use for.
+
+**A relationship is read from where it was declared, never from a diagram.**
+Two surfaces declare one: a catalogue column whose cell is a list of
+identifiers, and a relationship table, recognised by its first and third
+columns holding an identifier on every row. Mermaid is not parsed at all —
+a diagram is a rendering of what the tables say, and a fact whose only home is
+a rendering is the one `P1` forbids. Initiative 6 transcribed the corpus onto
+the two surfaces and removed the reader.
 
 **Structure is read from the identifier, never from a heading.** An element's
 type comes from its ID prefix, its group from the registry beside this file,
@@ -27,10 +35,13 @@ opaque text and never interpreted.
 
 Deliberately not done here:
 
-- **No inference of relationship semantics.** A Mermaid edge label is carried
-  verbatim — `habilita`, `precede a`, `serves`. Mapping those onto ArchiMate's
+- **No inference of relationship semantics.** A relationship's name — a column
+  header, or a relationship table's third cell — is carried verbatim:
+  `habilita`, `precede a`, `serves`. Mapping those onto ArchiMate's
   relationship vocabulary would be a guess, and a wrong guess in a projection
-  is worse than an honest string.
+  is worse than an honest string. `build_model.py` reports how many distinct
+  ones a corpus uses, which is the honest alternative to a controlled list
+  nobody could translate.
 - **No parse of the narrative folders.** Same reasoning as `check_model.py`:
   a merged scope document is immutable and will outlive the elements it names.
 - **No caching and no incremental parse.** A whole model is a few hundred
@@ -153,8 +164,9 @@ NAME_LEAD_RE = re.compile(r"^\*\*(.+?)\*\*")
 # A leading run of non-word characters is the glyph, and `\w` is Unicode-aware,
 # so a name opening with an accented letter survives and a glyph does not. The
 # stereotype is optional and is dropped with its guillemets. Neither the glyph
-# nor the stereotype is checked - see `architecture-document-style` § The
-# relationship table on why the archetype cannot drift on its own.
+# nor the stereotype is checked: an archetype cannot drift away from the prefix
+# in the cell beside it, and the word for it is language-dependent where the
+# prefix is not. See `architecture-document-style` § The relationship table.
 NODE_DESC_RE = re.compile(r"^[^\w«]*\s*(?:«[^»]*»\s*)?(.*?)\s*$", re.S)
 
 # How far a document has been validated, declared in its preamble. The glyph
@@ -171,25 +183,6 @@ STATUS_GLYPHS = {
 # nav line, and the metadata lines under it. A status glyph is looked for
 # there and nowhere else, so a diagram further down cannot be mistaken for one.
 PREAMBLE_END_RE = re.compile(r"^##\s", re.M)
-
-# A fenced Mermaid block. Matched on the raw text, before fences are stripped.
-MERMAID_RE = re.compile(
-    r"^(?P<ticks>`{3,})mermaid[^\n]*\n(?P<body>.*?)^(?P=ticks)`*[ \t]*$",
-    re.DOTALL | re.MULTILINE,
-)
-# A Mermaid node declaration. The shape brackets vary by element type — see
-# `architecture/README.md` § Shapes — so this matches the variable name and
-# the first quoted label, whatever brackets sit between them.
-MERMAID_NODE_RE = re.compile(r'^\s*(\w+)\s*[\[({>/\\]+\s*"([^"]*)"', re.M)
-# A Mermaid edge, with the optional `|label|` the notation puts relationships
-# in. Covers the arrow forms the notation actually uses: solid, dotted and
-# thick, which is every form in the corpus.
-MERMAID_EDGE_RE = re.compile(
-    r"^\s*(\w+)\s*(?:-{2,3}>|-\.-+>|={2,3}>)\s*(?:\|([^|]*)\|)?\s*(\w+)", re.M
-)
-# The identifier a node label ends with: `✦ Fundación de datos [CAP2.3]`.
-NODE_ID_RE = re.compile(r"\[(" + _ID + r")\]\s*$")
-
 
 def strip_code(text: str) -> str:
     return FENCE_RE.sub("", text)
@@ -528,32 +521,6 @@ def bullet_definitions(text: str) -> dict[str, str]:
     }
 
 
-def mermaid_edges(text: str) -> list[tuple[str, str, str]]:
-    """Typed edges (source ID, target ID, label) drawn in Mermaid.
-
-    This is the only place a relationship between two elements is written
-    machine-readably: a table column names a relationship in prose, but a
-    diagram names both ends. The label is carried verbatim — see the module
-    docstring on why it is not mapped onto ArchiMate's vocabulary.
-
-    Runs on the raw text, before `strip_code`, because the diagrams live
-    inside the fences everything else deliberately drops.
-    """
-    edges: list[tuple[str, str, str]] = []
-    for block in MERMAID_RE.finditer(text):
-        body = block.group("body")
-        ids: dict[str, str] = {}
-        for node in MERMAID_NODE_RE.finditer(body):
-            match = NODE_ID_RE.search(node.group(2))
-            if match:
-                ids[node.group(1)] = match.group(1)
-        for edge in MERMAID_EDGE_RE.finditer(body):
-            source, label, target = edge.group(1), edge.group(2), edge.group(3)
-            if source in ids and target in ids:
-                edges.append((ids[source], ids[target], (label or "").strip()))
-    return edges
-
-
 @dataclass
 class Element:
     """One element of the model, as the documents define it."""
@@ -646,12 +613,13 @@ def parse_project(project: Path, *, detail: bool = False) -> ParsedProject:
     model_root = project / MODEL_DIR
 
     for md_file in model_files(project):
-        raw = md_file.read_text(encoding="utf-8")
         # Relationship tables come out first, before any other reading of the
         # document. Their first cell is a bare backticked identifier, which is
         # what `TABLE_DEF_RE` treats as a definition — left in, every source
         # element would be reported as defined twice.
-        text, rel_tables = split_relationship_tables(strip_code(raw))
+        text, rel_tables = split_relationship_tables(
+            strip_code(md_file.read_text(encoding="utf-8"))
+        )
         scope = domain_of(md_file, project)
         if scope:
             domains.add(scope)
@@ -768,17 +736,6 @@ def parse_project(project: Path, *, detail: bool = False) -> ParsedProject:
                          origin="table", pending=pending)
                 )
 
-        for source, target, label in mermaid_edges(raw):
-            src = qualify(source)
-            dst = qualify(target)
-            # An unlabelled edge from a parent to its own child is the
-            # decomposition the identifier already carries, drawn so a reader
-            # can see it. Emitting both would double every level of every
-            # catalogue.
-            if not label and parent_of(dst) == src:
-                continue
-            edges.append(Edge(src=src, dst=dst, rel=label or "relates to", doc=doc,
-                              origin="diagram"))
 
     mentions: list[tuple[str, str]] = []
     if detail:

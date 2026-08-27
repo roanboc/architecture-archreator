@@ -177,7 +177,7 @@ Both are additive. Nothing that reads `DOBJ4` today breaks.
 | Plateau | State |
 | ------- | ----- |
 | **Baseline** (before) | Relationships are declared in two places and read from one. 481 sit in catalogue columns as text the projection never turns into edges; 164 exist only inside diagrams; 24 are pending and indistinguishable from live. 47% of `org-archreator`'s elements have no edge at all |
-| **Target** (delivered) | `PLAT1`. Every relationship is stated in a catalogue column or a relationship table, both validated by the check that already exists. The projection's edges carry where they came from and whether they are live. The Mermaid parse is gone, and a superset check proves nothing was lost with it |
+| **Target** (delivered) | `PLAT1`. Every relationship is stated in a catalogue column or a relationship table. The projection's edges carry where they came from and whether they are live. The Mermaid parse is gone, and the superset check passed — 304, 219 and 40 connections before and after, none lost. **Elements with no edge at all fall from 47% / 13% / 12% to 9% / 11% / 9%**, and the three trees carry 619 stated relationships where they carried 306 |
 
 ## Work packages and deliverables
 
@@ -320,6 +320,47 @@ against.
 | A catalogue column holds an identifier that is not a relationship | A spurious edge, labelled with the column header, visible in `trace`. `org-archreator`'s `Source` column is the known case; only resolving identifiers become edges, so a prose source is excluded on its own |
 | The extractor mis-transcribes an edge | The superset check catches a **dropped** pair. It cannot catch a **mangled** label, which is why the extractor's output is reviewed rather than merged blind |
 | The name check fails on formatting rather than a rename | Normalisation covers whitespace and case, which is every formatting difference seen in the corpus. Anything it does not cover fails loudly on a valid document — annoying, visible, and fixed by editing one cell. The extractor fills these cells from the catalogue, so the migration cannot introduce one |
+
+## What changed during implementation
+
+Three deltas from the approved design, each found by building it.
+
+**A catalogue cell declares relationships only when it is a list of
+identifiers and nothing else.** The approved design said every resolving
+identifier in a non-name column becomes an edge. The label census — WP5, built
+to report label sprawl — found on its first run that this turns `Maturity`,
+`Classification`, `Cost to maintain` and `On disk` into relationship types,
+because a prose cell occasionally names an element mid-sentence. 172 distinct
+labels, 82 used once. The rule now matches what the corpus actually does:
+`` `ACMP7`, `ACMP8` `` declares, "A row in `BOBJ3`'s Approvals table" mentions.
+It is the same discipline `TABLE_DEF_RE` already applies to a definition, which
+must be a *bare* identifier rather than one inside a sentence.
+
+**The superset check compares connections, not directions.** Run on directed
+pairs it reported 37 losses; every one was the same connection stated from the
+other end — a diagram's `BSVC1 → BIF1` against the catalogue's
+`BIF1 | Serves | BSVC1`. None was absent in both directions. Direction here is
+a property of the sentence rather than of the relationship, which this
+initiative already accepted when it accepted that a `Provided by` column draws
+an arrow reading backwards.
+
+**The Mermaid node reader went too.** The design said it would stay, on the
+grounds that it costs nothing. It was only ever called by the edge reader, so
+removing the edge reader made it unreachable — and dead code kept on purpose is
+worse than dead code removed by accident.
+
+Two findings that are not deltas, recorded because they are the checks working:
+
+- The corpus validator rejected the notation section this initiative added to
+  the scaffold, because its worked example carried real identifiers — which
+  ship into every generated project as references to elements nobody defined.
+  It is the defect [scope document 1](./1_rebuild-the-models-on-the-current-method.md)
+  logged as a gap note, caught mechanically this time. The example lives in
+  `architecture-document-style`; the scaffold names the rule and cites it.
+- The name check was green on all 432 restatements the migration wrote, first
+  run. That is the extractor filling description cells from the catalogue
+  rather than inventing them, which is what it was built to do and what the
+  check exists to prove.
 
 ## In scope / out of scope
 
