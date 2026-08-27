@@ -52,6 +52,19 @@ Grey is outside the boundary. The organization operates nothing: what it
 publishes is carried by somebody else's platform, and what it delivers runs on
 somebody else's inference.
 
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `BSVC1` | «Business Service» The method, published and installable | `STK1` | «Stakeholder» Business and solution designers | self-service to |
+| `BSVC3` | «Business Service» Advisory and delivery with the method | `STK2` | «Stakeholder» Established business owners | in person to |
+| `ACT4` | «Actor» The code host | `BSVC1` | «Business Service» The method, published and installable | carries |
+| `ACT3` | «Actor» AI model providers | `BSVC3` | «Business Service» Advisory and delivery with the method | run |
+
 ## Glossary
 
 Terms with a specific meaning here. The method's own vocabulary — subject,
@@ -103,16 +116,3 @@ authorization exists.
 Stage 4 of [decision 1](../decisions/1_take-coa1-staged.md) is what would end
 this: an agent running discovery with a client directly means holding client
 data, and holding client data means a real access model for the first time.
-
-## Relationships
-
-<!-- Transcribed from this document's diagrams. The identifier is
-     authoritative; the description beside it is checked against the
-     catalogue that defines the element. -->
-
-| From | From element | To | To element | Relationship |
-| ---- | ------------ | -- | ---------- | ------------ |
-| `BSVC1` | «Business Service» The method, published and installable | `STK1` | «Stakeholder» Business and solution designers | self-service to |
-| `BSVC3` | «Business Service» Advisory and delivery with the method | `STK2` | «Stakeholder» Established business owners | in person to |
-| `ACT4` | «Actor» The code host | `BSVC1` | «Business Service» The method, published and installable | carries |
-| `ACT3` | «Actor» AI model providers | `BSVC3` | «Business Service» Advisory and delivery with the method | run |

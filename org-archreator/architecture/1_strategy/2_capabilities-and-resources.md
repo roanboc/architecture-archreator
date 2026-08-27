@@ -69,6 +69,18 @@ flowchart TB
 area is realized by its parts; only the level-2 capabilities point at
 something concrete.
 
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `CAP1` | «Capability» Business understanding | `CAP3` | «Capability» Delivery from design | produces a model for |
+| `CAP2` | «Capability» Model stewardship | `CAP1` | «Capability» Business understanding | keeps true what |
+| `CAP3` | «Capability» Delivery from design | `CAP2` | «Capability» Model stewardship | feeds experience back to |
+
 ## The capabilities
 
 ```mermaid
@@ -119,6 +131,17 @@ purpose. It is the first stage of `COA1`.
 notes that existed were not carried through the clean-room rebuild. The
 capability is real and the skill exists; what is gone is the record of it
 having been exercised.
+
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `CAP1.1` | «Capability» Gated discovery | `CAP3.1` | «Capability» Design-to-delivery continuity | frames what |
+| `CAP1.2` | «Capability» A shared architectural language | `CAP2.1` | «Capability» One documented model | makes shareable what |
 
 ## Values
 
@@ -178,7 +201,7 @@ deal of `RES1` before returning anything. That ordering is settled by
 [decision 1](../decisions/1_take-coa1-staged.md), which also records what
 would reopen it.
 
-## Relationships
+### Relationships
 
 <!-- Transcribed from this document's diagrams. The identifier is
      authoritative; the description beside it is checked against the
@@ -186,11 +209,6 @@ would reopen it.
 
 | From | From element | To | To element | Relationship |
 | ---- | ------------ | -- | ---------- | ------------ |
-| `CAP1` | «Capability» Business understanding | `CAP3` | «Capability» Delivery from design | produces a model for |
-| `CAP2` | «Capability» Model stewardship | `CAP1` | «Capability» Business understanding | keeps true what |
-| `CAP3` | «Capability» Delivery from design | `CAP2` | «Capability» Model stewardship | feeds experience back to |
-| `CAP1.1` | «Capability» Gated discovery | `CAP3.1` | «Capability» Design-to-delivery continuity | frames what |
-| `CAP1.2` | «Capability» A shared architectural language | `CAP2.1` | «Capability» One documented model | makes shareable what |
 | `COA1` | «Course of Action» AI agents acting as consultants | `RES2` | «Resource» The method | stage 1 lands on |
 | `COA1` | «Course of Action» AI agents acting as consultants | `RES1` | «Resource» The Requester's knowledge and time | later stages relieve |
 | `COA2` | «Course of Action» Build the portal | `RES4` | «Resource» The portal | would create |

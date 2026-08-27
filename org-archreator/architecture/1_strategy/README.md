@@ -74,7 +74,7 @@ A cross-layer view, so it uses the flat layer palette rather than the tone
 ramps the single-layer documents use. Thirty-one motivation elements do not
 fit one honest diagram; each section carries its own.
 
-## Relationships
+### Relationships
 
 <!-- Transcribed from this document's diagrams. The identifier is
      authoritative; the description beside it is checked against the

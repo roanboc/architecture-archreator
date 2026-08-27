@@ -90,7 +90,7 @@ and approved at a moment; the model moves on and they do not. This is why the
 validators skip `scope/` and `decisions/` entirely — reference-checking a
 frozen document is incoherent rather than merely awkward.
 
-## Relationships
+### Relationships
 
 <!-- Transcribed from this document's diagrams. The identifier is
      authoritative; the description beside it is checked against the

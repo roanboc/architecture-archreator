@@ -85,7 +85,7 @@ reader never mistakes it for a person.
 Every business service is realized by application services — the mapping is
 in `4_application/1_application-services.md`.
 
-## Relationships
+### Relationships
 
 <!-- Transcribed from this document's diagrams. The identifier is
      authoritative; the description beside it is checked against the

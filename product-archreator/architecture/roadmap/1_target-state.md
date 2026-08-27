@@ -74,6 +74,18 @@ restate what another tree owns, which the tier rule in
 rights over elements it does not own. What is centralized is a list of URLs.
 The graph is a view.
 
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `PLAT1` | «Plateau» Declared relationships | `PLAT2` | «Plateau» A walkable model | nothing to walk without it |
+| `PLAT2` | «Plateau» A walkable model | `PLAT3` | «Plateau» A federated graph | an index with no consumer |
+| `PLAT3` | «Plateau» A federated graph | `PLAT4` | «Plateau» Checkable across the boundary | nothing to resolve against |
+
 ## The gaps
 
 Derived by subtracting today from the plateaus above, and measured against the
@@ -132,15 +144,3 @@ stops fitting in a browser tab.
 
 **No private-repository federation.** `PLAT3` works by fetching a published
 URL, so it reaches public projects. That is enough to prove the shape.
-
-## Relationships
-
-<!-- Transcribed from this document's diagrams. The identifier is
-     authoritative; the description beside it is checked against the
-     catalogue that defines the element. -->
-
-| From | From element | To | To element | Relationship |
-| ---- | ------------ | -- | ---------- | ------------ |
-| `PLAT1` | «Plateau» Declared relationships | `PLAT2` | «Plateau» A walkable model | nothing to walk without it |
-| `PLAT2` | «Plateau» A walkable model | `PLAT3` | «Plateau» A federated graph | an index with no consumer |
-| `PLAT3` | «Plateau» A federated graph | `PLAT4` | «Plateau» Checkable across the boundary | nothing to resolve against |

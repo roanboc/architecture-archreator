@@ -36,6 +36,18 @@ flowchart LR
 | 8 | Federate the graph | `GAP7`, `GAP8` | `PLAT3` | 2 | Not started |
 | 9 | Cross the boundary | `GAP9` | `PLAT4` | 2 | Not started |
 
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `PLAT1` | «Plateau» Declared relationships | `PLAT2` | «Plateau» A walkable model | a graph worth drawing |
+| `PLAT2` | «Plateau» A walkable model | `PLAT3` | «Plateau» A federated graph | a reader worth pointing at more than one |
+| `PLAT3` | «Plateau» A federated graph | `PLAT4` | «Plateau» Checkable across the boundary | somewhere to resolve a foreign identifier |
+
 ## Why this order and not another
 
 **The dependencies are real, not preferences.** Each arrow above is a thing
@@ -76,15 +88,3 @@ Two findings would reorder it, and both are worth watching for:
   is owned by the topmost tree of one federation. Two federations means two
   indexes and a navigator that takes more than one, which is a small change if
   it is known in advance and an awkward one if it is not.
-
-## Relationships
-
-<!-- Transcribed from this document's diagrams. The identifier is
-     authoritative; the description beside it is checked against the
-     catalogue that defines the element. -->
-
-| From | From element | To | To element | Relationship |
-| ---- | ------------ | -- | ---------- | ------------ |
-| `PLAT1` | «Plateau» Declared relationships | `PLAT2` | «Plateau» A walkable model | a graph worth drawing |
-| `PLAT2` | «Plateau» A walkable model | `PLAT3` | «Plateau» A federated graph | a reader worth pointing at more than one |
-| `PLAT3` | «Plateau» A federated graph | `PLAT4` | «Plateau» Checkable across the boundary | somewhere to resolve a foreign identifier |

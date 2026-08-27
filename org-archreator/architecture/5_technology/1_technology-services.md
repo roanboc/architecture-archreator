@@ -73,6 +73,17 @@ flowchart LR
 | `NODE3` | **AI model providers** | The provider | Reached under each party's own account — see `CTR1` |
 | `NODE4` | **Portal hosting** | Would be this organization | **Pending — future initiative** (`COA2`) |
 
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `NODE3` | «Node» AI model providers | `TSVC5` | «Technology Service» Inference | provides |
+| `NODE2` | «Node» The adopter's agent runtime | `TSVC5` | «Technology Service» Inference | invokes |
+
 ## Who pays for what, and why it matters
 
 `TSVC5` is the only service with a real cost, and **this organization does not
@@ -99,14 +110,3 @@ running it, which requires knowing what running it costs.
 | A staging environment | There is nothing running to stage. A pull request is the environment |
 | Monitoring or alerting | Nothing runs between pushes. A failure is a red check |
 | A backup policy | The repository is the artifact, and the host holds it |
-
-## Relationships
-
-<!-- Transcribed from this document's diagrams. The identifier is
-     authoritative; the description beside it is checked against the
-     catalogue that defines the element. -->
-
-| From | From element | To | To element | Relationship |
-| ---- | ------------ | -- | ---------- | ------------ |
-| `NODE3` | «Node» AI model providers | `TSVC5` | «Technology Service» Inference | provides |
-| `NODE2` | «Node» The adopter's agent runtime | `TSVC5` | «Technology Service» Inference | invokes |

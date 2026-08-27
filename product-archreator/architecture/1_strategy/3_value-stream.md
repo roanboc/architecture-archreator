@@ -78,15 +78,7 @@ the layers are re-walked, not the subject re-modeled. Drawing it as a
 stage-to-stage loop would suggest a declined gate re-opens discovery, which it
 does not.
 
-## Where the stream is thin
-
-| Stage | The weakness |
-| ----- | ------------ |
-| `VS1.1` | Depends on the adopter answering two questions honestly — what the subject is, and how deeply to model it. An adopter who overstates the depth gets four gates for an application, and abandons the method rather than the depth |
-| `VS1.5` | Has no trigger. Nothing observes that a model has drifted; somebody has to notice. This is the same gap `CAP6` has, one stage further on |
-| `VS1.6` | Runs between `VS1.2` and `VS1.3`, and is numbered last because an identifier is assigned once and never reallocated. It is also the one stage an adopter can skip without the stream breaking — which is why it was missing long enough to be noticed |
-
-## Relationships
+### Relationships
 
 <!-- Transcribed from this document's diagrams. The identifier is
      authoritative; the description beside it is checked against the
@@ -98,3 +90,11 @@ does not.
 | `VS1.2` | «Value Stream» Model the subject | `VS1.6` | «Value Stream» Set the direction | where a direction is wanted |
 | `VS1.6` | «Value Stream» Set the direction | `VS1.3` | «Value Stream» Decide at the gates | relates to |
 | `VS1.5` | «Value Stream» Keep it true | `VS1.3` | «Value Stream» Decide at the gates | the next change |
+
+## Where the stream is thin
+
+| Stage | The weakness |
+| ----- | ------------ |
+| `VS1.1` | Depends on the adopter answering two questions honestly — what the subject is, and how deeply to model it. An adopter who overstates the depth gets four gates for an application, and abandons the method rather than the depth |
+| `VS1.5` | Has no trigger. Nothing observes that a model has drifted; somebody has to notice. This is the same gap `CAP6` has, one stage further on |
+| `VS1.6` | Runs between `VS1.2` and `VS1.3`, and is numbered last because an identifier is assigned once and never reallocated. It is also the one stage an adopter can skip without the stream breaking — which is why it was missing long enough to be noticed |

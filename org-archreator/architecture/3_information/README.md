@@ -45,7 +45,7 @@ The learning loop, and every step removes information. It ends outside the
 boundary: what an adopter builds is never seen here, which is why the
 organization cannot measure its own main outcome.
 
-## Relationships
+### Relationships
 
 <!-- Transcribed from this document's diagrams. The identifier is
      authoritative; the description beside it is checked against the

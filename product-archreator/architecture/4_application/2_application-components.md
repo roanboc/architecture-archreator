@@ -128,26 +128,7 @@ All paths are relative to `plugins/archreator/` in the
 [`archreator`](https://github.com/roanboc/archreator) repository, except
 `ACMP11`'s marketplace manifest, which sits at that repository's root.
 
-## What is inside the scaffold, and what is not
-
-`ACMP10` carries `ACMP5`–`ACMP8` and `ACMP12`–`ACMP13`, and does not carry
-`ACMP9`. The line is whether a downstream project has anything for the
-component to act on: an adopter's project has a model, so it needs the
-validators, the projection and the two that publish it; it has no skills, so
-the corpus validator would have nothing to check.
-
-That is also why `ACMP9` lives at `scripts/` rather than `scaffold/scripts/` —
-the directory a component sits in states who it is for.
-
-## Portability
-
-`ACMP11` is the only component `P5` calls disposable. Everything else is
-Markdown and Python that would need **moving** if the host platform vanished,
-not **editing**; the manifests would need rewriting for whatever replaced it.
-A second platform would add a manifest beside this one rather than forking
-anything above it.
-
-## Relationships
+### Relationships
 
 <!-- Transcribed from this document's diagrams. The identifier is
      authoritative; the description beside it is checked against the
@@ -176,3 +157,22 @@ anything above it.
 | `ACMP9` | «Application Component» The corpus validator | `ACMP3` | «Application Component» The stewardship skills | checks |
 | `ACMP9` | «Application Component» The corpus validator | `ACMP4` | «Application Component» The rulebooks | checks |
 | `ACMP9` | «Application Component» The corpus validator | `ACMP15` | «Application Component» The transition-planning skill | checks |
+
+## What is inside the scaffold, and what is not
+
+`ACMP10` carries `ACMP5`–`ACMP8` and `ACMP12`–`ACMP13`, and does not carry
+`ACMP9`. The line is whether a downstream project has anything for the
+component to act on: an adopter's project has a model, so it needs the
+validators, the projection and the two that publish it; it has no skills, so
+the corpus validator would have nothing to check.
+
+That is also why `ACMP9` lives at `scripts/` rather than `scaffold/scripts/` —
+the directory a component sits in states who it is for.
+
+## Portability
+
+`ACMP11` is the only component `P5` calls disposable. Everything else is
+Markdown and Python that would need **moving** if the host platform vanished,
+not **editing**; the manifests would need rewriting for whatever replaced it.
+A second platform would add a manifest beside this one rather than forking
+anything above it.

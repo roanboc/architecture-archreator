@@ -74,15 +74,7 @@ appears.
 | `ROLE1` | **Reader** | Reads the page and either follows a link out or leaves. Owes nothing, and is asked for nothing | They navigate away |
 | `ROLE2` | **Publisher** | Keeps the page true as the method changes, and merges the change that deploys it | The deployment succeeds |
 
-## No relationship is modeled
-
-**Deliberately.** ArchiMate would offer a «Business Collaboration» or a
-«Contract» to bind `ROLE1` and `ROLE2`, and neither exists here: there is no
-agreement, no account, no support obligation and no exchange. A visitor takes
-something and leaves, and the model says so rather than manufacturing a
-relationship to fill the section.
-
-## Relationships
+### Relationships
 
 <!-- Transcribed from this document's diagrams. The identifier is
      authoritative; the description beside it is checked against the
@@ -91,3 +83,11 @@ relationship to fill the section.
 | From | From element | To | To element | Relationship |
 | ---- | ------------ | -- | ---------- | ------------ |
 | `ACT3` | «Actor» An AI coding agent | `ROLE2` | «Role» Publisher | edits the source for |
+
+## No relationship is modeled
+
+**Deliberately.** ArchiMate would offer a «Business Collaboration» or a
+«Contract» to bind `ROLE1` and `ROLE2`, and neither exists here: there is no
+agreement, no account, no support obligation and no exchange. A visitor takes
+something and leaves, and the model says so rather than manufacturing a
+relationship to fill the section.

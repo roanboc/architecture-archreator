@@ -88,6 +88,18 @@ purpose.** The Markdown stays the source of truth; the projection is rebuilt
 from scratch on every run, which is what makes it incapable of going stale.
 Delete it and nothing is lost.
 
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `DOBJ1` | «Data Object» Skill frontmatter | `BOBJ6` | «Business Object» The skill | realizes the readable face of |
+| `DOBJ2` | «Data Object» The element-prefix registry | `BOBJ1` | «Business Object» The architecture model | types the elements of |
+| `DOBJ4` | «Data Object» The model projection | `BOBJ1` | «Business Object» The architecture model | is derived from |
+
 ## Retention and classification
 
 **Nothing here is personal, and nothing is retained.** `DOBJ1`–`DOBJ3` are
@@ -100,15 +112,3 @@ An adopting project's own model may well contain commercially sensitive
 material — a capability gap, a partner strategy, a cost structure. That is
 that project's classification to make, and it is why a published view of a
 model is an access decision before it is a technical one.
-
-## Relationships
-
-<!-- Transcribed from this document's diagrams. The identifier is
-     authoritative; the description beside it is checked against the
-     catalogue that defines the element. -->
-
-| From | From element | To | To element | Relationship |
-| ---- | ------------ | -- | ---------- | ------------ |
-| `DOBJ1` | «Data Object» Skill frontmatter | `BOBJ6` | «Business Object» The skill | realizes the readable face of |
-| `DOBJ2` | «Data Object» The element-prefix registry | `BOBJ1` | «Business Object» The architecture model | types the elements of |
-| `DOBJ4` | «Data Object» The model projection | `BOBJ1` | «Business Object» The architecture model | is derived from |

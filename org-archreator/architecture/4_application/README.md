@@ -52,7 +52,7 @@ flowchart TB
 The self-loop is the finding: **no application service realizes advisory and
 delivery.** It is done by a person, so it scales at the speed of one calendar.
 
-## Relationships
+### Relationships
 
 <!-- Transcribed from this document's diagrams. The identifier is
      authoritative; the description beside it is checked against the

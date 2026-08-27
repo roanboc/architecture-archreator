@@ -83,7 +83,7 @@ motivation, sand for strategy — rather than the tone ramps the single-layer
 documents use. Colour here separates the layers, not the element types within
 them.
 
-## Relationships
+### Relationships
 
 <!-- Transcribed from this document's diagrams. The identifier is
      authoritative; the description beside it is checked against the

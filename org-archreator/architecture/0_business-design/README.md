@@ -126,7 +126,7 @@ motivation elements, the value map becomes strategy elements. The fills come
 from [`architecture/README.md` § Notation conventions](../README.md#notation-conventions),
 which stays the single source for the palette.
 
-## Relationships
+### Relationships
 
 <!-- Transcribed from this document's diagrams. The identifier is
      authoritative; the description beside it is checked against the

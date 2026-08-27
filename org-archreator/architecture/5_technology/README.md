@@ -44,7 +44,7 @@ Grey is outside the boundary, and most of this layer is grey: the only service
 running on anything this organization arranged is free, and the only service
 with a real cost is paid by whoever is using the method.
 
-## Relationships
+### Relationships
 
 <!-- Transcribed from this document's diagrams. The identifier is
      authoritative; the description beside it is checked against the

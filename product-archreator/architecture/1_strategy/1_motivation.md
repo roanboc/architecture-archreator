@@ -90,6 +90,19 @@ Requester is shown a change and grants a gate; a reader is shown the model and
 has to be able to follow it. The same documents serve both, which is why
 reaching `STK5` is a rendering rather than a second model.
 
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `STK1` | «Stakeholder» Requester in an adopting project | `STK2` | «Stakeholder» Agent in an adopting project | delegates the modeling to |
+| `STK2` | «Stakeholder» Agent in an adopting project | `STK3` | «Stakeholder» Reviewer in an adopting project | hands the branch to |
+| `STK4` | «Stakeholder» Method maintainer | `STK1` | «Stakeholder» Requester in an adopting project | changes what all three follow |
+| `STK1` | «Stakeholder» Requester in an adopting project | `STK5` | «Stakeholder» Reader outside the repository | shows the model to |
+
 ## Drivers and assessments
 
 ```mermaid
@@ -136,6 +149,23 @@ flowchart LR
 | `ASM6` | **Nothing says which change matters more than another** | Each request is defensible on its own, and a method that only judges one change at a time can say whether it is coherent but never whether it is the one to make first. The question a Requester asks most often is the one the model was least able to answer |
 | `ASM7` | **An unapproved element looks exactly like an approved one** | A catalogue of things three people mentioned in a workshop and a layer a Requester signed are the same tables, the same identifiers, the same shape. Nothing on either says which it is, so a reader supplies the answer from how finished it looks — and a document is at its most finished-looking on the day it is drafted |
 | `ASM8` | **A claim outlives the conversation it came from** | The figure came off a slide, the process came from someone describing it once. Eighteen months later the model still says so and nobody can say why. The claim is not wrong, but it is unreviewable, which over enough time is the same thing |
+
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `DRV1` | «Driver» Agents build faster than anyone can specify | `ASM1` | «Assessment» Requirements reach code without passing through architecture | evidenced by |
+| `DRV1` | «Driver» Agents build faster than anyone can specify | `ASM6` | «Assessment» Nothing says which change matters more than another | evidenced by |
+| `DRV2` | «Driver» The context an agent needs is not written down | `ASM3` | «Assessment» Modeling tools produce files agents cannot read or diff | evidenced by |
+| `DRV2` | «Driver» The context an agent needs is not written down | `ASM4` | «Assessment» AI is modeled as a tool, so its decisions have no owner | evidenced by |
+| `DRV2` | «Driver» The context an agent needs is not written down | `ASM5` | «Assessment» An estate that predates the model is context nothing will ask for | evidenced by |
+| `DRV3` | «Driver» Documentation stops being true when code moves | `ASM2` | «Assessment» An agent cannot tell a deleted element from a live one | evidenced by |
+| `DRV3` | «Driver» Documentation stops being true when code moves | `ASM7` | «Assessment» An unapproved element looks exactly like an approved one | evidenced by |
+| `DRV3` | «Driver» Documentation stops being true when code moves | `ASM8` | «Assessment» A claim outlives the conversation it came from | evidenced by |
 
 ## Goals and outcomes
 
@@ -219,6 +249,21 @@ so once about the document beats saying it about every row. That is a smaller
 claim than the outcome, and it is the largest one that can be made without
 being wrong sometimes.
 
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `G1` | «Goal» An agent reads the business context natively | `OUT1` | «Outcome» Every element names what realizes it, or says it is Pending | measured by |
+| `G2` | «Goal» A person approves before code exists | `OUT2` | «Outcome» Every gate is recorded with who approved and what they were shown | measured by |
+| `G3` | «Goal» The model still describes today after the merge | `OUT3` | «Outcome» No reference resolves to something that was deleted | measured by |
+| `G4` | «Goal» An adopter starts without learning a tool | `OUT1` | «Outcome» Every element names what realizes it, or says it is Pending | measured by |
+| `G6` | «Goal» The model says where the subject is going, not only where it is | `OUT2` | «Outcome» Every gate is recorded with who approved and what they were shown | measured by |
+| `G7` | «Goal» What the model is worth is written on the model | `OUT4` | «Outcome» Every document that defines an element declares how far it has been validated | measured by |
+
 ## Principles
 
 Constraints every proposed change is tested against, before anything else.
@@ -252,30 +297,3 @@ Together they are why this document is short.
 `0_business-design/` is empty in this tree and stays that way. The canvases
 describe an organization's customers and economics, and this subject has
 neither of its own. They are filled one tree up.
-
-## Relationships
-
-<!-- Transcribed from this document's diagrams. The identifier is
-     authoritative; the description beside it is checked against the
-     catalogue that defines the element. -->
-
-| From | From element | To | To element | Relationship |
-| ---- | ------------ | -- | ---------- | ------------ |
-| `STK1` | «Stakeholder» Requester in an adopting project | `STK2` | «Stakeholder» Agent in an adopting project | delegates the modeling to |
-| `STK2` | «Stakeholder» Agent in an adopting project | `STK3` | «Stakeholder» Reviewer in an adopting project | hands the branch to |
-| `STK4` | «Stakeholder» Method maintainer | `STK1` | «Stakeholder» Requester in an adopting project | changes what all three follow |
-| `STK1` | «Stakeholder» Requester in an adopting project | `STK5` | «Stakeholder» Reader outside the repository | shows the model to |
-| `DRV1` | «Driver» Agents build faster than anyone can specify | `ASM1` | «Assessment» Requirements reach code without passing through architecture | evidenced by |
-| `DRV1` | «Driver» Agents build faster than anyone can specify | `ASM6` | «Assessment» Nothing says which change matters more than another | evidenced by |
-| `DRV2` | «Driver» The context an agent needs is not written down | `ASM3` | «Assessment» Modeling tools produce files agents cannot read or diff | evidenced by |
-| `DRV2` | «Driver» The context an agent needs is not written down | `ASM4` | «Assessment» AI is modeled as a tool, so its decisions have no owner | evidenced by |
-| `DRV2` | «Driver» The context an agent needs is not written down | `ASM5` | «Assessment» An estate that predates the model is context nothing will ask for | evidenced by |
-| `DRV3` | «Driver» Documentation stops being true when code moves | `ASM2` | «Assessment» An agent cannot tell a deleted element from a live one | evidenced by |
-| `DRV3` | «Driver» Documentation stops being true when code moves | `ASM7` | «Assessment» An unapproved element looks exactly like an approved one | evidenced by |
-| `DRV3` | «Driver» Documentation stops being true when code moves | `ASM8` | «Assessment» A claim outlives the conversation it came from | evidenced by |
-| `G1` | «Goal» An agent reads the business context natively | `OUT1` | «Outcome» Every element names what realizes it, or says it is Pending | measured by |
-| `G2` | «Goal» A person approves before code exists | `OUT2` | «Outcome» Every gate is recorded with who approved and what they were shown | measured by |
-| `G3` | «Goal» The model still describes today after the merge | `OUT3` | «Outcome» No reference resolves to something that was deleted | measured by |
-| `G4` | «Goal» An adopter starts without learning a tool | `OUT1` | «Outcome» Every element names what realizes it, or says it is Pending | measured by |
-| `G6` | «Goal» The model says where the subject is going, not only where it is | `OUT2` | «Outcome» Every gate is recorded with who approved and what they were shown | measured by |
-| `G7` | «Goal» What the model is worth is written on the model | `OUT4` | «Outcome» Every document that defines an element declares how far it has been validated | measured by |

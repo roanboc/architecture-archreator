@@ -62,7 +62,7 @@ A selection, not the whole layer — thirteen components do not fit one honest
 view. The full set is in
 [2_application-components.md](./2_application-components.md).
 
-## Relationships
+### Relationships
 
 <!-- Transcribed from this document's diagrams. The identifier is
      authoritative; the description beside it is checked against the

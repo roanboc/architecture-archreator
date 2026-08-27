@@ -78,6 +78,19 @@ flowchart LR
 dominant cost, and a stakeholder with wants of their own. That triple entry is
 the organization's central fact, not a modelling accident.
 
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `STK4` | «Stakeholder» The Requester | `STK1` | «Stakeholder» Business and solution designers | maintains the method for |
+| `STK4` | «Stakeholder» The Requester | `STK2` | «Stakeholder» Established business owners | delivers personally to |
+| `STK1` | «Stakeholder» Business and solution designers | `STK5` | «Stakeholder» Contributor community | would become |
+| `STK5` | «Stakeholder» Contributor community | `STK4` | «Stakeholder» The Requester | would feed back to |
+
 ## Drivers
 
 | ID | Driver | Source |
@@ -212,16 +225,3 @@ Thirty-one elements across six types do not fit one honest diagram. Each
 section above carries its own, overlapping by one rank so a reader can chain
 them — which is the drawing rule applied rather than a limitation of this
 document.
-
-## Relationships
-
-<!-- Transcribed from this document's diagrams. The identifier is
-     authoritative; the description beside it is checked against the
-     catalogue that defines the element. -->
-
-| From | From element | To | To element | Relationship |
-| ---- | ------------ | -- | ---------- | ------------ |
-| `STK4` | «Stakeholder» The Requester | `STK1` | «Stakeholder» Business and solution designers | maintains the method for |
-| `STK4` | «Stakeholder» The Requester | `STK2` | «Stakeholder» Established business owners | delivers personally to |
-| `STK1` | «Stakeholder» Business and solution designers | `STK5` | «Stakeholder» Contributor community | would become |
-| `STK5` | «Stakeholder» Contributor community | `STK4` | «Stakeholder» The Requester | would feed back to |

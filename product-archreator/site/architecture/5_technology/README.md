@@ -39,7 +39,7 @@ flowchart LR
 while anyone is reading — at request time the two nodes have nothing to do
 with each other.
 
-## Relationships
+### Relationships
 
 <!-- Transcribed from this document's diagrams. The identifier is
      authoritative; the description beside it is checked against the

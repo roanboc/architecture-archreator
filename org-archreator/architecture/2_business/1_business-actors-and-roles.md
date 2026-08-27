@@ -96,6 +96,17 @@ by deciding what the organization is for, and it is still the role that
 chooses between `COA1`, `COA2` and `COA3`. A model that only listed
 value-producing roles would leave the organization's own direction unowned.
 
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `ACT2` | «Actor» The AI agent | `ROLE1` | «Role» Method maintainer | assists in |
+| `ACT2` | «Actor» The AI agent | `ROLE2` | «Role» Consultant | assists in |
+
 ## Outside the organization
 
 ```mermaid
@@ -139,7 +150,7 @@ genuinely substitutable — swapping it costs a manifest. The code host carries
 three of five channels at once, so its replaceability is real in principle and
 expensive in practice, and the model says which kind it is.
 
-## Relationships
+### Relationships
 
 <!-- Transcribed from this document's diagrams. The identifier is
      authoritative; the description beside it is checked against the
@@ -147,8 +158,6 @@ expensive in practice, and the model says which kind it is.
 
 | From | From element | To | To element | Relationship |
 | ---- | ------------ | -- | ---------- | ------------ |
-| `ACT2` | «Actor» The AI agent | `ROLE1` | «Role» Method maintainer | assists in |
-| `ACT2` | «Actor» The AI agent | `ROLE2` | «Role» Consultant | assists in |
 | `ACT1` | «Actor» The Requester | `CTR1` | «Contract» Model provider subscription and usage terms | bound by |
 | `ACT1` | «Actor» The Requester | `CTR2` | «Contract» Platform terms | bound by |
 | `ACT1` | «Actor» The Requester | `BCOL1` | «Business Collaboration» Open-source collaboration around the method | would participate in |

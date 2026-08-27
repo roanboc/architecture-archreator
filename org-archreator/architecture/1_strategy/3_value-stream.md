@@ -61,6 +61,17 @@ flowchart LR
 | `VS1.5` | **Build** | The approved design is what an agent implements from | `CAP3.1`, `CAP3.2` | `KA3` |
 | `VS1.6` | **Feed back** | Real use exposes what the method gets wrong, and the method changes | `CAP2.2`, `CAP2.3` | `KA1`, `KA2` |
 
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `VS1.1` | «Value Stream» Reach | `VS1.2` | «Value Stream» Frame | relates to |
+| `VS1.6` | «Value Stream» Feed back | `VS1.2` | «Value Stream» Frame | real use changes the method |
+
 ## Where the stream is weak
 
 **`VS1.1` is the only stage no capability serves.** Being found is not
@@ -87,14 +98,3 @@ that anyone runs.
 
 Three of six stages carry a named weakness, and each has a course of action
 pointed at it. Only one of those courses has been taken.
-
-## Relationships
-
-<!-- Transcribed from this document's diagrams. The identifier is
-     authoritative; the description beside it is checked against the
-     catalogue that defines the element. -->
-
-| From | From element | To | To element | Relationship |
-| ---- | ------------ | -- | ---------- | ------------ |
-| `VS1.1` | «Value Stream» Reach | `VS1.2` | «Value Stream» Frame | relates to |
-| `VS1.6` | «Value Stream» Feed back | `VS1.2` | «Value Stream» Frame | real use changes the method |

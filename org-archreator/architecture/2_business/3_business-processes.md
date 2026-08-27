@@ -85,6 +85,17 @@ list of six looked complete.
 gets built is the adopter's or the client's; what this organization keeps is
 whether the method held while it was built.
 
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `BPROC1` | «Business Process» Reach | `BPROC2` | «Business Process» Frame | relates to |
+| `BPROC6` | «Business Process» Feed back | `BPROC2` | «Business Process» Frame | the method changes |
+
 ## Focus table
 
 Which branches are detailed, and why the rest are not.
@@ -108,14 +119,3 @@ decomposes one of its ten level-2 processes to level 3, because its own flow
 was unreadable without it. This organization has hit no such wall. The two
 models use the same rule and reach different answers, which is the rule
 working.
-
-## Relationships
-
-<!-- Transcribed from this document's diagrams. The identifier is
-     authoritative; the description beside it is checked against the
-     catalogue that defines the element. -->
-
-| From | From element | To | To element | Relationship |
-| ---- | ------------ | -- | ---------- | ------------ |
-| `BPROC1` | «Business Process» Reach | `BPROC2` | «Business Process» Frame | relates to |
-| `BPROC6` | «Business Process» Feed back | `BPROC2` | «Business Process» Frame | the method changes |

@@ -68,7 +68,7 @@ flowchart TB
 and dressing a single step as a flow would be the only dishonest node in the
 diagram.
 
-## Relationships
+### Relationships
 
 <!-- Transcribed from this document's diagrams. The identifier is
      authoritative; the description beside it is checked against the
