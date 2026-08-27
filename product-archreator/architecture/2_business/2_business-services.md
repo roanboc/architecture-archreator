@@ -9,7 +9,8 @@ through which channel each service reaches them.
 restated on 2026-08-27 with
 [initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md),
 `BSVC8` on 2026-08-27 with [initiative 7](../scope/7_walk-the-model.md);
-`BSVC3` again on 2026-08-27 with [initiative 9](../scope/9_cross-the-boundary.md).
+`BSVC3` again on 2026-08-27 with [initiative 9](../scope/9_cross-the-boundary.md);
+`BSVC8` again on 2026-08-27 with [initiative 10](../scope/10_make-it-readable.md).
 
 ## How to read this document
 
@@ -82,7 +83,7 @@ flowchart TB
 | `BSVC5` | **Method distribution** | An installable plugin and a scaffold that is a working project on its first commit | `CAP5` | `plugin.json`, `marketplace.json`, the scaffold, `docs/` |
 | `BSVC6` | **Model restatement** | A model that has stopped reading as a description of today turned back into one, and what the method failed to cover captured before it evaporates | `CAP3`, `CAP6` | `restate-current-state`, `run-retrospective` |
 | `BSVC7` | **Model publication** | The model they already have, rendered as a searchable website and printed as one document, with every page carrying the path of the file that produced it and a route back for a question — and, where the repository it lives in can serve it, published there rather than handed over as a folder | `CAP5` | `build_docs.py`, `export_pdf.py`, `mkdocs.yml` and `overrides/` in the scaffold, the question form beside them, and the publishing workflow the scaffold ships inert |
-| `BSVC8` | **Model interrogation** | Answers to the two questions a table cannot give — what a change to one element would touch, and which catalogue rows name no realizing artifact while their neighbours do — asked at a terminal or on a page, by anyone who can open a browser | `CAP2`, `CAP4` | `query_model.py` and the navigator, both reading what `build_model.py` writes |
+| `BSVC8` | **Model interrogation** | Answers to the two questions a table cannot give — what a change to one element would touch, and which catalogue rows name no realizing artifact while their neighbours do — asked at a terminal or on a page, by anyone who can open a browser — and, before either, the answer to "which element am I even looking for" | `CAP2`, `CAP4` | `query_model.py` and the navigator, both reading what `build_model.py` writes |
 | `BSVC9` | **Transition planning** | A destination the adopter's own goals justify, the gaps between it and today derived rather than asserted, and a sequence ordered by dependency — approved as direction and never as permission to build | `CAP7` | `plan-the-transition` |
 
 | ID | Product | What it aggregates | Realized by |
@@ -92,6 +93,12 @@ flowchart TB
 **One product, and no portfolio.** A single-application project usually has an
 implicit product and can leave it out; this one is named because the tree above
 needs something to point at when it says what the organization builds.
+
+**`BSVC8` gained the question that comes before the other two.** Trace and
+coverage both assume a reader who knows which element they mean. Somebody
+meeting a model for the first time does not, and had no route to finding out
+short of reading every label. [initiative 10](../scope/10_make-it-readable.md) made finding an element part of
+the service rather than a precondition of it.
 
 **`BSVC8` stopped requiring a terminal, and the two questions did not change.**
 What changed is who can ask them. A Requester approving a change at a gate is

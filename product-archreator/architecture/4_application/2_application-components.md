@@ -11,7 +11,9 @@ and `ACMP8` restated on 2026-08-27 with
 `ACMP14` restated and `ACMP16` added on 2026-08-27 with
 [initiative 7](../scope/7_walk-the-model.md); `ACMP12` and `ACMP16` restated on
 2026-08-27 with [initiative 8](../scope/8_federate-the-graph.md); `ACMP6`,
-`ACMP7`, `ACMP8`, `ACMP14` and `ACMP16` on 2026-08-27 with [initiative 9](../scope/9_cross-the-boundary.md).
+`ACMP7`, `ACMP8`, `ACMP14` and `ACMP16` on 2026-08-27 with
+[initiative 9](../scope/9_cross-the-boundary.md); `ACMP7`, `ACMP8` and `ACMP16`
+on 2026-08-27 with [initiative 10](../scope/10_make-it-readable.md).
 
 Skills are grouped by the service they provide rather than listed one per
 component. Fifteen rows naming fifteen files would restate the
@@ -101,6 +103,13 @@ build. [initiative 9](../scope/9_cross-the-boundary.md) is what closed decision 
 model boundary and neither said so, which is the worst kind of wrong answer —
 a smaller one that looks complete.
 
+**`ACMP16` reads, arranges and remembers — and writes nothing.** It stores a
+reader's own views in their own browser and can put a file in their downloads;
+it has no way to add one to `architecture/`. That is the boundary
+[decision 3](../decisions/3_the-navigator-earns-its-own-initiative.md)
+reserved, and it is what keeps "it displays" true when the next feature makes
+writing tempting.
+
 **`ACMP16` federates by loading, not by mirroring.** It fetches each model's
 published projection and inserts the rows into the database it already has,
 so no column mapping is written a second time — the projection's own schema is
@@ -159,7 +168,7 @@ running, not invoked.
 | `ACMP12` | **The portal builder** | `ASVC9` | `scaffold/scripts/build_docs.py`, with `scaffold/mkdocs.yml` and `scaffold/overrides/`. It also publishes the model's own projection and, in the topmost model of a federation, derives the manifest the navigator reads from `architecture/federation.md`. It also reports what it published a link to and not the file — the one thing `ACMP5` cannot see, because a link can resolve here and not on the site |
 | `ACMP13` | **The document exporter** | `ASVC9` | `scaffold/scripts/export_pdf.py` |
 | `ACMP14` | **The model query tool** | `ASVC10` | `scaffold/scripts/query_model.py`, with `scaffold/scripts/neighbourhood.sql` — the traversal it shares with `ACMP16` |
-| `ACMP16` | **The graph navigator** | `ASVC10` | `scaffold/navigator/` — one page, its stylesheet and its script, reading `model.db` in the browser through sql.js, which `ACMP12` fetches at build time against a pinned digest and never commits. Where a federation manifest sits beside it, it loads every model that manifest names and reports by name each one it could not reach |
+| `ACMP16` | **The graph navigator** | `ASVC10` | `scaffold/navigator/` — one page, its stylesheet and its script, reading `model.db` in the browser through sql.js, which `ACMP12` fetches at build time against a pinned digest and never commits. Where a federation manifest sits beside it, it loads every model that manifest names and reports by name each one it could not reach. Elements are labelled boxes in a layered or force layout, draggable; selecting one shows its catalogue row, the paragraphs the documents write about it and every relationship it has; search is faceted over what the model actually contains; an arrangement can be saved as `BOBJ10` |
 | `ACMP15` | **The transition-planning skill** | `ASVC11` | `skills/plan-the-transition/` |
 
 All paths are relative to `plugins/archreator/` in the

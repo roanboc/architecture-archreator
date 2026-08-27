@@ -21,10 +21,12 @@ flowchart LR
   i7[["≡ 7 — Walk the model [PLAT2]"]]:::plateau
   i8[["≡ 8 — Federate the graph [PLAT3]"]]:::plateau
   i9[["≡ 9 — Cross the boundary [PLAT4]"]]:::plateau
+  i10[["≡ 10 — Make it readable [PLAT5]"]]:::plateau
 
   i6 -.->|a graph worth drawing| i7
   i7 -.->|a reader worth pointing at more than one| i8
   i8 -.->|somewhere to resolve a foreign identifier| i9
+  i7 -.->|a reader worth making readable| i10
 
   classDef plateau fill:#ffe8e8,stroke:#d99b9b,color:#333
 ```
@@ -35,6 +37,7 @@ flowchart LR
 | 7 | [Walk the model](../scope/7_walk-the-model.md) | `GAP5`, `GAP6` | `PLAT2` | 2 and 3, both delegated ([decision 2](../decisions/2_the-requester-delegates-the-remaining-gates.md)) | In flight |
 | 8 | [Federate the graph](../scope/8_federate-the-graph.md) | `GAP7`, `GAP8` | `PLAT3` | 2 and 3, both delegated ([decision 2](../decisions/2_the-requester-delegates-the-remaining-gates.md)) | In flight |
 | 9 | [Cross the boundary](../scope/9_cross-the-boundary.md) | `GAP9` | `PLAT4` | 2 and 3, both delegated ([decision 2](../decisions/2_the-requester-delegates-the-remaining-gates.md)) | In flight |
+| 10 | [Make it readable](../scope/10_make-it-readable.md) | `GAP10`–`GAP13` | `PLAT5` | 1 by the Requester's own direction; 2 and 3 delegated ([decision 3](../decisions/3_the-navigator-earns-its-own-initiative.md)) | In flight |
 
 ### Relationships
 
@@ -58,6 +61,7 @@ time:
 | ---- | -------------------------- |
 | 6 → 7 | A navigator over today's projection would show `org-archreator` as 88 disconnected dots out of 184. It would be judged a bad navigator, and the diagnosis would be wrong |
 | 7 → 8 | An index of published projections with nothing reading it is `DOBJ4` before `ACMP14` existed — built, correct, and consumed by nothing. The method has made that mistake once and recorded it |
+| 7 → 10 | A reader is worth improving once there is a reader. Nothing about `PLAT5` needs federation or a crossed boundary — it would have been worth building if neither existed, and it is tenth rather than eighth only because the Requester asked for the other two first |
 | 8 → 9 | A cross-project reference has to resolve against something. Until each project publishes its projection there is nothing on the other side of the boundary to check against, and a validator that clones sibling repositories to check a link is not lightweight |
 
 **Initiative 9 is last, and that is a change from the first instinct.** The

@@ -49,10 +49,12 @@ flowchart LR
   plat2[["≡ A walkable model [PLAT2]"]]:::plateau
   plat3[["≡ A federated graph [PLAT3]"]]:::plateau
   plat4[["≡ Checkable across the boundary [PLAT4]"]]:::plateau
+  plat5[["≡ A model somebody can read [PLAT5]"]]:::plateau
 
   plat1 -.->|nothing to walk without it| plat2
   plat2 -.->|an index with no consumer| plat3
   plat3 -.->|nothing to resolve against| plat4
+  plat2 -.->|a graph nobody can read is not read| plat5
 
   classDef plateau fill:#ffe8e8,stroke:#d99b9b,color:#333
 ```
@@ -63,6 +65,26 @@ flowchart LR
 | `PLAT2` | **A walkable model** | The projection has a visual reader: one static page, filters by layer and element type, and expansion outward from any node. No server, no deployed database | **In flight** — [initiative 7](../scope/7_walk-the-model.md) |
 | `PLAT3` | **A federated graph** | Each project publishes its own projection at a stable URL. The topmost tree of a federation — the organization, or the parent business function where there is no organization — owns an **index** naming those URLs. The graph is the union, computed at read time and owned by nobody | **In flight** — [initiative 8](../scope/8_federate-the-graph.md) |
 | `PLAT4` | **Checkable across the boundary** | A reference can name an element in another project, and something checks it. Decision 1's recorded consequence — "no validator crosses the repository boundary" — stops being true | **In flight** — [initiative 9](../scope/9_cross-the-boundary.md) |
+| `PLAT5` | **A model somebody can read** | Elements are named boxes, not dots. Selecting one shows what the documents say about it, not just its catalogue row. Somebody who does not know an identifier can find it. A view arranged by hand can be kept and shared | Planned |
+
+**`PLAT5` is the Requester's direction, in their words**, recorded here
+because the roadmap is the only place the method permits a future to be
+described and [decision 3](../decisions/3_the-navigator-earns-its-own-initiative.md)
+is why it was added outside the approved sequence:
+
+> Improve the visualization, a user should be able to read the names of the
+> elements and in boxes at least, and being able to see definitions and related
+> documentation in the markdown as a properties panel. Think of a user trying
+> to understand the architecture and needs to find elements (search) and query
+> certain elements. We need an intelligent search that can guide the user on
+> existing types, elements, etc. I would also like to be able to create and
+> safe certain views by adjusting the elements as if I was creating
+> visualisations in archi, but nothing is created from there, just displays and
+> allows visual personalization.
+
+**It depends on `PLAT2` and on nothing else.** A reader is worth improving once
+there is a reader; it needs neither federation nor a crossed boundary, and it
+would have been worth building if neither existed.
 
 **`PLAT1` is the only one that is not optional.** The other three are worth
 having; without `PLAT1` they are worth having *and impossible*, because each of
@@ -110,6 +132,12 @@ flowchart TB
   subgraph P4G["Toward PLAT4"]
     gap9(("⊘ No reference crosses a project [GAP9]")):::gap
   end
+  subgraph P5G["Toward PLAT5"]
+    gap10(("⊘ Elements are dots [GAP10]")):::gap
+    gap11(("⊘ The panel shows a row, not the prose [GAP11]")):::gap
+    gap12(("⊘ Nothing can be found [GAP12]")):::gap
+    gap13(("⊘ Every visit starts over [GAP13]")):::gap
+  end
 
   classDef gap fill:#ffd6d6,stroke:#c98080,color:#333
 ```
@@ -125,6 +153,10 @@ flowchart TB
 | `GAP7` | **The projection is never published** | `DOBJ4` is gitignored and local. Federation needs an interchange format, and `stack-selection` § A persisted projection needs one of four triggers names exactly this case — "an agent cannot `grep` a repository it has not cloned" | `PLAT3` |
 | `GAP8` | **No index names the projects in a federation** | The fact exists in prose: `org-archreator`'s component catalogue carries a **Modeled in** column pointing at the tree that holds each component's detail. Nothing machine-readable carries it | `PLAT3` |
 | `GAP9` | **No reference crosses a project** | `ACMP6` scopes every identifier to its project and rejects a foreign one as dangling. `ACMP14` stops at the same boundary, so "what would this change touch" silently excludes everything in another tree. Decision 1 records this consequence and accepts it as the price of the split | `PLAT4` |
+| `GAP10` | **Elements are dots** | A node is a six-pixel circle with an identifier beside it, and the identifier is hidden entirely once a hundred are on screen. A reader sees a shape and learns nothing from it: `CAP5` is not a name, and a graph whose nodes cannot be read is a picture of a graph | `PLAT5` |
+| `GAP11` | **The panel shows a row, not the prose** | Selecting an element gives its catalogue columns and a link to the document that defines it. What the document *says* — the paragraph that defines a goal, the note explaining why a component exists — is one click and one scroll away, which is where a reader trying to understand something stops | `PLAT5` |
+| `GAP12` | **Nothing can be found** | There is no search. A reader who does not already know that `BSVC7` is the identifier they want has one route to it: switch every layer on and read 363 labels. Somebody meeting the model for the first time is exactly the reader who cannot do that | `PLAT5` |
+| `GAP13` | **Every visit starts over** | The layout is recomputed on load and the filters reset. A reader who arranged the six elements that explain something to a colleague cannot keep the arrangement, and cannot send it to them | `PLAT5` |
 
 ## What is deliberately not here
 
