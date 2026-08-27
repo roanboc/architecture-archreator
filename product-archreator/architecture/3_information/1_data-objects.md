@@ -5,7 +5,14 @@ _[← Information layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Passive structure. The machine-readable structures
 the method's components read and write.
 
-**Status:** ● Validated — **Gate 3** declined at Gate 2 ([scope document 1](../scope/1_rebuild-the-models-on-the-current-method.md), 2026-08-22), which routed the layers below the business layer to pull-request review.
+**Status:** ◐ Draft catalogue.
+
+`DOBJ1`–`DOBJ3` and `DOBJ5` were validated — **Gate 3** declined at Gate 2
+([scope document 1](../scope/1_rebuild-the-models-on-the-current-method.md), 2026-08-22),
+which routed the layers below the business layer to pull-request review — and are
+unchanged. `DOBJ4`'s structure is restated by
+[initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md)
+and is not yet approved; the document returns to validated when its Gate 2 is granted.
 
 **This layer is short, and the reason is the method's central choice.** Almost
 everything archreator handles is prose in Markdown — a business object read by
@@ -57,7 +64,7 @@ flowchart TB
 | `DOBJ1` | **Skill frontmatter** | YAML: `name`, `description`, and `metadata.archreator` carrying `kind`, `realizes_process` and `gates` | The head of every `SKILL.md` | The host platform, to route a request to a skill; `check_skills.py`, to bind skills to processes |
 | `DOBJ2` | **The element-prefix registry** | JSON: layer group → prefix → element type name. Forty-three prefixes in nine groups | `scaffold/scripts/element-prefixes.json` | `model_graph.py`, to recognise and type an identifier |
 | `DOBJ3` | **The plugin manifests** | JSON: the plugin's name, version and entry points, and the marketplace entry that publishes it | `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` | The host platform, at install time |
-| `DOBJ4` | **The model projection** | `nodes` and `edges` tables, plus `mentions`. Every node carries the declared status of the document defining it. Regenerated, never hand-edited, never committed | `.model/model.json`, `.model/model.db` | `query_model.py`, to traverse the graph and to report grounding; and whatever else cannot read Markdown |
+| `DOBJ4` | **The model projection** | `nodes` and `edges` tables, plus `mentions`. Every node carries the declared status of the document defining it. Every edge carries where the relationship was declared — `catalogue`, `table` or `identifier` — and whether it is pending. Regenerated, never hand-edited, never committed | `.model/model.json`, `.model/model.db` | `query_model.py`, to traverse the graph and to report grounding; and whatever else cannot read Markdown |
 | `DOBJ5` | **Provided source documents** | Whatever a Requester handed over — transcripts, decks, specifications — under a dated name, with an index row naming the original filename, who provided it and what was derived from it | `architecture/reference/` in an adopting project; this repository keeps none | A reader asking where a claim came from. Not the validators, not the projection, and not the portal |
 
 **`DOBJ1` is the only one an author writes by hand**, and it is why a skill's
@@ -69,6 +76,14 @@ the prefix table in `architecture-document-style`; this JSON ships beside the
 validators because a downstream project has the scripts and not the skills.
 `check_skills.py` compares the two in both directions. That is `P1`'s escape
 clause used deliberately — one unavoidable copy, with a check on it.
+
+**`DOBJ4`'s edges stopped depending on whether anyone drew a diagram.**
+Initiative 6 moved the relationship into `BOBJ7`, declared in catalogue
+columns and relationship tables; this object reads those and no longer parses
+Mermaid. The two new fields are what a consumer needs and a Markdown reader
+gets for free: `origin` says how firmly the relationship was stated, and
+`pending` carries the distinction the notation draws with a dashed edge and
+the projection used to discard.
 
 **`DOBJ4` is the only derived object in the model, and it is derived on
 purpose.** The Markdown stays the source of truth; the projection is rebuilt
