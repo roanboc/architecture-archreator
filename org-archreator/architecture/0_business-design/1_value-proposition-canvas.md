@@ -176,3 +176,15 @@ something pointed at it; it does not say the relief works, or that anyone in
 `CS2` or `CS3` has experienced it. Two of the three segments are reachable
 today only through a coding agent, which is the gap
 [`COA2`](../1_strategy/2_capabilities-and-resources.md) exists to close.
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `PROD1` | «Product» archreator, the open method | `PREL1` | «Pain Reliever» The gated layer walk. | offers |
+| `PROD1` | «Product» archreator, the open method | `PREL4` | «Pain Reliever» The cost of an architect collapses to the cost of an agent. | offers |
+| `PROD3` | «Product» The archreator portal | `PREL4` | «Pain Reliever» The cost of an architect collapses to the cost of an agent. | would offer |

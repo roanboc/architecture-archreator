@@ -73,3 +73,13 @@ commitment.
 | A CDN, font host or analytics | `P2`. The page fetches nothing at request time, from anyone |
 | A domain of its own | A project path under `github.io` is free and adequate. A custom domain is a renewal somebody has to remember |
 | Any secret | Deployment uses the repository's own token. There is nothing to rotate |
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `TSVC2` | «Technology Service» Build-free deployment | `NODE1` | «Node» GitHub Pages | publishes to |

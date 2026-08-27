@@ -5,12 +5,9 @@ _[← Business layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Business. What the method offers an adopter, and
 through which channel each service reaches them.
 
-**Status:** ◐ Draft catalogue.
-
-Every service was validated at **Gate 2**, 2026-08-26. `BSVC3` is restated by
-[initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md)
-and is not yet approved; the rest are unchanged and the document returns to
-validated when the amended Gate 2 is granted.
+**Status:** ● Validated at **Gate 2** — every service on 2026-08-26, `BSVC3`
+restated and re-approved on 2026-08-27 with
+[initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md).
 
 ## How to read this document
 
@@ -155,3 +152,30 @@ than packaging — it is the routing.
 **`BIF4` reaches the one audience the others cannot**: someone deciding whether
 to adopt at all. It is modeled in its own tree,
 [`site/`](../../site/architecture/README.md).
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `PROD1` | «Product» archreator | `BSVC1` | «Business Service» Gated change alignment | aggregates |
+| `PROD1` | «Product» archreator | `BSVC2` | «Business Service» Subject discovery | aggregates |
+| `PROD1` | «Product» archreator | `BSVC3` | «Business Service» Model validation | aggregates |
+| `PROD1` | «Product» archreator | `BSVC4` | «Business Service» Decision and scope recording | aggregates |
+| `PROD1` | «Product» archreator | `BSVC5` | «Business Service» Method distribution | aggregates |
+| `PROD1` | «Product» archreator | `BSVC6` | «Business Service» Model restatement | aggregates |
+| `PROD1` | «Product» archreator | `BSVC7` | «Business Service» Model publication | aggregates |
+| `PROD1` | «Product» archreator | `BSVC8` | «Business Service» Model interrogation | aggregates |
+| `PROD1` | «Product» archreator | `BSVC9` | «Business Service» Transition planning | aggregates |
+| `BSVC5` | «Business Service» Method distribution | `BSVC2` | «Business Service» Subject discovery | precedes |
+| `BSVC2` | «Business Service» Subject discovery | `BSVC1` | «Business Service» Gated change alignment | produces the model for |
+| `BSVC2` | «Business Service» Subject discovery | `BSVC9` | «Business Service» Transition planning | produces the baseline for |
+| `BSVC9` | «Business Service» Transition planning | `BSVC1` | «Business Service» Gated change alignment | gives a target to |
+| `BSVC1` | «Business Service» Gated change alignment | `BSVC4` | «Business Service» Decision and scope recording | is recorded by |
+| `BSVC3` | «Business Service» Model validation | `BSVC1` | «Business Service» Gated change alignment | guards |
+| `BSVC8` | «Business Service» Model interrogation | `BSVC1` | «Business Service» Gated change alignment | answers questions about |
+| `BSVC6` | «Business Service» Model restatement | `BSVC1` | «Business Service» Gated change alignment | returns a current model to |
+| `BSVC1` | «Business Service» Gated change alignment | `BSVC7` | «Business Service» Model publication | is published by |

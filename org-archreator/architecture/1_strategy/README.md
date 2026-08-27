@@ -73,3 +73,16 @@ flowchart TB
 A cross-layer view, so it uses the flat layer palette rather than the tone
 ramps the single-layer documents use. Thirty-one motivation elements do not
 fit one honest diagram; each section carries its own.
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `DRV4` | «Driver» Architectural expertise is priced out of reach | `G4` | «Goal» Architectural quality without scarce expertise | influences |
+| `G4` | «Goal» Architectural quality without scarce expertise | `VS1` | «Value Stream» From first contact to a delivered outcome, and back | realized by |
+| `VS1` | «Value Stream» From first contact to a delivered outcome, and back | `CAP3` | «Capability» Delivery from design | requires |
+| `CAP3` | «Capability» Delivery from design | `RES1` | «Resource» The Requester's knowledge and time | uses |

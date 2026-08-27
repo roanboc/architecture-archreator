@@ -168,3 +168,30 @@ organization: it has no gap of its own to close and nobody to make the call.
 The organization's courses of action — including the one that would build a
 published view of these models — are one tree up, in
 [`org-archreator/`](../../../org-archreator/architecture/README.md).
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `CAP5` | «Capability» Put the method and the model in the hands that need them | `CAP1` | «Capability» Discover a subject from nothing | precedes |
+| `CAP1` | «Capability» Discover a subject from nothing | `CAP2` | «Capability» Align a change through the layers | produces the model |
+| `CAP1` | «Capability» Discover a subject from nothing | `CAP7` | «Capability» Plan a transition | a baseline to measure from |
+| `CAP7` | «Capability» Plan a transition | `CAP2` | «Capability» Align a change through the layers | a target each change is judged against |
+| `CAP2` | «Capability» Align a change through the layers | `CAP3` | «Capability» Keep the model describing today | accumulates history |
+| `CAP3` | «Capability» Keep the model describing today | `CAP2` | «Capability» Align a change through the layers | returns a current model to |
+| `CAP2` | «Capability» Align a change through the layers | `CAP7` | «Capability» Plan a transition | a plateau reached or abandoned |
+| `CAP4` | «Capability» Prove the model is internally consistent | `CAP2` | «Capability» Align a change through the layers | guards |
+| `CAP4` | «Capability» Prove the model is internally consistent | `CAP3` | «Capability» Keep the model describing today | guards |
+| `CAP2` | «Capability» Align a change through the layers | `CAP6` | «Capability» Learn from an engagement | finishes an initiative |
+| `CAP6` | «Capability» Learn from an engagement | `CAP5` | «Capability» Put the method and the model in the hands that need them | proposals for the method |
+| `RES1` | «Resource» The skill corpus | `CAP1` | «Capability» Discover a subject from nothing | enables |
+| `RES1` | «Resource» The skill corpus | `CAP2` | «Capability» Align a change through the layers | enables |
+| `RES4` | «Resource» The notation | `RES1` | «Resource» The skill corpus | constrains what |
+| `RES2` | «Resource» The scaffold | `RES3` | «Resource» The validators | carries |
+| `RES3` | «Resource» The validators | `CAP4` | «Capability» Prove the model is internally consistent | enables |
+| `RES2` | «Resource» The scaffold | `CAP5` | «Capability» Put the method and the model in the hands that need them | enables |
+| `RES5` | «Resource» The plugin package | `RES1` | «Resource» The skill corpus | delivers |

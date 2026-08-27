@@ -95,3 +95,16 @@ in front of an agent, and `DOBJ6` is what that would create.
 stage 4 of `COA1` would produce something very like it. Whichever comes first
 is the initiative that gives this organization a real information layer for
 the first time.
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `DOBJ4` | «Data Object» Client business information | `DOBJ7` | «Data Object» Engagement pattern notes | stripped of identity, becomes |
+| `DOBJ7` | «Data Object» Engagement pattern notes | `DOBJ1` | «Data Object» The method sources | recurs, becomes |
+| `DOBJ1` | «Data Object» The method sources | `DOBJ2` | «Data Object» The published guidance | explained by |
+| `DOBJ1` | «Data Object» The method sources | `DOBJ5` | «Data Object» Adopter models | produces |

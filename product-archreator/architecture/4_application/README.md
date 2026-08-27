@@ -61,3 +61,18 @@ flowchart TB
 A selection, not the whole layer — thirteen components do not fit one honest
 view. The full set is in
 [2_application-components.md](./2_application-components.md).
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `ACMP11` | «Application Component» The plugin package | `ACMP10` | «Application Component» The scaffold | publishes |
+| `ACMP10` | «Application Component» The scaffold | `ACMP7` | «Application Component» The model parser | carries |
+| `ACMP4` | «Application Component» The rulebooks | `ACMP1` | «Application Component» The change-alignment skills | constrains |
+| `ACMP1` | «Application Component» The change-alignment skills | `BOBJ1` | «Business Object» The architecture model | writes |
+| `ACMP7` | «Application Component» The model parser | `BOBJ1` | «Business Object» The architecture model | parses |
+| `ACMP7` | «Application Component» The model parser | `ACMP6` | «Application Component» The element-ID validator | parses for |

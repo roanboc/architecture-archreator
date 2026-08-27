@@ -38,3 +38,13 @@ flowchart LR
 **The only edge is a deployment.** It happens when something merges, never
 while anyone is reading — at request time the two nodes have nothing to do
 with each other.
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `NODE2` | «Node» GitHub Actions | `ART1` | «Artifact» The site directory | uploads |

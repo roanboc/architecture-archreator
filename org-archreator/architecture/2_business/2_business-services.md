@@ -102,3 +102,17 @@ problem in one table.
 
 **All three zero-cost interfaces run through `ACT4`.** They are cheap because
 somebody else operates them, which is the trade `CTR2` records.
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `PROD1` | «Product» archreator, the open method | `BSVC1` | «Business Service» The method, published and installable | aggregates |
+| `PROD1` | «Product» archreator, the open method | `BSVC2` | «Business Service» Guidance and worked reference | aggregates |
+| `PROD2` | «Product» Consulting | `BSVC3` | «Business Service» Advisory and delivery with the method | aggregates |
+| `PROD3` | «Product» The archreator portal | `BSVC4` | «Business Service» Architecture as a service | would aggregate |
+| `BSVC3` | «Business Service» Advisory and delivery with the method | `BSVC1` | «Business Service» The method, published and installable | what it teaches feeds |

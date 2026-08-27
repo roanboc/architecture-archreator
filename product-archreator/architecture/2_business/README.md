@@ -89,3 +89,14 @@ imply this tree holds something it does not.
 
 Every business service is realized by application services — the mapping is in
 [4_application/](../4_application/README.md).
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `ACT1` | «Actor» A person in the adopting organization | `ROLE2` | «Role» Agent | may also fill |
+| `ROLE2` | «Role» Agent | `BSVC1` | «Business Service» Gated change alignment | delivers |

@@ -81,3 +81,13 @@ appears.
 agreement, no account, no support obligation and no exchange. A visitor takes
 something and leaves, and the model says so rather than manufacturing a
 relationship to fill the section.
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `ACT3` | «Actor» An AI coding agent | `ROLE2` | «Role» Publisher | edits the source for |

@@ -84,3 +84,13 @@ these architecture documents live in a different repository and are read on
 the code host. A published view of the model would be a **different artifact
 on a different node**, and is a course of action the organization has not
 taken.
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `NODE2` | «Node» GitHub Actions | `ART1` | «Artifact» The site directory | uploads |

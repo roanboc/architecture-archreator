@@ -113,3 +113,16 @@ never the reverse.
 **No value stream is modeled.** A stream is how value moves through stages,
 and this subject has one stage: someone reads a page and either follows a link
 or does not. Naming that a stream would dress a single step as a flow.
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `STK1` | «Stakeholder» A prospective adopter | `DRV1` | «Driver» Nobody adopts what they cannot evaluate first | concerned with |
+| `STK2` | «Stakeholder» The maintainer | `DRV2` | «Driver» Anything that must be operated will rot | concerned with |
+| `DRV1` | «Driver» Nobody adopts what they cannot evaluate first | `ASM1` | «Assessment» A repository listing does not explain why a method exists | evidenced by |
+| `DRV2` | «Driver» Anything that must be operated will rot | `ASM2` | «Assessment» The method is one person's spare capacity | evidenced by |

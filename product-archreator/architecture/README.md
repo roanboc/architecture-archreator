@@ -289,3 +289,17 @@ Bottom-up (for developers verifying alignment): start from
 `4_application/2_application-components.md`,
 which links each component to its source file, then trace upward via the
 "realizes" relationships.
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `G1` | «Goal» An agent reads the business context natively | `VS1` | «Value Stream» From a subject nobody has modeled to a change nobody has to re-explain | realized by |
+| `VS1` | «Value Stream» From a subject nobody has modeled to a change nobody has to re-explain | `BSVC1` | «Business Service» Gated change alignment | realized by |
+| `ACT2` | «Actor» An AI coding agent | `BSVC1` | «Business Service» Gated change alignment | served by |
+| `BSVC1` | «Business Service» Gated change alignment | `ACMP1` | «Application Component» The change-alignment skills | realized by |
+| `ACMP1` | «Application Component» The change-alignment skills | `NODE4` | «Node» The agent host platform | runs on |

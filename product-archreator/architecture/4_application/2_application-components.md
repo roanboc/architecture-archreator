@@ -5,13 +5,9 @@ _[← Application layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Application. The units the method actually ships,
 each mapped to the files that are it.
 
-**Status:** ◐ Draft catalogue.
-
-Every component was validated at **Gate 3**, 2026-08-26. `ACMP7` and `ACMP8` are
-restated by
-[initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md)
-and await the Gate 3 the Requester opted into on 2026-08-27; the rest are
-unchanged.
+**Status:** ● Validated at **Gate 3** — every component on 2026-08-26, `ACMP7`
+and `ACMP8` restated and approved on 2026-08-27 with
+[initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md).
 
 Skills are grouped by the service they provide rather than listed one per
 component. Fifteen rows naming fifteen files would restate the
@@ -150,3 +146,33 @@ Markdown and Python that would need **moving** if the host platform vanished,
 not **editing**; the manifests would need rewriting for whatever replaced it.
 A second platform would add a manifest beside this one rather than forking
 anything above it.
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `ACMP4` | «Application Component» The rulebooks | `ACMP1` | «Application Component» The change-alignment skills | constrains |
+| `ACMP4` | «Application Component» The rulebooks | `ACMP2` | «Application Component» The discovery skills | constrains |
+| `ACMP4` | «Application Component» The rulebooks | `ACMP3` | «Application Component» The stewardship skills | constrains |
+| `ACMP4` | «Application Component» The rulebooks | `ACMP15` | «Application Component» The transition-planning skill | constrains |
+| `ACMP7` | «Application Component» The model parser | `ACMP6` | «Application Component» The element-ID validator | parses for |
+| `ACMP7` | «Application Component» The model parser | `ACMP8` | «Application Component» The projection builder | parses for |
+| `ACMP8` | «Application Component» The projection builder | `ACMP14` | «Application Component» The model query tool | writes what |
+| `ACMP10` | «Application Component» The scaffold | `ACMP5` | «Application Component» The link checker | carries |
+| `ACMP10` | «Application Component» The scaffold | `ACMP6` | «Application Component» The element-ID validator | carries |
+| `ACMP10` | «Application Component» The scaffold | `ACMP7` | «Application Component» The model parser | carries |
+| `ACMP10` | «Application Component» The scaffold | `ACMP8` | «Application Component» The projection builder | carries |
+| `ACMP10` | «Application Component» The scaffold | `ACMP12` | «Application Component» The portal builder | carries |
+| `ACMP10` | «Application Component» The scaffold | `ACMP13` | «Application Component» The document exporter | carries |
+| `ACMP10` | «Application Component» The scaffold | `ACMP14` | «Application Component» The model query tool | carries |
+| `ACMP12` | «Application Component» The portal builder | `ACMP13` | «Application Component» The document exporter | builds the page |
+| `ACMP11` | «Application Component» The plugin package | `ACMP10` | «Application Component» The scaffold | publishes |
+| `ACMP9` | «Application Component» The corpus validator | `ACMP1` | «Application Component» The change-alignment skills | checks |
+| `ACMP9` | «Application Component» The corpus validator | `ACMP2` | «Application Component» The discovery skills | checks |
+| `ACMP9` | «Application Component» The corpus validator | `ACMP3` | «Application Component» The stewardship skills | checks |
+| `ACMP9` | «Application Component» The corpus validator | `ACMP4` | «Application Component» The rulebooks | checks |
+| `ACMP9` | «Application Component» The corpus validator | `ACMP15` | «Application Component» The transition-planning skill | checks |

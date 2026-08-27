@@ -288,3 +288,17 @@ Bottom-up (for developers verifying alignment): start from
 `4_application/2_application-components.md`,
 which links each component to its source file, then trace upward via the
 "realizes" relationships.
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `G4` | «Goal» Architectural quality without scarce expertise | `VS1` | «Value Stream» From first contact to a delivered outcome, and back | realized by |
+| `VS1` | «Value Stream» From first contact to a delivered outcome, and back | `BSVC1` | «Business Service» The method, published and installable | realized by |
+| `ACT1` | «Actor» The Requester | `BSVC1` | «Business Service» The method, published and installable | assigned to |
+| `BSVC1` | «Business Service» The method, published and installable | `ACMP1` | «Application Component» The skill corpus and plugin manifest | realized by |
+| `ACMP1` | «Application Component» The skill corpus and plugin manifest | `NODE1` | «Node» The code host | runs on |

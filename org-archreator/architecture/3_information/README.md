@@ -44,3 +44,15 @@ flowchart TB
 The learning loop, and every step removes information. It ends outside the
 boundary: what an adopter builds is never seen here, which is why the
 organization cannot measure its own main outcome.
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `DOBJ4` | «Data Object» Client business information | `DOBJ7` | «Data Object» Engagement pattern notes | stripped of identity |
+| `DOBJ7` | «Data Object» Engagement pattern notes | `DOBJ1` | «Data Object» The method sources | recurs, becomes |
+| `DOBJ1` | «Data Object» The method sources | `DOBJ5` | «Data Object» Adopter models | produces |

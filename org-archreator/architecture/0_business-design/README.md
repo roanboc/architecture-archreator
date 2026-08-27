@@ -125,3 +125,14 @@ that is where they land once derived — the customer profile becomes
 motivation elements, the value map becomes strategy elements. The fills come
 from [`architecture/README.md` § Notation conventions](../README.md#notation-conventions),
 which stays the single source for the palette.
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `CS2` | «Customer Segment» Established business owners. | `PAIN4` | «Pain» Architectural quality is out of reach. | suffers |
+| `PROD3` | «Product» The archreator portal | `PREL4` | «Pain Reliever» The cost of an architect collapses to the cost of an agent. | would offer |

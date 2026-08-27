@@ -43,3 +43,14 @@ flowchart LR
 Grey is outside the boundary, and most of this layer is grey: the only service
 running on anything this organization arranged is free, and the only service
 with a real cost is paid by whoever is using the method.
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `NODE3` | «Node» AI model providers | `TSVC5` | «Technology Service» Inference | provides |
+| `NODE2` | «Node» The adopter's agent runtime | `TSVC5` | «Technology Service» Inference | invokes |

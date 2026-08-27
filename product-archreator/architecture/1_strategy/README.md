@@ -82,3 +82,15 @@ This is a **cross-layer** view, so it uses the flat layer palette — violet for
 motivation, sand for strategy — rather than the tone ramps the single-layer
 documents use. Colour here separates the layers, not the element types within
 them.
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `G1` | «Goal» An agent reads the business context natively | `VS1` | «Value Stream» From a subject nobody has modeled to a change nobody has to re-explain | realized by |
+| `VS1` | «Value Stream» From a subject nobody has modeled to a change nobody has to re-explain | `CAP2` | «Capability» Align a change through the layers | requires |
+| `CAP2` | «Capability» Align a change through the layers | `RES1` | «Resource» The skill corpus | uses |

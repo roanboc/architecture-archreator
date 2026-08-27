@@ -89,3 +89,17 @@ is deliberately stripped of anything identifying: the pattern survives, the
 case does not. That boundary is carried by the `run-retrospective` skill
 rather than by a rule of this organization — see
 [5_domain-context-and-rules.md](./5_domain-context-and-rules.md).
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `BOBJ2` | «Business Object» An initiative | `BOBJ1` | «Business Object» A model | changes |
+| `BOBJ2` | «Business Object» An initiative | `BOBJ3` | «Business Object» A gate approval | records |
+| `BOBJ5` | «Business Object» An engagement | `BOBJ6` | «Business Object» A delivered architecture | produces |
+| `BOBJ5` | «Business Object» An engagement | `BOBJ4` | «Business Object» An engagement note | generalized into |
+| `BOBJ6` | «Business Object» A delivered architecture | `BOBJ7` | «Business Object» A client's own approval | approved by |

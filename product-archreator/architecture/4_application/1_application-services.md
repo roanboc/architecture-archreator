@@ -5,12 +5,9 @@ _[← Application layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Application. What the software offers the business
 layer, and which business service each one realizes.
 
-**Status:** ◐ Draft catalogue.
-
-`ASVC1`–`ASVC7` and `ASVC9`–`ASVC11` were validated at **Gate 3**, 2026-08-26 and are
-unchanged. `ASVC8` is restated by
-[initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md)
-and awaits the Gate 3 the Requester opted into on 2026-08-27.
+**Status:** ● Validated at **Gate 3** — `ASVC1`–`ASVC7` and `ASVC9`–`ASVC11` on
+2026-08-26, `ASVC8` restated and approved on 2026-08-27 with
+[initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md).
 
 ## How to read this document
 

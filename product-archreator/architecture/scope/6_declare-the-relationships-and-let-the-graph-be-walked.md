@@ -169,8 +169,8 @@ Both are additive. Nothing that reads `DOBJ4` today breaks.
 | Gate 0 — Business model | — | — | **N/A** — the subject is one application, not an organization. `0_business-design/` is not used at Depth 1 |
 | Gate 1 — Strategy | — | — | **N/A for this initiative** — no strategy element is added or modified. The [roadmap](../roadmap/README.md) this initiative sits on carries its own Gate 1, separately |
 | Gate 2 — Business | Requester | 2026-08-27 | `BOBJ7`, the unchanged verdicts on `BSVC3` and `BSVC8`, and the restated `DOBJ4`, presented in the session with links to each document on this branch |
-| Gate 2 — Business (amended) | _pending_ | — | **`BSVC3` restated.** The Gate 3 change request put a copied name into every relationship table, which needs a check; the original "`BSVC3` unchanged" verdict is falsified and is re-presented rather than quietly revised |
-| Gate 3 — Solution design | _pending_ | — | **Requested at Gate 2, 2026-08-27.** Presented 2026-08-27; the Requester asked for the archetype, identifier and name of each end in a relationship table. Reworked and re-presented |
+| Gate 2 — Business (amended) | Requester | 2026-08-27 | **`BSVC3` restated.** The Gate 3 change request put a copied name into every relationship table, which needs a check; the original "`BSVC3` unchanged" verdict is falsified and is re-presented rather than quietly revised |
+| Gate 3 — Solution design | Requester | 2026-08-27 | **Requested at Gate 2.** Presented 2026-08-27; the Requester asked for the archetype, identifier and name of each end in a relationship table. Reworked, re-presented and approved with the amended Gate 2 |
 
 ## Plateaus
 

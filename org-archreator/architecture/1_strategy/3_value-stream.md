@@ -87,3 +87,14 @@ that anyone runs.
 
 Three of six stages carry a named weakness, and each has a course of action
 pointed at it. Only one of those courses has been taken.
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `VS1.1` | «Value Stream» Reach | `VS1.2` | «Value Stream» Frame | relates to |
+| `VS1.6` | «Value Stream» Feed back | `VS1.2` | «Value Stream» Frame | real use changes the method |

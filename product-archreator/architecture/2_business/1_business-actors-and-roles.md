@@ -113,3 +113,16 @@ there is no contract, no counterparty and no negotiated service. Both are
 technology, and both are `P5`'s disposable packaging rather than anything the
 method is built around. They appear in
 [5_technology/](../5_technology/README.md) instead.
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `ACT1` | «Actor» A person in the adopting organization | `ROLE1` | «Role» Requester | assigned to |
+| `ACT1` | «Actor» A person in the adopting organization | `ROLE3` | «Role» Reviewer | assigned to |
+| `ACT1` | «Actor» A person in the adopting organization | `ROLE4` | «Role» Method maintainer | assigned to |
+| `ACT1` | «Actor» A person in the adopting organization | `ROLE2` | «Role» Agent | may also fill |

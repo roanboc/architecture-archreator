@@ -287,3 +287,16 @@ Bottom-up (for developers verifying alignment): start from
 `4_application/2_application-components.md`,
 which links each component to its source file, then trace upward via the
 "realizes" relationships.
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `G1` | «Goal» A prospective adopter can decide in one page | `CAP1` | «Capability» State the method in one read | realized by |
+| `ACT1` | «Actor» A visitor | `BSVC1` | «Business Service» Explain the problem and the answer | served by |
+| `BSVC1` | «Business Service» Explain the problem and the answer | `ACMP1` | «Application Component» The page | realized by |
+| `ACMP1` | «Application Component» The page | `NODE1` | «Node» GitHub Pages | runs on |

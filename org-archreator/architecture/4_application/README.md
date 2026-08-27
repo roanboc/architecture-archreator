@@ -51,3 +51,15 @@ flowchart TB
 
 The self-loop is the finding: **no application service realizes advisory and
 delivery.** It is done by a person, so it scales at the speed of one calendar.
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `ACMP1` | «Application Component» The skill corpus and plugin manifest | `ACMP4` | «Application Component» The scaffold | emits |
+| `ACMP4` | «Application Component» The scaffold | `ACMP3` | «Application Component» The documentation checks | carries |
+| `BSVC3` | «Business Service» Advisory and delivery with the method | `BSVC3` | «Business Service» Advisory and delivery with the method | nothing realizes |

@@ -80,3 +80,14 @@ under `BSVC3`" — it is "make `BSVC1` carry what `BSVC3` currently carries".
 **`ASVC3` realizes a capability rather than a business service**, which is
 unusual and correct: model validation is not something an adopter buys, it is
 something that keeps `CAP2` true. Nobody meets it except when it fails.
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `ASVC3` | «Application Service» Model validation | `BSVC1` | «Business Service» The method, published and installable | guards |
+| `BSVC3` | «Business Service» Advisory and delivery with the method | `BSVC3` | «Business Service» Advisory and delivery with the method | nothing realizes |

@@ -89,3 +89,19 @@ because an agent reasoning from a deleted element fails silently.
 and approved at a moment; the model moves on and they do not. This is why the
 validators skip `scope/` and `decisions/` entirely — reference-checking a
 frozen document is incoherent rather than merely awkward.
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `BOBJ1` | «Business Object» The architecture model | `BOBJ2` | «Business Object» The element | composed of |
+| `BOBJ1` | «Business Object» The architecture model | `BOBJ7` | «Business Object» The relationship | composed of |
+| `BOBJ7` | «Business Object» The relationship | `BOBJ2` | «Business Object» The element | joins two of |
+| `BOBJ3` | «Business Object» The scope document | `BOBJ5` | «Business Object» The gate approval | records |
+| `BOBJ3` | «Business Object» The scope document | `BOBJ1` | «Business Object» The architecture model | changes |
+| `BOBJ4` | «Business Object» The decision record | `BOBJ1` | «Business Object» The architecture model | explains a row of |
+| `BOBJ6` | «Business Object» The skill | `BOBJ3` | «Business Object» The scope document | produces |

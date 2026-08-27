@@ -107,3 +107,16 @@ nothing to authorize. `ROLE1` and `ROLE3` are responsibilities a repository's
 own permissions already carry: whoever can approve a pull request is the
 Reviewer. Adding an access matrix here would model a mechanism that does not
 exist.
+
+## Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `ROLE1` | «Role» Requester | `ROLE2` | «Role» Agent | states a requirement to |
+| `ROLE2` | «Role» Agent | `BOBJ1` | «Business Object» The architecture model | reads and changes |
+| `ROLE2` | «Role» Agent | `BOBJ3` | «Business Object» The scope document | writes |
+| `ROLE1` | «Role» Requester | `BOBJ3` | «Business Object» The scope document | approves at gates in |
