@@ -7,7 +7,8 @@ read and hand to each other.
 
 **Status:** ● Validated at **Gate 2** — `BOBJ1`–`BOBJ6` on 2026-08-22, `BOBJ7` on
 2026-08-27 with
-[initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md).
+[initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md),
+`BOBJ8` on 2026-08-27 with [initiative 8](../scope/8_federate-the-graph.md).
 
 Every object here is a **Markdown file in git**, and that is the point rather
 than an implementation detail: it is what makes the model readable by the
@@ -43,10 +44,12 @@ flowchart TB
   bobj5["▧ The gate approval [BOBJ5]"]:::object
   bobj6["▧ The skill [BOBJ6]"]:::object
   bobj7["▧ The relationship [BOBJ7]"]:::object
+  bobj8["▧ The federation index [BOBJ8]"]:::object
 
   bobj1 -->|composed of| bobj2
   bobj1 -->|composed of| bobj7
   bobj7 -->|joins two of| bobj2
+  bobj8 -->|names where to find| bobj1
   bobj3 -->|records| bobj5
   bobj3 -->|changes| bobj1
   bobj4 -->|explains a row of| bobj1
@@ -64,12 +67,21 @@ flowchart TB
 | `BOBJ5` | **The gate approval** | Which gate, who approved, when, and what they were shown | A row in `BOBJ3`'s Approvals table | `BSVC1`, `BSVC4` |
 | `BOBJ6` | **The skill** | One procedure, template or rulebook, in a fixed section format, bound by its frontmatter to the process it realizes | `plugins/archreator/skills/<name>/SKILL.md` | `BSVC5` |
 | `BOBJ7` | **The relationship** | One stated connection between two elements — a source, a target, and the words the model uses for what holds between them. Declared in a catalogue column where a row can carry it, and in a relationship table where it cannot | A cell in a catalogue row, or a row in a relationship table | `BSVC1`, `BSVC3`, `BSVC8` |
+| `BOBJ8` | **The federation index** | The models that belong with this one, and where each publishes its projection. Authored rather than derived — somebody decides what is in a federation — so it is a document a gate approves and a validator reads, not a configuration file | `architecture/federation.md`, in the topmost model of a federation only | `BSVC7`, `BSVC8` |
 
 **`BOBJ5` has no file of its own, and that is deliberate.** An approval is a
 row inside the document it approves, so a reader who has the initiative has
 its approvals, and nobody can find one without the other. Giving it a file
 would make an approval something that could go missing from the thing it
 authorized.
+
+**`BOBJ8` is centralized on purpose, and it is the only thing that is.** A
+model holding every federated model's elements would restate what those
+models own, which the tier rule forbids, and its owner would need approval
+rights over elements they did not write. So what is centralized is a list of
+locations. The graph is a view, assembled when somebody opens it, owned by no
+one — and the list lives in the topmost model because "which models exist" is
+an enterprise-layer fact wherever it is asked.
 
 **`BOBJ7` is the object the model was missing.** `BOBJ2` has an identifier,
 a type and a rule that it names what realizes it; until now the connection

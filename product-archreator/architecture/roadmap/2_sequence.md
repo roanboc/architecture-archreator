@@ -33,7 +33,7 @@ flowchart LR
 | - | ---------- | ------ | ------- | ---- | ----- |
 | 6 | [Declare the relationships, and let the graph be walked](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md) | `GAP1`, `GAP2`, `GAP3`, `GAP4` | `PLAT1` | 2 | In flight |
 | 7 | [Walk the model](../scope/7_walk-the-model.md) | `GAP5`, `GAP6` | `PLAT2` | 2 and 3, both delegated ([decision 2](../decisions/2_the-requester-delegates-the-remaining-gates.md)) | In flight |
-| 8 | Federate the graph | `GAP7`, `GAP8` | `PLAT3` | 2 | Not started |
+| 8 | [Federate the graph](../scope/8_federate-the-graph.md) | `GAP7`, `GAP8` | `PLAT3` | 2 and 3, both delegated ([decision 2](../decisions/2_the-requester-delegates-the-remaining-gates.md)) | In flight |
 | 9 | Cross the boundary | `GAP9` | `PLAT4` | 2 | Not started |
 
 ### Relationships

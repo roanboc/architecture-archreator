@@ -11,7 +11,8 @@ the method's components read and write.
 which routed the layers below the business layer to pull-request review. `DOBJ4`
 restated at **Gate 2**, 2026-08-27, with
 [initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md)
-and again with [initiative 7](../scope/7_walk-the-model.md).
+and again with [initiative 7](../scope/7_walk-the-model.md); `DOBJ6` added and
+`DOBJ4` restated at **Gate 2**, 2026-08-27, with [initiative 8](../scope/8_federate-the-graph.md).
 
 **This layer is short, and the reason is the method's central choice.** Almost
 everything archreator handles is prose in Markdown — a business object read by
@@ -46,13 +47,16 @@ flowchart TB
   dobj2["▦ The element-prefix registry [DOBJ2]"]:::data
   dobj3["▦ The plugin manifests [DOBJ3]"]:::data
   dobj4["▦ The model projection [DOBJ4]"]:::data
+  dobj6["▦ The federation manifest [DOBJ6]"]:::data
 
   bobj1["▧ The architecture model [BOBJ1]"]:::object
   bobj6["▧ The skill [BOBJ6]"]:::object
+  bobj8["▧ The federation index [BOBJ8]"]:::object
 
   dobj1 -->|realizes the readable face of| bobj6
   dobj2 -->|types the elements of| bobj1
   dobj4 -->|is derived from| bobj1
+  dobj6 -->|is derived from| bobj8
 
   classDef data fill:#c2f0ff,stroke:#0288d1,color:#333
   classDef object fill:#fffbb5,stroke:#c8c04a,color:#333
@@ -63,7 +67,8 @@ flowchart TB
 | `DOBJ1` | **Skill frontmatter** | YAML: `name`, `description`, and `metadata.archreator` carrying `kind`, `realizes_process` and `gates` | The head of every `SKILL.md` | The host platform, to route a request to a skill; `check_skills.py`, to bind skills to processes |
 | `DOBJ2` | **The element-prefix registry** | JSON: layer group → prefix → element type name. Forty-three prefixes in nine groups | `scaffold/scripts/element-prefixes.json` | `model_graph.py`, to recognise and type an identifier |
 | `DOBJ3` | **The plugin manifests** | JSON: the plugin's name, version and entry points, and the marketplace entry that publishes it | `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` | The host platform, at install time |
-| `DOBJ4` | **The model projection** | `nodes` and `edges` tables, plus `mentions`. Every node carries the declared status of the document defining it. Every edge carries where the relationship was declared — `catalogue`, `table` or `identifier` — and whether it is pending. Regenerated, never hand-edited, never committed | `.model/model.json`, `.model/model.db`, and a copy of the database beside the published portal | `query_model.py` and the navigator, both running the same traversal against `model.db`; and whatever else cannot read Markdown |
+| `DOBJ4` | **The model projection** | `nodes` and `edges` tables, plus `mentions`. Every node carries the declared status of the document defining it. Every edge carries where the relationship was declared — `catalogue`, `table` or `identifier` — and whether it is pending. Regenerated, never hand-edited, never committed | `.model/model.json`, `.model/model.db`, and both beside the published portal, where they carry a schema number and the commit they were built from | `query_model.py` and the navigator, both running the same traversal against `model.db`; and whatever else cannot read Markdown |
+| `DOBJ6` | **The federation manifest** | JSON: a schema number, and one entry per federated model naming it, what it models, and the directory its projection is published in. Derived from `BOBJ8` on every build, never committed | `navigator/federation.json` in the published site | The navigator, to know what else to fetch |
 | `DOBJ5` | **Provided source documents** | Whatever a Requester handed over — transcripts, decks, specifications — under a dated name, with an index row naming the original filename, who provided it and what was derived from it | `architecture/reference/` in an adopting project; this repository keeps none | A reader asking where a claim came from. Not the validators, not the projection, and not the portal |
 
 **`DOBJ1` is the only one an author writes by hand**, and it is why a skill's
@@ -75,6 +80,18 @@ the prefix table in `architecture-document-style`; this JSON ships beside the
 validators because a downstream project has the scripts and not the skills.
 `check_skills.py` compares the two in both directions. That is `P1`'s escape
 clause used deliberately — one unavoidable copy, with a check on it.
+
+**`DOBJ4` published is a contract; `DOBJ4` local is a convenience.** [initiative 8](../scope/8_federate-the-graph.md)
+put both formats at a documented path under a project's portal, with a schema
+number and the commit they came from. A second project fetching one is reading
+a file it does not control, built by a version of the method it may not have —
+a number it can compare beats a shape it has to guess at, and a consumer that
+meets a schema it does not know can say so instead of misreading the file.
+
+**A published projection is the model's own, never the repository's.** A
+repository holding several models publishes several projections. Putting all
+of them under one model's address would be a build step doing the restating
+the federation rule forbids an author from doing.
 
 **`DOBJ4` has two readers now, and they read it the same way.** The database
 was written from the first commit and opened by nothing — `query_model.py` read

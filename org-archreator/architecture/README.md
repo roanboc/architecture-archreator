@@ -26,6 +26,7 @@ this order — strategy first, technology last — and captured in a
 | 4   | [4_application/](./4_application/README.md) | Application layer        | Which software services and components realize the business services?       |
 | 5   | [5_technology/](./5_technology/README.md)   | Technology layer         | What runs it all — runtimes, tooling, build, hosting, deployment?            |
 | —   | [domains/](./domains/README.md)             | _the same layers, nested_ | Which business lines own their own model, and what they expose to each other |
+| —   | [federation.md](./federation.md)            | _none — an index_        | Which other models belong with this one, and where their projections are published |
 
 Layer `0` is the odd one out: it holds no ArchiMate elements at all, only
 the Value Proposition and Business Model canvases the architecture is

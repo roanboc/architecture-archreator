@@ -8,7 +8,8 @@ layer, and which business service each one realizes.
 **Status:** ● Validated at **Gate 3** — `ASVC1`–`ASVC7`, `ASVC9` and `ASVC11` on
 2026-08-26; `ASVC8` on 2026-08-27 with
 [initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md);
-`ASVC10` on 2026-08-27 with [initiative 7](../scope/7_walk-the-model.md).
+`ASVC10` on 2026-08-27 with [initiative 7](../scope/7_walk-the-model.md);
+`ASVC9` on 2026-08-27 with [initiative 8](../scope/8_federate-the-graph.md).
 
 ## How to read this document
 
@@ -79,7 +80,7 @@ flowchart LR
 | `ASVC6` | **Project emission** | Copies the scaffold into a new project and turns it into that project | `BSVC5` | `ACMP2`, `ACMP10` |
 | `ASVC7` | **Plugin distribution** | Publishes the corpus so a host platform can install it | `BSVC5` | `ACMP11` |
 | `ASVC8` | **Model projection** | Reads a model and writes it as nodes and edges for a consumer that cannot read Markdown. An edge is read from where the relationship was **declared** — a catalogue column, or a relationship table — and carries which of those it came from and whether it is pending | `BSVC8` | `ACMP7`, `ACMP8` |
-| `ASVC9` | **Model publication** | Renders a model as a website and prints it as one document, both from the Markdown, and gives every page a route back to the file it came from — and, where the project activated the workflow that does it, puts the website where its readers are. Publishes no source document — the portal hands a reader the model, and a transcript carries the rest of the room | `BSVC7` | `ACMP12`, `ACMP13`, `ACMP10` |
+| `ASVC9` | **Model publication** | Renders a model as a website and prints it as one document, both from the Markdown, and gives every page a route back to the file it came from — and, where the project activated the workflow that does it, puts the website where its readers are. Publishes no source document — the portal hands a reader the model, and a transcript carries the rest of the room and publishes the model's own projection beside them, at a documented path with a schema number, so another model can read it without cloning anything | `BSVC7` | `ACMP12`, `ACMP13`, `ACMP10` |
 | `ASVC10` | **Model interrogation** | Walks the projected graph outward from one element to say what a change would touch, and reports which catalogue rows name no realizing artifact while their neighbours do — at a terminal, or on a page that needs no terminal. Both walks are one query | `BSVC8` | `ACMP14`, `ACMP16` |
 | `ASVC11` | **Transition planning** | Turns approved goals and a described baseline into target plateaus, a derived gap register and a dependency-ordered sequence, ending at a gate | `BSVC9` | `ACMP15` |
 
@@ -94,6 +95,13 @@ questions — coverage, and blast radius. `ASVC10` asks exactly those two, which
 is why it reads `.model/` rather than importing the parser. Importing the parser
 would have been simpler and would have left this edge dashed, because a
 projection nothing reads is not a projection.
+
+**`ASVC9` publishes the projection because federation has nowhere else to
+read it from.** `stack-selection` names domains in separate repositories as one
+of the four triggers for a persisted projection, on the grounds that "an agent
+cannot `grep` a repository it has not cloned". [initiative 8](../scope/8_federate-the-graph.md) is that trigger
+firing: publication is what turns a local file into something a second model
+can depend on.
 
 **`ASVC10` has two readers and one traversal.** [initiative 7](../scope/7_walk-the-model.md) gave the graph a
 visual reader, and the thing worth saying about it is what it did *not* do:

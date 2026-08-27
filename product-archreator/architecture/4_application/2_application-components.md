@@ -8,7 +8,9 @@ each mapped to the files that are it.
 **Status:** ● Validated at **Gate 3** — every component on 2026-08-26; `ACMP7`
 and `ACMP8` restated on 2026-08-27 with
 [initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md);
-`ACMP14` restated and `ACMP16` added on 2026-08-27 with [initiative 7](../scope/7_walk-the-model.md).
+`ACMP14` restated and `ACMP16` added on 2026-08-27 with
+[initiative 7](../scope/7_walk-the-model.md); `ACMP12` and `ACMP16` restated on
+2026-08-27 with [initiative 8](../scope/8_federate-the-graph.md).
 
 Skills are grouped by the service they provide rather than listed one per
 component. Fifteen rows naming fifteen files would restate the
@@ -86,6 +88,12 @@ own. A second renderer would be a second set of rules about how a model looks,
 and the two would drift; the document is the portal's own single-page view,
 printed by a browser.
 
+**`ACMP16` federates by loading, not by mirroring.** It fetches each model's
+published projection and inserts the rows into the database it already has,
+so no column mapping is written a second time — the projection's own schema is
+the schema. Nothing is cached and nothing is stored: close the page and the
+union is gone, which is what keeps it a view rather than a copy.
+
 **`ACMP16` is a reader and will never be anything else.** It draws the model,
 filters it and walks it, and it cannot change a line of it. The Markdown is
 the source of truth; a graph that could write back would be a second one. It
@@ -135,10 +143,10 @@ running, not invoked.
 | `ACMP9` | **The corpus validator** | `ASVC5` | `scripts/check_skills.py` |
 | `ACMP10` | **The scaffold** | `ASVC6` | `scaffold/` — the layer folders, the notation, the validators, the portal configuration, the two workflows it ships in `.github/workflows-available/` where nothing reads them, and the placeholder entry points |
 | `ACMP11` | **The plugin package** | `ASVC7` | `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` |
-| `ACMP12` | **The portal builder** | `ASVC9` | `scaffold/scripts/build_docs.py`, with `scaffold/mkdocs.yml` and `scaffold/overrides/`. It also reports what it published a link to and not the file — the one thing `ACMP5` cannot see, because a link can resolve here and not on the site |
+| `ACMP12` | **The portal builder** | `ASVC9` | `scaffold/scripts/build_docs.py`, with `scaffold/mkdocs.yml` and `scaffold/overrides/`. It also publishes the model's own projection and, in the topmost model of a federation, derives the manifest the navigator reads from `architecture/federation.md`. It also reports what it published a link to and not the file — the one thing `ACMP5` cannot see, because a link can resolve here and not on the site |
 | `ACMP13` | **The document exporter** | `ASVC9` | `scaffold/scripts/export_pdf.py` |
 | `ACMP14` | **The model query tool** | `ASVC10` | `scaffold/scripts/query_model.py`, with `scaffold/scripts/neighbourhood.sql` — the traversal it shares with `ACMP16` |
-| `ACMP16` | **The graph navigator** | `ASVC10` | `scaffold/navigator/` — one page, its stylesheet and its script, reading `model.db` in the browser through sql.js, which `ACMP12` fetches at build time against a pinned digest and never commits |
+| `ACMP16` | **The graph navigator** | `ASVC10` | `scaffold/navigator/` — one page, its stylesheet and its script, reading `model.db` in the browser through sql.js, which `ACMP12` fetches at build time against a pinned digest and never commits. Where a federation manifest sits beside it, it loads every model that manifest names and reports by name each one it could not reach |
 | `ACMP15` | **The transition-planning skill** | `ASVC11` | `skills/plan-the-transition/` |
 
 All paths are relative to `plugins/archreator/` in the
