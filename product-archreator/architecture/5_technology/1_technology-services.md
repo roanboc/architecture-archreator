@@ -4,7 +4,8 @@ _[← Technology layer](./README.md) · [EA home](../README.md)_
 
 **ArchiMate viewpoint:** Technology. What the method runs on.
 
-**Status:** ● Validated at **Gate 3**, 2026-08-26.
+**Status:** ● Validated at **Gate 3** — 2026-08-26, with `TSVC5` restated on
+2026-08-27 with [initiative 7](../scope/7_walk-the-model.md).
 
 **Nothing here is operated by the organization**, and that is the whole shape
 of this layer. archreator has no server, no database, no account system and no
@@ -74,7 +75,7 @@ and why there is no deployment topology to draw.
 | `TSVC2` | **Checks on every change** | `NODE2` | The validators are worthless if running them is somebody's discipline. Free at this scale, and already where the code is. The scaffold now carries the same service to the projects the method emits, as a workflow it ships switched off |
 | `TSVC3` | **Public page delivery** | `NODE3` | Zero servers to secure or pay for, and the site is fully static. An adopting project on a public repository can reach the same service for its own portal, with the workflow the scaffold ships |
 | `TSVC4` | **Skill execution** | `NODE4` | The only node the method does not choose — it is wherever the adopting agent runs |
-| `TSVC5` | **Documentation rendering** | `NODE5` | Turning the model into a website and a document is the one thing the method cannot do with Python's standard library, so it is the one dependency it takes |
+| `TSVC5` | **Documentation rendering** | `NODE5` | Turning the model into a website and a document is the one thing the method cannot do with Python's standard library, so it is the one dependency it takes. The graph navigator adds a second, sql.js — fetched at build time against a pinned digest, never committed, and degrading to an explanatory page rather than a failed build when it cannot be had |
 
 | ID | Node | Operated by | Substitutable? |
 | -- | ---- | ----------- | -------------- |

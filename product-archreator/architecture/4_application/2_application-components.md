@@ -5,9 +5,10 @@ _[← Application layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Application. The units the method actually ships,
 each mapped to the files that are it.
 
-**Status:** ● Validated at **Gate 3** — every component on 2026-08-26, `ACMP7`
-and `ACMP8` restated and approved on 2026-08-27 with
-[initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md).
+**Status:** ● Validated at **Gate 3** — every component on 2026-08-26; `ACMP7`
+and `ACMP8` restated on 2026-08-27 with
+[initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md);
+`ACMP14` restated and `ACMP16` added on 2026-08-27 with [initiative 7](../scope/7_walk-the-model.md).
 
 Skills are grouped by the service they provide rather than listed one per
 component. Fifteen rows naming fifteen files would restate the
@@ -51,6 +52,7 @@ flowchart TB
   acmp13["⊞ The document exporter [ACMP13]"]:::component
   acmp14["⊞ The model query tool [ACMP14]"]:::component
   acmp15["⊞ The transition-planning skill [ACMP15]"]:::component
+  acmp16["⊞ The graph navigator [ACMP16]"]:::component
 
   acmp4 -->|constrains| acmp1
   acmp4 -->|constrains| acmp2
@@ -59,6 +61,8 @@ flowchart TB
   acmp7 -->|parses for| acmp6
   acmp7 -->|parses for| acmp8
   acmp8 -->|writes what| acmp14
+  acmp8 -->|writes what| acmp16
+  acmp14 -->|shares its traversal with| acmp16
   acmp10 -->|carries| acmp5
   acmp10 -->|carries| acmp6
   acmp10 -->|carries| acmp7
@@ -81,6 +85,18 @@ flowchart TB
 own. A second renderer would be a second set of rules about how a model looks,
 and the two would drift; the document is the portal's own single-page view,
 printed by a browser.
+
+**`ACMP16` is a reader and will never be anything else.** It draws the model,
+filters it and walks it, and it cannot change a line of it. The Markdown is
+the source of truth; a graph that could write back would be a second one. It
+also links every element to the document that defines it, for the reason the
+portal does: a rendering nobody can trace back to its source is how a
+published copy quietly becomes a second model.
+
+**`ACMP14` and `ACMP16` share `neighbourhood.sql` rather than each owning a
+walk.** That file is the reason `ACMP16` could be added without reopening the
+question `ACMP7` settled: one convention, one implementation, however many
+readers.
 
 **`ACMP14` reads `ACMP8`'s output rather than `ACMP7` directly**, and the
 indirection is the point. Importing the parser would have been one line
@@ -121,7 +137,8 @@ running, not invoked.
 | `ACMP11` | **The plugin package** | `ASVC7` | `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` |
 | `ACMP12` | **The portal builder** | `ASVC9` | `scaffold/scripts/build_docs.py`, with `scaffold/mkdocs.yml` and `scaffold/overrides/`. It also reports what it published a link to and not the file — the one thing `ACMP5` cannot see, because a link can resolve here and not on the site |
 | `ACMP13` | **The document exporter** | `ASVC9` | `scaffold/scripts/export_pdf.py` |
-| `ACMP14` | **The model query tool** | `ASVC10` | `scaffold/scripts/query_model.py` |
+| `ACMP14` | **The model query tool** | `ASVC10` | `scaffold/scripts/query_model.py`, with `scaffold/scripts/neighbourhood.sql` — the traversal it shares with `ACMP16` |
+| `ACMP16` | **The graph navigator** | `ASVC10` | `scaffold/navigator/` — one page, its stylesheet and its script, reading `model.db` in the browser through sql.js, which `ACMP12` fetches at build time against a pinned digest and never commits |
 | `ACMP15` | **The transition-planning skill** | `ASVC11` | `skills/plan-the-transition/` |
 
 All paths are relative to `plugins/archreator/` in the
@@ -143,6 +160,9 @@ All paths are relative to `plugins/archreator/` in the
 | `ACMP7` | «Application Component» The model parser | `ACMP6` | «Application Component» The element-ID validator | parses for |
 | `ACMP7` | «Application Component» The model parser | `ACMP8` | «Application Component» The projection builder | parses for |
 | `ACMP8` | «Application Component» The projection builder | `ACMP14` | «Application Component» The model query tool | writes what |
+| `ACMP8` | «Application Component» The projection builder | `ACMP16` | «Application Component» The graph navigator | writes what |
+| `ACMP14` | «Application Component» The model query tool | `ACMP16` | «Application Component» The graph navigator | shares its traversal with |
+| `ACMP12` | «Application Component» The portal builder | `ACMP16` | «Application Component» The graph navigator | publishes |
 | `ACMP10` | «Application Component» The scaffold | `ACMP5` | «Application Component» The link checker | carries |
 | `ACMP10` | «Application Component» The scaffold | `ACMP6` | «Application Component» The element-ID validator | carries |
 | `ACMP10` | «Application Component» The scaffold | `ACMP7` | «Application Component» The model parser | carries |

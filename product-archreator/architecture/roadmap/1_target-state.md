@@ -60,7 +60,7 @@ flowchart LR
 | ID | Plateau | The state it names | Status |
 | -- | ------- | ------------------ | ------ |
 | `PLAT1` | **Declared relationships** | Every relationship an element has is **stated** — in a catalogue column or a relationship table a Requester can read and a validator already checks — and the projection carries it as an edge that knows where it came from and whether it is live. Diagrams render; they no longer declare | **In flight** — [initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md) |
-| `PLAT2` | **A walkable model** | The projection has a visual reader: one static page, filters by layer and element type, and expansion outward from any node. No server, no deployed database | Planned |
+| `PLAT2` | **A walkable model** | The projection has a visual reader: one static page, filters by layer and element type, and expansion outward from any node. No server, no deployed database | **In flight** — [initiative 7](../scope/7_walk-the-model.md) |
 | `PLAT3` | **A federated graph** | Each project publishes its own projection at a stable URL. The topmost tree of a federation — the organization, or the parent business function where there is no organization — owns an **index** naming those URLs. The graph is the union, computed at read time and owned by nobody | Planned |
 | `PLAT4` | **Checkable across the boundary** | A reference can name an element in another project, and something checks it. Decision 1's recorded consequence — "no validator crosses the repository boundary" — stops being true | Planned |
 

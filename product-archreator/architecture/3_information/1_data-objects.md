@@ -10,7 +10,8 @@ the method's components read and write.
 ([scope document 1](../scope/1_rebuild-the-models-on-the-current-method.md)),
 which routed the layers below the business layer to pull-request review. `DOBJ4`
 restated at **Gate 2**, 2026-08-27, with
-[initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md).
+[initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md)
+and again with [initiative 7](../scope/7_walk-the-model.md).
 
 **This layer is short, and the reason is the method's central choice.** Almost
 everything archreator handles is prose in Markdown — a business object read by
@@ -62,7 +63,7 @@ flowchart TB
 | `DOBJ1` | **Skill frontmatter** | YAML: `name`, `description`, and `metadata.archreator` carrying `kind`, `realizes_process` and `gates` | The head of every `SKILL.md` | The host platform, to route a request to a skill; `check_skills.py`, to bind skills to processes |
 | `DOBJ2` | **The element-prefix registry** | JSON: layer group → prefix → element type name. Forty-three prefixes in nine groups | `scaffold/scripts/element-prefixes.json` | `model_graph.py`, to recognise and type an identifier |
 | `DOBJ3` | **The plugin manifests** | JSON: the plugin's name, version and entry points, and the marketplace entry that publishes it | `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` | The host platform, at install time |
-| `DOBJ4` | **The model projection** | `nodes` and `edges` tables, plus `mentions`. Every node carries the declared status of the document defining it. Every edge carries where the relationship was declared — `catalogue`, `table` or `identifier` — and whether it is pending. Regenerated, never hand-edited, never committed | `.model/model.json`, `.model/model.db` | `query_model.py`, to traverse the graph and to report grounding; and whatever else cannot read Markdown |
+| `DOBJ4` | **The model projection** | `nodes` and `edges` tables, plus `mentions`. Every node carries the declared status of the document defining it. Every edge carries where the relationship was declared — `catalogue`, `table` or `identifier` — and whether it is pending. Regenerated, never hand-edited, never committed | `.model/model.json`, `.model/model.db`, and a copy of the database beside the published portal | `query_model.py` and the navigator, both running the same traversal against `model.db`; and whatever else cannot read Markdown |
 | `DOBJ5` | **Provided source documents** | Whatever a Requester handed over — transcripts, decks, specifications — under a dated name, with an index row naming the original filename, who provided it and what was derived from it | `architecture/reference/` in an adopting project; this repository keeps none | A reader asking where a claim came from. Not the validators, not the projection, and not the portal |
 
 **`DOBJ1` is the only one an author writes by hand**, and it is why a skill's
@@ -74,6 +75,12 @@ the prefix table in `architecture-document-style`; this JSON ships beside the
 validators because a downstream project has the scripts and not the skills.
 `check_skills.py` compares the two in both directions. That is `P1`'s escape
 clause used deliberately — one unavoidable copy, with a check on it.
+
+**`DOBJ4` has two readers now, and they read it the same way.** The database
+was written from the first commit and opened by nothing — `query_model.py` read
+the JSON. [initiative 7](../scope/7_walk-the-model.md) moved both readers onto the database and onto one
+recursive query, because the alternative was a second traversal in a second
+language, and the browser one is the one nobody would have tested.
 
 **`DOBJ4`'s edges stopped depending on whether anyone drew a diagram.**
 Initiative 6 moved the relationship into `BOBJ7`, declared in catalogue
