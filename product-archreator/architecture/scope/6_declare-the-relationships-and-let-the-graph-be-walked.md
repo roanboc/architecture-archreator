@@ -77,17 +77,37 @@ diagrams, and they are overwhelmingly peer-to-peer: `CAP5 precedes CAP1`,
 So a second surface, with a shape the parser recognises by **position**, never
 by a header word:
 
-> **A table whose first two columns hold a backticked identifier on every data
-> row is a relationship table.** Cell 1 is the source, cell 2 is the target,
-> cell 3 is the relationship, and any further columns are notes.
+> **A table that is not a catalogue and whose first and third columns hold a
+> backticked identifier on every data row is a relationship table.** Cell 1 is
+> the source and cell 2 describes it; cell 3 is the target and cell 4 describes
+> it; cell 5 is the relationship, and any further columns are notes.
 
-| From | To | Relationship | Note |
-| ---- | -- | ------------ | ---- |
-| `CAP5` | `CAP1` | precedes | A retrospective feeds the next discovery |
-| `ACMP10` | `ACMP5` | carries | The scaffold ships the link checker |
+| From | From element | To | To element | Relationship | Note |
+| ---- | ------------ | -- | ---------- | ------------ | ---- |
+| `CAP5` | ✦ «Capability» Learn from an engagement | `CAP1` | ✦ «Capability» Discover a subject from nothing | precedes | A retrospective feeds the next discovery |
+| `ACMP10` | ⊞ «Application Component» The scaffold | `ACMP5` | ⊞ «Application Component» The link checker | carries | The scaffold ships the validators |
 
 Position fixing meaning is how the catalogue already works — "the name is the
 second cell, which the notation fixes" — so this adds a shape, not a principle.
+No header word is read, which is what keeps the parse working on a model
+written in any language.
+
+**Each end carries its archetype and its name, and the reason is that a table
+has no shapes and no colours.** The notation says a node drops its stereotype
+because glyph, shape and colour already carry the type three times over with a
+legend one screen above. None of those three exist in a table cell. `CAP5`
+alone tells a reader nothing; `✦ «Capability» Learn from an engagement` tells
+them what it is and what it is called, which is the whole point of writing the
+relationship down where a person can approve it.
+
+**Two of those three facts are copies, so they are checked.** The archetype is
+determined by the identifier's prefix and the name is owned by the catalogue
+row that defines the element — writing them again is a duplicate, and a
+duplicate that drifts is exactly what `P1` exists to prevent. The method has
+already decided how to handle a copy it cannot avoid: `DOBJ2` is "a copy, held
+in step by a check… `P1`'s escape clause used deliberately". Same clause, same
+remedy — see § Solution design for what is checked and what is deliberately
+not.
 
 **Where it lives: in the layer document that owns the relationship**, under its
 own heading, beside the diagram that renders it. A relationship between two
@@ -137,7 +157,7 @@ Both are additive. Nothing that reads `DOBJ4` today breaks.
 | ----- | ------ |
 | 0_business-design | **Not used** — this tree is Depth 1, one application |
 | 1_strategy | **No change.** No stakeholder, driver, goal or principle is added or modified. The initiative serves `G5` (the model reaches people who never open the repository) through the plateaus it unblocks, and is bounded by `P1`, which is the argument for it. `CAP4` already covers proving the model internally consistent; a relationship becoming checkable widens what that capability acts on, not what it is |
-| 2_business | **`BOBJ7` — the relationship** added to [4_business-objects.md](../2_business/4_business-objects.md). `BSVC3` **unchanged**: a declared relationship is a backticked identifier, and `ACMP6` has always required those to resolve — the validation this needs already exists and is worth stating rather than re-deriving. `BSVC8` **unchanged**: interrogation gains better data, not a new promise |
+| 2_business | **`BOBJ7` — the relationship** added to [4_business-objects.md](../2_business/4_business-objects.md), validated at Gate 2 on 2026-08-27. **`BSVC3` restated** in [2_business-services.md](../2_business/2_business-services.md): the Requester's Gate 3 request for archetype, identifier and name on each end introduces a copy, and a copy needs a check — which the Gate 2 verdict of "unchanged" no longer describes. Re-presented at Gate 2. `BSVC8` **unchanged**: interrogation gains better data, not a new promise |
 | 3_information | **`DOBJ4` restated** in [1_data-objects.md](../3_information/1_data-objects.md) — the projection's edges gain `origin` and `pending`, and its edge set stops depending on whether anyone drew a diagram |
 | 4_application | **`ASVC8` restated** and **`ACMP7`, `ACMP8` restated** — the parse reads two declaration surfaces and no diagrams, and identifier resolution moves into `ACMP7` so `ACMP6` and `ACMP8` stop deciding it separately. `ACMP14`'s interface is unchanged and its data is better. No new component: the migration tool is one-shot and deleted with the pull request that runs it. See § Solution design |
 | 5_technology | **No change.** No runtime, dependency, host or workflow is added. The parse stays standard-library Python |
@@ -149,7 +169,8 @@ Both are additive. Nothing that reads `DOBJ4` today breaks.
 | Gate 0 — Business model | — | — | **N/A** — the subject is one application, not an organization. `0_business-design/` is not used at Depth 1 |
 | Gate 1 — Strategy | — | — | **N/A for this initiative** — no strategy element is added or modified. The [roadmap](../roadmap/README.md) this initiative sits on carries its own Gate 1, separately |
 | Gate 2 — Business | Requester | 2026-08-27 | `BOBJ7`, the unchanged verdicts on `BSVC3` and `BSVC8`, and the restated `DOBJ4`, presented in the session with links to each document on this branch |
-| Gate 3 — Solution design | _pending_ | — | **Requested at Gate 2.** The application alignment below, presented before any code is written |
+| Gate 2 — Business (amended) | _pending_ | — | **`BSVC3` restated.** The Gate 3 change request put a copied name into every relationship table, which needs a check; the original "`BSVC3` unchanged" verdict is falsified and is re-presented rather than quietly revised |
+| Gate 3 — Solution design | _pending_ | — | **Requested at Gate 2, 2026-08-27.** Presented 2026-08-27; the Requester asked for the archetype, identifier and name of each end in a relationship table. Reworked and re-presented |
 
 ## Plateaus
 
@@ -182,10 +203,10 @@ Both are additive. Nothing that reads `DOBJ4` today breaks.
 ### WP3 — The relationship table is read
 
 - **Deliverables:** `ACMP7` recognises a relationship table by position and
-  emits `origin=table` edges; `ACMP6` unchanged, because the identifiers in it
-  were already references.
+  emits `origin=table` edges; `ACMP6` gains one check — that the name written
+  beside each identifier matches the catalogue row that defines it.
 - **Outcome:** a surface exists for the relationships a catalogue row cannot
-  carry.
+  carry, legible on its own, and unable to go quietly stale.
 
 ### WP4 — The diagrams are transcribed and the parse is removed
 
@@ -241,12 +262,29 @@ flowchart TB
 | - | ------ | ----- |
 | 1 | **Split relationship tables out before anything else reads the text** | A pre-pass locates them and removes them, exactly as `split_retired()` already splits the live half of a document from the retired half. This has to happen first: the existing definition pattern matches any row whose first cell is a backticked identifier, so an unsplit relationship table would register its every source element as a **duplicate definition** and fail `ACMP6` on a valid document. This is the sharpest risk in the initiative and the reason the pre-pass is not an optimisation |
 | 2 | **Catalogue columns emit edges** | The catalogue reader already returns each row's columns under their own headers. Every resolving identifier in a column that is neither the ID nor the name becomes an edge from that row's element, `rel` = the header verbatim, `origin = catalogue`. A row citing itself is skipped |
-| 3 | **Relationship tables emit edges** | Recognised by position: first two columns hold identifiers on every data row. Cell 1 source, cell 2 target, cell 3 the relationship, the rest notes. `origin = table` |
+| 3 | **Relationship tables emit edges** | Recognised by position: not a catalogue, and columns 1 and 3 hold identifiers on every data row. Cell 1 source, 2 its description, 3 target, 4 its description, 5 the relationship, the rest notes. `origin = table`. The two description cells are read for the check in row 5 and contribute nothing to the graph — the projection takes every name from the catalogue that owns it |
 | 4 | **Resolution moves here** | Deciding that a bare `BSVC3` inside `domains/sales/` means `SALES.BSVC3` is logic `ACMP6` owns today and `ACMP8` would otherwise need a second copy of. One resolver, for the same reason there is one parser |
+| 5 | **The written name is checked against the catalogue** | A relationship table restates each end's name for a reader. `ACMP6` compares that restatement with the name in the catalogue row that defines the element, normalised for whitespace and case, and fails on a mismatch. This is new validation behaviour and it is why `BSVC3` changes — see below |
 
 The Mermaid edge reader is deleted. The Mermaid **node** reader stays — nothing
 else reads it, but it costs nothing and removing it is not this initiative's
 business.
+
+### What is checked in a relationship table, and what is not
+
+| Written | Checked? | Why |
+| ------- | -------- | --- |
+| The identifier | **Yes**, already | A backticked identifier has always had to resolve. Nothing new is needed |
+| The name | **Yes**, new | It is a copy of a fact the catalogue owns. Renaming an element would otherwise leave every relationship table naming it quietly wrong, and a wrong name is worse than none because a reader believes it |
+| The archetype | **No**, deliberately | It cannot drift independently: it is determined by the prefix sitting in the cell immediately beside it, so a wrong archetype is visibly contradicted by the identifier next to it. Checking the *word* would also break the parse's one hard rule — `«Capability»` is English, and a model written in Spanish says `«Capacidad»`. The registry holds English names only |
+| The glyph | **No**, and it could be | `element-prefixes.json` types a prefix but does not carry its glyph, so there is nothing to check against. Adding one would make every glyph in the corpus checkable, which is worth doing and is not this initiative — it would widen a change that is already touching the parse |
+
+**The name check is a hard failure, not a report.** `coverage` reports rather
+than fails because telling a repository path from a team name is fuzzy, and a
+check that fails wrongly teaches people to ignore the checks that do not. This
+one is not fuzzy: two strings either match after normalisation or they do not.
+The comparison strips surrounding whitespace, collapses runs of spaces and
+ignores case, so formatting is not a failure and a rename is.
 
 ### Good practices this leans on
 
@@ -281,6 +319,7 @@ against.
 | A relationship table is mistaken for a catalogue | `ACMP6` fails loudly with a duplicate definition. Noisy, immediate, impossible to miss — the safe direction |
 | A catalogue column holds an identifier that is not a relationship | A spurious edge, labelled with the column header, visible in `trace`. `org-archreator`'s `Source` column is the known case; only resolving identifiers become edges, so a prose source is excluded on its own |
 | The extractor mis-transcribes an edge | The superset check catches a **dropped** pair. It cannot catch a **mangled** label, which is why the extractor's output is reviewed rather than merged blind |
+| The name check fails on formatting rather than a rename | Normalisation covers whitespace and case, which is every formatting difference seen in the corpus. Anything it does not cover fails loudly on a valid document — annoying, visible, and fixed by editing one cell. The extractor fills these cells from the catalogue, so the migration cannot introduce one |
 
 ## In scope / out of scope
 

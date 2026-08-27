@@ -5,7 +5,12 @@ _[← Business layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Business. What the method offers an adopter, and
 through which channel each service reaches them.
 
-**Status:** ● Validated at **Gate 2**, 2026-08-26.
+**Status:** ◐ Draft catalogue.
+
+Every service was validated at **Gate 2**, 2026-08-26. `BSVC3` is restated by
+[initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md)
+and is not yet approved; the rest are unchanged and the document returns to
+validated when the amended Gate 2 is granted.
 
 ## How to read this document
 
@@ -73,7 +78,7 @@ flowchart TB
 | -- | ---------------- | --------------------- | -------- | ----------- |
 | `BSVC1` | **Gated change alignment** | A requirement walked top-down through six layers, stopped at every gate that applies, with each layer either changed or explicitly declared unchanged | `CAP2` | `align-change-through-layers`, `shard-stories`, `write-pr-description` |
 | `BSVC2` | **Subject discovery** | A company or an application turned into canvases, a strategy layer and — at enterprise depth — a domain split, each approved before the next begins; and where the subject was already running, its estate described in the four layers below the strategy, with a declared boundary, and the transcripts and documents it was built from kept beside it | `CAP1` | `establish-project`, `discover-business-model`, `discover-strategy`, `model-domains`, `discover-current-landscape` |
-| `BSVC3` | **Model validation** | Mechanical proof that references resolve, identifiers are not reused, levelled identifiers have parents, links and anchors point at something, and no document defines an element without declaring how far it has been validated | `CAP4` | `check_model.py`, `check_links.py`, `check_skills.py` |
+| `BSVC3` | **Model validation** | Mechanical proof that references resolve, identifiers are not reused, levelled identifiers have parents, links and anchors point at something, no document defines an element without declaring how far it has been validated, and no document restates an element's name differently from the catalogue that owns it | `CAP4` | `check_model.py`, `check_links.py`, `check_skills.py` |
 | `BSVC4` | **Decision and scope recording** | A durable record of what was approved, by whom, and what they were shown — and of the calls too small to be initiatives | `CAP2`, `CAP3` | `write-scope-document`, `record-decision` |
 | `BSVC5` | **Method distribution** | An installable plugin and a scaffold that is a working project on its first commit | `CAP5` | `plugin.json`, `marketplace.json`, the scaffold, `docs/` |
 | `BSVC6` | **Model restatement** | A model that has stopped reading as a description of today turned back into one, and what the method failed to cover captured before it evaporates | `CAP3`, `CAP6` | `restate-current-state`, `run-retrospective` |
@@ -88,6 +93,14 @@ flowchart TB
 **One product, and no portfolio.** A single-application project usually has an
 implicit product and can leave it out; this one is named because the tree above
 needs something to point at when it says what the organization builds.
+
+**`BSVC3` gained a check because a reader gained a copy.** A relationship
+table writes each end's archetype and name beside its identifier, so that the
+person approving it can read it without holding the catalogues open. Both are
+facts owned elsewhere. The archetype cannot drift — the prefix is in the next
+cell — but the name can, so it is compared against the catalogue that defines
+the element and a mismatch fails. This is `P1`'s escape clause used the same
+way `DOBJ2` uses it: one unavoidable copy, with a check on it.
 
 **`BSVC3` is the service with no human in it.** Every other service is
 something an actor performs; validation is something a script does on every
