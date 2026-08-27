@@ -8,7 +8,8 @@ read and hand to each other.
 **Status:** ● Validated at **Gate 2** — `BOBJ1`–`BOBJ6` on 2026-08-22, `BOBJ7` on
 2026-08-27 with
 [initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md),
-`BOBJ8` on 2026-08-27 with [initiative 8](../scope/8_federate-the-graph.md).
+`BOBJ8` on 2026-08-27 with [initiative 8](../scope/8_federate-the-graph.md),
+`BOBJ9` on 2026-08-27 with [initiative 9](../scope/9_cross-the-boundary.md).
 
 Every object here is a **Markdown file in git**, and that is the point rather
 than an implementation detail: it is what makes the model readable by the
@@ -45,11 +46,13 @@ flowchart TB
   bobj6["▧ The skill [BOBJ6]"]:::object
   bobj7["▧ The relationship [BOBJ7]"]:::object
   bobj8["▧ The federation index [BOBJ8]"]:::object
+  bobj9["▧ The import [BOBJ9]"]:::object
 
   bobj1 -->|composed of| bobj2
   bobj1 -->|composed of| bobj7
   bobj7 -->|joins two of| bobj2
   bobj8 -->|names where to find| bobj1
+  bobj9 -->|declares a dependency on| bobj2
   bobj3 -->|records| bobj5
   bobj3 -->|changes| bobj1
   bobj4 -->|explains a row of| bobj1
@@ -68,12 +71,21 @@ flowchart TB
 | `BOBJ6` | **The skill** | One procedure, template or rulebook, in a fixed section format, bound by its frontmatter to the process it realizes | `plugins/archreator/skills/<name>/SKILL.md` | `BSVC5` |
 | `BOBJ7` | **The relationship** | One stated connection between two elements — a source, a target, and the words the model uses for what holds between them. Declared in a catalogue column where a row can carry it, and in a relationship table where it cannot | A cell in a catalogue row, or a row in a relationship table | `BSVC1`, `BSVC3`, `BSVC8` |
 | `BOBJ8` | **The federation index** | The models that belong with this one, and where each publishes its projection. Authored rather than derived — somebody decides what is in a federation — so it is a document a gate approves and a validator reads, not a configuration file | `architecture/federation.md`, in the topmost model of a federation only | `BSVC7`, `BSVC8` |
+| `BOBJ9` | **The import** | One element this model consumes from a model in another repository: its qualified identifier, the name that model gives it, and the revision it was read at. Nothing fetches it — the row is the dependency, stated | `architecture/imports.md` | `BSVC3` |
 
 **`BOBJ5` has no file of its own, and that is deliberate.** An approval is a
 row inside the document it approves, so a reader who has the initiative has
 its approvals, and nobody can find one without the other. Giving it a file
 would make an approval something that could go missing from the thing it
 authorized.
+
+**`BOBJ9` is a copy of somebody else's fact, and the method allows exactly one
+kind of those.** `P1`'s escape clause — one unavoidable copy, with a check on
+it — is what `element-prefixes.json` uses and what a relationship table's
+restated name uses. Here the check is weaker and says so: it holds the row
+against the upstream only when the upstream is in this repository. Otherwise
+it can prove this model consistent with itself and nothing more, which is the
+price of not making network calls on every pull request.
 
 **`BOBJ8` is centralized on purpose, and it is the only thing that is.** A
 model holding every federated model's elements would restate what those

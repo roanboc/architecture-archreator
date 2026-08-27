@@ -12,7 +12,8 @@ which routed the layers below the business layer to pull-request review. `DOBJ4`
 restated at **Gate 2**, 2026-08-27, with
 [initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md)
 and again with [initiative 7](../scope/7_walk-the-model.md); `DOBJ6` added and
-`DOBJ4` restated at **Gate 2**, 2026-08-27, with [initiative 8](../scope/8_federate-the-graph.md).
+`DOBJ4` restated at **Gate 2**, 2026-08-27, with
+[initiative 8](../scope/8_federate-the-graph.md), and `DOBJ4` again with [initiative 9](../scope/9_cross-the-boundary.md).
 
 **This layer is short, and the reason is the method's central choice.** Almost
 everything archreator handles is prose in Markdown — a business object read by
@@ -67,7 +68,7 @@ flowchart TB
 | `DOBJ1` | **Skill frontmatter** | YAML: `name`, `description`, and `metadata.archreator` carrying `kind`, `realizes_process` and `gates` | The head of every `SKILL.md` | The host platform, to route a request to a skill; `check_skills.py`, to bind skills to processes |
 | `DOBJ2` | **The element-prefix registry** | JSON: layer group → prefix → element type name. Forty-three prefixes in nine groups | `scaffold/scripts/element-prefixes.json` | `model_graph.py`, to recognise and type an identifier |
 | `DOBJ3` | **The plugin manifests** | JSON: the plugin's name, version and entry points, and the marketplace entry that publishes it | `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` | The host platform, at install time |
-| `DOBJ4` | **The model projection** | `nodes` and `edges` tables, plus `mentions`. Every node carries the declared status of the document defining it. Every edge carries where the relationship was declared — `catalogue`, `table` or `identifier` — and whether it is pending. Regenerated, never hand-edited, never committed | `.model/model.json`, `.model/model.db`, and both beside the published portal, where they carry a schema number and the commit they were built from | `query_model.py` and the navigator, both running the same traversal against `model.db`; and whatever else cannot read Markdown |
+| `DOBJ4` | **The model projection** | `nodes` and `edges` tables, plus `mentions`. Every node carries the declared status of the document defining it. Every edge carries where the relationship was declared — `catalogue`, `table` or `identifier` — whether it is pending, and the model its far end belongs to. Regenerated, never hand-edited, never committed | `.model/model.json`, `.model/model.db`, and both beside the published portal, where they carry a schema number and the commit they were built from | `query_model.py` and the navigator, both running the same traversal against `model.db`; and whatever else cannot read Markdown |
 | `DOBJ6` | **The federation manifest** | JSON: a schema number, and one entry per federated model naming it, what it models, and the directory its projection is published in. Derived from `BOBJ8` on every build, never committed | `navigator/federation.json` in the published site | The navigator, to know what else to fetch |
 | `DOBJ5` | **Provided source documents** | Whatever a Requester handed over — transcripts, decks, specifications — under a dated name, with an index row naming the original filename, who provided it and what was derived from it | `architecture/reference/` in an adopting project; this repository keeps none | A reader asking where a claim came from. Not the validators, not the projection, and not the portal |
 
@@ -80,6 +81,12 @@ the prefix table in `architecture-document-style`; this JSON ships beside the
 validators because a downstream project has the scripts and not the skills.
 `check_skills.py` compares the two in both directions. That is `P1`'s escape
 clause used deliberately — one unavoidable copy, with a check on it.
+
+**An edge knows which model its far end is in, and that is what lets a walk
+cross.** Schema 2 added it. Traversal moved onto an identifier qualified by
+model, so `neighbourhood.sql` follows a reference across a federation boundary
+without knowing it crossed one — a blast radius that stops at a repository is
+a wrong answer rather than a smaller one.
 
 **`DOBJ4` published is a contract; `DOBJ4` local is a convenience.** [initiative 8](../scope/8_federate-the-graph.md)
 put both formats at a documented path under a project's portal, with a schema

@@ -10,7 +10,8 @@ and `ACMP8` restated on 2026-08-27 with
 [initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md);
 `ACMP14` restated and `ACMP16` added on 2026-08-27 with
 [initiative 7](../scope/7_walk-the-model.md); `ACMP12` and `ACMP16` restated on
-2026-08-27 with [initiative 8](../scope/8_federate-the-graph.md).
+2026-08-27 with [initiative 8](../scope/8_federate-the-graph.md); `ACMP6`,
+`ACMP7`, `ACMP8`, `ACMP14` and `ACMP16` on 2026-08-27 with [initiative 9](../scope/9_cross-the-boundary.md).
 
 Skills are grouped by the service they provide rather than listed one per
 component. Fifteen rows naming fifteen files would restate the
@@ -87,6 +88,18 @@ flowchart TB
 own. A second renderer would be a second set of rules about how a model looks,
 and the two would drift; the document is the portal's own single-page view,
 printed by a browser.
+
+**`ACMP7` parses one more thing, and `ACMP6` resolves it two ways.** A
+reference naming another model is read by the same parse as every other, and
+resolved against that model's definitions where they are in this repository
+or against `BOBJ9` where they are not. Nothing fetches: a validator that read
+a sibling repository on every pull request would be slow, would fail when
+somebody else's site was down, and would let another team's push break this
+build. [initiative 9](../scope/9_cross-the-boundary.md) is what closed decision 1's recorded consequence.
+
+**`ACMP14` and `ACMP16` walk a qualified identifier now.** Both stopped at a
+model boundary and neither said so, which is the worst kind of wrong answer —
+a smaller one that looks complete.
 
 **`ACMP16` federates by loading, not by mirroring.** It fetches each model's
 published projection and inserts the rows into the database it already has,

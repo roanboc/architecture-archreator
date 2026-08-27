@@ -8,7 +8,8 @@ through which channel each service reaches them.
 **Status:** ● Validated at **Gate 2** — every service on 2026-08-26; `BSVC3`
 restated on 2026-08-27 with
 [initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md),
-`BSVC8` on 2026-08-27 with [initiative 7](../scope/7_walk-the-model.md).
+`BSVC8` on 2026-08-27 with [initiative 7](../scope/7_walk-the-model.md);
+`BSVC3` again on 2026-08-27 with [initiative 9](../scope/9_cross-the-boundary.md).
 
 ## How to read this document
 
@@ -76,7 +77,7 @@ flowchart TB
 | -- | ---------------- | --------------------- | -------- | ----------- |
 | `BSVC1` | **Gated change alignment** | A requirement walked top-down through six layers, stopped at every gate that applies, with each layer either changed or explicitly declared unchanged | `CAP2` | `align-change-through-layers`, `shard-stories`, `write-pr-description` |
 | `BSVC2` | **Subject discovery** | A company or an application turned into canvases, a strategy layer and — at enterprise depth — a domain split, each approved before the next begins; and where the subject was already running, its estate described in the four layers below the strategy, with a declared boundary, and the transcripts and documents it was built from kept beside it | `CAP1` | `establish-project`, `discover-business-model`, `discover-strategy`, `model-domains`, `discover-current-landscape` |
-| `BSVC3` | **Model validation** | Mechanical proof that references resolve, identifiers are not reused, levelled identifiers have parents, links and anchors point at something, no document defines an element without declaring how far it has been validated, and no document restates an element's name differently from the catalogue that owns it | `CAP4` | `check_model.py`, `check_links.py`, `check_skills.py` |
+| `BSVC3` | **Model validation** | Mechanical proof that references resolve, identifiers are not reused, levelled identifiers have parents, links and anchors point at something, no document defines an element without declaring how far it has been validated, and no document restates an element's name differently from the catalogue that owns it, and every reference that names another model either resolves in this repository or is declared as an import | `CAP4` | `check_model.py`, `check_links.py`, `check_skills.py` |
 | `BSVC4` | **Decision and scope recording** | A durable record of what was approved, by whom, and what they were shown — and of the calls too small to be initiatives | `CAP2`, `CAP3` | `write-scope-document`, `record-decision` |
 | `BSVC5` | **Method distribution** | An installable plugin and a scaffold that is a working project on its first commit | `CAP5` | `plugin.json`, `marketplace.json`, the scaffold, `docs/` |
 | `BSVC6` | **Model restatement** | A model that has stopped reading as a description of today turned back into one, and what the method failed to cover captured before it evaporates | `CAP3`, `CAP6` | `restate-current-state`, `run-retrospective` |
@@ -97,6 +98,13 @@ What changed is who can ask them. A Requester approving a change at a gate is
 entitled to see what it touches, and until now that meant running a script and
 knowing the identifier to run it on. The service owes the same two answers; it
 owes them to more people. [initiative 7](../scope/7_walk-the-model.md) delivers it.
+
+**`BSVC3` stopped stopping at the repository boundary.** Decision 1 recorded,
+as the accepted price of a deliberate split, that "no validator crosses the
+repository boundary — the mismatch would be caught by review or not at all".
+That is no longer true for models in one repository, where a foreign
+reference resolves exactly, and it is narrowed for models in another: the
+dependency has to be declared, so a reference nobody thought about fails.
 
 **`BSVC3` gained a check because a reader gained a copy.** A relationship
 table writes each end's archetype and name beside its identifier, so that the
