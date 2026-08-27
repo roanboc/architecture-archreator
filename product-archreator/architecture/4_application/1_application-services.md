@@ -5,7 +5,12 @@ _[← Application layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Application. What the software offers the business
 layer, and which business service each one realizes.
 
-**Status:** ● Validated at **Gate 3**, 2026-08-26.
+**Status:** ◐ Draft catalogue.
+
+`ASVC1`–`ASVC7` and `ASVC9`–`ASVC11` were validated at **Gate 3**, 2026-08-26 and are
+unchanged. `ASVC8` is restated by
+[initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md)
+and awaits the Gate 3 the Requester opted into on 2026-08-27.
 
 ## How to read this document
 
@@ -75,7 +80,7 @@ flowchart LR
 | `ASVC5` | **Corpus self-check** | Checks the skill corpus against the process model and its own format rules | `BSVC3` | `ACMP9` |
 | `ASVC6` | **Project emission** | Copies the scaffold into a new project and turns it into that project | `BSVC5` | `ACMP2`, `ACMP10` |
 | `ASVC7` | **Plugin distribution** | Publishes the corpus so a host platform can install it | `BSVC5` | `ACMP11` |
-| `ASVC8` | **Model projection** | Reads a model and writes it as nodes and edges for a consumer that cannot read Markdown | `BSVC8` | `ACMP7`, `ACMP8` |
+| `ASVC8` | **Model projection** | Reads a model and writes it as nodes and edges for a consumer that cannot read Markdown. An edge is read from where the relationship was **declared** — a catalogue column, or a relationship table — and carries which of those it came from and whether it is pending | `BSVC8` | `ACMP7`, `ACMP8` |
 | `ASVC9` | **Model publication** | Renders a model as a website and prints it as one document, both from the Markdown, and gives every page a route back to the file it came from — and, where the project activated the workflow that does it, puts the website where its readers are. Publishes no source document — the portal hands a reader the model, and a transcript carries the rest of the room | `BSVC7` | `ACMP12`, `ACMP13`, `ACMP10` |
 | `ASVC10` | **Model interrogation** | Walks the projected graph outward from one element to say what a change would touch, and reports which catalogue rows name no realizing artifact while their neighbours do | `BSVC8` | `ACMP14` |
 | `ASVC11` | **Transition planning** | Turns approved goals and a described baseline into target plateaus, a derived gap register and a dependency-ordered sequence, ending at a gate | `BSVC9` | `ACMP15` |
@@ -91,6 +96,13 @@ questions — coverage, and blast radius. `ASVC10` asks exactly those two, which
 is why it reads `.model/` rather than importing the parser. Importing the parser
 would have been simpler and would have left this edge dashed, because a
 projection nothing reads is not a projection.
+
+**`ASVC8` stopped reading diagrams, and that is what made it complete.** Its
+edges used to come from whatever an author had drawn, so a relationship stated
+in a table was invisible and a relationship drawn in a diagram had no other
+home. `BOBJ7` gave it one; this service now reads the declaration and the
+diagram renders it. What the projection carries is no longer a function of who
+felt like drawing.
 
 **`ASVC9` renders and never summarizes.** A page it publishes says exactly
 what the file says, which is what makes the rendering safe to hand to someone

@@ -6,7 +6,9 @@ _[← Roadmap](./README.md) · [Target state](./1_target-state.md) · [EA home](
 [1_target-state.md](./1_target-state.md) are closed in, and what has to be true
 before each one can start.
 
-**Status:** ◐ Draft catalogue — proposed direction, not yet approved at Gate 1.
+**Status:** ● Validated at **Gate 1**, 2026-08-27 — the destination and the order,
+approved as direction. It approves no work: every initiative below still stops at
+its own Gate 2.
 
 This document defines no elements. It orders the ones the target state
 already named.

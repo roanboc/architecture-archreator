@@ -5,7 +5,9 @@ _[← Roadmap](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Implementation & Migration. Where the model's
 relationships are going, and what is missing between here and there.
 
-**Status:** ◐ Draft catalogue — proposed direction, not yet approved at Gate 1.
+**Status:** ● Validated at **Gate 1**, 2026-08-27 — the destination and the order,
+approved as direction. It approves no work: every initiative below still stops at
+its own Gate 2.
 
 The method models the element and not the relationship. `BOBJ2` has an
 identifier, a type, a level and a rule that it names what realizes it; the
@@ -57,7 +59,7 @@ flowchart LR
 
 | ID | Plateau | The state it names | Status |
 | -- | ------- | ------------------ | ------ |
-| `PLAT1` | **Declared relationships** | Every relationship an element has is **stated** — in a catalogue column or a relationship table a Requester can read and a validator already checks — and the projection carries it as an edge that knows where it came from and whether it is live. Diagrams render; they no longer declare | Planned |
+| `PLAT1` | **Declared relationships** | Every relationship an element has is **stated** — in a catalogue column or a relationship table a Requester can read and a validator already checks — and the projection carries it as an edge that knows where it came from and whether it is live. Diagrams render; they no longer declare | **In flight** — [initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md) |
 | `PLAT2` | **A walkable model** | The projection has a visual reader: one static page, filters by layer and element type, and expansion outward from any node. No server, no deployed database | Planned |
 | `PLAT3` | **A federated graph** | Each project publishes its own projection at a stable URL. The topmost tree of a federation — the organization, or the parent business function where there is no organization — owns an **index** naming those URLs. The graph is the union, computed at read time and owned by nobody | Planned |
 | `PLAT4` | **Checkable across the boundary** | A reference can name an element in another project, and something checks it. Decision 1's recorded consequence — "no validator crosses the repository boundary" — stops being true | Planned |

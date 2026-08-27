@@ -5,12 +5,9 @@ _[← Business layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Business. The things the method's services create,
 read and hand to each other.
 
-**Status:** ◐ Draft catalogue.
-
-`BOBJ1`–`BOBJ6` were validated at **Gate 2**, 2026-08-22 and are unchanged.
-`BOBJ7` is added by
-[initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md)
-and is not yet approved; the document returns to validated when its Gate 2 is granted.
+**Status:** ● Validated at **Gate 2** — `BOBJ1`–`BOBJ6` on 2026-08-22, `BOBJ7` on
+2026-08-27 with
+[initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md).
 
 Every object here is a **Markdown file in git**, and that is the point rather
 than an implementation detail: it is what makes the model readable by the
@@ -58,15 +55,15 @@ flowchart TB
   classDef object fill:#fffbb5,stroke:#c8c04a,color:#333
 ```
 
-| ID | Business object | What it is | On disk | Accessed by | Notes |
-| -- | --------------- | ---------- | ------- | ----------- | ----- |
-| `BOBJ1` | **The architecture model** | Six numbered layers describing one subject as it is today, in assessment order | `architecture/0_*` … `architecture/5_*` | `BSVC1`, `BSVC2`, `BSVC3`, `BSVC6` | |
-| `BOBJ2` | **The element** | One identified thing in the model — a stakeholder, a capability, a service — carrying a type prefix, a number, a name, and what realizes it | A row in an inventory table, or a bolded lead-in | `BSVC1`, `BSVC3` | |
-| `BOBJ3` | **The scope document** | One initiative: what changes at each layer, what was approved, what was deliberately left out | `architecture/scope/<n>_<slug>.md` | `BSVC1`, `BSVC4` | |
-| `BOBJ4` | **The decision record** | One call too small to be an initiative, with the option that was rejected | `architecture/decisions/<n>_<slug>.md` | `BSVC4` | |
-| `BOBJ5` | **The gate approval** | Which gate, who approved, when, and what they were shown | A row in `BOBJ3`'s Approvals table | `BSVC1`, `BSVC4` | |
-| `BOBJ6` | **The skill** | One procedure, template or rulebook, in a fixed section format, bound by its frontmatter to the process it realizes | `plugins/archreator/skills/<name>/SKILL.md` | `BSVC5` | |
-| `BOBJ7` | **The relationship** | One stated connection between two elements — a source, a target, and the words the model uses for what holds between them. Declared in a catalogue column where a row can carry it, and in a relationship table where it cannot | A cell in a catalogue row, or a row in a relationship table | `BSVC1`, `BSVC3`, `BSVC8` | **Draft** — added by initiative 6, not yet approved at Gate 2 |
+| ID | Business object | What it is | On disk | Accessed by |
+| -- | --------------- | ---------- | ------- | ----------- |
+| `BOBJ1` | **The architecture model** | Six numbered layers describing one subject as it is today, in assessment order | `architecture/0_*` … `architecture/5_*` | `BSVC1`, `BSVC2`, `BSVC3`, `BSVC6` |
+| `BOBJ2` | **The element** | One identified thing in the model — a stakeholder, a capability, a service — carrying a type prefix, a number, a name, and what realizes it | A row in an inventory table, or a bolded lead-in | `BSVC1`, `BSVC3` |
+| `BOBJ3` | **The scope document** | One initiative: what changes at each layer, what was approved, what was deliberately left out | `architecture/scope/<n>_<slug>.md` | `BSVC1`, `BSVC4` |
+| `BOBJ4` | **The decision record** | One call too small to be an initiative, with the option that was rejected | `architecture/decisions/<n>_<slug>.md` | `BSVC4` |
+| `BOBJ5` | **The gate approval** | Which gate, who approved, when, and what they were shown | A row in `BOBJ3`'s Approvals table | `BSVC1`, `BSVC4` |
+| `BOBJ6` | **The skill** | One procedure, template or rulebook, in a fixed section format, bound by its frontmatter to the process it realizes | `plugins/archreator/skills/<name>/SKILL.md` | `BSVC5` |
+| `BOBJ7` | **The relationship** | One stated connection between two elements — a source, a target, and the words the model uses for what holds between them. Declared in a catalogue column where a row can carry it, and in a relationship table where it cannot | A cell in a catalogue row, or a row in a relationship table | `BSVC1`, `BSVC3`, `BSVC8` |
 
 **`BOBJ5` has no file of its own, and that is deliberate.** An approval is a
 row inside the document it approves, so a reader who has the initiative has

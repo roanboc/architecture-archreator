@@ -5,14 +5,12 @@ _[← Information layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Passive structure. The machine-readable structures
 the method's components read and write.
 
-**Status:** ◐ Draft catalogue.
-
-`DOBJ1`–`DOBJ3` and `DOBJ5` were validated — **Gate 3** declined at Gate 2
-([scope document 1](../scope/1_rebuild-the-models-on-the-current-method.md), 2026-08-22),
-which routed the layers below the business layer to pull-request review — and are
-unchanged. `DOBJ4`'s structure is restated by
-[initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md)
-and is not yet approved; the document returns to validated when its Gate 2 is granted.
+**Status:** ● Validated. `DOBJ1`–`DOBJ3` and `DOBJ5` at **Gate 2**, 2026-08-22, with
+**Gate 3** declined there
+([scope document 1](../scope/1_rebuild-the-models-on-the-current-method.md)),
+which routed the layers below the business layer to pull-request review. `DOBJ4`
+restated at **Gate 2**, 2026-08-27, with
+[initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md).
 
 **This layer is short, and the reason is the method's central choice.** Almost
 everything archreator handles is prose in Markdown — a business object read by

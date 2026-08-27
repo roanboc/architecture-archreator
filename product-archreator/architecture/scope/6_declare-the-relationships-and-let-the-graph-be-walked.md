@@ -127,7 +127,7 @@ edit rather than a hopeful one.
 | Column | Values | Why |
 | ------ | ------ | --- |
 | `origin` | `catalogue`, `table`, `identifier` | A consumer can weight or filter by how firmly a relationship was stated. `identifier` is the decomposition edge inferred from a levelled ID, which is structure rather than assertion |
-| `pending` | `0`, `1` | The notation says a dashed edge means Pending, and `ACMP7` currently discards which arrow form it matched. 24 relationships in this repository are pending and read as live |
+| `pending` | `0`, `1` | A relationship that is not true yet. The notation draws this as a dashed edge, and 24 relationships in this repository use it — but a dashed edge is a **diagram** device, and diagrams stop being read. So pending is declared in words, with the marker the method already has: `Pending — future initiative`, recognised by the same `PENDING_MARKERS` list `ACMP14` already uses for grounding. See § Solution design |
 
 Both are additive. Nothing that reads `DOBJ4` today breaks.
 
@@ -139,7 +139,7 @@ Both are additive. Nothing that reads `DOBJ4` today breaks.
 | 1_strategy | **No change.** No stakeholder, driver, goal or principle is added or modified. The initiative serves `G5` (the model reaches people who never open the repository) through the plateaus it unblocks, and is bounded by `P1`, which is the argument for it. `CAP4` already covers proving the model internally consistent; a relationship becoming checkable widens what that capability acts on, not what it is |
 | 2_business | **`BOBJ7` — the relationship** added to [4_business-objects.md](../2_business/4_business-objects.md). `BSVC3` **unchanged**: a declared relationship is a backticked identifier, and `ACMP6` has always required those to resolve — the validation this needs already exists and is worth stating rather than re-deriving. `BSVC8` **unchanged**: interrogation gains better data, not a new promise |
 | 3_information | **`DOBJ4` restated** in [1_data-objects.md](../3_information/1_data-objects.md) — the projection's edges gain `origin` and `pending`, and its edge set stops depending on whether anyone drew a diagram |
-| 4_application | Assessed after Gate 2, at `align-change-through-layers` Step 5. Expected: `ACMP7` (the parse) and `ACMP8` (the projection) change; `ACMP14` is unaffected in interface and better fed. No new component |
+| 4_application | **`ASVC8` restated** and **`ACMP7`, `ACMP8` restated** — the parse reads two declaration surfaces and no diagrams, and identifier resolution moves into `ACMP7` so `ACMP6` and `ACMP8` stop deciding it separately. `ACMP14`'s interface is unchanged and its data is better. No new component: the migration tool is one-shot and deleted with the pull request that runs it. See § Solution design |
 | 5_technology | **No change.** No runtime, dependency, host or workflow is added. The parse stays standard-library Python |
 
 ## Approvals
@@ -148,8 +148,8 @@ Both are additive. Nothing that reads `DOBJ4` today breaks.
 | ---- | ----------- | ---- | ----------------- |
 | Gate 0 — Business model | — | — | **N/A** — the subject is one application, not an organization. `0_business-design/` is not used at Depth 1 |
 | Gate 1 — Strategy | — | — | **N/A for this initiative** — no strategy element is added or modified. The [roadmap](../roadmap/README.md) this initiative sits on carries its own Gate 1, separately |
-| Gate 2 — Business | _pending_ | — | `BOBJ7`, the unchanged verdicts on `BSVC3` and `BSVC8`, and the restated `DOBJ4` |
-| Gate 3 — Solution design | _not yet offered_ | — | To be chosen by the Requester at Gate 2 |
+| Gate 2 — Business | Requester | 2026-08-27 | `BOBJ7`, the unchanged verdicts on `BSVC3` and `BSVC8`, and the restated `DOBJ4`, presented in the session with links to each document on this branch |
+| Gate 3 — Solution design | _pending_ | — | **Requested at Gate 2.** The application alignment below, presented before any code is written |
 
 ## Plateaus
 
@@ -204,6 +204,84 @@ Both are additive. Nothing that reads `DOBJ4` today breaks.
   visible to the person who could converge them — without a controlled
   vocabulary the method would have to translate.
 
+## Solution design
+
+**❖ Gate 3.** The Requester opted in at Gate 2 on 2026-08-27. Nothing below is
+built until this is approved.
+
+### Where the change sits
+
+All of it is in `ACMP7` — the parse — plus two additive columns in `ACMP8`'s
+output. No new component, no new dependency, no change to `ACMP6` or `ACMP14`'s
+interfaces.
+
+```mermaid
+flowchart TB
+  md["▧ The layer document [BOBJ1]"]:::object
+  acmp7["⊞ The model parser [ACMP7]"]:::component
+  acmp6["⊞ The element-ID validator [ACMP6]"]:::component
+  acmp8["⊞ The projection builder [ACMP8]"]:::component
+  acmp14["⊞ The model query tool [ACMP14]"]:::component
+  dobj4["▦ The model projection [DOBJ4]"]:::data
+
+  md -->|catalogue rows, relationship tables| acmp7
+  acmp7 -->|definitions and references| acmp6
+  acmp7 -->|elements and typed edges| acmp8
+  acmp8 -->|writes| dobj4
+  dobj4 -->|read by| acmp14
+
+  classDef component fill:#9adcf0,stroke:#0277bd,color:#333
+  classDef object fill:#fffbb5,stroke:#c8c04a,color:#333
+  classDef data fill:#c2f0ff,stroke:#0288d1,color:#333
+```
+
+### The four changes to `ACMP7`
+
+| # | Change | Shape |
+| - | ------ | ----- |
+| 1 | **Split relationship tables out before anything else reads the text** | A pre-pass locates them and removes them, exactly as `split_retired()` already splits the live half of a document from the retired half. This has to happen first: the existing definition pattern matches any row whose first cell is a backticked identifier, so an unsplit relationship table would register its every source element as a **duplicate definition** and fail `ACMP6` on a valid document. This is the sharpest risk in the initiative and the reason the pre-pass is not an optimisation |
+| 2 | **Catalogue columns emit edges** | The catalogue reader already returns each row's columns under their own headers. Every resolving identifier in a column that is neither the ID nor the name becomes an edge from that row's element, `rel` = the header verbatim, `origin = catalogue`. A row citing itself is skipped |
+| 3 | **Relationship tables emit edges** | Recognised by position: first two columns hold identifiers on every data row. Cell 1 source, cell 2 target, cell 3 the relationship, the rest notes. `origin = table` |
+| 4 | **Resolution moves here** | Deciding that a bare `BSVC3` inside `domains/sales/` means `SALES.BSVC3` is logic `ACMP6` owns today and `ACMP8` would otherwise need a second copy of. One resolver, for the same reason there is one parser |
+
+The Mermaid edge reader is deleted. The Mermaid **node** reader stays — nothing
+else reads it, but it costs nothing and removing it is not this initiative's
+business.
+
+### Good practices this leans on
+
+| Practice | Where it applies, and why it is load-bearing |
+| -------- | -------------------------------------------- |
+| **One parser, one resolver** | `ACMP7` exists because `ACMP6` and `ACMP8` were about to grow a second copy of the same parse, and the drift would have been silent. Resolution is the same hazard one level down, so it moves here rather than being written twice |
+| **Recognise by position, never by a header word** | A model may be written in any language. The catalogue already fixes the name as the second cell for this reason; relationship tables fix source and target as the first two. No English word decides anything |
+| **Split, then parse each part with the rule that fits it** | `split_retired()`'s pattern, reused. It is what keeps change 1 from being a special case bolted onto the definition matcher |
+| **Carry the label verbatim** | Unchanged from the Mermaid reader, and for the unchanged reason: mapping onto ArchiMate's vocabulary is a guess, and a wrong guess in a projection is worse than an honest string |
+| **Additive schema** | `origin` and `pending` are new columns. `ACMP14`, and anything else reading `DOBJ4`, keeps working untouched |
+
+### The migration, and what proves it
+
+`scripts/extract_relationships.py` reads today's Mermaid edges and emits
+relationship tables for review. It runs **once**, its output is read by a person
+before it is committed, and it is deleted in the same pull request. It is a
+migration tool, not a component: a script that converts a corpus once has no
+place in a catalogue of things the method ships.
+
+**The superset assertion is what makes deleting the diagram reader safe.**
+Before the reader is removed, the projection's edge set is captured; after, it
+must contain every pair that set contained. A pair that goes missing is a
+relationship somebody drew and nobody transcribed, which is the one failure
+this migration can have. The assertion is a one-time proof and is deleted with
+the extractor — once diagrams are not a source there is nothing left to compare
+against.
+
+### Risks, and what each costs
+
+| Risk | If it happens |
+| ---- | ------------- |
+| A relationship table is mistaken for a catalogue | `ACMP6` fails loudly with a duplicate definition. Noisy, immediate, impossible to miss — the safe direction |
+| A catalogue column holds an identifier that is not a relationship | A spurious edge, labelled with the column header, visible in `trace`. `org-archreator`'s `Source` column is the known case; only resolving identifiers become edges, so a prose source is excluded on its own |
+| The extractor mis-transcribes an edge | The superset check catches a **dropped** pair. It cannot catch a **mangled** label, which is why the extractor's output is reviewed rather than merged blind |
+
 ## In scope / out of scope
 
 | In scope | Out of scope (gaps, candidate future work) |
@@ -237,4 +315,5 @@ Both are additive. Nothing that reads `DOBJ4` today breaks.
   `architecture/relationships.md` by default?** Adopted interpretation: in the
   layer document, because a relationship between two capabilities is a strategy
   fact and the layer is what a Requester approves at a gate. The per-project
-  file is the exception, not the default. Raised here; to confirm at Gate 2.
+  file is the exception, not the default. **Confirmed by the Requester at
+  Gate 2, 2026-08-27.** No open questions remain.

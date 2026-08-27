@@ -5,7 +5,13 @@ _[← Application layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Application. The units the method actually ships,
 each mapped to the files that are it.
 
-**Status:** ● Validated at **Gate 3**, 2026-08-26.
+**Status:** ◐ Draft catalogue.
+
+Every component was validated at **Gate 3**, 2026-08-26. `ACMP7` and `ACMP8` are
+restated by
+[initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md)
+and await the Gate 3 the Requester opted into on 2026-08-27; the rest are
+unchanged.
 
 Skills are grouped by the service they provide rather than listed one per
 component. Fifteen rows naming fifteen files would restate the
@@ -90,8 +96,17 @@ change-alignment skills take a requirement and produce a merged change;
 planning takes goals and a baseline and produces an intent. They share a
 rulebook and nothing else.
 
+**`ACMP7` reads two declaration surfaces and no diagrams.** A catalogue column
+holding a resolving identifier is a relationship from that row's element,
+labelled with the column header verbatim; a table whose first two columns hold
+identifiers on every row is a relationship table, read by position. Both are
+`BOBJ7`. Mermaid is parsed for nothing — a diagram is a rendering, and a fact
+whose only home is a rendering is the one `P1` forbids.
+
 **`ACMP7` is the only component two others depend on**, and it exists because
-they were about to grow a second copy of the same parse. `ACMP4` is the only
+they were about to grow a second copy of the same parse. Initiative 6 widens
+that: identifier **resolution** moves here too, so `ACMP6` and `ACMP8` agree on
+what a bare identifier inside a domain means instead of each deciding. `ACMP4` is the only
 one that constrains rather than calls — a rulebook is consulted by whoever is
 running, not invoked.
 
