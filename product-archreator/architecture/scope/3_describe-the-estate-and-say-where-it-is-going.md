@@ -79,7 +79,7 @@ trees have no rows in the table above.
 
 ### WP2 — Say where the architecture is going
 
-- **Deliverables:** `plugins/archreator/skills/plan-the-transition/SKILL.md`; the `BPROC5` macro process and its `BPROC5.1` child; `plugins/archreator/scaffold/architecture/roadmap/README.md`; the `PLAT` and `GAP` prefixes in `element-prefixes.json` and in the `architecture-document-style` table; the glyph, shape and colour rows in `scaffold/architecture/README.md`; the roadmap binding in `write-scope-document` and `restate-current-state`
+- **Deliverables:** `plugins/archreator/skills/plan-the-transition/SKILL.md`; the `BPROC5` macro process and its `BPROC5.1` child; `plugins/archreator/scaffold/architecture/6_transition/README.md`; the `PLAT` and `GAP` prefixes in `element-prefixes.json` and in the `architecture-document-style` table; the glyph, shape and colour rows in `scaffold/architecture/README.md`; the roadmap binding in `write-scope-document` and `restate-current-state`
 - **Outcome:** a target, a derived gap register and a dependency-ordered sequence, in the one folder exempt from describing the present
 
 ### WP3 — Give the projection its consumer
@@ -97,7 +97,7 @@ trees have no rows in the table above.
 | In scope | Out of scope (gaps, candidate future work) |
 | -------- | ------------------------------------------- |
 | The three skills and the tool, the process model, the scaffold, and the model repair | Running either new skill against a real subject |
-| The `roadmap/` README the scaffold ships | The two numbered roadmap documents, which the skill writes per project, as every layer document is |
+| The `6_transition/` README the scaffold ships | The two numbered roadmap documents, which the skill writes per project, as every layer document is |
 | The prefix registry in this repository and in the method | The same registry in `ea_bigview`, which carries its own copy |
 | A grounding report | A grounding gate |
 

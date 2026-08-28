@@ -6,7 +6,7 @@ _[← Scope index](./README.md) · [Model home](../README.md)_
 **Delivered as:** the `claude/graph-navigator-architecture-m2fr9j` branch in
 [`archreator`](https://github.com/roanboc/archreator).
 **Closes:** `GAP10`–`GAP13` — reaching `PLAT5` on the
-[roadmap](../roadmap/1_target-state.md).
+[roadmap](../6_transition/1_target-state.md).
 
 [Initiative 7](./7_walk-the-model.md) built a reader and proved the graph could
 be drawn. It did not make the graph legible. A node is a six-pixel circle whose
@@ -16,7 +16,7 @@ identifier; and every visit recomputes the same layout and forgets whatever the
 reader did.
 
 The Requester's direction is quoted in full on the
-[target state](../roadmap/1_target-state.md); this delivers it.
+[target state](../6_transition/1_target-state.md); this delivers it.
 
 ## What a reader is actually doing
 
@@ -111,7 +111,7 @@ clear, arrows through results.
 | Gate | Approved by | Date | What was approved |
 | ---- | ----------- | ---- | ----------------- |
 | Gate 0 — Business model | — | — | **N/A** — the subject is one application |
-| Gate 1 — Strategy | Requester | 2026-08-27 | `PLAT5` and its gaps, in their own words, quoted on the [target state](../roadmap/1_target-state.md). See [decision 3](../decisions/3_the-navigator-earns-its-own-initiative.md) |
+| Gate 1 — Strategy | Requester | 2026-08-27 | `PLAT5` and its gaps, in their own words, quoted on the [target state](../6_transition/1_target-state.md). See [decision 3](../decisions/3_the-navigator-earns-its-own-initiative.md) |
 | Gate 2 — Business | Delegated ([decision 3](../decisions/3_the-navigator-earns-its-own-initiative.md)) | 2026-08-27 | `BOBJ10`, the restated `BSVC8` and `DOBJ4`. **Look first at:** `BOBJ10` being a business object at all. A saved view is the first thing the method has modeled that is deliberately *not* part of the model |
 | Gate 3 — Solution design | Delegated ([decision 3](../decisions/3_the-navigator-earns-its-own-initiative.md)) | 2026-08-27 | § The design. **Look first at:** where a saved view is stored, because it is the only decision here that a reasonable person might make differently and the only one that is awkward to change later |
 

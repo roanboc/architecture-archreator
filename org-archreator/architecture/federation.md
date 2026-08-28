@@ -29,40 +29,41 @@ somebody opens it, owned by no one.
 
 | Model | Subject | Projection |
 | ----- | ------- | ---------- |
-| org-archreator | The organization that publishes archreator | ../../org-archreator/navigator/ |
-| product-archreator | archreator the method, as a product | ../../product-archreator/navigator/ |
-| product-archreator/site | The published guidance site | ../../product-archreator/site/navigator/ |
+| org-archreator | The organization that publishes archreator | ../../org-archreator/projection/ |
+| product-archreator | archreator the method, as a product | ../../product-archreator/projection/ |
+| product-archreator/site | The published guidance site | ../../product-archreator/site/projection/ |
 
-Cell 1 is the model's name, cell 2 what it models, cell 3 where its projection
-is published — read by position, like the rest of the notation. Cell 3 names
-the directory: a projection is two files, `model.json` for a consumer that
-parses and `model.db` for one that queries.
+Cell 1 is the model's name, cell 2 what it models, cell 3 the directory its
+projection is published in — read by position, like the rest of the notation. A
+projection is two files: `model.json` for a consumer that parses and `model.db`
+for one that queries.
 
 **These are relative paths because all three are published from one
 repository.** A model in another repository is named by its full HTTPS URL
-instead; the navigator resolves either.
+instead; a consumer resolves either.
 
 **They point at a portal this repository does not yet publish.** Every tree
-here builds one — `scripts/build_docs.py` produces it — and no workflow puts it
-anywhere. The index is correct about where a projection goes and premature
-about whether it is there yet, which is the honest state and exactly what the
-navigator reports when it cannot fetch one.
+here builds one — `scripts/build_docs.py` produces it, projection included —
+and no workflow puts it anywhere. The index is correct about where a projection
+goes and premature about whether it is there yet, which is the honest state.
 
 ## What this cannot do
 
 **Nothing checks that a location still answers**, and nothing should: the
 alternative is a validator making network calls on every pull request, which is
-a slow, flaky check on a fact that changes rarely. The navigator names what it
-could not reach, and a person decides whether that is news.
+a slow, flaky check on a fact that changes rarely. A reader who follows a dead
+location learns it the ordinary way, and decides whether that is news.
 
-**A relationship still does not cross a model.** These three graphs are shown
-together and are not joined. This tree's `ACMP1` — the skill corpus — is
-described in far more detail one tree over, and there is no way to write that
-relationship down: an identifier is scoped to its model, and naming a foreign
-one fails the reference check.
+**A relationship crosses a model now, and this table is what lets it.** When
+this document was written it could not: a first draft cited a roadmap gap that
+lives in `product-archreator`, and `scripts/check_model.py` rejected it —
+correctly, and for exactly the reason the gap existed. The next initiative gave
+a foreign identifier a grammar, and the model name it uses is the one **this
+table** gives it. A model you may reference is a model you have declared you
+federate with.
 
-Writing this document proved it. A first draft cited the roadmap gap that
-tracks the problem, which lives in `product-archreator`, and
-`scripts/check_model.py` rejected it — correctly, and for exactly the reason
-the gap exists. Until the next initiative gives a foreign identifier a grammar,
-a cross-model reference is a sentence and a link, as here.
+**The reference still runs one way.** A product's model cites the
+organization's; this one never reaches into a product's elements. That is not
+a limitation of the grammar — it is the rule this tree is built on, so that a
+new product needs to know its parent and the parent needs to know nothing about
+it.

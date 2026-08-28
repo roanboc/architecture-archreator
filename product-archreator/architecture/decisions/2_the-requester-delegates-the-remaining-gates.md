@@ -5,7 +5,7 @@ _[← Decisions index](./README.md)_
 **Status:** Accepted
 **Date:** 2026-08-27
 **Touches:** [scope/](../scope/README.md) — the Approvals table of every
-initiative on the [roadmap](../roadmap/2_sequence.md) sequence
+initiative on the [roadmap](../6_transition/2_sequence.md) sequence
 
 ## Context
 

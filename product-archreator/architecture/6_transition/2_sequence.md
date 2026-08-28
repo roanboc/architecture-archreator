@@ -22,11 +22,13 @@ flowchart LR
   i8[["≡ 8 — Federate the graph [PLAT3]"]]:::plateau
   i9[["≡ 9 — Cross the boundary [PLAT4]"]]:::plateau
   i10[["≡ 10 — Make it readable [PLAT5]"]]:::plateau
+  i11[["≡ 11 — Answer one question [PLAT6]"]]:::plateau
 
   i6 -.->|a graph worth drawing| i7
   i7 -.->|a reader worth pointing at more than one| i8
   i8 -.->|somewhere to resolve a foreign identifier| i9
   i7 -.->|a reader worth making readable| i10
+  i10 -.->|its prose and its vocabulary, kept| i11
 
   classDef plateau fill:#ffe8e8,stroke:#d99b9b,color:#333
 ```
@@ -34,10 +36,11 @@ flowchart LR
 | # | Initiative | Closes | Reaches | Gate | State |
 | - | ---------- | ------ | ------- | ---- | ----- |
 | 6 | [Declare the relationships, and let the graph be walked](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md) | `GAP1`, `GAP2`, `GAP3`, `GAP4` | `PLAT1` | 2 | In flight |
-| 7 | [Walk the model](../scope/7_walk-the-model.md) | `GAP5`, `GAP6` | `PLAT2` | 2 and 3, both delegated ([decision 2](../decisions/2_the-requester-delegates-the-remaining-gates.md)) | In flight |
+| 7 | [Walk the model](../scope/7_walk-the-model.md) | `GAP5`, `GAP6` | `PLAT2` | 2 and 3, both delegated ([decision 2](../decisions/2_the-requester-delegates-the-remaining-gates.md)) | **Written off** — see [decision 4](../decisions/4_the-graph-portal-is-retired.md); `GAP6`'s answer, the shared traversal, is kept |
 | 8 | [Federate the graph](../scope/8_federate-the-graph.md) | `GAP7`, `GAP8` | `PLAT3` | 2 and 3, both delegated ([decision 2](../decisions/2_the-requester-delegates-the-remaining-gates.md)) | In flight |
 | 9 | [Cross the boundary](../scope/9_cross-the-boundary.md) | `GAP9` | `PLAT4` | 2 and 3, both delegated ([decision 2](../decisions/2_the-requester-delegates-the-remaining-gates.md)) | In flight |
-| 10 | [Make it readable](../scope/10_make-it-readable.md) | `GAP10`–`GAP13` | `PLAT5` | 1 by the Requester's own direction; 2 and 3 delegated ([decision 3](../decisions/3_the-navigator-earns-its-own-initiative.md)) | In flight |
+| 10 | [Make it readable](../scope/10_make-it-readable.md) | `GAP10`–`GAP13` | `PLAT5` | 1 by the Requester's own direction; 2 and 3 delegated ([decision 3](../decisions/3_the-navigator-earns-its-own-initiative.md)) | **Written off** — its plateau is abandoned, and what it built is kept |
+| 11 | [Answer one question](../scope/11_answer-one-question.md) | `GAP14`–`GAP16` | `PLAT6` | 1 by the Requester's own direction; 2 and 3 delegated ([decision 4](../decisions/4_the-graph-portal-is-retired.md)) | In flight |
 
 ### Relationships
 
@@ -77,6 +80,24 @@ exists to prevent.
 **Nothing here is sized in time.** A plateau is a state, not a sprint. The
 sequence says what must precede what; how long each takes is a question for the
 initiative, not the roadmap.
+
+## Two initiatives written off, and what that cost
+
+Initiatives 7 and 10 built a graph navigator and then made it readable. Both
+are merged history and neither is rewritten; [decision 4](../decisions/4_the-graph-portal-is-retired.md) is where a
+reader learns the page no longer exists.
+
+**The write-off is smaller than it looks.** What went was the page: about 1,470
+lines of HTML, CSS and JavaScript, and a 709 KB library fetched to read SQLite
+in a browser. What stayed is everything underneath it — the parse, the
+projection, the shared traversal, and the prose excerpts initiative 10 added,
+which are the body of every brief. A brief is assembled from the work those two
+initiatives did; only the reader changed.
+
+**The lesson is worth more than the code.** Initiative 7 recorded, in its own
+gap notes, that the whole model at once is illegible and that the page would
+therefore open on one layer. That was the design saying a reader arrives with a
+question, and it took building the legible version to hear it.
 
 ## What would change this plan
 

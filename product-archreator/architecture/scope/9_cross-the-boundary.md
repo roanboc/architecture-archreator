@@ -7,7 +7,7 @@ _[← Scope index](./README.md) · [Model home](../README.md)_
 [`archreator`](https://github.com/roanboc/archreator), and the model changes
 this document holds the gates for.
 **Closes:** `GAP9` — reaching `PLAT4` on the
-[roadmap](../roadmap/1_target-state.md).
+[roadmap](../6_transition/1_target-state.md).
 
 [Initiative 8](./8_federate-the-graph.md) put three models in front of one
 reader and joined none of them. An identifier is scoped to its model, so a
@@ -78,7 +78,7 @@ graph as one graph because that is now what it is.
 | Gate | Approved by | Date | What was approved |
 | ---- | ----------- | ---- | ----------------- |
 | Gate 0 — Business model | — | — | **N/A** — the subject is one application |
-| Gate 1 — Strategy | — | — | **N/A for this initiative** — the direction was approved on the [roadmap](../roadmap/README.md) at Gate 1, 2026-08-27 |
+| Gate 1 — Strategy | — | — | **N/A for this initiative** — the direction was approved on the [roadmap](../6_transition/README.md) at Gate 1, 2026-08-27 |
 | Gate 2 — Business | Delegated ([decision 2](../decisions/2_the-requester-delegates-the-remaining-gates.md)) | 2026-08-27 | `BOBJ9` and the restated `BSVC3` and `DOBJ4`. **Look first at:** the import row restating a foreign name, because it is a second copy of somebody else's fact and copies are what `P1` is about |
 | Gate 3 — Solution design | Delegated ([decision 2](../decisions/2_the-requester-delegates-the-remaining-gates.md)) | 2026-08-27 | § The design. **Look first at:** the decision not to resolve over the network in CI. Everything else here follows from it |
 

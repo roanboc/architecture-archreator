@@ -57,7 +57,7 @@ flowchart TB
   acmp13["⊞ The document exporter [ACMP13]"]:::component
   acmp14["⊞ The model query tool [ACMP14]"]:::component
   acmp15["⊞ The transition-planning skill [ACMP15]"]:::component
-  acmp16["⊞ The graph navigator [ACMP16]"]:::component
+  acmp17["⊞ The brief generator [ACMP17]"]:::component
 
   acmp4 -->|constrains| acmp1
   acmp4 -->|constrains| acmp2
@@ -66,8 +66,8 @@ flowchart TB
   acmp7 -->|parses for| acmp6
   acmp7 -->|parses for| acmp8
   acmp8 -->|writes what| acmp14
-  acmp8 -->|writes what| acmp16
-  acmp14 -->|shares its traversal with| acmp16
+  acmp8 -->|writes what| acmp17
+  acmp14 -->|shares its traversal with| acmp17
   acmp10 -->|carries| acmp5
   acmp10 -->|carries| acmp6
   acmp10 -->|carries| acmp7
@@ -91,6 +91,13 @@ own. A second renderer would be a second set of rules about how a model looks,
 and the two would drift; the document is the portal's own single-page view,
 printed by a browser.
 
+**`ACMP10` and `ACMP11` name what they refine one tree up.** The organization's
+model says *that* a scaffold and a plugin package exist and who builds them;
+this model says how. The reference runs this way and not the other, because
+`org-archreator` is built on knowing nothing about the products under it — a
+new product needs to know its parent, and the parent needs no edit to accept
+one.
+
 **`ACMP7` parses one more thing, and `ACMP6` resolves it two ways.** A
 reference naming another model is read by the same parse as every other, and
 resolved against that model's definitions where they are in this repository
@@ -99,34 +106,15 @@ a sibling repository on every pull request would be slow, would fail when
 somebody else's site was down, and would let another team's push break this
 build. [initiative 9](../scope/9_cross-the-boundary.md) is what closed decision 1's recorded consequence.
 
-**`ACMP14` and `ACMP16` walk a qualified identifier now.** Both stopped at a
-model boundary and neither said so, which is the worst kind of wrong answer —
-a smaller one that looks complete.
+**`ACMP17` is what `ACMP16` should have been.** The navigator drew the model
+and left a reader to find their own question in it; the brief generator takes
+the question and writes the answer. It runs the same traversal `ACMP14` runs,
+against the same projection, and emits Markdown — the one form every reader of
+this method can already use, agents included.
 
-**`ACMP16` reads, arranges and remembers — and writes nothing.** It stores a
-reader's own views in their own browser and can put a file in their downloads;
-it has no way to add one to `architecture/`. That is the boundary
-[decision 3](../decisions/3_the-navigator-earns-its-own-initiative.md)
-reserved, and it is what keeps "it displays" true when the next feature makes
-writing tempting.
-
-**`ACMP16` federates by loading, not by mirroring.** It fetches each model's
-published projection and inserts the rows into the database it already has,
-so no column mapping is written a second time — the projection's own schema is
-the schema. Nothing is cached and nothing is stored: close the page and the
-union is gone, which is what keeps it a view rather than a copy.
-
-**`ACMP16` is a reader and will never be anything else.** It draws the model,
-filters it and walks it, and it cannot change a line of it. The Markdown is
-the source of truth; a graph that could write back would be a second one. It
-also links every element to the document that defines it, for the reason the
-portal does: a rendering nobody can trace back to its source is how a
-published copy quietly becomes a second model.
-
-**`ACMP14` and `ACMP16` share `neighbourhood.sql` rather than each owning a
-walk.** That file is the reason `ACMP16` could be added without reopening the
-question `ACMP7` settled: one convention, one implementation, however many
-readers.
+**`ACMP14` walks a qualified identifier**, so it does not stop at a model
+boundary without saying so, which is the worst kind of wrong answer: a smaller
+one that looks complete.
 
 **`ACMP14` reads `ACMP8`'s output rather than `ACMP7` directly**, and the
 indirection is the point. Importing the parser would have been one line
@@ -152,24 +140,24 @@ what a bare identifier inside a domain means instead of each deciding. `ACMP4` i
 one that constrains rather than calls — a rulebook is consulted by whoever is
 running, not invoked.
 
-| ID | Component | Provides | Realized by |
-| -- | --------- | -------- | ----------- |
-| `ACMP1` | **The change-alignment skills** | `ASVC1`, `ASVC3` | `skills/align-change-through-layers/`, `skills/write-scope-document/`, `skills/shard-stories/`, `skills/write-pr-description/` |
-| `ACMP2` | **The discovery skills** | `ASVC2`, `ASVC6` | `skills/establish-project/`, `skills/discover-business-model/`, `skills/discover-strategy/`, `skills/model-domains/`, `skills/discover-current-landscape/` |
-| `ACMP3` | **The stewardship skills** | `ASVC3` | `skills/restate-current-state/`, `skills/record-decision/`, `skills/run-retrospective/` |
-| `ACMP4` | **The rulebooks** | — (constrains `ACMP1`–`ACMP3`) | `skills/document-style/`, `skills/architecture-document-style/`, `skills/process-and-capability-levels/`, `skills/stack-selection/` |
-| `ACMP5` | **The link checker** | `ASVC4` | `scaffold/scripts/check_links.py` |
-| `ACMP6` | **The element-ID validator** | `ASVC4` | `scaffold/scripts/check_model.py` |
-| `ACMP7` | **The model parser** | `ASVC4`, `ASVC8` | `scaffold/scripts/model_graph.py` |
-| `ACMP8` | **The projection builder** | `ASVC8` | `scaffold/scripts/build_model.py` |
-| `ACMP9` | **The corpus validator** | `ASVC5` | `scripts/check_skills.py` |
-| `ACMP10` | **The scaffold** | `ASVC6` | `scaffold/` — the layer folders, the notation, the validators, the portal configuration, the two workflows it ships in `.github/workflows-available/` where nothing reads them, and the placeholder entry points |
-| `ACMP11` | **The plugin package** | `ASVC7` | `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` |
-| `ACMP12` | **The portal builder** | `ASVC9` | `scaffold/scripts/build_docs.py`, with `scaffold/mkdocs.yml` and `scaffold/overrides/`. It also publishes the model's own projection and, in the topmost model of a federation, derives the manifest the navigator reads from `architecture/federation.md`. It also reports what it published a link to and not the file — the one thing `ACMP5` cannot see, because a link can resolve here and not on the site |
-| `ACMP13` | **The document exporter** | `ASVC9` | `scaffold/scripts/export_pdf.py` |
-| `ACMP14` | **The model query tool** | `ASVC10` | `scaffold/scripts/query_model.py`, with `scaffold/scripts/neighbourhood.sql` — the traversal it shares with `ACMP16` |
-| `ACMP16` | **The graph navigator** | `ASVC10` | `scaffold/navigator/` — one page, its stylesheet and its script, reading `model.db` in the browser through sql.js, which `ACMP12` fetches at build time against a pinned digest and never commits. Where a federation manifest sits beside it, it loads every model that manifest names and reports by name each one it could not reach. Elements are labelled boxes in a layered or force layout, draggable; selecting one shows its catalogue row, the paragraphs the documents write about it and every relationship it has; search is faceted over what the model actually contains; an arrangement can be saved as `BOBJ10` |
-| `ACMP15` | **The transition-planning skill** | `ASVC11` | `skills/plan-the-transition/` |
+| ID | Component | Provides | Realized by | Refines |
+| -- | --------- | -------- | ----------- | ------- |
+| `ACMP1` | **The change-alignment skills** | `ASVC1`, `ASVC3` | `skills/align-change-through-layers/`, `skills/write-scope-document/`, `skills/shard-stories/`, `skills/write-pr-description/` |  |
+| `ACMP2` | **The discovery skills** | `ASVC2`, `ASVC6` | `skills/establish-project/`, `skills/discover-business-model/`, `skills/discover-strategy/`, `skills/model-domains/`, `skills/discover-current-landscape/` |  |
+| `ACMP3` | **The stewardship skills** | `ASVC3` | `skills/restate-current-state/`, `skills/record-decision/`, `skills/run-retrospective/` |  |
+| `ACMP4` | **The rulebooks** | — (constrains `ACMP1`–`ACMP3`) | `skills/document-style/`, `skills/architecture-document-style/`, `skills/process-and-capability-levels/`, `skills/stack-selection/` |  |
+| `ACMP5` | **The link checker** | `ASVC4` | `scaffold/scripts/check_links.py` |  |
+| `ACMP6` | **The element-ID validator** | `ASVC4` | `scaffold/scripts/check_model.py` |  |
+| `ACMP7` | **The model parser** | `ASVC4`, `ASVC8` | `scaffold/scripts/model_graph.py` |  |
+| `ACMP8` | **The projection builder** | `ASVC8` | `scaffold/scripts/build_model.py` |  |
+| `ACMP9` | **The corpus validator** | `ASVC5` | `scripts/check_skills.py` |  |
+| `ACMP10` | **The scaffold** | `ASVC6` | `scaffold/` — the layer folders, the notation, the validators, the portal configuration, the two workflows it ships in `.github/workflows-available/` where nothing reads them, and the placeholder entry points | `org-archreator::ACMP4` |
+| `ACMP11` | **The plugin package** | `ASVC7` | `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` | `org-archreator::ACMP1` |
+| `ACMP12` | **The portal builder** | `ASVC9` | `scaffold/scripts/build_docs.py`, with `scaffold/mkdocs.yml` and `scaffold/overrides/`. It also publishes the model's own projection and, in the topmost model of a federation, derives the manifest the navigator reads from `architecture/federation.md`. It also reports what it published a link to and not the file — the one thing `ACMP5` cannot see, because a link can resolve here and not on the site |  |
+| `ACMP13` | **The document exporter** | `ASVC9` | `scaffold/scripts/export_pdf.py` |  |
+| `ACMP14` | **The model query tool** | `ASVC10` | `scaffold/scripts/query_model.py`, with `scaffold/scripts/neighbourhood.sql` — the traversal it shares with `ACMP16` |  |
+| `ACMP15` | **The transition-planning skill** | `ASVC11` | `skills/plan-the-transition/` |  |
+| `ACMP17` | **The brief generator** | `ASVC10` | `scaffold/scripts/build_brief.py`, with `scaffold/scripts/neighbourhood.sql` — the traversal it shares with `ACMP14` |  |
 
 All paths are relative to `plugins/archreator/` in the
 [`archreator`](https://github.com/roanboc/archreator) repository, except
@@ -190,9 +178,6 @@ All paths are relative to `plugins/archreator/` in the
 | `ACMP7` | «Application Component» The model parser | `ACMP6` | «Application Component» The element-ID validator | parses for |
 | `ACMP7` | «Application Component» The model parser | `ACMP8` | «Application Component» The projection builder | parses for |
 | `ACMP8` | «Application Component» The projection builder | `ACMP14` | «Application Component» The model query tool | writes what |
-| `ACMP8` | «Application Component» The projection builder | `ACMP16` | «Application Component» The graph navigator | writes what |
-| `ACMP14` | «Application Component» The model query tool | `ACMP16` | «Application Component» The graph navigator | shares its traversal with |
-| `ACMP12` | «Application Component» The portal builder | `ACMP16` | «Application Component» The graph navigator | publishes |
 | `ACMP10` | «Application Component» The scaffold | `ACMP5` | «Application Component» The link checker | carries |
 | `ACMP10` | «Application Component» The scaffold | `ACMP6` | «Application Component» The element-ID validator | carries |
 | `ACMP10` | «Application Component» The scaffold | `ACMP7` | «Application Component» The model parser | carries |
@@ -226,3 +211,18 @@ Markdown and Python that would need **moving** if the host platform vanished,
 not **editing**; the manifests would need rewriting for whatever replaced it.
 A second platform would add a manifest beside this one rather than forking
 anything above it.
+
+## Retired
+
+| ID | Component | Provides | Realized by | Refines |
+| -- | --------- | -------- | ----------- | ------- |
+| `ACMP16` | **The graph navigator** | — | Deleted. Was `scaffold/navigator/` |  |
+
+**`ACMP16` was built, made legible, and written off inside a week.** It drew
+the model as boxes, filtered and walked it, carried the documents' prose in a
+panel and let a reader keep an arrangement — and it answered a question nobody
+arrives with. [Decision 4](../decisions/4_the-graph-portal-is-retired.md)
+records why, and `ACMP17` is what replaced it.
+
+**The identifier stays retired.** It is not reused, and this row is what stops
+a later reader concluding the number was never issued.

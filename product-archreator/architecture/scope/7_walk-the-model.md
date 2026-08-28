@@ -7,7 +7,7 @@ _[← Scope index](./README.md) · [Model home](../README.md)_
 [`archreator`](https://github.com/roanboc/archreator), and the model changes
 this document holds the gates for.
 **Closes:** `GAP5`, `GAP6` — reaching `PLAT2` on the
-[roadmap](../roadmap/1_target-state.md).
+[roadmap](../6_transition/1_target-state.md).
 
 [Initiative 6](./6_declare-the-relationships-and-let-the-graph-be-walked.md)
 made the graph real: 619 stated relationships across three trees, where 306
@@ -72,7 +72,7 @@ download a library is a bad trade.
 **The projection is copied into the published site.** The page has to read it
 from somewhere, and it is the same `model.db` `build_model.py` already writes.
 This puts a project's projection at a stable path under its portal, which is
-most of what `GAP7` asks for — [initiative 8](../roadmap/2_sequence.md) is what
+most of what `GAP7` asks for — [initiative 8](../6_transition/2_sequence.md) is what
 turns that path into a contract other projects may depend on, with an index
 and a documented shape. Here it is an implementation detail of the page.
 
@@ -92,7 +92,7 @@ and a documented shape. Here it is an implementation detail of the page.
 | Gate | Approved by | Date | What was approved |
 | ---- | ----------- | ---- | ----------------- |
 | Gate 0 — Business model | — | — | **N/A** — the subject is one application |
-| Gate 1 — Strategy | — | — | **N/A for this initiative** — no strategy element moves. The direction was approved on the [roadmap](../roadmap/README.md) at Gate 1, 2026-08-27 |
+| Gate 1 — Strategy | — | — | **N/A for this initiative** — no strategy element moves. The direction was approved on the [roadmap](../6_transition/README.md) at Gate 1, 2026-08-27 |
 | Gate 2 — Business | Delegated ([decision 2](../decisions/2_the-requester-delegates-the-remaining-gates.md)) | 2026-08-27 | The restated `BSVC8` and `DOBJ4`. **Look first at:** whether "interrogation without a terminal" is a promise the method wants to make, because it is the one thing here that widens what `BSVC8` owes |
 | Gate 3 — Solution design | Delegated ([decision 2](../decisions/2_the-requester-delegates-the-remaining-gates.md)) | 2026-08-27 | `ACMP16`, the restated `ACMP14`, and § Solution design. **Look first at:** the build-time fetch of sql.js — it is the only new dependency, and the only decision here that a reasonable person might make differently |
 

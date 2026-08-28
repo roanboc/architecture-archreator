@@ -7,7 +7,7 @@ _[← Scope index](./README.md) · [Model home](../README.md)_
 [`archreator`](https://github.com/roanboc/archreator), and the model changes
 this document holds the gate for.
 **Closes:** `GAP1`, `GAP2`, `GAP3`, `GAP4` — reaching `PLAT1` on the
-[roadmap](../roadmap/1_target-state.md).
+[roadmap](../6_transition/1_target-state.md).
 
 The method models the element and not the relationship. `BOBJ2` — the element —
 has an identifier, a type, a level, and a rule that it names what realizes it.
@@ -167,7 +167,7 @@ Both are additive. Nothing that reads `DOBJ4` today breaks.
 | Gate | Approved by | Date | What was approved |
 | ---- | ----------- | ---- | ----------------- |
 | Gate 0 — Business model | — | — | **N/A** — the subject is one application, not an organization. `0_business-design/` is not used at Depth 1 |
-| Gate 1 — Strategy | — | — | **N/A for this initiative** — no strategy element is added or modified. The [roadmap](../roadmap/README.md) this initiative sits on carries its own Gate 1, separately |
+| Gate 1 — Strategy | — | — | **N/A for this initiative** — no strategy element is added or modified. The [roadmap](../6_transition/README.md) this initiative sits on carries its own Gate 1, separately |
 | Gate 2 — Business | Requester | 2026-08-27 | `BOBJ7`, the unchanged verdicts on `BSVC3` and `BSVC8`, and the restated `DOBJ4`, presented in the session with links to each document on this branch |
 | Gate 2 — Business (amended) | Requester | 2026-08-27 | **`BSVC3` restated.** The Gate 3 change request put a copied name into every relationship table, which needs a check; the original "`BSVC3` unchanged" verdict is falsified and is re-presented rather than quietly revised |
 | Gate 3 — Solution design | Requester | 2026-08-27 | **Requested at Gate 2.** Presented 2026-08-27; the Requester asked for the archetype, identifier and name of each end in a relationship table. Reworked, re-presented and approved with the amended Gate 2 |

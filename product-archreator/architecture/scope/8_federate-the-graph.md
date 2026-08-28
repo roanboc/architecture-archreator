@@ -7,7 +7,7 @@ _[← Scope index](./README.md) · [Model home](../README.md)_
 [`archreator`](https://github.com/roanboc/archreator), and the model changes
 this document holds the gates for.
 **Closes:** `GAP7`, `GAP8` — reaching `PLAT3` on the
-[roadmap](../roadmap/1_target-state.md).
+[roadmap](../6_transition/1_target-state.md).
 
 [Initiative 7](./7_walk-the-model.md) gave one model a reader. An organization
 does not have one model: `model-domains` caps a domain tree at three levels and
@@ -83,7 +83,7 @@ is.
 
 **A federated walk still stops at the project boundary, and the page says so.**
 Elements are scoped per project, and no relationship crosses a project until
-[initiative 9](../roadmap/2_sequence.md) gives one a way to be written. Showing
+[initiative 9](../6_transition/2_sequence.md) gives one a way to be written. Showing
 several graphs at once is worth having on its own — it is how a reader sees
 that `product-archreator` and `product-archreator/site` are different sizes of
 thing — but it is not yet one graph, and a page that implied otherwise would be
@@ -105,7 +105,7 @@ lying about the most important thing on it.
 | Gate | Approved by | Date | What was approved |
 | ---- | ----------- | ---- | ----------------- |
 | Gate 0 — Business model | — | — | **N/A** — the subject is one application |
-| Gate 1 — Strategy | — | — | **N/A for this initiative** — the direction was approved on the [roadmap](../roadmap/README.md) at Gate 1, 2026-08-27 |
+| Gate 1 — Strategy | — | — | **N/A for this initiative** — the direction was approved on the [roadmap](../6_transition/README.md) at Gate 1, 2026-08-27 |
 | Gate 2 — Business | Delegated ([decision 2](../decisions/2_the-requester-delegates-the-remaining-gates.md)) | 2026-08-27 | `BOBJ8`, the restated `DOBJ4`, and `DOBJ6`. **Look first at:** the index being authored Markdown rather than generated. It is the call the rest of the design rests on, and the one a reasonable person might make differently |
 | Gate 3 — Solution design | Delegated ([decision 2](../decisions/2_the-requester-delegates-the-remaining-gates.md)) | 2026-08-27 | § The design and the work packages below. **Look first at:** what happens when a federated projection cannot be fetched, because that is the failure a reader will actually meet |
 

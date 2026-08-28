@@ -50,11 +50,13 @@ flowchart LR
   plat3[["≡ A federated graph [PLAT3]"]]:::plateau
   plat4[["≡ Checkable across the boundary [PLAT4]"]]:::plateau
   plat5[["≡ A model somebody can read [PLAT5]"]]:::plateau
+  plat6[["≡ A brief that answers one question [PLAT6]"]]:::plateau
 
   plat1 -.->|nothing to walk without it| plat2
   plat2 -.->|an index with no consumer| plat3
   plat3 -.->|nothing to resolve against| plat4
   plat2 -.->|a graph nobody can read is not read| plat5
+  plat1 -.->|declared relationships are what a brief is made of| plat6
 
   classDef plateau fill:#ffe8e8,stroke:#d99b9b,color:#333
 ```
@@ -62,12 +64,31 @@ flowchart LR
 | ID | Plateau | The state it names | Status |
 | -- | ------- | ------------------ | ------ |
 | `PLAT1` | **Declared relationships** | Every relationship an element has is **stated** — in a catalogue column or a relationship table a Requester can read and a validator already checks — and the projection carries it as an edge that knows where it came from and whether it is live. Diagrams render; they no longer declare | **In flight** — [initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md) |
-| `PLAT2` | **A walkable model** | The projection has a visual reader: one static page, filters by layer and element type, and expansion outward from any node. No server, no deployed database | **In flight** — [initiative 7](../scope/7_walk-the-model.md) |
+| `PLAT2` | **A walkable model** | The projection has a visual reader: one static page, filters by layer and element type, and expansion outward from any node. No server, no deployed database | **Abandoned** — [decision 4](../decisions/4_the-graph-portal-is-retired.md). A reader does not arrive at a graph, they arrive at a question, and a graph makes them reconstruct it by clicking. Superseded by `PLAT6` |
 | `PLAT3` | **A federated graph** | Each project publishes its own projection at a stable URL. The topmost tree of a federation — the organization, or the parent business function where there is no organization — owns an **index** naming those URLs. The graph is the union, computed at read time and owned by nobody | **In flight** — [initiative 8](../scope/8_federate-the-graph.md) |
 | `PLAT4` | **Checkable across the boundary** | A reference can name an element in another project, and something checks it. Decision 1's recorded consequence — "no validator crosses the repository boundary" — stops being true | **In flight** — [initiative 9](../scope/9_cross-the-boundary.md) |
-| `PLAT5` | **A model somebody can read** | Elements are named boxes, not dots. Selecting one shows what the documents say about it, not just its catalogue row. Somebody who does not know an identifier can find it. A view arranged by hand can be kept and shared | Planned |
+| `PLAT5` | **A model somebody can read** | Elements are named boxes, not dots. Selecting one shows what the documents say about it, not just its catalogue row. Somebody who does not know an identifier can find it. A view arranged by hand can be kept and shared | **Abandoned** — [decision 4](../decisions/4_the-graph-portal-is-retired.md). Reached, then written off with the plateau it was making legible. What it built — the prose excerpts, the faceted vocabulary — is what `PLAT6` is assembled from |
+| `PLAT6` | **A brief that answers one question** | A reader names a scope — an element, a domain, a function — and gets a Markdown document generated on the spot: the elements that matter, the ArchiMate views that show how they depend on each other across the layers, and the paragraphs the documents already write about them. Disposable, never committed, stamped with the revision it came from | Planned |
 
-**`PLAT5` is the Requester's direction, in their words**, recorded here
+**`PLAT6` is the Requester's direction, in their words**, and it retires two
+plateaus rather than adding to them — see [decision 4](../decisions/4_the-graph-portal-is-retired.md):
+
+> I see myself wanting to explore the architecture for specific use cases or
+> domains, and the best thing I could get is a temporary document created
+> in-time with the architectural elements relevant to me, no need to navigate
+> graphs and explore blindly.
+
+**The view that matters most is the multi-layer one.** A reader asking about a
+domain, a function or a scope is asking how business and information reach
+application and technology — that chain is where understanding is thin, and it
+is what a brief leads with. Other views follow it; none replaces it.
+
+**`PLAT2` and `PLAT5` keep their rows.** Nothing here is deleted when it stops
+being the plan: a reached plateau removed leaves no evidence the direction was
+ever taken, and an abandoned one removed invites somebody to propose it again
+in two years.
+
+**`PLAT5` was the Requester's direction too, in their words**, recorded here
 because the roadmap is the only place the method permits a future to be
 described and [decision 3](../decisions/3_the-navigator-earns-its-own-initiative.md)
 is why it was added outside the approved sequence:
@@ -132,7 +153,13 @@ flowchart TB
   subgraph P4G["Toward PLAT4"]
     gap9(("⊘ No reference crosses a project [GAP9]")):::gap
   end
-  subgraph P5G["Toward PLAT5"]
+  subgraph P6G["Toward PLAT6"]
+    gap14(("⊘ A reader must read 33 documents [GAP14]")):::gap
+    gap15(("⊘ No view shows a scope across the layers [GAP15]")):::gap
+    gap16(("⊘ A derived document looks permanent [GAP16]")):::gap
+    gap17(("⊘ Narrative sits inside the model [GAP17]")):::gap
+  end
+  subgraph P5G["Toward PLAT5 — abandoned"]
     gap10(("⊘ Elements are dots [GAP10]")):::gap
     gap11(("⊘ The panel shows a row, not the prose [GAP11]")):::gap
     gap12(("⊘ Nothing can be found [GAP12]")):::gap
@@ -157,6 +184,10 @@ flowchart TB
 | `GAP11` | **The panel shows a row, not the prose** | Selecting an element gives its catalogue columns and a link to the document that defines it. What the document *says* — the paragraph that defines a goal, the note explaining why a component exists — is one click and one scroll away, which is where a reader trying to understand something stops | `PLAT5` |
 | `GAP12` | **Nothing can be found** | There is no search. A reader who does not already know that `BSVC7` is the identifier they want has one route to it: switch every layer on and read 363 labels. Somebody meeting the model for the first time is exactly the reader who cannot do that | `PLAT5` |
 | `GAP13` | **Every visit starts over** | The layout is recomputed on load and the filters reset. A reader who arranged the six elements that explain something to a colleague cannot keep the arrangement, and cannot send it to them | `PLAT5` |
+| `GAP14` | **A reader must read 33 documents** | Understanding one domain, function or use case means opening every layer document and holding the relevant rows in your head. The model has 368 elements across 33 documents; nothing assembles the subset that answers one question | `PLAT6` |
+| `GAP15` | **No view shows a scope across the layers** | Each layer document diagrams itself. The chain a reader actually needs — a business service, the information it uses, the application component that realizes it, the technology it runs on — is spread across four documents and drawn in none of them. That chain is where understanding is thinnest and it is the view a brief must lead with | `PLAT6` |
+| `GAP16` | **A derived document looks permanent** | The PDF and the portal say they are rendered from the repository; neither says it is disposable. A generated document that does not announce what it is gets committed, emailed, and quoted eight months later — which is the second source of truth this method exists to prevent | `PLAT6` |
+| `GAP17` | **Narrative folders sit inside the model** | `scope/`, `decisions/`, `reference/`, `reviews/` and `engagements/` are nested in `architecture/`, which says they are the architecture. `model_graph.py` already disagrees — it lists them as `NARRATIVE` and skips them. They are how the model got here, not what it says, and they belong in a sibling of it. Moving them touches five folders across every tree, every skill that writes into one, and the parse constant that names them — see [decision 5](../decisions/5_folders-that-are-not-the-architecture.md) | — |
 
 ## What is deliberately not here
 

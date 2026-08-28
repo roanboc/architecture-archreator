@@ -49,13 +49,13 @@ flowchart TB
   classDef pending fill:#9adcf0,stroke:#0277bd,color:#333,stroke-dasharray: 4 3
 ```
 
-| ID | Component | Provides | Realized by | Modeled in | Refined by |
-| -- | --------- | -------- | ----------- | ---------- | ---------- |
-| `ACMP1` | **The skill corpus and plugin manifest** — seventeen skills, plus the plugin and marketplace manifests | `ASVC1` | `plugins/archreator/skills/`, `plugins/archreator/.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` | [`product-archreator/`](../../../product-archreator/README.md) | `product-archreator::ACMP1`, `product-archreator::ACMP11` |
-| `ACMP2` | **The guidance site** — the published page | `ASVC2` | `site/index.html` | [`product-archreator/site/`](../../../product-archreator/site/README.md) |  |
-| `ACMP3` | **The documentation checks** — link resolution and element-identifier validation, run in CI | `ASVC3` | `plugins/archreator/scaffold/scripts/`, and the workflows beside them | [`product-archreator/`](../../../product-archreator/README.md) |  |
-| `ACMP4` | **The scaffold** — the empty layered tree, and the validators, that `ACMP1` emits into a new project | `ASVC1` | `plugins/archreator/scaffold/` | [`product-archreator/`](../../../product-archreator/README.md) |  |
-| `ACMP5` | **The portal** | `ASVC4` | **Pending — future initiative** (`COA2`) | Nothing yet — it would need a tree of its own |  |
+| ID | Component | Provides | Realized by | Modeled in |
+| -- | --------- | -------- | ----------- | ---------- |
+| `ACMP1` | **The skill corpus and plugin manifest** — seventeen skills, plus the plugin and marketplace manifests | `ASVC1` | `plugins/archreator/skills/`, `plugins/archreator/.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` | [`product-archreator/`](../../../product-archreator/README.md) |
+| `ACMP2` | **The guidance site** — the published page | `ASVC2` | `site/index.html` | [`product-archreator/site/`](../../../product-archreator/site/README.md) |
+| `ACMP3` | **The documentation checks** — link resolution and element-identifier validation, run in CI | `ASVC3` | `plugins/archreator/scaffold/scripts/`, and the workflows beside them | [`product-archreator/`](../../../product-archreator/README.md) |
+| `ACMP4` | **The scaffold** — the empty layered tree, and the validators, that `ACMP1` emits into a new project | `ASVC1` | `plugins/archreator/scaffold/` | [`product-archreator/`](../../../product-archreator/README.md) |
+| `ACMP5` | **The portal** | `ASVC4` | **Pending — future initiative** (`COA2`) | Nothing yet — it would need a tree of its own |
 
 All paths are in the [`archreator`](https://github.com/roanboc/archreator)
 repository, which is where the method's source lives. This repository holds
@@ -70,9 +70,9 @@ the models of it.
 | From | From element | To | To element | Relationship |
 | ---- | ------------ | -- | ---------- | ------------ |
 | `ACMP1` | «Application Component» The skill corpus and plugin manifest | `ACMP4` | «Application Component» The scaffold | emits |
-| `ACMP4` | «Application Component» The scaffold | `ACMP3` | «Application Component» The documentation checks | carries |  |
+| `ACMP4` | «Application Component» The scaffold | `ACMP3` | «Application Component» The documentation checks | carries |
 | `ACMP1` | «Application Component» The skill corpus and plugin manifest | `ACMP2` | «Application Component» The guidance site | explained by |
-| `ACMP5` | «Application Component» The portal | `ACMP1` | «Application Component» The skill corpus and plugin manifest | would run |  |
+| `ACMP5` | «Application Component» The portal | `ACMP1` | «Application Component» The skill corpus and plugin manifest | would run |
 
 ## Where the tiers divide
 

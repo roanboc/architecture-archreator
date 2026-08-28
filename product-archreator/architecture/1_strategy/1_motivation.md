@@ -202,7 +202,7 @@ flowchart LR
 | `G3` | **The model still describes today after the merge** | `DRV3`, `ASM2` | The validators, and the rule that a change updates whatever it falsifies |
 | `G4` | **An adopter starts without learning a tool** | `ASM3` | A scaffold of Markdown and two scripts, installed as a plugin |
 | `G5` | **The model reaches the people who never open the repository** | `ASM3` | The portal and the PDF, both rendered from the Markdown, both thrown away and rebuilt |
-| `G6` | **The model says where the subject is going, not only where it is** | `DRV1`, `ASM6` | `architecture/roadmap/` — target plateaus, a gap register derived from the baseline, and a sequence — approved as direction at Gate 1 |
+| `G6` | **The model says where the subject is going, not only where it is** | `DRV1`, `ASM6` | `architecture/6_transition/` — target plateaus, a gap register derived from the baseline, and a sequence — approved as direction at Gate 1 |
 | `G7` | **What the model is worth is written on the model** | `DRV3`, `ASM7`, `ASM8` | A status glyph on every document that defines an element, and `architecture/reference/` holding what each was built from |
 
 | ID | Outcome | How it is checked | Happening today? |

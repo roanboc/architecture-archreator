@@ -4,7 +4,7 @@ _[← Decisions index](./README.md)_
 
 **Status:** Accepted
 **Date:** 2026-08-27
-**Touches:** [roadmap/](../roadmap/README.md), [scope/](../scope/README.md)
+**Touches:** [roadmap/](../6_transition/README.md), [scope/](../scope/README.md)
 
 ## Context
 
