@@ -30,7 +30,7 @@ the prefix says which kind of thing it is. `org-` is the organization;
 | [`org-archreator/`](./org-archreator/architecture/README.md) | The organization that publishes archreator — its stakeholders, capabilities and courses of action | 2 — Organization |
 | [`product-archreator/`](./product-archreator/architecture/README.md) | archreator the method, as a product: its skills, validators and scaffold | 1 — Application |
 | [`product-archreator/site/`](./product-archreator/site/architecture/README.md) | The published guidance site, nested because it realizes a service of the product rather than standing alone | 1 — Application |
-| [`scripts/`](./scripts/README.md) | The two validators and the projection, one copy for the whole repository |
+| [`scripts/`](./scripts/README.md) | The two validators, the projection, and the readers of it — one copy for the whole repository |
 
 A tree earns its place by having **application components and technology of
 its own**. A directory that only restates elements belonging somewhere else is
@@ -58,7 +58,11 @@ python3 scripts/check_model.py    # element-ID references resolve, per tree
 
 Both must be green before pushing; CI runs the same two.
 `python3 scripts/build_model.py` projects every tree into `.model/` for a
-rendered view — a tool, not a gate.
+rendered view — a tool, not a gate. So is
+`python3 scripts/build_brief.py --element BSVC1 --project product-archreator`,
+which writes one disposable brief about a named scope into `.docs/briefs/`:
+the elements in it, the views of how they cross the layers, and what the
+documents already say. Never committed.
 
 ## Conventions
 
