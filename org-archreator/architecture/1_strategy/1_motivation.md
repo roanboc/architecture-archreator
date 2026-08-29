@@ -66,13 +66,13 @@ flowchart LR
   classDef pending fill:#f4ecfc,stroke:#9575cd,color:#333,stroke-dasharray: 4 3
 ```
 
-| ID | Stakeholder | What they want | Concerned with | Source |
-| -- | ----------- | -------------- | -------------- | ------ |
-| `STK1` | **Business and solution designers** — enterprise architects at any level, business analysts, entrepreneurs designing for themselves | To get from a design to something delivered, without handing the work to someone who will not understand it | `DRV1`, `DRV2` | `CS1` |
-| `STK2` | **Established business owners** — a running company with real operational knowledge and no structure a builder can act on | To have their business understood well enough that what gets built is what they meant | `DRV1`, `DRV3`, `DRV4` | `CS2` |
-| `STK3` | **Founders at the idea stage** — pre-operational, the business model still forming | To test an idea without paying for expertise they cannot yet justify | `DRV1`, `DRV4` | `CS3` |
-| `STK4` | **The Requester** — the one person who maintains the method and delivers the consulting | That the method is used, improves through that use, and stops depending on their availability | `DRV5`, `DRV6` | `KR1`, `COST1` |
-| `STK5` | **Contributor community** — **Pending**, no contributor base exists yet | To feed real experience back into a method they did not write | `DRV5` | `KP3` |
+| ID | Stakeholder | What they want | Concerned with | Source | State |
+| -- | ----------- | -------------- | -------------- | ------ | ----- |
+| `STK1` | **Business and solution designers** — enterprise architects at any level, business analysts, entrepreneurs designing for themselves | To get from a design to something delivered, without handing the work to someone who will not understand it | `DRV1`, `DRV2` | `CS1` | Live |
+| `STK2` | **Established business owners** — a running company with real operational knowledge and no structure a builder can act on | To have their business understood well enough that what gets built is what they meant | `DRV1`, `DRV3`, `DRV4` | `CS2` | Live |
+| `STK3` | **Founders at the idea stage** — pre-operational, the business model still forming | To test an idea without paying for expertise they cannot yet justify | `DRV1`, `DRV4` | `CS3` | Live |
+| `STK4` | **The Requester** — the one person who maintains the method and delivers the consulting | That the method is used, improves through that use, and stops depending on their availability | `DRV5`, `DRV6` | `KR1`, `COST1` | Live |
+| `STK5` | **Contributor community** — the people who would feed experience back into a method they did not write | To feed real experience back into a method they did not write | `DRV5` | `KP3` | **Pending** — no contributor base exists yet |
 
 **`STK4` appears in three blocks of the canvases** — a key resource, the
 dominant cost, and a stakeholder with wants of their own. That triple entry is
@@ -84,12 +84,12 @@ the organization's central fact, not a modelling accident.
      authoritative; the description beside it is checked against the
      catalogue that defines the element. -->
 
-| From | From element | To | To element | Relationship |
-| ---- | ------------ | -- | ---------- | ------------ |
-| `STK4` | «Stakeholder» The Requester | `STK1` | «Stakeholder» Business and solution designers | maintains the method for |
-| `STK4` | «Stakeholder» The Requester | `STK2` | «Stakeholder» Established business owners | delivers personally to |
-| `STK1` | «Stakeholder» Business and solution designers | `STK5` | «Stakeholder» Contributor community | would become |
-| `STK5` | «Stakeholder» Contributor community | `STK4` | «Stakeholder» The Requester | would feed back to |
+| From | From element | To | To element | Relationship | Notes |
+| ---- | ------------ | -- | ---------- | ------------ | ----- |
+| `STK4` | «Stakeholder» The Requester | `STK1` | «Stakeholder» Business and solution designers | maintains the method for |  |
+| `STK4` | «Stakeholder» The Requester | `STK2` | «Stakeholder» Established business owners | delivers personally to |  |
+| `STK1` | «Stakeholder» Business and solution designers | `STK5` | «Stakeholder» Contributor community | would become | **Pending — future initiative** |
+| `STK5` | «Stakeholder» Contributor community | `STK4` | «Stakeholder» The Requester | would feed back to | **Pending — future initiative** |
 
 ## Drivers
 
@@ -172,13 +172,13 @@ the one held for its own sake.
 
 | ID | Outcome | For | How it is checked | Source |
 | -- | ------- | --- | ----------------- | ------ |
-| `OUT1` | Strategic and business gaps surface **during** the design work rather than after delivery | `G1` | **No method.** A gate presentation naming a gap the Requester had not stated is the evidence, and nothing records it | `GAIN1` |
+| `OUT1` | Strategic and business gaps surface **during** the design work rather than after delivery | `G1` | **No method.** A gate presentation naming a gap the Requester had not stated is the evidence, and nothing records it | `GAIN1` |  |
 | `OUT2` | Documentation goes in front of the business without a rewrite | `G1`, `G3` | **Checkable.** The document shown at a gate is the document in the repository — no separate deck exists | `GAIN2` |
-| `OUT3` | Delivery starts from the approved design, with AI doing the technical work | `G2` | **Checkable.** An implementation initiative names the scope document and the elements it builds | `GAIN3` |
-| `OUT4` | A new person or agent works from the model instead of being briefed | `G3` | **Observable, never counted.** It happens or it does not, and nobody tallies it | `GAIN4` |
-| `OUT5` | Someone without years of seniority produces an architecture that holds | `G4` | **No method.** Only real adoption would evidence it | `GAIN5` |
-| `OUT6` | A pivot changes some layers and leaves the rest standing | `G5` | **Checkable.** A scope document records "no change" verdicts for the layers the pivot did not reach | `GAIN6` |
-| `OUT7` | **Adoption in two bands** — pre-engagement (stars, forks, discussions) and real (organizations actually designed and built with the method) | `G6` | **Split.** The first band is readable from the code host today; the second has no collection method at all | `RS1`, `RS2` |
+| `OUT3` | Delivery starts from the approved design, with AI doing the technical work | `G2` | **Checkable.** An implementation initiative names the scope document and the elements it builds | `GAIN3` |  |
+| `OUT4` | A new person or agent works from the model instead of being briefed | `G3` | **Observable, never counted.** It happens or it does not, and nobody tallies it | `GAIN4` |  |
+| `OUT5` | Someone without years of seniority produces an architecture that holds | `G4` | **No method.** Only real adoption would evidence it | `GAIN5` |  |
+| `OUT6` | A pivot changes some layers and leaves the rest standing | `G5` | **Checkable.** A scope document records "no change" verdicts for the layers the pivot did not reach | `GAIN6` |  |
+| `OUT7` | **Adoption in two bands** — pre-engagement (stars, forks, discussions) and real (organizations actually designed and built with the method) | `G6` | **Split.** The first band is readable from the code host today; the second has no collection method at all | `RS1`, `RS2` |  |
 
 **Three of seven outcomes are checkable, one is observed and never counted,
 and three have no method at all.** That distribution is the honest state of

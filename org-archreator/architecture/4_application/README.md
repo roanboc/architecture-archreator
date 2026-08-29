@@ -43,7 +43,6 @@ flowchart TB
   acmp1 -->|emits| acmp4
   acmp4 -->|carries| acmp3
   acmp1 -->|provides| asvc1
-  bsvc3 -.->|nothing realizes| bsvc3
 
   classDef application fill:#c2f0ff,stroke:#0288d1,color:#333
   classDef business fill:#efe57d,stroke:#b8ad3f,color:#333
@@ -62,4 +61,3 @@ delivery.** It is done by a person, so it scales at the speed of one calendar.
 | ---- | ------------ | -- | ---------- | ------------ |
 | `ACMP1` | «Application Component» The skill corpus and plugin manifest | `ACMP4` | «Application Component» The scaffold | emits |
 | `ACMP4` | «Application Component» The scaffold | `ACMP3` | «Application Component» The documentation checks | carries |
-| `BSVC3` | «Business Service» Advisory and delivery with the method | `BSVC3` | «Business Service» Advisory and delivery with the method | nothing realizes |

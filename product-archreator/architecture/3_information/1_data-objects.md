@@ -119,8 +119,11 @@ Initiative 8 moved the relationship into `BOBJ7`, declared in catalogue
 columns and relationship tables; this object reads those and no longer parses
 Mermaid. The two new fields are what a consumer needs and a Markdown reader
 gets for free: `origin` says how firmly the relationship was stated, and
-`pending` carries the distinction the notation draws with a dashed edge and
-the projection used to discard.
+`pending` carries the distinction the notation draws with a dashed edge. It
+is read from where a document already states it — a relationship table's notes
+column, or a catalogue row marked `**Pending — future initiative**` for the
+grounding rule, since an element that does not exist yet points at nothing
+that is true yet.
 
 **`DOBJ4` is the only derived object in the model, and it is derived on
 purpose.** The Markdown stays the source of truth; the projection is rebuilt

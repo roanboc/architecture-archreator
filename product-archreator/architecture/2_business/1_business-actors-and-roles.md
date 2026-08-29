@@ -52,17 +52,18 @@ flowchart LR
   act1 -->|assigned to| role3
   act1 -->|assigned to| role4
   act2 -->|assigned to| role2
-  act1 -.->|may also fill| role2
+  act1 -->|may also fill| role2
 
   classDef actor fill:#fffbb5,stroke:#c8c04a,color:#333
   classDef role fill:#f7f099,stroke:#b8ad3f,color:#333
   classDef application fill:#c2f0ff,stroke:#0288d1,color:#333
 ```
 
-**The dashed edge is the whole bet.** `ACT1` filling `ROLE2` is the ordinary
-case in every other method; here it is the exception, drawn dashed, and
-everything still works when it happens. Nothing in the method assumes a human
-walks the layers.
+**`ACT1` filling `ROLE2` is the whole bet.** A human walking the layers is
+the ordinary case in every other method; here it is the exception, and
+everything still works when it happens. Nothing in the method assumes it. The
+edge is solid because a person doing this today succeeds — the exception is in
+how often, which the label says and the notation does not.
 
 | ID | Actor | Kind | Who it is | Fills |
 | -- | ----- | ---- | --------- | ----- |

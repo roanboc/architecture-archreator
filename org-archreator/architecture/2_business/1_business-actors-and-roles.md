@@ -89,7 +89,7 @@ needing a decision record of its own.
 | -- | ---- | ------- | -------------- | -------- |
 | `ROLE1` | **Method maintainer** | `ACT1`, assisted by `ACT2` | Developing the method and publishing guidance | `KA1`, `KA2` |
 | `ROLE2` | **Consultant** | `ACT1`, assisted by `ACT2` | Running discovery and delivery with clients, and capturing afterwards what the method did not cover (`CAP2.3`) | `KA3` |
-| `ROLE3` | **Owner** | `ACT1` | Deciding direction, pricing, and what the organization is for | `RES1` |
+| `ROLE3` | **Owner** | `ACT1` | Deciding direction, pricing, and what the organization is for | `RES1` |  |
 
 **`ROLE3` is the role with no product.** Nothing in the portfolio is delivered
 by deciding what the organization is for, and it is still the role that
@@ -102,10 +102,10 @@ value-producing roles would leave the organization's own direction unowned.
      authoritative; the description beside it is checked against the
      catalogue that defines the element. -->
 
-| From | From element | To | To element | Relationship |
-| ---- | ------------ | -- | ---------- | ------------ |
-| `ACT2` | «Actor» The AI agent | `ROLE1` | «Role» Method maintainer | assists in |
-| `ACT2` | «Actor» The AI agent | `ROLE2` | «Role» Consultant | assists in |
+| From | From element | To | To element | Relationship | Notes |
+| ---- | ------------ | -- | ---------- | ------------ | ----- |
+| `ACT2` | «Actor» The AI agent | `ROLE1` | «Role» Method maintainer | assists in |  |
+| `ACT2` | «Actor» The AI agent | `ROLE2` | «Role» Consultant | assists in |  |
 
 ## Outside the organization
 
@@ -125,7 +125,7 @@ flowchart LR
   act1 -->|bound by| ctr2
   ctr2 -->|with| act4
   act1 -.->|would participate in| bcol1
-  bcol1 -.->|with| act5
+  bcol1 -.->|binds| act5
 
   classDef actor fill:#fffbb5,stroke:#c8c04a,color:#333
   classDef external fill:#f7f099,stroke:#b8ad3f,color:#333
@@ -156,8 +156,9 @@ expensive in practice, and the model says which kind it is.
      authoritative; the description beside it is checked against the
      catalogue that defines the element. -->
 
-| From | From element | To | To element | Relationship |
-| ---- | ------------ | -- | ---------- | ------------ |
-| `ACT1` | «Actor» The Requester | `CTR1` | «Contract» Model provider subscription and usage terms | bound by |
-| `ACT1` | «Actor» The Requester | `CTR2` | «Contract» Platform terms | bound by |
-| `ACT1` | «Actor» The Requester | `BCOL1` | «Business Collaboration» Open-source collaboration around the method | would participate in |
+| From | From element | To | To element | Relationship | Notes |
+| ---- | ------------ | -- | ---------- | ------------ | ----- |
+| `ACT1` | «Actor» The Requester | `CTR1` | «Contract» Model provider subscription and usage terms | bound by |  |
+| `ACT1` | «Actor» The Requester | `CTR2` | «Contract» Platform terms | bound by |  |
+| `ACT1` | «Actor» The Requester | `BCOL1` | «Business Collaboration» Open-source collaboration around the method | would participate in | **Pending — future initiative** |
+| `BCOL1` | «Business Collaboration» Open-source collaboration around the method | `ACT5` | «Actor» Contributor community | binds | **Pending — future initiative** |

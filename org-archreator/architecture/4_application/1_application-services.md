@@ -43,7 +43,6 @@ flowchart LR
   asvc2 -->|realizes| bsvc2
   asvc3 -->|guards| bsvc1
   asvc4 -.->|would realize| bsvc4
-  bsvc3 -.->|nothing realizes| bsvc3
 
   classDef service fill:#c2f0ff,stroke:#0288d1,color:#333
   classDef pending fill:#c2f0ff,stroke:#0288d1,color:#333,stroke-dasharray: 4 3
@@ -67,7 +66,6 @@ flowchart LR
 | From | From element | To | To element | Relationship |
 | ---- | ------------ | -- | ---------- | ------------ |
 | `ASVC3` | «Application Service» Model validation | `BSVC1` | «Business Service» The method, published and installable | guards |
-| `BSVC3` | «Business Service» Advisory and delivery with the method | `BSVC3` | «Business Service» Advisory and delivery with the method | nothing realizes |
 
 ## What the business does not get from software
 

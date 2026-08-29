@@ -41,8 +41,8 @@ flowchart LR
   vs5[["⇉ Keep it true [VS1.5]"]]:::stage
 
   vs1 --> vs2 --> vs3 --> vs4 --> vs5
-  vs2 -.->|where a direction is wanted| vs6
-  vs6 -.-> vs3
+  vs2 -->|where a direction is wanted| vs6
+  vs6 --> vs3
   vs5 -->|the next change| vs3
 
   classDef stage fill:#eed4a0,stroke:#c8a24a,color:#333
@@ -52,9 +52,12 @@ flowchart LR
 to `VS1.3` is the method's normal state — a project spends almost all of its
 life going round it, and only passes through `VS1.1` and `VS1.2` once.
 
-`VS1.6` is dashed because it is the one optional stage. An adopter with a
-single change in front of them goes straight from the model to the gates; one
-with a portfolio and no way to rank it does not.
+`VS1.6` is the one optional stage, and its edges are drawn solid because the
+stage exists and the path through it is real. An adopter with a single change
+in front of them goes straight from the model to the gates; one with a
+portfolio and no way to rank it does not. Optional is a fact about when the
+path is taken, not about whether it exists — a dashed edge would say the
+method cannot do this yet, which is a different and untrue claim.
 
 | ID | Stage | What happens | Served by | Ends when |
 | -- | ----- | ------------ | --------- | --------- |

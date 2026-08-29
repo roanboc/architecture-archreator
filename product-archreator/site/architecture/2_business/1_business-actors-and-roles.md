@@ -43,7 +43,7 @@ flowchart LR
 
   act1 -->|assigned to| role1
   act2 -->|assigned to| role2
-  act3 -.->|edits the source for| role2
+  act3 -->|edits the source for| role2
 
   classDef actor fill:#fffbb5,stroke:#c8c04a,color:#333
   classDef role fill:#f7f099,stroke:#b8ad3f,color:#333

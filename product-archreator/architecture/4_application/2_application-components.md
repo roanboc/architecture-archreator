@@ -15,7 +15,9 @@ and `ACMP8` restated on 2026-08-27 with
 [initiative 11](../scope/11_cross-the-boundary.md); `ACMP7`, `ACMP8` and `ACMP16`
 on 2026-08-27 with [initiative 12](../scope/12_make-it-readable.md); `ACMP3`,
 `ACMP10` and `ACMP17` restated on 2026-08-29 with
-[initiative 14](../scope/14_focus-the-question.md); `ACMP12` restated on
+[initiative 14](../scope/14_focus-the-question.md); `ACMP7` restated on
+2026-08-29 with [initiative 16](../scope/16_say-whether-a-relationship-is-true.md);
+`ACMP12` restated on
 2026-08-29 with [initiative 15](../scope/15_inspect-a-diagram.md).
 
 Skills are grouped by the service they provide rather than listed one per
@@ -152,7 +154,7 @@ running, not invoked.
 | `ACMP4` | **The rulebooks** | — (constrains `ACMP1`–`ACMP3`) | `skills/document-style/`, `skills/architecture-document-style/`, `skills/process-and-capability-levels/`, `skills/stack-selection/` |  |
 | `ACMP5` | **The link checker** | `ASVC4` | `scaffold/scripts/check_links.py` |  |
 | `ACMP6` | **The element-ID validator** | `ASVC4` | `scaffold/scripts/check_model.py` |  |
-| `ACMP7` | **The model parser** | `ASVC4`, `ASVC8` | `scaffold/scripts/model_graph.py` |  |
+| `ACMP7` | **The model parser** | `ASVC4`, `ASVC8` | `scaffold/scripts/model_graph.py`. It reads a relationship's state as well as its ends: a `Pending` marker anchored to the start of a catalogue cell marks every relationship that row declares, because the relationship cell itself cannot carry one without ceasing to declare |  |
 | `ACMP8` | **The projection builder** | `ASVC8` | `scaffold/scripts/build_model.py` |  |
 | `ACMP9` | **The corpus validator** | `ASVC5` | `scripts/check_skills.py` |  |
 | `ACMP10` | **The scaffold** | `ASVC6` | `scaffold/` — the layer folders, the notation, the validators, the portal configuration, the two workflows it ships in `.github/workflows-available/` where nothing reads them, and the placeholder entry points | `org-archreator::ACMP4` |

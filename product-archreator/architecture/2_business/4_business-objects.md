@@ -12,7 +12,9 @@ read and hand to each other.
 `BOBJ9` on 2026-08-27 with [initiative 11](../scope/11_cross-the-boundary.md),
 `BOBJ10` on 2026-08-27 with [initiative 12](../scope/12_make-it-readable.md) and
 restated on 2026-08-27 with [initiative 13](../scope/13_answer-one-question.md)
-and on 2026-08-29 with [initiative 14](../scope/14_focus-the-question.md).
+and on 2026-08-29 with [initiative 14](../scope/14_focus-the-question.md);
+`BOBJ7` restated on 2026-08-29 with
+[initiative 16](../scope/16_say-whether-a-relationship-is-true.md).
 
 Every object here is a **Markdown file in git**, and that is the point rather
 than an implementation detail: it is what makes the model readable by the
@@ -74,7 +76,7 @@ flowchart TB
 | `BOBJ4` | **The decision record** | One call too small to be an initiative, with the option that was rejected | `architecture/decisions/<n>_<slug>.md` | `BSVC4` |
 | `BOBJ5` | **The gate approval** | Which gate, who approved, when, and what they were shown | A row in `BOBJ3`'s Approvals table | `BSVC1`, `BSVC4` |
 | `BOBJ6` | **The skill** | One procedure, template or rulebook, in a fixed section format, bound by its frontmatter to the process it realizes | `plugins/archreator/skills/<name>/SKILL.md` | `BSVC5` |
-| `BOBJ7` | **The relationship** | One stated connection between two elements — a source, a target, and the words the model uses for what holds between them. Declared in a catalogue column where a row can carry it, and in a relationship table where it cannot | A cell in a catalogue row, or a row in a relationship table | `BSVC1`, `BSVC3`, `BSVC8` |
+| `BOBJ7` | **The relationship** | One stated connection between two elements — a source, a target, the words the model uses for what holds between them, and **whether it is true today**. Declared in a catalogue column where a row can carry it, and in a relationship table where it cannot; a relationship that is not true yet is marked where its document already says so, never by drawing it differently | A cell in a catalogue row, or a row in a relationship table | `BSVC1`, `BSVC3`, `BSVC8` |
 | `BOBJ8` | **The federation index** | The models that belong with this one, and where each publishes its projection. Authored rather than derived — somebody decides what is in a federation — so it is a document a gate approves and a validator reads, not a configuration file | `architecture/federation.md`, in the topmost model of a federation only | `BSVC7`, `BSVC8` |
 | `BOBJ9` | **The import** | One element this model consumes from a model in another repository: its qualified identifier, the name that model gives it, and the revision it was read at. Nothing fetches it — the row is the dependency, stated | `architecture/imports.md` | `BSVC3` |
 | `BOBJ10` | **The generated brief** | One reading of the model for one question and one confirmed focus — Business, Information, Solution, Impact or Decision. It carries the retained elements, generated views relevant to that focus, the paragraphs the documents already write about them verbatim, and the reached elements it de-emphasized. A lens, never content: it shows elements and asserts nothing about them | `.docs/briefs/<scope>-<focus>.md`, generated on demand and never committed; legacy calls without focus retain `<scope>.md` | `BSVC7`, `BSVC8` |
@@ -84,6 +86,16 @@ row inside the document it approves, so a reader who has the initiative has
 its approvals, and nobody can find one without the other. Giving it a file
 would make an approval something that could go missing from the thing it
 authorized.
+
+**`BOBJ7` carries a state, and it is the only attribute the notation draws.**
+A relationship that is not true yet is drawn with a dashed edge — and a diagram
+is a rendering, so the fact has to be stated somewhere a parser reads. It
+cannot be stated beside the identifier: a catalogue cell declares only when it
+holds identifiers and nothing else, so a word written there deletes the
+relationship instead of qualifying it. So it is stated once per row, by the
+same `**Pending — future initiative**` marker the grounding rule already asks
+for, and every relationship that row declares inherits it. An element that does
+not exist yet points at nothing that is true yet.
 
 **`BOBJ10` is the one object here that is deliberately not part of the
 model.** Everything else in this catalogue is something the method asserts:
@@ -151,3 +163,6 @@ frozen document is incoherent rather than merely awkward.
 | `BOBJ3` | «Business Object» The scope document | `BOBJ1` | «Business Object» The architecture model | changes |
 | `BOBJ4` | «Business Object» The decision record | `BOBJ1` | «Business Object» The architecture model | explains a row of |
 | `BOBJ6` | «Business Object» The skill | `BOBJ3` | «Business Object» The scope document | produces |
+| `BOBJ8` | «Business Object» The federation index | `BOBJ1` | «Business Object» The architecture model | names where to find |
+| `BOBJ9` | «Business Object» The import | `BOBJ2` | «Business Object» The element | declares a dependency on |
+| `BOBJ10` | «Business Object» The generated brief | `BOBJ1` | «Business Object» The architecture model | reads, and never changes |

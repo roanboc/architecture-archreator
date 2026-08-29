@@ -60,14 +60,16 @@ flowchart TB
   cap4 -->|guards| cap2
   cap4 -->|guards| cap3
   cap2 -->|finishes an initiative| cap6
-  cap6 -.->|proposals for the method| cap5
+  cap6 -->|proposals for the method| cap5
 
   classDef capability fill:#f5deaa,stroke:#c8a24a,color:#333
 ```
 
-The dashed edge is the only one that is not a delivery path: what an
-engagement teaches changes the method itself, which is a different repository
-and a different cadence.
+`CAP6` feeding `CAP5` is the only edge here that is not a delivery path: what
+an engagement teaches changes the method itself, which is a different
+repository and a different cadence. It is drawn solid because it is true today
+— it happens when there is something to feed back, and *sometimes* is not the
+same claim as *not yet*.
 
 | ID | Capability | What it includes | Realized by | Maturity |
 | -- | ---------- | ---------------- | ----------- | -------- |
