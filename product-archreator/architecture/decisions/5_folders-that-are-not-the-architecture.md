@@ -4,7 +4,7 @@ _[← Decisions index](./README.md)_
 
 **Status:** Accepted
 **Date:** 2026-08-27
-**Touches:** [architecture/README.md](../README.md), [roadmap/](../6_transition/README.md),
+**Touches:** [architecture/README.md](../README.md), [6_transition/](../6_transition/README.md),
 and the scaffold the method emits
 
 ## Context
@@ -15,19 +15,19 @@ been carrying without noticing:
 > Some of those folders are not really architecture, they should belong to
 > another tree and probably also numbered as per logical architectural order
 
-`architecture/` holds nine things, and they are three different kinds:
+`architecture/` holds three different kinds of folder:
 
 | | Folders | What they are | Read by the validators? |
 | --- | --- | --- | --- |
 | **The model** | `0_business-design/` … `5_technology/`, `domains/` | The subject as it is | Yes |
-| **Also the model** | `6_transition/` | Where the subject is going — Plateaus and Gaps, which are ArchiMate Implementation & Migration elements | **Yes** |
+| **Also the model** | `roadmap/` | Where the subject is going — Plateaus and Gaps, which are ArchiMate Implementation & Migration elements | **Yes** |
 | **Not the model** | `scope/`, `decisions/`, `reference/`, `reviews/`, `engagements/` | How the model got here: what changed, why, what it was built from | **No** — `model_graph.py` names them `NARRATIVE` and skips them |
 
 **The code already agrees with the Requester.** The parse has a constant listing
 the folders that are *about* the model rather than part of it, and it skips
 them. They are nested inside `architecture/` anyway, which says the opposite.
 
-And `6_transition/` is the reverse mistake: it holds real elements, it **is** parsed,
+And `roadmap/` is the reverse mistake: it holds real elements, it **is** parsed,
 and it is the only model folder with no number — so it reads as narrative when
 it is the sixth layer.
 
@@ -39,7 +39,7 @@ are in documents the method forbids rewriting:
 > A merged scope document is never rewritten, because it is the record of what
 > was approved on a date and against what information.
 
-Six merged scope documents link into `6_transition/`. Repairing them is an edit to
+Six merged scope documents link into `roadmap/`. Repairing them is an edit to
 an immutable record; not repairing them fails `check_links.py`. **The method
 has no story for a structural refactor of its own folders**, which is a real
 gap and not a small one.
@@ -49,7 +49,7 @@ gap and not a small one.
 | Option | Why not (or why) |
 | ------ | ---------------- |
 | **Move everything now** | Breaks links in six immutable documents, in a repository whose CI fails on a broken link. It is the right end state and it cannot be reached in one step without deciding the question below first |
-| **Leave it and document the intent** | The confusion ships into every project the method emits. `6_transition/` in particular is mis-filed in a way that makes a reader treat real elements as narrative |
+| **Leave it and document the intent** | The confusion ships into every project the method emits. `roadmap/` in particular is mis-filed in a way that makes a reader treat real elements as narrative |
 | **Decide what "never rewritten" protects, then move what is cheap** | A merged record protects **what was claimed and approved**. A path is neither |
 
 ## Decision
@@ -62,7 +62,7 @@ reorganise itself without breaking its own checks.
 A link repair to a merged document carries no gate and needs no new scope
 document. Anything that changes a sentence still does.
 
-**With that settled, `6_transition/` becomes `6_transition/`** — numbered, because
+**With that settled, `roadmap/` becomes `6_transition/`** — numbered, because
 it holds ArchiMate Implementation & Migration elements and belongs in the layer
 sequence, and named for the skill that fills it.
 
@@ -77,9 +77,9 @@ initiative — calling it small would be how it arrives half-finished.
 - **The method can reorganise itself.** Without the carve-out above, every
   folder name chosen early was permanent, which is a strange property for a
   method about changing things deliberately.
-- **`6_transition/` stops looking like narrative.** A reader who sees five numbered
-  folders and four unnumbered ones reasonably concludes the numbers mark what
-  matters. Now they do.
+- **`roadmap/` stops looking like narrative.** A reader who sees numbered folders
+  beside unnumbered ones reasonably concludes the numbers mark the model and the
+  rest is commentary. With `6_transition/` numbered, they are right.
 - **The larger split is written down rather than lost.** `GAP17` on the
   [target state](../6_transition/1_target-state.md) carries it, so the next person
   to notice finds it already reasoned about.

@@ -10,10 +10,10 @@ the method's components read and write.
 ([scope document 1](../scope/1_rebuild-the-models-on-the-current-method.md)),
 which routed the layers below the business layer to pull-request review. `DOBJ4`
 restated at **Gate 2**, 2026-08-27, with
-[initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md)
-and again with [initiative 7](../scope/7_walk-the-model.md); `DOBJ6` added and
+[initiative 7](../scope/7_declare-the-relationships-and-let-the-graph-be-walked.md)
+and again with [initiative 8](../scope/8_walk-the-model.md); `DOBJ6` added and
 `DOBJ4` restated at **Gate 2**, 2026-08-27, with
-[initiative 8](../scope/8_federate-the-graph.md), and `DOBJ4` again with [initiative 9](../scope/9_cross-the-boundary.md) and with [initiative 10](../scope/10_make-it-readable.md).
+[initiative 9](../scope/9_federate-the-graph.md), and `DOBJ4` again with [initiative 10](../scope/10_cross-the-boundary.md) and with [initiative 11](../scope/11_make-it-readable.md).
 
 **This layer is short, and the reason is the method's central choice.** Almost
 everything archreator handles is prose in Markdown — a business object read by
@@ -97,7 +97,7 @@ model, so `neighbourhood.sql` follows a reference across a federation boundary
 without knowing it crossed one — a blast radius that stops at a repository is
 a wrong answer rather than a smaller one.
 
-**`DOBJ4` published is a contract; `DOBJ4` local is a convenience.** [initiative 8](../scope/8_federate-the-graph.md)
+**`DOBJ4` published is a contract; `DOBJ4` local is a convenience.** [initiative 9](../scope/9_federate-the-graph.md)
 put both formats at a documented path under a project's portal, with a schema
 number and the commit they came from. A second project fetching one is reading
 a file it does not control, built by a version of the method it may not have —
@@ -111,12 +111,12 @@ the federation rule forbids an author from doing.
 
 **`DOBJ4` has two readers now, and they read it the same way.** The database
 was written from the first commit and opened by nothing — `query_model.py` read
-the JSON. [initiative 7](../scope/7_walk-the-model.md) moved both readers onto the database and onto one
+the JSON. [initiative 8](../scope/8_walk-the-model.md) moved both readers onto the database and onto one
 recursive query, because the alternative was a second traversal in a second
 language, and the browser one is the one nobody would have tested.
 
 **`DOBJ4`'s edges stopped depending on whether anyone drew a diagram.**
-Initiative 6 moved the relationship into `BOBJ7`, declared in catalogue
+Initiative 7 moved the relationship into `BOBJ7`, declared in catalogue
 columns and relationship tables; this object reads those and no longer parses
 Mermaid. The two new fields are what a consumer needs and a Markdown reader
 gets for free: `origin` says how firmly the relationship was stated, and

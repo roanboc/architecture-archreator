@@ -29,7 +29,7 @@ the third:
 
 A brief is generated for a **scope**: anchors, how far to walk from them, and
 optional filters. The selector vocabulary is the one
-[initiative 10](./10_make-it-readable.md) built for search — `type`, `layer`,
+[initiative 11](./11_make-it-readable.md) built for search — `type`, `layer`,
 `domain`, `model`, `status` — kept because it was already the right way to say
 which part of a model you mean.
 
@@ -62,7 +62,7 @@ Three views, in this order, each omitted when the scope has nothing for it:
 | **Neighbourhood** | What sits immediately around each anchor? | One per anchor, when there is more than one |
 
 **Generating a diagram is correct now, and was not before.** Until
-[initiative 6](./6_declare-the-relationships-and-let-the-graph-be-walked.md) a
+[initiative 7](./7_declare-the-relationships-and-let-the-graph-be-walked.md) a
 generated diagram would have competed with an authored one for the same fact.
 Relationships are declared and diagrams are renderings, so generating one is
 the operation the notation already describes rather than a second source.
@@ -75,7 +75,7 @@ brief adds a view nobody drew; it does not overwrite the ones somebody did.
 ### 3. The brief carries what the documents say
 
 Elements arrive with their catalogue row and with the paragraphs the model
-already writes about them — the excerpts initiative 10 added, **verbatim**.
+already writes about them — the excerpts initiative 11 added, **verbatim**.
 Nothing is summarized: a paraphrase in a generated document is a claim nobody
 approved, and there would be no way to tell it had drifted.
 

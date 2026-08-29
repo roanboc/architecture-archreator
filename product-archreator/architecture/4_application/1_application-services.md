@@ -7,9 +7,9 @@ layer, and which business service each one realizes.
 
 **Status:** ● Validated at **Gate 3** — `ASVC1`–`ASVC7`, `ASVC9` and `ASVC11` on
 2026-08-26; `ASVC8` on 2026-08-27 with
-[initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md);
-`ASVC10` on 2026-08-27 with [initiative 7](../scope/7_walk-the-model.md);
-`ASVC9` on 2026-08-27 with [initiative 8](../scope/8_federate-the-graph.md).
+[initiative 7](../scope/7_declare-the-relationships-and-let-the-graph-be-walked.md);
+`ASVC10` on 2026-08-27 with [initiative 8](../scope/8_walk-the-model.md);
+`ASVC9` on 2026-08-27 with [initiative 9](../scope/9_federate-the-graph.md).
 
 ## How to read this document
 
@@ -99,11 +99,11 @@ projection nothing reads is not a projection.
 **`ASVC9` publishes the projection because federation has nowhere else to
 read it from.** `stack-selection` names domains in separate repositories as one
 of the four triggers for a persisted projection, on the grounds that "an agent
-cannot `grep` a repository it has not cloned". [initiative 8](../scope/8_federate-the-graph.md) is that trigger
+cannot `grep` a repository it has not cloned". [initiative 9](../scope/9_federate-the-graph.md) is that trigger
 firing: publication is what turns a local file into something a second model
 can depend on.
 
-**`ASVC10` has two readers and one traversal.** [initiative 7](../scope/7_walk-the-model.md) gave the graph a
+**`ASVC10` has two readers and one traversal.** [initiative 8](../scope/8_walk-the-model.md) gave the graph a
 visual reader, and the thing worth saying about it is what it did *not* do:
 reimplement the walk. The page runs `neighbourhood.sql`, the same file the
 terminal reader executes, against the same database. A traversal written once

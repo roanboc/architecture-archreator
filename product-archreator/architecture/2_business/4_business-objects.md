@@ -7,10 +7,10 @@ read and hand to each other.
 
 **Status:** ● Validated at **Gate 2** — `BOBJ1`–`BOBJ6` on 2026-08-22, `BOBJ7` on
 2026-08-27 with
-[initiative 6](../scope/6_declare-the-relationships-and-let-the-graph-be-walked.md),
-`BOBJ8` on 2026-08-27 with [initiative 8](../scope/8_federate-the-graph.md),
-`BOBJ9` on 2026-08-27 with [initiative 9](../scope/9_cross-the-boundary.md),
-`BOBJ10` on 2026-08-27 with [initiative 10](../scope/10_make-it-readable.md).
+[initiative 7](../scope/7_declare-the-relationships-and-let-the-graph-be-walked.md),
+`BOBJ8` on 2026-08-27 with [initiative 9](../scope/9_federate-the-graph.md),
+`BOBJ9` on 2026-08-27 with [initiative 10](../scope/10_cross-the-boundary.md),
+`BOBJ10` on 2026-08-27 with [initiative 11](../scope/11_make-it-readable.md).
 
 Every object here is a **Markdown file in git**, and that is the point rather
 than an implementation detail: it is what makes the model readable by the

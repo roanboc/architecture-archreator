@@ -161,7 +161,7 @@ flowchart LR
 | ID | Resource | Kind | What it is | State |
 | -- | -------- | ---- | ---------- | ----- |
 | `RES1` | **The skill corpus** | Knowledge | Seventeen skills in a fixed format — a description that declares its kind, a set of required sections, and frontmatter binding it to the process it realizes. `plugins/archreator/skills/` | Held, and the thing most often changed |
-| `RES2` | **The scaffold** | Asset | The empty project an adopter starts from: six layer folders, the notation, the validators, the portal configuration, the workflow templates it ships switched off, and placeholder entry points. `plugins/archreator/scaffold/` | Held |
+| `RES2` | **The scaffold** | Asset | The empty project an adopter starts from: seven layer folders, the notation, the validators, the portal configuration, the workflow templates it ships switched off, and placeholder entry points. `plugins/archreator/scaffold/` | Held |
 | `RES3` | **The validators** | Asset | `check_links.py` and `check_model.py`, which ship inside the scaffold, plus `check_skills.py`, which does not — a downstream project has no skills to check. `query_model.py` ships beside them and is not one of them: it reports and never fails | Held |
 | `RES4` | **The notation** | Knowledge | ArchiMate semantics encoded onto Mermaid with four devices — label form, glyph, shape, colour — stated once in `scaffold/architecture/README.md` | Held |
 | `RES5` | **The plugin package** | Asset | The manifests that publish the corpus to a marketplace an adopter can install from. `plugin.json` and `marketplace.json` | Held, and the only part `P5` calls disposable |
