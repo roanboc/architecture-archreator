@@ -15,7 +15,8 @@ and `ACMP8` restated on 2026-08-27 with
 [initiative 11](../scope/11_cross-the-boundary.md); `ACMP7`, `ACMP8` and `ACMP16`
 on 2026-08-27 with [initiative 12](../scope/12_make-it-readable.md); `ACMP3`,
 `ACMP10` and `ACMP17` restated on 2026-08-29 with
-[initiative 14](../scope/14_focus-the-question.md).
+[initiative 14](../scope/14_focus-the-question.md); `ACMP12` restated on
+2026-08-29 with [initiative 15](../scope/15_inspect-a-diagram.md).
 
 Skills are grouped by the service they provide rather than listed one per
 component. Fifteen rows naming fifteen files would restate the
@@ -156,7 +157,7 @@ running, not invoked.
 | `ACMP9` | **The corpus validator** | `ASVC5` | `scripts/check_skills.py` |  |
 | `ACMP10` | **The scaffold** | `ASVC6` | `scaffold/` — the layer folders, the notation, the validators, the portal configuration, the two workflows it ships in `.github/workflows-available/` where nothing reads them, and the placeholder entry points | `org-archreator::ACMP4` |
 | `ACMP11` | **The plugin package** | `ASVC7` | `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` | `org-archreator::ACMP1` |
-| `ACMP12` | **The portal builder** | `ASVC9` | `scaffold/scripts/build_docs.py`, with `scaffold/mkdocs.yml` and `scaffold/overrides/`. It also publishes the model's own projection under `projection/`, which is the address `architecture/federation.md` names and the contract a second model reads. It also reports what it published a link to and not the file — the one thing `ACMP5` cannot see, because a link can resolve here and not on the site |  |
+| `ACMP12` | **The portal builder** | `ASVC9` | `scaffold/scripts/build_docs.py`, with `scaffold/mkdocs.yml` and `scaffold/overrides/`. The override adds an accessible, configurable full-screen viewer around the Mermaid host already rendered by Material, with no new dependency or network request and no print-page output. The builder also publishes the model's projection under `projection/`, the address `architecture/federation.md` names, and reports links pointing at files it does not publish |  |
 | `ACMP13` | **The document exporter** | `ASVC9` | `scaffold/scripts/export_pdf.py` |  |
 | `ACMP14` | **The model query tool** | `ASVC10` | `scaffold/scripts/query_model.py`, with `scaffold/scripts/neighbourhood.sql` — the traversal it shares with `ACMP17` |  |
 | `ACMP15` | **The transition-planning skill** | `ASVC11` | `skills/plan-the-transition/` |  |
