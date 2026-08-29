@@ -17,3 +17,4 @@ change. A call that is later reversed gets a new record, and the old one's
 | 3 | [Initiative 12 is directed, and its gates are delegated](./3_the-navigator-earns-its-own-initiative.md) | Accepted | [6_transition/](../6_transition/README.md), [scope/](../scope/README.md) |
 | 4 | [The graph portal is retired, and initiative 13 is delegated](./4_the-graph-portal-is-retired.md) | Accepted | [6_transition/](../6_transition/README.md), [scope/](../scope/README.md) |
 | 5 | [Folders that are not the architecture, and what moving one costs](./5_folders-that-are-not-the-architecture.md) | Accepted | [architecture/README.md](../README.md), the scaffold |
+| 6 | [Projects publish with MkDocs, rendered through a browser](./6_projects-publish-with-mkdocs-through-a-browser.md) | Proposed | [4_application](../4_application/2_application-components.md) |
