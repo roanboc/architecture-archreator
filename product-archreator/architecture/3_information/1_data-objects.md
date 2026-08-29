@@ -13,7 +13,8 @@ restated at **Gate 2**, 2026-08-27, with
 [initiative 8](../scope/8_declare-the-relationships-and-let-the-graph-be-walked.md)
 and again with [initiative 9](../scope/9_walk-the-model.md); `DOBJ6` added and
 `DOBJ4` restated at **Gate 2**, 2026-08-27, with
-[initiative 10](../scope/10_federate-the-graph.md), and `DOBJ4` again with [initiative 11](../scope/11_cross-the-boundary.md) and with [initiative 12](../scope/12_make-it-readable.md).
+[initiative 10](../scope/10_federate-the-graph.md), and `DOBJ4` again with [initiative 11](../scope/11_cross-the-boundary.md), with [initiative 12](../scope/12_make-it-readable.md) and with
+[initiative 13](../scope/13_answer-one-question.md), which also **retired `DOBJ6`**.
 
 **This layer is short, and the reason is the method's central choice.** Almost
 everything archreator handles is prose in Markdown — a business object read by
@@ -48,16 +49,13 @@ flowchart TB
   dobj2["▦ The element-prefix registry [DOBJ2]"]:::data
   dobj3["▦ The plugin manifests [DOBJ3]"]:::data
   dobj4["▦ The model projection [DOBJ4]"]:::data
-  dobj6["▦ The federation manifest [DOBJ6]"]:::data
 
   bobj1["▧ The architecture model [BOBJ1]"]:::object
   bobj6["▧ The skill [BOBJ6]"]:::object
-  bobj8["▧ The federation index [BOBJ8]"]:::object
 
   dobj1 -->|realizes the readable face of| bobj6
   dobj2 -->|types the elements of| bobj1
   dobj4 -->|is derived from| bobj1
-  dobj6 -->|is derived from| bobj8
 
   classDef data fill:#c2f0ff,stroke:#0288d1,color:#333
   classDef object fill:#fffbb5,stroke:#c8c04a,color:#333
@@ -68,8 +66,7 @@ flowchart TB
 | `DOBJ1` | **Skill frontmatter** | YAML: `name`, `description`, and `metadata.archreator` carrying `kind`, `realizes_process` and `gates` | The head of every `SKILL.md` | The host platform, to route a request to a skill; `check_skills.py`, to bind skills to processes |
 | `DOBJ2` | **The element-prefix registry** | JSON: layer group → prefix → element type name. Forty-three prefixes in nine groups | `scaffold/scripts/element-prefixes.json` | `model_graph.py`, to recognise and type an identifier |
 | `DOBJ3` | **The plugin manifests** | JSON: the plugin's name, version and entry points, and the marketplace entry that publishes it | `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` | The host platform, at install time |
-| `DOBJ4` | **The model projection** | `nodes` and `edges` tables, plus `mentions`. Every node carries the declared status of the document defining it. Every edge carries where the relationship was declared — `catalogue`, `table` or `identifier` — whether it is pending, and the model its far end belongs to. Every element carries the paragraphs of the model that speak about it, verbatim. Regenerated, never hand-edited, never committed | `.model/model.json`, `.model/model.db`, and both beside the published portal, where they carry a schema number and the commit they were built from | `query_model.py` and the navigator, both running the same traversal against `model.db`; and whatever else cannot read Markdown |
-| `DOBJ6` | **The federation manifest** | JSON: a schema number, and one entry per federated model naming it, what it models, and the directory its projection is published in. Derived from `BOBJ8` on every build, never committed | `navigator/federation.json` in the published site | The navigator, to know what else to fetch |
+| `DOBJ4` | **The model projection** | `nodes` and `edges` tables, plus `mentions`. Every node carries the declared status of the document defining it. Every edge carries where the relationship was declared — `catalogue`, `table` or `identifier` — whether it is pending, and the model its far end belongs to. Every element carries the paragraphs of the model that speak about it, verbatim. Regenerated, never hand-edited, never committed | `.model/model.json`, `.model/model.db`, and both under `projection/` beside the published portal, where they carry a schema number and the commit they were built from | `query_model.py` and `build_brief.py`, both running the same traversal against `model.db`; and whatever else cannot read Markdown |
 | `DOBJ5` | **Provided source documents** | Whatever a Requester handed over — transcripts, decks, specifications — under a dated name, with an index row naming the original filename, who provided it and what was derived from it | `architecture/reference/` in an adopting project; this repository keeps none | A reader asking where a claim came from. Not the validators, not the projection, and not the portal |
 
 **`DOBJ1` is the only one an author writes by hand**, and it is why a skill's
@@ -85,8 +82,8 @@ clause used deliberately — one unavoidable copy, with a check on it.
 **The projection carries prose now, and carries it unchanged.** A reader
 selecting an element wants to know what it means, and the answer is a
 paragraph somebody already wrote — so the parse extracts the paragraphs that
-name an element, with the document and heading they came from, and the panel
-shows them as they are. Nothing is summarized: a paraphrase would be a second
+name an element, with the document and heading they came from, and a brief
+carries them as they are. Nothing is summarized: a paraphrase would be a second
 model with no way to tell it had drifted. Document preambles are skipped, so a
 status line naming eleven identifiers does not become an excerpt on all
 eleven.
@@ -109,11 +106,13 @@ repository holding several models publishes several projections. Putting all
 of them under one model's address would be a build step doing the restating
 the federation rule forbids an author from doing.
 
-**`DOBJ4` has two readers now, and they read it the same way.** The database
-was written from the first commit and opened by nothing — `query_model.py` read
-the JSON. [initiative 9](../scope/9_walk-the-model.md) moved both readers onto the database and onto one
-recursive query, because the alternative was a second traversal in a second
-language, and the browser one is the one nobody would have tested.
+**`DOBJ4` has two readers, and they read it the same way.** The database was
+written from the first commit and opened by nothing — `query_model.py` read the
+JSON. [initiative 9](../scope/9_walk-the-model.md) moved both readers onto the
+database and onto one recursive query. The second reader has changed identity
+since — a graph page then, `build_brief.py` now — and the arrangement survived
+the change intact, which is the argument for having put the traversal in a file
+rather than in either reader.
 
 **`DOBJ4`'s edges stopped depending on whether anyone drew a diagram.**
 Initiative 8 moved the relationship into `BOBJ7`, declared in catalogue
@@ -152,3 +151,19 @@ An adopting project's own model may well contain commercially sensitive
 material — a capability gap, a partner strategy, a cost structure. That is
 that project's classification to make, and it is why a published view of a
 model is an access decision before it is a technical one.
+
+## Retired
+
+| ID | Data object | Structure | Where it lives | Read by |
+| -- | ----------- | --------- | -------------- | ------- |
+| `DOBJ6` | **The federation manifest** | JSON derived from `BOBJ8`: one entry per federated model, naming where its projection is published | Deleted. Was `navigator/federation.json` in the published site | — |
+
+**`DOBJ6` existed so that one consumer could discover another model without
+being told.** That consumer was the graph navigator, and
+[initiative 13](../scope/13_answer-one-question.md) deleted it. Nothing derives
+the manifest and nothing reads it, so it is retired rather than left as a file
+the build no longer writes. **The federation itself is unaffected**: `BOBJ8`
+is authored Markdown that a gate approves and a validator reads, and each
+model still publishes its projection at `projection/` beside its portal. What
+went was the machine-readable index of those addresses, which will earn its
+place again the day something automatic wants to follow them.

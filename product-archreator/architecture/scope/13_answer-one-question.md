@@ -119,7 +119,7 @@ contain.
 | 0_business-design | **Not used** — Depth 1 |
 | 1_strategy | **No change.** No stakeholder, driver, goal or principle moves. `G1` — an agent reads the business context natively — is what a brief serves and what the navigator could not; the goal already exists |
 | 2_business | **`BSVC7` restated** — publication gains a third rendering, the brief. **`BOBJ10` restated** — the saved view becomes the generated brief: still a lens, still never model content, now Markdown instead of a canvas. **`RULE` on reference material** recorded in [5_domain-context-and-rules.md](../2_business/5_domain-context-and-rules.md): a transcript summary carries facts, not judgements |
-| 3_information | **`DOBJ4` unchanged** — the projection already carries everything a brief needs. That is the whole reason this initiative is small |
+| 3_information | **`DOBJ4` restated** — its second reader is `build_brief.py` now, and the published copy is named at `projection/`. Its *structure* is unchanged, which is the whole reason this initiative is small. **`DOBJ6` retired** — the federation manifest was derived for the navigator to discover siblings with, and nothing derives or reads it now. `BOBJ8`, the authored index, is untouched |
 | 4_application | **`ACMP16` retired and deleted** — the navigator. **`ACMP17` added** — the brief generator. **`ACMP13` restated** — the PDF says it is disposable |
 | 5_technology | **`TSVC5` restated** — the toolchain loses sql.js. Nothing is added |
 

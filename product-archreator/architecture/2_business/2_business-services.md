@@ -10,7 +10,8 @@ restated on 2026-08-27 with
 [initiative 8](../scope/8_declare-the-relationships-and-let-the-graph-be-walked.md),
 `BSVC8` on 2026-08-27 with [initiative 9](../scope/9_walk-the-model.md);
 `BSVC3` again on 2026-08-27 with [initiative 11](../scope/11_cross-the-boundary.md);
-`BSVC8` again on 2026-08-27 with [initiative 12](../scope/12_make-it-readable.md).
+`BSVC8` again on 2026-08-27 with [initiative 12](../scope/12_make-it-readable.md)
+and with [initiative 13](../scope/13_answer-one-question.md).
 
 ## How to read this document
 
@@ -83,7 +84,7 @@ flowchart TB
 | `BSVC5` | **Method distribution** | An installable plugin and a scaffold that is a working project on its first commit | `CAP5` | `plugin.json`, `marketplace.json`, the scaffold, `docs/` |
 | `BSVC6` | **Model restatement** | A model that has stopped reading as a description of today turned back into one, and what the method failed to cover captured before it evaporates | `CAP3`, `CAP6` | `restate-current-state`, `run-retrospective` |
 | `BSVC7` | **Model publication** | The model they already have, rendered as a searchable website and printed as one document, with every page carrying the path of the file that produced it and a route back for a question — and, where the repository it lives in can serve it, published there rather than handed over as a folder | `CAP5` | `build_docs.py`, `export_pdf.py`, `mkdocs.yml` and `overrides/` in the scaffold, the question form beside them, and the publishing workflow the scaffold ships inert |
-| `BSVC8` | **Model interrogation** | Answers to the two questions a table cannot give — what a change to one element would touch, and which catalogue rows name no realizing artifact while their neighbours do — asked at a terminal or on a page, by anyone who can open a browser — and, before either, the answer to "which element am I even looking for" | `CAP2`, `CAP4` | `query_model.py` and the navigator, both reading what `build_model.py` writes |
+| `BSVC8` | **Model interrogation** | Answers to the questions a table cannot give — what a change to one element would touch, which catalogue rows name no realizing artifact while their neighbours do, and what one named scope of the model consists of. Asked at a terminal; the last is answered as a document anyone can read | `CAP2`, `CAP4` | `query_model.py` and `build_brief.py`, both reading what `build_model.py` writes |
 | `BSVC9` | **Transition planning** | A destination the adopter's own goals justify, the gaps between it and today derived rather than asserted, and a sequence ordered by dependency — approved as direction and never as permission to build | `CAP7` | `plan-the-transition` |
 
 | ID | Product | What it aggregates | Realized by |
@@ -94,17 +95,23 @@ flowchart TB
 implicit product and can leave it out; this one is named because the tree above
 needs something to point at when it says what the organization builds.
 
-**`BSVC8` gained the question that comes before the other two.** Trace and
-coverage both assume a reader who knows which element they mean. Somebody
-meeting a model for the first time does not, and had no route to finding out
-short of reading every label. [initiative 12](../scope/12_make-it-readable.md) made finding an element part of
-the service rather than a precondition of it.
+**`BSVC8` gained a third question, and it is the one people actually arrive
+with.** Trace and coverage both assume a reader who already knows which
+element they mean. Somebody meeting a model for the first time does not, and
+arrives instead with a topic — a domain, a function, a use case.
+[initiative 13](../scope/13_answer-one-question.md) made that a question the
+service answers: name a scope, get the elements in it, generated views of how
+they cross the layers, and the paragraphs the documents already write.
 
-**`BSVC8` stopped requiring a terminal, and the two questions did not change.**
-What changed is who can ask them. A Requester approving a change at a gate is
-entitled to see what it touches, and until now that meant running a script and
-knowing the identifier to run it on. The service owes the same two answers; it
-owes them to more people. [initiative 9](../scope/9_walk-the-model.md) delivers it.
+**Who asks and who reads are not the same person, and only the second one
+changed.** Asking still means a terminal — every answer this service gives is
+a script run against the projection. What changed is the shape of the answer:
+a brief is Markdown, so a Requester approving a change at a gate can be handed
+what it touches without running anything.
+[initiative 9](../scope/9_walk-the-model.md) tried to close the same distance
+by putting a graph in a browser, and
+[decision 4](../decisions/4_the-graph-portal-is-retired.md) records why that
+was the wrong half of the problem to solve.
 
 **`BSVC3` stopped stopping at the repository boundary.** Decision 1 recorded,
 as the accepted price of a deliberate split, that "no validator crosses the

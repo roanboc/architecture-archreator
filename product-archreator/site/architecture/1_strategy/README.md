@@ -28,7 +28,7 @@ flows_.
 
 The `Source` column names the canvas blocks each document is derived from;
 the block-by-block element mapping lives in
-[0_business-design/](../0_business-design/README.md#from-canvas-to-archimate)
+[0_business-design/](../0_business-design/README.md)
 and is not restated here. Principles are the exception — they have no canvas
 block, and are discovered directly with the Requester in either track.
 
