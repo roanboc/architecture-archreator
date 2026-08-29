@@ -98,6 +98,7 @@ approved on a date and against what information.
 | 12 | [Make it readable](./12_make-it-readable.md) | [`archreator` PR #41](https://github.com/roanboc/archreator/pull/41) | The navigator becomes something a person can use: named boxes, a panel carrying the documents' own prose, guided search, and views that can be arranged, kept and shared |
 | 13 | [Answer one question](./13_answer-one-question.md) | [`archreator` PR #41](https://github.com/roanboc/archreator/pull/41) | The graph portal is deleted and replaced by a generated Markdown brief: name a scope, get the elements that matter, the multi-layer views that show how they depend on each other, and what the documents already say — disposable, and never committed |
 | 14 | [Focus the question](./14_focus-the-question.md) | The corresponding `archreator` change | A reader confirms Business, Information, Solution, Impact or Decision focus before the agent generates a reproducible, bounded brief |
+| 15 | [Inspect a diagram](./15_inspect-a-diagram.md) | The corresponding `archreator` change | Any Mermaid diagram in the portal opens full-screen with zoom, pan and keyboard controls while Markdown and PDF remain unchanged |
 
 ## Pre-rebuild prior art
 
