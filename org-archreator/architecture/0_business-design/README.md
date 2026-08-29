@@ -132,7 +132,7 @@ which stays the single source for the palette.
      authoritative; the description beside it is checked against the
      catalogue that defines the element. -->
 
-| From | From element | To | To element | Relationship |
-| ---- | ------------ | -- | ---------- | ------------ |
-| `CS2` | «Customer Segment» Established business owners. | `PAIN4` | «Pain» Architectural quality is out of reach. | suffers |
-| `PROD3` | «Product» The archreator portal | `PREL4` | «Pain Reliever» The cost of an architect collapses to the cost of an agent. | would offer |
+| From | From element | To | To element | Relationship | Notes |
+| ---- | ------------ | -- | ---------- | ------------ | ----- |
+| `CS2` | «Customer Segment» Established business owners. | `PAIN4` | «Pain» Architectural quality is out of reach. | suffers |  |
+| `PROD3` | «Product» The archreator portal | `PREL4` | «Pain Reliever» The cost of an architect collapses to the cost of an agent. | would offer | **Pending — future initiative** |

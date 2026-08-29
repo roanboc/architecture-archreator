@@ -69,7 +69,7 @@ flowchart TB
   obj["▧ The architecture model [BOBJ1]"]:::business
 
   actorAI -->|assigned to| role
-  actorH -.->|may also fill| role
+  actorH -->|may also fill| role
   role -->|delivers| svc
   svc -->|accesses| obj
 

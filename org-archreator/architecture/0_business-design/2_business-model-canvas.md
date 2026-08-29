@@ -76,13 +76,13 @@ money and the only one that cannot grow, because it is one person's hours.
 
 ## Channels
 
-| ID | Channel | Delivers | Reaches |
-| -- | ------- | -------- | ------- |
-| `CH1` | The public repository | `PROD1` | `CS1` — designers find it as code, not as marketing |
-| `CH2` | The guidance site | `PROD1` | `CS1`, and any owner evaluating the method |
-| `CH3` | The plugin marketplace | `PROD1` | `CS1`, already working inside an agent |
-| `CH4` | Referral and direct approach | `PROD2` | `CS2` |
-| `CH5` | The web, self-serve | `PROD3` | `CS2`, `CS3` — **Pending** |
+| ID | Channel | Delivers | Reaches | State |
+| -- | ------- | -------- | ------- | ----- |
+| `CH1` | The public repository | `PROD1` | `CS1` — designers find it as code, not as marketing | Live |
+| `CH2` | The guidance site | `PROD1` | `CS1`, and any owner evaluating the method | Live |
+| `CH3` | The plugin marketplace | `PROD1` | `CS1`, already working inside an agent | Live |
+| `CH4` | Referral and direct approach | `PROD2` | `CS2` | Live |
+| `CH5` | The web, self-serve | `PROD3` | `CS2`, `CS3` | **Pending — future initiative** (`COA2`) |
 
 **Four of five channels reach `CS1`, and `CS1` is the segment that does not
 pay.** `CS2` is reached only by knowing the Requester personally, and `CS3`
@@ -116,12 +116,12 @@ is not reached at all. That is the distribution problem `COA2` names.
 
 ## Revenue streams — monetary and not
 
-| ID | Stream | Kind | From | Behaviour |
-| -- | ------ | ---- | ---- | --------- |
-| `RS1` | **Continuous improvement** — community feedback and real usage flowing back into the method | Non-monetary | `PROD1` | Grows with adoption. The method improves because people use it in situations the Requester would never meet alone |
-| `RS2` | **Mission progress** — people building better things with AI while human knowledge improves rather than being delegated away | Non-monetary | `PROD1` | The reason the organization exists |
-| `RS3` | Consulting fees | Monetary | `PROD2` | Hourly. Bounded by one person's available time |
-| `RS4` | Portal fees | Monetary | `PROD3` | One-off per use: agent cost plus a small product fee. **Pending** |
+| ID | Stream | Kind | From | Behaviour | State |
+| -- | ------ | ---- | ---- | --------- | ----- |
+| `RS1` | **Continuous improvement** — community feedback and real usage flowing back into the method | Non-monetary | `PROD1` | Grows with adoption. The method improves because people use it in situations the Requester would never meet alone | Live |
+| `RS2` | **Mission progress** — people building better things with AI while human knowledge improves rather than being delegated away | Non-monetary | `PROD1` | The reason the organization exists | Live |
+| `RS3` | Consulting fees | Monetary | `PROD2` | Hourly. Bounded by one person's available time | Live |
+| `RS4` | Portal fees | Monetary | `PROD3` | One-off per use: agent cost plus a small product fee | **Pending — future initiative** (`COA2`) |
 
 **`RS1` and `RS2` are the streams the organization is actually optimising
 for**, and neither has a collection method. Pre-engagement adoption — stars,

@@ -24,23 +24,24 @@ flowchart LR
   i12[["≡ 12 — Make it readable [PLAT5]"]]:::plateau
   i13[["≡ 13 — Answer one question [PLAT6]"]]:::plateau
 
-  i8 -.->|a graph worth drawing| i9
-  i9 -.->|a reader worth pointing at more than one| i10
-  i10 -.->|somewhere to resolve a foreign identifier| i11
-  i9 -.->|a reader worth making readable| i12
-  i12 -.->|its prose and its vocabulary, kept| i13
+  i8 -->|a graph worth drawing| i9
+  i9 -->|a reader worth pointing at more than one| i10
+  i10 -->|somewhere to resolve a foreign identifier| i11
+  i9 -->|a reader worth making readable| i12
+  i12 -->|its prose and its vocabulary, kept| i13
 
   classDef plateau fill:#ffe8e8,stroke:#d99b9b,color:#333
 ```
 
 | # | Initiative | Closes | Reaches | Gate | State |
 | - | ---------- | ------ | ------- | ---- | ----- |
-| 8 | [Declare the relationships, and let the graph be walked](../scope/8_declare-the-relationships-and-let-the-graph-be-walked.md) | `GAP1`, `GAP2`, `GAP3`, `GAP4` | `PLAT1` | 2 | **Merged** — `GAP1`–`GAP3` closed; `GAP4` is not, and `PLAT1` waits on it |
+| 8 | [Declare the relationships, and let the graph be walked](../scope/8_declare-the-relationships-and-let-the-graph-be-walked.md) | `GAP1`, `GAP2`, `GAP3`, `GAP4` | `PLAT1` | 2 | **Merged** — `GAP1`–`GAP3` closed; `GAP4` closed later by [initiative 16](../scope/16_say-whether-a-relationship-is-true.md) |
 | 9 | [Walk the model](../scope/9_walk-the-model.md) | `GAP5`, `GAP6` | `PLAT2` | 2 and 3, both delegated ([decision 2](../decisions/2_the-requester-delegates-the-remaining-gates.md)) | **Written off** — see [decision 4](../decisions/4_the-graph-portal-is-retired.md); `GAP6`'s answer, the shared traversal, is kept |
 | 10 | [Federate the graph](../scope/10_federate-the-graph.md) | `GAP7`, `GAP8` | `PLAT3` | 2 and 3, both delegated ([decision 2](../decisions/2_the-requester-delegates-the-remaining-gates.md)) | **Merged** — `GAP8` closed; `GAP7` half closed, and nothing consumes the index |
 | 11 | [Cross the boundary](../scope/11_cross-the-boundary.md) | `GAP9` | `PLAT4` | 2 and 3, both delegated ([decision 2](../decisions/2_the-requester-delegates-the-remaining-gates.md)) | **Merged** — `PLAT4` reached |
 | 12 | [Make it readable](../scope/12_make-it-readable.md) | `GAP10`–`GAP13` | `PLAT5` | 1 by the Requester's own direction; 2 and 3 delegated ([decision 3](../decisions/3_the-navigator-earns-its-own-initiative.md)) | **Written off** — its plateau is abandoned, and what it built is kept |
 | 13 | [Answer one question](../scope/13_answer-one-question.md) | `GAP14`–`GAP16` | `PLAT6` | 1 by the Requester's own direction; 2 and 3 delegated ([decision 4](../decisions/4_the-graph-portal-is-retired.md)) | **Merged** — `PLAT6` reached |
+| 16 | [Say whether a relationship is true](../scope/16_say-whether-a-relationship-is-true.md) | `GAP4` | `PLAT1` | 2 and 3 | **Merged** — `PLAT1` reached |
 
 ### Relationships
 
@@ -53,6 +54,8 @@ flowchart LR
 | `PLAT1` | «Plateau» Declared relationships | `PLAT2` | «Plateau» A walkable model | a graph worth drawing |
 | `PLAT2` | «Plateau» A walkable model | `PLAT3` | «Plateau» A federated graph | a reader worth pointing at more than one |
 | `PLAT3` | «Plateau» A federated graph | `PLAT4` | «Plateau» Checkable across the boundary | somewhere to resolve a foreign identifier |
+| `PLAT2` | «Plateau» A walkable model | `PLAT5` | «Plateau» A model somebody can read | a reader worth making readable |
+| `PLAT5` | «Plateau» A model somebody can read | `PLAT6` | «Plateau» A brief that answers one question | its prose and its vocabulary, kept |
 
 ## Why this order and not another
 

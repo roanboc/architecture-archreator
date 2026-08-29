@@ -51,23 +51,26 @@ flowchart LR
   plat4[["≡ Checkable across the boundary [PLAT4]"]]:::plateau
   plat5[["≡ A model somebody can read [PLAT5]"]]:::plateau
   plat6[["≡ A brief that answers one question [PLAT6]"]]:::plateau
+  plat7[["≡ The model is only the model [PLAT7]"]]:::plateau
 
-  plat1 -.->|nothing to walk without it| plat2
-  plat2 -.->|an index with no consumer| plat3
-  plat3 -.->|nothing to resolve against| plat4
-  plat2 -.->|a graph nobody can read is not read| plat5
-  plat1 -.->|declared relationships are what a brief is made of| plat6
+  plat1 -->|nothing to walk without it| plat2
+  plat2 -->|an index with no consumer| plat3
+  plat3 -->|nothing to resolve against| plat4
+  plat2 -->|a graph nobody can read is not read| plat5
+  plat1 -->|declared relationships are what a brief is made of| plat6
+  plat1 -->|a folder move must not break a declaration| plat7
 
   classDef plateau fill:#ffe8e8,stroke:#d99b9b,color:#333
 ```
 
 | ID | Plateau | The state it names | Status |
 | -- | ------- | ------------------ | ------ |
-| `PLAT1` | **Declared relationships** | Every relationship an element has is **stated** — in a catalogue column or a relationship table a Requester can read and a validator already checks — and the projection carries it as an edge that knows where it came from and whether it is live. Diagrams render; they no longer declare | **Planned** — reached in every part but one. [initiative 8](../scope/8_declare-the-relationships-and-let-the-graph-be-walked.md) merged and closed `GAP1`–`GAP3`: 616 relationships are declared and no diagram is parsed. **`GAP4` is open** — no relationship anywhere carries a Pending marker, so all 35 that the notation draws as pending are projected as live, and "knows whether it is live" is not yet true. Nothing is in flight against it |
+| `PLAT1` | **Declared relationships** | Every relationship an element has is **stated** — in a catalogue column or a relationship table a Requester can read and a validator already checks — and the projection carries it as an edge that knows where it came from and whether it is live. Diagrams render; they no longer declare | **Reached** — [initiative 16](../scope/16_say-whether-a-relationship-is-true.md), 2026-08-29, closing `GAP4`. [initiative 8](../scope/8_declare-the-relationships-and-let-the-graph-be-walked.md) closed `GAP1`–`GAP3` and left `GAP4` open behind a correct record; initiative 16 closed it. 32 relationships are marked pending, every dashed drawing is backed by a declaration, and nothing else is dashed but a legend |
 | `PLAT2` | **A walkable model** | The projection has a visual reader: one static page, filters by layer and element type, and expansion outward from any node. No server, no deployed database | **Abandoned** — [decision 4](../decisions/4_the-graph-portal-is-retired.md). A reader does not arrive at a graph, they arrive at a question, and a graph makes them reconstruct it by clicking. Superseded by `PLAT6` |
 | `PLAT3` | **A federated graph** | Each project publishes its own projection at a stable URL. The topmost tree of a federation — the organization, or the parent business function where there is no organization — owns an **index** naming those URLs. The graph is the union, computed at read time and owned by nobody | **Planned** — reached in part. [initiative 10](../scope/10_federate-the-graph.md) merged and closed `GAP8`: the index exists and a gate approved it. **`GAP7` is half closed** — the build writes a projection beside each portal and no workflow puts a portal anywhere, so no projection has a URL. And **nothing computes the union**: the consumer that did was the navigator, retired by [decision 4](../decisions/4_the-graph-portal-is-retired.md). Nothing is in flight against it |
 | `PLAT4` | **Checkable across the boundary** | A reference can name an element in another project, and something checks it. Decision 1's recorded consequence — "no validator crosses the repository boundary" — stops being true | **Reached** — [initiative 11](../scope/11_cross-the-boundary.md), merged 2026-08-29. Two references name an element in another model and `check_model.py` resolves both |
 | `PLAT5` | **A model somebody can read** | Elements are named boxes, not dots. Selecting one shows what the documents say about it, not just its catalogue row. Somebody who does not know an identifier can find it. A view arranged by hand can be kept and shared | **Abandoned** — [decision 4](../decisions/4_the-graph-portal-is-retired.md). Reached, then written off with the plateau it was making legible. What it built — the prose excerpts, the faceted vocabulary — is what `PLAT6` is assembled from |
+| `PLAT7` | **The model is only the model** | `architecture/` holds the subject and nothing else. How the model got here — the scope documents, the decisions, the source material, the reviews and the engagements — lives in a sibling of it, where the parse already treats it as narrative and skips it. A reader who opens `architecture/` sees the architecture | **Planned** — closes `GAP17`. No initiative is open against it |
 | `PLAT6` | **A brief that answers one question** | A reader names a scope — an element, a domain, a function — and gets a Markdown document generated on the spot: the elements that matter, the ArchiMate views that show how they depend on each other across the layers, and the paragraphs the documents already write about them. Disposable, never committed, stamped with the revision it came from | **Reached** — [initiative 13](../scope/13_answer-one-question.md), merged 2026-08-29. `build_brief.py` answers a named scope on all three trees |
 
 **`PLAT6` is the Requester's direction, in their words**, and it retires two
@@ -83,13 +86,30 @@ domain, a function or a scope is asking how business and information reach
 application and technology — that chain is where understanding is thin, and it
 is what a brief leads with. Other views follow it; none replaces it.
 
-**Two plateaus went back to Planned after their initiative merged**, which
-reads strangely and is accurate. The [status vocabulary](./README.md#status-vocabulary)
-has four words — Planned, In flight, Reached, Abandoned — and none of them means
-*an initiative delivered most of this and stopped*. `PLAT1` and `PLAT3` are both
-in that state: nothing is in flight against them, they are still the intent, and
-each row says exactly what closed and what did not. A fifth word would be a
-change to the method rather than to this model, so it is not made here.
+**`PLAT3` reads Planned after an initiative merged**, which reads strangely and
+is accurate. The [status vocabulary](./README.md#status-vocabulary) has four
+words — Planned, In flight, Reached, Abandoned — and none of them means *an
+initiative delivered most of this and stopped*. Nothing is in flight against
+`PLAT3`, it is still the intent, and its row says exactly what closed and what
+did not. `PLAT1` was in the same state until initiative 16 finished it. A fifth
+word would be a change to the method rather than to this model, so it is not
+made here.
+
+**`PLAT7` is a structural plateau, and it is the first one here that changes
+no behaviour.** Nothing the method does gets better when the narrative folders
+move; what changes is what a reader concludes from a directory listing. Five
+numbered folders beside five unnumbered ones says the numbers mark what
+matters, and the unnumbered ones are not the architecture at all — the parse
+has said so, in a constant named `NARRATIVE`, since before anybody noticed.
+[Decision 5](../decisions/5_folders-that-are-not-the-architecture.md) reasoned
+the move out and declined to make it, because it touches five folders in every
+tree, every skill that writes into one, and that constant.
+
+**It depends on `PLAT1` and on nothing else.** A folder move rewrites paths in
+documents that declare relationships, and the declarations have to survive it —
+which is checkable now that a relationship is a stated thing rather than a line
+in a picture. Decision 5's carve-out is what makes the move legal at all: a
+merged document's claims are immutable, its links may be repaired.
 
 **`PLAT2` and `PLAT5` keep their rows.** Nothing here is deleted when it stops
 being the plan: a reached plateau removed leaves no evidence the direction was
@@ -136,6 +156,9 @@ The graph is a view.
 | `PLAT1` | «Plateau» Declared relationships | `PLAT2` | «Plateau» A walkable model | nothing to walk without it |
 | `PLAT2` | «Plateau» A walkable model | `PLAT3` | «Plateau» A federated graph | an index with no consumer |
 | `PLAT3` | «Plateau» A federated graph | `PLAT4` | «Plateau» Checkable across the boundary | nothing to resolve against |
+| `PLAT2` | «Plateau» A walkable model | `PLAT5` | «Plateau» A model somebody can read | a graph nobody can read is not read |
+| `PLAT1` | «Plateau» Declared relationships | `PLAT6` | «Plateau» A brief that answers one question | declared relationships are what a brief is made of |
+| `PLAT1` | «Plateau» Declared relationships | `PLAT7` | «Plateau» The model is only the model | a folder move must not break a declaration |
 
 ## The gaps
 
@@ -195,7 +218,7 @@ flowchart TB
 | `GAP14` | **A reader must read 33 documents** | Understanding one domain, function or use case means opening every layer document and holding the relevant rows in your head. The model has 368 elements across 33 documents; nothing assembles the subset that answers one question | `PLAT6` |
 | `GAP15` | **No view shows a scope across the layers** | Each layer document diagrams itself. The chain a reader actually needs — a business service, the information it uses, the application component that realizes it, the technology it runs on — is spread across four documents and drawn in none of them. That chain is where understanding is thinnest and it is the view a brief must lead with | `PLAT6` |
 | `GAP16` | **A derived document looks permanent** | The PDF and the portal say they are rendered from the repository; neither says it is disposable. A generated document that does not announce what it is gets committed, emailed, and quoted eight months later — which is the second source of truth this method exists to prevent | `PLAT6` |
-| `GAP17` | **Narrative folders sit inside the model** | `scope/`, `decisions/`, `reference/`, `reviews/` and `engagements/` are nested in `architecture/`, which says they are the architecture. `model_graph.py` already disagrees — it lists them as `NARRATIVE` and skips them. They are how the model got here, not what it says, and they belong in a sibling of it. Moving them touches five folders across every tree, every skill that writes into one, and the parse constant that names them — see [decision 5](../decisions/5_folders-that-are-not-the-architecture.md) | — |
+| `GAP17` | **Narrative folders sit inside the model** | `scope/`, `decisions/`, `reference/`, `reviews/` and `engagements/` are nested in `architecture/`, which says they are the architecture. `model_graph.py` already disagrees — it lists them as `NARRATIVE` and skips them. They are how the model got here, not what it says, and they belong in a sibling of it. Moving them touches five folders across every tree, every skill that writes into one, and the parse constant that names them — see [decision 5](../decisions/5_folders-that-are-not-the-architecture.md) | `PLAT7` |
 
 ## What is deliberately not here
 

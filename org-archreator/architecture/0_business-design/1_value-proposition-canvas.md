@@ -135,10 +135,10 @@ A selection — the full sets are in the tables. The dashed product is Pending,
 and so is every edge leaving it.
 
 | ID | Product | For | Price |
-| -- | ------- | --- | ----- |
-| `PROD1` | **archreator, the open method** — the skills, the documentation, the guidance site | `CS1` primarily | Free, open source |
-| `PROD2` | **Consulting** — the Requester's time, delivering with archreator | `CS2` | Hourly |
-| `PROD3` | **The archreator portal** — enterprise architecture as a service. **Pending — target state** | `CS2`, `CS3` | One-off: the cost of running the agents, plus a small product fee |
+| -- | ------- | --- | ----- | ----- |
+| `PROD1` | **archreator, the open method** — the skills, the documentation, the guidance site | `CS1` primarily | Free, open source | Live |
+| `PROD2` | **Consulting** — the Requester's time, delivering with archreator | `CS2` | Hourly | Live |  |
+| `PROD3` | **The archreator portal** — enterprise architecture as a service | `CS2`, `CS3` | One-off: the cost of running the agents, plus a small product fee | **Pending — target state** (`COA2`) |
 
 | ID | Pain reliever | Relieves | Offered by |
 | -- | ------------- | -------- | ---------- |
@@ -163,11 +163,12 @@ and so is every edge leaving it.
      authoritative; the description beside it is checked against the
      catalogue that defines the element. -->
 
-| From | From element | To | To element | Relationship |
-| ---- | ------------ | -- | ---------- | ------------ |
-| `PROD1` | «Product» archreator, the open method | `PREL1` | «Pain Reliever» The gated layer walk. | offers |
-| `PROD1` | «Product» archreator, the open method | `PREL4` | «Pain Reliever» The cost of an architect collapses to the cost of an agent. | offers |
-| `PROD3` | «Product» The archreator portal | `PREL4` | «Pain Reliever» The cost of an architect collapses to the cost of an agent. | would offer |
+| From | From element | To | To element | Relationship | Notes |
+| ---- | ------------ | -- | ---------- | ------------ | ----- |
+| `PROD1` | «Product» archreator, the open method | `PREL1` | «Pain Reliever» The gated layer walk. | offers |  |
+| `PROD1` | «Product» archreator, the open method | `PREL4` | «Pain Reliever» The cost of an architect collapses to the cost of an agent. | offers |  |
+| `PROD3` | «Product» The archreator portal | `PREL4` | «Pain Reliever» The cost of an architect collapses to the cost of an agent. | would offer | **Pending — future initiative** |
+| `PROD3` | «Product» The archreator portal | `GCRE5` | «Gain Creator» The method carries the competence, so experience level stops being the gate | would offer | **Pending — future initiative** |
 
 ## Fit check
 

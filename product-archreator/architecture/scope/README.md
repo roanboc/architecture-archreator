@@ -99,6 +99,7 @@ approved on a date and against what information.
 | 13 | [Answer one question](./13_answer-one-question.md) | [`archreator` PR #41](https://github.com/roanboc/archreator/pull/41) | The graph portal is deleted and replaced by a generated Markdown brief: name a scope, get the elements that matter, the multi-layer views that show how they depend on each other, and what the documents already say — disposable, and never committed |
 | 14 | [Focus the question](./14_focus-the-question.md) | The corresponding `archreator` change | A reader confirms Business, Information, Solution, Impact or Decision focus before the agent generates a reproducible, bounded brief |
 | 15 | [Inspect a diagram](./15_inspect-a-diagram.md) | The corresponding `archreator` change | Any Mermaid diagram in the portal opens full-screen with zoom, pan and keyboard controls while Markdown and PDF remain unchanged |
+| 16 | [Say whether a relationship is true](./16_say-whether-a-relationship-is-true.md) | [`archreator` PR #46](https://github.com/roanboc/archreator/pull/46), and the model changes it makes necessary | A relationship carries whether it is true today: the marker a row already writes for the grounding rule marks the relationships it declares, 32 are marked pending, and the dashed edge stops meaning four different things |
 
 ## Pre-rebuild prior art
 
