@@ -97,6 +97,7 @@ approved on a date and against what information.
 | 11 | [Cross the boundary](./11_cross-the-boundary.md) | [`archreator` PR #41](https://github.com/roanboc/archreator/pull/41) | A reference can name an element in another model, resolved against that model or against a declared import, and the graph stops stopping at the boundary |
 | 12 | [Make it readable](./12_make-it-readable.md) | [`archreator` PR #41](https://github.com/roanboc/archreator/pull/41) | The navigator becomes something a person can use: named boxes, a panel carrying the documents' own prose, guided search, and views that can be arranged, kept and shared |
 | 13 | [Answer one question](./13_answer-one-question.md) | [`archreator` PR #41](https://github.com/roanboc/archreator/pull/41) | The graph portal is deleted and replaced by a generated Markdown brief: name a scope, get the elements that matter, the multi-layer views that show how they depend on each other, and what the documents already say — disposable, and never committed |
+| 14 | [Focus the question](./14_focus-the-question.md) | The corresponding `archreator` change | A reader confirms Business, Information, Solution, Impact or Decision focus before the agent generates a reproducible, bounded brief |
 
 ## Pre-rebuild prior art
 
