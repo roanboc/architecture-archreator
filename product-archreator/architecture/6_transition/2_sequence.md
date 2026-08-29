@@ -35,12 +35,12 @@ flowchart LR
 
 | # | Initiative | Closes | Reaches | Gate | State |
 | - | ---------- | ------ | ------- | ---- | ----- |
-| 8 | [Declare the relationships, and let the graph be walked](../scope/8_declare-the-relationships-and-let-the-graph-be-walked.md) | `GAP1`, `GAP2`, `GAP3`, `GAP4` | `PLAT1` | 2 | In flight |
+| 8 | [Declare the relationships, and let the graph be walked](../scope/8_declare-the-relationships-and-let-the-graph-be-walked.md) | `GAP1`, `GAP2`, `GAP3`, `GAP4` | `PLAT1` | 2 | **Merged** — `GAP1`–`GAP3` closed; `GAP4` is not, and `PLAT1` waits on it |
 | 9 | [Walk the model](../scope/9_walk-the-model.md) | `GAP5`, `GAP6` | `PLAT2` | 2 and 3, both delegated ([decision 2](../decisions/2_the-requester-delegates-the-remaining-gates.md)) | **Written off** — see [decision 4](../decisions/4_the-graph-portal-is-retired.md); `GAP6`'s answer, the shared traversal, is kept |
-| 10 | [Federate the graph](../scope/10_federate-the-graph.md) | `GAP7`, `GAP8` | `PLAT3` | 2 and 3, both delegated ([decision 2](../decisions/2_the-requester-delegates-the-remaining-gates.md)) | In flight |
-| 11 | [Cross the boundary](../scope/11_cross-the-boundary.md) | `GAP9` | `PLAT4` | 2 and 3, both delegated ([decision 2](../decisions/2_the-requester-delegates-the-remaining-gates.md)) | In flight |
+| 10 | [Federate the graph](../scope/10_federate-the-graph.md) | `GAP7`, `GAP8` | `PLAT3` | 2 and 3, both delegated ([decision 2](../decisions/2_the-requester-delegates-the-remaining-gates.md)) | **Merged** — `GAP8` closed; `GAP7` half closed, and nothing consumes the index |
+| 11 | [Cross the boundary](../scope/11_cross-the-boundary.md) | `GAP9` | `PLAT4` | 2 and 3, both delegated ([decision 2](../decisions/2_the-requester-delegates-the-remaining-gates.md)) | **Merged** — `PLAT4` reached |
 | 12 | [Make it readable](../scope/12_make-it-readable.md) | `GAP10`–`GAP13` | `PLAT5` | 1 by the Requester's own direction; 2 and 3 delegated ([decision 3](../decisions/3_the-navigator-earns-its-own-initiative.md)) | **Written off** — its plateau is abandoned, and what it built is kept |
-| 13 | [Answer one question](../scope/13_answer-one-question.md) | `GAP14`–`GAP16` | `PLAT6` | 1 by the Requester's own direction; 2 and 3 delegated ([decision 4](../decisions/4_the-graph-portal-is-retired.md)) | In flight |
+| 13 | [Answer one question](../scope/13_answer-one-question.md) | `GAP14`–`GAP16` | `PLAT6` | 1 by the Requester's own direction; 2 and 3 delegated ([decision 4](../decisions/4_the-graph-portal-is-retired.md)) | **Merged** — `PLAT6` reached |
 
 ### Relationships
 
