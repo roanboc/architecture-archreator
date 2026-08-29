@@ -85,3 +85,4 @@ approved on a date and against what information.
 | #   | Scope document | Delivered as | Summary |
 | --- | --------------- | ------------ | ------- |
 | 1 | [Rebuild the models on the current method](./1_rebuild-the-models-on-the-current-method.md) | The `rebuild` branch | Three trees rebuilt from an empty branch against the current method, with the previous corpus preserved at the tag `pre-rebuild-2026-08` |
+| 2 | [Improve the model reading experience](./2_improve-model-reading-experience.md) | Changes to the `archreator` skill corpus and scaffold | ID-and-name references, visual canvases, named-layer questions and search-safe example IDs |
