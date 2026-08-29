@@ -18,12 +18,6 @@ case is indistinguishable from a preference.
 
 ## Notes
 
-**None.** The notes that existed were not carried through the clean-room
-rebuild recorded in
-[scope document 1](../scope/1_rebuild-the-models-on-the-current-method.md).
-The mechanism is intact and the record of having exercised it is not, which is
-why `CAP2.3` is described as having no evidence today.
-
 | # | Note | What it taught |
 | - | ---- | -------------- |
-| — | — | — |
+| 3 | [Modeling an organization that already knew its own processes](./3_breadth-first-depth-on-pain.md) | Ask what already exists; cover levels 1–2 broadly and follow named pain into level 3; let references propose rather than decide |

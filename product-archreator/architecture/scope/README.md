@@ -90,3 +90,14 @@ approved on a date and against what information.
 | 4 | [Say what a document is worth, and keep what it came from](./4_say-what-a-document-is-worth-and-keep-what-it-came-from.md) | The same branch | Every document that defines an element declares how far it has been validated, and the transcripts and documents a model was built from are kept beside it, dated and indexed |
 | 5 | [Ask where the project lives, and let it publish](./5_ask-where-the-project-lives-and-let-it-publish.md) | [`archreator` PR #39](https://github.com/roanboc/archreator/pull/39) | Bootstrap asks which repository a project lives in, and a public GitHub answer activates the checks and publishing workflows the scaffold now ships inert |
 | 6 | [Improve the model reading experience](./6_improve-model-reading-experience.md) | [`archreator` PR #40](https://github.com/roanboc/archreator/pull/40) | ID-and-name references, visual canvases, named-layer questions and search-safe example IDs |
+| 7 | [Recover pre-rebuild learning](./7_recover-pre-rebuild-learning.md) | The pull request for this initiative | Restores engagement evidence, makes prior approvals discoverable and records the accepted catalogue-splitting threshold |
+
+## Pre-rebuild prior art
+
+The clean-room rebuild preserved the previous corpus at tag
+`pre-rebuild-2026-08`. These two approved initiatives remain the rationale for
+rules still present in the method; they are linked as immutable history, not
+listed above as current-model initiatives:
+
+- [Initiative 14 — A model a human can read](https://github.com/roanboc/architecture-archreator/blob/pre-rebuild-2026-08/product-archreator/architecture/scope/14_a-model-a-human-can-read.md) — Gate 2 approved 2026-08-14.
+- [Initiative 15 — The document describes the subject](https://github.com/roanboc/architecture-archreator/blob/pre-rebuild-2026-08/product-archreator/architecture/scope/15_the-document-describes-the-subject.md) — Gate 2 approved 2026-08-15.
