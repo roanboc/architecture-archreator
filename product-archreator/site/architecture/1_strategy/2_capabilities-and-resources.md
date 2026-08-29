@@ -62,6 +62,19 @@ the links resolve, not that the sentence around them is still true. The
 capability is recorded as weak rather than left out, because a gap that is
 written down is one somebody can close.
 
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `RES2` | «Resource» The method's own documents | `CAP1` | «Capability» State the method in one read | is the source of every claim in |
+| `RES1` | «Resource» The page source | `CAP1` | «Capability» State the method in one read | enables |
+| `RES1` | «Resource» The page source | `CAP2` | «Capability» Route a reader to the right repository | enables |
+| `RES2` | «Resource» The method's own documents | `CAP3` | «Capability» Stay true as the method changes | is what |
+
 ## Resources
 
 | ID | Resource | Kind | What it is | State |

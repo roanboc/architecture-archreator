@@ -44,7 +44,7 @@ portfolio is what makes the rest of the model make sense — two products may
 share every capability and still need entirely different channels and
 processes. On the company track the products, channels, and customer
 relationships are derived from the business model canvases (see
-[0_business-design/](../0_business-design/README.md#from-canvas-to-archimate)),
+[0_business-design/](../0_business-design/README.md)),
 and Key Partners land in [1_business-actors-and-roles.md](./1_business-actors-and-roles.md) as external
 actors, each with the «Contract» or «Business Collaboration» that binds
 them.
@@ -84,3 +84,13 @@ reader never mistakes it for a person.
 
 Every business service is realized by application services — the mapping is
 in `4_application/1_application-services.md`.
+
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `ROLE1` | «Role» Reader | `BSVC1` | «Business Service» Explain the problem and the answer | served by |

@@ -61,6 +61,19 @@ All paths are in the [`archreator`](https://github.com/roanboc/archreator)
 repository, which is where the method's source lives. This repository holds
 the models of it.
 
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `ACMP1` | «Application Component» The skill corpus and plugin manifest | `ACMP4` | «Application Component» The scaffold | emits |
+| `ACMP4` | «Application Component» The scaffold | `ACMP3` | «Application Component» The documentation checks | carries |
+| `ACMP1` | «Application Component» The skill corpus and plugin manifest | `ACMP2` | «Application Component» The guidance site | explained by |
+| `ACMP5` | «Application Component» The portal | `ACMP1` | «Application Component» The skill corpus and plugin manifest | would run |
+
 ## Where the tiers divide
 
 **Four of five components are modeled one tier down, and one has nowhere to

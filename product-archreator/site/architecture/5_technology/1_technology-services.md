@@ -65,6 +65,16 @@ cheapest layer to change. That asymmetry is deliberate: the method keeps its
 value in Markdown, so the hosting underneath is a preference rather than a
 commitment.
 
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `TSVC2` | «Technology Service» Build-free deployment | `NODE1` | «Node» GitHub Pages | publishes to |
+
 ## What this layer deliberately does not have
 
 | Absent | Because |

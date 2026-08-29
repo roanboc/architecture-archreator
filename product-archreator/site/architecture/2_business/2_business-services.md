@@ -81,3 +81,16 @@ right one.
 **`BSVC2` names four things and the method now has seventeen skills.** A count
 on a page is a fact with an owner elsewhere, and it is the specific sentence
 most likely to be wrong first.
+
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `BSVC1` | «Business Service» Explain the problem and the answer | `BSVC2` | «Business Service» Say what an adopter receives | then |
+| `BSVC1` | «Business Service» Explain the problem and the answer | `BSVC4` | «Business Service» Send the reader to the right repository | or straight to |
+| `BSVC2` | «Business Service» Say what an adopter receives | `BIF1` | «Business Interface» The published page | reached through |
+| `BSVC3` | «Business Service» Give the two install commands | `BIF1` | «Business Interface» The published page | reached through |

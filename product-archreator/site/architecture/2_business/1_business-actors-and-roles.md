@@ -74,6 +74,16 @@ appears.
 | `ROLE1` | **Reader** | Reads the page and either follows a link out or leaves. Owes nothing, and is asked for nothing | They navigate away |
 | `ROLE2` | **Publisher** | Keeps the page true as the method changes, and merges the change that deploys it | The deployment succeeds |
 
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `ACT3` | «Actor» An AI coding agent | `ROLE2` | «Role» Publisher | edits the source for |
+
 ## No relationship is modeled
 
 **Deliberately.** ArchiMate would offer a «Business Collaboration» or a

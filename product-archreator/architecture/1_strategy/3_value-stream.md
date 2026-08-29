@@ -78,6 +78,19 @@ the layers are re-walked, not the subject re-modeled. Drawing it as a
 stage-to-stage loop would suggest a declined gate re-opens discovery, which it
 does not.
 
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `VS1.1` | «Value Stream» Adopt | `VS1.2` | «Value Stream» Model the subject | relates to |
+| `VS1.2` | «Value Stream» Model the subject | `VS1.6` | «Value Stream» Set the direction | where a direction is wanted |
+| `VS1.6` | «Value Stream» Set the direction | `VS1.3` | «Value Stream» Decide at the gates | relates to |
+| `VS1.5` | «Value Stream» Keep it true | `VS1.3` | «Value Stream» Decide at the gates | the next change |
+
 ## Where the stream is thin
 
 | Stage | The weakness |

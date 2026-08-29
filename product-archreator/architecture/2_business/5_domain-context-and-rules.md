@@ -5,7 +5,8 @@ _[← Business layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Business. The vocabulary the method uses, and the
 rules that bind every change made with it.
 
-**Status:** ● Validated at **Gate 2**, 2026-08-26.
+**Status:** ● Validated at **Gate 2** — `RULE1`–`RULE8` on 2026-08-26, `RULE9`
+on 2026-08-27 with [initiative 13](../scope/13_answer-one-question.md).
 
 ## Problem statement
 
@@ -48,6 +49,19 @@ The grey node is outside the method's boundary: archreator produces no code
 and knows nothing about the adopting project's stack. It governs the path a
 requirement takes to reach that code, and stops there.
 
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `ROLE1` | «Role» Requester | `ROLE2` | «Role» Agent | states a requirement to |
+| `ROLE2` | «Role» Agent | `BOBJ1` | «Business Object» The architecture model | reads and changes |
+| `ROLE2` | «Role» Agent | `BOBJ3` | «Business Object» The scope document | writes |
+| `ROLE1` | «Role» Requester | `BOBJ3` | «Business Object» The scope document | approves at gates in |
+
 ## Glossary
 
 Terms with a specific meaning here. Reuse them in documents and commit
@@ -58,7 +72,7 @@ messages; a synonym invented in passing is how a vocabulary starts to drift.
 | **Subject** | The thing being modeled — a company, a department, an application. Not the repository, and not the model |
 | **Depth** | How much of the six layers a project fills, and which gates apply: 1 Application, 2 Organization, 3 Enterprise. Declared once, in `CLAUDE.md` |
 | **Gate** | A point where the Requester approves before work continues. Four exist; which apply depends on the change |
-| **Layer** | One of the six numbered folders. The numbering is the assessment order |
+| **Layer** | One of the seven numbered folders. Layers 0–5 describe the subject, in the order a change is assessed in; layer 6 describes where it is going |
 | **Element** | One identified thing in the model, carrying a type prefix and a number |
 | **Grounding** | The requirement that every element names what realizes it, or says it is Pending |
 | **Initiative** | One change large enough to need a scope document |
@@ -86,13 +100,15 @@ says which. A rule nothing enforces is a preference.
 | `RULE6` | **An architecture document describes its subject, not its own construction.** No "this used to say", no counts of what was consolidated | A reader wants to know what is true, not how the document got there. The change log is `BOBJ3` | Review |
 | `RULE7` | **A rendering is never the model.** A portal or a PDF is rebuilt from the Markdown on every run, is never committed, and carries on every page the path of the file that produced it | A published copy a reader cannot trace back becomes the version they treat as true, and it drifts the moment the documents move | Construction: the staged copy is regenerated on every build, the whole tree is gitignored, and the theme prints and links each page's source |
 | `RULE8` | **The scaffold ships nothing that runs by itself.** A workflow arrives inert, in a directory the automation host does not read, and only an answer the Requester gave moves it where it runs | A pipeline that turns red on a project's first push teaches a team that the checks are noise, and one that publishes a model nobody agreed to publish cannot be un-published | Construction: the templates ship outside `.github/workflows/`, which is the only path the automation host reads, and `establish-project` moves what the answer selected and deletes the rest |
+| `RULE9` | **A summary of a meeting records facts, not judgements.** Decisions taken, constraints stated, numbers quoted, systems named, dates and owners — never who seemed frustrated, who is difficult, or what a tone implied | A repository keeps what is written in it for as long as it exists. A reading of a person is usually wrong, it is unfalsifiable, and it outlives both the meeting and the reason it seemed fair — long after everybody has forgotten enough context to correct it | Review. No validator can tell a fact from a judgement, and one that claimed to would be the worst kind of wrong |
 
-**Four of eight are carried by review, and that is not an oversight.**
+**Six of nine are carried by review, and that is not an oversight.**
 `RULE4` is fully mechanical, and `RULE7` and `RULE8` are carried by
 construction — a copy that is rebuilt from scratch every time and never
 committed cannot drift, and a file the automation host never reads cannot
-run, whoever forgets. The other five need a judgement — whether a layer genuinely
-did not change, whether a cell names a path or a team — and a check that fails
+run, whoever forgets. The other six need a judgement — whether a layer genuinely
+did not change, whether a cell names a path or a team, whether a sentence about
+a meeting states a fact or reads a person — and a check that fails
 wrongly teaches people to ignore the checks that do not.
 
 **`RULE3` is the one that surprises people.** A scope document that names an

@@ -157,6 +157,18 @@ and so is every edge leaving it.
 | `GCRE5` | The method carries the competence, so experience level stops being the gate | `GAIN5` | `PROD1`, `PROD3` |
 | `GCRE6` | The layered model: strategy can change without redoing technology, and the reverse | `GAIN6` | `PROD1` |
 
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `PROD1` | «Product» archreator, the open method | `PREL1` | «Pain Reliever» The gated layer walk. | offers |
+| `PROD1` | «Product» archreator, the open method | `PREL4` | «Pain Reliever» The cost of an architect collapses to the cost of an agent. | offers |
+| `PROD3` | «Product» The archreator portal | `PREL4` | «Pain Reliever» The cost of an architect collapses to the cost of an agent. | would offer |
+
 ## Fit check
 
 Every pain has a reliever and every gain a creator, which is the check this

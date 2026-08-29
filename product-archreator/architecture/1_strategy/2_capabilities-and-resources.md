@@ -111,6 +111,26 @@ retrospective except an initiative ending and somebody remembering. It is
 recorded as established because the skill exists and works, not because it
 runs often.
 
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `CAP5` | «Capability» Put the method and the model in the hands that need them | `CAP1` | «Capability» Discover a subject from nothing | precedes |
+| `CAP1` | «Capability» Discover a subject from nothing | `CAP2` | «Capability» Align a change through the layers | produces the model |
+| `CAP1` | «Capability» Discover a subject from nothing | `CAP7` | «Capability» Plan a transition | a baseline to measure from |
+| `CAP7` | «Capability» Plan a transition | `CAP2` | «Capability» Align a change through the layers | a target each change is judged against |
+| `CAP2` | «Capability» Align a change through the layers | `CAP3` | «Capability» Keep the model describing today | accumulates history |
+| `CAP3` | «Capability» Keep the model describing today | `CAP2` | «Capability» Align a change through the layers | returns a current model to |
+| `CAP2` | «Capability» Align a change through the layers | `CAP7` | «Capability» Plan a transition | a plateau reached or abandoned |
+| `CAP4` | «Capability» Prove the model is internally consistent | `CAP2` | «Capability» Align a change through the layers | guards |
+| `CAP4` | «Capability» Prove the model is internally consistent | `CAP3` | «Capability» Keep the model describing today | guards |
+| `CAP2` | «Capability» Align a change through the layers | `CAP6` | «Capability» Learn from an engagement | finishes an initiative |
+| `CAP6` | «Capability» Learn from an engagement | `CAP5` | «Capability» Put the method and the model in the hands that need them | proposals for the method |
+
 ## Resources
 
 ```mermaid
@@ -141,7 +161,7 @@ flowchart LR
 | ID | Resource | Kind | What it is | State |
 | -- | -------- | ---- | ---------- | ----- |
 | `RES1` | **The skill corpus** | Knowledge | Seventeen skills in a fixed format — a description that declares its kind, a set of required sections, and frontmatter binding it to the process it realizes. `plugins/archreator/skills/` | Held, and the thing most often changed |
-| `RES2` | **The scaffold** | Asset | The empty project an adopter starts from: six layer folders, the notation, the validators, the portal configuration, the workflow templates it ships switched off, and placeholder entry points. `plugins/archreator/scaffold/` | Held |
+| `RES2` | **The scaffold** | Asset | The empty project an adopter starts from: seven layer folders, the notation, the validators, the portal configuration, the workflow templates it ships switched off, and placeholder entry points. `plugins/archreator/scaffold/` | Held |
 | `RES3` | **The validators** | Asset | `check_links.py` and `check_model.py`, which ship inside the scaffold, plus `check_skills.py`, which does not — a downstream project has no skills to check. `query_model.py` ships beside them and is not one of them: it reports and never fails | Held |
 | `RES4` | **The notation** | Knowledge | ArchiMate semantics encoded onto Mermaid with four devices — label form, glyph, shape, colour — stated once in `scaffold/architecture/README.md` | Held |
 | `RES5` | **The plugin package** | Asset | The manifests that publish the corpus to a marketplace an adopter can install from. `plugin.json` and `marketplace.json` | Held, and the only part `P5` calls disposable |
@@ -157,6 +177,22 @@ model already applies it.
 needs it without having the skills; `check_skills.py` holds the two in step.
 That is `P1`'s escape clause working as intended — one unavoidable copy, with
 a check on it.
+
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `RES1` | «Resource» The skill corpus | `CAP1` | «Capability» Discover a subject from nothing | enables |
+| `RES1` | «Resource» The skill corpus | `CAP2` | «Capability» Align a change through the layers | enables |
+| `RES4` | «Resource» The notation | `RES1` | «Resource» The skill corpus | constrains what |
+| `RES2` | «Resource» The scaffold | `RES3` | «Resource» The validators | carries |
+| `RES3` | «Resource» The validators | `CAP4` | «Capability» Prove the model is internally consistent | enables |
+| `RES2` | «Resource» The scaffold | `CAP5` | «Capability» Put the method and the model in the hands that need them | enables |
+| `RES5` | «Resource» The plugin package | `RES1` | «Resource» The skill corpus | delivers |
 
 ## Courses of action
 

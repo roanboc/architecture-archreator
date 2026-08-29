@@ -53,6 +53,16 @@ reviewed and what is live.** A reviewer reading the diff has read the
 deployment. That property disappears the first time a template, a bundler or a
 generator is introduced, which is the real cost of adding one.
 
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `NODE2` | «Node» GitHub Actions | `ART1` | «Artifact» The site directory | uploads |
+
 ## The workflow
 
 `.github/workflows/deploy-site.yml` in the

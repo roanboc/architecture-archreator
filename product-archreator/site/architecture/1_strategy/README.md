@@ -28,7 +28,7 @@ flows_.
 
 The `Source` column names the canvas blocks each document is derived from;
 the block-by-block element mapping lives in
-[0_business-design/](../0_business-design/README.md#from-canvas-to-archimate)
+[0_business-design/](../0_business-design/README.md)
 and is not restated here. Principles are the exception — they have no canvas
 block, and are discovered directly with the Requester in either track.
 
@@ -67,3 +67,15 @@ flowchart TB
 **No value stream box.** This subject has one stage — somebody reads a page —
 and dressing a single step as a flow would be the only dishonest node in the
 diagram.
+
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `STK1` | «Stakeholder» A prospective adopter | `DRV1` | «Driver» Nobody adopts what they cannot evaluate first | concerned with |
+| `G1` | «Goal» A prospective adopter can decide in one page | `CAP1` | «Capability» State the method in one read | requires |
+| `CAP1` | «Capability» State the method in one read | `RES1` | «Resource» The page source | uses |

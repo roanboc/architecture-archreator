@@ -69,6 +69,18 @@ flowchart TB
 area is realized by its parts; only the level-2 capabilities point at
 something concrete.
 
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `CAP1` | «Capability» Business understanding | `CAP3` | «Capability» Delivery from design | produces a model for |
+| `CAP2` | «Capability» Model stewardship | `CAP1` | «Capability» Business understanding | keeps true what |
+| `CAP3` | «Capability» Delivery from design | `CAP2` | «Capability» Model stewardship | feeds experience back to |
+
 ## The capabilities
 
 ```mermaid
@@ -118,6 +130,17 @@ purpose. It is the first stage of `COA1`.
 **`CAP2.3` has been exercised.** [Engagement note 3](../engagements/3_breadth-first-depth-on-pain.md)
 records how an improvised depth rule, use of an existing quality-management
 map and reference-led capability conversation became reusable method guidance.
+
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `CAP1.1` | «Capability» Gated discovery | `CAP3.1` | «Capability» Design-to-delivery continuity | frames what |
+| `CAP1.2` | «Capability» A shared architectural language | `CAP2.1` | «Capability» One documented model | makes shareable what |
 
 ## Values
 
@@ -176,3 +199,17 @@ why it could be taken first. Every dashed edge is still Pending.
 deal of `RES1` before returning anything. That ordering is settled by
 [decision 1](../decisions/1_take-coa1-staged.md), which also records what
 would reopen it.
+
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `COA1` | «Course of Action» AI agents acting as consultants | `RES2` | «Resource» The method | stage 1 lands on |
+| `COA1` | «Course of Action» AI agents acting as consultants | `RES1` | «Resource» The Requester's knowledge and time | later stages relieve |
+| `COA2` | «Course of Action» Build the portal | `RES4` | «Resource» The portal | would create |
+| `COA2` | «Course of Action» Build the portal | `RES1` | «Resource» The Requester's knowledge and time | would spend |
+| `COA3` | «Course of Action» Instrument the adoption measure | `RES1` | «Resource» The Requester's knowledge and time | would spend |

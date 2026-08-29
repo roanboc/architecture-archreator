@@ -87,6 +87,19 @@ flowchart LR
 | `ASM1` | **A repository listing does not explain why a method exists** | A visitor landing on `README.md` sees what the repository contains, not the problem it solves. The two are different documents for different readers |
 | `ASM2` | **The method is one person's spare capacity** | Whatever the site costs to keep working comes directly out of the method. That is the constraint every technology choice here answers to |
 
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `STK1` | «Stakeholder» A prospective adopter | `DRV1` | «Driver» Nobody adopts what they cannot evaluate first | concerned with |
+| `STK2` | «Stakeholder» The maintainer | `DRV2` | «Driver» Anything that must be operated will rot | concerned with |
+| `DRV1` | «Driver» Nobody adopts what they cannot evaluate first | `ASM1` | «Assessment» A repository listing does not explain why a method exists | evidenced by |
+| `DRV2` | «Driver» Anything that must be operated will rot | `ASM2` | «Assessment» The method is one person's spare capacity | evidenced by |
+
 ## Goals and principles
 
 | ID | Goal | Answers | Realized by |

@@ -1,0 +1,76 @@
+# Roadmap
+
+_[← EA home](../README.md) · [Scope documents](../scope/README.md)_
+
+**ArchiMate viewpoint:** Implementation & Migration (Plateau, Gap).
+
+Where this architecture is going, what stands between it and today, and the
+order the distance is closed in.
+
+This folder is **the only place in the model permitted to describe a future.**
+Every numbered layer describes the current state and is kept that way; scope
+documents describe one delivered change each. Neither can hold an intention
+without becoming untrustworthy — a target element sitting in a current-state
+layer makes the whole layer ambiguous, and a plan spread across scope
+documents is a plan nobody can read in one place.
+
+Agent guidance: the `plan-the-transition` skill.
+
+## Analysis order
+
+| #   | Document | Elements | Question it answers |
+| --- | -------- | -------- | ------------------- |
+| 1   | [1_target-state.md](./1_target-state.md) | Plateaus, Gaps | Where should this be, and what is missing between here and there? |
+| 2   | [2_sequence.md](./2_sequence.md) | — | In what order are the gaps closed, and what has to be true first? |
+
+The order is not arbitrary. A gap is the distance between the baseline and a
+named plateau, so the plateaus have to exist before a gap can be derived
+rather than asserted — and the sequence is an ordering of gaps, so it comes
+last.
+
+## What this roadmap is about
+
+One subject, and it is narrower than "the method": **the model's relationships,
+and what can be built once they are declared rather than drawn.**
+
+The method models `BOBJ2` — the element — as a first-class thing with an
+identifier, a type and a rule that it names what realizes it. It models no
+counterpart for the relationship *between* two elements. Nothing decided that;
+it is an omission, and everything on this roadmap is a consequence of it.
+
+## What is approved here, and what is not
+
+**Gate 1** approves this folder: that the destination is right and the order
+is right. It is the same gate the strategy layer passes, because both are the
+Requester approving a direction.
+
+**It approves no work.** Every initiative on the sequence still enters
+`align-change-through-layers`, still aligns through the numbered layers, and
+still stops at its own Gate 2 before anything is built. A roadmap treated as
+pre-approval for the changes on it has quietly removed every gate the method
+has.
+
+## Status vocabulary
+
+A plateau and a gap each carry a status, and the vocabulary is short on
+purpose.
+
+| Status | Means |
+| ------ | ----- |
+| **Planned** | Named and approved as intent. Nothing is in flight |
+| **In flight** | An initiative is open against it. Its scope document names the gaps it closes |
+| **Reached** | The state is true today. The row stays, naming the initiative that arrived at it |
+| **Abandoned** | No longer the intent. The row stays, with why |
+
+**Nothing here is deleted when it stops being the plan.** A reached plateau
+that is removed leaves no evidence the direction was ever chosen, and an
+abandoned one that is removed invites somebody to propose it again in two
+years.
+
+## Notation
+
+Glyph, shape and colour follow
+[`../README.md` § Notation conventions](../README.md#notation-conventions),
+which stays the single source. Both element types take the Implementation &
+Migration rose, ramped from plateau to gap. A **dashed edge** means the state
+is not reached yet, which in this folder is most of them.

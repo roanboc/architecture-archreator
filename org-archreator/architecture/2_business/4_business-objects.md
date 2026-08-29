@@ -68,6 +68,20 @@ flowchart TB
 | `BOBJ6` | **A delivered architecture** — the model a client receives and owns afterwards | **The client** | `BPROC4`, `BPROC5` | The client's repository, which this organization does not keep | `ROLE2`, with `ACT2` |
 | `BOBJ7` | **A client's own approval** — their Requester granting their gate | **The client** | `BPROC3` | The Approvals table in their repository | Their own project |
 
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `BOBJ2` | «Business Object» An initiative | `BOBJ1` | «Business Object» A model | changes |
+| `BOBJ2` | «Business Object» An initiative | `BOBJ3` | «Business Object» A gate approval | records |
+| `BOBJ5` | «Business Object» An engagement | `BOBJ6` | «Business Object» A delivered architecture | produces |
+| `BOBJ5` | «Business Object» An engagement | `BOBJ4` | «Business Object» An engagement note | generalized into |
+| `BOBJ6` | «Business Object» A delivered architecture | `BOBJ7` | «Business Object» A client's own approval | approved by |
+
 ## What this organization does not keep
 
 **`BOBJ5` is the object with no storage, and that is deliberate.** A client's

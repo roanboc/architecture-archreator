@@ -89,3 +89,14 @@ reader never mistakes it for a person.
 
 Every business service is realized by application services — the mapping is
 in `4_application/1_application-services.md`.
+
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `ACT2` | «Actor» The AI agent | `ROLE2` | «Role» Consultant | assists in |
+| `ROLE2` | «Role» Consultant | `BSVC3` | «Business Service» Advisory and delivery with the method | delivers |

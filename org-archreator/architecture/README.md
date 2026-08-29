@@ -25,7 +25,9 @@ this order — strategy first, technology last — and captured in a
 | 3   | [3_information/](./3_information/README.md) | Passive structure (data) | What information exists, where does it live, how does it flow?               |
 | 4   | [4_application/](./4_application/README.md) | Application layer        | Which software services and components realize the business services?       |
 | 5   | [5_technology/](./5_technology/README.md)   | Technology layer         | What runs it all — runtimes, tooling, build, hosting, deployment?            |
+| 6   | [6_transition/](./6_transition/README.md) | Implementation & Migration | Where should this go, what stands in the way, and in what order? |
 | —   | [domains/](./domains/README.md)             | _the same layers, nested_ | Which business lines own their own model, and what they expose to each other |
+| —   | [federation.md](./federation.md)            | _none — an index_        | Which other models belong with this one, and where their projections are published |
 
 Layer `0` is the odd one out: it holds no ArchiMate elements at all, only
 the Value Proposition and Business Model canvases the architecture is
@@ -58,7 +60,7 @@ Rules that make the ladder work:
   initiative — Depth 1 → 2 makes the organization the subject and fills the
   canvases; Depth 2 → 3 splits the model into domains. Descoping collapses
   the tree. Both are the Requester's call, recorded like any other change.
-- **Every depth still gets all six layer folders.** A layer with nothing to
+- **Every depth still gets all seven layer folders.** A layer with nothing to
   say yet is marked "not started" in its README's table, not deleted — an
   unfilled layer is a known gap, a missing folder is an unknown one.
 - **Depth is about the subject, not the effort.** A large application is
@@ -269,6 +271,20 @@ flowchart TB
 One thread from why the organization exists down to what it runs on. The other
 product — advisory and delivery — has no application box, and that absence is
 the model's most consequential finding.
+
+### Relationships
+
+<!-- Transcribed from this document's diagrams. The identifier is
+     authoritative; the description beside it is checked against the
+     catalogue that defines the element. -->
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `G4` | «Goal» Architectural quality without scarce expertise | `VS1` | «Value Stream» From first contact to a delivered outcome, and back | realized by |
+| `VS1` | «Value Stream» From first contact to a delivered outcome, and back | `BSVC1` | «Business Service» The method, published and installable | realized by |
+| `ACT1` | «Actor» The Requester | `BSVC1` | «Business Service» The method, published and installable | assigned to |
+| `BSVC1` | «Business Service» The method, published and installable | `ACMP1` | «Application Component» The skill corpus and plugin manifest | realized by |
+| `ACMP1` | «Application Component» The skill corpus and plugin manifest | `NODE1` | «Node» The code host | runs on |
 
 ## Reading order
 
