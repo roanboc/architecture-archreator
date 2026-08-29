@@ -11,7 +11,10 @@ restated on 2026-08-27 with
 `BSVC8` on 2026-08-27 with [initiative 9](../scope/9_walk-the-model.md);
 `BSVC3` again on 2026-08-27 with [initiative 11](../scope/11_cross-the-boundary.md);
 `BSVC8` again on 2026-08-27 with [initiative 12](../scope/12_make-it-readable.md)
-and with [initiative 13](../scope/13_answer-one-question.md).
+and with [initiative 13](../scope/13_answer-one-question.md), then restated on
+2026-08-29 with [initiative 14](../scope/14_focus-the-question.md); `BSVC7` and
+`BIF5` restated on 2026-08-29 with
+[initiative 15](../scope/15_inspect-a-diagram.md).
 
 ## How to read this document
 
@@ -83,8 +86,8 @@ flowchart TB
 | `BSVC4` | **Decision and scope recording** | A durable record of what was approved, by whom, and what they were shown — and of the calls too small to be initiatives | `CAP2`, `CAP3` | `write-scope-document`, `record-decision` |
 | `BSVC5` | **Method distribution** | An installable plugin and a scaffold that is a working project on its first commit | `CAP5` | `plugin.json`, `marketplace.json`, the scaffold, `docs/` |
 | `BSVC6` | **Model restatement** | A model that has stopped reading as a description of today turned back into one, and what the method failed to cover captured before it evaporates | `CAP3`, `CAP6` | `restate-current-state`, `run-retrospective` |
-| `BSVC7` | **Model publication** | The model they already have, rendered as a searchable website and printed as one document, with every page carrying the path of the file that produced it and a route back for a question — and, where the repository it lives in can serve it, published there rather than handed over as a folder | `CAP5` | `build_docs.py`, `export_pdf.py`, `mkdocs.yml` and `overrides/` in the scaffold, the question form beside them, and the publishing workflow the scaffold ships inert |
-| `BSVC8` | **Model interrogation** | Answers to the questions a table cannot give — what a change to one element would touch, which catalogue rows name no realizing artifact while their neighbours do, and what one named scope of the model consists of. Asked at a terminal; the last is answered as a document anyone can read | `CAP2`, `CAP4` | `query_model.py` and `build_brief.py`, both reading what `build_model.py` writes |
+| `BSVC7` | **Model publication** | The model they already have, rendered as a searchable website and printed as one document, with every page carrying the path of the file that produced it and a route back for a question. A portal reader can open any Mermaid diagram full-screen, zoom, pan and return it to the page without changing the model. Where the repository can serve the portal, it is published there rather than handed over as a folder | `CAP5` | `build_docs.py`, `export_pdf.py`, `mkdocs.yml` and `overrides/` in the scaffold, the question form beside them, and the publishing workflow the scaffold ships inert |
+| `BSVC8` | **Model interrogation** | Answers to the questions a table cannot give — what a change to one element would touch, which catalogue rows name no realizing artifact while their neighbours do, and what one named scope of the model consists of for a confirmed Business, Information, Solution, Impact or Decision focus. The first two are asked at a terminal; the last is answered as a document anyone can read | `CAP2`, `CAP4` | `answer-architecture-question`, `query_model.py` and `build_brief.py`, reading what `build_model.py` writes |
 | `BSVC9` | **Transition planning** | A destination the adopter's own goals justify, the gaps between it and today derived rather than asserted, and a sequence ordered by dependency — approved as direction and never as permission to build | `CAP7` | `plan-the-transition` |
 
 | ID | Product | What it aggregates | Realized by |
@@ -191,7 +194,7 @@ flowchart LR
 | `BIF2` | **The repository, read directly** | Anyone who clones or browses it, including an agent with no plugin installed | `BSVC5` |
 | `BIF3` | **Continuous integration** | Nobody, until something fails — then `ROLE2` and `ROLE3` | `BSVC3` |
 | `BIF4` | **The published site** | A prospective adopter who has not installed anything | `BSVC5` |
-| `BIF5` | **The model, rendered** | `STK5` — the reader outside the repository, as a portal in a browser or a PDF in a mail attachment | `BSVC7` |
+| `BIF5` | **The model, rendered** | `STK5` — the reader outside the repository, as a portal in a browser whose diagrams can be inspected full-screen, or a static PDF in a mail attachment | `BSVC7` |
 
 **`BIF5` is the only channel the method does not operate.** The portal is a
 folder of files an adopter hosts wherever they choose, or does not host at

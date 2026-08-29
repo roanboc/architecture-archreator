@@ -13,7 +13,10 @@ and `ACMP8` restated on 2026-08-27 with
 2026-08-27 with [initiative 10](../scope/10_federate-the-graph.md); `ACMP6`,
 `ACMP7`, `ACMP8`, `ACMP14` and `ACMP16` on 2026-08-27 with
 [initiative 11](../scope/11_cross-the-boundary.md); `ACMP7`, `ACMP8` and `ACMP16`
-on 2026-08-27 with [initiative 12](../scope/12_make-it-readable.md).
+on 2026-08-27 with [initiative 12](../scope/12_make-it-readable.md); `ACMP3`,
+`ACMP10` and `ACMP17` restated on 2026-08-29 with
+[initiative 14](../scope/14_focus-the-question.md); `ACMP12` restated on
+2026-08-29 with [initiative 15](../scope/15_inspect-a-diagram.md).
 
 Skills are grouped by the service they provide rather than listed one per
 component. Fifteen rows naming fifteen files would restate the
@@ -75,6 +78,7 @@ flowchart TB
   acmp10 -->|carries| acmp12
   acmp10 -->|carries| acmp13
   acmp10 -->|carries| acmp14
+  acmp10 -->|carries| acmp17
   acmp12 -->|builds the page| acmp13
   acmp11 -->|publishes| acmp10
   acmp9 -->|checks| acmp1
@@ -144,7 +148,7 @@ running, not invoked.
 | -- | --------- | -------- | ----------- | ------- |
 | `ACMP1` | **The change-alignment skills** | `ASVC1`, `ASVC3` | `skills/align-change-through-layers/`, `skills/write-scope-document/`, `skills/shard-stories/`, `skills/write-pr-description/` |  |
 | `ACMP2` | **The discovery skills** | `ASVC2`, `ASVC6` | `skills/establish-project/`, `skills/discover-business-model/`, `skills/discover-strategy/`, `skills/model-domains/`, `skills/discover-current-landscape/` |  |
-| `ACMP3` | **The stewardship skills** | `ASVC3` | `skills/restate-current-state/`, `skills/record-decision/`, `skills/run-retrospective/` |  |
+| `ACMP3` | **The stewardship skills** | `ASVC3`, `ASVC10` | `skills/restate-current-state/`, `skills/record-decision/`, `skills/answer-architecture-question/`, `skills/run-retrospective/` |  |
 | `ACMP4` | **The rulebooks** | — (constrains `ACMP1`–`ACMP3`) | `skills/document-style/`, `skills/architecture-document-style/`, `skills/process-and-capability-levels/`, `skills/stack-selection/` |  |
 | `ACMP5` | **The link checker** | `ASVC4` | `scaffold/scripts/check_links.py` |  |
 | `ACMP6` | **The element-ID validator** | `ASVC4` | `scaffold/scripts/check_model.py` |  |
@@ -153,11 +157,11 @@ running, not invoked.
 | `ACMP9` | **The corpus validator** | `ASVC5` | `scripts/check_skills.py` |  |
 | `ACMP10` | **The scaffold** | `ASVC6` | `scaffold/` — the layer folders, the notation, the validators, the portal configuration, the two workflows it ships in `.github/workflows-available/` where nothing reads them, and the placeholder entry points | `org-archreator::ACMP4` |
 | `ACMP11` | **The plugin package** | `ASVC7` | `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` | `org-archreator::ACMP1` |
-| `ACMP12` | **The portal builder** | `ASVC9` | `scaffold/scripts/build_docs.py`, with `scaffold/mkdocs.yml` and `scaffold/overrides/`. It also publishes the model's own projection under `projection/`, which is the address `architecture/federation.md` names and the contract a second model reads. It also reports what it published a link to and not the file — the one thing `ACMP5` cannot see, because a link can resolve here and not on the site |  |
+| `ACMP12` | **The portal builder** | `ASVC9` | `scaffold/scripts/build_docs.py`, with `scaffold/mkdocs.yml` and `scaffold/overrides/`. The override adds an accessible, configurable full-screen viewer around the Mermaid host already rendered by Material, with no new dependency or network request and no print-page output. The builder also publishes the model's projection under `projection/`, the address `architecture/federation.md` names, and reports links pointing at files it does not publish |  |
 | `ACMP13` | **The document exporter** | `ASVC9` | `scaffold/scripts/export_pdf.py` |  |
-| `ACMP14` | **The model query tool** | `ASVC10` | `scaffold/scripts/query_model.py`, with `scaffold/scripts/neighbourhood.sql` — the traversal it shares with `ACMP16` |  |
+| `ACMP14` | **The model query tool** | `ASVC10` | `scaffold/scripts/query_model.py`, with `scaffold/scripts/neighbourhood.sql` — the traversal it shares with `ACMP17` |  |
 | `ACMP15` | **The transition-planning skill** | `ASVC11` | `skills/plan-the-transition/` |  |
-| `ACMP17` | **The brief generator** | `ASVC10` | `scaffold/scripts/build_brief.py`, with `scaffold/scripts/neighbourhood.sql` — the traversal it shares with `ACMP14` |  |
+| `ACMP17` | **The brief generator** | `ASVC10` | `scaffold/scripts/build_brief.py`, with five deterministic focus presets and `scaffold/scripts/neighbourhood.sql` — the traversal it shares with `ACMP14` |  |
 
 All paths are relative to `plugins/archreator/` in the
 [`archreator`](https://github.com/roanboc/archreator) repository, except
@@ -178,6 +182,8 @@ All paths are relative to `plugins/archreator/` in the
 | `ACMP7` | «Application Component» The model parser | `ACMP6` | «Application Component» The element-ID validator | parses for |
 | `ACMP7` | «Application Component» The model parser | `ACMP8` | «Application Component» The projection builder | parses for |
 | `ACMP8` | «Application Component» The projection builder | `ACMP14` | «Application Component» The model query tool | writes what |
+| `ACMP8` | «Application Component» The projection builder | `ACMP17` | «Application Component» The brief generator | writes what |
+| `ACMP14` | «Application Component» The model query tool | `ACMP17` | «Application Component» The brief generator | shares its traversal with |
 | `ACMP10` | «Application Component» The scaffold | `ACMP5` | «Application Component» The link checker | carries |
 | `ACMP10` | «Application Component» The scaffold | `ACMP6` | «Application Component» The element-ID validator | carries |
 | `ACMP10` | «Application Component» The scaffold | `ACMP7` | «Application Component» The model parser | carries |
@@ -185,6 +191,7 @@ All paths are relative to `plugins/archreator/` in the
 | `ACMP10` | «Application Component» The scaffold | `ACMP12` | «Application Component» The portal builder | carries |
 | `ACMP10` | «Application Component» The scaffold | `ACMP13` | «Application Component» The document exporter | carries |
 | `ACMP10` | «Application Component» The scaffold | `ACMP14` | «Application Component» The model query tool | carries |
+| `ACMP10` | «Application Component» The scaffold | `ACMP17` | «Application Component» The brief generator | carries |
 | `ACMP12` | «Application Component» The portal builder | `ACMP13` | «Application Component» The document exporter | builds the page |
 | `ACMP11` | «Application Component» The plugin package | `ACMP10` | «Application Component» The scaffold | publishes |
 | `ACMP9` | «Application Component» The corpus validator | `ACMP1` | «Application Component» The change-alignment skills | checks |
@@ -195,7 +202,7 @@ All paths are relative to `plugins/archreator/` in the
 
 ## What is inside the scaffold, and what is not
 
-`ACMP10` carries `ACMP5`–`ACMP8` and `ACMP12`–`ACMP13`, and does not carry
+`ACMP10` carries `ACMP5`–`ACMP8`, `ACMP12`–`ACMP14` and `ACMP17`, and does not carry
 `ACMP9`. The line is whether a downstream project has anything for the
 component to act on: an adopter's project has a model, so it needs the
 validators, the projection and the two that publish it; it has no skills, so
