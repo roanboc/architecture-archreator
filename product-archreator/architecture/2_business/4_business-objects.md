@@ -11,7 +11,8 @@ read and hand to each other.
 `BOBJ8` on 2026-08-27 with [initiative 10](../scope/10_federate-the-graph.md),
 `BOBJ9` on 2026-08-27 with [initiative 11](../scope/11_cross-the-boundary.md),
 `BOBJ10` on 2026-08-27 with [initiative 12](../scope/12_make-it-readable.md) and
-restated on 2026-08-27 with [initiative 13](../scope/13_answer-one-question.md).
+restated on 2026-08-27 with [initiative 13](../scope/13_answer-one-question.md)
+and on 2026-08-29 with [initiative 14](../scope/14_focus-the-question.md).
 
 Every object here is a **Markdown file in git**, and that is the point rather
 than an implementation detail: it is what makes the model readable by the
@@ -76,7 +77,7 @@ flowchart TB
 | `BOBJ7` | **The relationship** | One stated connection between two elements — a source, a target, and the words the model uses for what holds between them. Declared in a catalogue column where a row can carry it, and in a relationship table where it cannot | A cell in a catalogue row, or a row in a relationship table | `BSVC1`, `BSVC3`, `BSVC8` |
 | `BOBJ8` | **The federation index** | The models that belong with this one, and where each publishes its projection. Authored rather than derived — somebody decides what is in a federation — so it is a document a gate approves and a validator reads, not a configuration file | `architecture/federation.md`, in the topmost model of a federation only | `BSVC7`, `BSVC8` |
 | `BOBJ9` | **The import** | One element this model consumes from a model in another repository: its qualified identifier, the name that model gives it, and the revision it was read at. Nothing fetches it — the row is the dependency, stated | `architecture/imports.md` | `BSVC3` |
-| `BOBJ10` | **The generated brief** | One reading of the model for one question — the elements in a named scope, generated views of how they cross the layers, and the paragraphs the documents already write about them, verbatim. A lens, never content: it shows elements and asserts nothing about them | `.docs/briefs/<scope>.md`, generated on demand and never committed | `BSVC7`, `BSVC8` |
+| `BOBJ10` | **The generated brief** | One reading of the model for one question and one confirmed focus — Business, Information, Solution, Impact or Decision. It carries the retained elements, generated views relevant to that focus, the paragraphs the documents already write about them verbatim, and the reached elements it de-emphasized. A lens, never content: it shows elements and asserts nothing about them | `.docs/briefs/<scope>-<focus>.md`, generated on demand and never committed; legacy calls without focus retain `<scope>.md` | `BSVC7`, `BSVC8` |
 
 **`BOBJ5` has no file of its own, and that is deliberate.** An approval is a
 row inside the document it approves, so a reader who has the initiative has

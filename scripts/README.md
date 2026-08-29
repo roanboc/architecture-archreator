@@ -14,7 +14,7 @@ python3 scripts/check_model.py    # element-ID references resolve
 python3 scripts/build_model.py    # project a model into .model/
 python3 scripts/query_model.py coverage           # what is grounded, and what is not
 python3 scripts/query_model.py trace CAP5 --project product-archreator
-python3 scripts/build_brief.py --element CAP5 --project product-archreator --depth 2
+python3 scripts/build_brief.py --element CAP5 --project product-archreator --depth 2 --focus impact
 python3 scripts/build_docs.py --project <tree>    # that model as a website
 python3 scripts/export_pdf.py  --project <tree>   # that model as one PDF
 ```
@@ -40,7 +40,7 @@ python3 scripts/export_pdf.py --project product-archreator/site
 | `check_model.py` | Executable. Every backticked element ID resolves to a definition, none is defined twice, none is both live and retired, a levelled ID has its parent defined, every document that defines an element declares how far it has been validated, no relationship table restates an element's name differently from the catalogue that defines it, and every reference that names another model either resolves in this repository or is declared in that tree's `architecture/imports.md` |
 | `build_model.py` | Executable. Writes `.model/model.json` and `.model/model.db` — every tree as nodes and edges, for a rendered view or a report. Every edge carries where it was declared and whether it is pending. `--inventory` prints one line per element instead |
 | `query_model.py` | Executable. Reads the projection and answers the two questions a table cannot. `trace <ID>` follows relationships outward and says what a change to one element would touch; `coverage` reports what names a realizing artifact, what is explicitly Pending, and what its own catalogue leaves blank beside grounded neighbours. Builds the projection first if it is missing. **Three trees each own a `CAP1`**, so `trace` takes `--project` when an ID is not unique — it says so rather than picking one |
-| `build_brief.py` | Executable. Writes one disposable Markdown brief into `<tree>/.docs/briefs/` for a named scope — the elements in it, generated views of how they depend on each other across the layers, and what the documents already say |
+| `build_brief.py` | Executable. Writes one disposable Markdown brief into `<tree>/.docs/briefs/` for a named scope and optional reader focus — the relevant elements, generated views of how they depend on each other, and what the documents already say |
 | `build_docs.py` | Executable. Stages one tree's documents into `<tree>/.docs/src/` and builds its portal into `<tree>/.docs/site/`, and reports links pointing at files it does not publish. `--serve` rebuilds as the model is edited. Also the staging hook each `mkdocs.yml` runs |
 | `export_pdf.py` | Executable. Prints that portal's single-page view to `<tree>/.docs/architecture.pdf` with a headless browser, and checks that the diagrams were drawn rather than left as source text. What a PDF leaves out is the `print-site` `exclude` list in the tree's `mkdocs.yml` |
 | `neighbourhood.sql` | Data, read by `query_model.py` **and by `build_brief.py`**. The traversal itself — everything within N hops of one element, as a recursive CTE, walking a model-qualified identifier so it crosses a tree boundary without knowing it did. It is a file rather than a function because two readers execute it, and a walk written twice drifts |
@@ -58,7 +58,15 @@ write about them.
 ```bash
 python3 scripts/build_brief.py --element BSVC1 --project product-archreator --depth 2
 python3 scripts/build_brief.py --layer Application --project org-archreator
+python3 scripts/build_brief.py --element BSVC1 --project product-archreator --focus business
+python3 scripts/build_brief.py --element DOBJ4 --project product-archreator --focus information
+python3 scripts/build_brief.py --domain SALES --focus impact
 ```
+
+`--focus` accepts `business`, `information`, `solution`, `impact` or
+`decision`. It keeps every reached element in the focus's primary layers and
+only directly connected context from its supporting layers. The anchor always
+stays. Omitting `--focus` preserves the unfiltered legacy view.
 
 `--project` is a filter rather than a requirement here: without it a brief
 spans all three trees, which is the right answer for a federated question and

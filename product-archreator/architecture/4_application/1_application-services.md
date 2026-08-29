@@ -9,7 +9,9 @@ layer, and which business service each one realizes.
 2026-08-26; `ASVC8` on 2026-08-27 with
 [initiative 8](../scope/8_declare-the-relationships-and-let-the-graph-be-walked.md);
 `ASVC10` on 2026-08-27 with [initiative 9](../scope/9_walk-the-model.md);
-`ASVC9` on 2026-08-27 with [initiative 10](../scope/10_federate-the-graph.md).
+`ASVC9` on 2026-08-27 with [initiative 10](../scope/10_federate-the-graph.md);
+`ASVC10` restated on 2026-08-29 with
+[initiative 14](../scope/14_focus-the-question.md).
 
 ## How to read this document
 
@@ -81,7 +83,7 @@ flowchart LR
 | `ASVC7` | **Plugin distribution** | Publishes the corpus so a host platform can install it | `BSVC5` | `ACMP11` |
 | `ASVC8` | **Model projection** | Reads a model and writes it as nodes and edges for a consumer that cannot read Markdown. An edge is read from where the relationship was **declared** — a catalogue column, or a relationship table — and carries which of those it came from and whether it is pending | `BSVC8` | `ACMP7`, `ACMP8` |
 | `ASVC9` | **Model publication** | Renders a model as a website and prints it as one document, both from the Markdown, and gives every page a route back to the file it came from — and, where the project activated the workflow that does it, puts the website where its readers are. Publishes no source document — the portal hands a reader the model, and a transcript carries the rest of the room and publishes the model's own projection beside them, at a documented path with a schema number, so another model can read it without cloning anything | `BSVC7` | `ACMP12`, `ACMP13`, `ACMP10` |
-| `ASVC10` | **Model interrogation** | Walks the projected graph outward from one element to say what a change would touch, and reports which catalogue rows name no realizing artifact while their neighbours do — at a terminal, or on a page that needs no terminal. Both walks are one query | `BSVC8` | `ACMP14`, `ACMP16` |
+| `ASVC10` | **Model interrogation** | Walks the projected graph outward from one element to say what a change would touch, reports which catalogue rows name no realizing artifact while their neighbours do, and turns one reader question into a focused Markdown brief. The brief confirms a Business, Information, Solution, Impact or Decision viewpoint before retaining primary-layer elements and directly relevant supporting context | `BSVC8` | `ACMP3`, `ACMP14`, `ACMP17` |
 | `ASVC11` | **Transition planning** | Turns approved goals and a described baseline into target plateaus, a derived gap register and a dependency-ordered sequence, ending at a gate | `BSVC9` | `ACMP15` |
 
 **`ASVC8`'s edge is solid, and `ASVC10` is what made it so.** The projection
