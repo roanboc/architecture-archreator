@@ -7,10 +7,10 @@ through which channel each service reaches them.
 
 **Status:** ● Validated at **Gate 2** — every service on 2026-08-26; `BSVC3`
 restated on 2026-08-27 with
-[initiative 7](../scope/7_declare-the-relationships-and-let-the-graph-be-walked.md),
-`BSVC8` on 2026-08-27 with [initiative 8](../scope/8_walk-the-model.md);
-`BSVC3` again on 2026-08-27 with [initiative 10](../scope/10_cross-the-boundary.md);
-`BSVC8` again on 2026-08-27 with [initiative 11](../scope/11_make-it-readable.md).
+[initiative 8](../scope/8_declare-the-relationships-and-let-the-graph-be-walked.md),
+`BSVC8` on 2026-08-27 with [initiative 9](../scope/9_walk-the-model.md);
+`BSVC3` again on 2026-08-27 with [initiative 11](../scope/11_cross-the-boundary.md);
+`BSVC8` again on 2026-08-27 with [initiative 12](../scope/12_make-it-readable.md).
 
 ## How to read this document
 
@@ -97,14 +97,14 @@ needs something to point at when it says what the organization builds.
 **`BSVC8` gained the question that comes before the other two.** Trace and
 coverage both assume a reader who knows which element they mean. Somebody
 meeting a model for the first time does not, and had no route to finding out
-short of reading every label. [initiative 11](../scope/11_make-it-readable.md) made finding an element part of
+short of reading every label. [initiative 12](../scope/12_make-it-readable.md) made finding an element part of
 the service rather than a precondition of it.
 
 **`BSVC8` stopped requiring a terminal, and the two questions did not change.**
 What changed is who can ask them. A Requester approving a change at a gate is
 entitled to see what it touches, and until now that meant running a script and
 knowing the identifier to run it on. The service owes the same two answers; it
-owes them to more people. [initiative 8](../scope/8_walk-the-model.md) delivers it.
+owes them to more people. [initiative 9](../scope/9_walk-the-model.md) delivers it.
 
 **`BSVC3` stopped stopping at the repository boundary.** Decision 1 recorded,
 as the accepted price of a deliberate split, that "no validator crosses the

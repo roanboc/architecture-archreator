@@ -3,7 +3,7 @@
 _[← EA home](./README.md)_
 
 **Status:** ● Validated at **Gate 2**, 2026-08-27 with
-[initiative 9](../../product-archreator/architecture/scope/9_federate-the-graph.md).
+[initiative 10](../../product-archreator/architecture/scope/10_federate-the-graph.md).
 
 This organization builds one product, and that product has a site nested under
 it. Three models, maintained apart, belonging together — which is what a

@@ -9,7 +9,7 @@ this document holds the gates for.
 **Closes:** `GAP5`, `GAP6` — reaching `PLAT2` on the
 [roadmap](../6_transition/1_target-state.md).
 
-[Initiative 7](./7_declare-the-relationships-and-let-the-graph-be-walked.md)
+[Initiative 8](./8_declare-the-relationships-and-let-the-graph-be-walked.md)
 made the graph real: 619 stated relationships across three trees, where 306
 were mostly a byproduct of who felt like drawing a diagram. Nothing renders it.
 `ACMP14` prints text to a terminal, and the reader `G5` was written for — the
@@ -72,7 +72,7 @@ download a library is a bad trade.
 **The projection is copied into the published site.** The page has to read it
 from somewhere, and it is the same `model.db` `build_model.py` already writes.
 This puts a project's projection at a stable path under its portal, which is
-most of what `GAP7` asks for — [initiative 9](../6_transition/2_sequence.md) is what
+most of what `GAP7` asks for — [initiative 10](../6_transition/2_sequence.md) is what
 turns that path into a contract other projects may depend on, with an index
 and a documented shape. Here it is an implementation detail of the page.
 
@@ -133,8 +133,8 @@ and a documented shape. Here it is an implementation detail of the page.
 
 | In scope | Out of scope (gaps, candidate future work) |
 | -------- | ------------------------------------------- |
-| One project's graph, drawn, filtered and walked | **More than one project at a time.** `GAP7`, `GAP8`, initiative 9. The page reads one database; the switcher and the union come with the index |
-| The traversal shared between the page and `ACMP14` | **Cross-project traversal.** `GAP9`, initiative 10. A walk still stops at the tree boundary, and says so |
+| One project's graph, drawn, filtered and walked | **More than one project at a time.** `GAP7`, `GAP8`, initiative 10. The page reads one database; the switcher and the union come with the index |
+| The traversal shared between the page and `ACMP14` | **Cross-project traversal.** `GAP9`, initiative 11. A walk still stops at the tree boundary, and says so |
 | `origin` and `pending` rendered | **Editing anything.** The page is a reader. The Markdown is the source of truth and a graph that could write to it would be a second one |
 | Layer and element-type filters | **Search by name, saved views, export.** Worth having, none of them load-bearing, and each is cheaper to add once somebody has used the page and said which they missed |
 

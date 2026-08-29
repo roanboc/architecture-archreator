@@ -5,7 +5,7 @@ _[← Technology layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Technology. What the method runs on.
 
 **Status:** ● Validated at **Gate 3** — 2026-08-26, with `TSVC5` restated on
-2026-08-27 with [initiative 8](../scope/8_walk-the-model.md).
+2026-08-27 with [initiative 9](../scope/9_walk-the-model.md).
 
 **Nothing here is operated by the organization**, and that is the whole shape
 of this layer. archreator has no server, no database, no account system and no

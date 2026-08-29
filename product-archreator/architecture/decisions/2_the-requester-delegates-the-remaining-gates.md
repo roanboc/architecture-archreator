@@ -1,4 +1,4 @@
-# Decision 2 — The Requester delegates the gates on initiatives 8–10
+# Decision 2 — The Requester delegates the gates on initiatives 9–11
 
 _[← Decisions index](./README.md)_
 
@@ -10,7 +10,7 @@ initiative on the [roadmap](../6_transition/2_sequence.md) sequence
 ## Context
 
 The Requester approved Gate 1 on the roadmap, and Gate 2 and Gate 3 on
-initiative 7, in the ordinary way: presented, questioned, changed once, then
+initiative 8, in the ordinary way: presented, questioned, changed once, then
 granted. With the direction settled and one initiative delivered against it,
 they delegated the remaining three:
 
@@ -42,7 +42,7 @@ by name in its Approvals table**, in the form:
 > `Delegated (decision 2)` | 2026-08-27 | what was decided, and what a
 > reviewer should look at first
 
-It covers **initiatives 8, 9 and 10 only** — the three already named on the
+It covers **initiatives 9, 10 and 11 only** — the three already named on the
 approved sequence. It is not a standing grant: an initiative that is not on
 that sequence, or a change to the sequence itself, returns to the Requester.
 

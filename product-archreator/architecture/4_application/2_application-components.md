@@ -7,13 +7,13 @@ each mapped to the files that are it.
 
 **Status:** ● Validated at **Gate 3** — every component on 2026-08-26; `ACMP7`
 and `ACMP8` restated on 2026-08-27 with
-[initiative 7](../scope/7_declare-the-relationships-and-let-the-graph-be-walked.md);
+[initiative 8](../scope/8_declare-the-relationships-and-let-the-graph-be-walked.md);
 `ACMP14` restated and `ACMP16` added on 2026-08-27 with
-[initiative 8](../scope/8_walk-the-model.md); `ACMP12` and `ACMP16` restated on
-2026-08-27 with [initiative 9](../scope/9_federate-the-graph.md); `ACMP6`,
+[initiative 9](../scope/9_walk-the-model.md); `ACMP12` and `ACMP16` restated on
+2026-08-27 with [initiative 10](../scope/10_federate-the-graph.md); `ACMP6`,
 `ACMP7`, `ACMP8`, `ACMP14` and `ACMP16` on 2026-08-27 with
-[initiative 10](../scope/10_cross-the-boundary.md); `ACMP7`, `ACMP8` and `ACMP16`
-on 2026-08-27 with [initiative 11](../scope/11_make-it-readable.md).
+[initiative 11](../scope/11_cross-the-boundary.md); `ACMP7`, `ACMP8` and `ACMP16`
+on 2026-08-27 with [initiative 12](../scope/12_make-it-readable.md).
 
 Skills are grouped by the service they provide rather than listed one per
 component. Fifteen rows naming fifteen files would restate the
@@ -104,7 +104,7 @@ resolved against that model's definitions where they are in this repository
 or against `BOBJ9` where they are not. Nothing fetches: a validator that read
 a sibling repository on every pull request would be slow, would fail when
 somebody else's site was down, and would let another team's push break this
-build. [initiative 10](../scope/10_cross-the-boundary.md) is what closed decision 1's recorded consequence.
+build. [initiative 11](../scope/11_cross-the-boundary.md) is what closed decision 1's recorded consequence.
 
 **`ACMP17` is what `ACMP16` should have been.** The navigator drew the model
 and left a reader to find their own question in it; the brief generator takes
@@ -134,7 +134,7 @@ identifiers on every row is a relationship table, read by position. Both are
 whose only home is a rendering is the one `P1` forbids.
 
 **`ACMP7` is the only component two others depend on**, and it exists because
-they were about to grow a second copy of the same parse. Initiative 7 widens
+they were about to grow a second copy of the same parse. Initiative 8 widens
 that: identifier **resolution** moves here too, so `ACMP6` and `ACMP8` agree on
 what a bare identifier inside a domain means instead of each deciding. `ACMP4` is the only
 one that constrains rather than calls — a rulebook is consulted by whoever is

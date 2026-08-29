@@ -1,4 +1,4 @@
-# Decision 4 — The graph portal is retired, and initiative 12 is delegated
+# Decision 4 — The graph portal is retired, and initiative 13 is delegated
 
 _[← Decisions index](./README.md)_
 
@@ -8,8 +8,8 @@ _[← Decisions index](./README.md)_
 
 ## Context
 
-[Initiative 8](../scope/8_walk-the-model.md) built a graph navigator and
-[initiative 11](../scope/11_make-it-readable.md) made it legible: boxes,
+[Initiative 9](../scope/9_walk-the-model.md) built a graph navigator and
+[initiative 12](../scope/12_make-it-readable.md) made it legible: boxes,
 layered layouts, a properties panel carrying the documents' own prose, faceted
 search, saved views. It works, and it was shipped four days after the
 relationships it draws became declarable.
@@ -26,7 +26,7 @@ The Requester then looked at it and said what it is for:
 
 They are right, and the strongest argument is one the navigator itself made.
 It opens on a single layer because the whole model at once is illegible —
-recorded in initiative 8's own gap notes and treated there as a layout
+recorded in initiative 9's own gap notes and treated there as a layout
 problem. It is not. **A reader does not arrive at a graph; they arrive at a
 question**, and a graph makes them reconstruct the question by clicking.
 
@@ -51,22 +51,22 @@ and the rows stay: *"an abandoned plateau that is removed invites somebody to
 propose it again in two years."*
 
 **`PLAT6` — the scoped brief — replaces them**, on the Requester's own
-direction, and **Gates 2 and 3 of initiative 12 are delegated** on the terms
+direction, and **Gates 2 and 3 of initiative 13 are delegated** on the terms
 [decision 2](./2_the-requester-delegates-the-remaining-gates.md) set and
 [decision 3](./3_the-navigator-earns-its-own-initiative.md) last renewed. It
-covers initiative 12 and expires with it.
+covers initiative 13 and expires with it.
 
 **What is kept is what was underneath.** Roughly 1,470 lines of page go;
 roughly 1,870 lines of parse, projection, traversal and query stay, along with
-376 elements, 615 declared relationships and 308 prose excerpts. Initiative 7
+376 elements, 615 declared relationships and 308 prose excerpts. Initiative 8
 is untouched and is the foundation of both.
 
 ## Consequences
 
-- **Two initiatives are written off, and the record says so.** Initiatives 8
-  and 11 are merged history and are not rewritten; this record is where a
+- **Two initiatives are written off, and the record says so.** Initiatives 9
+  and 12 are merged history and are not rewritten; this record is where a
   reader learns that what they built no longer exists.
-- **Generating a diagram is now correct.** Before initiative 7 a generated
+- **Generating a diagram is now correct.** Before initiative 8 a generated
   diagram would have competed with an authored one for the same fact. Since
   relationships are declared and diagrams are renderings, generating one from
   the declarations is the same operation the notation already describes.

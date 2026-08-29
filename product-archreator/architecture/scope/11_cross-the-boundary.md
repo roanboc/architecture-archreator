@@ -9,7 +9,7 @@ this document holds the gates for.
 **Closes:** `GAP9` — reaching `PLAT4` on the
 [roadmap](../6_transition/1_target-state.md).
 
-[Initiative 9](./9_federate-the-graph.md) put three models in front of one
+[Initiative 10](./10_federate-the-graph.md) put three models in front of one
 reader and joined none of them. An identifier is scoped to its model, so a
 reference to a foreign element fails the reference check — which is correct,
 and is why the fact simply goes unwritten. This organization's `ACMP1` is the

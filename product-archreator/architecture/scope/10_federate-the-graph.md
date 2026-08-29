@@ -9,7 +9,7 @@ this document holds the gates for.
 **Closes:** `GAP7`, `GAP8` — reaching `PLAT3` on the
 [roadmap](../6_transition/1_target-state.md).
 
-[Initiative 8](./8_walk-the-model.md) gave one model a reader. An organization
+[Initiative 9](./9_walk-the-model.md) gave one model a reader. An organization
 does not have one model: `model-domains` caps a domain tree at three levels and
 says that past it you want "separate repositories federated by contract", and
 this repository already holds three trees for one small organization. A reader
@@ -28,7 +28,7 @@ The graph is a view, computed when somebody opens it.
 local. `stack-selection` § A persisted projection needs one of four triggers
 names this case exactly: "Domains live in separate repositories — federation
 needs an interchange format; an agent cannot `grep` a repository it has not
-cloned." Initiative 8 already writes `model.db` into the built site because the
+cloned." Initiative 9 already writes `model.db` into the built site because the
 navigator needs it. That made a file appear at a path; it did not make it a
 promise.
 
@@ -83,7 +83,7 @@ is.
 
 **A federated walk still stops at the project boundary, and the page says so.**
 Elements are scoped per project, and no relationship crosses a project until
-[initiative 10](../6_transition/2_sequence.md) gives one a way to be written. Showing
+[initiative 11](../6_transition/2_sequence.md) gives one a way to be written. Showing
 several graphs at once is worth having on its own — it is how a reader sees
 that `product-archreator` and `product-archreator/site` are different sizes of
 thing — but it is not yet one graph, and a page that implied otherwise would be
@@ -145,7 +145,7 @@ lying about the most important thing on it.
 | In scope | Out of scope (gaps, candidate future work) |
 | -------- | ------------------------------------------- |
 | Public projects, fetched over HTTPS | **Private repositories.** A page cannot authenticate to a private Pages site, and building a credential store into a static page would trade away the one property that makes it worth having |
-| Several projects visible at once, faceted | **One graph across projects.** `GAP9`, initiative 10. Nothing yet lets a relationship cross a boundary, and the page says so rather than implying otherwise |
+| Several projects visible at once, faceted | **One graph across projects.** `GAP9`, initiative 11. Nothing yet lets a relationship cross a boundary, and the page says so rather than implying otherwise |
 | A schema version on the interchange format | **Migrating an old schema.** A consumer that meets a version it does not know reports it. Translating between versions is work for the first time it actually happens |
 | An index in the topmost tree | **Discovering projects automatically.** Somebody decides what is in a federation. A crawler would make that decision silently and get it wrong at the worst moment |
 

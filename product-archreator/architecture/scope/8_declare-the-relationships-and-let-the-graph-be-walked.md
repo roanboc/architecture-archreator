@@ -17,7 +17,7 @@ carries it as opaque text; the rest into Mermaid diagrams, where it is drawn and
 stated nowhere else.
 
 This initiative gives the relationship a home. It does not build a graph
-navigator — that is initiative 8, and it is unbuildable until this lands.
+navigator — that is initiative 9, and it is unbuildable until this lands.
 
 ## The measurement that started it
 
@@ -366,11 +366,11 @@ Two findings that are not deltas, recorded because they are the checks working:
 
 | In scope | Out of scope (gaps, candidate future work) |
 | -------- | ------------------------------------------- |
-| The relationship as a modeled object, and the two surfaces that declare one | **The graph navigator.** `GAP5` and `GAP6`, initiative 8. It is the reason this initiative exists and it is not this initiative |
-| Catalogue columns and relationship tables read into the projection | **Publishing the projection, and the federation index.** `GAP7` and `GAP8`, initiative 9 |
-| The Mermaid parse removed, under a superset check | **Cross-project references.** `GAP9`, initiative 10. Decision 1's consequence stands until then |
+| The relationship as a modeled object, and the two surfaces that declare one | **The graph navigator.** `GAP5` and `GAP6`, initiative 9. It is the reason this initiative exists and it is not this initiative |
+| Catalogue columns and relationship tables read into the projection | **Publishing the projection, and the federation index.** `GAP7` and `GAP8`, initiative 10 |
+| The Mermaid parse removed, under a superset check | **Cross-project references.** `GAP9`, initiative 11. Decision 1's consequence stands until then |
 | `origin` and `pending` on every edge | **A relationship vocabulary.** Reported, never enforced — see the roadmap on why |
-| The three trees in this repository migrated | **Generating diagrams from the tables.** Attractive, and it belongs with the other consumers of the projection in initiative 8 |
+| The three trees in this repository migrated | **Generating diagrams from the tables.** Attractive, and it belongs with the other consumers of the projection in initiative 9 |
 
 ## Gap notes
 

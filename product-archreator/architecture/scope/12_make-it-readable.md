@@ -8,7 +8,7 @@ _[← Scope index](./README.md) · [Model home](../README.md)_
 **Closes:** `GAP10`–`GAP13` — reaching `PLAT5` on the
 [roadmap](../6_transition/1_target-state.md).
 
-[Initiative 8](./8_walk-the-model.md) built a reader and proved the graph could
+[Initiative 9](./9_walk-the-model.md) built a reader and proved the graph could
 be drawn. It did not make the graph legible. A node is a six-pixel circle whose
 identifier disappears once a hundred are on screen; the panel beside it shows a
 catalogue row; there is no way to find anything without already knowing its

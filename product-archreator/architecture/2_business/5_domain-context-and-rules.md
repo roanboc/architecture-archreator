@@ -6,7 +6,7 @@ _[← Business layer](./README.md) · [EA home](../README.md)_
 rules that bind every change made with it.
 
 **Status:** ● Validated at **Gate 2** — `RULE1`–`RULE8` on 2026-08-26, `RULE9`
-on 2026-08-27 with [initiative 12](../scope/12_answer-one-question.md).
+on 2026-08-27 with [initiative 13](../scope/13_answer-one-question.md).
 
 ## Problem statement
 

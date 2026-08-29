@@ -127,10 +127,9 @@ a gap the canvases did not name: `CAP3.2` claims the method carries the
 competence, and nothing was turning what the Requester knows into method on
 purpose. It is the first stage of `COA1`.
 
-**`CAP2.3` currently has no evidence.** The engagements folder is empty — the
-notes that existed were not carried through the clean-room rebuild. The
-capability is real and the skill exists; what is gone is the record of it
-having been exercised.
+**`CAP2.3` has been exercised.** [Engagement note 3](../engagements/3_breadth-first-depth-on-pain.md)
+records how an improvised depth rule, use of an existing quality-management
+map and reference-led capability conversation became reusable method guidance.
 
 ### Relationships
 

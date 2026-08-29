@@ -1,4 +1,4 @@
-# Decision 3 — Initiative 11 is directed, and its gates are delegated
+# Decision 3 — Initiative 12 is directed, and its gates are delegated
 
 _[← Decisions index](./README.md)_
 
@@ -9,8 +9,8 @@ _[← Decisions index](./README.md)_
 ## Context
 
 [Decision 2](./2_the-requester-delegates-the-remaining-gates.md) delegated the
-gates on initiatives 8–10 and said so in terms that expire: "It covers
-initiatives 8, 9 and 10 only… There is no mechanism here for extending it, and
+gates on initiatives 9–11 and said so in terms that expire: "It covers
+initiatives 9, 10 and 11 only… There is no mechanism here for extending it, and
 adding one would be a second decision." It also reserved one thing absolutely:
 "**A change to the roadmap** — a new plateau, a dropped one, a reordering.
 Gate 1 approved a destination and an order, and altering either is the one
@@ -37,7 +37,7 @@ approve a destination; they named one.
 ## Decision
 
 **`PLAT5` and its gaps are added to the roadmap on the Requester's own
-direction, quoted in the target state**, and **Gates 2 and 3 of initiative 11
+direction, quoted in the target state**, and **Gates 2 and 3 of initiative 12
 are delegated on the same terms as decision 2** — each Approvals row citing
 this record, and each naming what a reviewer should look at first.
 
@@ -56,8 +56,8 @@ them.
 
 - **The roadmap gains a plateau nobody has to guess the provenance of.** The
   sentence that set the direction is quoted where the plateau is defined.
-- **The delegation stays finite.** This covers initiative 11. A twelfth
-  returns to the Requester, exactly as the eleventh did.
+- **The delegation stays finite.** This covers initiative 12. A thirteenth
+  returns to the Requester, exactly as the twelfth did.
 - **The navigator's boundary is written down before it is built.** "It displays
   and it never writes" is easy to hold now and easy to erode later, and the
   place to state it is here, once, rather than in each pull request that tests
