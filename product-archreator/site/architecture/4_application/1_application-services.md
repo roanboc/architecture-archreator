@@ -5,6 +5,8 @@ _[← Application layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Application. What software does for the business
 layer.
 
+**Status:** ● Validated — **Gate 3** declined at Gate 2 ([scope document 1](../scope/1_model-the-site-on-the-current-method.md), 2026-08-22), which routed the application and technology layers to pull-request review.
+
 **One service, and it is the smallest one a layer can have.** The page is
 static: nothing computes, nothing queries, nothing decides. What the software
 does is hand over bytes that were already correct when they were written.

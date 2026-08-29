@@ -6,7 +6,9 @@ _[← Strategy layer](./README.md) · [EA home](../README.md)_
 presses on them, what must become true, and the principles every change is
 checked against.
 
-The subject is **the method** — fifteen skills, the scaffold they emit, the
+**Status:** ● Validated at **Gate 1**, 2026-08-24.
+
+The subject is **the method** — seventeen skills, the scaffold they emit, the
 validators, and the plugin that ships them. The organization that publishes it
 is modeled one tree up, in
 [`org-archreator/`](../../../org-archreator/architecture/README.md).
@@ -56,10 +58,12 @@ flowchart LR
   stk2(["◍ Agent in an adopting project [STK2]"]):::stakeholder
   stk3(["◍ Reviewer in an adopting project [STK3]"]):::stakeholder
   stk4(["◍ Method maintainer [STK4]"]):::stakeholder
+  stk5(["◍ Reader outside the repository [STK5]"]):::stakeholder
 
   stk1 -->|delegates the modeling to| stk2
   stk2 -->|hands the branch to| stk3
   stk4 -->|changes what all three follow| stk1
+  stk1 -->|shows the model to| stk5
 
   classDef stakeholder fill:#f4ecfc,stroke:#9575cd,color:#333
 ```
@@ -70,6 +74,7 @@ flowchart LR
 | `STK2` | **Agent in an adopting project** | To know the business context before writing code, and to be stopped from acting on a fact that is no longer true. Usually an AI agent | The skills, the model, and the validators |
 | `STK3` | **Reviewer in an adopting project** | To read a whole branch and see what it claims to change, against documents that were true before it started | The pull request and the scope document |
 | `STK4` | **Method maintainer** | To change the method without silently falsifying the models built on it | The skill corpus and its own validator |
+| `STK5` | **Reader outside the repository** | To read the architecture they are asked to agree with, fund or audit, without cloning anything or being taught where it lives | The portal, and the PDF |
 
 **`STK1` and `STK3` are usually the same person, and that is not a
 redundancy.** They want different things at different moments: one decides
@@ -79,6 +84,11 @@ distinction that makes the second reading worth doing.
 **`STK2` is the stakeholder the method is written for.** The documents are
 Markdown in git rather than a modeling tool's file format because that is what
 an agent reads natively.
+
+**`STK5` decides nothing, and that is what separates them from `STK1`.** A
+Requester is shown a change and grants a gate; a reader is shown the model and
+has to be able to follow it. The same documents serve both, which is why
+reaching `STK5` is a rendering rather than a second model.
 
 ## Drivers and assessments
 
@@ -92,11 +102,19 @@ flowchart LR
   asm2>"⌕ An agent cannot tell a deleted element from a live one [ASM2]"]:::assessment
   asm3>"⌕ Modeling tools produce files agents cannot read or diff [ASM3]"]:::assessment
   asm4>"⌕ AI is modeled as a tool, so its decisions have no owner [ASM4]"]:::assessment
+  asm5>"⌕ An estate that predates the model is context nothing will ask for [ASM5]"]:::assessment
+  asm6>"⌕ Nothing says which change matters more than another [ASM6]"]:::assessment
+  asm7>"⌕ An unapproved element looks exactly like an approved one [ASM7]"]:::assessment
+  asm8>"⌕ A claim outlives the conversation it came from [ASM8]"]:::assessment
 
   drv1 -->|evidenced by| asm1
+  drv1 -->|evidenced by| asm6
   drv2 -->|evidenced by| asm3
   drv2 -->|evidenced by| asm4
+  drv2 -->|evidenced by| asm5
   drv3 -->|evidenced by| asm2
+  drv3 -->|evidenced by| asm7
+  drv3 -->|evidenced by| asm8
 
   classDef driver fill:#e6d6f5,stroke:#8e63c8,color:#333
   classDef assessment fill:#d8c3f0,stroke:#7e57c2,color:#333
@@ -114,6 +132,10 @@ flowchart LR
 | `ASM2` | **An agent cannot tell a deleted element from a live one** | An agent reading a claim that one element relieves another has no cheap way to notice the second was removed three initiatives ago, and will reason confidently from it. This is the failure agents are worst at unaided |
 | `ASM3` | **Modeling tools produce files agents cannot read or diff** | An architecture kept in a tool's own format is invisible to the reader who most needs it, and invisible to code review |
 | `ASM4` | **AI is modeled as a tool, so its decisions have no owner** | When an agent is drawn as a box rather than an actor, nothing records what it may decide alone, or who it escalates to |
+| `ASM5` | **An estate that predates the model is context nothing will ask for** | Every route into the lower layers starts from a requirement, and no requirement ever asks for the applications that were already running. An organization modeled by a method that only follows change requests gets a strategy layer and four empty folders below it |
+| `ASM6` | **Nothing says which change matters more than another** | Each request is defensible on its own, and a method that only judges one change at a time can say whether it is coherent but never whether it is the one to make first. The question a Requester asks most often is the one the model was least able to answer |
+| `ASM7` | **An unapproved element looks exactly like an approved one** | A catalogue of things three people mentioned in a workshop and a layer a Requester signed are the same tables, the same identifiers, the same shape. Nothing on either says which it is, so a reader supplies the answer from how finished it looks — and a document is at its most finished-looking on the day it is drafted |
+| `ASM8` | **A claim outlives the conversation it came from** | The figure came off a slide, the process came from someone describing it once. Eighteen months later the model still says so and nobody can say why. The claim is not wrong, but it is unreviewable, which over enough time is the same thing |
 
 ## Goals and outcomes
 
@@ -123,15 +145,21 @@ flowchart LR
   g2("◎ A person approves before code exists [G2]"):::goal
   g3("◎ The model still describes today after the merge [G3]"):::goal
   g4("◎ An adopter starts without learning a tool [G4]"):::goal
+  g5("◎ The model reaches the people who never open the repository [G5]"):::goal
+  g6("◎ The model says where the subject is going, not only where it is [G6]"):::goal
+  g7("◎ What the model is worth is written on the model [G7]"):::goal
 
   out1[["◉ Every element names what realizes it [OUT1]"]]:::outcome
   out2[["◉ Every gate is recorded with what was shown [OUT2]"]]:::outcome
   out3[["◉ No reference resolves to something deleted [OUT3]"]]:::outcome
+  out4[["◉ Every defining document declares its standing [OUT4]"]]:::outcome
 
   g1 -->|measured by| out1
   g2 -->|measured by| out2
   g3 -->|measured by| out3
   g4 -->|measured by| out1
+  g6 -->|measured by| out2
+  g7 -->|measured by| out4
 
   classDef goal fill:#c6aae9,stroke:#6f4bb2,color:#333
   classDef outcome fill:#b493e0,stroke:#5f3da0,color:#333
@@ -139,21 +167,57 @@ flowchart LR
 
 | ID | Goal | Answers | Realized by |
 | -- | ---- | ------- | ----------- |
-| `G1` | **An agent reads the business context natively** | `DRV2`, `ASM3` | The model is Markdown in git — no export, no tool, no database |
+| `G1` | **An agent reads the business context natively** | `DRV2`, `ASM3`, `ASM5` | The model is Markdown in git — nothing has to be exported before it can be used, and a landscape sweep fills the layers a change request would never have asked for |
 | `G2` | **A person approves before code exists** | `DRV1`, `ASM1` | The gates, and the rule that an unrecorded approval did not happen |
 | `G3` | **The model still describes today after the merge** | `DRV3`, `ASM2` | The validators, and the rule that a change updates whatever it falsifies |
 | `G4` | **An adopter starts without learning a tool** | `ASM3` | A scaffold of Markdown and two scripts, installed as a plugin |
+| `G5` | **The model reaches the people who never open the repository** | `ASM3` | The portal and the PDF, both rendered from the Markdown, both thrown away and rebuilt |
+| `G6` | **The model says where the subject is going, not only where it is** | `DRV1`, `ASM6` | `architecture/roadmap/` — target plateaus, a gap register derived from the baseline, and a sequence — approved as direction at Gate 1 |
+| `G7` | **What the model is worth is written on the model** | `DRV3`, `ASM7`, `ASM8` | A status glyph on every document that defines an element, and `architecture/reference/` holding what each was built from |
 
 | ID | Outcome | How it is checked | Happening today? |
 | -- | ------- | ----------------- | ---------------- |
-| `OUT1` | **Every element names what realizes it, or says it is Pending** | Review. No validator can tell a repository path from a team name, and a wrong failure in CI teaches people to ignore CI | Partly — the convention holds, the check does not exist |
+| `OUT1` | **Every element names what realizes it, or says it is Pending** | `query_model.py coverage`, read by a person. No validator can tell a repository path from a team name, and a wrong failure in CI teaches people to ignore CI — so this reports and never fails a build | Partly — the convention holds, and the omissions are now listed rather than hunted |
 | `OUT2` | **Every gate is recorded with who approved and what they were shown** | The Approvals table in the scope document | Yes, by convention |
 | `OUT3` | **No reference resolves to something that was deleted** | `check_model.py`, on every pull request | Yes, mechanically |
+| `OUT4` | **Every document that defines an element declares how far it has been validated** | `check_model.py`, on every pull request. Checked on the glyph, never on the words beside it, so it holds in a model written in any language | Yes, mechanically |
+
+**`G1` and `G5` are the two halves of `ASM3`.** An architecture in a tool's
+own format is unreadable by the agent that must build from it *and* by the
+person who must agree to it. Markdown in git answers the first directly; the
+second is answered by rendering the same files, never by keeping a second copy.
+
+**`OUT4` is the only one of the four that is both mechanical and complete.**
+`OUT1` cannot be fully checked because grounding is fuzzy; `OUT2` is a
+convention; `OUT3` is mechanical but narrow. Whether a status glyph is present
+is neither fuzzy nor narrow — it is there or it is not, and it is there on
+every document or the build fails. The reason this one could be gated when
+grounding could not is worth keeping in view: the check asks whether a
+declaration was made, never whether it was true.
+
+**`G6` shares `OUT2` rather than earning an outcome.** What would prove the
+model says where the subject is going is that a direction was approved and
+recorded — which is the gate record `OUT2` already measures, pointed at a
+roadmap instead of a strategy layer. A second outcome would have restated the
+first with a different object.
+
+**`G5` is measured by no outcome, because nothing here can measure it.** The
+repository knows whether a page can be traced back to its source; it cannot
+know whether anyone read it. An outcome invented to fill the row would be
+checked by nobody.
 
 **`OUT1` is the weakest of the three, and deliberately so.** Grounding is the
 rule that makes the model verifiable, and it is the one the tooling cannot
 enforce — distinguishing a path from a description is fuzzy, and a check that
 fails wrongly is worse than no check.
+
+What the tooling can do is narrow the search. `query_model.py coverage` judges
+a catalogue table rather than an element: where a table grounds some of its
+rows and leaves others blank, the blanks are an omission and it says so; where
+a table grounds none of them it is not modeling realization at all, and saying
+so once about the document beats saying it about every row. That is a smaller
+claim than the outcome, and it is the largest one that can be made without
+being wrong sometimes.
 
 ## Principles
 

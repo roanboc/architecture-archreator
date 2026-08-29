@@ -5,7 +5,7 @@ works so that AI agents can help run it; this repository is that method
 applied to real subjects, so a prospective adopter can read a filled-in model
 instead of an empty scaffold.
 
-The method itself — fifteen skills, the scaffold, the validators — lives in
+The method itself — seventeen skills, the scaffold, the validators — lives in
 [`archreator`](https://github.com/roanboc/archreator).
 
 ## What is modeled here

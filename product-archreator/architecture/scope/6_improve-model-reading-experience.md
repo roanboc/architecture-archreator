@@ -3,7 +3,7 @@
 _[← Scope index](./README.md) · [Model home](../README.md)_
 
 **ArchiMate viewpoint:** Implementation & Migration.
-**Delivered as:** changes to the `archreator` skill corpus and scaffold.
+**Delivered as:** [`archreator` PR #40](https://github.com/roanboc/archreator/pull/40).
 
 Feedback from the Bigview enterprise-architecture project showed that the
 model remained traceable but made business readers decode identifiers, infer

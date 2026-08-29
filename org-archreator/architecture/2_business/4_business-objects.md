@@ -5,6 +5,8 @@ _[← Business layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Business. The things the processes handle — and,
 for each, **whose it is**.
 
+**Status:** ● Validated at **Gate 2**, 2026-08-22.
+
 That last column is the one that matters here. This organization holds very
 little: three of the seven objects belong to a client and are handled without
 ever being kept, which is what makes the information layer as short as it is.

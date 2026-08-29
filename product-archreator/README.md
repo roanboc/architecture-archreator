@@ -1,6 +1,6 @@
 # product-archreator
 
-The architecture model of **archreator the method** — the fifteen skills, the
+The architecture model of **archreator the method** — the seventeen skills, the
 scaffold they emit, the validators that keep a model honest, and the plugin
 that ships them.
 

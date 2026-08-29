@@ -5,6 +5,8 @@ _[← Business layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Business. The vocabulary the method uses, and the
 rules that bind every change made with it.
 
+**Status:** ● Validated at **Gate 2**, 2026-08-26.
+
 ## Problem statement
 
 An AI agent can now build faster than anyone can specify what to build. The
@@ -65,7 +67,9 @@ messages; a synonym invented in passing is how a vocabulary starts to drift.
 | **Scaffold** | The empty project a new adopter starts from |
 
 **"Model" always means the documents, never a diagram and never a database.**
-The method has no export and no store; the Markdown is the model.
+The method has no store, and nothing has to be exported before the model can
+be used; the Markdown is the model. A portal or a PDF built from it is a
+rendering, which is what `RULE7` is about.
 
 ## Business rules
 
@@ -80,11 +84,16 @@ says which. A rule nothing enforces is a preference.
 | `RULE4` | **An identifier is draft until the gate that approves its element, and permanent afterwards.** Before the gate, removing an element renumbers the rest; after it, the identifier is retired and never reused | Once an approved document cites an identifier, a stale reference must fail loudly rather than resolve to something else | `check_model.py` |
 | `RULE5` | **A change repairs every document it falsifies**, in the same branch | A model that is true in the layer somebody edited and false two layers up is worse than one nobody updated, because it looks maintained | Review |
 | `RULE6` | **An architecture document describes its subject, not its own construction.** No "this used to say", no counts of what was consolidated | A reader wants to know what is true, not how the document got there. The change log is `BOBJ3` | Review |
+| `RULE7` | **A rendering is never the model.** A portal or a PDF is rebuilt from the Markdown on every run, is never committed, and carries on every page the path of the file that produced it | A published copy a reader cannot trace back becomes the version they treat as true, and it drifts the moment the documents move | Construction: the staged copy is regenerated on every build, the whole tree is gitignored, and the theme prints and links each page's source |
+| `RULE8` | **The scaffold ships nothing that runs by itself.** A workflow arrives inert, in a directory the automation host does not read, and only an answer the Requester gave moves it where it runs | A pipeline that turns red on a project's first push teaches a team that the checks are noise, and one that publishes a model nobody agreed to publish cannot be un-published | Construction: the templates ship outside `.github/workflows/`, which is the only path the automation host reads, and `establish-project` moves what the answer selected and deletes the rest |
 
-**Four of six are carried by review, and that is not an oversight.** Only
-`RULE4` is fully mechanical. The others need a judgement — whether a layer
-genuinely did not change, whether a cell names a path or a team — and a check
-that fails wrongly teaches people to ignore the checks that do not.
+**Four of eight are carried by review, and that is not an oversight.**
+`RULE4` is fully mechanical, and `RULE7` and `RULE8` are carried by
+construction — a copy that is rebuilt from scratch every time and never
+committed cannot drift, and a file the automation host never reads cannot
+run, whoever forgets. The other five need a judgement — whether a layer genuinely
+did not change, whether a cell names a path or a team — and a check that fails
+wrongly teaches people to ignore the checks that do not.
 
 **`RULE3` is the one that surprises people.** A scope document that names an
 element which no longer exists is working as intended. That is why the

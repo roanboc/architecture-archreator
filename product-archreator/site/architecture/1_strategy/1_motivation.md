@@ -5,6 +5,8 @@ _[← Strategy layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Motivation. Who the site is for, what makes it
 necessary, and what it must not become.
 
+**Status:** ● Validated at **Gate 1**, 2026-08-22.
+
 The subject is **one public page** at <https://roanboc.github.io/archreator/>,
 whose source is `site/index.html` in the
 [`archreator`](https://github.com/roanboc/archreator) repository. It exists to

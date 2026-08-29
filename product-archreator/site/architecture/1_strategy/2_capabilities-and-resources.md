@@ -5,6 +5,8 @@ _[← Strategy layer](./README.md) · [EA home](../README.md)_
 **ArchiMate viewpoint:** Strategy. What the site must be able to do, and with
 what.
 
+**Status:** ● Validated at **Gate 1**, 2026-08-22.
+
 Three capabilities and two resources. A one-page site that deliberately has no
 build, no backend and no dependency does not have much it must be able to do,
 and inventing more would model an ambition rather than a subject.
