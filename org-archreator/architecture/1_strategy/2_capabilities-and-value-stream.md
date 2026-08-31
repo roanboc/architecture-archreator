@@ -5,18 +5,18 @@ _[← Strategy layer](./README.md) · [Front door](../README.md)_
 **ArchiMate viewpoint:** Strategy — Capability, Resource, Value, Course of
 Action, Value Stream.
 
-**Status:** ◐ Draft catalogue — rebuilt on method 0.2 from the validated
-pre-0.2 layer, not yet re-approved. **Direction** covers this layer.
+**Status:** ◐ Draft catalogue — not yet approved at a gate. **Direction**
+covers this document.
 
 ## How to read this document
 
 ```mermaid
 flowchart LR
-  cap["✦ what it can do"]:::capability
-  res[("▤ what it does it with")]:::resource
-  val[/"◈ what that is worth"\]:::value
-  coa{{"➤ the course it has taken"}}:::coa
-  vs[["⇉ a stage of the stream"]]:::vsx
+  cap["✦ «Capability» what it can do [CAP#, CAP#.# per level]"]:::capability
+  res[("▤ «Resource» what it does it with [RES#]")]:::resource
+  val[/"◈ «Value» what that is worth [VAL#]"\]:::value
+  coa{{"➤ «Course of Action» the course it has taken [COA#]"}}:::coa
+  vs[["⇉ «Value Stream» a stage of the stream [VS#.#]"]]:::vsx
 
   cap -->|uses| res
   cap -->|delivers| val
@@ -29,14 +29,6 @@ flowchart LR
   classDef coa fill:#d9ad5c,stroke:#a87b2f,color:#333
   classDef vsx fill:#eed4a0,stroke:#c8a24a,color:#333
 ```
-
-| Glyph | Shape | Element | ID prefix | Reads as |
-| ----- | ----- | ------- | --------- | -------- |
-| `✦` | Rectangle | «Capability» | `CAP` | `CAP#`, `CAP#.#` per level |
-| `▤` | Cylinder | «Resource» | `RES` | `RES#` |
-| `◈` | Trapezoid | «Value» | `VAL` | `VAL#` |
-| `➤` | Hexagon | «Course of Action» | `COA` | `COA#` |
-| `⇉` | Rectangle, double bars | «Value Stream» | `VS` | `VS#`, `VS#.#` per stage |
 
 ## Capabilities
 
@@ -53,11 +45,15 @@ flowchart LR
   classDef capability fill:#f5deaa,stroke:#c8a24a,color:#333
 ```
 
+### Level 1 — the capability areas
+
 | ID | Capability area | The organization can | Delivers |
 | -- | --------------- | -------------------- | -------- |
 | `CAP1` | **Business understanding** | Arrive at what a business actually is, and say it in a form that survives being passed on | `VAL1`, `VAL3` |
 | `CAP2` | **Model stewardship** | Keep that understanding true as time and change act on it, and improve the method that produces it | `VAL3`, `VAL5` |
 | `CAP3` | **Delivery from design** | Turn an approved design into a working solution without an expert in the room | `VAL2`, `VAL4` |
+
+### Level 2 — the capabilities
 
 | ID | Capability | It is | Realized by | Composed into |
 | -- | ---------- | ----- | ----------- | ------------- |
@@ -65,7 +61,7 @@ flowchart LR
 | `CAP1.2` | **A shared architectural language** | Standardised concepts with defined relationships — what makes the model mean the same to a person and to an agent | The notation and style rulebooks | `CAP1` |
 | `CAP2.1` | **One documented model** | Markdown in git, catalogues and diagrams, every element naming what realizes it | The document conventions and the two validators | `CAP2` |
 | `CAP2.2` | **Layered change absorption** | Strategy can change without redoing technology, and the reverse | The numbered layers and the per-layer "no change" verdict | `CAP2` |
-| `CAP2.3` | **Engagement-to-method learning** | What is improvised during an engagement becomes method anyone can use | The retrospective skill, now triggered after every merged initiative | `CAP2` |
+| `CAP2.3` | **Engagement-to-method learning** | What is improvised during an engagement becomes method anyone can use | The retrospective skill, triggered after every merged initiative | `CAP2` |
 | `CAP3.1` | **Design-to-delivery continuity** | The approved design is the input an agent builds from, so there is no handover | The alignment and sharding skills | `CAP3` |
 | `CAP3.2` | **Method-carried competence** | The expertise sits in the method, so the price of an architecture drops to the price of an agent | The skill corpus as a whole, distributed as a plugin | `CAP3` |
 
@@ -109,6 +105,8 @@ flowchart LR
 
   classDef vsx fill:#eed4a0,stroke:#c8a24a,color:#333
 ```
+
+### The stream and its stages — levels 1 and 2
 
 | ID | Stage | What happens | Served by |
 | -- | ----- | ------------ | --------- |

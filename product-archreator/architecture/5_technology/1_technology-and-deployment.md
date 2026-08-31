@@ -4,8 +4,8 @@ _[← Technology layer](./README.md) · [Front door](../README.md)_
 
 **ArchiMate viewpoint:** Technology.
 
-**Status:** ◐ Draft catalogue — rebuilt on method 0.2 from the validated
-pre-0.2 layer, not yet re-approved. **Understanding** covers this layer.
+**Status:** ◐ Draft catalogue — not yet approved at a gate. **Understanding**
+covers this document.
 
 **Nothing to operate** is the layer's headline: no database, no server, no
 cache to rebuild. Every node below is either a free hosted service or the
@@ -13,13 +13,21 @@ adopter's own machine.
 
 ## How to read this document
 
-| Glyph | Shape | Element | ID prefix | Reads as |
-| ----- | ----- | ------- | --------- | -------- |
-| `⬒` | Rectangle | «Node» | `NODE` | `NODE#` |
-| `⬯` | Stadium | «Technology Service» | `TSVC` | `TSVC#` |
-| `⎔` | Parallelogram | «Artifact» | `ART` | `ART#` |
+```mermaid
+flowchart LR
+  node["⬒ «Node» what runs it [NODE#]"]:::tech
+  tsvc(["⬯ «Technology Service» what it provides [TSVC#]"]):::tsvc
+  art[/"⎔ «Artifact» what is deployed onto it [ART#]"/]:::art
 
-## Nodes and services
+  node -->|provides| tsvc
+  art -->|deployed to| node
+
+  classDef tech fill:#a9d68f,stroke:#558b2f,color:#333
+  classDef tsvc fill:#c9e7b7,stroke:#558b2f,color:#333
+  classDef art fill:#dcefd0,stroke:#7aa860,color:#333
+```
+
+## Nodes
 
 | ID | Node | Is | Replaceable? |
 | -- | ---- | -- | ------------ |
@@ -29,6 +37,8 @@ adopter's own machine.
 | `NODE4` | **The agent host platform** — Claude Code, Copilot, Codex or Gemini | Where the skills execute; the one node the method does not choose, because it is wherever the adopter already works | By design — a second platform adds a manifest and forks nothing |
 | `NODE5` | **The Python runtime** — 3.11+, standard library | What the validators and readers run on, everywhere, offline; `uv` supplies the two extras the corpus checks need | The one true dependency, and deliberately the boring one |
 
+## Technology services
+
 | ID | Service | Provided by | Note |
 | -- | ------- | ----------- | ---- |
 | `TSVC1` | **Version control and review** | `NODE1` | The thing that versions the code versions the architecture; a change and its documents are one review |
@@ -36,6 +46,8 @@ adopter's own machine.
 | `TSVC3` | **Public page delivery** | `NODE3` | Zero servers to secure or pay for |
 | `TSVC4` | **Skill execution** | `NODE4` | The method rides the adopter's agent; it operates nothing of its own |
 | `TSVC5` | **On-request rendering** | `NODE5` | A portal build is `uvx` fetching MkDocs Material for the duration of one command — a dependency only while somebody asks |
+
+## Artifacts
 
 | ID | Artifact | Is | Deployed to |
 | -- | -------- | -- | ----------- |

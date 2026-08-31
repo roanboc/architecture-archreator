@@ -4,20 +4,20 @@ _[← Application layer](./README.md) · [Front door](../README.md)_
 
 **ArchiMate viewpoint:** Application — Application Component.
 
-**Status:** ◐ Draft catalogue — rebuilt on method 0.2 from the validated
-pre-0.2 layer, not yet re-approved. **Understanding** covers this layer.
+**Status:** ◐ Draft catalogue — not yet approved at a gate. **Understanding**
+covers this document.
 
-The pre-0.2 model carried a persisted SQLite projection, a custom portal
-builder, a whole-model PDF exporter and their query tools. Method 0.2
-deleted them, and this catalogue describes only what ships — the deleted
-components remain readable at
-[`pre-02-2026-08`](https://github.com/roanboc/architecture-archreator/tree/pre-02-2026-08).
+Every component below is shipping code — the catalogue holds nothing that
+does not exist as a path in the archreator repository.
 
 ## How to read this document
 
-| Glyph | Shape | Element | ID prefix | Reads as |
-| ----- | ----- | ------- | --------- | -------- |
-| `⊞` | Rectangle | «Application Component» | `ACMP` | `ACMP#` |
+```mermaid
+flowchart LR
+  acmp["⊞ «Application Component» the piece that does it [ACMP#]"]:::app
+
+  classDef app fill:#c2f0ff,stroke:#0288d1,color:#333
+```
 
 ## The components
 

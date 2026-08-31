@@ -6,16 +6,19 @@ _[← Information layer](./README.md) · [Front door](../README.md)_
 row of the same catalogue; its objects extend the identifier, so the
 hierarchy is readable from the ID and no new element kind is needed.
 
-**Status:** ◐ Draft catalogue — first modeled on method 0.2, not yet
-approved. **Understanding** covers this layer.
+**Status:** ◐ Draft catalogue — not yet approved at a gate. **Understanding**
+covers this document.
 
 ## How to read this document
 
-| Glyph | Shape | Element | ID prefix | Reads as |
-| ----- | ----- | ------- | --------- | -------- |
-| `▦` | Rectangle | «Data Object» | `DOBJ` | `DOBJ#` a domain, `DOBJ#.#` an object in it |
+```mermaid
+flowchart LR
+  dobj["▦ «Data Object» a domain, or an object extending its ID [DOBJ#, DOBJ#.# per level]"]:::info
 
-## The domain map
+  classDef info fill:#c2f0ff,stroke:#0288d1,color:#333
+```
+
+## Level 1 — the domains
 
 ```mermaid
 flowchart LR
@@ -35,7 +38,7 @@ flowchart LR
 | `DOBJ2` | **Project models** — what each adopting project knows about itself | Each adopting project's Requester | That project's repository, always |
 | `DOBJ3` | **Generated output** — what the tools produce on request | Nobody — disposable by design | Nowhere: gitignored under `.archreator/`, regenerated fresh, never committed |
 
-## The objects
+## Level 2 — the objects
 
 | ID | Object | Is | Classification |
 | -- | ------ | -- | -------------- |

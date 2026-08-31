@@ -5,23 +5,34 @@ _[← Business layer](./README.md) · [Front door](../README.md)_
 **ArchiMate viewpoint:** Business — Actor, Role, Contract, Business Service,
 Business Process.
 
-**Status:** ◐ Draft catalogue — rebuilt on method 0.2 from the validated
-pre-0.2 layer, not yet re-approved. **Understanding** covers this layer.
+**Status:** ◐ Draft catalogue — not yet approved at a gate. **Understanding**
+covers this document.
 
 ## How to read this document
 
-| Glyph | Shape | Element | ID prefix | Reads as |
-| ----- | ----- | ------- | --------- | -------- |
-| `⚇` | Stadium | «Business Actor» | `ACT` | `ACT#` |
-| `⚉` | Rectangle | «Business Role» | `ROLE` | `ROLE#` |
-| `❒` | Parallelogram | «Contract» | `CTR` | `CTR#` |
-| `⬭` | Stadium | «Business Service» | `BSVC` | `BSVC#` |
-| `⚙` | Hexagon | «Business Process» | `BPROC` | `BPROC#` |
+```mermaid
+flowchart LR
+  act(["⚇ «Business Actor» who acts [ACT#]"]):::business
+  role["⚉ «Business Role» the hat they wear [ROLE#]"]:::role
+  ctr[/"❒ «Contract» what binds them [CTR#]"/]:::contract
+  bsvc(["⬭ «Business Service» what is offered [BSVC#]"]):::service
+  bproc{{"⚙ «Business Process» how the work runs [BPROC#, BPROC#.# per level]"}}:::business
+
+  act -->|fills| role
+  act -->|bound by| ctr
+  role -->|performs| bproc
+  bproc -->|realizes| bsvc
+
+  classDef business fill:#fffbb5,stroke:#c8c04a,color:#333
+  classDef role fill:#f7f099,stroke:#b8ad3f,color:#333
+  classDef service fill:#efe57d,stroke:#b8ad3f,color:#333
+  classDef contract fill:#d9cc4a,stroke:#a89a34,color:#333
+```
 
 An `(AI)` actor is drawn in the application cyan whatever the diagram, so a
 reader never mistakes it for a person.
 
-## Actors and roles
+## Actors
 
 ```mermaid
 flowchart LR
@@ -57,11 +68,15 @@ flowchart LR
 | Never decides | What the business is, what a gate approves, what is priced — `P1` |
 | Escalates to | The Requester [ACT1], as an unscheduled stop when materially uncertain |
 
+## Roles
+
 | ID | Role | Filled by | Does |
 | -- | ---- | --------- | ---- |
 | `ROLE1` | **Method maintainer** | `ACT1`, assisted by `ACT2` | Develops the method and publishes guidance |
 | `ROLE2` | **Consultant** | `ACT1`, assisted by `ACT2` | Runs discovery and delivery with clients, and captures afterwards what the method did not cover |
 | `ROLE3` | **Owner** | `ACT1` | Decides direction, pricing, and what the organization is for |
+
+## Contracts
 
 | ID | Contract | Between | State |
 | -- | -------- | ------- | ----- |
@@ -72,14 +87,18 @@ flowchart LR
 
 | ID | Service | Delivers | Realized by | Reached through |
 | -- | ------- | -------- | ----------- | --------------- |
-| `BSVC1` | **The method, published and installable** — obtainable and usable without asking anyone | `CAP1`, `CAP2`, `CAP3` | The [product](../../../product-archreator/architecture/README.md), self-served | The repository, the marketplace |
-| `BSVC2` | **Guidance and worked reference** — how to start, what the method is for, and models a reader can inspect | `CAP1` | The guidance site and this repository | The site, the repository |
+| `BSVC1` | **The method, published and installable** — obtainable and usable without asking anyone | `CAP1`, `CAP2`, `CAP3` | The [product](../../../product-archreator/architecture/README.md), self-served; `BPROC1` | The repository, the marketplace |
+| `BSVC2` | **Guidance and worked reference** — how to start, what the method is for, and models a reader can inspect | `CAP1` | The guidance site and this repository; `BPROC1` | The site, the repository |
 | `BSVC3` | **Advisory and delivery with the method** — the Requester runs discovery and delivery personally | `CAP1`, `CAP3` | `ROLE2`, in person | Referral and direct approach |
 
 ## The process map
 
-The four bands, with two reported empty — an empty band is a finding to
-explain, not a blank to fill.
+### Level 1 — the landscape
+
+**This organization runs on two processes** — it is one person and a
+product, with no sales, administrative or other enterprise machinery around
+them — and the map's four bands say so rather than hiding it: an empty band
+is a finding to explain, not a blank to fill.
 
 ```mermaid
 flowchart LR
@@ -87,40 +106,53 @@ flowchart LR
     sNote["Direction is held by the Owner [ROLE3], undocumented"]:::note
   end
   subgraph operational["Operational"]
-    p1["⚙ Reach [BPROC1]"]:::business
-    p2["⚙ Frame [BPROC2]"]:::business
-    p3["⚙ Approve [BPROC3]"]:::business
-    p4["⚙ Model [BPROC4]"]:::business
-    p5["⚙ Build [BPROC5]"]:::business
+    p1{{"⚙ Deliver the product [BPROC1]"}}:::business
+  end
+  subgraph support["Support — empty, a finding"]
+    supNote["The partners supply what support would: inference and hosting"]:::note
   end
   subgraph evaluation["Evaluation"]
-    p6["⚙ Feed back [BPROC6]"]:::business
+    p2{{"⚙ Improve continuously [BPROC2]"}}:::business
   end
 
-  p1 --> p2 --> p3 --> p4 --> p5 --> p6
-  p6 -->|the method changes| p2
+  p1 -->|real use feeds| p2
+  p2 -->|method changes re-enter| p1
 
   classDef business fill:#fffbb5,stroke:#c8c04a,color:#333
   classDef note fill:#f4f1ea,stroke:#c8c04a,color:#333,stroke-dasharray: 4 3
 ```
 
+| ID | Process | Category | Purpose | Owner | Composed of |
+| -- | ------- | -------- | ------- | ----- | ----------- |
+| `BPROC1` | **Deliver the product** | Operational | Turns a change the Requester wants into a published, installable method whose documents are still true | `ROLE1` | `BPROC1.1`, `BPROC1.2`, `BPROC1.3` |
+| `BPROC2` | **Improve continuously** | Evaluation | Turns real use — the organization's own and its clients' — into method changes | `ROLE1` | `BPROC2.1`, `BPROC2.2` |
+
+**Delivering with a client is not a third process.** An engagement runs the
+method's own process model — the one in the archreator repository, beside
+the skills that realize it — and this organization adds nothing to it; what
+an engagement teaches enters at
+`Capture what real use exposed [BPROC2.1]`.
+
+### Level 2 — the contract
+
 | ID | Process | Purpose | Trigger | Supplier | Output | Customer | Owner | Realized by |
 | -- | ------- | ------- | ------- | -------- | ------ | -------- | ----- | ----------- |
-| `BPROC1` | **Reach** | Turns a search, a referral or a link into a person who knows the method exists | Someone looks, or someone is approached | The channels | An arriving adopter or client | `BPROC2` | `ROLE1` | The published channels; `ROLE2` for referral |
-| `BPROC2` | **Frame** | Turns a subject nobody has modeled into canvases and a strategy, tested by question rather than recorded | An adopter or client with a subject | `BPROC1` | Draft catalogues, unapproved | `BPROC3` | `ROLE2` | The discovery skills |
-| `BPROC3` | **Approve** | Turns a presented draft into a granted gate | A layer ready to be shown | `BPROC2` | An Approvals row — which gate, who, when, what was shown | `BPROC4` | The project's own Requester | The gate rules of the method |
-| `BPROC4` | **Model** | Turns what was approved into layer documents that pass both validators | An approved gate | `BPROC3` | A model a change can be judged against | `BPROC5` | `ROLE2` | `ACT2` drafting, `ACT1` accepting |
-| `BPROC5` | **Build** | Turns an approved design into merged code whose documents are still true | An approved design | `BPROC4` | A delivered outcome | The adopter or client | `ROLE2` | `ACT2`, within the approved design |
-| `BPROC6` | **Feed back** | Turns real use into an engagement note, and eventually a method change | An initiative or engagement finishing | `BPROC5` | A retrospective, then a method initiative | `ROLE1` | `ROLE1` | The retrospective skill |
+| `BPROC1.1` | **Frame the change** | Turns a wish into an approved scope, aligned through the layers and stopped at the gates | A requirement, or a method change arriving from `BPROC2.2` | `ROLE3`; `BPROC2.2` | An approved scope document | `BPROC1.2` | `ROLE1` | The method's own alignment and scope skills |
+| `BPROC1.2` | **Build and validate** | Turns an approved scope into a merged change whose documents are still true | An approved scope | `BPROC1.1` | A merged pull request, validators green | `BPROC1.3` | `ROLE1` | `ACT2` within the approved scope, `ACT1` reviewing |
+| `BPROC1.3` | **Publish** | Turns a merged change into something an adopter can install and read | A merged change | `BPROC1.2` | The plugin in the marketplace, the site deployed | The adopters | `ROLE1` | The manifests and the site workflow |
+| `BPROC2.1` | **Capture what real use exposed** | Turns a finished initiative or engagement into a recorded lesson before it evaporates | An initiative merging, or an engagement closing | `BPROC1.3`; `ROLE2` | An engagement note naming what the method did not cover | `BPROC2.2` | `ROLE1` | The retrospective skill |
+| `BPROC2.2` | **Fold it back into the method** | Turns a recorded lesson into a method change worth an initiative — or an explicit decision that it is not | An engagement note | `BPROC2.1` | A method initiative, entering `BPROC1.1` | `BPROC1.1` | `ROLE1` | The alignment skills, on the method's own model |
 
-**Deliberate depth** — every process stops at level 1, and each stop is a
-decision:
+### Where depth stops
 
-| Process | Detailed to | Justified by | Note |
-| ------- | ----------- | ------------ | ---- |
-| `BPROC1` Reach | Level 1 | — | Also the process no capability serves — the strategy's open finding |
-| `BPROC2` Frame | Level 1 | — | The conversation's shape belongs to the method's discovery skills, not to this organization |
-| `BPROC3` Approve | Level 1 | — | One step and one table |
-| `BPROC4` Model | Level 1 | — | The sequence is the layer numbering, already written down once |
-| `BPROC5` Build | Level 1 | — | Varies entirely by the project's stack; detailing it would model the client's work |
-| `BPROC6` Feed back | Level 1 | — | Six questions with no sequence between them |
+Levels 1 and 2 are complete above; level 3 is drawn only where a flow's
+sequence is contested, and nowhere here is it — each contract above is a
+straight line with one supplier and one customer:
+
+| Level-2 process | Level 3? |
+| --------------- | -------- |
+| `BPROC1.1` Frame the change | — the sequence is the layer numbering, owned by the method |
+| `BPROC1.2` Build and validate | — one actor drafting, one reviewing |
+| `BPROC1.3` Publish | — mechanical: merge, and the workflows run |
+| `BPROC2.1` Capture what real use exposed | — six questions with no order between them |
+| `BPROC2.2` Fold it back into the method | — it is `BPROC1.1` applied to the method itself |

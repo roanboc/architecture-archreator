@@ -31,11 +31,8 @@ has a skill and every skill a process.
 
 Every document that defines elements opens with `○` not started, `◐` draft
 catalogue, or `●` validated at a named gate. **Everything in this model is
-`◐` today** — it was rebuilt on method 0.2 from the previous corpus,
-preserved at
-[`pre-02-2026-08`](https://github.com/roanboc/architecture-archreator/tree/pre-02-2026-08),
-and a rebuild is a new draft until the gates are granted again. The
-initiative is [scope document 1](./scope/1_rebuild-the-models-on-method-02.md).
+`◐` today** — the gates are pending in
+[the current initiative](./scope/1_rebuild-the-models-on-method-02.md).
 
 ## Federation
 

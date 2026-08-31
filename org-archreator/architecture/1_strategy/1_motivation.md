@@ -6,19 +6,19 @@ _[← Strategy layer](./README.md) · [Front door](../README.md)_
 what presses on them, what must become true, and the principles every change
 is tested against.
 
-**Status:** ◐ Draft catalogue — rebuilt on method 0.2 from the validated
-pre-0.2 layer, not yet re-approved. **Direction** covers this layer.
+**Status:** ◐ Draft catalogue — not yet approved at a gate. **Direction**
+covers this document.
 
 ## How to read this document
 
 ```mermaid
 flowchart LR
-  stk(["◍ whose interests are at stake"]):::stakeholder
-  drv{{"✳ what presses on them"}}:::driver
-  asm>"⌕ what is true today"]:::assessment
-  goal("◎ what must become true"):::goal
-  out[["◉ how we would know"]]:::outcome
-  prin[/"⚑ what every change is tested against"/]:::principle
+  stk(["◍ «Stakeholder» whose interests are at stake [STK#]"]):::stakeholder
+  drv{{"✳ «Driver» what presses on them [DRV#]"}}:::driver
+  asm>"⌕ «Assessment» what is true today [ASM#]"]:::assessment
+  goal("◎ «Goal» what must become true [G#]"):::goal
+  out[["◉ «Outcome» how we would know [OUT#]"]]:::outcome
+  prin[/"⚑ «Principle» what every change is tested against [P#]"/]:::principle
 
   stk -->|concerned with| drv
   drv -->|evidenced by| asm
@@ -34,20 +34,11 @@ flowchart LR
   classDef principle fill:#a37cd8,stroke:#4f318c,color:#333
 ```
 
-| Glyph | Shape | Element | ID prefix | Reads as |
-| ----- | ----- | ------- | --------- | -------- |
-| `◍` | Stadium | «Stakeholder» | `STK` | `STK#` |
-| `✳` | Hexagon | «Driver» | `DRV` | `DRV#` |
-| `⌕` | Flag | «Assessment» | `ASM` | `ASM#` |
-| `◎` | Rounded rectangle | «Goal» | `G` | `G#` |
-| `◉` | Rectangle, double bars | «Outcome» | `OUT` | `OUT#` |
-| `⚑` | Parallelogram | «Principle» | `P` | `P#` |
-
 ## Stakeholders
 
 | ID | Stakeholder | What they want | Concerned with | Source |
 | -- | ----------- | -------------- | -------------- | ------ |
-| `STK1` | **Independent builders** — building something real with a coding agent and no architecture background | To explain the business once and get from a design to something delivered, without the work outrunning their understanding | `DRV1`, `DRV2`, `DRV5` | `CS1` |
+| `STK1` | **Independent builders** — building something real with a coding agent and no architecture background | To explain the business once and get from a design to something delivered, without the work outrunning their understanding | `DRV1`, `DRV2`, `DRV5`, `DRV7` | `CS1` |
 | `STK2` | **Enterprise architects** — fluent in the discipline, using the method as leverage | A standard model they can navigate directly, with an agent that follows the same rules they do | `DRV2`, `DRV3`, `DRV5` | `CS2` |
 | `STK3` | **Business owners** — running a company or forming one, with knowledge but no structure a builder can act on | To have their business understood well enough that what gets built is what they meant | `DRV1`, `DRV3`, `DRV4` | `CS3` |
 | `STK4` | **The Requester** — the one person who maintains the method and delivers the consulting | That the method is used, improves through that use, and stops depending on their availability | `DRV5`, `DRV6` | `KR1`, `COST1` |
@@ -62,6 +53,7 @@ flowchart LR
 | `DRV4` | **Architectural expertise is priced out of reach** for the businesses that most need it | `PAIN4` |
 | `DRV5` | **AI can now do the work and has no framework behind it** — the capability arrived; the discipline did not | `PAIN5` |
 | `DRV6` | **Human knowledge is being delegated rather than improved** — the fastest path with AI is to let it think, and the person ends up understanding their own business less than before | The mission — no canvas block |
+| `DRV7` | **Token cost compounds without structure** — building is cheap while the solution is new, and maintaining is not, because an agent with no model traverses the whole project for every answer | `PAIN6` |
 
 **The one driver with no canvas source is the one the organization exists
 for.** Nobody lists `DRV6` as a pain, because it does not hurt while it is
@@ -74,6 +66,7 @@ happening. It is the driver behind `G6` and behind `P1`.
 | `ASM3` | Knowledge scattered across documents, meetings, diagrams and wikis is knowledge trapped in whoever last held it | `DRV3` | `PAIN3` |
 | `ASM4` | Architectural quality is bought either with years of seniority or with consulting fees, and both are out of reach for the segments that need it most | `DRV4` | `PAIN4` |
 | `ASM5` | AI already performs most of this work in isolation, with a person acting as the framework by hand | `DRV5` | `PAIN5` |
+| `ASM6` | An agent without a model answers every question by re-reading the codebase, and pays for the traversal in tokens every time | `DRV7` | `PAIN6` |
 
 ## Goals and outcomes
 
@@ -94,6 +87,10 @@ happening. It is the driver behind `G6` and behind `P1`.
 - **G6 — Human knowledge improves while AI builds.** The person understands
   their own business more after the work than before it. From `DRV6`, and
   held for its own sake rather than because a customer asked.
+- **G7 — Cheaper to run the longer it runs.** The model bounds what an agent
+  reads, so token spend falls over the life of a solution instead of rising
+  with its size — somewhat dearer on day one, cheaper every month after.
+  From `PAIN6`, against `ASM6`, and still to be validated in real use.
 
 | ID | Outcome | For | How it is checked | Source |
 | -- | ------- | --- | ----------------- | ------ |
@@ -103,9 +100,10 @@ happening. It is the driver behind `G6` and behind `P1`.
 | `OUT4` | A new person or agent works from the model instead of being briefed | `G3` | **Observable, never counted** | `GAIN4` |
 | `OUT5` | Someone without years of seniority produces an architecture that holds | `G4` | **No method** — only real adoption would evidence it | `GAIN5` |
 | `OUT6` | A pivot changes some layers and leaves the rest standing | `G5` | **Checkable** — a scope document records "no change" verdicts for the layers the pivot did not reach | `GAIN6` |
+| `OUT7` | Token spend per change falls once the model exists | `G7` | **No method yet** — the claim needs measuring in a real adoption before anyone repeats it | `PREL6` |
 
-**Three of six outcomes are checkable, one is observed and never counted,
-and two have no method at all.** That distribution is the honest state of
+**Three of seven outcomes are checkable, one is observed and never counted,
+and three have no method at all.** That distribution is the honest state of
 this organization's ability to know whether it is working.
 
 ## Principles

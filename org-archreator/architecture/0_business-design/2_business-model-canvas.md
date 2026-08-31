@@ -7,40 +7,61 @@ _[← Business design](./README.md) · [Front door](../README.md)_
 [Consulting [PROD2]](./1_value-proposition-canvas.md) actually operates and
 pays for itself.
 
-**Status:** ◐ Draft catalogue — rebuilt on method 0.2 from the validated
-pre-0.2 canvas, not yet re-approved. **Direction** covers this layer.
+**Status:** ◐ Draft catalogue — not yet approved at a gate. **Direction**
+covers this document.
 
-## The nine blocks
+## How to read this document
 
 ```mermaid
-flowchart TB
-  subgraph left[" "]
-    kp["⧉ AI model providers [KP1] · The code host [KP2]"]:::block
-    ka{{"⚙ Improve the method [KA1] · Publish guidance [KA2] · Deliver with clients [KA3]"}}:::block
-    kr[("▤ The Requester's knowledge and time [KR1] · The method [KR2] · The guidance site [KR3]")]:::block
-  end
-  subgraph mid[" "]
-    vp["▣ archreator, the open method [PROD1] · Consulting [PROD2]"]:::vp
-  end
-  subgraph right[" "]
-    cr[["⇄ Self-service [CR1] · Personal and direct [CR2]"]]:::block
-    ch["⊸ Repository [CH1] · Guidance site [CH2] · Plugin marketplace [CH3] · Referral [CH4]"]:::block
-    cs(["◍ Independent builder [CS1] · Enterprise architect [CS2] · Business owner [CS3]"]):::block
-  end
-  cost[/"▼ Requester's time [COST1] · AI inference [COST2] · Hosting [COST3]"\]:::cost
-  rs[\"▲ Continuous improvement [RS1] · Mission progress [RS2] · Consulting fees [RS3]"/]:::rs
+flowchart LR
+  kp{{"⧉ «Key Partner» who is depended on [KP#]"}}:::partner
+  ka{{"⚙ «Key Activity» what must be done [KA#]"}}:::activity
+  kr[("▤ «Key Resource» what it takes [KR#]")]:::resource
+  ch["⊸ «Channel» how it reaches someone [CH#]"]:::channel
+  cr["⇄ «Customer Relationship» what kind of contact [CR#]"]:::relationship
+  rs[/"▲ «Revenue Stream» what comes in [RS#]"\]:::revenue
+  cost[\"▼ «Cost» what goes out [COST#]"/]:::cost
 
-  left --- mid --- right
-  cost --- rs
+  kp -->|enables| ka
+  kr -->|enables| ka
+  ka -->|delivers through| ch
+  ch -->|establishes| cr
+  cr -->|produces| rs
+  ka -->|incurs| cost
 
-  classDef block fill:#fffbb5,stroke:#c8c04a,color:#333
-  classDef vp fill:#efe57d,stroke:#b8ad3f,color:#333
-  classDef cost fill:#ffd6d6,stroke:#d99b9b,color:#333
-  classDef rs fill:#c9e7b7,stroke:#558b2f,color:#333
+  classDef partner fill:#f7f099,stroke:#b8ad3f,color:#333
+  classDef activity fill:#f7f099,stroke:#b8ad3f,color:#333
+  classDef resource fill:#faf0d5,stroke:#d4b96a,color:#333
+  classDef channel fill:#e5d95f,stroke:#a89a34,color:#333
+  classDef relationship fill:#efe57d,stroke:#b8ad3f,color:#333
+  classDef revenue fill:#c9e7b7,stroke:#558b2f,color:#333
+  classDef cost fill:#ffd6d6,stroke:#c62828,color:#333
 ```
 
-A compact view of the tables below, in the traditional arrangement. The
-tables are the source; resolve any mismatch in their favour.
+Revenue is green and cost is rose, so the arithmetic is visible without
+reading a label. The segments and products keep the identifiers
+[the value proposition canvas](./1_value-proposition-canvas.md) defines.
+
+## The products at a glance
+
+| | archreator, the open method [`PROD1`] | Consulting [`PROD2`] |
+| --- | --- | --- |
+| **Segments** | `CS1`, `CS2` | `CS3` |
+| **Channels** | `CH1`, `CH2`, `CH3` | `CH4` |
+| **Relationship** | `CR1` | `CR2` |
+| **Revenue** | `RS1`, `RS2` — non-monetary | `RS3` |
+| **Dominant cost** | `COST1` | `COST1` |
+| **Scales?** | Yes, freely | **No** — bounded by one person's hours |
+
+**The last row is the model's central tension.** The product that earns
+money cannot grow, and the product that grows earns feedback and mission
+progress rather than money — deliberately, per
+[Priced at the cost of running it [P7]](../1_strategy/1_motivation.md#principles).
+
+A third product — **a self-service portal**, everything the consulting
+route does but self-served — is deliberately absent: it waits on the method
+proving itself, and enters the model when an initiative through Direction
+makes it real.
 
 ## Channels
 

@@ -4,14 +4,17 @@ _[← Application layer](./README.md) · [Front door](../README.md)_
 
 **ArchiMate viewpoint:** Application — Application Service.
 
-**Status:** ◐ Draft catalogue — rebuilt on method 0.2 from the validated
-pre-0.2 layer, not yet re-approved. **Understanding** covers this layer.
+**Status:** ◐ Draft catalogue — not yet approved at a gate. **Understanding**
+covers this document.
 
 ## How to read this document
 
-| Glyph | Shape | Element | ID prefix | Reads as |
-| ----- | ----- | ------- | --------- | -------- |
-| `⬮` | Stadium | «Application Service» | `ASVC` | `ASVC#` |
+```mermaid
+flowchart LR
+  asvc(["⬮ «Application Service» what the software does [ASVC#]"]):::app
+
+  classDef app fill:#c2f0ff,stroke:#0288d1,color:#333
+```
 
 ## The services
 

@@ -4,18 +4,36 @@ _[← Strategy layer](./README.md) · [Front door](../README.md)_
 
 **ArchiMate viewpoint:** Motivation.
 
-**Status:** ◐ Draft catalogue — rebuilt on method 0.2 from the validated
-pre-0.2 layer, not yet re-approved. **Direction** covers this layer.
+**Status:** ◐ Draft catalogue — not yet approved at a gate. **Direction**
+covers this document.
+
+**The why of the organization lives in
+[its strategy](../../../org-archreator/architecture/1_strategy/1_motivation.md);
+this document holds only what the product adds** — the adopting project's
+roles, and what must be true of the method itself. Where an element would
+restate the organization's, a cross-model reference stands in its place.
 
 ## How to read this document
 
-| Glyph | Shape | Element | ID prefix | Reads as |
-| ----- | ----- | ------- | --------- | -------- |
-| `◍` | Stadium | «Stakeholder» | `STK` | `STK#` |
-| `✳` | Hexagon | «Driver» | `DRV` | `DRV#` |
-| `⌕` | Flag | «Assessment» | `ASM` | `ASM#` |
-| `◎` | Rounded rectangle | «Goal» | `G` | `G#` |
-| `◉` | Rectangle, double bars | «Outcome» | `OUT` | `OUT#` |
+```mermaid
+flowchart LR
+  stk(["◍ «Stakeholder» whose interests are at stake [STK#]"]):::stakeholder
+  drv{{"✳ «Driver» what presses on them [DRV#]"}}:::driver
+  asm>"⌕ «Assessment» what is true today [ASM#]"]:::assessment
+  goal("◎ «Goal» what must become true [G#]"):::goal
+  out[["◉ «Outcome» how we would know [OUT#]"]]:::outcome
+
+  stk -->|concerned with| drv
+  drv -->|evidenced by| asm
+  drv -->|influences| goal
+  goal -->|measured by| out
+
+  classDef stakeholder fill:#f4ecfc,stroke:#9575cd,color:#333
+  classDef driver fill:#e6d6f5,stroke:#8e63c8,color:#333
+  classDef assessment fill:#d8c3f0,stroke:#7e57c2,color:#333
+  classDef goal fill:#c6aae9,stroke:#6f4bb2,color:#333
+  classDef outcome fill:#b493e0,stroke:#5f3da0,color:#333
+```
 
 ## Stakeholders
 
@@ -27,16 +45,24 @@ plus the two people outside the loop.
 | `STK1` | **Requester in an adopting project** | To own a subject and have it modeled without doing the modeling; to decide at points they choose, shown enough to decide honestly |
 | `STK2` | **Agent in an adopting project** | To know the business context before writing code, and to be stopped from acting on a fact that is no longer true |
 | `STK3` | **Reviewer in an adopting project** | To read a whole branch and see what it claims to change, against documents that were true before it started |
-| `STK4` | **Method maintainer** | To change the method without silently falsifying the models built on it |
+| `STK4` | **Method maintainer** — the organization's Requester [`org-archreator::STK4`], wearing the maintainer hat | To change the method without silently falsifying the models built on it |
 | `STK5` | **Reader outside the repository** | To read the architecture they are asked to agree with, fund or audit, without cloning anything |
+
+The three roles are the product's own stakeholders; the organization's
+customer segments — who the roles are filled by — stay modeled
+[where they are defined](../../../org-archreator/architecture/1_strategy/1_motivation.md#stakeholders).
 
 ## Drivers and assessments
 
-| ID | Driver | Pressing on |
-| -- | ------ | ----------- |
-| `DRV1` | **Agents build faster than anyone can specify** — the constraint moved from writing code to deciding what should be written | `STK1`, `STK3` |
-| `DRV2` | **The context an agent needs is not written down** — an agent with none of it fills the gap with something plausible | `STK2` |
-| `DRV3` | **Documentation stops being true when code moves** — a model describing last quarter is worse than none, because it is trusted | `STK2`, `STK3` |
+Each driver sharpens one of the organization's into what it means for this
+product specifically; the organization's row is the general case, cited
+rather than restated.
+
+| ID | Driver | Pressing on | Sharpens |
+| -- | ------ | ----------- | -------- |
+| `DRV1` | **Agents build faster than anyone can specify** — the constraint moved from writing code to deciding what should be written | `STK1`, `STK3` | `org-archreator::DRV5` |
+| `DRV2` | **The context an agent needs is not written down** — an agent with none of it fills the gap with something plausible | `STK2` | `org-archreator::DRV3` |
+| `DRV3` | **Documentation stops being true when code moves** — a model describing last quarter is worse than none, because it is trusted | `STK2`, `STK3` | `org-archreator::DRV3` |
 
 | ID | Assessment | Evidences |
 | -- | ---------- | --------- |

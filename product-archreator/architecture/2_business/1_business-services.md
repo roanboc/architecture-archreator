@@ -4,14 +4,17 @@ _[← Business layer](./README.md) · [Front door](../README.md)_
 
 **ArchiMate viewpoint:** Business — Business Service.
 
-**Status:** ◐ Draft catalogue — rebuilt on method 0.2 from the validated
-pre-0.2 layer, not yet re-approved. **Understanding** covers this layer.
+**Status:** ◐ Draft catalogue — not yet approved at a gate. **Understanding**
+covers this document.
 
 ## How to read this document
 
-| Glyph | Shape | Element | ID prefix | Reads as |
-| ----- | ----- | ------- | --------- | -------- |
-| `⬭` | Stadium | «Business Service» | `BSVC` | `BSVC#` |
+```mermaid
+flowchart LR
+  bsvc(["⬭ «Business Service» what the product does for an adopting project [BSVC#]"]):::business
+
+  classDef business fill:#fffbb5,stroke:#c8c04a,color:#333
+```
 
 ## The services
 

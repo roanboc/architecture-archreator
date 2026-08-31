@@ -4,9 +4,7 @@ This repository holds **the worked models** — archreator applied to real
 subjects, so that a prospective adopter can read a filled-in model rather than
 an empty scaffold. The method itself is the sibling repository
 [`archreator`](https://github.com/roanboc/archreator): skills, scaffold and
-docs there, models here. The models run on method **0.2**, and the corpus
-they were rebuilt from is preserved unchanged at the ref
-[`pre-02-2026-08`](https://github.com/roanboc/architecture-archreator/tree/pre-02-2026-08).
+docs there, models here. The models run on method **0.2**.
 
 ## The rule that governs everything else
 
@@ -32,10 +30,12 @@ and the prefix says which kind of thing it is.
 | [`product-archreator/`](./product-archreator/architecture/README.md) | archreator the method, as a product: its skills, validators, tools, scaffold and guidance site | 1 — Application |
 | [`scripts/`](./scripts/README.md) | The two validators and the parse they share — one copy for the whole repository, serving both trees |
 
-A tree earns its place by having **application components and technology of
-its own**. The guidance site is modeled inside `product-archreator` — it
-realizes one of the product's services, and a tree that only restates
-elements belonging somewhere else is a folder pretending to be a project.
+**A tree is a subject — an organization or a product — never a component.**
+One product commonly spans several repositories: the method's repository and
+the guidance site it carries are components of the same product, and a
+component gets no tree here. Its architecture lives at the product level;
+a component's own repository may carry whatever design detail it likes,
+unprescribed, as long as it aligns with the product's model.
 
 ## What is modeled where
 

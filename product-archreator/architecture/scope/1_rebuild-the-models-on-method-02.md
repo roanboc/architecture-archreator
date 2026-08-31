@@ -50,8 +50,9 @@ scratch on 0.2 — validating the new method with its own.
 | ---- | ----- | ------ |
 | org | 0_business-design | **Rebuilt** — segments reframed around the two key customers; portal-era pending elements dropped |
 | org | 1_strategy | **Rebuilt** — derived from the new canvases; six goals, seven principles, one staged course of action |
-| org | 2_business | **Rebuilt into one document** — actors with the AI actor's autonomy stated, services, and the four-band process map with two bands reported empty |
-| org | 3–5 | **De-materialized** — stated as out of scope or external on the front door, per the status-table discipline |
+| org | 2_business | **Rebuilt into one document** — actors with the AI actor's autonomy stated, services, and the organization's own two processes modeled to level 2, with the two empty bands reported as findings |
+| org | 3_information | **New** — the two domains the organization masters and the one it defers to the product |
+| org | 4–5 | **De-materialized** — stated as external on the front door, per the status-table discipline |
 | product | 1_strategy | **Rebuilt** — the three adopting-project roles as stakeholders; goals now serve the organization's by cross-model reference |
 | product | 2_business | **Rebuilt** — eight services, the site's folded in |
 | product | 3_information | **New** — data domains before data objects, three domains, the leveled identifier carrying the hierarchy |
@@ -63,7 +64,7 @@ scratch on 0.2 — validating the new method with its own.
 | Gate | Approved by | Date | What was approved |
 | ---- | ----------- | ---- | ----------------- |
 | Direction, first sitting | — | — | **Pending** — the organization's canvases: the segments, the two products, the fit |
-| Direction, second sitting | — | — | **Pending** — the strategy derived from them, both trees' motivation included |
+| Direction, second sitting | — | — | **Pending** — the strategy derived from them, both trees' motivation included, and the capability areas re-examined as the organization's rather than the method's |
 | Understanding | — | — | **Pending** — the business and information layers, and the descriptive application and technology catalogues |
 | Design | — | — | **N/A** — a docs-only initiative; the components described are shipped code, not a proposal |
 
@@ -79,10 +80,10 @@ sitting may be granted as a review reply naming what it covers.
 
 ## Work packages and deliverables
 
-- **WP1 — The organization's model**: canvases, strategy, business — eleven
-  documents.
+- **WP1 — The organization's model**: canvases, strategy, business and
+  information.
 - **WP2 — The product's model**: strategy through technology, the site
-  folded in, scope and federation — fifteen documents.
+  folded in, scope and federation.
 - **WP3 — The shared machinery**: the 0.2 validators and parse replacing the
   0.1 toolchain at the repository root; the repository's entry points and
   ignore rules rewritten to match.
