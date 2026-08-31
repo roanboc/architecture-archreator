@@ -1,113 +1,23 @@
-# Project Scope Documents
+# Scope documents
 
-_[← Repository README](../../README.md) · [Enterprise architecture](../README.md)_
+_[← Front door](../README.md)_
 
-One document per delivered (or in-flight) initiative, numbered
-chronologically. While the [EA docs](../README.md) describe the
-**current** state of the system, each scope document describes one
-**change**: what plateau it started from, what it delivered, and what it
-deliberately left out.
+One document per initiative, numbered chronologically. The layer documents
+describe the **current** state; each document here describes one **change** —
+what it delivered, what it deliberately left out, and the Approvals table
+that is the durable record of its gates.
 
-**ArchiMate viewpoint:** Implementation & Migration (Work Package,
-Deliverable, Plateau, Gap).
+An initiative spanning this tree and
+[the organization's](../../../org-archreator/architecture/README.md) is one
+initiative with one document, here.
 
-## The EA-first change process
-
-Every change in requirements follows the same order — the same order the EA
-folders are numbered in:
-
-1. **Align the EA first.** Walk the layers top-down and record what the
-   change means for each: [1_strategy](../1_strategy/README.md) (does it
-   serve an existing goal, or introduce a new driver?) →
-   [2_business](../2_business/README.md) (new/changed services,
-   processes, rules?) → [3_information](../3_information/README.md)
-   (new/changed data objects, flows, storage?) →
-   [4_application](../4_application/README.md) (which services,
-   components, ports change?) → [5_technology](../5_technology/README.md)
-   (any runtime, build, or hosting impact?). Update the affected EA
-   documents in the same change. If the strategy layer is still template
-   placeholders, or the change adds/modifies a stakeholder, driver, goal,
-   or principle, the initiative becomes **strategy discovery** first — a
-   docs-only, question-driven initiative ending at **Gate 1 — Strategy**
-   approval (see the `discover-strategy` skill); implementation
-   follows as a separate initiative. If the subject is an **organization**
-   rather than an application, the walk starts one layer earlier, at
-   [0_business-design](../0_business-design/README.md) — the value
-   proposition and business model canvases, approved at **Gate 0 —
-   Business model** (see the `discover-business-model` skill)
-   before layers 1–2 are derived from them.
-2. **Document the scope.** Add the next-numbered file to this folder
-   describing plateaus, work packages, in/out of scope, gaps, and gate
-   approvals — before implementation starts, refined as it proceeds.
-3. **Pass the gates.** Before any code, the Requester approves the
-   strategy, business, and information changes (**Gate 2 — Business**) and
-   chooses whether to also review the solution design before it is coded
-   (**Gate 3 — Solution design**, optional). Approvals are recorded in the
-   scope document's Approvals table — who approved, when, and what was
-   shown, with `N/A — <why>` for the gates that didn't apply. Which gate
-   applies to which initiative is defined in exactly one place,
-   the `align-change-through-layers` skill § The gates, which also says **where**
-   an approval can be granted — the conversation, or a reply on the pull
-   request for a Requester who doesn't work in a terminal.
-4. **Implement.** Only then write the code, keeping the scope document and
-   EA docs in sync with what is actually delivered.
-
-Agent guidance for this process lives in the `align-change-through-layers`,
-`discover-strategy`, and `write-scope-document` skills; PR descriptions follow
-`.github/pull_request_template.md` (see the `write-pr-description` skill) and
-must cover the whole branch.
-
-If the project needs a single running index of adopted interpretations that
-still need sign-off from a stakeholder who can't be consulted synchronously,
-keep it in [open-questions.md](./open-questions.md) — optional, see the
-`write-scope-document` skill.
-
-If a work package is too large or long-running to implement in one sitting,
-shard it into self-contained story files instead of leaving it as one
-inline task list — see the `shard-stories` skill.
-
-For a single consequential call smaller than a full initiative — most
-often why an AI actor's autonomy level or decision rights were set the way
-they were — see [docs/decisions/](../decisions/README.md) (optional) and
-the `record-decision` skill.
-
-Scope documents accumulate. After a run of initiatives the EA can be
-accurate line by line and no longer read as a description of *today* —
-shipped work still marked "Pending", elements that were replaced but never
-retired, questions answered in a conversation nobody recorded. The
-`restate-current-state` skill compacts that, as its own initiative with its
-own Gate 2. It changes the current-state documents only: **a merged scope
-document is never rewritten**, because it is the record of what was
-approved on a date and against what information.
+**The pre-0.2 initiatives — seventeen of them — live at
+[`pre-02-2026-08`](https://github.com/roanboc/architecture-archreator/tree/pre-02-2026-08/product-archreator/architecture/scope),
+immutable prior art.** Numbering restarts with the rebuild that drew that
+line, because these documents record the model that exists now.
 
 ## Initiatives
 
-| #   | Scope document | Delivered as | Summary |
-| --- | --------------- | ------------ | ------- |
-| 1 | [Rebuild the models on the current method](./1_rebuild-the-models-on-the-current-method.md) | The `rebuild` branch | Three trees rebuilt from an empty branch against the current method, with the previous corpus preserved at the tag `pre-rebuild-2026-08` |
-| 2 | [Publish the model beyond the repository](./2_publish-the-model-beyond-the-repository.md) | [`archreator` PR #33](https://github.com/roanboc/archreator/pull/33), and the model changes it makes necessary | The method learned to render a model as a portal and print it as one PDF; the four layers that describe it are repaired to match |
-| 3 | [Describe the estate, and say where it is going](./3_describe-the-estate-and-say-where-it-is-going.md) | The `claude/archreator-next-functionality-ta1tyx` branch in `archreator`, and the model changes it makes necessary | The method learned to describe an estate that predates the model, to state a target and a sequence, and to answer graph questions from the projection that nothing had been reading |
-| 4 | [Say what a document is worth, and keep what it came from](./4_say-what-a-document-is-worth-and-keep-what-it-came-from.md) | The same branch | Every document that defines an element declares how far it has been validated, and the transcripts and documents a model was built from are kept beside it, dated and indexed |
-| 5 | [Ask where the project lives, and let it publish](./5_ask-where-the-project-lives-and-let-it-publish.md) | [`archreator` PR #39](https://github.com/roanboc/archreator/pull/39) | Bootstrap asks which repository a project lives in, and a public GitHub answer activates the checks and publishing workflows the scaffold now ships inert |
-| 6 | [Improve the model reading experience](./6_improve-model-reading-experience.md) | [`archreator` PR #40](https://github.com/roanboc/archreator/pull/40) | ID-and-name references, visual canvases, named-layer questions and search-safe example IDs |
-| 7 | [Recover pre-rebuild learning](./7_recover-pre-rebuild-learning.md) | The pull request for this initiative | Restores engagement evidence, makes prior approvals discoverable and records the accepted catalogue-splitting threshold |
-| 8 | [Declare the relationships, and let the graph be walked](./8_declare-the-relationships-and-let-the-graph-be-walked.md) | [`archreator` PR #41](https://github.com/roanboc/archreator/pull/41), and the model changes it makes necessary | The relationship becomes a modeled object with a home of its own, declared in catalogues and relationship tables rather than drawn in diagrams, and the projection carries where each one came from |
-| 9 | [Walk the model](./9_walk-the-model.md) | [`archreator` PR #41](https://github.com/roanboc/archreator/pull/41) | The graph gets a reader: one static page over the projection, filtered by layer and walked outward from any node, with the traversal shared with `query_model.py` rather than written twice |
-| 10 | [Federate the graph](./10_federate-the-graph.md) | [`archreator` PR #41](https://github.com/roanboc/archreator/pull/41) | Every published project offers its projection at a documented path; the topmost tree names the federation in a document a gate approves; the navigator reads that index and shows what it names |
-| 11 | [Cross the boundary](./11_cross-the-boundary.md) | [`archreator` PR #41](https://github.com/roanboc/archreator/pull/41) | A reference can name an element in another model, resolved against that model or against a declared import, and the graph stops stopping at the boundary |
-| 12 | [Make it readable](./12_make-it-readable.md) | [`archreator` PR #41](https://github.com/roanboc/archreator/pull/41) | The navigator becomes something a person can use: named boxes, a panel carrying the documents' own prose, guided search, and views that can be arranged, kept and shared |
-| 13 | [Answer one question](./13_answer-one-question.md) | [`archreator` PR #41](https://github.com/roanboc/archreator/pull/41) | The graph portal is deleted and replaced by a generated Markdown brief: name a scope, get the elements that matter, the multi-layer views that show how they depend on each other, and what the documents already say — disposable, and never committed |
-| 14 | [Focus the question](./14_focus-the-question.md) | The corresponding `archreator` change | A reader confirms Business, Information, Solution, Impact or Decision focus before the agent generates a reproducible, bounded brief |
-| 15 | [Inspect a diagram](./15_inspect-a-diagram.md) | The corresponding `archreator` change | Any Mermaid diagram in the portal opens full-screen with zoom, pan and keyboard controls while Markdown and PDF remain unchanged |
-| 16 | [Say whether a relationship is true](./16_say-whether-a-relationship-is-true.md) | [`archreator` PR #46](https://github.com/roanboc/archreator/pull/46), and the model changes it makes necessary | A relationship carries whether it is true today: the marker a row already writes for the grounding rule marks the relationships it declares, 32 are marked pending, and the dashed edge stops meaning four different things |
-| 17 | [Reset the method, and keep the kernel](./17_reset-the-method-and-keep-the-kernel.md) | [`archreator` PR #49](https://github.com/roanboc/archreator/pull/49), method 0.2.0 | Two independent resets compared; the one that kept the eighteen-skill kernel and cut what a customer carries was merged, its gaps closed by the comparison. This model's own crossing to 0.2 is the next initiative |
-
-## Pre-rebuild prior art
-
-The clean-room rebuild preserved the previous corpus at tag
-`pre-rebuild-2026-08`. These two approved initiatives remain the rationale for
-rules still present in the method; they are linked as immutable history, not
-listed above as current-model initiatives:
-
-- [Initiative 14 — A model a human can read](https://github.com/roanboc/architecture-archreator/blob/pre-rebuild-2026-08/product-archreator/architecture/scope/14_a-model-a-human-can-read.md) — Gate 2 approved 2026-08-14.
-- [Initiative 15 — The document describes the subject](https://github.com/roanboc/architecture-archreator/blob/pre-rebuild-2026-08/product-archreator/architecture/scope/15_the-document-describes-the-subject.md) — Gate 2 approved 2026-08-15.
+| # | Scope document | Delivered as | Summary |
+| - | -------------- | ------------ | ------- |
+| 1 | [Rebuild the models on method 0.2](./1_rebuild-the-models-on-method-02.md) | The pull request for this initiative | Both trees rebuilt from scratch on the 0.2 method, the previous corpus preserved as reference, the guidance site folded into the product, and every deleted module gone from the model |

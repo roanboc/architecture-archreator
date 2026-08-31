@@ -14,8 +14,8 @@ Nothing here assumes a human fills the middle role.
 
 | The change | What it needs |
 | ---------- | ------------- |
-| **A change to a model** — new elements, a changed relationship, a corrected description | The full process: aligned through the layers, gates recorded in a scope document under that tree's `architecture/scope/` |
-| **A decision smaller than an initiative** | A record in that tree's `architecture/decisions/`, not a scope document |
+| **A change to a model** — new elements, a changed relationship, a corrected description | The full process: aligned through the layers, stopped at the gates — Direction, Understanding, Design — and recorded in a scope document under [`product-archreator/architecture/scope/`](./product-archreator/architecture/scope/README.md). An initiative spanning both trees is one initiative with one document |
+| **A decision smaller than an initiative** | A record in `architecture/decisions/`, not a scope document |
 | **A change to the method itself** | The wrong repository — it belongs in [`archreator`](https://github.com/roanboc/archreator). Its *consequences* for these models land here |
 | **A pure correction** — a broken link, a typo, a stale path | No gates. Fix it, and fix whatever else it falsifies |
 
@@ -40,5 +40,5 @@ Both must be green. CI runs the same two on every pull request.
 - **An identifier is never reused** once the gate approving its element has
   passed. Before that it is draft, and renumbering to close a gap is fine.
 - **The documentation describes its subject, not its own construction.** No
-  "this used to say", no notes about how many elements were consolidated.
-  The change log is the scope document.
+  "this used to say", no notes about how many elements were consolidated, no
+  narration of a rebuild. The change log is the scope document.
