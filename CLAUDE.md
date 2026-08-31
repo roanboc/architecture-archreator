@@ -73,6 +73,12 @@ cached, and every run parses the Markdown fresh.
 - **Documentation language: English.**
 - Element IDs are scoped per tree, so each tree may own its own `G1`. An ID
   is assigned once and never reused after the gate that approves its element.
+- A cross-model reference leads with the target's **federation ID** —
+  `ORG.G1`, `PRD_MTD.BSVC1` — declared on that model's front door
+  (`ORG` for the organization, `PRD_MTD` for the method as a product) and
+  mapped in the citing model's `architecture/federation.md`. A child model
+  refines its parent's elements and never restates them, and a child cannot
+  define a stakeholder the parent has never heard of.
 - References lead with the name and the identifier rides along —
   `the skill corpus [ACMP1]` — except in a defining row and in a
   machine-read relationship column.

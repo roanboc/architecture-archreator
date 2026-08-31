@@ -45,7 +45,7 @@ flowchart TB
 | -- | ------ | ----- | ----------- |
 | `DOBJ1` | **Engagement knowledge** — what working with a client produces and teaches | `ROLE2` | The client's own repository for their model; this repository for what the method learns |
 | `DOBJ2` | **The organization's own model** — what this tree says about the organization | `ACT1` | This repository |
-| `DOBJ3` | **Method and guidance content** — what the method is made of | The product — [its information layer](../../../product-archreator/architecture/3_information/1_data-domains-and-objects.md) models it as Method content [`product-archreator::DOBJ1`] | The archreator repository |
+| `DOBJ3` | **Method and guidance content** — what the method is made of | The product — [its information layer](../../../product-archreator/architecture/3_information/1_data-domains-and-objects.md) models it in full | The archreator repository |
 
 ## Level 2 — the objects
 

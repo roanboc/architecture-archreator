@@ -38,19 +38,21 @@ flowchart LR
 ## Stakeholders
 
 The product's stakeholders are the three roles of every adopting project,
-plus the two people outside the loop.
+plus the two people outside the loop — and every one refines someone the
+organization already knows: the segments, seen inside one adopting project.
 
-| ID | Stakeholder | What they want |
-| -- | ----------- | -------------- |
-| `STK1` | **Requester in an adopting project** | To own a subject and have it modeled without doing the modeling; to decide at points they choose, shown enough to decide honestly |
-| `STK2` | **Agent in an adopting project** | To know the business context before writing code, and to be stopped from acting on a fact that is no longer true |
-| `STK3` | **Reviewer in an adopting project** | To read a whole branch and see what it claims to change, against documents that were true before it started |
-| `STK4` | **Method maintainer** — the organization's Requester [`org-archreator::STK4`], wearing the maintainer hat | To change the method without silently falsifying the models built on it |
-| `STK5` | **Reader outside the repository** | To read the architecture they are asked to agree with, fund or audit, without cloning anything |
+| ID | Stakeholder | What they want | Refines |
+| -- | ----------- | -------------- | ------- |
+| `STK1` | **Requester in an adopting project** | To own a subject and have it modeled without doing the modeling; to decide at points they choose, shown enough to decide honestly | `ORG.CS1`, `ORG.CS3` |
+| `STK2` | **Agent in an adopting project** | To know the business context before writing code, and to be stopped from acting on a fact that is no longer true | `ORG.CS1`, `ORG.CS2` — the coding agent each already works with |
+| `STK3` | **Reviewer in an adopting project** | To read a whole branch and see what it claims to change, against documents that were true before it started | `ORG.CS1`, `ORG.CS2` |
+| `STK4` | **Method maintainer** — the organization's Requester [`ORG.STK4`], wearing the maintainer hat | To change the method without silently falsifying the models built on it | `ORG.STK4` |
+| `STK5` | **Reader outside the repository** | To read the architecture they are asked to agree with, fund or audit, without cloning anything | `ORG.CS3` — the owner evaluating before adopting |
 
-The three roles are the product's own stakeholders; the organization's
-customer segments — who the roles are filled by — stay modeled
-[where they are defined](../../../org-archreator/architecture/1_strategy/1_motivation.md#stakeholders).
+The segments themselves stay modeled
+[where they are defined](../../../org-archreator/architecture/1_strategy/1_motivation.md#stakeholders);
+a stakeholder that refined none of them would be the organization's finding
+to raise, not this model's to invent.
 
 ## Drivers and assessments
 
@@ -60,9 +62,9 @@ rather than restated.
 
 | ID | Driver | Pressing on | Sharpens |
 | -- | ------ | ----------- | -------- |
-| `DRV1` | **Agents build faster than anyone can specify** — the constraint moved from writing code to deciding what should be written | `STK1`, `STK3` | `org-archreator::DRV5` |
-| `DRV2` | **The context an agent needs is not written down** — an agent with none of it fills the gap with something plausible | `STK2` | `org-archreator::DRV3` |
-| `DRV3` | **Documentation stops being true when code moves** — a model describing last quarter is worse than none, because it is trusted | `STK2`, `STK3` | `org-archreator::DRV3` |
+| `DRV1` | **Agents build faster than anyone can specify** — the constraint moved from writing code to deciding what should be written | `STK1`, `STK3` | `ORG.DRV5` |
+| `DRV2` | **The context an agent needs is not written down** — an agent with none of it fills the gap with something plausible | `STK2` | `ORG.DRV3` |
+| `DRV3` | **Documentation stops being true when code moves** — a model describing last quarter is worse than none, because it is trusted | `STK2`, `STK3` | `ORG.DRV3` |
 
 | ID | Assessment | Evidences |
 | -- | ---------- | --------- |
@@ -79,13 +81,13 @@ rather than restated.
 
 | ID | Goal | Against | Realized by | Serves |
 | -- | ---- | ------- | ----------- | ------ |
-| `G1` | **An agent reads the business context natively** — Markdown in git, nothing exported before it can be used | `ASM3`, `ASM5` | The document conventions; the landscape sweep | `org-archreator::G3` |
-| `G2` | **A person approves before code exists** | `ASM1` | The three named gates, and the rule that an unrecorded approval did not happen | `org-archreator::G1` |
-| `G3` | **The model still describes today after the merge** | `ASM2`, `ASM7`, `ASM8` | The validators; the status glyphs; the rule that a change updates whatever it falsifies | `org-archreator::G3` |
-| `G4` | **An adopter starts without learning a tool** — eleven files on the first commit, every one of them used | `ASM3` | The scaffold, installed as a plugin | `org-archreator::G4` |
-| `G5` | **The model reaches the people who never open the repository** — a portal generated on request, a brief for one question, a PDF of one brief converted by the agent | `ASM3` | The stock portal configuration and the brief generator; nothing published lives in the repository | `org-archreator::G3` |
-| `G6` | **The model says where the subject is going, not only where it is** — target plateaus, a derived gap register, a sequence, approved as direction | `ASM6` | The transition-planning skill | `org-archreator::G5` |
-| `G7` | **What the model is worth is written on the model** — a status glyph on every defining document, provenance beside every draft claim | `ASM7`, `ASM8` | The draft-catalogue discipline and its validator | `org-archreator::G1` |
+| `G1` | **An agent reads the business context natively** — Markdown in git, nothing exported before it can be used | `ASM3`, `ASM5` | The document conventions; the landscape sweep | `ORG.G3` |
+| `G2` | **A person approves before code exists** | `ASM1` | The three named gates, and the rule that an unrecorded approval did not happen | `ORG.G1` |
+| `G3` | **The model still describes today after the merge** | `ASM2`, `ASM7`, `ASM8` | The validators; the status glyphs; the rule that a change updates whatever it falsifies | `ORG.G3` |
+| `G4` | **An adopter starts without learning a tool** — eleven files on the first commit, every one of them used | `ASM3` | The scaffold, installed as a plugin | `ORG.G4` |
+| `G5` | **The model reaches the people who never open the repository** — a portal generated on request, a brief for one question, a PDF of one brief converted by the agent | `ASM3` | The stock portal configuration and the brief generator; nothing published lives in the repository | `ORG.G3` |
+| `G6` | **The model says where the subject is going, not only where it is** — target plateaus, a derived gap register, a sequence, approved as direction | `ASM6` | The transition-planning skill | `ORG.G5` |
+| `G7` | **What the model is worth is written on the model** — a status glyph on every defining document, provenance beside every draft claim | `ASM7`, `ASM8` | The draft-catalogue discipline and its validator | `ORG.G1` |
 
 | ID | Outcome | Checked by | Mechanical? |
 | -- | ------- | ---------- | ----------- |
