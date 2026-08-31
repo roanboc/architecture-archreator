@@ -1,139 +1,28 @@
 # Application services
 
-_[← Application layer](./README.md) · [EA home](../README.md)_
+_[← Application layer](./README.md) · [Front door](../README.md)_
 
-**ArchiMate viewpoint:** Application. What the software offers the business
-layer, and which business service each one realizes.
+**ArchiMate viewpoint:** Application — Application Service.
 
-**Status:** ● Validated at **Gate 3** — `ASVC1`–`ASVC7`, `ASVC9` and `ASVC11` on
-2026-08-26; `ASVC8` on 2026-08-27 with
-[initiative 8](../scope/8_declare-the-relationships-and-let-the-graph-be-walked.md);
-`ASVC10` on 2026-08-27 with [initiative 9](../scope/9_walk-the-model.md);
-`ASVC9` on 2026-08-27 with [initiative 10](../scope/10_federate-the-graph.md);
-`ASVC10` restated on 2026-08-29 with
-[initiative 14](../scope/14_focus-the-question.md); `ASVC9` restated on
-2026-08-29 with [initiative 15](../scope/15_inspect-a-diagram.md).
+**Status:** ◐ Draft catalogue — rebuilt on method 0.2 from the validated
+pre-0.2 layer, not yet re-approved. **Understanding** covers this layer.
 
 ## How to read this document
 
-```mermaid
-flowchart LR
-  asvc(["⬮ «Application Service» what the software offers"]):::service
-  bsvc(["⬭ «Business Service» — context, from the business layer"]):::business
-
-  asvc -->|realizes| bsvc
-
-  classDef service fill:#c2f0ff,stroke:#0288d1,color:#333
-  classDef business fill:#efe57d,stroke:#b8ad3f,color:#333
-```
-
 | Glyph | Shape | Element | ID prefix | Reads as |
 | ----- | ----- | ------- | --------- | -------- |
-| `⬮` | Stadium | «Application Service» | `ASVC` | `ASVC1` = Application Service 1 |
-| `⬭` | Stadium (yellow) | «Business Service» — context, from [2_business/2_business-services.md](../2_business/2_business-services.md) | `BSVC` | `BSVC1` = Business Service 1 |
+| `⬮` | Stadium | «Application Service» | `ASVC` | `ASVC#` |
 
 ## The services
 
-```mermaid
-flowchart LR
-  asvc1(["⬮ Layer-by-layer alignment [ASVC1]"]):::service
-  asvc2(["⬮ Guided discovery [ASVC2]"]):::service
-  asvc3(["⬮ Document generation [ASVC3]"]):::service
-  asvc4(["⬮ Reference and link checking [ASVC4]"]):::service
-  asvc5(["⬮ Corpus self-check [ASVC5]"]):::service
-  asvc6(["⬮ Project emission [ASVC6]"]):::service
-  asvc7(["⬮ Plugin distribution [ASVC7]"]):::service
-  asvc8(["⬮ Model projection [ASVC8]"]):::service
-  asvc9(["⬮ Model publication [ASVC9]"]):::service
-  asvc10(["⬮ Model interrogation [ASVC10]"]):::service
-  asvc11(["⬮ Transition planning [ASVC11]"]):::service
-
-  bsvc1(["⬭ Gated change alignment [BSVC1]"]):::business
-  bsvc2(["⬭ Subject discovery [BSVC2]"]):::business
-  bsvc3(["⬭ Model validation [BSVC3]"]):::business
-  bsvc4(["⬭ Decision and scope recording [BSVC4]"]):::business
-  bsvc5(["⬭ Method distribution [BSVC5]"]):::business
-  bsvc7(["⬭ Model publication [BSVC7]"]):::business
-  bsvc8(["⬭ Model interrogation [BSVC8]"]):::business
-  bsvc9(["⬭ Transition planning [BSVC9]"]):::business
-
-  asvc1 -->|realizes| bsvc1
-  asvc2 -->|realizes| bsvc2
-  asvc3 -->|realizes| bsvc4
-  asvc4 -->|realizes| bsvc3
-  asvc5 -->|realizes| bsvc3
-  asvc6 -->|realizes| bsvc5
-  asvc7 -->|realizes| bsvc5
-  asvc8 -->|realizes| bsvc8
-  asvc10 -->|realizes| bsvc8
-  asvc11 -->|realizes| bsvc9
-  asvc9 -->|realizes| bsvc7
-
-  classDef service fill:#c2f0ff,stroke:#0288d1,color:#333
-  classDef business fill:#efe57d,stroke:#b8ad3f,color:#333
-```
-
-| ID | Application service | What it does | Realizes | Provided by |
-| -- | ------------------- | ------------ | -------- | ----------- |
-| `ASVC1` | **Layer-by-layer alignment** | Walks a requirement down the six layers, decides which gates apply, and stops at each one | `BSVC1` | `ACMP1` |
-| `ASVC2` | **Guided discovery** | Runs the canvas and strategy conversations, the domain split, and the sweep of an estate that was already running, each ending at a gate | `BSVC2` | `ACMP2` |
-| `ASVC3` | **Document generation** | Produces the scope document, the decision record and the pull-request body from templates with fixed sections | `BSVC4` | `ACMP1`, `ACMP3` |
-| `ASVC4` | **Reference and link checking** | Resolves every element identifier and every relative link and anchor in a model, per project, and requires a declared status on every document that defines an element | `BSVC3` | `ACMP5`, `ACMP6`, `ACMP7` |
-| `ASVC5` | **Corpus self-check** | Checks the skill corpus against the process model and its own format rules | `BSVC3` | `ACMP9` |
-| `ASVC6` | **Project emission** | Copies the scaffold into a new project and turns it into that project | `BSVC5` | `ACMP2`, `ACMP10` |
-| `ASVC7` | **Plugin distribution** | Publishes the corpus so a host platform can install it | `BSVC5` | `ACMP11` |
-| `ASVC8` | **Model projection** | Reads a model and writes it as nodes and edges for a consumer that cannot read Markdown. An edge is read from where the relationship was **declared** — a catalogue column, or a relationship table — and carries which of those it came from and whether it is pending | `BSVC8` | `ACMP7`, `ACMP8` |
-| `ASVC9` | **Model publication** | Renders a model as a website and prints it as one document, both from the Markdown, and gives every page a route back to the file it came from. In the portal, the already-rendered Mermaid host can move into an accessible full-screen viewer for zoom and pan, then returns unchanged; the print page remains static. Where the project activated publishing, the website is put where its readers are. Publishes no source document — the portal hands a reader the model, and a transcript carries the rest of the room and publishes the model's own projection beside them, at a documented path with a schema number | `BSVC7` | `ACMP12`, `ACMP13`, `ACMP10` |
-| `ASVC10` | **Model interrogation** | Walks the projected graph outward from one element to say what a change would touch, reports which catalogue rows name no realizing artifact while their neighbours do, and turns one reader question into a focused Markdown brief. The brief confirms a Business, Information, Solution, Impact or Decision viewpoint before retaining primary-layer elements and directly relevant supporting context | `BSVC8` | `ACMP3`, `ACMP14`, `ACMP17` |
-| `ASVC11` | **Transition planning** | Turns approved goals and a described baseline into target plateaus, a derived gap register and a dependency-ordered sequence, ending at a gate | `BSVC9` | `ACMP15` |
-
-**`ASVC8`'s edge is solid, and `ASVC10` is what made it so.** The projection
-was built, worked, and was consumed by nothing for as long as the only
-candidate was the published view — and `ASVC9` does not read it, because
-rendering documents means rendering the documents, and a renderer fed the
-projection would publish a second-hand copy of what is already Markdown.
-
-The consumer the dash was waiting for was named in advance: one that asks graph
-questions — coverage, and blast radius. `ASVC10` asks exactly those two, which
-is why it reads `.model/` rather than importing the parser. Importing the parser
-would have been simpler and would have left this edge dashed, because a
-projection nothing reads is not a projection.
-
-**`ASVC9` publishes the projection because federation has nowhere else to
-read it from.** `stack-selection` names domains in separate repositories as one
-of the four triggers for a persisted projection, on the grounds that "an agent
-cannot `grep` a repository it has not cloned". [initiative 10](../scope/10_federate-the-graph.md) is that trigger
-firing: publication is what turns a local file into something a second model
-can depend on.
-
-**`ASVC10` has two readers and one traversal.** [initiative 9](../scope/9_walk-the-model.md) gave the graph a
-visual reader, and the thing worth saying about it is what it did *not* do:
-reimplement the walk. The page runs `neighbourhood.sql`, the same file the
-terminal reader executes, against the same database. A traversal written once
-in Python and once in JavaScript would drift, and the copy that drifted would
-be the browser's, because nothing tests a browser.
-
-**`ASVC8` stopped reading diagrams, and that is what made it complete.** Its
-edges used to come from whatever an author had drawn, so a relationship stated
-in a table was invisible and a relationship drawn in a diagram had no other
-home. `BOBJ7` gave it one; this service now reads the declaration and the
-diagram renders it. What the projection carries is no longer a function of who
-felt like drawing.
-
-**`ASVC9` renders and never summarizes.** A page it publishes says exactly
-what the file says, which is what makes the rendering safe to hand to someone
-who will never see the file. `RULE7` is the constraint, and every page carries
-its source path so a reader can check it.
-
-**`ASVC4` and `ASVC5` both realize `BSVC3`, and neither is redundant.** One
-checks a model an adopter wrote; the other checks the method itself. They
-share no code and run in different repositories — the first ships in the
-scaffold, the second deliberately does not, because a downstream project has
-no skills to check.
-
-**No service realizes `BSVC6`.** Model restatement and the engagement
-retrospective are procedures a person or an agent follows, with no component
-behind them beyond the skill text itself. That is a real gap in the sense that
-nothing can be automated about them today, and not a gap in the sense that
-something is missing — some work is judgement, and the method says so rather
-than inventing a component to fill the row.
+| ID | Service | Does | Serves | Realized by |
+| -- | ------- | ---- | ------ | ----------- |
+| `ASVC1` | **Method execution** | Walks a requirement through the layers, runs the discovery conversations, decides which gates apply and stops at each — the skills, doing what skills do | `BSVC1`, `BSVC2`, `BSVC6` | `ACMP1` |
+| `ASVC2` | **Document generation** | Produces the scope document, the decision record and the pull-request body from templates with fixed sections | `BSVC4` | `ACMP1` |
+| `ASVC3` | **Self-checking** | Resolves every identifier, link and anchor in a project's model and requires a declared status on every defining document — offline, with no plugin installed | `BSVC3` | `ACMP2`, `ACMP3`, `ACMP4` |
+| `ASVC4` | **Corpus self-checking** | Checks the skill corpus against the process model, the citation forms, the asset bindings and its own format rules | `BSVC3` | `ACMP7` |
+| `ASVC5` | **Project emission** | Copies the eleven-file scaffold into a new project and turns it into that project; emits an asset the first time a skill has content for it | `BSVC5` | `ACMP8`, `ACMP9` |
+| `ASVC6` | **Plugin distribution** | Publishes the corpus so a host platform can install it, and copies the skills for a host that installs no plugin | `BSVC5` | `ACMP10`, `ACMP11` |
+| `ASVC7` | **Model interrogation** | Reads a project fresh — nothing cached — and answers what a change would touch, what names no realizing artifact, and one focused question as a disposable brief | `BSVC7` | `ACMP5`, `ACMP6` |
+| `ASVC8` | **Portal configuration** | Writes a stock MkDocs Material configuration for one project into its gitignored work area, on request — the method owns the boundary, not a site builder | `BSVC7` | `ACMP5` |
+| `ASVC9` | **Public guidance serving** | The landing page and the get-started page, telling the two customers what the method is and how to install it | `BSVC8` | `ACMP12` |
