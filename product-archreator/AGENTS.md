@@ -37,6 +37,9 @@ Everything architectural is under [`architecture/`](./architecture/README.md);
 the front door's status table is the map. Initiatives live in
 [`architecture/scope/`](./architecture/scope/README.md), one document each —
 including initiatives that span this tree and the organization's.
+Retrospective notes — one per finished initiative or engagement, numbered
+chronologically — live in `architecture/engagements/`, beside the scope
+documents they follow.
 
 The validators are shared at the repository root and run before every push:
 
