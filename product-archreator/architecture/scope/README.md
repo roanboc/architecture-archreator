@@ -100,6 +100,7 @@ approved on a date and against what information.
 | 14 | [Focus the question](./14_focus-the-question.md) | The corresponding `archreator` change | A reader confirms Business, Information, Solution, Impact or Decision focus before the agent generates a reproducible, bounded brief |
 | 15 | [Inspect a diagram](./15_inspect-a-diagram.md) | The corresponding `archreator` change | Any Mermaid diagram in the portal opens full-screen with zoom, pan and keyboard controls while Markdown and PDF remain unchanged |
 | 16 | [Say whether a relationship is true](./16_say-whether-a-relationship-is-true.md) | [`archreator` PR #46](https://github.com/roanboc/archreator/pull/46), and the model changes it makes necessary | A relationship carries whether it is true today: the marker a row already writes for the grounding rule marks the relationships it declares, 32 are marked pending, and the dashed edge stops meaning four different things |
+| 17 | [Reset the method, and keep the kernel](./17_reset-the-method-and-keep-the-kernel.md) | [`archreator` PR #49](https://github.com/roanboc/archreator/pull/49), method 0.2.0 | Two independent resets compared; the one that kept the eighteen-skill kernel and cut what a customer carries was merged, its gaps closed by the comparison. This model's own crossing to 0.2 is the next initiative |
 
 ## Pre-rebuild prior art
 
