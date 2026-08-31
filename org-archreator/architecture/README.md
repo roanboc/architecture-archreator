@@ -7,6 +7,9 @@ what it must be able to do, and how the work flows from first contact to a
 delivered outcome. Plain Markdown, so a person, a colleague and a coding
 agent all read the same thing.
 
+**Federation ID:** `ORG` — a reference to this model from another model in
+the federation reads `ORG.STK#`.
+
 ## What is modeled, and what is not
 
 **One row per layer, and every row says something.** A layer with no folder

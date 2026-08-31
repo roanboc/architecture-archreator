@@ -7,6 +7,10 @@ services it offers, and which piece of the [archreator
 repository](https://github.com/roanboc/archreator) realizes each part. Plain
 Markdown, one source, no copies.
 
+**Federation ID:** `PRD_MTD` — a reference to this model from another model
+in the federation reads `PRD_MTD.BSVC#`. The product carries a short name
+from birth because a second product must never rename the first.
+
 ## What is modeled, and what is not
 
 | # | Layer | The question it answers | Status |
