@@ -21,10 +21,19 @@ flowchart LR
 ## Level 1 — the domains
 
 ```mermaid
-flowchart LR
-  d1["▦ Method content [DOBJ1]"]:::info
-  d2["▦ Project models [DOBJ2]"]:::info
-  d3["▦ Generated output [DOBJ3]"]:::info
+flowchart TB
+  subgraph d1["▦ Method content [DOBJ1]"]
+    d11["▦ The skill corpus [DOBJ1.1]"]:::info
+    d12["▦ The process model [DOBJ1.2]"]:::info
+    d13["▦ The scaffold and assets [DOBJ1.3]"]:::info
+  end
+  subgraph d2["▦ Project models [DOBJ2]"]
+    d21["▦ Layer documents [DOBJ2.1]"]:::info
+    d22["▦ Records [DOBJ2.2]"]:::info
+  end
+  subgraph d3["▦ Generated output [DOBJ3]"]
+    d31["▦ Briefs and portal builds [DOBJ3.1]"]:::info
+  end
 
   d1 -->|shapes| d2
   d2 -->|is read into| d3

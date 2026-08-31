@@ -56,8 +56,11 @@ flowchart LR
 | -- | ----- | ---- | ---------------- | ------- |
 | `ACT1` | **The Requester** | Human | `ROLE1`, `ROLE2`, `ROLE3` | Everything: what the method becomes, what is delivered, what is priced. The only actor who can grant a gate |
 | `ACT2` | **The AI agent** | **AI** | Assists in `ROLE1` and `ROLE2` | See the autonomy table below |
-| `ACT3` | **AI model providers** | External | The inference everything runs on | Bound by `CTR1`; substitutable by design, per `P6` |
-| `ACT4` | **The code host** | External | Repository, plugin distribution, site hosting | Bound by `CTR2`; replaceable and free at this scale |
+
+**The suppliers are not actors here.** AI model providers and the code host
+act in nothing — they are the key partners
+[the canvas](../0_business-design/2_business-model-canvas.md#key-partners)
+already defines, and this layer holds only the contracts that bind them.
 
 **The AI agent [ACT2], precisely** — the row every AI actor owes:
 
@@ -80,16 +83,16 @@ flowchart LR
 
 | ID | Contract | Between | State |
 | -- | -------- | ------- | ----- |
-| `CTR1` | Model provider subscription and usage terms | `ACT1`, `ACT3` | Live — each adopter holds their own; this organization does not resell inference |
-| `CTR2` | Platform terms | `ACT1`, `ACT4` | Live |
+| `CTR1` | Model provider subscription and usage terms | The Requester [`ACT1`] and AI model providers [`KP1`] | Live — each adopter holds their own; the provider is substitutable by design, per `P6` |
+| `CTR2` | Platform terms | The Requester [`ACT1`] and The code host [`KP2`] | Live — replaceable, and free at this scale |
 
 ## Business services
 
 | ID | Service | Delivers | Realized by | Reached through |
 | -- | ------- | -------- | ----------- | --------------- |
-| `BSVC1` | **The method, published and installable** — obtainable and usable without asking anyone | `CAP1`, `CAP2`, `CAP3` | The [product](../../../product-archreator/architecture/README.md), self-served; `BPROC1` | The repository, the marketplace |
-| `BSVC2` | **Guidance and worked reference** — how to start, what the method is for, and models a reader can inspect | `CAP1` | The guidance site and this repository; `BPROC1` | The site, the repository |
-| `BSVC3` | **Advisory and delivery with the method** — the Requester runs discovery and delivery personally | `CAP1`, `CAP3` | `ROLE2`, in person | Referral and direct approach |
+| `BSVC1` | **The method, published and installable** — obtainable and usable without asking anyone | `CAP1` | The [product](../../../product-archreator/architecture/README.md), self-served; `BPROC1` | The repository, the marketplace |
+| `BSVC2` | **Guidance and worked reference** — how to start, what the method is for, and models a reader can inspect | `CAP2` | The guidance site and this repository; `BPROC1` | The site, the repository |
+| `BSVC3` | **Advisory and delivery with the method** — the Requester runs discovery and delivery personally | `CAP3` | `ROLE2`, in person | Referral and direct approach |
 
 ## The process map
 

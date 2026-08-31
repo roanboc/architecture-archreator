@@ -21,13 +21,21 @@ flowchart LR
 ## Level 1 — the domains
 
 ```mermaid
-flowchart LR
-  d1["▦ Engagement knowledge [DOBJ1]"]:::info
-  d2["▦ The organization's own model [DOBJ2]"]:::info
-  d3["▦ Method and guidance content [DOBJ3]"]:::ext
+flowchart TB
+  subgraph d1["▦ Engagement knowledge [DOBJ1]"]
+    d11["▦ The client's model [DOBJ1.1]"]:::info
+    d12["▦ Engagement notes [DOBJ1.2]"]:::info
+  end
+  subgraph d2["▦ The organization's own model [DOBJ2]"]
+    d21["▦ The canvases and layer documents [DOBJ2.1]"]:::info
+    d22["▦ The initiative records [DOBJ2.2]"]:::info
+  end
+  subgraph d3["▦ Method and guidance content [DOBJ3] — the product's"]
+    d3note["Its objects are the product's to define"]:::ext
+  end
 
-  d1 -->|lessons flow into| d3
-  d3 -->|shapes| d2
+  d12 -->|lessons flow into| d3
+  d3 -->|shapes| d21
 
   classDef info fill:#c2f0ff,stroke:#0288d1,color:#333
   classDef ext fill:#e8f7fd,stroke:#0288d1,color:#333,stroke-dasharray: 4 3

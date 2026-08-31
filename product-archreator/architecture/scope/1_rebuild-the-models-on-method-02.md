@@ -49,7 +49,7 @@ scratch on 0.2 — validating the new method with its own.
 | Tree | Layer | Impact |
 | ---- | ----- | ------ |
 | org | 0_business-design | **Rebuilt** — segments reframed around the two key customers; portal-era pending elements dropped |
-| org | 1_strategy | **Rebuilt** — derived from the new canvases; six goals, seven principles, one staged course of action |
+| org | 1_strategy | **Rebuilt** — derived from the new canvases; seven goals, seven principles, one staged course of action, and the capability areas derived from the canvas's key activities |
 | org | 2_business | **Rebuilt into one document** — actors with the AI actor's autonomy stated, services, and the organization's own two processes modeled to level 2, with the two empty bands reported as findings |
 | org | 3_information | **New** — the two domains the organization masters and the one it defers to the product |
 | org | 4–5 | **De-materialized** — stated as external on the front door, per the status-table discipline |
@@ -64,7 +64,7 @@ scratch on 0.2 — validating the new method with its own.
 | Gate | Approved by | Date | What was approved |
 | ---- | ----------- | ---- | ----------------- |
 | Direction, first sitting | — | — | **Pending** — the organization's canvases: the segments, the two products, the fit |
-| Direction, second sitting | — | — | **Pending** — the strategy derived from them, both trees' motivation included, and the capability areas re-examined as the organization's rather than the method's |
+| Direction, second sitting | — | — | **Pending** — the strategy derived from them, both trees' motivation included |
 | Understanding | — | — | **Pending** — the business and information layers, and the descriptive application and technology catalogues |
 | Design | — | — | **N/A** — a docs-only initiative; the components described are shipped code, not a proposal |
 
