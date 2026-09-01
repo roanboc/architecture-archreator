@@ -138,13 +138,35 @@ an engagement teaches enters at
 
 ### Level 2 — the contract
 
-| ID | Process | Purpose | Trigger | Supplier | Output | Customer | Owner | Realized by |
-| -- | ------- | ------- | ------- | -------- | ------ | -------- | ----- | ----------- |
-| `BPROC1.1` | **Frame the change** | Turns a wish into an approved scope, aligned through the layers and stopped at the gates | A requirement, or a method change arriving from `BPROC2.2` | `ROLE3`; `BPROC2.2` | An approved scope document | `BPROC1.2` | `ROLE1` | The method's own alignment and scope skills |
-| `BPROC1.2` | **Build and validate** | Turns an approved scope into a merged change whose documents are still true | An approved scope | `BPROC1.1` | A merged pull request, validators green | `BPROC1.3` | `ROLE1` | `ACT2` within the approved scope, `ACT1` reviewing |
-| `BPROC1.3` | **Publish** | Turns a merged change into something an adopter can install and read | A merged change | `BPROC1.2` | The plugin in the marketplace, the site deployed | The adopters | `ROLE1` | The manifests and the site workflow |
-| `BPROC2.1` | **Capture what real use exposed** | Turns a finished initiative or engagement into a recorded lesson before it evaporates | An initiative merging, or an engagement closing | `BPROC1.3`; `ROLE2` | An engagement note naming what the method did not cover | `BPROC2.2` | `ROLE1` | The retrospective skill |
-| `BPROC2.2` | **Fold it back into the method** | Turns a recorded lesson into a method change worth an initiative — or an explicit decision that it is not | An engagement note | `BPROC2.1` | A method initiative, entering `BPROC1.1` | `BPROC1.1` | `ROLE1` | The alignment skills, on the method's own model |
+```mermaid
+flowchart LR
+  p11{{"⚙ Frame the change [BPROC1.1]"}}:::business
+  p12{{"⚙ Build and validate [BPROC1.2]"}}:::business
+  p13{{"⚙ Publish [BPROC1.3]"}}:::business
+  p21{{"⚙ Capture what real use exposed [BPROC2.1]"}}:::business
+  p22{{"⚙ Fold it back into the method [BPROC2.2]"}}:::business
+  role3["⚉ Owner [ROLE3]"]:::role
+
+  role3 -->|triggers| p11
+  p11 -->|triggers| p12 -->|triggers| p13 -->|triggers| p21 -->|triggers| p22
+  p22 -->|triggers| p11
+
+  classDef business fill:#fffbb5,stroke:#c8c04a,color:#333
+  classDef role fill:#f7f099,stroke:#b8ad3f,color:#333
+```
+
+The purpose formula carries each contract's trigger and output; the chain —
+a request entering at the Owner's wish, value leaving as something an
+adopter can install, and the loop closing through the retrospective — is
+declared below and rendered above.
+
+| ID | Process | Purpose | Owner | Realized by |
+| -- | ------- | ------- | ----- | ----------- |
+| `BPROC1.1` | **Frame the change** | Turns a requirement or a lesson into an approved scope document, aligned through the layers and stopped at the gates | `ROLE1` | The method's own alignment and scope skills |
+| `BPROC1.2` | **Build and validate** | Turns an approved scope into a merged pull request whose documents are still true, both validators green | `ROLE1` | `ACT2` within the approved scope, `ACT1` reviewing |
+| `BPROC1.3` | **Publish** | Turns a merged change into what an adopter installs and reads — the plugin in the marketplace, the site deployed | `ROLE1` | The manifests and the site workflow |
+| `BPROC2.1` | **Capture what real use exposed** | Turns a finished initiative or engagement into an engagement note naming what the method did not cover | `ROLE1` | The retrospective skill |
+| `BPROC2.2` | **Fold it back into the method** | Turns an engagement note into a method initiative — or an explicit decision that none is needed | `ROLE1` | The alignment skills, on the method's own model |
 
 ### Where depth stops
 
@@ -159,3 +181,14 @@ straight line with one supplier and one customer:
 | `BPROC1.3` Publish | — mechanical: merge, and the workflows run |
 | `BPROC2.1` Capture what real use exposed | — six questions with no order between them |
 | `BPROC2.2` Fold it back into the method | — it is `BPROC1.1` applied to the method itself |
+
+## Relationships
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `ROLE3` | ⚉ «Business Role» Owner | `BPROC1.1` | ⚙ «Business Process» Frame the change | triggers |
+| `BPROC1.1` | ⚙ «Business Process» Frame the change | `BPROC1.2` | ⚙ «Business Process» Build and validate | triggers |
+| `BPROC1.2` | ⚙ «Business Process» Build and validate | `BPROC1.3` | ⚙ «Business Process» Publish | triggers |
+| `BPROC1.3` | ⚙ «Business Process» Publish | `BPROC2.1` | ⚙ «Business Process» Capture what real use exposed | triggers |
+| `BPROC2.1` | ⚙ «Business Process» Capture what real use exposed | `BPROC2.2` | ⚙ «Business Process» Fold it back into the method | triggers |
+| `BPROC2.2` | ⚙ «Business Process» Fold it back into the method | `BPROC1.1` | ⚙ «Business Process» Frame the change | triggers |
