@@ -19,13 +19,16 @@ flowchart LR
   goal("◎ «Goal» what must become true [G#]"):::goal
   out[["◉ «Outcome» how we would know [OUT#]"]]:::outcome
   prin[/"⚑ «Principle» what every change is tested against [P#]"/]:::principle
+  pain>"✖ «Pain» the canvas row a driver is derived from — defined in the value proposition canvas [PAIN#]"]:::canvas
 
+  pain -->|is the source of| drv
   stk -->|concerned with| drv
   drv -->|evidenced by| asm
   drv -->|influences| goal
   goal -->|measured by| out
   prin -->|constrains| goal
 
+  classDef canvas fill:#ffd6d6,stroke:#c62828,color:#333
   classDef stakeholder fill:#f4ecfc,stroke:#9575cd,color:#333
   classDef driver fill:#e6d6f5,stroke:#8e63c8,color:#333
   classDef assessment fill:#d8c3f0,stroke:#7e57c2,color:#333
@@ -36,6 +39,44 @@ flowchart LR
 
 ## Stakeholders
 
+```mermaid
+flowchart LR
+  s1(["◍ Independent builders [STK1]"]):::stakeholder
+  s2(["◍ Enterprise architects [STK2]"]):::stakeholder
+  s3(["◍ Business owners [STK3]"]):::stakeholder
+  s4(["◍ The Requester [STK4]"]):::stakeholder
+
+  d1{{"✳ Solutions fail from misunderstanding [DRV1]"}}:::driver
+  d2{{"✳ Design and delivery are separate worlds [DRV2]"}}:::driver
+  d3{{"✳ Knowledge decays and leaves with people [DRV3]"}}:::driver
+  d4{{"✳ Architectural expertise is priced out of reach [DRV4]"}}:::driver
+  d5{{"✳ AI can do the work with no framework behind it [DRV5]"}}:::driver
+  d6{{"✳ Human knowledge is delegated, not improved [DRV6]"}}:::driver
+  d7{{"✳ Token cost compounds without structure [DRV7]"}}:::driver
+
+  s1 -->|concerned with| d1
+  s1 -->|concerned with| d2
+  s1 -->|concerned with| d5
+  s1 -->|concerned with| d7
+  s2 -->|concerned with| d2
+  s2 -->|concerned with| d3
+  s2 -->|concerned with| d5
+  s3 -->|concerned with| d1
+  s3 -->|concerned with| d3
+  s3 -->|concerned with| d4
+  s4 -->|concerned with| d5
+  s4 -->|concerned with| d6
+
+  classDef stakeholder fill:#f4ecfc,stroke:#9575cd,color:#333
+  classDef driver fill:#e6d6f5,stroke:#8e63c8,color:#333
+```
+
+**`DRV5` is the only driver every stakeholder is concerned with, and `DRV6`
+is the only one reaching a single person.** Everything the organization
+builds sits between those two facts: the pressure that brought the customers
+is the arrival of capable AI, and the pressure nobody else feels is what it
+costs them to use it.
+
 | ID | Stakeholder | What they want | Concerned with | Source |
 | -- | ----------- | -------------- | -------------- | ------ |
 | `STK1` | **Independent builders** — building something real with a coding agent and no architecture background | To explain the business once and get from a design to something delivered, without the work outrunning their understanding | `DRV1`, `DRV2`, `DRV5`, `DRV7` | `CS1` |
@@ -44,6 +85,54 @@ flowchart LR
 | `STK4` | **The Requester** — the one person who maintains the method and delivers the consulting | That the method is used, improves through that use, and stops depending on their availability | `DRV5`, `DRV6` | `KR1`, `COST1` |
 
 ## Drivers and assessments
+
+```mermaid
+flowchart LR
+  pa1>"✖ Framed wrongly, found out late [PAIN1]"]:::canvas
+  pa2>"✖ Design and delivery are separate worlds [PAIN2]"]:::canvas
+  pa3>"✖ Knowledge scattered, stale or in one head [PAIN3]"]:::canvas
+  pa4>"✖ Architectural quality out of reach [PAIN4]"]:::canvas
+  pa5>"✖ AI works in isolation, with no framework [PAIN5]"]:::canvas
+  pa6>"✖ Token cost compounds as it grows [PAIN6]"]:::canvas
+
+  d1{{"✳ Solutions fail from misunderstanding [DRV1]"}}:::driver
+  d2{{"✳ Design and delivery are separate worlds [DRV2]"}}:::driver
+  d3{{"✳ Knowledge decays and leaves with people [DRV3]"}}:::driver
+  d4{{"✳ Expertise is priced out of reach [DRV4]"}}:::driver
+  d5{{"✳ AI can do the work, with no framework [DRV5]"}}:::driver
+  d6{{"✳ Knowledge is delegated, not improved [DRV6]"}}:::driver
+  d7{{"✳ Token cost compounds without structure [DRV7]"}}:::driver
+
+  a1>"⌕ No method, so a wrong frame stays invisible [ASM1]"]:::assessment
+  a2>"⌕ One failure with three faces [ASM2]"]:::assessment
+  a3>"⌕ Scattered knowledge is trapped knowledge [ASM3]"]:::assessment
+  a4>"⌕ Bought with seniority or with fees, both out of reach [ASM4]"]:::assessment
+  a5>"⌕ A person is the framework, by hand [ASM5]"]:::assessment
+  a6>"⌕ No model means re-reading the codebase every time [ASM6]"]:::assessment
+
+  pa1 -->|is the source of| d1
+  pa2 -->|is the source of| d2
+  pa3 -->|is the source of| d3
+  pa4 -->|is the source of| d4
+  pa5 -->|is the source of| d5
+  pa6 -->|is the source of| d7
+
+  d1 -->|evidenced by| a1
+  d2 -->|evidenced by| a2
+  d3 -->|evidenced by| a3
+  d4 -->|evidenced by| a4
+  d5 -->|evidenced by| a5
+  d7 -->|evidenced by| a6
+
+  classDef canvas fill:#ffd6d6,stroke:#c62828,color:#333
+  classDef driver fill:#e6d6f5,stroke:#8e63c8,color:#333
+  classDef assessment fill:#d8c3f0,stroke:#7e57c2,color:#333
+```
+
+**`DRV6` enters from neither side and leaves on neither.** Six rows run
+pain to driver to assessment without a break; the seventh has no customer
+pain behind it and no assessment in front of it, and the paragraph after the
+tables is why.
 
 | ID | Driver | Source |
 | -- | ------ | ------ |
@@ -69,6 +158,49 @@ happening. It is the driver behind `G6` and behind `P1`.
 | `ASM6` | An agent without a model answers every question by re-reading the codebase, and pays for the traversal in tokens every time | `DRV7` | `PAIN6` |
 
 ## Goals and outcomes
+
+```mermaid
+flowchart RL
+  subgraph checkable["Checkable — the document itself is the evidence"]
+    o2[["◉ Documentation goes in front of the business unrewritten [OUT2]"]]:::outcome
+    o3[["◉ Delivery starts from the approved design [OUT3]"]]:::outcome
+    o6[["◉ A pivot leaves the layers it did not reach standing [OUT6]"]]:::outcome
+  end
+
+  subgraph observed["Observed, never counted"]
+    o4[["◉ A newcomer works from the model instead of a briefing [OUT4]"]]:::outcome
+  end
+
+  subgraph nomethod["No method to check it — the honest gap"]
+    o1[["◉ Gaps surface during the design work [OUT1]"]]:::outcome
+    o5[["◉ Someone junior produces an architecture that holds [OUT5]"]]:::outcome
+    o7[["◉ Token spend per change falls once the model exists [OUT7]"]]:::outcome
+  end
+
+  g1("◎ The problem is understood before it is answered [G1]"):::goal
+  g2("◎ The design is what gets built [G2]"):::goal
+  g3("◎ One shared source that outlives the people [G3]"):::goal
+  g4("◎ Architectural quality without scarce expertise [G4]"):::goal
+  g5("◎ A change of direction does not discard the work [G5]"):::goal
+  g6("◎ Human knowledge improves while AI builds [G6]"):::goal
+  g7("◎ Cheaper to run the longer it runs [G7]"):::goal
+
+  o1 -->|measures| g1
+  o2 -->|measures| g1
+  o2 -->|measures| g3
+  o3 -->|measures| g2
+  o4 -->|measures| g3
+  o5 -->|measures| g4
+  o6 -->|measures| g5
+  o7 -->|measures| g7
+
+  classDef goal fill:#c6aae9,stroke:#6f4bb2,color:#333
+  classDef outcome fill:#b493e0,stroke:#5f3da0,color:#333
+```
+
+**`G6` has no outcome pointing at it.** The goal the organization exists for
+is the one nothing measures — the same asymmetry `DRV6` has in the diagram
+above, arriving at the other end of the chain.
 
 - **G1 — The problem is understood before it is answered.** Designing is how
   the understanding happens, not a record of understanding already had. From

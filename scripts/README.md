@@ -15,6 +15,40 @@ Both exit `0` when everything resolves and `1` otherwise, printing what failed.
 They need nothing but Python — no network, no plugin installed, no packages —
 which is the point: a project has to be able to check itself on its own.
 
+```mermaid
+flowchart LR
+  links["⊞ check_links.py — links and anchors resolve"]:::tool
+  model["⊞ check_model.py — element IDs resolve"]:::tool
+  parse["⊞ model_graph.py — the single parse of the convention"]:::core
+  prefixes[/"⎔ element-prefixes.json — the prefix registry"/]:::data
+
+  reader["⊞ model.py — trace, coverage, portal"]:::plugin
+  brief["⊞ build_brief.py — one focused question"]:::plugin
+
+  org[("▤ org-archreator/architecture/")]:::tree
+  prod[("▤ product-archreator/architecture/")]:::tree
+
+  links -->|imports| parse
+  model -->|imports| parse
+  reader -->|imports this copy of| parse
+  brief -->|imports this copy of| parse
+  parse -->|reads| prefixes
+  parse -->|parses fresh, caching nothing| org
+  parse -->|parses fresh, caching nothing| prod
+
+  classDef tool fill:#9adcf0,stroke:#0277bd,color:#333
+  classDef core fill:#c2f0ff,stroke:#0288d1,color:#333
+  classDef data fill:#dcefd0,stroke:#7aa860,color:#333
+  classDef plugin fill:#e8f7fd,stroke:#0288d1,color:#333,stroke-dasharray: 4 3
+  classDef tree fill:#f5deaa,stroke:#c8a24a,color:#333
+```
+
+**Four arrows converge on one file, and two of them come from outside this
+repository.** That is the whole argument for keeping the parse here rather
+than one copy per consumer: the plugin's reading tools import *this*
+`model_graph.py`, so there is one reading of the document convention and not
+four that drift.
+
 | File | What it is |
 | ---- | ---------- |
 | `check_links.py` | Executable. Every relative Markdown link and every HTML `href`, `src` and `#fragment` points at something that exists |

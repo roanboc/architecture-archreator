@@ -15,8 +15,12 @@ does not exist as a path in the archreator repository.
 ```mermaid
 flowchart LR
   acmp["⊞ «Application Component» the piece that does it [ACMP#]"]:::app
+  asvc(["⬮ «Application Service» what it realizes — catalogued next door [ASVC#]"]):::service
 
-  classDef app fill:#c2f0ff,stroke:#0288d1,color:#333
+  acmp -->|realizes| asvc
+
+  classDef app fill:#9adcf0,stroke:#0277bd,color:#333
+  classDef service fill:#c2f0ff,stroke:#0288d1,color:#333
 ```
 
 ## The components
@@ -40,17 +44,24 @@ flowchart TB
   end
 
   c7 -->|checks| c1
-  c8 -->|carries| c2
-  c8 -->|carries| c3
-  c8 -->|carries| c4
+  c8 -->|aggregates| c2
+  c8 -->|aggregates| c3
+  c8 -->|aggregates| c4
   c2 -->|imports| c4
   c3 -->|imports| c4
   c5 -->|imports the project's| c4
   c6 -->|imports the project's| c4
   c1 -->|emits from| c9
 
-  classDef app fill:#c2f0ff,stroke:#0288d1,color:#333
+  classDef app fill:#9adcf0,stroke:#0277bd,color:#333
 ```
+
+**One box has five arrows into it and ships in every project.** The model
+parser [`ACMP4`] is copied into each project by the scaffold and imported by
+both validators there and by both reading tools in the plugin — which is the
+whole architecture of "one parse of the document convention, and not two",
+and the reason a change to it is the highest-blast-radius change in the
+product.
 
 | ID | Component | Realizes | Lives at |
 | -- | --------- | -------- | -------- |
@@ -66,3 +77,20 @@ flowchart TB
 | `ACMP10` | **The plugin package** — the manifests, held byte-identical by the corpus validator | `ASVC6` | `plugins/archreator/plugin.json`, `.claude-plugin/` |
 | `ACMP11` | **The skills installer** — for a host that installs no plugin | `ASVC6` | `plugins/archreator/scripts/install_skills.py` |
 | `ACMP12` | **The guidance site** — two static pages and their stylesheet | `ASVC9` | `site/` |
+
+## Relationships
+
+What the diagram above draws: nine dependencies between components, which a
+catalogue with one row per component has no column shape for.
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `ACMP7` | ⊞ «Application Component» The corpus validator | `ACMP1` | ⊞ «Application Component» The skill corpus | checks |
+| `ACMP8` | ⊞ «Application Component» The scaffold | `ACMP2` | ⊞ «Application Component» The link checker | aggregates |
+| `ACMP8` | ⊞ «Application Component» The scaffold | `ACMP3` | ⊞ «Application Component» The element-ID validator | aggregates |
+| `ACMP8` | ⊞ «Application Component» The scaffold | `ACMP4` | ⊞ «Application Component» The model parser | aggregates |
+| `ACMP2` | ⊞ «Application Component» The link checker | `ACMP4` | ⊞ «Application Component» The model parser | imports |
+| `ACMP3` | ⊞ «Application Component» The element-ID validator | `ACMP4` | ⊞ «Application Component» The model parser | imports |
+| `ACMP5` | ⊞ «Application Component» The model reader | `ACMP4` | ⊞ «Application Component» The model parser | imports |
+| `ACMP6` | ⊞ «Application Component» The brief generator | `ACMP4` | ⊞ «Application Component» The model parser | imports |
+| `ACMP1` | ⊞ «Application Component» The skill corpus | `ACMP9` | ⊞ «Application Component» The asset library | emits from |

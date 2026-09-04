@@ -17,13 +17,16 @@ flowchart LR
   val[/"◈ «Value» what that is worth [VAL#]"\]:::value
   coa{{"➤ «Course of Action» the course it has taken [COA#]"}}:::coa
   vs[["⇉ «Value Stream» a stage of the stream [VS#.#]"]]:::vsx
+  stk(["◍ «Stakeholder» who the value is worth most to — defined in motivation [STK#]"]):::stakeholder
 
   cap -->|uses| res
   cap -->|delivers| val
   coa -->|shapes| cap
   vs -->|served by| cap
+  val -->|strongest for| stk
 
   classDef capability fill:#f5deaa,stroke:#c8a24a,color:#333
+  classDef stakeholder fill:#f4ecfc,stroke:#9575cd,color:#333
   classDef resource fill:#faf0d5,stroke:#c8a24a,color:#333
   classDef value fill:#e9c987,stroke:#b8873f,color:#333
   classDef coa fill:#d9ad5c,stroke:#a87b2f,color:#333
@@ -61,6 +64,33 @@ flowchart LR
 
 ### Level 2 — the capabilities
 
+```mermaid
+flowchart TB
+  subgraph a1["✦ Method development [CAP1]"]
+    c11["✦ Method design [CAP1.1]"]:::capability
+    c12["✦ Method verification [CAP1.2]"]:::capability
+    c13["✦ Use-to-method learning [CAP1.3]"]:::capability
+  end
+
+  subgraph a2["✦ Guidance publishing [CAP2]"]
+    c21["✦ Self-service adoption [CAP2.1]"]:::capability
+    c22["✦ Worked reference [CAP2.2]"]:::capability
+  end
+
+  subgraph a3["✦ Client delivery [CAP3]"]
+    c31["✦ Discovery with the business [CAP3.1]"]:::capability
+    c32["✦ Supervised delivery [CAP3.2]"]:::capability
+  end
+
+  classDef capability fill:#f5deaa,stroke:#c8a24a,color:#333
+```
+
+Composition nests rather than drawing arrows, so the whole capability base is
+one picture: **seven capabilities, and the area that builds the method holds
+three of them.** The two areas that carry it outward hold two each, which is
+the shape of an organization that spends most of itself on the product it
+gives away.
+
 | ID | Capability | It is | Realized by | Composed into |
 | -- | ---------- | ----- | ----------- | ------------- |
 | `CAP1.1` | **Method design** | Encoding discovery, gates, the layered model and its conventions as skills an agent can execute | The skill corpus and the rulebooks | `CAP1` |
@@ -72,6 +102,52 @@ flowchart LR
 | `CAP3.2` | **Supervised delivery** | Building from the approved design with an agent, for a client | `ROLE2`, with the AI agent at co-pilot autonomy | `CAP3` |
 
 ## Values
+
+```mermaid
+flowchart LR
+  cap1["✦ Method development [CAP1]"]:::capability
+  cap2["✦ Guidance publishing [CAP2]"]:::capability
+  cap3["✦ Client delivery [CAP3]"]:::capability
+
+  v1[/"◈ The problem is framed completely first [VAL1]"\]:::value
+  v2[/"◈ The design produces a solution, not a document [VAL2]"\]:::value
+  v3[/"◈ One source that survives people [VAL3]"\]:::value
+  v4[/"◈ Quality at a price the segment can carry [VAL4]"\]:::value
+  v5[/"◈ A pivot costs a layer, not the project [VAL5]"\]:::value
+
+  s1(["◍ Independent builders [STK1]"]):::stakeholder
+  s2(["◍ Enterprise architects [STK2]"]):::stakeholder
+  s3(["◍ Business owners [STK3]"]):::stakeholder
+
+  cap1 -->|delivers| v1
+  cap1 -->|delivers| v2
+  cap1 -->|delivers| v3
+  cap1 -->|delivers| v4
+  cap1 -->|delivers| v5
+  cap2 -->|delivers| v4
+  cap3 -->|delivers| v1
+  cap3 -->|delivers| v2
+
+  v1 -->|strongest for| s1
+  v1 -->|strongest for| s3
+  v2 -->|strongest for| s1
+  v2 -->|strongest for| s3
+  v3 -->|strongest for| s2
+  v3 -->|strongest for| s3
+  v4 -->|strongest for| s1
+  v4 -->|strongest for| s3
+  v5 -->|strongest for| s3
+
+  classDef capability fill:#f5deaa,stroke:#c8a24a,color:#333
+  classDef value fill:#e9c987,stroke:#b8873f,color:#333
+  classDef stakeholder fill:#f4ecfc,stroke:#9575cd,color:#333
+```
+
+**Every value passes through Method development [`CAP1`], and every value but
+one is strongest for the business owner [`STK3`].** The organization's whole
+worth is produced by the area with one person in it and consumed most by the
+segment that reaches it through that same person — which is what
+`AI agents carrying the Requester's knowledge [COA1]` is staged against.
 
 | ID | Value | Delivered by | Strongest for |
 | -- | ----- | ------------ | ------------- |
@@ -109,7 +185,23 @@ flowchart LR
   vs1 --> vs2 --> vs3 --> vs4 --> vs5 --> vs6
   vs6 -->|real use changes the method| vs2
 
+  cap2["✦ Guidance publishing [CAP2]"]:::capability
+  cap1["✦ Method development [CAP1]"]:::capability
+  cap31["✦ Discovery with the business [CAP3.1]"]:::capability
+  cap32["✦ Supervised delivery [CAP3.2]"]:::capability
+  cap13["✦ Use-to-method learning [CAP1.3]"]:::capability
+
+  cap2 -->|serves| vs1
+  cap1 -->|serves| vs2
+  cap1 -->|serves| vs3
+  cap1 -->|serves| vs4
+  cap1 -->|serves| vs5
+  cap31 -->|serves| vs2
+  cap32 -->|serves| vs5
+  cap13 -->|serves| vs6
+
   classDef vsx fill:#eed4a0,stroke:#c8a24a,color:#333
+  classDef capability fill:#f5deaa,stroke:#c8a24a,color:#333
 ```
 
 ### The stream and its stages — levels 1 and 2
@@ -117,15 +209,17 @@ flowchart LR
 | ID | Stage | What happens | Served by |
 | -- | ----- | ------------ | --------- |
 | `VS1` | **From first contact to a delivered outcome, and back** | The whole stream | — |
-| `VS1.1` | **Reach** | Someone finds the method, or the Requester is approached directly | `CAP2`, through `CH1`–`CH4` |
-| `VS1.2` | **Frame** | Discovery draws the business model and strategy out by questions, and tests the frame rather than recording it | `CAP1` carried by the method for a self-served adopter; `CAP3.1` in an engagement |
-| `VS1.3` | **Approve** | The project's own Requester grants the gate, against documents they were given links to | `CAP1` — the gate rules are the method's |
+| `VS1.1` | **Reach** | Someone finds the method through one of the four channels [`CH1`–`CH4`], or the Requester is approached directly | `CAP2` |
+| `VS1.2` | **Frame** | Discovery draws the business model and strategy out by questions, and tests the frame rather than recording it — carried by the method for a self-served adopter, and by a person in an engagement | `CAP1`, `CAP3.1` |
+| `VS1.3` | **Approve** | The project's own Requester grants the gate, against documents they were given links to; the gate rules are the method's | `CAP1` |
 | `VS1.4` | **Model** | The layers are derived from what was approved, in one place and one language | `CAP1` |
-| `VS1.5` | **Build** | The approved design is what an agent implements from | `CAP1` self-served; `CAP3.2` for a client |
+| `VS1.5` | **Build** | The approved design is what an agent implements from — self-served, or supervised for a client | `CAP1`, `CAP3.2` |
 | `VS1.6` | **Feed back** | Real use exposes what the method gets wrong, and the method changes | `CAP1.3` |
 
-**Two findings ride the stream.** Reach is served only for someone already
-looking — Guidance publishing [`CAP2`] answers a search and approaches
-nobody. And Build in the consulting route consumes the binding resource
-[`RES1`], which is what
+**Two findings ride the stream, and the diagram shows both.** Reach has one
+capability behind it and it is served only for someone already looking —
+Guidance publishing [`CAP2`] answers a search and approaches nobody. And
+Build is one of two stages needing a second capability beside the method,
+because in the consulting route it consumes the binding resource [`RES1`],
+which is what
 `AI agents carrying the Requester's knowledge [COA1]` is staged against.

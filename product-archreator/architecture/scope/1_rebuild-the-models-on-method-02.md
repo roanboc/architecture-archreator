@@ -73,6 +73,34 @@ sitting may be granted as a review reply naming what it covers.
 
 ## Plateaus
 
+```mermaid
+flowchart LR
+  base[["≡ Baseline — three trees, 105 documents, method 0.1"]]:::plateau
+
+  wp1{{"⚙ WP1 — the organization's model"}}:::wp
+  wp2{{"⚙ WP2 — the product's model"}}:::wp
+  wp3{{"⚙ WP3 — the shared machinery"}}:::wp
+
+  target[["≡ Target — two trees, ~30 documents, method 0.2"]]:::plateau
+
+  g1(("⊘ Direction — two sittings")):::gap
+  g2(("⊘ Understanding")):::gap
+
+  base --> wp1 --> target
+  base --> wp2 --> target
+  base --> wp3 --> target
+  g1 -->|has to be granted before| target
+  g2 -->|has to be granted before| target
+
+  classDef plateau fill:#ffe8e8,stroke:#d99b9b,color:#333
+  classDef wp fill:#fffbb5,stroke:#c8c04a,color:#333
+  classDef gap fill:#ffd6d6,stroke:#c62828,color:#333
+```
+
+**The target is reached by the work packages and held by the gates.** The
+three packages are done; the two circles are not, which is why every document
+this initiative produced still opens with `◐`.
+
 | Plateau | State |
 | ------- | ----- |
 | **Baseline** (before) | Three trees, 105 documents, on method 0.1 — three layers describing deleted machinery, four numbered gates, seventeen initiatives of history in the prose |
