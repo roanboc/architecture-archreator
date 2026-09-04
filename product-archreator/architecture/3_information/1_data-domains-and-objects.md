@@ -61,3 +61,14 @@ flowchart TB
 **The whole layer in one sentence:** method content shapes project models,
 project models are read fresh into generated output, and only the first two
 are ever a source of truth.
+
+## Relationships
+
+The two edges the map draws between domains, which no catalogue row can
+carry — and the direction is the whole point: nothing flows back out of
+`DOBJ3`.
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `DOBJ1` | ▦ «Data Object» Method content | `DOBJ2` | ▦ «Data Object» Project models | influences |
+| `DOBJ2` | ▦ «Data Object» Project models | `DOBJ3` | ▦ «Data Object» Generated output | flows to |

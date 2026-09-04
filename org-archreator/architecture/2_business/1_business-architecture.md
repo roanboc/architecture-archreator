@@ -17,16 +17,25 @@ flowchart LR
   ctr[/"❒ «Contract» what binds them [CTR#]"/]:::contract
   bsvc(["⬭ «Business Service» what is offered [BSVC#]"]):::service
   bproc{{"⚙ «Business Process» how the work runs [BPROC#, BPROC#.# per level]"}}:::business
+  cap["✦ «Capability» what the service delivers — defined in strategy [CAP#]"]:::capability
+  ch["⊸ «Channel» how it is reached — defined on the canvas [CH#]"]:::channel
+  kp{{"⧉ «Key Partner» who the contract binds us to — defined there too [KP#]"}}:::partner
 
   act -->|fills| role
   act -->|bound by| ctr
+  ctr -->|binds| kp
   role -->|performs| bproc
   bproc -->|realizes| bsvc
+  bsvc -->|delivers| cap
+  bsvc -->|reached through| ch
 
   classDef business fill:#fffbb5,stroke:#c8c04a,color:#333
   classDef role fill:#f7f099,stroke:#b8ad3f,color:#333
   classDef service fill:#efe57d,stroke:#b8ad3f,color:#333
   classDef contract fill:#d9cc4a,stroke:#a89a34,color:#333
+  classDef capability fill:#f5deaa,stroke:#c8a24a,color:#333
+  classDef channel fill:#e5d95f,stroke:#a89a34,color:#333
+  classDef partner fill:#f7f099,stroke:#b8ad3f,color:#333
 ```
 
 An `(AI)` actor is drawn in the application cyan whatever the diagram, so a
@@ -81,6 +90,28 @@ already defines, and this layer holds only the contracts that bind them.
 
 ## Contracts
 
+```mermaid
+flowchart LR
+  act1(["⚇ The Requester (Human) [ACT1]"]):::business
+  ctr1[/"❒ Model provider subscription and usage terms [CTR1]"/]:::contract
+  ctr2[/"❒ Platform terms [CTR2]"/]:::contract
+  kp1{{"⧉ AI model providers [KP1]"}}:::partner
+  kp2{{"⧉ The code host [KP2]"}}:::partner
+
+  ctr1 -->|binds| act1
+  ctr2 -->|binds| act1
+  ctr1 -->|binds| kp1
+  ctr2 -->|binds| kp2
+
+  classDef business fill:#fffbb5,stroke:#c8c04a,color:#333
+  classDef contract fill:#d9cc4a,stroke:#a89a34,color:#333
+  classDef partner fill:#f7f099,stroke:#b8ad3f,color:#333
+```
+
+**This is the whole of what the organization depends on from outside**, and
+it is two contracts and one person on this side of both. The partners are
+where the dependency is modeled; the contract is all the business layer adds.
+
 | ID | Contract | Between | State |
 | -- | -------- | ------- | ----- |
 | `CTR1` | Model provider subscription and usage terms | The Requester [`ACT1`] and AI model providers [`KP1`] | Live — each adopter holds their own; the provider is substitutable by design, per `P6` |
@@ -88,11 +119,55 @@ already defines, and this layer holds only the contracts that bind them.
 
 ## Business services
 
+```mermaid
+flowchart LR
+  p1{{"⚙ Deliver the product [BPROC1]"}}:::business
+  r2["⚉ Consultant [ROLE2]"]:::role
+
+  b1(["⬭ The method, published and installable [BSVC1]"]):::service
+  b2(["⬭ Guidance and worked reference [BSVC2]"]):::service
+  b3(["⬭ Advisory and delivery with the method [BSVC3]"]):::service
+
+  c1["✦ Method development [CAP1]"]:::capability
+  c2["✦ Guidance publishing [CAP2]"]:::capability
+  c3["✦ Client delivery [CAP3]"]:::capability
+
+  ch1["⊸ The public repository [CH1]"]:::channel
+  ch2["⊸ The guidance site [CH2]"]:::channel
+  ch3["⊸ The plugin marketplace [CH3]"]:::channel
+  ch4["⊸ Referral and direct approach [CH4]"]:::channel
+
+  p1 -->|realizes| b1
+  p1 -->|realizes| b2
+  r2 -->|performs| b3
+
+  b1 -->|delivers| c1
+  b2 -->|delivers| c2
+  b3 -->|delivers| c3
+
+  b1 -->|reached through| ch1
+  b1 -->|reached through| ch3
+  b2 -->|reached through| ch1
+  b2 -->|reached through| ch2
+  b3 -->|reached through| ch4
+
+  classDef business fill:#fffbb5,stroke:#c8c04a,color:#333
+  classDef role fill:#f7f099,stroke:#b8ad3f,color:#333
+  classDef service fill:#efe57d,stroke:#b8ad3f,color:#333
+  classDef capability fill:#f5deaa,stroke:#c8a24a,color:#333
+  classDef channel fill:#e5d95f,stroke:#a89a34,color:#333
+```
+
+**Two services come out of a process and one comes out of a person.** That
+split is the organization in one picture: what a process realizes reaches
+three channels and scales, and what a role performs reaches one channel and
+does not.
+
 | ID | Service | Delivers | Realized by | Reached through |
 | -- | ------- | -------- | ----------- | --------------- |
-| `BSVC1` | **The method, published and installable** — obtainable and usable without asking anyone | `CAP1` | The [product](../../../product-archreator/architecture/README.md), self-served; `BPROC1` | The repository, the marketplace |
-| `BSVC2` | **Guidance and worked reference** — how to start, what the method is for, and models a reader can inspect | `CAP2` | The guidance site and this repository; `BPROC1` | The site, the repository |
-| `BSVC3` | **Advisory and delivery with the method** — the Requester runs discovery and delivery personally | `CAP3` | `ROLE2`, in person | Referral and direct approach |
+| `BSVC1` | **The method, published and installable** — obtainable and usable without asking anyone | `CAP1` | The [product](../../../product-archreator/architecture/README.md), self-served, through `BPROC1` | `CH1`, `CH3` |
+| `BSVC2` | **Guidance and worked reference** — how to start, what the method is for, and models a reader can inspect | `CAP2` | The guidance site and this repository, through `BPROC1` | `CH1`, `CH2` |
+| `BSVC3` | **Advisory and delivery with the method** — the Requester runs discovery and delivery personally, in person | `CAP3` | `ROLE2` | `CH4` |
 
 ## The process map
 
@@ -184,8 +259,21 @@ straight line with one supplier and one customer:
 
 ## Relationships
 
+Everything the diagrams above draw and no catalogue row can carry: an actor
+assisting rather than filling, a contract's two ends, a process realizing a
+service, and the trigger chain.
+
 | From | From element | To | To element | Relationship |
 | ---- | ------------ | -- | ---------- | ------------ |
+| `ACT2` | ⚇ «Business Actor» The AI agent | `ROLE1` | ⚉ «Business Role» Method maintainer | assists in |
+| `ACT2` | ⚇ «Business Actor» The AI agent | `ROLE2` | ⚉ «Business Role» Consultant | assists in |
+| `CTR1` | ❒ «Contract» Model provider subscription and usage terms | `ACT1` | ⚇ «Business Actor» The Requester | binds |
+| `CTR1` | ❒ «Contract» Model provider subscription and usage terms | `KP1` | ⧉ «Key Partner» AI model providers | binds |
+| `CTR2` | ❒ «Contract» Platform terms | `ACT1` | ⚇ «Business Actor» The Requester | binds |
+| `CTR2` | ❒ «Contract» Platform terms | `KP2` | ⧉ «Key Partner» The code host | binds |
+| `BPROC1` | ⚙ «Business Process» Deliver the product | `BSVC1` | ⬭ «Business Service» The method, published and installable | realizes |
+| `BPROC1` | ⚙ «Business Process» Deliver the product | `BSVC2` | ⬭ «Business Service» Guidance and worked reference | realizes |
+| `ROLE2` | ⚉ «Business Role» Consultant | `BSVC3` | ⬭ «Business Service» Advisory and delivery with the method | performs |
 | `ROLE3` | ⚉ «Business Role» Owner | `BPROC1.1` | ⚙ «Business Process» Frame the change | triggers |
 | `BPROC1.1` | ⚙ «Business Process» Frame the change | `BPROC1.2` | ⚙ «Business Process» Build and validate | triggers |
 | `BPROC1.2` | ⚙ «Business Process» Build and validate | `BPROC1.3` | ⚙ «Business Process» Publish | triggers |

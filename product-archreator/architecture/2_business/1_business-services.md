@@ -19,26 +19,40 @@ flowchart LR
 ## The services
 
 ```mermaid
-flowchart TB
-  b1(["⬭ Gated change alignment [BSVC1]"]):::business
-  b2(["⬭ Subject discovery [BSVC2]"]):::business
-  b3(["⬭ Model validation [BSVC3]"]):::business
-  b4(["⬭ Decision and scope recording [BSVC4]"]):::business
-  b5(["⬭ Method distribution [BSVC5]"]):::business
-  b6(["⬭ Restatement and learning [BSVC6]"]):::business
-  b7(["⬭ Reading beyond the repository [BSVC7]"]):::business
+flowchart LR
   b8(["⬭ Public guidance [BSVC8]"]):::business
+  b5(["⬭ Method distribution [BSVC5]"]):::business
 
-  b8 -->|invites the adopter into| b5
-  b5 -->|installs what runs| b2
-  b2 -->|hands a modeled subject to| b1
-  b1 -->|records through| b4
-  b1 -->|is kept honest by| b3
-  b6 -->|keeps true what| b1
-  b7 -->|shows the result of| b1
+  subgraph guided["The guided route — the builder explains, the agent runs the method"]
+    b2(["⬭ Subject discovery [BSVC2]"]):::business
+    b1(["⬭ Gated change alignment [BSVC1]"]):::business
+    b6(["⬭ Restatement and learning [BSVC6]"]):::business
+  end
+
+  subgraph expert["The expert route — the same model, no agent required"]
+    b3(["⬭ Model validation [BSVC3]"]):::business
+    b7(["⬭ Reading beyond the repository [BSVC7]"]):::business
+  end
+
+  b4(["⬭ Decision and scope recording [BSVC4]"]):::business
+
+  b8 -->|serves| b5
+  b5 -->|serves| b2
+  b2 -->|flows to| b1
+  b4 -->|serves| b1
+  b6 -->|serves| b1
+  b3 -->|serves| b1
+  b7 -->|serves| b1
 
   classDef business fill:#fffbb5,stroke:#c8c04a,color:#333
 ```
+
+**Five of the eight services point at one.** `BSVC1` is where the method
+happens and everything else exists to reach it, feed it, record it or read
+what it produced — which is also why a change to it is the most expensive
+change in this model.
+
+
 
 | ID | Service | Delivers | Realized by |
 | -- | ------- | -------- | ----------- |
@@ -56,3 +70,18 @@ route — the independent builder explains the business and the agent runs the
 method. `BSVC3` and `BSVC7` serve the expert route just as well without an
 agent in the loop: an enterprise architect navigates the standard structure
 directly, and the validators and readers answer to them too.
+
+## Relationships
+
+What the diagram above draws: seven dependencies between peers in one layer,
+which a catalogue with one row per service has no column shape for.
+
+| From | From element | To | To element | Relationship |
+| ---- | ------------ | -- | ---------- | ------------ |
+| `BSVC8` | ⬭ «Business Service» Public guidance | `BSVC5` | ⬭ «Business Service» Method distribution | serves |
+| `BSVC5` | ⬭ «Business Service» Method distribution | `BSVC2` | ⬭ «Business Service» Subject discovery | serves |
+| `BSVC2` | ⬭ «Business Service» Subject discovery | `BSVC1` | ⬭ «Business Service» Gated change alignment | flows to |
+| `BSVC4` | ⬭ «Business Service» Decision and scope recording | `BSVC1` | ⬭ «Business Service» Gated change alignment | serves |
+| `BSVC6` | ⬭ «Business Service» Restatement and learning | `BSVC1` | ⬭ «Business Service» Gated change alignment | serves |
+| `BSVC3` | ⬭ «Business Service» Model validation | `BSVC1` | ⬭ «Business Service» Gated change alignment | serves |
+| `BSVC7` | ⬭ «Business Service» Reading beyond the repository | `BSVC1` | ⬭ «Business Service» Gated change alignment | serves |

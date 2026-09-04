@@ -40,9 +40,33 @@ flowchart LR
 
 ## Segments
 
+```mermaid
+flowchart LR
+  p1["▣ archreator, the open method [PROD1]"]:::product
+  p2["▣ Consulting [PROD2]"]:::product
+
+  subgraph free["One model, two ways in — and neither of them pays"]
+    cs1(["◍ Independent builder, guided [CS1]"]):::segment
+    cs2(["◍ Enterprise architect, expert [CS2]"]):::segment
+  end
+
+  cs3(["◍ Business owner, served personally [CS3]"]):::segment
+
+  p1 -->|serves| cs1
+  p1 -->|serves| cs2
+  p2 -->|serves| cs3
+
+  classDef segment fill:#fffbb5,stroke:#c8c04a,color:#333
+  classDef product fill:#efe57d,stroke:#b8ad3f,color:#333
+```
+
 **Two of these are the method's key customers, and they are different people
 with the same source.** The method serves them over one model with two ways
 in: guided use for the builder, direct navigation for the architect.
+
+The picture is the organization's whole revenue problem in five boxes: the
+product with two segments earns nothing from either, and the one that earns
+is the one with a single segment and a single person behind it.
 
 | ID | Segment | How they arrive | Pays |
 | -- | ------- | --------------- | ---- |
@@ -93,21 +117,110 @@ a funnel to a paid tier would misread what they are for.
 
 | ID | Product | For | Price | State |
 | -- | ------- | --- | ----- | ----- |
-| `PROD1` | **archreator, the open method** — the skills, the scaffold, the documentation, the guidance site | `CS1` and `CS2` primarily | Free, open source | Live |
+| `PROD1` | **archreator, the open method** — the skills, the scaffold, the documentation, the guidance site | `CS1`, `CS2` | Free, open source | Live |
 | `PROD2` | **Consulting** — the Requester's time, delivering with archreator | `CS3` | Hourly | Live |
 
 ### Pain relievers
+
+```mermaid
+flowchart LR
+  p1["▣ archreator, the open method [PROD1]"]:::product
+  p2["▣ Consulting [PROD2]"]:::product
+
+  r1[/"⊖ The gated layer walk [PREL1]"\]:::reliever
+  r2[/"⊖ The method continues into delivery [PREL2]"\]:::reliever
+  r3[/"⊖ One model in one place [PREL3]"\]:::reliever
+  r4[/"⊖ An agent instead of an architect [PREL4]"\]:::reliever
+  r5[/"⊖ The whole thing operating together [PREL5]"\]:::reliever
+  r6[/"⊖ The model bounds what an agent reads [PREL6]"\]:::reliever
+
+  a1>"✖ Framed wrongly, found out late [PAIN1]"]:::pain
+  a2>"✖ Design and delivery are separate worlds [PAIN2]"]:::pain
+  a3>"✖ Knowledge scattered, stale or in one head [PAIN3]"]:::pain
+  a4>"✖ Architectural quality out of reach [PAIN4]"]:::pain
+  a5>"✖ AI works in isolation, with no framework [PAIN5]"]:::pain
+  a6>"✖ Token cost compounds as the solution grows [PAIN6]"]:::pain
+
+  p1 -->|offers| r1
+  p1 -->|offers| r2
+  p1 -->|offers| r3
+  p1 -->|offers| r4
+  p1 -->|offers| r5
+  p1 -->|offers| r6
+  p2 -->|offers| r2
+  p2 -->|offers| r5
+
+  r1 -->|relieves| a1
+  r2 -->|relieves| a2
+  r3 -->|relieves| a3
+  r4 -->|relieves| a4
+  r5 -->|relieves| a5
+  r6 -->|relieves| a6
+
+  classDef product fill:#efe57d,stroke:#b8ad3f,color:#333
+  classDef reliever fill:#ffe9e9,stroke:#d99b9b,color:#333
+  classDef pain fill:#ffd6d6,stroke:#c62828,color:#333
+```
+
+**The free product carries the whole value map; the paid one borrows two
+relievers from it.** Nothing in `PROD2` relieves a pain `PROD1` does not
+already reach, which is why the consulting route is a delivery channel for
+the method rather than a second offering.
 
 | ID | Pain reliever | Relieves | Offered by |
 | -- | ------------- | -------- | ---------- |
 | `PREL1` | **The gated layer walk.** Approval gates force a complete frame before anything is built, so a misframed problem surfaces at the gate rather than at delivery | `PAIN1` | `PROD1` |
 | `PREL2` | **The method continues past design into delivery.** The design is what an agent builds from, so there is no handover for meaning to change shape in | `PAIN2` | `PROD1`, `PROD2` |
 | `PREL3` | **One model in one place** — Markdown in git, catalogues and diagrams, every element naming what realizes it | `PAIN3` | `PROD1` |
-| `PREL4` | **The cost of an architect collapses to the cost of an agent** — a subscription instead of consultancy hours | `PAIN4` | `PROD1` with a coding agent |
+| `PREL4` | **The cost of an architect collapses to the cost of an agent** — a subscription instead of consultancy hours, the adopter's own coding agent doing the work | `PAIN4` | `PROD1` |
 | `PREL5` | **The whole thing operating together** — skills holding the method, gates keeping a human in the loop, and a design the solution is built from | `PAIN5` | `PROD1`, `PROD2` |
 | `PREL6` | **The model bounds what an agent reads.** A question is answered from the layer that owns it instead of a traversal of the whole project, so token spend falls as the solution grows — somewhat dearer on day one, cheaper every month after. The claim still needs validation in real use | `PAIN6` | `PROD1` |
 
 ### Gain creators
+
+```mermaid
+flowchart LR
+  p1["▣ archreator, the open method [PROD1]"]:::product
+  p2["▣ Consulting [PROD2]"]:::product
+
+  c1[/"⊕ Question-driven discovery [GCRE1]"\]:::creator
+  c2[/"⊕ Markdown and diagrams, written for people [GCRE2]"\]:::creator
+  c3[/"⊕ Skills that turn a design into work [GCRE3]"\]:::creator
+  c4[/"⊕ Standardised concepts with defined relationships [GCRE4]"\]:::creator
+  c5[/"⊕ The method carries the competence [GCRE5]"\]:::creator
+  c6[/"⊕ The layered model [GCRE6]"\]:::creator
+
+  g1[["✔ Understand the business wider and deeper [GAIN1]"]]:::gain
+  g2[["✔ Documentation ready for the business [GAIN2]"]]:::gain
+  g3[["✔ Build from the design [GAIN3]"]]:::gain
+  g4[["✔ A shared language that keeps working [GAIN4]"]]:::gain
+  g5[["✔ Speed with structure, at any level [GAIN5]"]]:::gain
+  g6[["✔ Pivots that cost less [GAIN6]"]]:::gain
+
+  p1 -->|offers| c1
+  p1 -->|offers| c2
+  p1 -->|offers| c3
+  p1 -->|offers| c4
+  p1 -->|offers| c5
+  p1 -->|offers| c6
+  p2 -->|offers| c1
+  p2 -->|offers| c5
+
+  c1 -->|creates| g1
+  c2 -->|creates| g2
+  c3 -->|creates| g3
+  c4 -->|creates| g4
+  c5 -->|creates| g5
+  c6 -->|creates| g6
+
+  classDef product fill:#efe57d,stroke:#b8ad3f,color:#333
+  classDef creator fill:#dcefd0,stroke:#7aa860,color:#333
+  classDef gain fill:#c9e7b7,stroke:#558b2f,color:#333
+```
+
+The same asymmetry as the relievers, and for the same reason: `PROD2` adds
+the two creators a person in the room supplies — the questions and the
+competence — and takes the other four from the method it delivers with.
 
 | ID | Gain creator | Creates | Offered by |
 | -- | ------------ | ------- | ---------- |

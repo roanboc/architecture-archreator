@@ -12,8 +12,41 @@ the federation reads `ORG.STK#`.
 
 ## What is modeled, and what is not
 
+```mermaid
+flowchart TB
+  subgraph here["Modeled in this tree"]
+    l0["0 · Business design — the two canvases everything is derived from"]:::canvas
+    l1["1 · Strategy — motivation, capabilities, the value stream"]:::strategy
+    l2["2 · Business — actors, contracts, services, the process map"]:::business
+    l3["3 · Information — the domains and what each one owns"]:::info
+  end
+
+  subgraph there["Modeled in the product's tree"]
+    l4["4 · Application"]:::ext
+    l5["5 · Technology"]:::ext
+  end
+
+  gap["— · Transition — a stated gap, not a silence"]:::gap
+
+  l0 -->|is derived into| l1
+  l1 -->|is realized by| l2
+  l2 -->|acts on| l3
+  l2 -->|its services run on| l4
+  l4 -->|deploys onto| l5
+  l1 -.->|no roadmap approved yet| gap
+
+  classDef canvas fill:#fffbb5,stroke:#c8c04a,color:#333
+  classDef strategy fill:#f5deaa,stroke:#c8a24a,color:#333
+  classDef business fill:#efe57d,stroke:#b8ad3f,color:#333
+  classDef info fill:#c2f0ff,stroke:#0288d1,color:#333
+  classDef ext fill:#e8f7fd,stroke:#0288d1,color:#333,stroke-dasharray: 4 3
+  classDef gap fill:#ffd6d6,stroke:#c62828,color:#333,stroke-dasharray: 4 3
+```
+
 **One row per layer, and every row says something.** A layer with no folder
-is a stated fact, not a silence.
+is a stated fact, not a silence. The two dashed boxes are where this model
+stops: what the organization builds keeps a model of its own, and where it
+is going has not been approved as direction yet.
 
 | # | Layer | The question it answers | Status |
 | - | ----- | ----------------------- | ------ |
