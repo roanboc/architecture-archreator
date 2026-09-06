@@ -21,3 +21,4 @@ line, because these documents record the model that exists now.
 | # | Scope document | Delivered as | Summary |
 | - | -------------- | ------------ | ------- |
 | 1 | [Rebuild the models on method 0.2](./1_rebuild-the-models-on-method-02.md) | The pull request for this initiative | Both trees rebuilt from scratch on the 0.2 method, the previous corpus preserved as reference, the guidance site folded into the product, and every deleted module gone from the model |
+| 2 | [Interrupt less and explain less](./2_interrupt-less-and-explain-less.md) | The pull request for this initiative | The method to 0.3: the Design gate deleted, an ungranted gate no longer written down, the open-questions log retired for a call the agent takes and marks draft, `ORG.P8` added, and the skill corpus cut by a tenth |

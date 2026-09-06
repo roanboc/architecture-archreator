@@ -14,6 +14,7 @@ does not exist as a path in the archreator repository.
 
 ```mermaid
 flowchart LR
+  %% legend
   acmp["⊞ «Application Component» the piece that does it [ACMP#]"]:::app
   asvc(["⬮ «Application Service» what it realizes — catalogued next door [ASVC#]"]):::service
 

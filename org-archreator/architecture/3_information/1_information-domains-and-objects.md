@@ -13,6 +13,7 @@ covers this document.
 
 ```mermaid
 flowchart LR
+  %% legend
   dobj["▦ «Data Object» what is known [DOBJ#, DOBJ#.# per level]"]:::info
   act(["⚇ «Business Actor» who owns a domain outright — defined in the business layer [ACT#]"]):::business
   role["⚉ «Business Role» the hat it is owned under — defined there too [ROLE#]"]:::role

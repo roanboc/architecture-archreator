@@ -11,6 +11,7 @@ covers this document.
 
 ```mermaid
 flowchart LR
+  %% legend
   asvc(["⬮ «Application Service» what the software does [ASVC#]"]):::app
   bsvc(["⬭ «Business Service» who it does it for — defined in the business layer [BSVC#]"]):::business
   acmp["⊞ «Application Component» the piece that ships it — catalogued next door [ACMP#]"]:::component
@@ -74,7 +75,7 @@ the same chain and is drawn there rather than repeated here.
 
 | ID | Service | Does | Serves | Realized by |
 | -- | ------- | ---- | ------ | ----------- |
-| `ASVC1` | **Method execution** | Walks a requirement through the layers, runs the discovery conversations, decides which gates apply and stops at each — the skills, doing what skills do | `BSVC1`, `BSVC2`, `BSVC6` | `ACMP1` |
+| `ASVC1` | **Method execution** | Walks a requirement through the layers, runs the discovery conversations, and stops at Direction and at Understanding where each applies — the skills, doing what skills do | `BSVC1`, `BSVC2`, `BSVC6` | `ACMP1` |
 | `ASVC2` | **Document generation** | Produces the scope document, the decision record and the pull-request body from templates with fixed sections | `BSVC4` | `ACMP1` |
 | `ASVC3` | **Self-checking** | Resolves every identifier, link and anchor in a project's model and requires a declared status on every defining document — offline, with no plugin installed | `BSVC3` | `ACMP2`, `ACMP3`, `ACMP4` |
 | `ASVC4` | **Corpus self-checking** | Checks the skill corpus against the process model, the citation forms, the asset bindings and its own format rules | `BSVC3` | `ACMP7` |

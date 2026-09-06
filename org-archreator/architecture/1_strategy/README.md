@@ -10,7 +10,7 @@ stated once, in
 
 | # | Document | Holds |
 | - | -------- | ----- |
-| 1 | [Motivation](./1_motivation.md) | Stakeholders, drivers, assessments, goals, outcomes and the seven principles |
+| 1 | [Motivation](./1_motivation.md) | Stakeholders, drivers, assessments, goals, outcomes and the eight principles |
 | 2 | [Capabilities and the value stream](./2_capabilities-and-value-stream.md) | What the organization can do, the resources it does it with, the course it has taken, and the stream from first contact to a delivered outcome |
 
 **Direction** covers this layer, as the second of the gate's two sittings —

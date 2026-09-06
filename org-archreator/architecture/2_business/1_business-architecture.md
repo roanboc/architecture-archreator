@@ -12,6 +12,7 @@ covers this document.
 
 ```mermaid
 flowchart LR
+  %% legend
   act(["⚇ «Business Actor» who acts [ACT#]"]):::business
   role["⚉ «Business Role» the hat they wear [ROLE#]"]:::role
   ctr[/"❒ «Contract» what binds them [CTR#]"/]:::contract
@@ -76,9 +77,9 @@ already defines, and this layer holds only the contracts that bind them.
 | Concern | For `ACT2` |
 | ------- | ---------- |
 | Autonomy | **Co-pilot** — drafts, implements and verifies inside an approved scope |
-| Decision rights | Anything inside an approved design; consolidation and wording of drafts presented at gates |
+| Decision rights | Anything inside the approved scope, and the consolidation and wording of drafts presented at gates. A call the model leaves open is taken, applied and recorded as adopted in a document that stays `◐` — `P8` |
 | Never decides | What the business is, what a gate approves, what is priced — `P1` |
-| Escalates to | The Requester [ACT1], as an unscheduled stop when materially uncertain |
+| Escalates to | The Requester [ACT1], as an unscheduled stop, when the answer changes what gets built now and nothing in the model settles it |
 
 ## Roles
 
@@ -237,7 +238,7 @@ declared below and rendered above.
 
 | ID | Process | Purpose | Owner | Realized by |
 | -- | ------- | ------- | ----- | ----------- |
-| `BPROC1.1` | **Frame the change** | Turns a requirement or a lesson into an approved scope document, aligned through the layers and stopped at the gates | `ROLE1` | The method's own alignment and scope skills |
+| `BPROC1.1` | **Frame the change** | Turns a requirement or a lesson into a scope document aligned through the layers and approved at its gate | `ROLE1` | The method's own alignment and scope skills |
 | `BPROC1.2` | **Build and validate** | Turns an approved scope into a merged pull request whose documents are still true, both validators green | `ROLE1` | `ACT2` within the approved scope, `ACT1` reviewing |
 | `BPROC1.3` | **Publish** | Turns a merged change into what an adopter installs and reads — the plugin in the marketplace, the site deployed | `ROLE1` | The manifests and the site workflow |
 | `BPROC2.1` | **Capture what real use exposed** | Turns a finished initiative or engagement into an engagement note naming what the method did not cover | `ROLE1` | The retrospective skill |

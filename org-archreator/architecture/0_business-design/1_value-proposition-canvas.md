@@ -13,6 +13,7 @@ covers this document.
 
 ```mermaid
 flowchart LR
+  %% legend
   cs(["◍ «Customer Segment» who is served [CS#]"]):::segment
   job{{"⚙ «Customer Job» what they are trying to do [JOB#]"}}:::job
   pain>"✖ «Pain» what hurts on the way [PAIN#]"]:::pain
@@ -173,7 +174,7 @@ the method rather than a second offering.
 | `PREL2` | **The method continues past design into delivery.** The design is what an agent builds from, so there is no handover for meaning to change shape in | `PAIN2` | `PROD1`, `PROD2` |
 | `PREL3` | **One model in one place** — Markdown in git, catalogues and diagrams, every element naming what realizes it | `PAIN3` | `PROD1` |
 | `PREL4` | **The cost of an architect collapses to the cost of an agent** — a subscription instead of consultancy hours, the adopter's own coding agent doing the work | `PAIN4` | `PROD1` |
-| `PREL5` | **The whole thing operating together** — skills holding the method, gates keeping a human in the loop, and a design the solution is built from | `PAIN5` | `PROD1`, `PROD2` |
+| `PREL5` | **The whole thing operating together** — skills holding the method, gates keeping a human in the loop, and a model the solution is built from | `PAIN5` | `PROD1`, `PROD2` |
 | `PREL6` | **The model bounds what an agent reads.** A question is answered from the layer that owns it instead of a traversal of the whole project, so token spend falls as the solution grows — somewhat dearer on day one, cheaper every month after. The claim still needs validation in real use | `PAIN6` | `PROD1` |
 
 ### Gain creators
