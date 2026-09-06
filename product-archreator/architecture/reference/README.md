@@ -1,6 +1,6 @@
 # Reference documents
 
-_[← Front door](../README.md) · [Scope documents](../scope/README.md)_
+_[← Front door](../README.md) · [Scope notes](../scope/README.md)_
 
 The material this model was built from, kept exactly as it was provided.
 
@@ -9,8 +9,6 @@ identifier, and the validators do not read it — a message in which somebody
 names an element is a person talking, not a definition. Neither is it
 published: the portal and a brief hand a reader the model, and what somebody
 said in a working session carries everything else that was in the room.
-
-Agent guidance: the `architecture-document-style` skill § Reference documents.
 
 ## What it is for
 
@@ -32,7 +30,7 @@ is a record of what was received, not only of what was used.
 
 | Date | Fixed by | File | Original name | Provided by | Derived into |
 | ---- | -------- | ---- | ------------- | ----------- | ------------ |
-| 2026-09-06 | shared | [`2026-09-06-poc-features-request.md`](./2026-09-06-poc-features-request.md) | — a message in the working session, not a file | The Requester | [The roadmap](../6_transition/README.md), every plateau and gap in it; [scope document 2](../scope/2_say-where-the-product-is-going.md) |
+| 2026-09-06 | shared | [`2026-09-06-poc-features-request.md`](./2026-09-06-poc-features-request.md) | — a message in the working session, not a file | The owner | [Where the product is going](../6_transition/README.md), every row of it; [scope note 2](../scope/2_say-where-the-product-is-going.md) |
 
 - **Fixed by** — which rule gave the date: *meeting*, *shared* or *added*.
 - **Derived into** — the documents or elements that came out of it, or

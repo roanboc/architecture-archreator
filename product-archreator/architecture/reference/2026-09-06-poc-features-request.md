@@ -1,8 +1,8 @@
 # Request — validate the solution, and propose the proof-of-concept features
 
 **Received:** 2026-09-06, as the message that opened the working session of
-[initiative 2](../scope/2_say-where-the-product-is-going.md).
-**From:** The Requester.
+[scope note 2](../scope/2_say-where-the-product-is-going.md).
+**From:** The owner.
 **Kept as:** the message as written. Nothing edited, nothing added.
 
 ## As received

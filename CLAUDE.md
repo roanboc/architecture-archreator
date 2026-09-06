@@ -6,17 +6,24 @@ an empty scaffold. The method itself is the sibling repository
 [`archreator`](https://github.com/roanboc/archreator): skills, scaffold and
 docs there, models here. The models run on method **0.2**.
 
-## The rule that governs everything else
+## How a change happens here
 
-**Strategy and business architecture are validated before any other layer,
-and the Requester approves at explicit gates before development.** A
-requirement is never coded directly: it is aligned through the numbered
-layers, stopped at the gates — Direction, Understanding, Design — recorded in
-a scope document, and only then implemented. Pure bug fixes that change no
-documented behavior skip the gates but still update whatever the fix
-falsifies.
+The owner says what they want, in plain words. The agent works out which
+layers the change touches, edits them, writes a short note under
+`product-archreator/architecture/scope/`, and opens a pull request. **The
+owner's merge is the approval.** Nothing else records one, and the agent never
+stops the conversation to ask for an approval.
 
-The Requester for every tree here is the repository owner.
+The agent stops to ask only when the change contradicts a principle or a
+decision already written down, or when two readings of the request would
+build different things. It does not ask about the future, and it does not ask
+the owner to decide what the model already settles.
+
+A pure correction — a broken link, a stale path, a validator brought level
+with the method — is just fixed, together with whatever it falsifies.
+
+**Where a skill from the plugin says otherwise, this file wins.** The skills
+describe the method's full process; this repository runs the light form above.
 
 ## Layout
 
@@ -41,6 +48,7 @@ unprescribed, as long as it aligns with the product's model.
 
 The method's **motivation** — why archreator exists, who it serves, what it
 must be true of — is modeled here, in `product-archreator/1_strategy/`.
+Where the product is going is `product-archreator/architecture/6_transition/`.
 
 The method's **process model** is not. It lives in `docs/process/` of the
 `archreator` repository, beside the skills that realize it, because that
@@ -77,18 +85,21 @@ the Markdown fresh.
 ## Conventions
 
 - Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`, …).
-- **Documentation language: English.**
+- **Documentation language: English**, in plain words. The name leads and the
+  identifier rides along — `the skill corpus [ACMP1]` — except in a defining
+  row and in a machine-read relationship column.
+- Every document that defines elements carries one status mark in its
+  preamble. `◐` means nobody has said it is right yet; `●` means the owner has
+  read it and stands behind it. The owner flips a mark, or asks for it to be
+  flipped, whenever they like. No ceremony is attached to it.
 - Element IDs are scoped per tree, so each tree may own its own `G1`. An ID
-  is assigned once and never reused after the gate that approves its element.
+  is never reused once the element has been merged.
 - A cross-model reference leads with the target's **federation ID** —
   `ORG.G1`, `PRD_MTD.BSVC1` — declared on that model's front door
   (`ORG` for the organization, `PRD_MTD` for the method as a product) and
   mapped in the citing model's `architecture/federation.md`. A child model
   refines its parent's elements and never restates them, and a child cannot
   define a stakeholder the parent has never heard of.
-- References lead with the name and the identifier rides along —
-  `the skill corpus [ACMP1]` — except in a defining row and in a
-  machine-read relationship column.
 - The skills come from the [archreator](https://github.com/roanboc/archreator)
   plugin, enabled in [`.claude/settings.json`](./.claude/settings.json). They
   are never vendored into this repository: a copy is a thing that drifts from

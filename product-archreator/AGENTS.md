@@ -6,23 +6,19 @@ publishes it is modeled in
 [`org-archreator/`](../org-archreator/architecture/README.md); this model
 cites the organization's elements where it serves them, never the reverse.
 
-## The rule that governs everything else
+## How a change happens here
 
-**Strategy and business architecture are validated before any other layer,
-and the Requester approves at explicit gates before development.** A change
-is aligned through the numbered layers, stopped at the gates — Direction,
-Understanding, Design — recorded in a scope document under
-[`architecture/scope/`](./architecture/scope/README.md), and only then
-implemented. Pure bug fixes that change no documented behavior skip the
-gates but still update whatever the fix falsifies.
+The owner says what they want. The agent works out which layers the change
+touches, edits them, writes a short note in
+[`architecture/scope/`](./architecture/scope/README.md), and opens a pull
+request. **The owner's merge is the approval.** The agent stops to ask only
+when the change contradicts a principle or a written decision, or when two
+readings of the request would build different things. Pure corrections are
+just fixed.
 
 ## Who decides
 
-| Role | Held by |
-| ---- | ------- |
-| **Requester** | The repository owner — the only person who grants a gate |
-| **Agent** | Whatever AI agent is working the change, at co-pilot autonomy |
-| **Reviewer** | The Requester, on the pull request |
+The owner. The agent drafts and implements; the owner reviews and merges.
 
 ## Modeling depth
 
@@ -34,12 +30,12 @@ of its services — not a project of its own.
 ## Structure and commands
 
 Everything architectural is under [`architecture/`](./architecture/README.md);
-the front door's status table is the map. Initiatives live in
-[`architecture/scope/`](./architecture/scope/README.md), one document each —
-including initiatives that span this tree and the organization's.
-Retrospective notes — one per finished initiative or engagement, numbered
-chronologically — live in `architecture/engagements/`, beside the scope
-documents they follow.
+the front door's status table is the map. Notes on changes live in
+[`architecture/scope/`](./architecture/scope/README.md), one per change,
+including changes that span this tree and the organization's. Where the
+product is going is [`architecture/6_transition/`](./architecture/6_transition/README.md).
+Retrospective notes — one per finished change or engagement, numbered
+chronologically — live in `architecture/engagements/`.
 
 The validators are shared at the repository root and run before every push:
 

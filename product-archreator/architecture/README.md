@@ -22,14 +22,14 @@ flowchart TB
   l3["3 · Information — the three data domains and what each owns"]:::info
   l4["4 · Application — the services, and the twelve components that ship them"]:::app
   l5["5 · Technology — the five nodes, none of them operated here"]:::tech
-  l6["— · Transition — where the product is going, approved as direction"]:::transition
+  l6["— · Transition — where the product is going"]:::transition
 
   l1 -->|serves the goals of| org
   l1 -->|is realized by| l2
   l2 -->|acts on| l3
   l2 -->|is realized by| l4
   l4 -->|deploys onto| l5
-  l6 -->|its plateaus serve the goals of| l1
+  l6 -->|its features serve the goals of| l1
 
   classDef strategy fill:#f5deaa,stroke:#c8a24a,color:#333
   classDef business fill:#efe57d,stroke:#b8ad3f,color:#333
@@ -42,9 +42,8 @@ flowchart TB
 
 **The chain runs one way and stops once.** Layer 0 is somebody else's — the
 canvases belong to the organization. Everything below it is here, one folder
-per box, and the last box is the one folder permitted to describe a future:
-where the product is going, approved as direction and never as work. The
-table below says what each one holds.
+per box, and the last box is the one folder that describes a future: where
+the product is going. The table below says what each one holds.
 
 | # | Layer | The question it answers | Status |
 | - | ----- | ----------------------- | ------ |
@@ -54,7 +53,7 @@ table below says what each one holds.
 | 3 | [Information](./3_information/README.md) | What information exists, and where does it live? | `Local` — the data domains and what each owns, one document |
 | 4 | [Application](./4_application/README.md) | Which software realizes each service? | `Local` — services and components |
 | 5 | [Technology](./5_technology/README.md) | What runs it all? | `Local` — hosts, runtimes and the deployment |
-| — | [Transition](./6_transition/README.md) | Where is this going, and in what order? | `Local` — four plateaus, the gaps under each, and the order they close in; direction, never permission |
+| — | [Transition](./6_transition/README.md) | Where is this going, and in what order? | `Local` — three features, what is missing for each, and the order they come in |
 
 Domains stay unused at Depth 1.
 
@@ -66,11 +65,9 @@ has a skill and every skill a process.
 
 ## How far each document has been validated
 
-Every document that defines elements opens with `○` not started, `◐` draft
-catalogue, or `●` validated at a named gate. **Everything in this model is
-`◐` today** — the gates are pending in
-[initiative 1](./scope/1_rebuild-the-models-on-method-02.md), and the
-roadmap's Direction in [initiative 2](./scope/2_say-where-the-product-is-going.md).
+Every document that defines elements opens with `○` not started, `◐` draft,
+or `●` reviewed — the owner has read it and stands behind it. **Everything in
+this model is `◐` today**; nothing has been marked as reviewed yet.
 
 ## Federation
 
