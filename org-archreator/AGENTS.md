@@ -5,22 +5,19 @@ the company, not the method. What it builds is modeled in its own tree,
 [`product-archreator/`](../product-archreator/architecture/README.md); this
 model names *that* the product exists and never reaches into its elements.
 
-## The rule that governs everything else
+## How a change happens here
 
-**Strategy and business architecture are validated before any other layer,
-and the Requester approves at explicit gates before development.** A change
-is aligned through the numbered layers, stopped at the gates — Direction,
-Understanding, Design — recorded in a scope document, and only then acted
-on. Pure bug fixes that change no documented behavior skip the gates but
-still update whatever the fix falsifies.
+The owner says what they want. The agent works out which layers the change
+touches, edits them, writes a short note in
+[`product-archreator/architecture/scope/`](../product-archreator/architecture/scope/README.md),
+and opens a pull request. **The owner's merge is the approval.** The agent
+stops to ask only when the change contradicts a principle or a written
+decision, or when two readings of the request would build different things.
+Pure corrections are just fixed.
 
 ## Who decides
 
-| Role | Held by |
-| ---- | ------- |
-| **Requester** | The repository owner — the only person who grants a gate |
-| **Agent** | Whatever AI agent is working the change, at co-pilot autonomy |
-| **Reviewer** | The Requester, on the pull request |
+The owner. The agent drafts and implements; the owner reviews and merges.
 
 ## Modeling depth
 
@@ -34,9 +31,9 @@ own.
 
 Everything architectural is under [`architecture/`](./architecture/README.md)
 — the front door's status table says what is modeled and what deliberately is
-not. Initiatives touching this tree are recorded in
+not. Changes touching this tree are noted in
 [`product-archreator/architecture/scope/`](../product-archreator/architecture/scope/README.md),
-one initiative spanning both trees carrying one document.
+one change spanning both trees carrying one note.
 
 The validators are shared at the repository root and run before every push:
 

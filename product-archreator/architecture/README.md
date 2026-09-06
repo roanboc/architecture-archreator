@@ -22,14 +22,14 @@ flowchart TB
   l3["3 · Information — the three data domains and what each owns"]:::info
   l4["4 · Application — the services, and the twelve components that ship them"]:::app
   l5["5 · Technology — the five nodes, none of them operated here"]:::tech
-  gap["— · Transition — a stated gap, not a silence"]:::gap
+  l6["— · Transition — where the product is going"]:::transition
 
   l1 -->|serves the goals of| org
   l1 -->|is realized by| l2
   l2 -->|acts on| l3
   l2 -->|is realized by| l4
   l4 -->|deploys onto| l5
-  l1 -.->|no roadmap approved yet| gap
+  l6 -->|its features serve the goals of| l1
 
   classDef strategy fill:#f5deaa,stroke:#c8a24a,color:#333
   classDef business fill:#efe57d,stroke:#b8ad3f,color:#333
@@ -37,13 +37,13 @@ flowchart TB
   classDef app fill:#9adcf0,stroke:#0277bd,color:#333
   classDef tech fill:#a9d68f,stroke:#558b2f,color:#333
   classDef ext fill:#f4ecfc,stroke:#9575cd,color:#333,stroke-dasharray: 4 3
-  classDef gap fill:#ffd6d6,stroke:#c62828,color:#333,stroke-dasharray: 4 3
+  classDef transition fill:#ffe8e8,stroke:#d99b9b,color:#333
 ```
 
-**The chain runs one way and stops twice.** Layer 0 is somebody else's — the
-canvases belong to the organization — and the transition layer does not exist
-yet. Everything between is here, one folder per box, and the table below says
-what each one holds.
+**The chain runs one way and stops once.** Layer 0 is somebody else's — the
+canvases belong to the organization. Everything below it is here, one folder
+per box, and the last box is the one folder that describes a future: where
+the product is going. The table below says what each one holds.
 
 | # | Layer | The question it answers | Status |
 | - | ----- | ----------------------- | ------ |
@@ -53,7 +53,7 @@ what each one holds.
 | 3 | [Information](./3_information/README.md) | What information exists, and where does it live? | `Local` — the data domains and what each owns, one document |
 | 4 | [Application](./4_application/README.md) | Which software realizes each service? | `Local` — services and components |
 | 5 | [Technology](./5_technology/README.md) | What runs it all? | `Local` — hosts, runtimes and the deployment |
-| — | Transition | Where is this going, and in what order? | `Gap` — this model describes the current state only; a roadmap is a later initiative through Direction |
+| — | [Transition](./6_transition/README.md) | Where is this going, and in what order? | `Local` — three features, what is missing for each, and the order they come in |
 
 Domains stay unused at Depth 1.
 
@@ -65,10 +65,9 @@ has a skill and every skill a process.
 
 ## How far each document has been validated
 
-Every document that defines elements opens with `○` not started, `◐` draft
-catalogue, or `●` validated at a named gate. **Everything in this model is
-`◐` today** — the gates are pending in
-[the current initiative](./scope/1_rebuild-the-models-on-method-02.md).
+Every document that defines elements opens with `○` not started, `◐` draft,
+or `●` reviewed — the owner has read it and stands behind it. **Everything in
+this model is `◐` today**; nothing has been marked as reviewed yet.
 
 ## Federation
 

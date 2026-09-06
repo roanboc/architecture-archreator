@@ -69,14 +69,13 @@ Every document that defines elements opens with one of three marks:
 | ---- | ------- |
 | `○` | Not started — the document exists so the gap is visible |
 | `◐` | Draft catalogue — identified and written down; nobody has approved it |
-| `●` | Validated — confirmed by the Requester at a named gate, on a date |
+| `●` | Reviewed — the owner has read it and stands behind it |
 
-**Everything in this model is `◐` today.** Direction and Understanding are
-pending in
-[the current initiative](../../product-archreator/architecture/scope/1_rebuild-the-models-on-method-02.md).
+**Everything in this model is `◐` today.** Nothing has been marked as
+reviewed yet.
 
 ## Initiatives
 
-Recorded in
+Noted in
 [`product-archreator/architecture/scope/`](../../product-archreator/architecture/scope/README.md)
-— an initiative spanning both trees is one initiative with one document.
+— a change spanning both trees is one change with one note.

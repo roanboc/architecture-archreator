@@ -38,3 +38,24 @@ The models run on method 0.2. Start at either tree's
 `architecture/README.md` — the front door says, per layer, what is modeled,
 what is deliberately not, and how far each document has been validated.
 Contributions follow [`CONTRIBUTING.md`](./CONTRIBUTING.md).
+
+## Working locally
+
+The two validators need nothing but Python. The reading tools live in the
+[archreator](https://github.com/roanboc/archreator) plugin and read a tree
+through `--project`, so the `Makefile` carries one target for each and fetches
+the plugin under gitignored `.archreator/method/` — nothing has to be
+installed to try them:
+
+| Target | Does |
+| ------ | ---- |
+| `make check` | The two validators, exactly as CI runs them |
+| `make method` | Fetches the method, or refreshes it; `METHOD_REF=<branch or tag>` pins it |
+| `make sync` | Fails when a validator here differs from the scaffold's copy, byte for byte |
+| `make trace E=ACMP4` · `make coverage` · `make inventory` · `make export` | The model reader — `trace` on tree `P` (default `product-archreator`), the other three over every tree |
+| `make brief E=BSVC1 F=impact` | One disposable brief, under `<tree>/.archreator/work/briefs/` |
+| `make portal` · `make serve` | The tree as a MkDocs site, built or served from `<tree>/.archreator/work/portal/`; needs `uv` |
+| `make smoke` | All of the above, non-interactively, over both trees; run it before pushing |
+
+`make` and `uv` are all the bench asks for beyond Python. On Windows, run it
+from Git Bash or WSL, or paste the command a target prints.

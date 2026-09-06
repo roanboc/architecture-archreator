@@ -52,7 +52,7 @@ four that drift.
 | File | What it is |
 | ---- | ---------- |
 | `check_links.py` | Executable. Every relative Markdown link and every HTML `href`, `src` and `#fragment` points at something that exists |
-| `check_model.py` | Executable. Every backticked element ID resolves to a definition, none is defined twice, none is both live and retired, a levelled ID has its parent defined, every document that defines an element declares how far it has been validated, no relationship table restates an element's name differently from the catalogue that defines it, and every reference that names another model either resolves in this repository or is declared in `architecture/imports.md` |
+| `check_model.py` | Executable. Every backticked element ID resolves to a definition, none is defined twice, none is both live and retired, a levelled ID has its parent defined, every document that defines an element declares how far it has been validated, no relationship table restates an element's name differently from the catalogue that defines it, every reference that names another model either resolves in this repository or is declared in `architecture/imports.md`, and every document that defines an element opens with its views before its first table |
 | `model_graph.py` | Library, imported by both. The single parse of the document convention — element IDs, catalogue tables, relationship tables, the resolution of a bare identifier inside a domain, and the neighbourhood walk the reading tools use |
 | `element-prefixes.json` | Data, read by `model_graph.py`. The element-ID prefixes and what each stands for |
 
@@ -63,14 +63,20 @@ read this project, which keeps one copy of each rather than a copy per project
 that drifts from the method it came from:
 
 ```bash
-model.py --project . trace BSVC1     # what a change here would touch
-model.py --project . coverage        # what is not grounded, and what is not approved
-model.py --project . portal          # a stock MkDocs config, for a reader outside the repo
-build_brief.py --project . --element BSVC1 --focus impact
+model.py --project product-archreator trace BSVC1 --scope product-archreator
+model.py --project product-archreator coverage
+model.py --project product-archreator portal
+build_brief.py --project product-archreator --scope product-archreator --element BSVC1 --focus impact
 ```
 
 They import `model_graph.py` from **this** folder, so there is one parse of the
 document convention and not two. Run one without a project and it says so.
+`--project` says which tree's parse to import and where the output lands; it
+does not say which model answers, so a question about an element both trees
+own — `BSVC1` is one — also takes `--scope <tree>`. The `Makefile` at the
+repository root carries every command above as a target, passes the scope, and
+fetches the plugin under gitignored `.archreator/method/` so nothing has to be
+installed first — the project README § Working locally.
 
 ## What they cannot do
 
