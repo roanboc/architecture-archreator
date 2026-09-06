@@ -124,7 +124,7 @@ why the arrow into `DOBJ3.1` is the one edge with nothing downstream of it.
 | | |
 | --- | --- |
 | **Repositories** | [`archreator`](https://github.com/roanboc/archreator) — the method; this repository — the models |
-| **Checks on every change** | Both repositories run their validators in CI; here that is the two scripts in [`scripts/`](../../../scripts/README.md) |
+| **Checks on every change** | Both repositories run their validators in CI; here that is the two scripts in [`scripts/`](../../../scripts/README.md), and a second job that fetches the method and proves its reading tools still read both trees — `make smoke`, the same command a contributor runs |
 | **The site** | Deployed from the archreator repository's `site/` by its own workflow, to `NODE3` |
 | **Where generated things go** | `.archreator/` in whichever project asked — gitignored, disposable, never deployed |
 

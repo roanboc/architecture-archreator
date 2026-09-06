@@ -61,11 +61,18 @@ live in the plugin, not here, and take `--project <tree>`:
 model.py --project product-archreator trace ACMP1
 model.py --project product-archreator coverage
 model.py --project org-archreator portal
-build_brief.py --project product-archreator --element BSVC1 --focus impact
+build_brief.py --project product-archreator --scope product-archreator --element BSVC1 --focus impact
 ```
 
-Everything they generate lands under gitignored `.archreator/`; nothing is
-cached, and every run parses the Markdown fresh.
+`--project` picks the tree's parse and where output lands, not which model
+answers: an element both trees own — `BSVC1` — also needs `--scope <tree>`.
+The `Makefile` at the root wraps all of this: `make method` fetches the plugin
+under gitignored `.archreator/method/`; `make trace E=ACMP1`, `make coverage`,
+`make brief E=BSVC1 F=impact` and `make portal P=org-archreator` run one
+tool each; and `make smoke` runs every tool over both trees and builds both
+portals — the job CI runs beside the validators. Everything they generate
+lands under gitignored `.archreator/`; nothing is cached, and every run parses
+the Markdown fresh.
 
 ## Conventions
 

@@ -21,3 +21,4 @@ line, because these documents record the model that exists now.
 | # | Scope document | Delivered as | Summary |
 | - | -------------- | ------------ | ------- |
 | 1 | [Rebuild the models on method 0.2](./1_rebuild-the-models-on-method-02.md) | The pull request for this initiative | Both trees rebuilt from scratch on the 0.2 method, the previous corpus preserved as reference, the guidance site folded into the product, and every deleted module gone from the model |
+| 2 | [Say where the product is going, and put the tools on the bench](./2_say-where-the-product-is-going.md) | The pull request for this initiative | The product's roadmap drafted and awaiting Direction — four plateaus, twelve gaps, a sequence — with the request it came from filed as its source, the validator brought level with the scaffold, and a bench that runs every check and reading tool over both trees, locally and in CI |
