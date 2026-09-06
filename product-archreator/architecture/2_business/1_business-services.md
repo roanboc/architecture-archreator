@@ -11,6 +11,7 @@ covers this document.
 
 ```mermaid
 flowchart LR
+  %% legend
   bsvc(["⬭ «Business Service» what the product does for an adopting project [BSVC#]"]):::business
 
   classDef business fill:#fffbb5,stroke:#c8c04a,color:#333
@@ -56,7 +57,7 @@ change in this model.
 
 | ID | Service | Delivers | Realized by |
 | -- | ------- | -------- | ----------- |
-| `BSVC1` | **Gated change alignment** | A requirement walked top-down through the layers, stopped at every gate that applies, each layer changed or explicitly declared unchanged | `ACMP1` |
+| `BSVC1` | **Gated change alignment** | A requirement walked top-down through the layers, stopped at Direction and at Understanding where each applies, each layer changed or explicitly declared unchanged | `ACMP1` |
 | `BSVC2` | **Subject discovery** | A company or an application turned into canvases, a strategy and — where one already runs — a described estate, each approved before the next begins | `ACMP1` |
 | `BSVC3` | **Model validation** | Mechanical proof that references resolve, identifiers are never reused, links point at something, and every defining document declares how far it has been validated — offline, with no plugin | `ACMP2`, `ACMP3`, `ACMP4` |
 | `BSVC4` | **Decision and scope recording** | A durable record of what was approved, by whom, and what they were shown — and of the calls too small to be initiatives | `ACMP1` |

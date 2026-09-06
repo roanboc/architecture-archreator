@@ -14,6 +14,7 @@ covers this document.
 
 ```mermaid
 flowchart LR
+  %% legend
   kp{{"⧉ «Key Partner» who is depended on [KP#]"}}:::partner
   ka{{"⚙ «Key Activity» what must be done [KA#]"}}:::activity
   kr[("▤ «Key Resource» what it takes [KR#]")]:::resource
@@ -217,6 +218,7 @@ organization's central fact, not a modelling accident.
 
 ```mermaid
 flowchart LR
+  %% legend
   subgraph canvas["0_business-design — the canvases"]
     cs(["◍ «Customer Segment» [CS#]"]):::segment
     pain>"✖ «Pain» [PAIN#]"]:::pain

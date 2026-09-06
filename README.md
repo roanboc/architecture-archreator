@@ -34,7 +34,7 @@ flowchart LR
 | [`product-archreator/`](./product-archreator/architecture/README.md) | archreator the method, as a product |
 | [`scripts/`](./scripts/README.md) | The two validators and the parse they share, one copy for both trees |
 
-The models run on method 0.2. Start at either tree's
+The models run on method 0.3. Start at either tree's
 `architecture/README.md` — the front door says, per layer, what is modeled,
 what is deliberately not, and how far each document has been validated.
 Contributions follow [`CONTRIBUTING.md`](./CONTRIBUTING.md).

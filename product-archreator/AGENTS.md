@@ -10,11 +10,10 @@ cites the organization's elements where it serves them, never the reverse.
 
 **Strategy and business architecture are validated before any other layer,
 and the Requester approves at explicit gates before development.** A change
-is aligned through the numbered layers, stopped at the gates — Direction,
-Understanding, Design — recorded in a scope document under
-[`architecture/scope/`](./architecture/scope/README.md), and only then
-implemented. Pure bug fixes that change no documented behavior skip the
-gates but still update whatever the fix falsifies.
+is aligned through the numbered layers, stopped at the gates — Direction and
+Understanding — recorded in a scope document, and only then implemented. Pure
+bug fixes that change no documented behavior skip the gates but still update
+whatever the fix falsifies.
 
 ## Who decides
 

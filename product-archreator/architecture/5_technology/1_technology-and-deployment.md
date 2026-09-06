@@ -15,6 +15,7 @@ adopter's own machine.
 
 ```mermaid
 flowchart LR
+  %% legend
   node["⬒ «Node» what runs it [NODE#]"]:::tech
   tsvc(["⬯ «Technology Service» what it provides [TSVC#]"]):::tsvc
   art[/"⎔ «Artifact» what is deployed onto it [ART#]"/]:::art

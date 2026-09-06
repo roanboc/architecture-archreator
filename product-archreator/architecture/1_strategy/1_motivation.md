@@ -17,6 +17,7 @@ restate the organization's, a cross-model reference stands in its place.
 
 ```mermaid
 flowchart LR
+  %% legend
   stk(["◍ «Stakeholder» whose interests are at stake [STK#]"]):::stakeholder
   drv{{"✳ «Driver» what presses on them [DRV#]"}}:::driver
   asm>"⌕ «Assessment» what is true today [ASM#]"]:::assessment
@@ -200,7 +201,7 @@ is a missing goal here or a missing `Serves` cell is a question for the
 | ID | Goal | Against | Realized by | Serves |
 | -- | ---- | ------- | ----------- | ------ |
 | `G1` | **An agent reads the business context natively** — Markdown in git, nothing exported before it can be used | `ASM3`, `ASM5` | The document conventions; the landscape sweep | `ORG.G3` |
-| `G2` | **A person approves before code exists** | `ASM1` | The three named gates, and the rule that an unrecorded approval did not happen | `ORG.G1` |
+| `G2` | **A person approves before code exists** | `ASM1` | The two gates, Direction and Understanding, and the rule that an unrecorded approval did not happen | `ORG.G1` |
 | `G3` | **The model still describes today after the merge** | `ASM2`, `ASM7`, `ASM8` | The validators; the status glyphs; the rule that a change updates whatever it falsifies | `ORG.G3` |
 | `G4` | **An adopter starts without learning a tool** — eleven files on the first commit, every one of them used | `ASM3` | The scaffold, installed as a plugin | `ORG.G4` |
 | `G5` | **The model reaches the people who never open the repository** — a portal generated on request, a brief for one question, a PDF of one brief converted by the agent | `ASM3` | The stock portal configuration and the brief generator; nothing published lives in the repository | `ORG.G3` |
@@ -210,6 +211,6 @@ is a missing goal here or a missing `Serves` cell is a question for the
 | ID | Outcome | Checked by | Mechanical? |
 | -- | ------- | ---------- | ----------- |
 | `OUT1` | Every element names what realizes it, or says it is Pending | The plugin's coverage report, read by a person — no validator can tell a repository path from a team name | No — a report, not a gate |
-| `OUT2` | Every gate is recorded with who approved and what they were shown | The Approvals table in the scope document | By convention |
+| `OUT2` | Every gate granted is recorded with who approved and what they were shown, and one that was not granted has no row | The Approvals table in the scope document | By convention |
 | `OUT3` | No reference resolves to something that was deleted | The element-ID validator, on every pull request | Yes |
 | `OUT4` | Every document that defines an element declares how far it has been validated | The same validator — checked on the glyph, never the words, so it holds in any language | Yes |

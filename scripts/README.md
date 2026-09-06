@@ -13,7 +13,7 @@ python3 scripts/check_model.py    # element-ID references resolve
 
 Both exit `0` when everything resolves and `1` otherwise, printing what failed.
 They need nothing but Python — no network, no plugin installed, no packages —
-which is the point: a project has to be able to check itself on its own.
+so a project checks itself on its own.
 
 ```mermaid
 flowchart LR
@@ -44,10 +44,8 @@ flowchart LR
 ```
 
 **Four arrows converge on one file, and two of them come from outside this
-repository.** That is the whole argument for keeping the parse here rather
-than one copy per consumer: the plugin's reading tools import *this*
-`model_graph.py`, so there is one reading of the document convention and not
-four that drift.
+repository.** The plugin's reading tools import *this* `model_graph.py`, so
+one reading of the document convention serves every consumer.
 
 | File | What it is |
 | ---- | ---------- |
@@ -59,8 +57,7 @@ four that drift.
 ## Everything else runs from the method
 
 Reading tools are not copied in here. They live in the archreator plugin and
-read this project, which keeps one copy of each rather than a copy per project
-that drifts from the method it came from:
+read this project:
 
 ```bash
 model.py --project . trace BSVC1     # what a change here would touch
@@ -81,17 +78,13 @@ passes both silently. `model.py coverage` finds the cell that is *empty*;
 whether a path it names still exists is a step in the change process, not
 something these scripts can do for you.
 
-`coverage` prints and **always exits 0**. There is no `--strict`: telling a
-repository path from a team name is fuzzy, and a check that fails wrongly
-teaches people to ignore the checks that do not.
+`coverage` prints and **always exits 0**. There is no `--strict`.
 
 ## Nothing is cached
 
 There is no database and no projection anybody reads. Every tool parses the
 Markdown fresh, which takes well under a second on the largest model built on
-this method. There was a persisted graph once; in that same model it had gone
-stale, and answered a question about the architecture from a revision that no
-longer described it. A cache that is silently wrong is worse than no cache.
+this method.
 
 `model.py export` still writes `.model/model.json` for a consumer that
 genuinely cannot read Markdown — a dashboard, a report — but nothing in the
@@ -99,11 +92,9 @@ method reads it back. Delete it and nothing is lost.
 
 ## The folders the validators skip
 
-`architecture/reference/` holds source documents as they were provided. A
-transcript in which somebody says an element identifier is a person talking,
-not a definition.
+`architecture/reference/` holds source documents as they were provided: an
+element identifier inside one is somebody talking, not a definition.
 
 `architecture/scope/`, `architecture/decisions/`, and any `reviews/` or
-`engagements/` folder are skipped for the older reason: a merged scope
-document is immutable and will outlive the elements it names, so
-reference-checking it is incoherent rather than merely awkward.
+`engagements/` folder are skipped too — a merged record is immutable and
+outlives the elements it names.

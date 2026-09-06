@@ -9,10 +9,10 @@ model names *that* the product exists and never reaches into its elements.
 
 **Strategy and business architecture are validated before any other layer,
 and the Requester approves at explicit gates before development.** A change
-is aligned through the numbered layers, stopped at the gates — Direction,
-Understanding, Design — recorded in a scope document, and only then acted
-on. Pure bug fixes that change no documented behavior skip the gates but
-still update whatever the fix falsifies.
+is aligned through the numbered layers, stopped at the gates — Direction and
+Understanding — recorded in a scope document, and only then implemented. Pure
+bug fixes that change no documented behavior skip the gates but still update
+whatever the fix falsifies.
 
 ## Who decides
 

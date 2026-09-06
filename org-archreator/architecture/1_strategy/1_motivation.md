@@ -13,6 +13,7 @@ covers this document.
 
 ```mermaid
 flowchart LR
+  %% legend
   stk(["◍ «Stakeholder» whose interests are at stake [STK#]"]):::stakeholder
   drv{{"✳ «Driver» what presses on them [DRV#]"}}:::driver
   asm>"⌕ «Assessment» what is true today [ASM#]"]:::assessment
@@ -264,7 +265,13 @@ this organization's ability to know whether it is working.
 - **P7 — Priced at the cost of running it.** Even at scale, the intent is
   not to charge much beyond operational cost. Rules out value-based pricing
   without revisiting this principle first.
+- **P8 — Interrupt only for what a person alone can settle.** Ask when the
+  answer changes what gets built now and nothing in the model settles it;
+  decide the rest, apply it, and mark it draft so a later word overrides it.
+  Rules out a question about a state that does not exist yet, and making
+  somebody learn the method to answer one.
 
-**`P1` and `P4` are the two that stop work.** A change that would let an
-agent decide what the business is, or that adds an element leading nowhere,
-is refused at the first step rather than argued about later.
+**`P1` and `P4` refuse a change; `P8` pauses one.** A change that would let
+an agent decide what the business is, or that adds an element leading
+nowhere, is refused at the first step rather than argued about later. A
+change waits for a person only when the answer changes what gets built now.

@@ -13,6 +13,7 @@ covers this document.
 
 ```mermaid
 flowchart LR
+  %% legend
   dobj["▦ «Data Object» a domain, or an object extending its ID [DOBJ#, DOBJ#.# per level]"]:::info
 
   classDef info fill:#c2f0ff,stroke:#0288d1,color:#333

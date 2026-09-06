@@ -12,6 +12,7 @@ covers this document.
 
 ```mermaid
 flowchart LR
+  %% legend
   cap["✦ «Capability» what it can do [CAP#, CAP#.# per level]"]:::capability
   res[("▤ «Resource» what it does it with [RES#]")]:::resource
   val[/"◈ «Value» what that is worth [VAL#]"\]:::value

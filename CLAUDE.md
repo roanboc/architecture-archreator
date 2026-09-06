@@ -4,17 +4,16 @@ This repository holds **the worked models** — archreator applied to real
 subjects, so that a prospective adopter can read a filled-in model rather than
 an empty scaffold. The method itself is the sibling repository
 [`archreator`](https://github.com/roanboc/archreator): skills, scaffold and
-docs there, models here. The models run on method **0.2**.
+docs there, models here. The models run on method **0.3**.
 
 ## The rule that governs everything else
 
 **Strategy and business architecture are validated before any other layer,
-and the Requester approves at explicit gates before development.** A
-requirement is never coded directly: it is aligned through the numbered
-layers, stopped at the gates — Direction, Understanding, Design — recorded in
-a scope document, and only then implemented. Pure bug fixes that change no
-documented behavior skip the gates but still update whatever the fix
-falsifies.
+and the Requester approves at explicit gates before development.** A change
+is aligned through the numbered layers, stopped at the gates — Direction and
+Understanding — recorded in a scope document, and only then implemented. Pure
+bug fixes that change no documented behavior skip the gates but still update
+whatever the fix falsifies.
 
 The Requester for every tree here is the repository owner.
 
@@ -43,9 +42,8 @@ The method's **motivation** — why archreator exists, who it serves, what it
 must be true of — is modeled here, in `product-archreator/1_strategy/`.
 
 The method's **process model** is not. It lives in `docs/process/` of the
-`archreator` repository, beside the skills that realize it, because that
-adjacency is what lets CI prove that every process has a skill and every
-skill a process.
+`archreator` repository, beside the skills that realize it, where CI proves
+that every process has a skill and every skill a process.
 
 ## Commands
 
@@ -72,7 +70,8 @@ cached, and every run parses the Markdown fresh.
 - Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`, …).
 - **Documentation language: English.**
 - Element IDs are scoped per tree, so each tree may own its own `G1`. An ID
-  is assigned once and never reused after the gate that approves its element.
+  is renumbered freely while the change carrying it is unmerged, and assigned
+  once and never reused after that change merges.
 - A cross-model reference leads with the target's **federation ID** —
   `ORG.G1`, `PRD_MTD.BSVC1` — declared on that model's front door
   (`ORG` for the organization, `PRD_MTD` for the method as a product) and
@@ -84,5 +83,4 @@ cached, and every run parses the Markdown fresh.
   machine-read relationship column.
 - The skills come from the [archreator](https://github.com/roanboc/archreator)
   plugin, enabled in [`.claude/settings.json`](./.claude/settings.json). They
-  are never vendored into this repository: a copy is a thing that drifts from
-  the method it is supposed to be.
+  are never vendored into this repository.

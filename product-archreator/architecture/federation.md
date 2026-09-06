@@ -4,6 +4,7 @@ _[← Front door](./README.md)_
 
 ```mermaid
 flowchart LR
+  %% legend
   subgraph parent["ORG · org-archreator — Depth 2, Organization"]
     p1(["◍ «Stakeholder» the segments, seen from outside a project [ORG.CS#, ORG.STK#]"]):::pstake
     p2{{"✳ «Driver» the general pressure [ORG.DRV#]"}}:::pdriver
