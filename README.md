@@ -55,7 +55,7 @@ installed to try them:
 | `make trace E=ACMP4` · `make coverage` · `make inventory` · `make export` | The model reader — `trace` on tree `P` (default `product-archreator`), the other three over every tree |
 | `make brief E=BSVC1 F=impact` | One disposable brief, under `<tree>/.archreator/work/briefs/` |
 | `make portal` · `make serve` | The tree as a MkDocs site, built or served from `<tree>/.archreator/work/portal/`; needs `uv` |
-| `make smoke` | All of the above, non-interactively, over both trees — the job CI runs beside the validators |
+| `make smoke` | All of the above, non-interactively, over both trees; run it before pushing |
 
 `make` and `uv` are all the bench asks for beyond Python. On Windows, run it
 from Git Bash or WSL, or paste the command a target prints.

@@ -2,10 +2,10 @@ name: docs-check
 
 on:
   pull_request:
-    paths: ["**/*.md", "**/*.html", "scripts/*.py", "Makefile", ".github/workflows/docs-check.yml"]
+    paths: ["**/*.md", "**/*.html", "scripts/*.py"]
   push:
     branches: [main]
-    paths: ["**/*.md", "**/*.html", "scripts/*.py", "Makefile", ".github/workflows/docs-check.yml"]
+    paths: ["**/*.md", "**/*.html", "scripts/*.py"]
 
 jobs:
   check:
@@ -16,20 +16,3 @@ jobs:
         run: python3 scripts/check_links.py
       - name: Element-ID references resolve
         run: python3 scripts/check_model.py
-
-  # The validators prove the models agree with themselves. This job proves the
-  # method still reads them: it fetches the plugin, checks that the validators
-  # here are the scaffold's byte for byte, and runs every reading tool and both
-  # portal builds over both trees — `make smoke`, the command a contributor
-  # runs. It tracks the method's main branch on purpose: a method change that
-  # breaks these models should turn red here, not in an adopter's project. When
-  # a red is understood and not yet fixed, METHOD_REF pins a branch or a tag.
-  read-the-models:
-    runs-on: ubuntu-latest
-    env:
-      METHOD_REF: main
-    steps:
-      - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v5
-      - name: The method's reading tools still read both trees
-        run: make method smoke

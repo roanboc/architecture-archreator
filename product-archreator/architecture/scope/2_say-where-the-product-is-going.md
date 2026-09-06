@@ -34,19 +34,21 @@ through it here.
 - **The roadmap is the deliverable, and it is direction rather than
   permission.** Four plateaus, twelve gaps and a sequence in `6_transition/`,
   each plateau named for a state and each gap for the element it is measured
-  from — drafted `◐`, approved at Direction, and approving it approves no work.
+  from — approved at Direction, and approving it approves no work.
 - **One plateau per reader.** The four states are, in the order the product's
   readers meet it: the change that arrives as text, for the Requester and the
   Reviewer of an adopting project; the bench that catches drift, for the agent
   and the maintainer; the federation as one site, for the reader outside the
-  repository; and a question answered wherever that reader is — on the hosted
-  platform the Requester names, Databricks, which consumes the export and
-  never becomes a second model.
+  repository; and the walk itself brought to a Requester who is not in a
+  terminal — on the hosted platform the Requester names, Databricks, where
+  the same skills run against a working copy and every approval lands back in
+  the repository.
 - **The bench lands now, because everything else checks against it.** A
   `Makefile` at the repository root fetches the method under gitignored
   `.archreator/`, wraps every reading tool, fails when a validator here
-  differs from the scaffold's, and runs all of it over both trees; CI runs the
-  same target beside the validators.
+  differs from the scaffold's, and runs all of it over both trees. It runs
+  before a push, by hand: the Requester chose to keep the checks on every
+  change to the two validators, so no layer document changes.
 - **The request is filed where a source belongs.** `architecture/reference/`
   opens with the Requester's message as written, and every roadmap row cites
   it — the first time a source in this model can be followed back to what
@@ -57,8 +59,9 @@ through it here.
 - **Not a graph to explore, and not a second model.** The Requester's
   direction on readers, given on the previous roadmap and preserved at
   [decision 4 of the pre-0.2 corpus](https://github.com/roanboc/architecture-archreator/blob/pre-02-2026-08/product-archreator/architecture/decisions/4_the-graph-portal-is-retired.md),
-  holds: a reader arrives with a question and leaves with a document. The
-  last plateau serves that reader on a host, and the host reads.
+  holds: a reader arrives with a question and leaves with a document, and a
+  Requester arrives with a sentence and leaves with a pull request. The host
+  runs the walk over a working copy and never holds a model of its own.
 
 ## EA alignment (assessed top-down before recording)
 
@@ -69,7 +72,7 @@ through it here.
 | product | 2_business | **No change** — the walk the first plateau puts on record is the service [Gated change alignment [BSVC1]](../2_business/1_business-services.md) already describes |
 | product | 3_information | **No change** — a reference document is a record the layer already names under [Records [DOBJ2.2]](../3_information/1_data-domains-and-objects.md); the folder now exists |
 | product | 4_application | **No change** — the bench is this repository's, not a component of the product; every tool it wraps is catalogued already |
-| product | 5_technology | **Changed** — one row of the deployment table: the checks on every change now include the smoke run of the reading tools |
+| product | 5_technology | **No change** — the checks on every change stay the two validators, as the deployment table says; the bench is run by hand |
 | product | 6_transition | **New** — the roadmap: four plateaus, twelve gaps, the sequence |
 | product | reference | **New** — the request, filed and indexed |
 
@@ -77,13 +80,13 @@ through it here.
 
 | Gate | Approved by | Date | What was approved |
 | ---- | ----------- | ---- | ----------------- |
-| Direction | — | — | **Pending** — [the target state](../6_transition/1_target-state.md) and [the sequence](../6_transition/2_sequence.md): the destination and the order, never the work |
-| Understanding | — | — | **Pending** — the one changed row of [the technology layer](../5_technology/1_technology-and-deployment.md#deployment); the strategy, business and information layers carry explicit no-change verdicts above |
-| Design | — | — | **N/A** — a bench and a roadmap, no solution design |
+| Direction, first sitting | The Requester | 2026-09-06 | [The target state](../6_transition/1_target-state.md) and [the sequence](../6_transition/2_sequence.md) as drafted, granted in the session. In the same sitting the Requester settled the two questions the draft had left open: the checks on every change stay the two validators, and the hosted platform runs the walk rather than reading only. Those answers redrew `PLAT2`, `GAP5`, `PLAT4`, `GAP11`, `GAP12` and initiative 7 |
+| Direction, second sitting | — | — | **Pending** — the redrawn rows named above, and nothing else |
+| Understanding | — | — | **N/A** — a docs-only initiative: no layer document changes, and the bench is this repository's tooling rather than the product's behaviour |
+| Design | — | — | **N/A** — no solution design |
 
-**Where these gates happen:** the pull request for this initiative — each may
-be granted as a review reply naming what it covers, and the reply is
-transcribed here.
+**Where these gates happen:** the session, or the pull request for this
+initiative — a review reply naming what it covers is transcribed here.
 
 ## Plateaus
 
@@ -95,40 +98,36 @@ flowchart LR
   wp2{{"⚙ WP2 — the bench"}}:::wp
   wp3{{"⚙ WP3 — the roadmap, and the request it came from"}}:::wp
 
-  target[["≡ Target — the same trees, a roadmap awaiting Direction, a bench that runs everything"]]:::plateau
+  target[["≡ Target — the same trees, a roadmap approved as direction, a bench that runs everything"]]:::plateau
 
-  g1(("⊘ Direction — the roadmap")):::gap
-  g2(("⊘ Understanding — one technology row")):::gap
+  g1(("⊘ Direction — the second sitting")):::gap
 
   base --> wp1 --> target
   base --> wp2 --> target
   base --> wp3 --> target
   g1 -->|has to be granted before| target
-  g2 -->|has to be granted before| target
 
   classDef plateau fill:#ffe8e8,stroke:#d99b9b,color:#333
   classDef wp fill:#fffbb5,stroke:#c8c04a,color:#333
   classDef gap fill:#ffd6d6,stroke:#c62828,color:#333
 ```
 
-**The work is done and the direction is not.** Three packages reach the
-target; the two circles are the Requester's, which is why the roadmap's
-documents open with `◐` and the sequence's first row says in flight rather
-than reached.
+**The work is done and one sitting is not.** Three packages reach the
+target; the circle is the Requester's, which is why the roadmap's documents
+still open with `◐` and the sequence's first row says in flight rather than
+reached.
 
 | Plateau | State |
 | ------- | ----- |
 | **Baseline** (before) | Two trees on method 0.2, every document `◐`, the transition layer a stated gap; the reading tools reachable only through an installed plugin; the element-ID validator one check behind the scaffold's; one initiative on record, a rebuild |
-| **Target** (this initiative) | The same two trees with a drafted roadmap awaiting Direction, the request it came from filed as its source, the validator level with the scaffold, and a bench that runs every check and reading tool over both trees locally and in CI |
+| **Target** (this initiative) | The same two trees with a roadmap approved as direction, the request it came from filed as its source, the validator level with the scaffold, and a bench that runs every check and reading tool over both trees before a push |
 
 ## Work packages and deliverables
 
 - **WP1 — Corrections**: `scripts/check_model.py` level with the scaffold, and
   the seventh check named in `scripts/README.md`; the brief command in
   `CLAUDE.md` and `scripts/README.md` carrying `--scope`.
-- **WP2 — The bench**: `Makefile`; `README.md` § Working locally; the
-  `read-the-models` job in `.github/workflows/docs-check.yml`; the changed row
-  in `5_technology/1_technology-and-deployment.md`.
+- **WP2 — The bench**: `Makefile`; `README.md` § Working locally.
 - **WP3 — The roadmap, and the request it came from**:
   `architecture/6_transition/README.md`, `1_target-state.md` and
   `2_sequence.md`; `architecture/reference/README.md` and the filed request;
@@ -139,10 +138,10 @@ than reached.
 
 | In | Out |
 | -- | --- |
-| The roadmap, drafted and awaiting Direction | **Closing any gap beyond the three this initiative closes** — each is its own initiative through the spine, in the sequence's order |
-| The bench, local and in CI, over both trees | **Any change to the method** — five findings below belong in the archreator repository; they are gap notes here so the Requester can carry them across |
-| The request filed as the roadmap's source | **Publishing anything** — a site or a host is an authorization the Requester grants, and the roadmap says where it waits |
-| The validator brought level with the scaffold | **The organization's roadmap** |
+| The roadmap, approved as direction | **Closing any gap beyond the three this initiative closes** — each is its own initiative through the spine, in the sequence's order |
+| The bench, run by hand over both trees | **A check in CI beyond the two validators** — the Requester keeps the bench a command a contributor runs |
+| The request filed as the roadmap's source | **Any change to the method** — five findings below belong in the archreator repository; they are gap notes here so the Requester can carry them across |
+| The validator brought level with the scaffold | **Publishing anything, and holding a copy off the repository** — an authorization the Requester grants when the initiative that needs it reaches its gate |
 
 ## Gap notes
 
@@ -170,21 +169,28 @@ than reached.
   realization headers does not carry, so the report counts the document
   among those that ground nothing. Harmless today, misleading the day a row
   goes blank; the fix is the method's, or a column rename here, and it is the
-  Requester's call at Understanding.
-- **The smoke job tracks the method's `main`.** A method change that breaks
-  these models turns CI red here, which is the point; when a red is understood
-  and not yet fixed, `METHOD_REF` pins a branch or a tag until the fix lands.
+  Requester's call at the next Understanding.
+- **The bench tracks the method's `main`.** `make method` fetches whatever the
+  method's default branch holds; `METHOD_REF` pins a branch or a tag when a
+  change upstream is understood and not yet answered here.
 
 ## Open questions
 
-- **What the hosted platform is expected to do.** The request names
-  Databricks as where the features move next. The roadmap's last plateau
-  assumes the host is a reader — it consumes `model.json` or a synced
-  checkout, generates a brief on request, and edits nothing — because a host
-  that edits is a second model. Is that the intended role, or should the host
-  also carry the walk itself, the agent and the gates? The answer changes
-  `PLAT4` and what `GAP11` must state; the adopted interpretation is applied
-  in [the target state](../6_transition/1_target-state.md#the-gaps).
-- **When publishing is authorized.** `GAP10` and initiative 7 wait on the
-  Requester's word that a rendering of these models may leave the
-  repository. Nothing here assumes it.
+- **When a rendering or a copy may leave the repository.** `GAP10` and
+  initiative 7 wait on the Requester's word: a published site is a copy of
+  the models on a public address, and a host that runs the walk holds a
+  working copy of the repository. Both repositories are public already, so
+  neither discloses anything; the question is whether the Requester wants
+  either to exist yet, and it is asked when the initiative that needs it
+  reaches its gate. Nothing here assumes the answer.
+
+## Resolved
+
+- **What the hosted platform is expected to do.** The adopted interpretation
+  — the host reads only, consuming the export or a synced checkout and
+  editing nothing — was rejected by the Requester on 2026-09-06. The accepted
+  answer: the host also runs the walk, the agent and the gates included, and
+  the approval it collects lands in the scope document. Applied in
+  [the target state](../6_transition/1_target-state.md#the-gaps) to `PLAT4`,
+  `GAP11` and `GAP12`, and in [the sequence](../6_transition/2_sequence.md)
+  to initiative 7.

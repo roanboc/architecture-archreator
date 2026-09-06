@@ -70,7 +70,7 @@ The `Makefile` at the root wraps all of this: `make method` fetches the plugin
 under gitignored `.archreator/method/`; `make trace E=ACMP1`, `make coverage`,
 `make brief E=BSVC1 F=impact` and `make portal P=org-archreator` run one
 tool each; and `make smoke` runs every tool over both trees and builds both
-portals — the job CI runs beside the validators. Everything they generate
+portals, before a push, beside the validators. Everything they generate
 lands under gitignored `.archreator/`; nothing is cached, and every run parses
 the Markdown fresh.
 
