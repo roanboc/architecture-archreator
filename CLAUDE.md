@@ -10,10 +10,11 @@ docs there, models here. The models run on method **0.4**.
 
 **Strategy and business architecture are validated before any other layer,
 and the Requester approves at explicit gates before development.** A change
-is aligned through the numbered layers, stopped at the gates — Direction and
-Understanding — recorded in a scope document, and only then implemented. Pure
-bug fixes that change no documented behavior skip the gates but still update
-whatever the fix falsifies.
+to what a model claims is aligned through the numbered layers, stopped at
+the gates — Direction and Understanding — recorded in a scope document, and
+only then implemented. A change inside an element a model already names skips
+the gates and documents nothing; one that only keeps a row true edits the row
+in the same commit.
 
 The Requester for every tree here is the repository owner.
 

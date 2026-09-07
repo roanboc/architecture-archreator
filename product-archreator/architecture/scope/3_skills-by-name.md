@@ -76,9 +76,27 @@ other skill is a step somebody starts by name, or one the spine reaches.
   documents by status, the dated approval rows across its scope documents,
   whether any of them moved a document to `●`, and how many elements name
   what realizes them. Language-independent: a status is a glyph, a grant is a
-  dated row, an initiative is a file.
+  dated row, an initiative is a file. The reader also recognises a `Code` or
+  `Path` column as a realizing one, which the largest model on the method
+  uses throughout and `coverage` had been reading as ungrounded.
 - **Outcome:** the number the method's own claim rests on is printed rather
   than counted by hand — see the gap note.
+
+### WP6 — A change reaches the model only if it makes a row false or missing
+
+- **Deliverables:** the spine's trigger, its **When not to** table and the
+  rule paragraph every project carries rewritten from *a requirement never
+  becomes code directly* to three tiers — a change inside an element the
+  model already names is coded directly and documents nothing; one that only
+  keeps a row true edits the row in the same commit; one that adds, removes or
+  re-relates an element, or contradicts a rule, walks the layers. The noun
+  test decides, and either lighter path checks before the pull request that
+  every file it touched sits under an artifact some element names.
+  `model.py names <path>` makes that check one command. `ORG.P8` gains the
+  clause.
+- **Outcome:** a screen, a filter or an import format for a service that
+  exists no longer opens an initiative — the over-interruption the 0.3 work
+  measured was mostly this.
 
 ## In scope / out of scope
 
@@ -87,6 +105,7 @@ other skill is a step somebody starts by name, or one the spine reaches.
 | The method at 0.4, and the entry points of the four projects on it | Merging `document-style` into `architecture-document-style`, which would drop the listed set to two |
 | The product model corrected for what changed | Any change to the organization's model: the intent behind the method stands |
 | The health report, and the gap it surfaces | Closing that gap — a promotion is a gate presentation, and belongs to the initiative that presents it |
+| Which changes reach the model, and the reverse lookup that decides it | A validator for the pull-request check: what a file *should* be named by is judgement, not parsing |
 
 ## Gap notes
 
