@@ -4,7 +4,7 @@ This repository holds **the worked models** — archreator applied to real
 subjects, so that a prospective adopter can read a filled-in model rather than
 an empty scaffold. The method itself is the sibling repository
 [`archreator`](https://github.com/roanboc/archreator): skills, scaffold and
-docs there, models here. The models run on method **0.3**.
+docs there, models here. The models run on method **0.4**.
 
 ## The rule that governs everything else
 
@@ -83,4 +83,6 @@ cached, and every run parses the Markdown fresh.
   machine-read relationship column.
 - The skills come from the [archreator](https://github.com/roanboc/archreator)
   plugin, enabled in [`.claude/settings.json`](./.claude/settings.json). They
-  are never vendored into this repository.
+  are never vendored into this repository. Three surface on their own —
+  `align-change-through-layers`, `architecture-document-style`,
+  `document-style`; the rest are `/archreator:<skill>`.
