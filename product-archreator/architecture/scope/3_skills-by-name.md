@@ -98,6 +98,18 @@ other skill is a step somebody starts by name, or one the spine reaches.
   exists no longer opens an initiative — the over-interruption the 0.3 work
   measured was mostly this.
 
+### WP7 — A legend shows how the types connect
+
+- **Deliverables:** `check_model.py` fails a legend of two or more types that
+  draws no edge while the document's diagrams do — the notation rule said
+  "and how they typically connect" and nothing enforced it, which is how
+  fourteen legends generated for the largest model shipped with types and no
+  connections. Those fourteen regain their edges, one per pair of types the
+  document's own diagrams connect, labelled with the relationship drawn most.
+  The validator copy in each project follows the scaffold.
+- **Outcome:** a reader arriving at a legend sees the notation *and* the
+  shape of the layer; a legend cannot ship disconnected again.
+
 ## In scope / out of scope
 
 | In scope | Out of scope (gaps, candidate future work) |
