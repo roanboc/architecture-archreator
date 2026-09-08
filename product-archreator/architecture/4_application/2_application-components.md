@@ -66,11 +66,11 @@ product.
 
 | ID | Component | Realizes | Lives at |
 | -- | --------- | -------- | -------- |
-| `ACMP1` | **The skill corpus** — eighteen skills, their references, and the four rulebooks | `ASVC1`, `ASVC2` | `plugins/archreator/skills/` |
+| `ACMP1` | **The skill corpus** — eighteen skills, their references, and the four rulebooks; three listed for the agent, fifteen invoked by name | `ASVC1`, `ASVC2` | `plugins/archreator/skills/` |
 | `ACMP2` | **The link checker** | `ASVC3` | `plugins/archreator/scaffold/scripts/check_links.py`, copied into every project |
 | `ACMP3` | **The element-ID validator** | `ASVC3` | `plugins/archreator/scaffold/scripts/check_model.py`, copied into every project |
 | `ACMP4` | **The model parser** — one parse of the document convention, imported by every consumer, caching nothing | `ASVC3`, `ASVC7` | `plugins/archreator/scaffold/scripts/model_graph.py`, copied into every project |
-| `ACMP5` | **The model reader** — trace, coverage, inventory, export, portal configuration | `ASVC7`, `ASVC8` | `plugins/archreator/scripts/model.py`, reading a project through `--project` |
+| `ACMP5` | **The model reader** — trace, coverage, health, names, inventory, export, portal configuration | `ASVC7`, `ASVC8` | `plugins/archreator/scripts/model.py`, reading a project through `--project` |
 | `ACMP6` | **The brief generator** — one focused question, answered verbatim from the model, disposable | `ASVC7` | `plugins/archreator/scripts/build_brief.py` |
 | `ACMP7` | **The corpus validator** | `ASVC4` | `plugins/archreator/scripts/check_skills.py` |
 | `ACMP8` | **The scaffold** — the eleven files a project starts with | `ASVC5` | `plugins/archreator/scaffold/` |

@@ -4,16 +4,17 @@ This repository holds **the worked models** — archreator applied to real
 subjects, so that a prospective adopter can read a filled-in model rather than
 an empty scaffold. The method itself is the sibling repository
 [`archreator`](https://github.com/roanboc/archreator): skills, scaffold and
-docs there, models here. The models run on method **0.3**.
+docs there, models here. The models run on method **0.4**.
 
 ## The rule that governs everything else
 
 **Strategy and business architecture are validated before any other layer,
 and the Requester approves at explicit gates before development.** A change
-is aligned through the numbered layers, stopped at the gates — Direction and
-Understanding — recorded in a scope document, and only then implemented. Pure
-bug fixes that change no documented behavior skip the gates but still update
-whatever the fix falsifies.
+to what a model claims is aligned through the numbered layers, stopped at
+the gates — Direction and Understanding — recorded in a scope document, and
+only then implemented. A change inside an element a model already names skips
+the gates and documents nothing; one that only keeps a row true edits the row
+in the same commit.
 
 The Requester for every tree here is the repository owner.
 
@@ -83,4 +84,6 @@ cached, and every run parses the Markdown fresh.
   machine-read relationship column.
 - The skills come from the [archreator](https://github.com/roanboc/archreator)
   plugin, enabled in [`.claude/settings.json`](./.claude/settings.json). They
-  are never vendored into this repository.
+  are never vendored into this repository. Three surface on their own —
+  `align-change-through-layers`, `architecture-document-style`,
+  `document-style`; the rest are `/archreator:<skill>`.

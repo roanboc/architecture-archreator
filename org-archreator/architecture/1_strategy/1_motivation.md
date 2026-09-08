@@ -269,7 +269,8 @@ this organization's ability to know whether it is working.
   answer changes what gets built now and nothing in the model settles it;
   decide the rest, apply it, and mark it draft so a later word overrides it.
   Rules out a question about a state that does not exist yet, and making
-  somebody learn the method to answer one.
+  somebody learn the method to answer one. A change inside an element the
+  model already names asks nothing and documents nothing.
 
 **`P1` and `P4` refuse a change; `P8` pauses one.** A change that would let
 an agent decide what the business is, or that adds an element leading
