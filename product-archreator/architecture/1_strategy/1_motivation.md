@@ -11,7 +11,7 @@ never restated.
 **ArchiMate viewpoint:** Motivation: Stakeholder, Driver, Assessment, Goal,
 Outcome.
 
-**Status:** ◐ Draft catalogue, not yet approved at Direction.
+**Status:** ◐ Draft catalogue, not yet validated.
 
 ## Stakeholders
 
@@ -124,7 +124,7 @@ context that stopped being true, and they need different machinery.
 ```mermaid
 flowchart LR
   g1("◎ An agent reads the business context natively [G1]"):::goal
-  g2("◎ A person approves before code exists [G2]"):::goal
+  g2("◎ A person approves before it reaches the model [G2]"):::goal
   g3("◎ The model still describes today after the merge [G3]"):::goal
   g4("◎ An adopter starts without learning a tool [G4]"):::goal
   g5("◎ The model reaches people who never open the repository [G5]"):::goal
@@ -161,7 +161,7 @@ or a link is missing is still to be settled.
 | ID | Goal | Against | Realized by |
 | -- | ---- | ------- | ----------- |
 | `G1` | **An agent reads the business context natively**: Markdown in git, nothing exported before it can be used | assessments `ASM3`, `ASM5` | The document conventions; the landscape sweep |
-| `G2` | **A person approves before code exists** | assessment `ASM1` | The two gates, Direction and Understanding, and the rule that an unrecorded approval did not happen |
+| `G2` | **A person approves before it reaches the model** | assessment `ASM1` | The pull request whose merge is the approval, and the rule that nothing else records one |
 | `G3` | **The model still describes today after the merge** | assessments `ASM2`, `ASM7`, `ASM8` | The validators; the status glyphs; the rule that a change updates whatever it falsifies |
 | `G4` | **An adopter starts without learning a tool**: thirteen files on the first commit, every one of them used | assessment `ASM3` | The scaffold, installed as a plugin |
 | `G5` | **The model reaches the people who never open the repository**: a portal generated on request, a brief for one question, a PDF of one brief converted by the agent | assessment `ASM3` | The stock portal configuration and the brief generator; nothing published lives in the repository |
@@ -170,7 +170,7 @@ or a link is missing is still to be settled.
 
 | ID | Outcome | Checked by | Mechanical? |
 | -- | ------- | ---------- | ----------- |
-| `OUT1` | Every element names what realizes it, or says it is Pending | The plugin's coverage report, read by a person — no validator can tell a repository path from a team name | No; a report, not a gate |
-| `OUT2` | Every gate granted is recorded with who approved and what they were shown, and one that was not granted has no row | The Approvals table in the scope document | By convention |
+| `OUT1` | Every element names what realizes it, or says it is Pending | The plugin's coverage report, read by a person — no validator can tell a repository path from a team name | No; a report, not a blocker |
+| `OUT2` | Every change that reaches the model was merged by the Requester, and nothing else claims to be approved | The pull request's merge, in the repository's own history | Yes; git records it |
 | `OUT3` | No reference resolves to something that was deleted | The element-ID validator, on every pull request | Yes |
 | `OUT4` | Every document that defines an element declares how far it has been validated | The same validator, checked on the glyph and never the words, so it holds in any language | Yes |

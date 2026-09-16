@@ -12,15 +12,21 @@ because the skills read a project's `AGENTS.md` as its entry point; the
 `CLAUDE.md` and `GEMINI.md` beside each one import it for the hosts that read
 those names, and say nothing else.
 
-## The rule that governs everything else
+## How a change happens here
 
-**Strategy and business architecture are validated before any other layer,
-and the Requester approves at explicit gates before development.** A change
-to what a model claims is aligned through the numbered layers, stopped at
-the gates — Direction and Understanding — recorded in a scope document, and
-only then implemented. A change inside an element a model already names skips
-the gates and documents nothing; one that only keeps a row true edits the row
-in the same commit.
+The owner says what they want, in plain words. The agent works out which
+layers the change touches, edits them, writes a short note under
+[`product-archreator/architecture/scope/`](./product-archreator/architecture/scope/README.md),
+and opens a pull request. **The owner's merge is the approval.** Nothing else
+records one, and the agent never stops the conversation to ask for it.
+
+The agent stops to ask only when the change contradicts a principle or a
+decision already written down, or when two readings of the request would
+build different things. It does not ask about the future, and it does not
+ask the owner to decide what the model already settles.
+
+A pure correction — a broken link, a stale path, a validator brought level
+with the method — is just fixed, together with whatever it falsifies.
 
 The Requester for every tree here is the repository owner.
 

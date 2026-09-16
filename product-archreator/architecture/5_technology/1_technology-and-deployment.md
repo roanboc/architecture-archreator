@@ -8,7 +8,7 @@ is a free hosted service or the adopter's own machine.
 
 **ArchiMate viewpoint:** Technology: Node, Technology Service, Artifact.
 
-**Status:** ◐ Draft catalogue, not yet approved at Understanding.
+**Status:** ◐ Draft catalogue, not yet validated.
 
 ## Nodes
 
@@ -47,7 +47,7 @@ a deployment is the one the organization does not choose.
 
 | ID | Node | Is | Replaceable? |
 | -- | ---- | -- | ------------ |
-| `NODE1` | **Git hosting**, GitHub today | Where the method and every model live and are reviewed | Yes, with edits; the gate-presentation guidance names pull-request URLs |
+| `NODE1` | **Git hosting**, GitHub today | Where the method and every model live and are reviewed | Yes, with edits; the pull-request guidance names pull-request URLs |
 | `NODE2` | **Continuous integration**, GitHub Actions today | What runs the validators on every change | Yes; a few workflow files invoking Python scripts |
 | `NODE3` | **Static hosting**, GitHub Pages today | Where the guidance site is served from | Yes, trivially; the site is two static pages |
 | `NODE4` | **The agent host platform**, Claude Code, Copilot, Codex or Gemini | Where the skills execute; the one node the method does not choose, because it is wherever the adopter already works. A host that reads the by-name key loads three skills; one that ignores it loads all eighteen | By design; a second platform adds a manifest and forks nothing |

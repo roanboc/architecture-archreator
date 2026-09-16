@@ -40,7 +40,7 @@ flowchart LR
   b8(["⬭ Public guidance [BSVC8]"]):::business
   b5(["⬭ Method distribution [BSVC5]"]):::business
   b2(["⬭ Subject discovery [BSVC2]"]):::business
-  b1(["⬭ Gated change alignment [BSVC1]"]):::business
+  b1(["⬭ Change alignment [BSVC1]"]):::business
   b3(["⬭ Model validation [BSVC3]"]):::business
   c1["⊞ The skill corpus [ACMP1]"]:::component
 
@@ -56,5 +56,5 @@ flowchart LR
 ```
 
 Guidance leads to distribution, distribution to discovery, and discovery
-flows into the gated alignment where the method happens; validation serves
-it, and the skill corpus realizes it.
+flows into the alignment where the method happens; validation serves it, and
+the skill corpus realizes it.

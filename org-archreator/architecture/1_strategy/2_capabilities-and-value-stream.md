@@ -9,7 +9,7 @@ contact to a delivered outcome.
 **ArchiMate viewpoint:** Strategy: Capability, Resource, Value, Course of
 Action, Value Stream.
 
-**Status:** ◐ Draft catalogue, not yet approved at Direction.
+**Status:** ◐ Draft catalogue, not yet validated.
 
 ## Capabilities
 
@@ -69,13 +69,13 @@ organization that spends most of itself on the product it gives away.
 
 | ID | Capability | It is | Realized by |
 | -- | ---------- | ----- | ----------- |
-| `CAP1.1` | **Method design** | Encoding discovery, gates, the layered model and its conventions as skills an agent can execute | The skill corpus and the rulebooks |
+| `CAP1.1` | **Method design** | Encoding discovery, the layered model, its conventions and where it stops, as skills an agent can execute | The skill corpus and the rulebooks |
 | `CAP1.2` | **Method verification** | Keeping the method and the models built on it mechanically checkable | The validators and the corpus check |
 | `CAP1.3` | **Use-to-method learning** | What real use improvises or exposes becomes method anyone can use | The retrospective skill, triggered after every merged initiative |
 | `CAP2.1` | **Self-service adoption** | An adopter finds, evaluates and installs the method without asking anyone | The guidance site, the marketplace listing, the scaffold |
 | `CAP2.2` | **Worked reference** | A filled-in model a prospective adopter reads instead of an empty scaffold | The two worked models, the organization's and the product's |
 | `CAP3.1` | **Discovery with the business** | Drawing canvases and a strategy out of a real business by question, in person | [`ROLE2`] Consultant, running the method's discovery skills |
-| `CAP3.2` | **Supervised delivery** | Building from the approved design with an agent, for a client | [`ROLE2`] Consultant, with the AI agent at co-pilot autonomy |
+| `CAP3.2` | **Supervised delivery** | Building from the design with an agent, for a client | [`ROLE2`] Consultant, with the AI agent at co-pilot autonomy |
 
 ## Values
 
@@ -138,7 +138,7 @@ and consumed most by the segment that reaches it through that same person;
 | ID | Resource | Kind | State |
 | -- | -------- | ---- | ----- |
 | `RES1` | **The Requester's knowledge and time** | People | **Constrained**, the binding limit on the whole organization |
-| `RES2` | **The method** — skills, conventions, gates | Knowledge | Held, and improving; produced by `CAP1` and worked with by the other two areas |
+| `RES2` | **The method** — skills, conventions, the layered walk | Knowledge | Held, and improving; produced by `CAP1` and worked with by the other two areas |
 | `RES3` | **The published guidance site** | Asset | Held; described in [the product's model](../../../product-archreator/architecture/README.md) |
 
 ## Course of action
@@ -153,7 +153,7 @@ and consumed most by the segment that reaches it through that same person;
 flowchart LR
   vs1[["⇉ Reach [VS1.1]"]]:::vsx
   vs2[["⇉ Frame [VS1.2]"]]:::vsx
-  vs3[["⇉ Approve [VS1.3]"]]:::vsx
+  vs3[["⇉ Check [VS1.3]"]]:::vsx
   vs4[["⇉ Model [VS1.4]"]]:::vsx
   vs5[["⇉ Build [VS1.5]"]]:::vsx
   vs6[["⇉ Feed back [VS1.6]"]]:::vsx
@@ -187,9 +187,9 @@ flowchart LR
 | `VS1` | **From first contact to a delivered outcome, and back** | The whole stream |
 | `VS1.1` | **Reach** | Someone finds the method through one of the four [channels](../0_business-design/2_business-model-canvas.md#channels), or approaches the Requester directly |
 | `VS1.2` | **Frame** | Discovery draws the business model and strategy out by questions, and tests the frame rather than recording it. The method carries it for a self-served adopter, a person in an engagement |
-| `VS1.3` | **Approve** | The project's own Requester grants the gate, against documents they were given links to; the gate rules are the method's |
-| `VS1.4` | **Model** | The layers are derived from what was approved, in one place and one language |
-| `VS1.5` | **Build** | The approved design is what an agent implements from, self-served or supervised for a client |
+| `VS1.3` | **Check** | The request is checked against what the project's own Requester has already decided; a contradiction, an ambiguity or an authorization stops it here, and everything else continues |
+| `VS1.4` | **Model** | The layers are derived from what the request settles, in one place and one language |
+| `VS1.5` | **Build** | The agent implements directly from the design, self-served or supervised for a client, and opens it as a pull request — the Requester's merge is the approval |
 | `VS1.6` | **Feed back** | Real use exposes what the method gets wrong, and the method changes |
 
 Reach has one capability behind it and serves only someone already looking:
