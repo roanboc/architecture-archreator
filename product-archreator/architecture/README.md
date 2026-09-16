@@ -1,6 +1,6 @@
 # Architecture — archreator, the product
 
-_The front door of this model. Repository-wide rules: [`AGENTS.md`](../AGENTS.md)._
+_The front door of this model. Repository-wide rules: [`AGENTS.md`](../../AGENTS.md); this tree's subject and depth: [`AGENTS.md`](../AGENTS.md)._
 
 What the product knows about itself: who it is for, which services it
 offers, and which piece of the

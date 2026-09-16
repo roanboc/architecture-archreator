@@ -1,6 +1,6 @@
 # Architecture — the organization that publishes archreator
 
-_The front door of this model. Repository-wide rules: [`AGENTS.md`](../AGENTS.md)._
+_The front door of this model. Repository-wide rules: [`AGENTS.md`](../../AGENTS.md); this tree's subject and depth: [`AGENTS.md`](../AGENTS.md)._
 
 What the organization knows about itself: who it serves, what it must be
 able to do, and how the work flows from first contact to a delivered outcome.
