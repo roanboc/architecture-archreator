@@ -43,6 +43,15 @@ The validators are shared at the repository root and run before every push:
 ```bash
 python3 ../scripts/check_links.py
 python3 ../scripts/check_model.py
+python3 ../scripts/check_prose.py
 ```
+
+Every relationship of the model is declared once, in
+[`architecture/relationships.md`](./architecture/relationships.md); a page
+draws and names it. A layer README has one shape: title, one sentence, the
+viewpoint line, Documents, Metamodel, Layer view. Inside the page that
+defines an element, cite its bare identifier; from any other page, its type,
+identifier and name. A model page speaks about its subject, and
+`check_prose.py` names the sentence that does not.
 
 **Documentation language: English.**

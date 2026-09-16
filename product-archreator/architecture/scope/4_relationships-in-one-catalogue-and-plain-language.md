@@ -159,7 +159,7 @@ first. Both were removed rather than repaired.
 
 | In scope | Out of scope (gaps, candidate future work) |
 | -------- | ------------------------------------------- |
-| The method at 0.5, and BigView as the model that proved every rule first | Migrating the two models of the method itself, which still carry relationship tables and legends; the validators accept both shapes until then |
+| The method at 0.5, and BigView as the model that proved every rule first | Migrating the two models of the method itself, done as [scope 5](./5_the-two-models-move-to-05.md) |
 | The catalogue template and the six metamodels in the layer templates | A check that a Mermaid edge is declared in the catalogue |
 | The parser and validator patches, identical in the scaffold and in BigView | A check that names a malformed relationship row instead of dropping the table into "defined twice" |
 | The plain-writing rules, written once in `document-style`, and the one of them a validator holds | Merging `document-style` into `architecture-document-style` |
@@ -167,10 +167,10 @@ first. Both were removed rather than repaired.
 
 ## Gap notes
 
-- **The method's own two models are not on 0.5.** Their element documents
-  keep `## Relationships` tables and legends; nothing breaks, because the
-  parser reads both the table beside a diagram and the catalogue, and the
-  stereotype rule still honours `%% legend`. Moving them is one initiative.
+- **The method's own two models moved in [scope 5](./5_the-two-models-move-to-05.md).**
+  Until then their element documents kept `## Relationships` tables and
+  legends, and nothing broke: the parser reads both the table beside a
+  diagram and the catalogue.
 - **Nothing checks that a drawn edge is declared.** BigView's catalogue was
   built by reading its Mermaid once, and 121 edges surfaced that no table
   held. Drift can return the same way until a check reads the diagrams.

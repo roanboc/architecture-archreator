@@ -2,29 +2,12 @@
 
 _[← Information layer](./README.md) · [Front door](../README.md)_
 
-**ArchiMate viewpoint:** Information — Data Object. A domain is the level-1
-row of the catalogue; its objects extend the identifier, so the hierarchy is
-readable from the ID and no new element kind is needed.
+What the organization knows, who owns each part, and where it lives.
 
-**Status:** ◐ Draft catalogue — not yet approved at a gate. **Understanding**
-covers this document.
+**ArchiMate viewpoint:** Information: Data Object, with the domain as its
+level 1 and the object as its level 2.
 
-## How to read this document
-
-```mermaid
-flowchart LR
-  %% legend
-  dobj["▦ «Data Object» what is known [DOBJ#, DOBJ#.# per level]"]:::info
-  act(["⚇ «Business Actor» who owns a domain outright — defined in the business layer [ACT#]"]):::business
-  role["⚉ «Business Role» the hat it is owned under — defined there too [ROLE#]"]:::role
-
-  act -->|owns| dobj
-  role -->|owns| dobj
-
-  classDef info fill:#c2f0ff,stroke:#0288d1,color:#333
-  classDef business fill:#fffbb5,stroke:#c8c04a,color:#333
-  classDef role fill:#f7f099,stroke:#b8ad3f,color:#333
-```
+**Status:** ◐ Draft catalogue, not yet approved at Understanding.
 
 ## Level 1 — the domains
 
@@ -57,38 +40,25 @@ flowchart TB
   classDef ext fill:#e8f7fd,stroke:#0288d1,color:#333,stroke-dasharray: 4 3
 ```
 
-**Two owners, and the third domain has neither of them.** What the
-organization masters it owns outright; what it uses most — the method
-itself — belongs to the product, and the loop closes anyway: engagement
-notes leave this tree, become method, and come back as the shape of the
-model.
+Two owners, and the third domain has neither. What the organization masters
+it owns outright; what it uses most, the method itself, belongs to the
+product. The loop closes anyway: engagement notes become method and come
+back as the shape of the organization's own model.
 
 | ID | Domain | Owner | Mastered in |
 | -- | ------ | ----- | ----------- |
-| `DOBJ1` | **Engagement knowledge** — what working with a client produces and teaches | `ROLE2` | The client's own repository for their model; this repository for what the method learns |
-| `DOBJ2` | **The organization's own model** — what this tree says about the organization | `ACT1` | This repository |
-| `DOBJ3` | **Method and guidance content** — what the method is made of | The product — [its information layer](../../../product-archreator/architecture/3_information/1_data-domains-and-objects.md) models it in full | The archreator repository |
+| `DOBJ1` | **Engagement knowledge**: what working with a client produces and teaches | [`ROLE2`] [Consultant](../2_business/1_business-architecture.md#roles) | The client's own repository for their model; this repository for what the method learns |
+| `DOBJ2` | **The organization's own model**: the canvases, the layers and the initiative records | [`ACT1`] [The Requester](../2_business/1_business-architecture.md#actors) | This repository |
+| `DOBJ3` | **Method and guidance content**: what the method is made of | The product; [its information layer](../../../product-archreator/architecture/3_information/1_data-domains-and-objects.md) models it in full | The archreator repository |
 
 ## Level 2 — the objects
 
-Only the domains this organization masters decompose here; the product's
-objects are the product's to define.
+Only the domains the organization masters have objects; the product defines
+its own.
 
 | ID | Object | Is | Classification |
 | -- | ------ | -- | -------------- |
-| `DOBJ1.1` | **The client's model** | The architecture the engagement builds, in the client's repository — theirs, referenced from here and never copied | The client's call |
-| `DOBJ1.2` | **Engagement notes** | What the method did not cover, captured by `Capture what real use exposed [BPROC2.1]`; none exist yet — the first lands with the next retrospective | Internal |
-| `DOBJ2.1` | **The canvases and layer documents** | The model proper — this tree | Public |
-| `DOBJ2.2` | **The initiative records** | Scope documents and their Approvals tables — the durable trail of who approved what | Public |
-
-## Relationships
-
-The two edges the map draws between domains, which no catalogue row can
-carry: a level-2 object feeding a domain the product owns, and that domain
-shaping a level-2 object here.
-
-| From | From element | To | To element | Relationship |
-| ---- | ------------ | -- | ---------- | ------------ |
-| `DOBJ1.2` | ▦ «Data Object» Engagement notes | `DOBJ3` | ▦ «Data Object» Method and guidance content | flows to |
-| `DOBJ3` | ▦ «Data Object» Method and guidance content | `DOBJ2.1` | ▦ «Data Object» The canvases and layer documents | influences |
-
+| `DOBJ1.1` | **The client's model** | The architecture the engagement builds, in the client's repository; theirs, referenced and never copied | The client's call |
+| `DOBJ1.2` | **Engagement notes** | What the method did not cover, captured by the process [`BPROC2.1`] [Capture what real use exposed](../2_business/1_business-architecture.md#the-process-map); none exist yet, and the first lands with the next retrospective | Internal |
+| `DOBJ2.1` | **The canvases and layer documents** | The model proper: the canvases and the layer documents | Public |
+| `DOBJ2.2` | **The initiative records** | Scope documents and their Approvals tables: the durable trail of who approved what | Public |

@@ -22,9 +22,10 @@
 ```bash
 python3 scripts/check_links.py
 python3 scripts/check_model.py
+python3 scripts/check_prose.py
 ```
 
-Both must be green. CI runs the same two on every pull request.
+All three must be green. CI runs the same three on every pull request.
 
 ## The rules that catch people out
 
@@ -43,6 +44,14 @@ Both must be green. CI runs the same two on every pull request.
   marked `◐`. Never ask about a state that does not exist yet.
 - **An identifier is never reused** once the change that introduced it merges.
   Before that, renumbering to close a gap is fine.
-- **The documentation describes its subject, not its own construction.** No
-  "this used to say", no notes about how many elements were consolidated, no
-  narration of a rebuild. The change log is the scope document.
+- **The documentation describes its subject, not its own construction,
+  governance or layout.** No "this used to say", no notes about how many
+  elements were consolidated, no "Direction covers this document", no "the
+  table below". The change log is the scope document, and
+  `scripts/check_prose.py` names the sentence that breaks this, from a word
+  list tuned to these models.
+- **A relationship is declared once, in the tree's
+  `architecture/relationships.md`.** A page draws it and names it in prose;
+  a table a person reads carries no bare identifier list, and a layer README
+  has one shape: title, one sentence, the viewpoint line, Documents,
+  Metamodel, Layer view.
