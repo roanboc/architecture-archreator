@@ -2,27 +2,12 @@
 
 _[← Application layer](./README.md) · [Front door](../README.md)_
 
-**ArchiMate viewpoint:** Application — Application Component.
+The pieces of software that ship the method, each naming its path in the
+archreator repository. Every component is shipping code.
 
-**Status:** ◐ Draft catalogue — not yet approved at a gate. **Understanding**
-covers this document.
+**ArchiMate viewpoint:** Application: Application Component.
 
-Every component below is shipping code — the catalogue holds nothing that
-does not exist as a path in the archreator repository.
-
-## How to read this document
-
-```mermaid
-flowchart LR
-  %% legend
-  acmp["⊞ «Application Component» the piece that does it [ACMP#]"]:::app
-  asvc(["⬮ «Application Service» what it realizes — catalogued next door [ASVC#]"]):::service
-
-  acmp -->|realizes| asvc
-
-  classDef app fill:#9adcf0,stroke:#0277bd,color:#333
-  classDef service fill:#c2f0ff,stroke:#0288d1,color:#333
-```
+**Status:** ◐ Draft catalogue, not yet approved at Understanding.
 
 ## The components
 
@@ -37,6 +22,7 @@ flowchart TB
     c2["⊞ The link checker [ACMP2]"]:::app
     c3["⊞ The element-ID validator [ACMP3]"]:::app
     c4["⊞ The model parser [ACMP4]"]:::app
+    c13["⊞ The prose validator [ACMP13]"]:::app
   end
   subgraph plugin["What the plugin carries"]
     c9["⊞ The asset library [ACMP9]"]:::app
@@ -48,6 +34,7 @@ flowchart TB
   c8 -->|aggregates| c2
   c8 -->|aggregates| c3
   c8 -->|aggregates| c4
+  c8 -->|aggregates| c13
   c2 -->|imports| c4
   c3 -->|imports| c4
   c5 -->|imports the project's| c4
@@ -57,41 +44,24 @@ flowchart TB
   classDef app fill:#9adcf0,stroke:#0277bd,color:#333
 ```
 
-**One box has five arrows into it and ships in every project.** The model
-parser [`ACMP4`] is copied into each project by the scaffold and imported by
-both validators there and by both reading tools in the plugin — which is the
-whole architecture of "one parse of the document convention, and not two",
-and the reason a change to it is the highest-blast-radius change in the
-product.
+One box has five arrows into it and ships in every project. The scaffold
+copies `ACMP4` into each project, where two validators import it, and both
+reading tools in the plugin import it too: one parse of the document
+convention, and not two. A change to it is the change with the widest reach
+in the product.
 
 | ID | Component | Realizes | Lives at |
 | -- | --------- | -------- | -------- |
-| `ACMP1` | **The skill corpus** — eighteen skills, their references, and the four rulebooks; three listed for the agent, fifteen invoked by name | `ASVC1`, `ASVC2` | `plugins/archreator/skills/` |
-| `ACMP2` | **The link checker** | `ASVC3` | `plugins/archreator/scaffold/scripts/check_links.py`, copied into every project |
-| `ACMP3` | **The element-ID validator** | `ASVC3` | `plugins/archreator/scaffold/scripts/check_model.py`, copied into every project |
-| `ACMP4` | **The model parser** — one parse of the document convention, imported by every consumer, caching nothing | `ASVC3`, `ASVC7` | `plugins/archreator/scaffold/scripts/model_graph.py`, copied into every project |
-| `ACMP5` | **The model reader** — trace, coverage, health, names, inventory, export, portal configuration | `ASVC7`, `ASVC8` | `plugins/archreator/scripts/model.py`, reading a project through `--project` |
-| `ACMP6` | **The brief generator** — one focused question, answered verbatim from the model, disposable | `ASVC7` | `plugins/archreator/scripts/build_brief.py` |
-| `ACMP7` | **The corpus validator** | `ASVC4` | `plugins/archreator/scripts/check_skills.py` |
-| `ACMP8` | **The scaffold** — the eleven files a project starts with | `ASVC5` | `plugins/archreator/scaffold/` |
-| `ACMP9` | **The asset library** — the templates a skill emits when the project first has content for them | `ASVC5` | `plugins/archreator/assets/` |
-| `ACMP10` | **The plugin package** — the manifests, held byte-identical by the corpus validator | `ASVC6` | `plugins/archreator/plugin.json`, `.claude-plugin/` |
-| `ACMP11` | **The skills installer** — for a host that installs no plugin | `ASVC6` | `plugins/archreator/scripts/install_skills.py` |
-| `ACMP12` | **The guidance site** — two static pages and their stylesheet | `ASVC9` | `site/` |
-
-## Relationships
-
-What the diagram above draws: nine dependencies between components, which a
-catalogue with one row per component has no column shape for.
-
-| From | From element | To | To element | Relationship |
-| ---- | ------------ | -- | ---------- | ------------ |
-| `ACMP7` | ⊞ «Application Component» The corpus validator | `ACMP1` | ⊞ «Application Component» The skill corpus | checks |
-| `ACMP8` | ⊞ «Application Component» The scaffold | `ACMP2` | ⊞ «Application Component» The link checker | aggregates |
-| `ACMP8` | ⊞ «Application Component» The scaffold | `ACMP3` | ⊞ «Application Component» The element-ID validator | aggregates |
-| `ACMP8` | ⊞ «Application Component» The scaffold | `ACMP4` | ⊞ «Application Component» The model parser | aggregates |
-| `ACMP2` | ⊞ «Application Component» The link checker | `ACMP4` | ⊞ «Application Component» The model parser | imports |
-| `ACMP3` | ⊞ «Application Component» The element-ID validator | `ACMP4` | ⊞ «Application Component» The model parser | imports |
-| `ACMP5` | ⊞ «Application Component» The model reader | `ACMP4` | ⊞ «Application Component» The model parser | imports |
-| `ACMP6` | ⊞ «Application Component» The brief generator | `ACMP4` | ⊞ «Application Component» The model parser | imports |
-| `ACMP1` | ⊞ «Application Component» The skill corpus | `ACMP9` | ⊞ «Application Component» The asset library | emits from |
+| `ACMP1` | **The skill corpus**: eighteen skills, their references, and the four rulebooks; three listed for the agent, fifteen invoked by name | [`ASVC1`] Method execution, [`ASVC2`] Document generation | `plugins/archreator/skills/` |
+| `ACMP2` | **The link checker** | [`ASVC3`] Self-checking | `plugins/archreator/scaffold/scripts/check_links.py`, copied into every project |
+| `ACMP3` | **The element-ID validator** | [`ASVC3`] Self-checking | `plugins/archreator/scaffold/scripts/check_model.py`, copied into every project |
+| `ACMP4` | **The model parser**: one parse of the document convention, imported by every consumer, caching nothing | [`ASVC3`] Self-checking, [`ASVC7`] Model interrogation | `plugins/archreator/scaffold/scripts/model_graph.py`, copied into every project |
+| `ACMP5` | **The model reader**: trace, coverage, health, names, inventory, export, portal configuration | [`ASVC7`] Model interrogation, [`ASVC8`] Portal configuration | `plugins/archreator/scripts/model.py`, reading a project through `--project` |
+| `ACMP6` | **The brief generator**: one focused question, answered verbatim from the model, disposable | [`ASVC7`] Model interrogation | `plugins/archreator/scripts/build_brief.py` |
+| `ACMP7` | **The corpus validator** | [`ASVC4`] Corpus self-checking | `plugins/archreator/scripts/check_skills.py` |
+| `ACMP8` | **The scaffold**: the thirteen files a project starts with | [`ASVC5`] Project emission | `plugins/archreator/scaffold/` |
+| `ACMP9` | **The asset library**: the templates a skill emits when the project first has content for them | [`ASVC5`] Project emission | `plugins/archreator/assets/` |
+| `ACMP10` | **The plugin package**: the manifests, held byte-identical by the corpus validator | [`ASVC6`] Plugin distribution | `plugins/archreator/plugin.json`, `.claude-plugin/` |
+| `ACMP11` | **The skills installer**: for a host that installs no plugin | [`ASVC6`] Plugin distribution | `plugins/archreator/scripts/install_skills.py` |
+| `ACMP12` | **The guidance site**: two static pages and their stylesheet | [`ASVC9`] Public guidance serving | `site/` |
+| `ACMP13` | **The prose validator**: fails a model page that speaks about its governance, the method or itself, from a word list the project tunes | [`ASVC3`] Self-checking | `plugins/archreator/scaffold/scripts/check_prose.py` and `prose-denylist.json`, copied into every project |

@@ -12,7 +12,7 @@ flowchart LR
   subgraph repo["This repository — the worked models"]
     org(["◍ org-archreator — the organization, Depth 2"]):::org
     prod(["◍ product-archreator — the method as a product, Depth 1"]):::prod
-    scripts["⊞ scripts/ — two validators and the parse they share"]:::tool
+    scripts["⊞ scripts/ — three validators and the parse two of them share"]:::tool
   end
 
   method -->|installed as a plugin, writes| org
@@ -32,9 +32,9 @@ flowchart LR
 | ---- | ------- |
 | [`org-archreator/`](./org-archreator/architecture/README.md) | The organization that publishes archreator |
 | [`product-archreator/`](./product-archreator/architecture/README.md) | archreator the method, as a product |
-| [`scripts/`](./scripts/README.md) | The two validators and the parse they share, one copy for both trees |
+| [`scripts/`](./scripts/README.md) | The three validators and the parse two of them share, one copy for both trees |
 
-The models run on method 0.3. Start at either tree's
+The models run on method 0.5. Start at either tree's
 `architecture/README.md` — the front door says, per layer, what is modeled,
 what is deliberately not, and how far each document has been validated.
 Contributions follow [`CONTRIBUTING.md`](./CONTRIBUTING.md).

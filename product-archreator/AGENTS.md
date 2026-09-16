@@ -1,50 +1,33 @@
 # AGENTS.md
 
-The architecture model of **archreator the method, as a product** — its
+The architecture model of **archreator the method, as a product**: its
 skills, validators, tools, scaffold and guidance site. The organization that
 publishes it is modeled in
 [`org-archreator/`](../org-archreator/architecture/README.md); this model
 cites the organization's elements where it serves them, never the reverse.
 
-## The rule that governs everything else
-
-**Strategy and business architecture are validated before any other layer,
-and the Requester approves at explicit gates before development.** A change
-is aligned through the numbered layers, stopped at the gates — Direction and
-Understanding — recorded in a scope document, and only then implemented. Pure
-bug fixes that change no documented behavior skip the gates but still update
-whatever the fix falsifies.
-
-## Who decides
-
-| Role | Held by |
-| ---- | ------- |
-| **Requester** | The repository owner — the only person who grants a gate |
-| **Agent** | Whatever AI agent is working the change, at co-pilot autonomy |
-| **Reviewer** | The Requester, on the pull request |
+Repository-wide rules, commands and conventions live in the root
+[`AGENTS.md`](../AGENTS.md). This file carries only what is this tree's.
 
 ## Modeling depth
 
 **Declared depth: 1 — Application.** The subject is one product: a light
 strategy layer to judge changes against, and the layers that describe what
-actually ships. The guidance site is part of this product — it realizes one
-of its services — not a project of its own.
+actually ships. The guidance site is part of this product, realizing one of
+its services, not a project of its own.
 
-## Structure and commands
+## This tree
 
-Everything architectural is under [`architecture/`](./architecture/README.md);
-the front door's status table is the map. Initiatives live in
-[`architecture/scope/`](./architecture/scope/README.md), one document each —
-including initiatives that span this tree and the organization's.
-Retrospective notes — one per finished initiative or engagement, numbered
-chronologically — live in `architecture/engagements/`, beside the scope
-documents they follow.
-
-The validators are shared at the repository root and run before every push:
-
-```bash
-python3 ../scripts/check_links.py
-python3 ../scripts/check_model.py
-```
-
-**Documentation language: English.**
+- **Federation ID:** `PRD_MTD`. This model cites the organization's elements
+  as `ORG.<ID>`, mapped in [`architecture/federation.md`](./architecture/federation.md).
+- The model is under [`architecture/`](./architecture/README.md). Its front
+  door says what is modeled and what deliberately is not, and
+  [`relationships.md`](./architecture/relationships.md) declares every
+  relationship once.
+- Initiatives, including those spanning both trees, live in
+  [`architecture/scope/`](./architecture/scope/README.md), one document each.
+  Retrospective notes, one per finished initiative or engagement, live in
+  `architecture/engagements/`.
+- The validators run from the repository root, before every push:
+  `python3 scripts/check_links.py`, `python3 scripts/check_model.py` and
+  `python3 scripts/check_prose.py`.

@@ -1,0 +1,35 @@
+{
+  "_comment": "Words that give away a sentence about a model's governance, about the method, or about the document itself. A model page speaks about its subject; the rest lives in AGENTS.md, CONTRIBUTING.md, the front door or the status line. Regular expressions; case is ignored unless a pattern opens with (?-i:. The subject of both trees is the method and the organization that runs it, so the method's own words — skill, validator, gate, Requester, scaffold — are the business here and stay off the list; what is caught is narration about a page's approval, its construction or its layout.",
+  "_preamble_lines": ["**ArchiMate viewpoint:**", "**Status:**"],
+  "_exempt_sections": ["Metamodel"],
+  "_not_started": "**Status:** ○",
+  "governance": [
+    "\\bDirection (?:session|gate)\\b",
+    "\\bUnderstanding (?:session|gate)\\b",
+    "\\bcovers this (?:document|layer)\\b",
+    "(?-i:\\bapproves? (?:this|these|the canvases|the catalogue|it) at\\b)",
+    "\\b(?:first|second|next) (?:session|sitting)\\b",
+    "\\bthrough Direction\\b",
+    "\\bpending in\\b"
+  ],
+  "method": [
+    "\\brenumber\\w*",
+    "\\bare numbered\\b",
+    "\\b(?:no )?catalogue row\\b",
+    "\\bcolumn shape\\b",
+    "\\bmachine-read\\b",
+    "\\bmodelling accident\\b"
+  ],
+  "document": [
+    "\\b(?:this|these) (?:documents?|pages?|files?|folders?|tables?|sections?|trees?|canvases describe)\\b",
+    "\\b(?:this layer|the layer) (?:is derived|motivates|has no elements|is filled|holds only)\\b",
+    "\\bspeaks? about the document\\b",
+    "\\bw(?:as|ere) consolidated\\b",
+    "\\bno longer (?:says|carries|lives)\\b",
+    "\\bknown gap\\b",
+    "\\b(?:diagram|table|paragraph|row|map|picture) (?:above|below)\\b",
+    "\\b(?:drawn|declared|rendered|stated) (?:above|below|here|there)\\b",
+    "\\bmodeled (?:here|there|in this)\\b",
+    "\\bnot restated\\b"
+  ]
+}

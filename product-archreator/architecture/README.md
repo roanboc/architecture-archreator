@@ -1,15 +1,16 @@
 # Architecture — archreator, the product
 
-_The front door of this model. Repository-wide rules: [`AGENTS.md`](../AGENTS.md)._
+_The front door of this model. Repository-wide rules: [`AGENTS.md`](../../AGENTS.md); this tree's subject and depth: [`AGENTS.md`](../AGENTS.md)._
 
-**This folder is what the product knows about itself** — who it is for, which
-services it offers, and which piece of the [archreator
-repository](https://github.com/roanboc/archreator) realizes each part. Plain
-Markdown, one source, no copies.
+What the product knows about itself: who it is for, which services it
+offers, and which piece of the
+[archreator repository](https://github.com/roanboc/archreator) realizes each
+part.
 
-**Federation ID:** `PRD_MTD` — a reference to this model from another model
-in the federation reads `PRD_MTD.BSVC#`. The product carries a short name
-from birth because a second product must never rename the first.
+**Federation ID:** `PRD_MTD`. A reference to this model from another model
+reads `PRD_MTD.BSVC#`; the product carries a short name from birth because a
+second product must never rename the first. Every relationship of the model
+is declared once, in [`relationships.md`](./relationships.md).
 
 ## What is modeled, and what is not
 
@@ -20,7 +21,7 @@ flowchart TB
   l1["1 · Strategy — the adopting project's roles, and what must be true of the method"]:::strategy
   l2["2 · Business — the eight services offered to an adopting project"]:::business
   l3["3 · Information — the three data domains and what each owns"]:::info
-  l4["4 · Application — the services, and the twelve components that ship them"]:::app
+  l4["4 · Application — the services, and the thirteen components that ship them"]:::app
   l5["5 · Technology — the five nodes, none of them operated here"]:::tech
   gap["— · Transition — a stated gap, not a silence"]:::gap
 
@@ -40,10 +41,8 @@ flowchart TB
   classDef gap fill:#ffd6d6,stroke:#c62828,color:#333,stroke-dasharray: 4 3
 ```
 
-**The chain runs one way and stops twice.** Layer 0 is somebody else's — the
-canvases belong to the organization — and the transition layer does not exist
-yet. Everything between is here, one folder per box, and the table below says
-what each one holds.
+The chain runs one way and stops twice: the canvases belong to the
+organization, and no roadmap has been approved yet.
 
 | # | Layer | The question it answers | Status |
 | - | ----- | ----------------------- | ------ |
@@ -57,20 +56,17 @@ what each one holds.
 
 Domains stay unused at Depth 1.
 
-**What is modeled where.** The method's motivation is here, in
-[`1_strategy/`](./1_strategy/README.md). Its **process model** is not: it
-lives in `docs/process/` of the archreator repository, beside the skills
-that realize it, because that adjacency is what lets CI prove every process
-has a skill and every skill a process.
+The method's process model lives in `docs/process/` of the archreator
+repository, beside the skills that realize it, so CI can prove that every
+process has a skill and every skill a process.
 
 ## How far each document has been validated
 
 Every document that defines elements opens with `○` not started, `◐` draft
-catalogue, or `●` validated at a named gate. **Everything in this model is
-`◐` today** — the gates are pending in
-[the current initiative](./scope/1_rebuild-the-models-on-method-02.md).
+catalogue, or `●` validated at a named gate. Every document is `◐` today; the
+gates are pending.
 
 ## Federation
 
-This model cites the organization's — the contract is
+The product cites the organization's elements; the contract is
 [`federation.md`](./federation.md).

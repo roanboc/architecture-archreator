@@ -1,14 +1,13 @@
 # Architecture — the organization that publishes archreator
 
-_The front door of this model. Repository-wide rules: [`AGENTS.md`](../AGENTS.md)._
+_The front door of this model. Repository-wide rules: [`AGENTS.md`](../../AGENTS.md); this tree's subject and depth: [`AGENTS.md`](../AGENTS.md)._
 
-**This folder is what the organization knows about itself** — who it serves,
-what it must be able to do, and how the work flows from first contact to a
-delivered outcome. Plain Markdown, so a person, a colleague and a coding
-agent all read the same thing.
+What the organization knows about itself: who it serves, what it must be
+able to do, and how the work flows from first contact to a delivered outcome.
 
-**Federation ID:** `ORG` — a reference to this model from another model in
-the federation reads `ORG.STK#`.
+**Federation ID:** `ORG`. A reference to this model from another model reads
+`ORG.STK#`. Every relationship of the model is declared once, in
+[`relationships.md`](./relationships.md).
 
 ## What is modeled, and what is not
 
@@ -43,10 +42,8 @@ flowchart TB
   classDef gap fill:#ffd6d6,stroke:#c62828,color:#333,stroke-dasharray: 4 3
 ```
 
-**One row per layer, and every row says something.** A layer with no folder
-is a stated fact, not a silence. The two dashed boxes are where this model
-stops: what the organization builds keeps a model of its own, and where it
-is going has not been approved as direction yet.
+The two dashed boxes are where the model stops: what the organization
+builds keeps a model of its own, and no roadmap has been approved yet.
 
 | # | Layer | The question it answers | Status |
 | - | ----- | ----------------------- | ------ |
@@ -58,8 +55,7 @@ is going has not been approved as direction yet.
 | 5 | Technology | What runs it all? | `External` — owned by [product-archreator](../../product-archreator/architecture/README.md), same reason |
 | — | Transition | Where is this going, and in what order? | `Gap` — this model describes the current state only; a roadmap is a later initiative through Direction |
 
-Domains stay unused at Depth 2 — see [`AGENTS.md`](../AGENTS.md) § Modeling
-depth.
+Domains stay unused at Depth 2; see [`AGENTS.md`](../AGENTS.md).
 
 ## How far each document has been validated
 
@@ -71,12 +67,11 @@ Every document that defines elements opens with one of three marks:
 | `◐` | Draft catalogue — identified and written down; nobody has approved it |
 | `●` | Validated — confirmed by the Requester at a named gate, on a date |
 
-**Everything in this model is `◐` today.** Direction and Understanding are
-pending in
-[the current initiative](../../product-archreator/architecture/scope/1_rebuild-the-models-on-method-02.md).
+Every document is `◐` today; Direction and Understanding are pending.
 
 ## Initiatives
 
 Recorded in
-[`product-archreator/architecture/scope/`](../../product-archreator/architecture/scope/README.md)
-— an initiative spanning both trees is one initiative with one document.
+[`product-archreator/architecture/scope/`](../../product-archreator/architecture/scope/README.md),
+one document per initiative; an initiative spanning both trees is one
+initiative with one document.
