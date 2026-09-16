@@ -65,9 +65,9 @@ Every document that defines elements opens with one of three marks:
 | ---- | ------- |
 | `○` | Not started — the document exists so the gap is visible |
 | `◐` | Draft catalogue — identified and written down; nobody has approved it |
-| `●` | Validated — confirmed by the Requester at a named gate, on a date |
+| `●` | Validated — the Requester has read it and stands behind it, since a date |
 
-Every document is `◐` today; Direction and Understanding are pending.
+Every document is `◐` today; none has been merged yet.
 
 ## Initiatives
 

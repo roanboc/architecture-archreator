@@ -7,7 +7,7 @@ archreator repository. Every component is shipping code.
 
 **ArchiMate viewpoint:** Application: Application Component.
 
-**Status:** ◐ Draft catalogue, not yet approved at Understanding.
+**Status:** ◐ Draft catalogue, not yet validated.
 
 ## The components
 

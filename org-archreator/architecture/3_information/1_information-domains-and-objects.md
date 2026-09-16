@@ -7,7 +7,7 @@ What the organization knows, who owns each part, and where it lives.
 **ArchiMate viewpoint:** Information: Data Object, with the domain as its
 level 1 and the object as its level 2.
 
-**Status:** ◐ Draft catalogue, not yet approved at Understanding.
+**Status:** ◐ Draft catalogue, not yet validated.
 
 ## Level 1 — the domains
 

@@ -52,7 +52,7 @@ organization, and no roadmap has been approved yet.
 | 3 | [Information](./3_information/README.md) | What information exists, and where does it live? | `Local` — the data domains and what each owns, one document |
 | 4 | [Application](./4_application/README.md) | Which software realizes each service? | `Local` — services and components |
 | 5 | [Technology](./5_technology/README.md) | What runs it all? | `Local` — hosts, runtimes and the deployment |
-| — | Transition | Where is this going, and in what order? | `Gap` — this model describes the current state only; a roadmap is a later initiative through Direction |
+| — | Transition | Where is this going, and in what order? | `Gap` — this model describes the current state only; a roadmap is a later initiative, built and merged like any other |
 
 Domains stay unused at Depth 1.
 
@@ -63,8 +63,8 @@ process has a skill and every skill a process.
 ## How far each document has been validated
 
 Every document that defines elements opens with `○` not started, `◐` draft
-catalogue, or `●` validated at a named gate. Every document is `◐` today; the
-gates are pending.
+catalogue, or `●` validated — the Requester has read it and stands behind it,
+since a date. Every document is `◐` today; none has been merged yet.
 
 ## Federation
 

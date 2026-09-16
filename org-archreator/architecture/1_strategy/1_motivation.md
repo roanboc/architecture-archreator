@@ -8,7 +8,7 @@ true, and the principles every change is tested against.
 **ArchiMate viewpoint:** Motivation: Stakeholder, Driver, Assessment, Goal,
 Outcome, Principle.
 
-**Status:** ◐ Draft catalogue, not yet approved at Direction.
+**Status:** ◐ Draft catalogue, not yet validated.
 
 ## Stakeholders
 
@@ -200,8 +200,8 @@ of the chain.
 
 | ID | Outcome | How it is checked | Source |
 | -- | ------- | ----------------- | ------ |
-| `OUT1` | Strategic and business gaps surface during the design work rather than after delivery | **No method**; a gate presentation naming a gap the owner had not stated is the evidence, and nothing records it | [`GAIN1`] Understand the business wider and deeper |
-| `OUT2` | Documentation goes in front of the business without a rewrite | **Checkable**; the document shown at a gate is the document in the repository, and no separate deck exists | [`GAIN2`] Documentation ready to put in front of the business |
+| `OUT1` | Strategic and business gaps surface during the walk rather than after delivery | **No method**; a pull request naming a gap the owner had not stated is the evidence, and nothing records it | [`GAIN1`] Understand the business wider and deeper |
+| `OUT2` | Documentation goes in front of the business without a rewrite | **Checkable**; the document shown in the pull request is the document in the repository, and no separate deck exists | [`GAIN2`] Documentation ready to put in front of the business |
 | `OUT3` | Delivery starts from the approved design, with AI doing the technical work | **Checkable**; an implementation initiative names the scope document and the elements it builds | [`GAIN3`] Build from the design |
 | `OUT4` | A new person or agent works from the model instead of being briefed | **Observable, never counted** | [`GAIN4`] A shared language that keeps working |
 | `OUT5` | Someone without years of seniority produces an architecture that holds | **No method**; only real adoption would evidence it | [`GAIN5`] Speed with structure, at any level of experience |
@@ -215,10 +215,10 @@ whether it is working.
 ## Principles
 
 - **P1 — Humans hold strategy and business judgement; AI assists and
-  executes.** The gates make that structural rather than aspirational. Rules
-  out an agent deciding what the business is, and the convenience path of
-  letting AI think so the person does not have to, which is `DRV6` arriving
-  from the inside.
+  executes.** The merge requirement makes that structural rather than
+  aspirational. Rules out an agent deciding what the business is, and the
+  convenience path of letting AI think so the person does not have to, which
+  is `DRV6` arriving from the inside.
 - **P2 — Everything is in the repository, as text.** Model, method, decisions
   and approvals. Rules out a modeling tool, a wiki or a database as the
   source of truth, and any cache the model could go stale behind.

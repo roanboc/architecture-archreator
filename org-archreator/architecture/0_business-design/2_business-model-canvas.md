@@ -8,7 +8,7 @@ and the product [`PROD2`] [Consulting](./1_value-proposition-canvas.md#products)
 
 **ArchiMate viewpoint:** none; a Strategyzer Business Model Canvas per product.
 
-**Status:** ◐ Draft catalogue, not yet approved at Direction.
+**Status:** ◐ Draft catalogue, not yet validated.
 
 ## The products at a glance
 
@@ -109,7 +109,7 @@ does, is deliberately absent. It waits on the method proving itself.
 | ID | Resource | Kind | State |
 | -- | -------- | ---- | ----- |
 | `KR1` | The Requester's knowledge and time | People | **Constrained**, the binding limit on the whole organization |
-| `KR2` | The method: skills, conventions, gates | Knowledge | Held, and improving |
+| `KR2` | The method: skills, conventions, the layered walk | Knowledge | Held, and improving |
 | `KR3` | The published guidance site | Asset | Held |
 
 ## Key partners

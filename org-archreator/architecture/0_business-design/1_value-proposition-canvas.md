@@ -8,7 +8,7 @@ what would delight them, and what the organization offers against each.
 **ArchiMate viewpoint:** none; a Strategyzer Value Proposition Canvas, one per
 customer segment.
 
-**Status:** ◐ Draft catalogue, not yet approved at Direction.
+**Status:** ◐ Draft catalogue, not yet validated.
 
 ## Segments
 
@@ -95,7 +95,7 @@ flowchart LR
   p1["▣ archreator, the open method [PROD1]"]:::product
   p2["▣ Consulting [PROD2]"]:::product
 
-  r1[/"⊖ The gated layer walk [PREL1]"\]:::reliever
+  r1[/"⊖ The layered walk [PREL1]"\]:::reliever
   r2[/"⊖ The method continues into delivery [PREL2]"\]:::reliever
   r3[/"⊖ One model in one place [PREL3]"\]:::reliever
   r4[/"⊖ An agent instead of an architect [PREL4]"\]:::reliever
@@ -137,11 +137,11 @@ rather than a second offering.
 
 | ID | Pain reliever | Relieves | Offered by |
 | -- | ------------- | -------- | ---------- |
-| `PREL1` | **The gated layer walk.** Approval gates force a complete frame before anything is built, so a misframed problem surfaces at the gate rather than at delivery | pain `PAIN1` | product `PROD1` |
+| `PREL1` | **The layered walk.** Strategy and business architecture are checked against what is already decided before anything is built, so a misframed problem surfaces in the walk rather than at delivery | pain `PAIN1` | product `PROD1` |
 | `PREL2` | **The method continues past design into delivery.** The design is what an agent builds from, so there is no handover for meaning to change shape in | pain `PAIN2` | products `PROD1`, `PROD2` |
 | `PREL3` | **One model in one place**: Markdown in git, catalogues and diagrams, every element naming what realizes it | pain `PAIN3` | product `PROD1` |
 | `PREL4` | **The cost of an architect collapses to the cost of an agent**: a subscription instead of consultancy hours, with the adopter's own coding agent doing the work | pain `PAIN4` | product `PROD1` |
-| `PREL5` | **The whole thing operating together**: skills holding the method, gates keeping a human in the loop, and a model the solution is built from | pain `PAIN5` | products `PROD1`, `PROD2` |
+| `PREL5` | **The whole thing operating together**: skills holding the method, the merge keeping a human in the loop, and a model the solution is built from | pain `PAIN5` | products `PROD1`, `PROD2` |
 | `PREL6` | **The model bounds what an agent reads.** A question is answered from the layer that owns it instead of a traversal of the whole project, so token spend falls as the solution grows: somewhat dearer on day one, cheaper every month after. The claim still needs validation in real use | pain `PAIN6` | product `PROD1` |
 
 ### Gain creators

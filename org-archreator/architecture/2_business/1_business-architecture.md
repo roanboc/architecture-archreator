@@ -8,7 +8,7 @@ flows.
 **ArchiMate viewpoint:** Business: Business Actor, Business Role, Contract,
 Business Service, Business Process.
 
-**Status:** ◐ Draft catalogue, not yet approved at Understanding.
+**Status:** ◐ Draft catalogue, not yet validated.
 
 ## Actors
 
@@ -45,9 +45,9 @@ The AI agent `ACT2`, precisely:
 
 | Concern | For `ACT2` |
 | ------- | ---------- |
-| Autonomy | **Co-pilot**: drafts, implements and verifies inside an approved scope |
-| Decision rights | Anything inside the approved scope, and the wording of drafts presented at gates. A call left open is taken, applied and recorded as adopted, per the principle [`P8`] [Interrupt only for what a person alone can settle](../1_strategy/1_motivation.md#principles) |
-| Never decides | What the business is, what a gate approves, what is priced, per the principle [`P1`] Humans hold strategy and business judgement; AI assists and executes |
+| Autonomy | **Co-pilot**: drafts, implements and verifies inside what was asked for |
+| Decision rights | Anything inside what was asked for, and the wording of what it builds. A call left open is taken, applied and recorded as adopted, per the principle [`P8`] [Interrupt only for what a person alone can settle](../1_strategy/1_motivation.md#principles) |
+| Never decides | What the business is, whether its own pull request merges, what is priced, per the principle [`P1`] Humans hold strategy and business judgement; AI assists and executes |
 | Escalates to | `ACT1`, when the answer changes what gets built now and nothing already settles it |
 
 ## Roles
@@ -200,8 +200,8 @@ can install, and the loop closes through the retrospective.
 
 | ID | Process | Purpose | Owner | Realized by |
 | -- | ------- | ------- | ----- | ----------- |
-| `BPROC1.1` | **Frame the change** | Turns a requirement or a lesson into a scope document aligned through the layers and approved at its gate | role `ROLE1` | The method's own alignment and scope skills |
-| `BPROC1.2` | **Build and validate** | Turns an approved scope into a merged pull request whose documents are still true, the validators green | role `ROLE1` | `ACT2` within the approved scope, `ACT1` reviewing |
+| `BPROC1.1` | **Frame the change** | Turns a requirement or a lesson into a scope document aligned through the layers, built directly | role `ROLE1` | The method's own alignment and scope skills |
+| `BPROC1.2` | **Build and validate** | Turns a scope document into a merged pull request whose documents are still true, the validators green | role `ROLE1` | `ACT2` within what was asked for, `ACT1` reviewing and merging |
 | `BPROC1.3` | **Publish** | Turns a merged change into what an adopter installs and reads — the plugin in the marketplace, the site deployed | role `ROLE1` | The manifests and the site workflow |
 | `BPROC2.1` | **Capture what real use exposed** | Turns a finished initiative or engagement into an engagement note naming what the method did not cover | role `ROLE1` | The retrospective skill |
 | `BPROC2.2` | **Fold it back into the method** | Turns an engagement note into a method initiative — or an explicit decision that none is needed | role `ROLE1` | The alignment skills, on the method's own model |
