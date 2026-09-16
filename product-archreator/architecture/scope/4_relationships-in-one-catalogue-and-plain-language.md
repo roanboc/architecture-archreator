@@ -25,8 +25,8 @@ and by simplifying how a process model is filed.
 | 0_business-design | No change |
 | 1_strategy | No change. `G1` and `G4` hold as written; writing plainly serves the organization's principles [`ORG.P3`] Better language, never simpler language and [`ORG.P5`] Well-done less is more |
 | 2_business | No change. `BSVC1` and `BSVC3` do the same work on a document of a different shape |
-| 3_information | The data object [`DOBJ1.1`] The skill corpus gains the rules; [`DOBJ2.1`] Layer documents lose their relationship table and their legend, and every project model gains one relationships catalogue; [`DOBJ1.3`] The scaffold and assets gain the catalogue template and a metamodel per layer |
-| 4_application | The component [`ACMP4`] The model parser reads a compact relationship row by shape and keeps catalogue cells out of mentions; [`ACMP3`] The element-ID validator stops asking for a legend and for a view before the first table; [`ACMP9`] The asset library gains one template and six metamodels; [`ACMP1`] The skill corpus changes four skills and six references; [`ACMP8`] The scaffold follows |
+| 3_information | The data object [`DOBJ1.1`] The skill corpus gains the rules; [`DOBJ2.1`] Layer documents lose their relationship table and their legend, every project model gains one relationships catalogue, and a layer README takes one shape; [`DOBJ1.3`] The scaffold and assets gain the catalogue template, a metamodel per layer, a third validator with its word list, and seven layer templates in that shape |
+| 4_application | The component [`ACMP4`] The model parser reads a compact relationship row by shape and keeps catalogue cells out of mentions; [`ACMP3`] The element-ID validator stops asking for a legend and for a view before the first table; [`ACMP9`] The asset library gains one template, six metamodels and seven templates cut to the layer README shape; [`ACMP1`] The skill corpus changes five skills and seven references; [`ACMP8`] The scaffold follows and gains `check_prose.py`, the third validator, with `prose-denylist.json` and a CI step |
 | 5_technology | No change |
 
 ## What the evidence said
@@ -41,6 +41,8 @@ Measured on BigView, before and after the two pull requests:
 | Documents for the process catalogue | 1 level-1 map, 10 level-2 pages, 2 level-3 pages in a three-level folder | 1 process document and 2 activity documents in a flat folder |
 | Words in the eleven pilot pages | about 31 000 | about 26 000 |
 | Sentences over 30 words in the eleven pilot pages | 58 | 17, all of them lists of named references |
+| Sentences about governance, the method or the page itself, in model pages | 73 on the validator's first pass | 0, and CI fails on the next one |
+| Sections of a layer README beyond title, sentence, viewpoint, documents, metamodel and layer view | 7, across three layers | 0 |
 
 A relationship that lives only in a picture is a fact no tool can hold, and a
 legend drawn once per document is a second picture to keep in step with the
@@ -127,7 +129,31 @@ first. Both were removed rather than repaired.
   (0.5), naming what an existing project moves; `docs/method.md` § Where the
   model lives; `plugin.json`, the plugin manifest and the marketplace at
   0.5.0.
-- **Outcome:** a project on 0.4 knows the four things it moves.
+- **Outcome:** a project on 0.4 knows the six things it moves.
+
+### WP8 — A page speaks about its subject
+
+- **Deliverables:** `document-style` § Write it plainly, rule 7 sharpened —
+  a page speaks about its subject, never about its own writing, its
+  governance or the method — and § What the document contains naming
+  governance and method as the same failure in another voice;
+  `architecture-document-style` § The layer README, the one shape of a
+  layer's front page: title, one sentence, the viewpoint line,
+  `## Documents`, `## Metamodel`, `## Layer view`; the canvases reference
+  gains § From canvas to ArchiMate and § Fit is a rule, moved out of the
+  layer template, and `discover-business-model` § 3 gains the traceability
+  check; the seven templates under `assets/layers/` cut to the shape, their
+  author guidance kept as HTML comments the reader never sees; the scaffold
+  gains `scripts/check_prose.py` and `scripts/prose-denylist.json`, the
+  third validator and its word list, with a step in `checks.yml`, a row in
+  the scripts README, the commands and conventions of `AGENTS.md` and the
+  contributing template, three tests, and the language row of
+  `establish-project` saying the list is translated with the documentation
+  language.
+- **Outcome:** the Requester of BigView stopped asking for the same cut at
+  every review. The rule is written once, the validator names the sentence
+  and the line, and a new project's layer READMEs start in the shape rather
+  than being trimmed to it.
 
 ## In scope / out of scope
 
@@ -136,7 +162,8 @@ first. Both were removed rather than repaired.
 | The method at 0.5, and BigView as the model that proved every rule first | Migrating the two models of the method itself, which still carry relationship tables and legends; the validators accept both shapes until then |
 | The catalogue template and the six metamodels in the layer templates | A check that a Mermaid edge is declared in the catalogue |
 | The parser and validator patches, identical in the scaffold and in BigView | A check that names a malformed relationship row instead of dropping the table into "defined twice" |
-| The plain-writing rules, written once in `document-style` | Merging `document-style` into `architecture-document-style` |
+| The plain-writing rules, written once in `document-style`, and the one of them a validator holds | Merging `document-style` into `architecture-document-style` |
+| The layer README shape and the templates that ship it | A validator for the shape itself; `check_prose.py` catches the prose the retired sections carried, not a heading |
 
 ## Gap notes
 
@@ -152,6 +179,11 @@ first. Both were removed rather than repaired.
   `**BPROC4 — Fabricar…**` resolves in one renderer and not the other. BigView
   links to the document instead of the heading; the definition-in-heading
   form the method fixes carries the issue.
+- **A word list names vocabulary, not intent.** `check_prose.py` passes a
+  sentence about governance written in the subject's own words and fails a
+  subject whose own words are on the list, as BigView's "se consolidan" was
+  in a measurement tool. The list is tuned per project and per language;
+  the page is never exempted.
 - **Two orders for one identifier, by design.** A diagram node keeps
   `<glyph> <name> [ID]`, a definition keeps the identifier first, and a
   reference in prose keeps the type word first. A reader meets three shapes
