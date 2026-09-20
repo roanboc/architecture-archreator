@@ -4,7 +4,7 @@ This repository holds **the worked models**: archreator applied to real
 subjects, so that a prospective adopter can read a filled-in model rather than
 an empty scaffold. The method itself is the sibling repository
 [`archreator`](https://github.com/roanboc/archreator): skills, scaffold and
-docs there, models here. The models run on method **0.5**.
+docs there, models here. The models run on method **0.6**.
 
 This is the one guide for the whole repository. Each tree carries its own
 `AGENTS.md` with only what is the tree's, its subject and its declared depth,
@@ -116,7 +116,18 @@ cached, and every run parses the Markdown fresh.
 - A layer README has one shape: title, one sentence, the viewpoint line,
   `## Documents`, `## Metamodel`, `## Layer view`.
 - The skills come from the [archreator](https://github.com/roanboc/archreator)
-  plugin, enabled in [`.claude/settings.json`](./.claude/settings.json). They
-  are never vendored into this repository. Three surface on their own —
-  `align-change-through-layers`, `architecture-document-style`,
-  `document-style`; the rest are `/archreator:<skill>`.
+  plugin, enabled in [`.claude/settings.json`](./.claude/settings.json). Three
+  surface on their own — `align-change-through-layers`,
+  `architecture-document-style`, `document-style`. The other fifteen are out
+  of the agent's listing: a person invokes one as `/archreator:<skill>`, and
+  the agent reaches one by reading `<corpus>/<skill>/SKILL.md` — never by
+  selecting it, because it cannot see one.
+- **Where no plugin loaded, the skills are not there**, whatever
+  `.claude/settings.json` declares: a host that never fetched the marketplace
+  starts with none of them. Say so rather than improvising a skill from memory
+  or reconstructing it from a repository nothing named. `.agents/skills/` is
+  the corpus every host reads — fill it by running the method's
+  `install_skills.py --repo` from a checkout of
+  [archreator](https://github.com/roanboc/archreator). It is generated and
+  gitignored, which is a local installation and not the method vendored here;
+  the method is never committed into this repository.

@@ -6,6 +6,11 @@ __pycache__/
 # Project-scoped settings (.claude/settings.json) ARE committed.
 .claude/settings.local.json
 
+# The skill corpus, when a host that loaded no plugin needs it on disk.
+# install_skills.py --repo writes it; it is a local installation of the
+# method, not a copy of the method kept in this repository.
+.agents/
+
 # Everything the method generates — briefs, the portal configuration and
 # whatever it builds. Regenerated fresh on every run; a copy in the history
 # is a copy that can go stale.
