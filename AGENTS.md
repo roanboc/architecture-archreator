@@ -4,7 +4,7 @@ This repository holds **the worked models**: archreator applied to real
 subjects, so that a prospective adopter can read a filled-in model rather than
 an empty scaffold. The method itself is the sibling repository
 [`archreator`](https://github.com/roanboc/archreator): skills, scaffold and
-docs there, models here. The models run on method **0.6**.
+docs there, models here. The models run on method **0.7**.
 
 This is the one guide for the whole repository. Each tree carries its own
 `AGENTS.md` with only what is the tree's, its subject and its declared depth,
@@ -17,8 +17,10 @@ those names, and say nothing else.
 The owner says what they want, in plain words. The agent works out which
 layers the change touches, edits them, writes a short note under
 [`product-archreator/architecture/scope/`](./product-archreator/architecture/scope/README.md),
-and opens a pull request. **The owner's merge is the approval.** Nothing else
-records one, and the agent never stops the conversation to ask for it.
+shows the owner a preview of what the change claims — what changed, and every
+call it took for them — and opens a pull request. **The owner's confirmation
+of that preview is what validates it, and the merge lands it.** The agent
+never stops the conversation to ask for anything else.
 
 The agent stops to ask only when the change contradicts a principle or a
 decision already written down, or when two readings of the request would
@@ -118,7 +120,7 @@ cached, and every run parses the Markdown fresh.
 - The skills come from the [archreator](https://github.com/roanboc/archreator)
   plugin, enabled in [`.claude/settings.json`](./.claude/settings.json). Three
   surface on their own — `align-change-through-layers`,
-  `architecture-document-style`, `document-style`. The other fifteen are out
+  `architecture-document-style`, `document-style`. The other fourteen are out
   of the agent's listing: a person invokes one as `/archreator:<skill>`, and
   the agent reaches one by reading `<corpus>/<skill>/SKILL.md` — never by
   selecting it, because it cannot see one.

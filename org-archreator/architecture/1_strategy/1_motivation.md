@@ -134,7 +134,7 @@ happening. It drives `G6` and `P1`.
 flowchart RL
   subgraph checkable["Checkable — the document itself is the evidence"]
     o2[["◉ Documentation goes in front of the business unrewritten [OUT2]"]]:::outcome
-    o3[["◉ Delivery starts from the approved design [OUT3]"]]:::outcome
+    o3[["◉ Delivery starts from the confirmed design [OUT3]"]]:::outcome
     o6[["◉ A pivot leaves the layers it did not reach standing [OUT6]"]]:::outcome
   end
 
@@ -176,8 +176,10 @@ of the chain.
 - **G1 — The problem is understood before it is answered.** Designing is how
   the understanding happens, not a record of understanding already had. From
   the job [`JOB1`] Understand the problem before answering it, against `ASM1`.
-- **G2 — The design is what gets built.** An approved design flows into
-  delivery without a handover for meaning to be lost in. From the job [`JOB2`] Turn that understanding into a delivered solution,
+- **G2 — The design is what gets built.** A confirmed design flows into
+  delivery with its meaning carried rather than retold: the principles travel
+  in their own words into the file the delivery framework reads on every
+  task, and every component it builds links back. From the job [`JOB2`] Turn that understanding into a delivered solution,
   against `ASM2`.
 - **G3 — One shared source that outlives the people.** The same explanation
   is not repeated to every new person or agent, and a departure does not take
@@ -201,8 +203,8 @@ of the chain.
 | ID | Outcome | How it is checked | Source |
 | -- | ------- | ----------------- | ------ |
 | `OUT1` | Strategic and business gaps surface during the walk rather than after delivery | **No method**; a pull request naming a gap the owner had not stated is the evidence, and nothing records it | [`GAIN1`] Understand the business wider and deeper |
-| `OUT2` | Documentation goes in front of the business without a rewrite | **Checkable**; the document shown in the pull request is the document in the repository, and no separate deck exists | [`GAIN2`] Documentation ready to put in front of the business |
-| `OUT3` | Delivery starts from the approved design, with AI doing the technical work | **Checkable**; an implementation initiative names the scope document and the elements it builds | [`GAIN3`] Build from the design |
+| `OUT2` | Documentation goes in front of the business without a rewrite | **Checkable**; the preview the business is shown is generated from the documents on the branch, and no separate deck exists | [`GAIN2`] Documentation ready to put in front of the business |
+| `OUT3` | Delivery starts from the confirmed design, with AI doing the technical work | **Checkable**; an implementation initiative names the scope document and the elements it builds | [`GAIN3`] Build from the design |
 | `OUT4` | A new person or agent works from the model instead of being briefed | **Observable, never counted** | [`GAIN4`] A shared language that keeps working |
 | `OUT5` | Someone without years of seniority produces an architecture that holds | **No method**; only real adoption would evidence it | [`GAIN5`] Speed with structure, at any level of experience |
 | `OUT6` | A pivot changes some layers and leaves the rest standing | **Checkable**; a scope document records "no change" verdicts for the layers the pivot did not reach | [`GAIN6`] Pivots that cost less |
@@ -215,8 +217,8 @@ whether it is working.
 ## Principles
 
 - **P1 — Humans hold strategy and business judgement; AI assists and
-  executes.** The merge requirement makes that structural rather than
-  aspirational. Rules out an agent deciding what the business is, and the
+  executes.** The Requester's confirmation of what every change claims makes
+  that structural rather than aspirational. Rules out an agent deciding what the business is, and the
   convenience path of letting AI think so the person does not have to, which
   is `DRV6` arriving from the inside.
 - **P2 — Everything is in the repository, as text.** Model, method, decisions

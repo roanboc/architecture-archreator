@@ -67,7 +67,7 @@ flowchart LR
   a4>"⌕ AI as a tool has decisions with no owner [ASM4]"]:::assessment
   a5>"⌕ A running estate is context nothing asks for [ASM5]"]:::assessment
   a2>"⌕ An agent cannot tell a deleted element from a live one [ASM2]"]:::assessment
-  a7>"⌕ An unapproved element looks exactly like an approved one [ASM7]"]:::assessment
+  a7>"⌕ An unconfirmed element looks exactly like a confirmed one [ASM7]"]:::assessment
   a8>"⌕ A claim outlives the conversation it came from [ASM8]"]:::assessment
 
   d1{{"✳ Agents build faster than anyone can specify [DRV1]"}}:::driver
@@ -116,7 +116,7 @@ context that stopped being true, and they need different machinery.
 | `ASM4` | **AI modeled as a tool has decisions with no owner**: nothing records what it may decide alone, or who it escalates to |
 | `ASM5` | **An estate that predates the model is context nothing will ask for**: no requirement ever asks for the applications already running |
 | `ASM6` | Nothing says which change matters more than another, so the method can judge coherence but never priority |
-| `ASM7` | An unapproved element looks exactly like an approved one on the page |
+| `ASM7` | An unconfirmed element looks exactly like a confirmed one on the page |
 | `ASM8` | A claim outlives the conversation it came from, and eighteen months later nobody can say why the model says so |
 
 ## Goals and outcomes
@@ -124,7 +124,7 @@ context that stopped being true, and they need different machinery.
 ```mermaid
 flowchart LR
   g1("◎ An agent reads the business context natively [G1]"):::goal
-  g2("◎ A person approves before it reaches the model [G2]"):::goal
+  g2("◎ A person confirms what reaches the model [G2]"):::goal
   g3("◎ The model still describes today after the merge [G3]"):::goal
   g4("◎ An adopter starts without learning a tool [G4]"):::goal
   g5("◎ The model reaches people who never open the repository [G5]"):::goal
@@ -161,16 +161,16 @@ or a link is missing is still to be settled.
 | ID | Goal | Against | Realized by |
 | -- | ---- | ------- | ----------- |
 | `G1` | **An agent reads the business context natively**: Markdown in git, nothing exported before it can be used | assessments `ASM3`, `ASM5` | The document conventions; the landscape sweep |
-| `G2` | **A person approves before it reaches the model** | assessment `ASM1` | The pull request whose merge is the approval, and the rule that nothing else records one |
+| `G2` | **A person confirms what reaches the model**: shown in the conversation they are already having, not left to a merge nobody read | assessment `ASM1` | The preview the Requester confirms, in the conversation or at a session, and the rule that a merge alone validates nothing |
 | `G3` | **The model still describes today after the merge** | assessments `ASM2`, `ASM7`, `ASM8` | The validators; the status glyphs; the rule that a change updates whatever it falsifies |
 | `G4` | **An adopter starts without learning a tool**: thirteen files on the first commit, every one of them used | assessment `ASM3` | The scaffold, installed as a plugin |
 | `G5` | **The model reaches the people who never open the repository**: a portal generated on request, a brief for one question, a PDF of one brief converted by the agent | assessment `ASM3` | The stock portal configuration and the brief generator; nothing published lives in the repository |
-| `G6` | **The model says where the subject is going, not only where it is**: target plateaus, a derived gap register, a sequence, approved as direction | assessment `ASM6` | The transition-planning skill |
+| `G6` | **The model says where the subject is going, not only where it is**: target plateaus, a derived gap register, a sequence, confirmed as direction | assessment `ASM6` | The transition-planning skill |
 | `G7` | **What the model is worth is written on the model**: a status glyph on every defining document, provenance beside every draft claim | assessments `ASM7`, `ASM8` | The draft-catalogue discipline and its validator |
 
 | ID | Outcome | Checked by | Mechanical? |
 | -- | ------- | ---------- | ----------- |
 | `OUT1` | Every element names what realizes it, or says it is Pending | The plugin's coverage report, read by a person — no validator can tell a repository path from a team name | No; a report, not a blocker |
-| `OUT2` | Every change that reaches the model was merged by the Requester, and nothing else claims to be approved | The pull request's merge, in the repository's own history | Yes; git records it |
+| `OUT2` | Every document the model calls validated names who confirmed it and when, and nothing unconfirmed claims to be validated | The status line and the scope document's `Confirmed` column, beside the merge in the repository's own history | Partly; git records the merge, the documents record the confirmation |
 | `OUT3` | No reference resolves to something that was deleted | The element-ID validator, on every pull request | Yes |
 | `OUT4` | Every document that defines an element declares how far it has been validated | The same validator, checked on the glyph and never the words, so it holds in any language | Yes |

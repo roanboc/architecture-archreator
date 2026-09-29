@@ -32,7 +32,7 @@ flowchart TB
   l2 -->|acts on| l3
   l2 -->|its services run on| l4
   l4 -->|deploys onto| l5
-  l1 -.->|no roadmap approved yet| gap
+  l1 -.->|no roadmap confirmed yet| gap
 
   classDef canvas fill:#fffbb5,stroke:#c8c04a,color:#333
   classDef strategy fill:#f5deaa,stroke:#c8a24a,color:#333
@@ -43,7 +43,7 @@ flowchart TB
 ```
 
 The two dashed boxes are where the model stops: what the organization
-builds keeps a model of its own, and no roadmap has been approved yet.
+builds keeps a model of its own, and no roadmap has been confirmed yet.
 
 | # | Layer | The question it answers | Status |
 | - | ----- | ----------------------- | ------ |
@@ -64,10 +64,10 @@ Every document that defines elements opens with one of three marks:
 | Mark | Meaning |
 | ---- | ------- |
 | `○` | Not started — the document exists so the gap is visible |
-| `◐` | Draft catalogue — identified and written down; nobody has approved it |
+| `◐` | Draft catalogue — identified and written down; nobody has confirmed it |
 | `●` | Validated — the Requester has read it and stands behind it, since a date |
 
-Every document is `◐` today; none has been merged yet.
+Every document is `◐` today; none has been confirmed yet.
 
 ## Initiatives
 

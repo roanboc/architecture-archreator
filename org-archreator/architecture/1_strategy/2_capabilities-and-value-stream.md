@@ -189,7 +189,7 @@ flowchart LR
 | `VS1.2` | **Frame** | Discovery draws the business model and strategy out by questions, and tests the frame rather than recording it. The method carries it for a self-served adopter, a person in an engagement |
 | `VS1.3` | **Check** | The request is checked against what the project's own Requester has already decided; a contradiction, an ambiguity or an authorization stops it here, and everything else continues |
 | `VS1.4` | **Model** | The layers are derived from what the request settles, in one place and one language |
-| `VS1.5` | **Build** | The agent implements directly from the design, self-served or supervised for a client, and opens it as a pull request — the Requester's merge is the approval |
+| `VS1.5` | **Build** | The agent implements directly from the design, self-served or supervised for a client, and opens it as a pull request — the Requester confirms what it claims, and the merge lands it |
 | `VS1.6` | **Feed back** | Real use exposes what the method gets wrong, and the method changes |
 
 Reach has one capability behind it and serves only someone already looking:

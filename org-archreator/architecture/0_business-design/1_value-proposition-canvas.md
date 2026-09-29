@@ -141,7 +141,7 @@ rather than a second offering.
 | `PREL2` | **The method continues past design into delivery.** The design is what an agent builds from, so there is no handover for meaning to change shape in | pain `PAIN2` | products `PROD1`, `PROD2` |
 | `PREL3` | **One model in one place**: Markdown in git, catalogues and diagrams, every element naming what realizes it | pain `PAIN3` | product `PROD1` |
 | `PREL4` | **The cost of an architect collapses to the cost of an agent**: a subscription instead of consultancy hours, with the adopter's own coding agent doing the work | pain `PAIN4` | product `PROD1` |
-| `PREL5` | **The whole thing operating together**: skills holding the method, the merge keeping a human in the loop, and a model the solution is built from | pain `PAIN5` | products `PROD1`, `PROD2` |
+| `PREL5` | **The whole thing operating together**: skills holding the method, the Requester's confirmation keeping a human in the loop, and a model the solution is built from | pain `PAIN5` | products `PROD1`, `PROD2` |
 | `PREL6` | **The model bounds what an agent reads.** A question is answered from the layer that owns it instead of a traversal of the whole project, so token spend falls as the solution grows: somewhat dearer on day one, cheaper every month after. The claim still needs validation in real use | pain `PAIN6` | product `PROD1` |
 
 ### Gain creators
@@ -194,7 +194,7 @@ with.
 | -- | ------------ | ------- | ---------- |
 | `GCRE1` | Question-driven discovery that tests the business rather than recording it | gain `GAIN1` | products `PROD1`, `PROD2` |
 | `GCRE2` | Markdown and diagrams as first-class output, written for people | gain `GAIN2` | product `PROD1` |
-| `GCRE3` | Skills that turn an approved design into implementation work | gain `GAIN3` | product `PROD1` |
+| `GCRE3` | Skills that turn a confirmed design into work a delivery framework builds, its principles carried with it | gain `GAIN3` | product `PROD1` |
 | `GCRE4` | **Standardised concepts with defined relationships**: ArchiMate as the shared vocabulary | gain `GAIN4` | product `PROD1` |
 | `GCRE5` | The method carries the competence, so experience level stops being the gate | gain `GAIN5` | products `PROD1`, `PROD2` |
 | `GCRE6` | The layered model: strategy can change without redoing technology, and the reverse | gain `GAIN6` | product `PROD1` |
