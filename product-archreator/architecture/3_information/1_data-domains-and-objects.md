@@ -42,11 +42,11 @@ flowchart TB
 
 | ID | Object | Is | Classification |
 | -- | ------ | -- | -------------- |
-| `DOBJ1.1` | The skill corpus | Eighteen skills and their references, one Markdown file each | Public |
+| `DOBJ1.1` | The skill corpus | Seventeen skills and their references, one Markdown file each | Public |
 | `DOBJ1.2` | The process model | The macro processes and their level-2 children, beside the skills that realize them | Public |
 | `DOBJ1.3` | The scaffold and assets | The thirteen files a project starts with, and the templates emitted when a skill first has content for them | Public |
 | `DOBJ2.1` | Layer documents | The model proper: catalogues, diagrams and the relationship catalogue, each document declaring how far it is validated | The project's call |
-| `DOBJ2.2` | Records | Scope documents, decisions, engagement notes: the durable trail of who approved what | The project's call |
+| `DOBJ2.2` | Records | Scope documents, decisions, engagement notes: the durable trail of who confirmed what | The project's call |
 | `DOBJ3.1` | Briefs and portal builds | One question answered, or the model rendered for a reader, stamped with the revision they came from and thrown away | Derived; never a source of truth |
 
 Method content shapes project models, project models are read fresh into

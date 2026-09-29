@@ -54,7 +54,7 @@ flowchart LR
   s1(["◍ Requester in an adopting project [STK1]"]):::stakeholder
   d1{{"✳ Agents build faster than anyone can specify [DRV1]"}}:::driver
   a1>"⌕ Requirements reach code without passing through architecture [ASM1]"]:::assessment
-  g2("◎ A person approves before code exists [G2]"):::goal
+  g2("◎ A person confirms what reaches the model [G2]"):::goal
   o1(["◍ Independent builder [ORG.CS1]"]):::parent
   o5{{"✳ AI can do the work, with no framework [ORG.DRV5]"}}:::parent
   og1("◎ The problem is understood before it is answered [ORG.G1]"):::parent

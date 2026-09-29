@@ -52,7 +52,7 @@ in the product.
 
 | ID | Component | Realizes | Lives at |
 | -- | --------- | -------- | -------- |
-| `ACMP1` | **The skill corpus**: eighteen skills, their references, and the four rulebooks; three listed for the agent, fifteen invoked by name | [`ASVC1`] Method execution, [`ASVC2`] Document generation | `plugins/archreator/skills/` |
+| `ACMP1` | **The skill corpus**: seventeen skills, their references, and the four rulebooks; three listed for the agent, fourteen invoked by name | [`ASVC1`] Method execution, [`ASVC2`] Document generation | `plugins/archreator/skills/` |
 | `ACMP2` | **The link checker** | [`ASVC3`] Self-checking | `plugins/archreator/scaffold/scripts/check_links.py`, copied into every project |
 | `ACMP3` | **The element-ID validator** | [`ASVC3`] Self-checking | `plugins/archreator/scaffold/scripts/check_model.py`, copied into every project |
 | `ACMP4` | **The model parser**: one parse of the document convention, imported by every consumer, caching nothing | [`ASVC3`] Self-checking, [`ASVC7`] Model interrogation | `plugins/archreator/scaffold/scripts/model_graph.py`, copied into every project |

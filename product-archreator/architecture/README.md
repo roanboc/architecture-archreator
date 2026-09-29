@@ -30,7 +30,7 @@ flowchart TB
   l2 -->|acts on| l3
   l2 -->|is realized by| l4
   l4 -->|deploys onto| l5
-  l1 -.->|no roadmap approved yet| gap
+  l1 -.->|no roadmap confirmed yet| gap
 
   classDef strategy fill:#f5deaa,stroke:#c8a24a,color:#333
   classDef business fill:#efe57d,stroke:#b8ad3f,color:#333
@@ -42,7 +42,7 @@ flowchart TB
 ```
 
 The chain runs one way and stops twice: the canvases belong to the
-organization, and no roadmap has been approved yet.
+organization, and no roadmap has been confirmed yet.
 
 | # | Layer | The question it answers | Status |
 | - | ----- | ----------------------- | ------ |
@@ -64,7 +64,7 @@ process has a skill and every skill a process.
 
 Every document that defines elements opens with `○` not started, `◐` draft
 catalogue, or `●` validated — the Requester has read it and stands behind it,
-since a date. Every document is `◐` today; none has been merged yet.
+since a date. Every document is `◐` today; none has been confirmed yet.
 
 ## Federation
 

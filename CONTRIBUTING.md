@@ -4,7 +4,7 @@
 
 | Role | Who | Does |
 | ---- | --- | ---- |
-| **Requester** | The repository owner | Says what should change, in plain words. **Merging the pull request is the approval** — nothing else records one |
+| **Requester** | The repository owner | Says what should change, in plain words, and **confirms what the change claims when the agent previews it** — that confirmation is what validates a document |
 | **Agent** | An AI agent, or a person | Works out which layers the change touches, edits them, writes the scope note, implements, opens the PR |
 | **Reviewer** | The repository owner | Reviews the whole branch and merges |
 
@@ -29,14 +29,16 @@ All three must be green. CI runs the same three on every pull request.
 
 ## The rules that catch people out
 
-- **A merged scope document is never rewritten.** It records what was approved
-  and when. The model moves on; the document does not, and it may name an
+- **A merged scope document is never rewritten.** It records what was
+  confirmed and when. The model moves on; the document does not, and it may name an
   element that no longer exists — the validators skip `scope/`, `decisions/`,
   `reviews/` and `engagements/`. The one edit it accepts is repairing a link
   target so it still resolves; every word, link text included, is left alone.
-- **The merge is the only approval that exists.** Nothing records one before
-  it — no gate, no signature inside a document — so a pull request left open
-  has not been approved, however long it sits.
+- **A confirmation validates; the merge lands it.** The owner confirms what a
+  change claims in the preview, and the confirmation is written into the
+  documents it covers with who and when. A merge nobody confirmed validates
+  nothing, and a pull request left open has landed nothing, however long it
+  sits.
 - **A question reaches the Requester only when the answer changes what gets
   built now and nothing in the model settles it.** Everything else is the
   agent's call — taken, applied, and written into the row it changes with that

@@ -61,4 +61,4 @@ its own.
 | `DOBJ1.1` | **The client's model** | The architecture the engagement builds, in the client's repository; theirs, referenced and never copied | The client's call |
 | `DOBJ1.2` | **Engagement notes** | What the method did not cover, captured by the process [`BPROC2.1`] [Capture what real use exposed](../2_business/1_business-architecture.md#the-process-map); none exist yet, and the first lands with the next retrospective | Internal |
 | `DOBJ2.1` | **The canvases and layer documents** | The model proper: the canvases and the layer documents | Public |
-| `DOBJ2.2` | **The initiative records** | Scope documents and their Approvals tables: the durable trail of who approved what | Public |
+| `DOBJ2.2` | **The initiative records** | Scope documents and their `Confirmed` columns: the durable trail of who confirmed what | Public |
