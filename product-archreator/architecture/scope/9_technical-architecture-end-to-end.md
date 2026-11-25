@@ -21,10 +21,10 @@ one page from goal to platform.
 | Layer | Impact | Confirmed |
 | ----- | ------ | --------- |
 | 0_business-design | No change. The organization's `GCRE3` already says the skills turn a confirmed design into work a delivery framework builds | — |
-| 1_strategy | `OUT5` added to this tree: every application component a validated model registers reaches a technical description, or says it is Pending, and the project says where each section is written. `G5` unchanged; the PDF stays, because a company on a private repository has nowhere else to publish | The shape — strategy and business stay in the model, the technical description is delegated and still reachable end to end, the PDF kept — and the four work packages as previewed, by the owner, in conversation, 2026-11-25. The wording of `OUT5` not yet |
-| 2_business | `BSVC1` names what the handover asks back: a specification per component and a declared place for each section | Not yet |
+| 1_strategy | `OUT5` added to this tree: every application component a validated model registers reaches a technical description, or says it is Pending, and the project says where each section is written. `G5` unchanged; the PDF stays, because a company on a private repository has nowhere else to publish | The shape — strategy and business stay in the model, the technical description is delegated and still reachable end to end, the PDF kept — the four work packages and the wording of `OUT5`, by the owner, in conversation, 2026-11-25 |
+| 2_business | `BSVC1` names what the handover asks back: a specification per component and a declared place for each section | By the owner, in conversation, 2026-11-25 |
 | 3_information | No change | — |
-| 4_application | `ACMP3` gains two checks, on the register row and on the declared sections. `ACMP6` gains the end-to-end focus. `ACMP5` unchanged: its coverage report already lists what is Pending | Not yet |
+| 4_application | `ACMP3` gains two checks, on the register row and on the declared sections. `ACMP6` gains the end-to-end focus. `ACMP5` unchanged: its coverage report already lists what is Pending | By the owner, in conversation, 2026-11-25 |
 | 5_technology | No change. A platform still earns a row only when a business fact depends on it | — |
 
 ## What the evidence said
