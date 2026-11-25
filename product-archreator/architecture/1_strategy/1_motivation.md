@@ -161,7 +161,7 @@ or a link is missing is still to be settled.
 | ID | Goal | Against | Realized by |
 | -- | ---- | ------- | ----------- |
 | `G1` | **An agent reads the business context natively**: Markdown in git, nothing exported before it can be used | assessments `ASM3`, `ASM5` | The document conventions; the landscape sweep |
-| `G2` | **A person confirms what reaches the model**: shown in the conversation they are already having, not left to a merge nobody read | assessment `ASM1` | The preview the Requester confirms, in the conversation or at a session, and the rule that a merge alone validates nothing |
+| `G2` | **A person confirms what reaches the model**: shown in the conversation they are already having, not left to a merge nobody read | assessment `ASM1` | The preview the Requester confirms, in the conversation or at a session, with its views generated from the branch, and the rule that a merge alone validates nothing |
 | `G3` | **The model still describes today after the merge** | assessments `ASM2`, `ASM7`, `ASM8` | The validators; the status glyphs; the rule that a change updates whatever it falsifies |
 | `G4` | **An adopter starts without learning a tool**: thirteen files on the first commit, every one of them used | assessment `ASM3` | The scaffold, installed as a plugin |
 | `G5` | **The model reaches the people who never open the repository**: a portal generated on request, a brief for one question, a PDF of one brief converted by the agent | assessment `ASM3` | The stock portal configuration and the brief generator; nothing published lives in the repository |
@@ -175,3 +175,4 @@ or a link is missing is still to be settled.
 | `OUT3` | No reference resolves to something that was deleted | The element-ID validator, on every pull request | Yes |
 | `OUT4` | Every document that defines an element declares how far it has been validated | The same validator, checked on the glyph and never the words, so it holds in any language | Yes |
 | `OUT5` | Every application component a validated model registers reaches a technical description, or says it is Pending, and the project says where each of the seven sections of that description is written | The same validator, on the shape of the register row and the declared table, never on what the description says | Yes for reach; no for content |
+| `OUT6` | A Requester confirms what a change claims without opening its pull request | The preview generator writes the views from the branch; that they were shown is recorded only by the confirmation the scope document carries | No; nothing counts how often a pull request had to be read first |

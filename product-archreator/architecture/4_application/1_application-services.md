@@ -22,6 +22,7 @@ flowchart LR
   a7(["⬮ Model interrogation [ASVC7]"]):::app
   a8(["⬮ Portal configuration [ASVC8]"]):::app
   a9(["⬮ Public guidance serving [ASVC9]"]):::app
+  a10(["⬮ Change preview [ASVC10]"]):::app
 
   b1(["⬭ Change alignment [BSVC1]"]):::business
   b2(["⬭ Subject discovery [BSVC2]"]):::business
@@ -43,6 +44,8 @@ flowchart LR
   a7 -->|serves| b7
   a8 -->|serves| b7
   a9 -->|serves| b8
+  a10 -->|serves| b1
+  a10 -->|serves| b2
 
   classDef app fill:#c2f0ff,stroke:#0288d1,color:#333
   classDef business fill:#fffbb5,stroke:#c8c04a,color:#333
@@ -50,7 +53,7 @@ flowchart LR
 
 The two layers meet here, and not one-to-one in either direction. One
 application service carries three business services on its own, `ASVC1`,
-the skills doing what skills do, while three business services each need
+the skills doing what skills do, while five business services each need
 two application services behind them. Every business service is served;
 nothing is built for nobody. The pieces that realize each service are in
 [the components](./2_application-components.md).
@@ -65,4 +68,5 @@ nothing is built for nobody. The pieces that realize each service are in
 | `ASVC6` | **Plugin distribution** | Publishes the corpus so a host platform can install it, and copies the skills for a host that installs no plugin | [`ACMP10`] The plugin package, [`ACMP11`] The skills installer |
 | `ASVC7` | **Model interrogation** | Reads a project fresh, caching nothing, and answers what a change would touch, what names no realizing artifact, how much is validated, which elements name a code path, and one focused question as a disposable brief | [`ACMP5`] The model reader, [`ACMP6`] The brief generator |
 | `ASVC8` | **Portal configuration** | Writes a stock MkDocs Material configuration for one project into its gitignored work area, on request; the method owns the boundary, not a site builder | [`ACMP5`] The model reader |
+| `ASVC10` | **Change preview** | Compares a branch with the commit it left the default branch at and shows what changed, in the subject's own words and with no identifier or notation: a page, a picture and a diagram's source, for whichever of them the conversation renders | [`ACMP14`] The preview generator |
 | `ASVC9` | **Public guidance serving** | The landing page and the get-started page, telling the two customers what the method is and how to install it | [`ACMP12`] The guidance site |

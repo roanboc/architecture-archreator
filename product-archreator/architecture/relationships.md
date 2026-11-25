@@ -60,7 +60,9 @@ Every relationship of this model, declared once: the source element, the target,
 | From | To | Relationship | Notes |
 | ---- | -- | ------------ | ----- |
 | `BSVC1` | `ACMP1` | realized by |  |
+| `BSVC1` | `ACMP14` | realized by |  |
 | `BSVC2` | `ACMP1` | realized by |  |
+| `BSVC2` | `ACMP14` | realized by |  |
 | `BSVC2` | `BSVC1` | flows to |  |
 | `BSVC3` | `ACMP2` | realized by |  |
 | `BSVC3` | `ACMP3` | realized by |  |
@@ -123,6 +125,9 @@ Every relationship of this model, declared once: the source element, the target,
 | `ASVC8` | `BSVC7` | serves |  |
 | `ASVC9` | `ACMP12` | realized by |  |
 | `ASVC9` | `BSVC8` | serves |  |
+| `ASVC10` | `ACMP14` | realized by |  |
+| `ASVC10` | `BSVC1` | serves |  |
+| `ASVC10` | `BSVC2` | serves |  |
 
 ### [Application components](./4_application/2_application-components.md)
 
@@ -139,6 +144,7 @@ Every relationship of this model, declared once: the source element, the target,
 | `ACMP8` | `ACMP3` | aggregates |  |
 | `ACMP8` | `ACMP4` | aggregates |  |
 | `ACMP8` | `ACMP13` | aggregates |  |
+| `ACMP14` | `ACMP4` | imports |  |
 
 ## Layer 5 — Technology
 
