@@ -82,7 +82,7 @@ it.** So each section opens with that question, and the answer is a picture.
 | The landing page, its example, its repository map and the film | A Spanish page and a Spanish soundtrack |
 | Serving the fonts from the site, so the page asks nothing of a third party | A custom domain |
 | The film kept as source, with its words written once | Music under the narration |
-| | The whole model on one page, shown on the site; it follows [scope 10](./10_a-preview-comes-with-its-picture.md)'s last work package |
+| The example shop on one page, once [scope 10](./10_a-preview-comes-with-its-picture.md)'s last work package lands | |
 
 ## Gap notes
 

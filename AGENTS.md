@@ -83,6 +83,7 @@ model.py --project product-archreator coverage
 model.py --project org-archreator portal
 build_brief.py --project product-archreator --element BSVC1 --focus impact
 build_preview.py --project product-archreator      # what this branch changes, for the owner to confirm
+build_overview.py --project org-archreator         # a whole model on one page
 ```
 
 Everything they generate lands under gitignored `.archreator/`; nothing is
