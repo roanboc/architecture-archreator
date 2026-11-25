@@ -54,10 +54,10 @@ in the product.
 | -- | --------- | -------- | -------- |
 | `ACMP1` | **The skill corpus**: seventeen skills, their references, and the four rulebooks; three listed for the agent, fourteen invoked by name | [`ASVC1`] Method execution, [`ASVC2`] Document generation | `plugins/archreator/skills/` |
 | `ACMP2` | **The link checker** | [`ASVC3`] Self-checking | `plugins/archreator/scaffold/scripts/check_links.py`, copied into every project |
-| `ACMP3` | **The element-ID validator** | [`ASVC3`] Self-checking | `plugins/archreator/scaffold/scripts/check_model.py`, copied into every project |
+| `ACMP3` | **The element-ID validator**: references, status, views, and a validated register whole with its technical description declared | [`ASVC3`] Self-checking | `plugins/archreator/scaffold/scripts/check_model.py`, copied into every project |
 | `ACMP4` | **The model parser**: one parse of the document convention, imported by every consumer, caching nothing | [`ASVC3`] Self-checking, [`ASVC7`] Model interrogation | `plugins/archreator/scaffold/scripts/model_graph.py`, copied into every project |
 | `ACMP5` | **The model reader**: trace, coverage, health, names, inventory, export, portal configuration | [`ASVC7`] Model interrogation, [`ASVC8`] Portal configuration | `plugins/archreator/scripts/model.py`, reading a project through `--project` |
-| `ACMP6` | **The brief generator**: one focused question, answered verbatim from the model, disposable | [`ASVC7`] Model interrogation | `plugins/archreator/scripts/build_brief.py` |
+| `ACMP6` | **The brief generator**: one focused question, answered verbatim from the model, disposable; one focus draws each component on a line from its goal to its platform | [`ASVC7`] Model interrogation | `plugins/archreator/scripts/build_brief.py` |
 | `ACMP7` | **The corpus validator** | [`ASVC4`] Corpus self-checking | `plugins/archreator/scripts/check_skills.py` |
 | `ACMP8` | **The scaffold**: the thirteen files a project starts with | [`ASVC5`] Project emission | `plugins/archreator/scaffold/` |
 | `ACMP9` | **The asset library**: the templates a skill emits when the project first has content for them | [`ASVC5`] Project emission | `plugins/archreator/assets/` |
