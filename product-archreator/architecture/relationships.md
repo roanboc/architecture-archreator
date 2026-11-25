@@ -124,6 +124,7 @@ Every relationship of this model, declared once: the source element, the target,
 | `ASVC8` | `ACMP5` | realized by |  |
 | `ASVC8` | `BSVC7` | serves |  |
 | `ASVC9` | `ACMP12` | realized by |  |
+| `ASVC9` | `ACMP15` | realized by |  |
 | `ASVC9` | `BSVC8` | serves |  |
 | `ASVC10` | `ACMP14` | realized by |  |
 | `ASVC10` | `BSVC1` | serves |  |
@@ -144,7 +145,9 @@ Every relationship of this model, declared once: the source element, the target,
 | `ACMP8` | `ACMP3` | aggregates |  |
 | `ACMP8` | `ACMP4` | aggregates |  |
 | `ACMP8` | `ACMP13` | aggregates |  |
+| `ACMP12` | `ACMP14` | shows an example written by |  |
 | `ACMP14` | `ACMP4` | imports |  |
+| `ACMP15` | `ACMP12` | writes the film into |  |
 
 ## Layer 5 — Technology
 

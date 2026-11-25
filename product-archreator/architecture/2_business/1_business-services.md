@@ -52,7 +52,7 @@ it produced, so a change to it is the most expensive change in the product.
 | `BSVC5` | **Method distribution** | An installable plugin, and a scaffold that is a working project on its first commit: thirteen files, every one of them used | [`ACMP8`] The scaffold, [`ACMP9`] The asset library, [`ACMP10`] The plugin package, [`ACMP11`] The skills installer |
 | `BSVC6` | **Restatement and learning** | A model that stopped reading as a description of today turned back into one, and what the method failed to cover captured before it evaporates | [`ACMP1`] The skill corpus |
 | `BSVC7` | **Reading beyond the repository** | Answers a table cannot give, such as what a change would touch and what names no realizing artifact, plus a portal generated on request and a brief for one question, converted to PDF by the agent when a reader asks | [`ACMP5`] The model reader, [`ACMP6`] The brief generator |
-| `BSVC8` | **Public guidance** | Why the method exists, what an adopter receives, and the two install commands, for the reader who has not adopted anything yet | [`ACMP12`] The guidance site |
+| `BSVC8` | **Public guidance** | Why the method exists and what it does for somebody who has never heard of it, shown more than told — the loop to step through, an example preview to select things in, a two-minute narrated film, and where everything is kept in a repository — with the install steps, for the reader who has not adopted anything yet | [`ACMP12`] The guidance site |
 
 Two ways in, one model. `BSVC1`, `BSVC2` and `BSVC6` are the guided route:
 the independent builder explains the business and the agent runs the method.
