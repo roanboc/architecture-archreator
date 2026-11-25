@@ -4,7 +4,7 @@ This repository holds **the worked models**: archreator applied to real
 subjects, so that a prospective adopter can read a filled-in model rather than
 an empty scaffold. The method itself is the sibling repository
 [`archreator`](https://github.com/roanboc/archreator): skills, scaffold and
-docs there, models here. The models run on method **0.7**.
+docs there, models here. The models run on method **0.8**.
 
 This is the one guide for the whole repository. Each tree carries its own
 `AGENTS.md` with only what is the tree's, its subject and its declared depth,

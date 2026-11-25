@@ -45,7 +45,7 @@ it produced, so a change to it is the most expensive change in the product.
 
 | ID | Service | Delivers | Realized by |
 | -- | ------- | -------- | ----------- |
-| `BSVC1` | **Change alignment** | A requirement walked top-down through the layers, each one changed or explicitly declared unchanged, built directly, previewed for the Requester's confirmation, its realization handed to the delivery framework, and opened as a pull request whose merge lands it | [`ACMP1`] The skill corpus |
+| `BSVC1` | **Change alignment** | A requirement walked top-down through the layers, each one changed or explicitly declared unchanged, built directly, previewed for the Requester's confirmation, its realization handed to the delivery framework, which owes back a specification per component and a declared place for each section of the technical description, and opened as a pull request whose merge lands it | [`ACMP1`] The skill corpus |
 | `BSVC2` | **Subject discovery** | A company or an application turned into canvases, a strategy and, where one already runs, a described estate, each confirmed before the next begins | [`ACMP1`] The skill corpus |
 | `BSVC3` | **Model validation** | Mechanical proof that references resolve, identifiers are never reused, links point at something, and every defining document declares how far it has been validated, offline and with no plugin | [`ACMP2`] The link checker, [`ACMP3`] The element-ID validator, [`ACMP4`] The model parser, [`ACMP13`] The prose validator |
 | `BSVC4` | **Decision and scope recording** | A durable record of what changed and why — the scope document, who confirmed what it claims, and the pull request that landed it — and of the calls too small to be initiatives | [`ACMP1`] The skill corpus |
