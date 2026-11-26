@@ -28,6 +28,12 @@ flowchart TB
     c9["⊞ The asset library [ACMP9]"]:::app
     c5["⊞ The model reader [ACMP5]"]:::app
     c6["⊞ The brief generator [ACMP6]"]:::app
+    c14["⊞ The preview generator [ACMP14]"]:::app
+    c16["⊞ The overview generator [ACMP16]"]:::app
+  end
+  subgraph public["What the public sees"]
+    c12["⊞ The guidance site [ACMP12]"]:::app
+    c15["⊞ The film source [ACMP15]"]:::app
   end
 
   c7 -->|checks| c1
@@ -39,14 +45,19 @@ flowchart TB
   c3 -->|imports| c4
   c5 -->|imports the project's| c4
   c6 -->|imports the project's| c4
+  c14 -->|imports the project's| c4
+  c16 -->|reads the model with| c14
+  c12 -->|shows an example written by| c14
+  c12 -->|shows an example written by| c16
+  c15 -->|writes the film into| c12
   c1 -->|emits from| c9
 
   classDef app fill:#9adcf0,stroke:#0277bd,color:#333
 ```
 
-One box has five arrows into it and ships in every project. The scaffold
-copies `ACMP4` into each project, where two validators import it, and both
-reading tools in the plugin import it too: one parse of the document
+One box has six arrows into it and ships in every project. The scaffold
+copies `ACMP4` into each project, where two validators import it, and the
+three reading tools in the plugin import it too: one parse of the document
 convention, and not two. A change to it is the change with the widest reach
 in the product.
 
@@ -63,5 +74,8 @@ in the product.
 | `ACMP9` | **The asset library**: the templates a skill emits when the project first has content for them | [`ASVC5`] Project emission | `plugins/archreator/assets/` |
 | `ACMP10` | **The plugin package**: the manifests, held byte-identical by the corpus validator | [`ASVC6`] Plugin distribution | `plugins/archreator/plugin.json`, `.claude-plugin/` |
 | `ACMP11` | **The skills installer**: for a host that installs no plugin | [`ASVC6`] Plugin distribution | `plugins/archreator/scripts/install_skills.py` |
-| `ACMP12` | **The guidance site**: two static pages and their stylesheet | [`ASVC9`] Public guidance serving | `site/` |
+| `ACMP12` | **The guidance site**: a landing page for a reader who has never heard of the method, a get-started page, the loop drawn once for both the page and the film, an example preview that is the preview generator's own output, and the film with its captions | [`ASVC9`] Public guidance serving | `site/` |
 | `ACMP13` | **The prose validator**: fails a model page that speaks about its governance, the method or itself, from a word list the project tunes | [`ASVC3`] Self-checking | `plugins/archreator/scaffold/scripts/check_prose.py` and `prose-denylist.json`, copied into every project |
+| `ACMP14` | **The preview generator**: what a branch changes, drawn by the question each element answers, with what it touches, every call taken and the one question | [`ASVC10`] Change preview | `plugins/archreator/scripts/build_preview.py`, drawing with `plain_view.py` |
+| `ACMP15` | **The film source**: the film's words, its picture as a function of time, and the two tools that voice it and render it | [`ASVC9`] Public guidance serving | `film/` |
+| `ACMP16` | **The overview generator**: a whole model on one self-contained page, a tab for each question it answers, in the words its documents use | [`ASVC7`] Model interrogation | `plugins/archreator/scripts/build_overview.py`, drawing with `plain_view.py` |

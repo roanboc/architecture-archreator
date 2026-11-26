@@ -4,7 +4,7 @@ This repository holds **the worked models**: archreator applied to real
 subjects, so that a prospective adopter can read a filled-in model rather than
 an empty scaffold. The method itself is the sibling repository
 [`archreator`](https://github.com/roanboc/archreator): skills, scaffold and
-docs there, models here. The models run on method **0.8**.
+docs there, models here. The models run on method **0.9**.
 
 This is the one guide for the whole repository. Each tree carries its own
 `AGENTS.md` with only what is the tree's, its subject and its declared depth,
@@ -82,6 +82,8 @@ model.py --project product-archreator trace ACMP1
 model.py --project product-archreator coverage
 model.py --project org-archreator portal
 build_brief.py --project product-archreator --element BSVC1 --focus impact
+build_preview.py --project product-archreator      # what this branch changes, for the owner to confirm
+build_overview.py --project org-archreator         # a whole model on one page
 ```
 
 Everything they generate lands under gitignored `.archreator/`; nothing is

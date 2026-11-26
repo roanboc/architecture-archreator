@@ -60,7 +60,9 @@ Every relationship of this model, declared once: the source element, the target,
 | From | To | Relationship | Notes |
 | ---- | -- | ------------ | ----- |
 | `BSVC1` | `ACMP1` | realized by |  |
+| `BSVC1` | `ACMP14` | realized by |  |
 | `BSVC2` | `ACMP1` | realized by |  |
+| `BSVC2` | `ACMP14` | realized by |  |
 | `BSVC2` | `BSVC1` | flows to |  |
 | `BSVC3` | `ACMP2` | realized by |  |
 | `BSVC3` | `ACMP3` | realized by |  |
@@ -78,6 +80,7 @@ Every relationship of this model, declared once: the source element, the target,
 | `BSVC6` | `BSVC1` | serves |  |
 | `BSVC7` | `ACMP5` | realized by |  |
 | `BSVC7` | `ACMP6` | realized by |  |
+| `BSVC7` | `ACMP16` | realized by |  |
 | `BSVC7` | `BSVC1` | serves |  |
 | `BSVC8` | `ACMP12` | realized by |  |
 | `BSVC8` | `BSVC5` | serves |  |
@@ -118,11 +121,16 @@ Every relationship of this model, declared once: the source element, the target,
 | `ASVC6` | `BSVC5` | serves |  |
 | `ASVC7` | `ACMP5` | realized by |  |
 | `ASVC7` | `ACMP6` | realized by |  |
+| `ASVC7` | `ACMP16` | realized by |  |
 | `ASVC7` | `BSVC7` | serves |  |
 | `ASVC8` | `ACMP5` | realized by |  |
 | `ASVC8` | `BSVC7` | serves |  |
 | `ASVC9` | `ACMP12` | realized by |  |
+| `ASVC9` | `ACMP15` | realized by |  |
 | `ASVC9` | `BSVC8` | serves |  |
+| `ASVC10` | `ACMP14` | realized by |  |
+| `ASVC10` | `BSVC1` | serves |  |
+| `ASVC10` | `BSVC2` | serves |  |
 
 ### [Application components](./4_application/2_application-components.md)
 
@@ -139,6 +147,11 @@ Every relationship of this model, declared once: the source element, the target,
 | `ACMP8` | `ACMP3` | aggregates |  |
 | `ACMP8` | `ACMP4` | aggregates |  |
 | `ACMP8` | `ACMP13` | aggregates |  |
+| `ACMP12` | `ACMP14` | shows an example written by |  |
+| `ACMP12` | `ACMP16` | shows an example written by |  |
+| `ACMP14` | `ACMP4` | imports |  |
+| `ACMP15` | `ACMP12` | writes the film into |  |
+| `ACMP16` | `ACMP14` | reads the model with |  |
 
 ## Layer 5 — Technology
 
