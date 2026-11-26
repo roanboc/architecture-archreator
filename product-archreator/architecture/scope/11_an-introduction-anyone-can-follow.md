@@ -20,9 +20,9 @@ source.
 | ----- | ------ | --------- |
 | 0_business-design | No change. In the organization's, the channel `CH2` already says the guidance site is where an owner evaluates the method before adopting; this makes that true for a reader with no background | — |
 | 1_strategy | No change. The organization's `CAP2.1` Self-service adoption is what the page serves, and it stands as written | — |
-| 2_business | `BSVC8` says what public guidance now delivers: the loop to step through, an example to select things in, a film, and where everything is kept | The shape — a visual page for anybody, a narrated film, the site first — by the owner, in conversation, 2026-11-25. The wording not yet |
+| 2_business | `BSVC8` says what public guidance now delivers: the loop to step through, an example to select things in, a film, and where everything is kept | The shape — a visual page for anybody, a narrated film, the site first — by the owner, in conversation, 2026-11-25, and the wording, by the owner, in conversation, 2026-11-26 |
 | 3_information | No change | — |
-| 4_application | `ASVC9` and `ACMP12` restated. `ACMP15` The film source added | Not yet |
+| 4_application | `ASVC9` and `ACMP12` restated. `ACMP15` The film source added | By the owner, in conversation, 2026-11-26 |
 | 5_technology | No change. The site is still static files on the code host's pages | — |
 
 ## What the evidence said
@@ -91,8 +91,8 @@ it.** So each section opens with that question, and the answer is a picture.
   Every remake adds as much again to the history. Publishing it as a release
   asset and linking it would close that, and is how the owner's other films
   are kept.
-- **How the name is said is not settled.** The voice says "ar-kree-ay-ter".
-  One line of `film/script.json` changes it, and the film is made again.
+- **How the name is said was settled by the owner**, 2026-11-26: "ar-kree-ay-ter",
+  the "ch" said as a k. One line of `film/script.json` holds it.
 - **The page speaks English only.** Its words are in the HTML, so a second
   language is a second page.
 - **The example is made up.** It says so wherever it appears. A worked model

@@ -18,10 +18,10 @@ own words, and a page to read it on.
 | Layer | Impact | Confirmed |
 | ----- | ------ | --------- |
 | 0_business-design | No change | — |
-| 1_strategy | `G2` names the generated views beside the preview. `OUT6` added: a Requester confirms what a change claims without opening its pull request. `G5` names the whole model on one page | The shape — views generated from the branch, the same on every host, with a page where a host can show one, private to the Requester — by the owner, in conversation, 2026-11-25. The wording not yet |
-| 2_business | `BSVC1` says the preview carries a picture of what changed. `BSVC1` and `BSVC2` are realized by the preview generator as well as by the skills. `BSVC7` names the page | Not yet |
+| 1_strategy | `G2` names the generated views beside the preview. `OUT6` added: a Requester confirms what a change claims without opening its pull request. `G5` names the whole model on one page | The shape — views generated from the branch, the same on every host, with a page where a host can show one, private to the Requester — by the owner, in conversation, 2026-11-25, and the wording, by the owner, in conversation, 2026-11-26 |
+| 2_business | `BSVC1` says the preview carries a picture of what changed. `BSVC1` and `BSVC2` are realized by the preview generator as well as by the skills. `BSVC7` names the page | By the owner, in conversation, 2026-11-26 |
 | 3_information | No change | — |
-| 4_application | `ASVC10` Change preview, `ACMP14` The preview generator and `ACMP16` The overview generator added. `ASVC7` restated | Not yet |
+| 4_application | `ASVC10` Change preview, `ACMP14` The preview generator and `ACMP16` The overview generator added. `ASVC7` restated | By the owner, in conversation, 2026-11-26 |
 | 5_technology | No change | — |
 
 ## What the evidence said
